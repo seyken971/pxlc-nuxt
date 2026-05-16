@@ -9,12 +9,13 @@ export default defineNuxtConfig({
   },
 
   modules: [
-    "@nuxt/a11y",
+    // Trimmed from the starter set — @nuxt/a11y, @nuxt/hints, @nuxt/icon
+    // and @nuxt/scripts were installed but never referenced anywhere.
+    // @nuxt/icon in particular broke prerendering with an unresolved
+    // createRequire(import.meta.url) call in its server bundle.
+    "@nuxt/content",
     "@nuxt/fonts",
-    "@nuxt/hints",
-    "@nuxt/icon",
     "@nuxt/image",
-    "@nuxt/scripts",
     "@nuxtjs/seo",
   ],
 
@@ -37,11 +38,26 @@ export default defineNuxtConfig({
   // The default component is registered via defineOgImage('PxlcOg') in
   // app.vue — @nuxt/og-image explicitly excludes `component` from
   // ogImage.defaults (it lives at call-site only).
+  // `zeroRuntime: true` makes the og-image module prerender every OG PNG
+  // at build time and ship them as static files — required for GitHub
+  // Pages (no Node runtime to generate images on demand).
   ogImage: {
     defaults: {
       width: 1200,
       height: 600,
       cacheMaxAgeSeconds: 60 * 60 * 24 * 7,
+    },
+    zeroRuntime: true,
+  },
+
+  // SSG for GitHub Pages — crawl every internal link from `/` and turn
+  // the whole site into static HTML/CSS/JS/images under `.output/public/`.
+  // Blog routes come from @nuxt/content's auto-prerender hook.
+  nitro: {
+    prerender: {
+      crawlLinks: true,
+      routes: ["/"],
+      failOnError: false,
     },
   },
 
@@ -81,9 +97,9 @@ export default defineNuxtConfig({
     sitemap: ["https://pxlc.fr/sitemap.xml"],
   },
 
-  sitemap: {
-    sources: ["https://pxlc.fr/sitemap.xml"],
-  },
+  // Le sitemap est auto-généré à partir des routes prérendues par
+  // @nuxtjs/seo. Pas de `sources` externe — l'ancien Jekyll au même
+  // domaine remontait des routes mortes (/ateliers, /presse).
 
   seo: {
     meta: {

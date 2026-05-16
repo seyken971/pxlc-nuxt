@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@nuxt/a11y": "^1.0.0-alpha.1",
+    "@nuxt/content": "^3.13.0",
     "@nuxt/fonts": "^0.14.0",
     "@nuxt/hints": "^1.1.1",
     "@nuxt/icon": "^2.2.2",
@@ -20,6 +21,7 @@
     "@resvg/resvg-js": "^2.6.2",
     "@takumi-rs/core": "^1.1.2",
     "@unhead/vue": "^2.1.15",
+    "better-sqlite3": "^12.10.0",
     "nuxt": "^4.4.5",
     "satori": "^0.26.0",
     "vue": "^3.5.34",
