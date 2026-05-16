@@ -54,7 +54,7 @@ const year = new Date().getFullYear()
       </div>
 
       <div class="site-footer__legal">
-        <p>PIXELS CARAÏBES · SIRET 813 793 528 00023 · APE 70.21Z · © {{ year }}</p>
+        <p>PXLC · SIRET 813 793 528 00023 · APE 70.21Z · © {{ year }}</p>
         <ul class="site-footer__legal-links" role="list">
           <li><NuxtLink to="/mentions-legales">Mentions légales</NuxtLink></li>
         </ul>
