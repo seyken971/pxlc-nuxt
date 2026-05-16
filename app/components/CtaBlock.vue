@@ -1,0 +1,47 @@
+<script setup lang="ts">
+interface Props {
+  eyebrow?: string
+  title?: string
+  lead?: string
+}
+withDefaults(defineProps<Props>(), {
+  eyebrow: 'Prochain pas',
+  title: '20 minutes pour échanger, sans engagement',
+  lead: 'Vous m’expliquez votre situation, je vous dis honnêtement si je peux aider — et comment. Que vous soyez parent ou directeur de structure.',
+})
+</script>
+
+<template>
+  <section class="cta-block" aria-labelledby="cta-final-title">
+    <div class="cta-block__strip"><PixelStrip :count="14" :accent-at="10" /></div>
+    <div class="cta-block__bg-mark"><PxlcMark :size="340" decorative /></div>
+
+    <div class="container">
+      <div class="cta-block__inner">
+        <div>
+          <span class="eyebrow">{{ eyebrow }}</span>
+          <h2 id="cta-final-title" class="cta-block__title">
+            {{ title }}<span class="coral-dot" aria-hidden="true">.</span>
+          </h2>
+          <p class="cta-block__lead">{{ lead }}</p>
+          <div class="cta-block__actions">
+            <a href="https://cal.eu/pxlc-gp" target="_blank" rel="noopener" class="btn btn--primary btn--lg">Réserver un échange</a>
+            <a href="#plaquette" class="btn btn--ghost btn--lg">Plaquette PDF</a>
+          </div>
+        </div>
+
+        <aside class="cta-block__sidecard" aria-label="Réservation">
+          <div class="cta-block__sidecard-eyebrow">Réservation</div>
+          <p class="cta-block__sidecard-lead">
+            Agenda mis à jour en temps réel sur <strong>cal.eu/pxlc-gp</strong>. Les créneaux libres sont visibles immédiatement.
+          </p>
+          <ul role="list">
+            <li><span>Premier échange</span><span class="meta">20 min · gratuit</span></li>
+            <li><span>WhatsApp ou visio</span><span class="meta">à votre choix</span></li>
+            <li><span>Réponse personnelle</span><span class="meta">sous 48 h</span></li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+</template>

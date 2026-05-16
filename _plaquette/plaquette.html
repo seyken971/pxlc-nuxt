@@ -1,0 +1,1318 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>PXLC — Dispositif de médiation numérique · Plaquette</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>
+/* =============================================================
+   Plaquette PXLC — design tokens (aligned with app/assets/css/tokens.css)
+   Print is ALWAYS in light mode (no dark variants on paper).
+   ============================================================= */
+:root {
+  /* Brand scale */
+  --pxlc-teal-deep:   #036E73;
+  --pxlc-teal-mid:    #01A09D;
+  --pxlc-cyan:        #00D2C8;
+  --pxlc-coral:       #FF5E3A;
+  --pxlc-coral-deep:  #E8492A;
+
+  --pxlc-bg-light:    #EAF6F4;
+  --pxlc-bg-dark:     #082B36;
+  --pxlc-bg-dark-soft:#0C3340;
+  --pxlc-bg-dark-deep:#06212A;
+  --pxlc-ivory:       #F4F1EA;
+  --pxlc-ivory-soft:  #EBE6DA;
+
+  --pxlc-text-ink:        #082B36;
+  --pxlc-text-on-light:   #2C4751;
+  --pxlc-text-secondary:  #5A6B70;
+  --pxlc-text-on-dark-soft: #A9C8D0;
+
+  --pxlc-border:      #C4D1D2;
+  --pxlc-border-soft: #D9D2BF;
+  --pxlc-border-dark: #103847;
+  --pxlc-white:       #FFFFFF;
+
+  /* Semantic shortcuts */
+  --ink:        var(--pxlc-text-ink);
+  --ink-soft:   var(--pxlc-text-on-light);
+  --quiet:      var(--pxlc-text-secondary);
+  --rule:       var(--pxlc-border);
+  --rule-soft:  var(--pxlc-border-soft);
+  --bg:         var(--pxlc-bg-light);
+  --ivory:      var(--pxlc-ivory);
+  --teal-deep:  var(--pxlc-teal-deep);
+  --teal-mid:   var(--pxlc-teal-mid);
+  --cyan:       var(--pxlc-cyan);
+  --coral:      var(--pxlc-coral);
+  --dark:       var(--pxlc-bg-dark);
+  --dark-soft:  var(--pxlc-bg-dark-soft);
+  --dark-deep:  var(--pxlc-bg-dark-deep);
+  --on-dark:    var(--pxlc-text-on-dark-soft);
+
+  /* Brand typography defaults (used inside print rules) */
+  --font-display: "Sora", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-body:    "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono:    "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+
+@page { size: A4; margin: 0; }
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  font-family: var(--font-body);
+  font-size: 11pt;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  background: white;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  font-weight: 600;
+}
+
+p { margin: 0 0 9pt 0; }
+strong { color: var(--ink); font-weight: 600; }
+
+.coral-dot { color: var(--coral); }
+
+/* ── Page shell ─────────────────────────────────────────────── */
+.page {
+  width: 210mm;
+  height: 297mm;
+  padding: 18mm 18mm 22mm 18mm;
+  page-break-after: always;
+  position: relative;
+  background: white;
+  overflow: hidden;
+}
+.page:last-child { page-break-after: auto; }
+
+.page__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 7mm;
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 8mm;
+}
+.page__logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 14pt;
+  color: var(--ink);
+  letter-spacing: -0.025em;
+  line-height: 1;
+}
+.page__logo svg { width: 22px; height: 22px; display: block; flex-shrink: 0; }
+.page__nav {
+  font-family: var(--font-mono);
+  font-size: 8pt;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--quiet);
+}
+.page__foot {
+  position: absolute;
+  bottom: 8mm;
+  left: 18mm;
+  right: 18mm;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 7.5pt;
+  color: var(--quiet);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding-top: 4mm;
+  border-top: 1px solid var(--rule);
+  background: white;
+  z-index: 2;
+}
+/* Pixel strip in footer — brand signature (14 cells, coral at 10). */
+.page__foot .pixel-strip { display: inline-flex; gap: 4px; }
+.page__foot .pixel-strip span { width: 6px; height: 6px; background: var(--teal-mid); border-radius: 1px; }
+.page__foot .pixel-strip span.is-accent { background: var(--coral); }
+
+/* ── Eyebrows, kickers ─────────────────────────────────────── */
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 8.5pt;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--teal-deep);
+  display: block;
+  margin-bottom: 5mm;
+}
+.kicker {
+  font-family: var(--font-mono);
+  font-size: 7.5pt;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--quiet);
+}
+
+h1 { font-size: 30pt; line-height: 1; letter-spacing: -0.035em; }
+h2 { font-size: 20pt; margin-bottom: 5mm; letter-spacing: -0.025em; }
+h3 { font-size: 12pt; margin-bottom: 2mm; letter-spacing: -0.015em; }
+h4 { font-size: 10pt; margin-bottom: 1mm; }
+
+.lead {
+  font-size: 13pt;
+  line-height: 1.45;
+  color: var(--ink-soft);
+  margin-bottom: 8mm;
+  max-width: 165mm;
+}
+
+/* ── Pixel strip (brand signature — 14 cells, coral at index 10) ── */
+.pixel-strip { display: inline-flex; gap: 4px; align-items: center; }
+.pixel-strip span {
+  width: 14px; height: 14px;
+  background: var(--teal-mid);
+  border-radius: 2px;
+}
+.pixel-strip span.is-accent { background: var(--coral); }
+
+/* ── 3×3 mark, decorative bg (covers + CTA pages) ─────────── */
+.deco-mark {
+  position: absolute;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 2mm;
+  transform: rotate(-8deg);
+  pointer-events: none;
+}
+.deco-mark span { border-radius: 3mm; }
+.deco-mark span:nth-child(1),
+.deco-mark span:nth-child(4),
+.deco-mark span:nth-child(7) { background: var(--teal-deep); }
+.deco-mark span:nth-child(2),
+.deco-mark span:nth-child(5),
+.deco-mark span:nth-child(8) { background: var(--teal-mid); }
+.deco-mark span:nth-child(3),
+.deco-mark span:nth-child(6) { background: var(--cyan); }
+.deco-mark span:nth-child(9) { background: var(--coral); }
+
+/* ── Cover ────────────────────────────────────────────────── */
+.cover {
+  background: var(--dark);
+  color: var(--ivory);
+  padding: 0;
+}
+.cover__inner {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 25mm 22mm 18mm 22mm;
+  position: relative;
+  z-index: 1;
+}
+.cover__bg-mark {
+  width: 130mm;
+  height: 130mm;
+  right: -30mm;
+  bottom: -30mm;
+  opacity: 0.18;
+}
+.cover__strip {
+  display: inline-flex;
+  gap: 4px;
+  margin-bottom: 28mm;
+}
+.cover__strip span {
+  width: 18px; height: 18px;
+  border-radius: 2px;
+  background: var(--teal-mid);
+}
+.cover__strip span.is-accent { background: var(--coral); }
+.cover__strip span.is-quiet  { background: rgba(255, 255, 255, 0.08); }
+
+.cover__eyebrow {
+  font-family: var(--font-mono);
+  font-size: 9pt;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  margin-bottom: 14mm;
+}
+.cover__title {
+  font-family: var(--font-display);
+  font-size: 44pt;
+  font-weight: 600;
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+  color: var(--ivory);
+  margin-bottom: 10mm;
+  max-width: 165mm;
+}
+.cover__lead {
+  font-size: 13pt;
+  line-height: 1.5;
+  color: var(--on-dark);
+  max-width: 145mm;
+  margin-bottom: auto;
+}
+.cover__meta {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6mm;
+  margin-top: 22mm;
+  padding-top: 8mm;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  font-family: var(--font-mono);
+  font-size: 8.5pt;
+  color: var(--on-dark);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.cover__meta strong { color: var(--ivory); display: block; font-weight: 600; margin-top: 2mm; }
+
+/* ── Cards ─────────────────────────────────────────────────── */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 6mm; }
+.grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 5mm; }
+
+.card {
+  background: var(--bg);
+  border: 1px solid var(--rule);
+  border-radius: 4mm;
+  padding: 6mm;
+  position: relative;
+}
+.card--ivory { background: var(--ivory); border-color: var(--rule-soft); }
+.card--white { background: white; border-color: var(--rule); }
+.card--ink {
+  background: var(--dark);
+  color: var(--ivory);
+  border-color: var(--dark-soft);
+}
+.card--ink h3, .card--ink h4 { color: var(--ivory); }
+.card--ink p { color: var(--on-dark); }
+.card--ink .kicker, .card--ink .eyebrow { color: var(--cyan); }
+.card__pixel-corner {
+  position: absolute;
+  top: 5mm;
+  right: 5mm;
+  display: grid;
+  grid-template-columns: repeat(3, 4px);
+  grid-template-rows: repeat(3, 4px);
+  gap: 2px;
+}
+.card__pixel-corner span { width: 4px; height: 4px; border-radius: 0.7px; }
+.card__pixel-corner .is-on     { background: var(--teal-mid); }
+.card__pixel-corner .is-accent { background: var(--coral); }
+
+.card-head {
+  font-family: var(--font-mono);
+  font-size: 8pt;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--teal-deep);
+  display: block;
+}
+
+/* ── KPIs ──────────────────────────────────────────────────── */
+.kpi {
+  background: white;
+  border: 1px solid var(--rule);
+  border-radius: 3mm;
+  padding: 5mm;
+  position: relative;
+}
+.kpi__label {
+  font-family: var(--font-mono);
+  font-size: 7.5pt;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--teal-deep);
+  margin-bottom: 2mm;
+}
+.kpi__value {
+  font-family: var(--font-display);
+  font-size: 22pt;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: -0.025em;
+  line-height: 1;
+  margin-bottom: 2mm;
+}
+.kpi__meaning {
+  font-size: 9.5pt;
+  color: var(--ink-soft);
+  line-height: 1.4;
+  margin-bottom: 3mm;
+}
+.kpi__method {
+  font-family: var(--font-mono);
+  font-size: 7pt;
+  letter-spacing: 0.10em;
+  color: var(--quiet);
+  border-top: 1px dashed var(--rule);
+  padding-top: 2mm;
+}
+
+/* ── Steps (method + dispositif pages) ────────────────────── */
+.step {
+  display: grid;
+  grid-template-columns: 22mm 1fr;
+  gap: 5mm;
+  padding: 5mm 0;
+  border-bottom: 1px dashed var(--rule);
+}
+.step:last-child { border-bottom: 0; }
+.step__num {
+  font-family: var(--font-display);
+  font-size: 28pt;
+  font-weight: 600;
+  color: var(--coral);
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+.step__phase {
+  font-family: var(--font-mono);
+  font-size: 7.5pt;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--teal-deep);
+  margin-bottom: 1mm;
+}
+.step__duration {
+  font-family: var(--font-mono);
+  font-size: 7.5pt;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--quiet);
+  margin-left: 4mm;
+}
+.step__title { font-size: 13pt; }
+.step__desc { font-size: 10pt; line-height: 1.5; margin: 2mm 0; }
+.step__deliv {
+  font-family: var(--font-mono);
+  font-size: 8pt;
+  color: var(--teal-deep);
+  letter-spacing: 0.10em;
+  display: inline-block;
+  padding-top: 2mm;
+  border-top: 1px dashed var(--rule);
+  margin-top: 2mm;
+}
+.step__deliv strong { color: var(--coral); font-weight: 600; }
+
+/* ── Framework pills (HAS / HCSP / CNAF) ──────────────────── */
+.framework {
+  background: white;
+  border: 1px solid var(--rule);
+  border-radius: 3mm;
+  padding: 5mm;
+  margin-bottom: 4mm;
+  position: relative;
+}
+.framework__pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--font-mono);
+  font-size: 7.5pt;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--teal-deep);
+  background: var(--bg);
+  border: 1px solid var(--rule);
+  padding: 1.5mm 3mm;
+  border-radius: 2mm;
+  margin-bottom: 3mm;
+}
+.framework__pill::before {
+  content: "";
+  display: inline-block;
+  width: 6px; height: 6px;
+  background: var(--coral);
+  border-radius: 1px;
+}
+.framework h3 { font-size: 12pt; margin-bottom: 2mm; }
+.framework p { font-size: 10pt; margin: 0; }
+
+/* ── Profile cards (TSA / TDAH / TCND / Dys) ──────────────── */
+.profile {
+  border: 1px solid var(--rule);
+  border-radius: 3mm;
+  padding: 5mm;
+  background: white;
+}
+.profile__tag {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 8pt;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--pxlc-bg-dark);
+  background: var(--cyan);
+  padding: 1mm 3mm;
+  border-radius: 999px;
+  margin-bottom: 3mm;
+}
+.profile__label { font-size: 11pt; margin-bottom: 2mm; }
+.profile p { font-size: 9.5pt; margin: 0; line-height: 1.45; }
+
+/* ── Citation (« quote ») ─────────────────────────────────── */
+.quote {
+  border-left: 3px solid var(--coral);
+  padding: 4mm 6mm;
+  font-family: var(--font-display);
+  font-size: 13pt;
+  line-height: 1.4;
+  color: var(--ink);
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  margin: 6mm 0;
+}
+.quote .quotemark { color: var(--coral); }
+.quote__src {
+  display: block;
+  margin-top: 3mm;
+  font-family: var(--font-mono);
+  font-size: 8pt;
+  color: var(--quiet);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+/* ── Table of contents ────────────────────────────────────── */
+.toc { display: grid; gap: 3mm; }
+.toc__row {
+  display: grid;
+  grid-template-columns: 12mm 1fr 16mm;
+  align-items: baseline;
+  font-family: var(--font-body);
+  font-size: 10.5pt;
+  color: var(--ink-soft);
+  border-bottom: 1px dotted var(--rule);
+  padding-bottom: 2mm;
+}
+.toc__num {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  color: var(--coral);
+  font-size: 9pt;
+  letter-spacing: 0.10em;
+}
+.toc__page {
+  text-align: right;
+  font-family: var(--font-mono);
+  font-size: 9pt;
+  color: var(--quiet);
+  letter-spacing: 0.10em;
+}
+
+/* ── Photos ───────────────────────────────────────────────── */
+.photo {
+  width: 100%;
+  border-radius: 3mm;
+  overflow: hidden;
+  margin: 5mm 0;
+  position: relative;
+}
+.photo img {
+  width: 100%;
+  height: 55mm;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}
+.photo--portrait {
+  max-width: 55mm;
+  max-height: 75mm;
+  margin: 5mm auto;
+}
+.photo--portrait img { height: 70mm; object-position: center 20%; }
+.photo__caption {
+  font-family: var(--font-mono);
+  font-size: 7.5pt;
+  color: var(--quiet);
+  letter-spacing: 0.18em;
+  margin-top: 2mm;
+  text-transform: uppercase;
+}
+.photo__badge {
+  position: absolute;
+  top: 4mm; left: 4mm;
+  font-family: var(--font-mono);
+  font-size: 7.5pt;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  background: var(--dark);
+  padding: 1.5mm 3mm;
+  border-radius: 2mm;
+}
+
+/* ── Bullets ──────────────────────────────────────────────── */
+.bullets {
+  list-style: none;
+  padding: 0;
+  margin: 5mm 0;
+}
+.bullets li {
+  padding-left: 6mm;
+  position: relative;
+  margin-bottom: 3mm;
+  font-size: 10pt;
+  line-height: 1.5;
+}
+.bullets li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 5px;
+  width: 8px; height: 8px;
+  background: var(--coral);
+  border-radius: 1px;
+}
+
+/* ── Contact / CTA-block-style sidecard ───────────────────── */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5mm;
+  margin-top: 6mm;
+}
+.contact-card {
+  background: var(--bg);
+  border: 1px solid var(--rule);
+  border-radius: 3mm;
+  padding: 5mm;
+}
+.contact-card__label {
+  font-family: var(--font-mono);
+  font-size: 7.5pt;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--teal-deep);
+  margin-bottom: 2mm;
+}
+.contact-card__value {
+  font-family: var(--font-display);
+  font-size: 12pt;
+  color: var(--ink);
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  word-break: break-word;
+}
+
+.cta-sidecard {
+  background: var(--dark-deep);
+  border: 1px solid var(--dark-soft);
+  border-radius: 4mm;
+  padding: 5mm;
+  color: var(--ivory);
+}
+.cta-sidecard__eyebrow {
+  font-family: var(--font-mono);
+  font-size: 8pt;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  margin-bottom: 3mm;
+}
+.cta-sidecard__lead {
+  font-size: 10pt;
+  line-height: 1.55;
+  color: var(--on-dark);
+  margin-bottom: 3mm;
+}
+.cta-sidecard__lead strong { color: var(--ivory); font-weight: 600; }
+.cta-sidecard ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 4px; }
+.cta-sidecard li {
+  display: flex; justify-content: space-between;
+  font-family: var(--font-body); font-size: 9.5pt;
+  color: var(--ivory);
+  padding: 2mm 0;
+  border-bottom: 1px dashed var(--dark-soft);
+}
+.cta-sidecard li:last-child { border-bottom: 0; }
+.cta-sidecard li .meta { color: var(--cyan); font-family: var(--font-mono); font-size: 8.5pt; letter-spacing: 0.10em; }
+
+/* ── Consentement (annexe) ────────────────────────────────── */
+.consent { font-size: 9pt; line-height: 1.55; color: var(--ink-soft); }
+.consent h3 {
+  font-family: var(--font-mono);
+  font-size: 8.5pt;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin: 4mm 0 1.5mm 0;
+  color: var(--teal-deep);
+}
+.consent p { margin-bottom: 2.5mm; font-size: 9pt; }
+.consent__sigs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5mm;
+  margin-top: 6mm;
+  border-top: 1px solid var(--rule);
+  padding-top: 4mm;
+}
+.consent__sig {
+  font-family: var(--font-mono);
+  font-size: 8pt;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--quiet);
+}
+.consent__sig-line {
+  height: 14mm;
+  border: 1px dashed var(--rule);
+  border-radius: 2mm;
+  margin-top: 3mm;
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════ Page 1 · COUVERTURE ═══════════════════════ -->
+<section class="page cover">
+  <div class="cover__bg-mark deco-mark" aria-hidden="true">
+    <span></span><span></span><span></span>
+    <span></span><span></span><span></span>
+    <span></span><span></span><span></span>
+  </div>
+  <div class="cover__inner">
+    <div class="cover__strip" aria-hidden="true">
+      <span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span>
+      <span class="is-accent"></span>
+      <span></span><span></span>
+      <span class="is-quiet"></span><span class="is-quiet"></span><span class="is-quiet"></span>
+    </div>
+    <div class="cover__eyebrow">PXLC · Pixels Caraïbes · Pointe-à-Pitre · Guadeloupe</div>
+    <h1 class="cover__title">Médiation numérique<br>parent-écran-enfant<span class="coral-dot" aria-hidden="true">.</span></h1>
+    <p class="cover__lead">Un dispositif fondé sur les repères HAS, pour SESSAD, IME, associations et collectivités. Cadre théorique, indicateurs d'évaluation, médiateur formé, restitution écrite à chaque séance.</p>
+    <div class="cover__meta">
+      <div>Références<strong>HAS · HCSP · CNAF</strong></div>
+      <div>Format<strong>6 à 12 ateliers · individuels</strong></div>
+      <div>Public<strong>TSA · TDAH · TCND · Dys-</strong></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ Page 2 · EN 1 MINUTE ═══════════════════════ -->
+<section class="page">
+  <header class="page__head">
+    <div class="page__logo">
+      <svg viewBox="0 0 100 100" aria-hidden="true"><rect x="2" y="2" width="29.33" height="29.33" rx="3.5" fill="#036E73"/><rect x="35.33" y="2" width="29.33" height="29.33" rx="3.5" fill="#01A09D"/><rect x="68.67" y="2" width="29.33" height="29.33" rx="3.5" fill="#00D2C8"/><rect x="2" y="35.33" width="29.33" height="29.33" rx="3.5" fill="#036E73"/><rect x="35.33" y="35.33" width="29.33" height="29.33" rx="3.5" fill="#01A09D"/><rect x="68.67" y="35.33" width="29.33" height="29.33" rx="3.5" fill="#00D2C8"/><rect x="2" y="68.67" width="29.33" height="29.33" rx="3.5" fill="#036E73"/><rect x="35.33" y="68.67" width="29.33" height="29.33" rx="3.5" fill="#01A09D"/><rect x="68.67" y="68.67" width="29.33" height="29.33" rx="3.5" fill="#FF5E3A"/></svg>
+      PXLC<span class="coral-dot" aria-hidden="true">.</span>
+    </div>
+    <div class="page__nav">02 · En 1 minute</div>
+  </header>
+
+  <span class="eyebrow">Sommaire & résumé exécutif</span>
+  <h2>En 1 minute<span class="coral-dot" aria-hidden="true">.</span></h2>
+  <p class="lead">PXLC accompagne les enfants neurodivergents (TSA, TDAH, TCND, Dys-) accueillis en SESSAD, IME ou structure sociale, en partant de leurs jeux vidéo pour reconstruire le dialogue avec leurs parents.</p>
+
+  <div class="grid-2" style="margin-bottom: 8mm;">
+    <div class="card">
+      <span class="card-head">Le constat</span>
+      <p style="margin-top: 3mm;">Les recommandations HAS 2020 invitent à <strong>soutenir la fonction parentale</strong> dans la médiation des écrans, plutôt qu'à les bannir. Sur le terrain, les équipes pluridisciplinaires manquent de ressources spécifiques sur le numérique.</p>
+    </div>
+    <div class="card">
+      <span class="card-head">La réponse</span>
+      <p style="margin-top: 3mm;">Un dispositif clé en main : 6 à 12 ateliers individuels, médiateur formé, restitution écrite à chaque séance, indicateurs calibrés pour s'intégrer aux bilans ARS / DRJSCS.</p>
+    </div>
+  </div>
+
+  <div class="toc">
+    <div class="toc__row"><span class="toc__num">01</span><span>Cadre théorique — HAS, HCSP, CNAF</span><span class="toc__page">p. 03</span></div>
+    <div class="toc__row"><span class="toc__num">02</span><span>La méthode en 3 temps</span><span class="toc__page">p. 04</span></div>
+    <div class="toc__row"><span class="toc__num">03</span><span>Dispositif type — 4 étapes & livrables</span><span class="toc__page">p. 05–06</span></div>
+    <div class="toc__row"><span class="toc__num">04</span><span>Indicateurs d'évaluation</span><span class="toc__page">p. 07</span></div>
+    <div class="toc__row"><span class="toc__num">05</span><span>Profils bénéficiaires</span><span class="toc__page">p. 08</span></div>
+    <div class="toc__row"><span class="toc__num">06</span><span>Cas pratique — SESSAD Lékoklaya</span><span class="toc__page">p. 09</span></div>
+    <div class="toc__row"><span class="toc__num">07</span><span>Andy Zébus — fondateur, parcours</span><span class="toc__page">p. 10</span></div>
+    <div class="toc__row"><span class="toc__num">08</span><span>Modalités, tarif, contact</span><span class="toc__page">p. 11</span></div>
+    <div class="toc__row"><span class="toc__num">09</span><span>Annexe — consentement parental</span><span class="toc__page">p. 12</span></div>
+  </div>
+
+  <div class="page__foot">
+    <span>PXLC · Plaquette dispositif</span>
+    <span class="pixel-strip" aria-hidden="true">
+      <span></span><span></span><span></span><span></span><span></span>
+      <span class="is-accent"></span><span></span><span></span><span></span><span></span><span></span>
+    </span>
+    <span>02 / 12</span>
+  </div>
+</section>
+
+<!-- ═══════════════════════ Page 3 · CADRE THÉORIQUE ═══════════════════════ -->
+<section class="page">
+  <header class="page__head">
+    <div class="page__logo">
+      <svg viewBox="0 0 100 100" aria-hidden="true"><rect x="2" y="2" width="29.33" height="29.33" rx="3.5" fill="#036E73"/><rect x="35.33" y="2" width="29.33" height="29.33" rx="3.5" fill="#01A09D"/><rect x="68.67" y="2" width="29.33" height="29.33" rx="3.5" fill="#00D2C8"/><rect x="2" y="35.33" width="29.33" height="29.33" rx="3.5" fill="#036E73"/><rect x="35.33" y="35.33" width="29.33" height="29.33" rx="3.5" fill="#01A09D"/><rect x="68.67" y="35.33" width="29.33" height="29.33" rx="3.5" fill="#00D2C8"/><rect x="2" y="68.67" width="29.33" height="29.33" rx="3.5" fill="#036E73"/><rect x="35.33" y="68.67" width="29.33" height="29.33" rx="3.5" fill="#01A09D"/><rect x="68.67" y="68.67" width="29.33" height="29.33" rx="3.5" fill="#FF5E3A"/></svg>
+      PXLC<span class="coral-dot" aria-hidden="true">.</span>
+    </div>
+    <div class="page__nav">03 · Cadre théorique</div>
+  </header>
+
+  <span class="eyebrow">01 · Cadre théorique</span>
+  <h2>Trois sources qui structurent la démarche<span class="coral-dot" aria-hidden="true">.</span></h2>
+  <p style="margin-bottom: 8mm;">Pas un avis personnel sur les écrans : un cadre construit à partir des recommandations institutionnelles françaises. Chaque référence est citée explicitement dans les comptes-rendus transmis aux équipes.</p>
+
+  <div class="framework">
+    <span class="framework__pill">HAS · 2020</span>
+    <h3>Soutien à la parentalité</h3>
+    <p>« Soutenir la fonction parentale dans la médiation des écrans plutôt que prescrire des interdits. » C'est l'axe central du protocole PXLC.</p>
+  </div>
+
+  <div class="framework">
+    <span class="framework__pill">HCSP · 2019</span>
+    <h3>Avis sur les écrans</h3>
+    <p>Rappel des risques et des leviers — le cadre familial, les pratiques partagées, la qualité du contenu. Pas de panique morale, une lecture posée.</p>
+  </div>
+
+  <div class="framework">
+    <span class="framework__pill">CNAF · 2022</span>
+    <h3>Soutien à la parentalité — référentiel</h3>
+    <p>Référentiel des actions de soutien à la parentalité — la médiation numérique s'inscrit dans cette catégorie reconnue et finançable par les CAF et les départements.</p>
+  </div>
+
+  <div class="quote">
+    <span class="quotemark" aria-hidden="true">«&nbsp;</span>L'enjeu n'est pas de bannir les écrans mais de soutenir la fonction parentale dans leur médiation.<span class="quotemark" aria-hidden="true">&nbsp;»</span>
+    <span class="quote__src">Haute Autorité de Santé · 2020</span>
+  </div>
+
+  <div class="page__foot">
+    <span>PXLC · Plaquette dispositif</span>
+    <span class="pixel-strip" aria-hidden="true">
+      <span></span><span></span><span></span><span></span><span></span>
+      <span class="is-accent"></span><span></span><span></span><span></span><span></span><span></span>
+    </span>
+    <span>03 / 12</span>
+  </div>
+</section>
+
+<!-- ═══════════════════════ Page 4 · MÉTHODE 3 TEMPS ═══════════════════════ -->
+<section class="page">
+  <header class="page__head">
+    <div class="page__logo">
+      <svg viewBox="0 0 100 100" aria-hidden="true"><rect x="2" y="2" width="29.33" height="29.33" rx="3.5" fill="#036E73"/><rect x="35.33" y="2" width="29.33" height="29.33" rx="3.5" fill="#01A09D"/><rect x="68.67" y="2" width="29.33" height="29.33" rx="3.5" fill="#00D2C8"/><rect x="2" y="35.33" width="29.33" height="29.33" rx="3.5" fill="#036E73"/><rect x="35.33" y="35.33" width="29.33" height="29.33" rx="3.5" fill="#01A09D"/><rect x="68.67" y="35.33" width="29.33" height="29.33" rx="3.5" fill="#00D2C8"/><rect x="2" y="68.67" width="29.33" height="29.33" rx="3.5" fill="#036E73"/><rect x="35.33" y="68.67" width="29.33" height="29.33" rx="3.5" fill="#01A09D"/><rect x="68.67" y="68.67" width="29.33" height="29.33" rx="3.5" fill="#FF5E3A"/></svg>
+      PXLC<span class="coral-dot" aria-hidden="true">.</span>
+    </div>
+    <div class="page__nav">04 · Méthode</div>
+  </header>
+
+  <span class="eyebrow">02 · La méthode</span>
+  <h2>Trois temps, un protocole<span class="coral-dot" aria-hidden="true">.</span></h2>
+  <p style="margin-bottom: 6mm;">Un protocole simple, qui transpose les repères du rapport HAS dans le quotidien d'une famille. Pas de discours moral, pas d'écrans diabolisés — un cadre.</p>
+
+  <div class="step">
+    <div class="step__num">01</div>
+    <div>
+      <div class="step__phase">Étape 01 · Observation <span class="step__duration">temps de jeu</span></div>
+      <h3 class="step__title">Comprendre l'enfant</h3>
+      <p class="step__desc">Andy joue avec l'enfant à son jeu favori et identifie ce qu'il y investit émotionnellement — compétence, lien social, refuge, structuration. Temps d'observation actif, pas un entretien clinique.</p>
+      <span class="step__deliv">↳ <strong>livrable</strong> · ce que l'enfant met dans son écran, sans projection adulte</span>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step__num">02</div>
+    <div>
+      <div class="step__phase">Étape 02 · Médiation <span class="step__duration">restitution famille</span></div>
+      <h3 class="step__title">Traduire aux parents</h3>
+      <p class="step__desc">Le jeu devient un langage commun : Andy restitue ce que l'enfant met dans son écran, sans jugement, sans jargon technique. Les parents ne reçoivent pas un diagnostic — ils reçoivent une grille de lecture.</p>
+      <span class="step__deliv">↳ <strong>livrable</strong> · une nouvelle façon d'écouter ce que dit l'enfant en jouant</span>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step__num">03</div>
+    <div>
+      <div class="step__phase">Étape 03 · Consolidation <span class="step__duration">suivi équipe</span></div>
+      <h3 class="step__title">Restaurer le lien</h3>
+      <p class="step__desc">Parents et enfant repartent avec un cadre et des rituels concrets — pas une liste d'interdictions, une nouvelle façon de partager. Le suivi se fait en lien avec l'équipe pluridisciplinaire.</p>
+      <span class="step__deliv">↳ <strong>livrable</strong> · des rituels durables, un dialogue restauré</span>
+    </div>
+  </div>
+
+  <div class="photo" style="margin-top: 5mm;">
+    <img src="img/duo-arcade.jpg" alt="Deux personnes jouant ensemble à un jeu rétro, vue de dos">
+    <span class="photo__badge">Cas pratique</span>
+    <div class="photo__caption">↳ jouer ensemble : le langage commun retrouvé</div>
+  </div>
+
+  <div class="page__foot">
+    <span>PXLC · Plaquette dispositif</span>
+    <span class="pixel-strip" aria-hidden="true">
+      <span></span><span></span><span></span><span></span><span></span>
+      <span class="is-accent"></span><span></span><span></span><span></span><span></span><span></span>
+    </span>
+    <span>04 / 12</span>
+  </div>
+</section>
+
+<!-- ═══════════════════════ Page 5 · DISPOSITIF (1/2) ═══════════════════════ -->
+<section class="page">
+  <header class="page__head">
+    <div class="page__logo">
+      <svg viewBox="0 0 100 100" aria-hidden="true"><rect x="2" y="2" width="29.33" height="29.33" rx="3.5" fill="#036E73"/><rect x="35.33" y="2" width="29.33" height="29.33" rx="3.5" fill="#01A09D"/><rect x="68.67" y="2" width="29.33" height="29.33" rx="3.5" fill="#00D2C8"/><rect x="2" y="35.33" width="29.33" height="29.33" rx="3.5" fill="#036E73"/><rect x="35.33" y="35.33" width="29.33" height="29.33" rx="3.5" fill="#01A09D"/><rect x="68.67" y="35.33" width="29.33" height="29.33" rx="3.5" fill="#00D2C8"/><rect x="2" y="68.67" width="29.33" height="29.33" rx="3.5" fill="#036E73"/><rect x="35.33" y="68.67" width="29.33" height="29.33" rx="3.5" fill="#01A09D"/><rect x="68.67" y="68.67" width="29.33" height="29.33" rx="3.5" fill="#FF5E3A"/></svg>
+      PXLC<span class="coral-dot" aria-hidden="true">.</span>
+    </div>
+    <div class="page__nav">05 · Dispositif type</div>
+  </header>
+
+  <span class="eyebrow">03 · Dispositif type · 1/2</span>
+  <h2>Quatre étapes, un livrable à chacune<span class="coral-dot" aria-hidden="true">.</span></h2>
+  <p style="margin-bottom: 6mm;">Chaque structure adapte les volumes et les rythmes — la séquence reste la même. Tous les livrables sont rédigés sous format restitution équipe, intégrables aux dossiers patients et aux bilans d'activité.</p>
+
+  <div class="step">
+    <div class="step__num">01</div>
+    <div>
+      <div class="step__phase">Préparation <span class="step__duration">1 à 2 semaines</span></div>
+      <h3 class="step__title">Cadrage</h3>
+      <p class="step__desc">Cadrage avec l'équipe (chef de service, éducateurs référents, psychologue). Lecture des dossiers selon les règles RGPD de la structure. Recueil du consentement parental signé. Définition des objectifs individuels par enfant.</p>
+      <span class="step__deliv">↳ <strong>livrable</strong> · note de cadrage (2 pages)</span>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step__num">02</div>
+    <div>
+      <div class="step__phase">Ateliers <span class="step__duration">6 à 12 semaines</span></div>
+      <h3 class="step__title">Ateliers individuels</h3>
+      <p class="step__desc">Sessions hebdomadaires d'1 h par enfant, sur le lieu de la structure ou au domicile selon le projet. Chaque atelier articule un temps de jeu (30 min) et un temps de médiation (30 min). Compte-rendu écrit transmis à l'équipe à chaque séance.</p>
+      <span class="step__deliv">↳ <strong>livrable</strong> · comptes-rendus séance (1 par séance)</span>
+    </div>
+  </div>
+
+  <div class="page__foot">
+    <span>PXLC · Plaquette dispositif</span>
+    <span class="pixel-strip" aria-hidden="true">
+      <span></span><span></span><span></span><span></span><span></span>
+      <span class="is-accent"></span><span></span><span></span><span></span><span></span><span></span>
+    </span>
+    <span>05 / 12</span>
+  </div>
+</section>
+
+<!-- ═══════════════════════ Page 6 · DISPOSITIF (2/2) ═══════════════════════ -->
+<section class="page">
+  <header class="page__head">
+    <div class="page__logo">
+      <svg viewBox="0 0 100 100" aria-hidden="true"><rect x="2" y="2" width="29.33" height="29.33" rx="3.5" fill="#036E73"/><rect x="35.33" y="2" width="29.33" height="29.33" rx="3.5" fill="#01A09D"/><rect x="68.67" y="2" width="29.33" height="29.33" rx="3.5" fill="#00D2C8"/><rect x="2" y="35.33" width="29.33" height="29.33" rx="3.5" fill="#036E73"/><rect x="35.33" y="35.33" width="29.33" height="29.33" rx="3.5" fill="#01A09D"/><rect x="68.67" y="35.33" width="29.33" height="29.33" rx="3.5" fill="#00D2C8"/><rect x="2" y="68.67" width="29.33" height="29.33" rx="3.5" fill="#036E73"/><rect x="35.33" y="68.67" width="29.33" height="29.33" rx="3.5" fill="#01A09D"/><rect x="68.67" y="68.67" width="29.33" height="29.33" rx="3.5" fill="#FF5E3A"/></svg>
+      PXLC<span class="coral-dot" aria-hidden="true">.</span>
+    </div>
+    <div class="page__nav">06 · Dispositif type</div>
+  </header>
+
+  <span class="eyebrow">03 · Dispositif type · 2/2</span>
+  <h2>Restitution & transmission<span class="coral-dot" aria-hidden="true">.</span></h2>
+
+  <div class="step">
+    <div class="step__num">03</div>
+    <div>
+      <div class="step__phase">Groupe parents <span class="step__duration">2 semaines</span></div>
+      <h3 class="step__title">Groupe de parole parents</h3>
+      <p class="step__desc">Restitution collective aux parents (2 sessions de 1 h 30). Échanges entre familles, repères communs, questions partagées sur les écrans, le contrôle parental, les jeux compétitifs et les dynamiques de fratrie. Animation par Andy, présence d'un membre de l'équipe.</p>
+      <span class="step__deliv">↳ <strong>livrable</strong> · synthèse parents (3 pages, repères pratiques)</span>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step__num">04</div>
+    <div>
+      <div class="step__phase">Bilan <span class="step__duration">1 semaine</span></div>
+      <h3 class="step__title">Bilan & transmission</h3>
+      <p class="step__desc">Bilan écrit transmis à l'équipe pluridisciplinaire. KPIs renseignés sur la grille d'indicateurs (cf. p. 07). Recommandations individualisées pour la suite du parcours en SESSAD / IME. Réunion de clôture avec le chef de service.</p>
+      <span class="step__deliv">↳ <strong>livrable</strong> · rapport final (8 à 12 pages)</span>
+    </div>
+  </div>
+
+  <div class="card card--ink" style="margin-top: 8mm;">
+    <span class="eyebrow" style="color: var(--cyan); margin-bottom: 3mm;">Confidentialité</span>
+    <p>Tous les livrables respectent le secret partagé entre professionnels du soin, le RGPD, et les règles internes de la structure. Aucune donnée n'est conservée par PXLC au-delà de la mission, sauf demande explicite.</p>
+  </div>
+
+  <div class="page__foot">
+    <span>PXLC · Plaquette dispositif</span>
+    <span class="pixel-strip" aria-hidden="true">
+      <span></span><span></span><span></span><span></span><span></span>
+      <span class="is-accent"></span><span></span><span></span><span></span><span></span><span></span>
+    </span>
+    <span>06 / 12</span>
+  </div>
+</section>
+
+<!-- ═══════════════════════ Page 7 · INDICATEURS ═══════════════════════ -->
+<section class="page">
+  <header class="page__head">
+    <div class="page__logo">
+      <svg viewBox="0 0 100 100" aria-hidden="true"><rect x="2" y="2" width="29.33" height="29.33" rx="3.5" fill="#036E73"/><rect x="35.33" y="2" width="29.33" height="29.33" rx="3.5" fill="#01A09D"/><rect x="68.67" y="2" width="29.33" height="29.33" rx="3.5" fill="#00D2C8"/><rect x="2" y="35.33" width="29.33" height="29.33" rx="3.5" fill="#036E73"/><rect x="35.33" y="35.33" width="29.33" height="29.33" rx="3.5" fill="#01A09D"/><rect x="68.67" y="35.33" width="29.33" height="29.33" rx="3.5" fill="#00D2C8"/><rect x="2" y="68.67" width="29.33" height="29.33" rx="3.5" fill="#036E73"/><rect x="35.33" y="68.67" width="29.33" height="29.33" rx="3.5" fill="#01A09D"/><rect x="68.67" y="68.67" width="29.33" height="29.33" rx="3.5" fill="#FF5E3A"/></svg>
+      PXLC<span class="coral-dot" aria-hidden="true">.</span>
+    </div>
+    <div class="page__nav">07 · Indicateurs</div>
+  </header>
+
+  <span class="eyebrow">04 · Évaluation</span>
+  <h2>Indicateurs renseignés à chaque séance<span class="coral-dot" aria-hidden="true">.</span></h2>
+  <p style="margin-bottom: 6mm;">Une grille concise, transmise à votre équipe, calibrée pour s'intégrer aux bilans ARS / DRJSCS. Les seuils sont des cibles méthodologiques (objectifs de mission), pas des résultats garantis.</p>
+
+  <div class="grid-3">
+    <div class="kpi">
+      <div class="kpi__label">Adhésion</div>
+      <div class="kpi__value">≥ 80 %</div>
+      <div class="kpi__meaning">enfants présents et actifs sur la durée du dispositif</div>
+      <div class="kpi__method">méthode · présentiel + observation</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi__label">Dialogue</div>
+      <div class="kpi__value">+30 %</div>
+      <div class="kpi__meaning">échanges parent-enfant rapportés sur les écrans</div>
+      <div class="kpi__method">méthode · questionnaire avant / après</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi__label">Sommeil</div>
+      <div class="kpi__value">2 / 3</div>
+      <div class="kpi__meaning">familles avec amélioration des routines du soir</div>
+      <div class="kpi__method">méthode · auto-déclaratif parents</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi__label">Co-régulation</div>
+      <div class="kpi__value">≥ 70 %</div>
+      <div class="kpi__meaning">enfants ayant adopté un rituel partagé avec un parent</div>
+      <div class="kpi__method">méthode · compte-rendu séance 8</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi__label">Estime de soi</div>
+      <div class="kpi__value">+20 %</div>
+      <div class="kpi__meaning">progression sur échelle Rosenberg adaptée enfant</div>
+      <div class="kpi__method">méthode · pré / post · 10 items</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi__label">Continuité</div>
+      <div class="kpi__value">≥ 60 %</div>
+      <div class="kpi__meaning">familles maintenant le cadre à 3 mois post-dispositif</div>
+      <div class="kpi__method">méthode · rappel téléphonique</div>
+    </div>
+  </div>
+
+  <div class="card card--ivory" style="margin-top: 8mm;">
+    <span class="card-head">Note méthodologique</span>
+    <p style="margin-top: 3mm; font-size: 9.5pt;">Les valeurs ci-dessus sont les cibles de mission, calibrées sur la première campagne SESSAD Lékoklaya (2024). Les résultats observés varient selon le profil des enfants accueillis et les conditions d'engagement de la famille.</p>
+  </div>
+
+  <div class="page__foot">
+    <span>PXLC · Plaquette dispositif</span>
+    <span class="pixel-strip" aria-hidden="true">
+      <span></span><span></span><span></span><span></span><span></span>
+      <span class="is-accent"></span><span></span><span></span><span></span><span></span><span></span>
+    </span>
+    <span>07 / 12</span>
+  </div>
+</section>
+
+<!-- ═══════════════════════ Page 8 · PROFILS ═══════════════════════ -->
+<section class="page">
+  <header class="page__head">
+    <div class="page__logo">
+      <svg viewBox="0 0 100 100" aria-hidden="true"><rect x="2" y="2" width="29.33" height="29.33" rx="3.5" fill="#036E73"/><rect x="35.33" y="2" width="29.33" height="29.33" rx="3.5" fill="#01A09D"/><rect x="68.67" y="2" width="29.33" height="29.33" rx="3.5" fill="#00D2C8"/><rect x="2" y="35.33" width="29.33" height="29.33" rx="3.5" fill="#036E73"/><rect x="35.33" y="35.33" width="29.33" height="29.33" rx="3.5" fill="#01A09D"/><rect x="68.67" y="35.33" width="29.33" height="29.33" rx="3.5" fill="#00D2C8"/><rect x="2" y="68.67" width="29.33" height="29.33" rx="3.5" fill="#036E73"/><rect x="35.33" y="68.67" width="29.33" height="29.33" rx="3.5" fill="#01A09D"/><rect x="68.67" y="68.67" width="29.33" height="29.33" rx="3.5" fill="#FF5E3A"/></svg>
+      PXLC<span class="coral-dot" aria-hidden="true">.</span>
+    </div>
+    <div class="page__nav">08 · Profils</div>
+  </header>
+
+  <span class="eyebrow">05 · Publics accueillis</span>
+  <h2>Une approche par profil<span class="coral-dot" aria-hidden="true">.</span></h2>
+  <p style="margin-bottom: 6mm;">Pas une méthode unique — des entrées spécifiques selon les besoins du public accueilli. La grille ci-dessous est indicative : l'approche concrète est calibrée enfant par enfant en lien avec l'équipe pluridisciplinaire.</p>
+
+  <div class="grid-2" style="gap: 5mm;">
+    <div class="profile">
+      <span class="profile__tag">TSA</span>
+      <h3 class="profile__label">Trouble du spectre autistique</h3>
+      <p>Approche structurée, repères visuels, intérêts spécifiques pris au sérieux comme leviers de médiation. Les jeux à monde ouvert (Minecraft, Animal Crossing) sont souvent des espaces structurants.</p>
+    </div>
+    <div class="profile">
+      <span class="profile__tag">TDAH</span>
+      <h3 class="profile__label">Trouble de l'attention</h3>
+      <p>Médiation courte, jeux à boucles rapides, valorisation de l'hyperfocus comme compétence. Les jeux compétitifs (Fortnite, FIFA) deviennent des terrains de discussion sur la gestion de la frustration.</p>
+    </div>
+    <div class="profile">
+      <span class="profile__tag">TCND</span>
+      <h3 class="profile__label">Trouble du neuro-développement</h3>
+      <p>Cadre adapté au profil singulier de l'enfant, lien renforcé entre la famille et l'équipe pluridisciplinaire. Le médiateur sert d'interface entre le vécu numérique et le projet de soin.</p>
+    </div>
+    <div class="profile">
+      <span class="profile__tag">Dys-</span>
+      <h3 class="profile__label">Troubles dys</h3>
+      <p>Le jeu comme support de remédiation, valorisation des forces visuelles et de la mémoire spatiale. Le numérique offre des modalités d'expression alternatives à l'écrit.</p>
+    </div>
+  </div>
+
+  <div class="card card--ivory" style="margin-top: 8mm;">
+    <span class="card-head">Tranche d'âge</span>
+    <p style="margin-top: 3mm;"><strong>8 à 17 ans.</strong> Au-delà, des ateliers spécifiques peuvent être conçus avec la structure (jeunes adultes, transition vers l'autonomie). En-deçà, l'accompagnement passe principalement par les parents.</p>
+  </div>
+
+  <div class="page__foot">
+    <span>PXLC · Plaquette dispositif</span>
+    <span class="pixel-strip" aria-hidden="true">
+      <span></span><span></span><span></span><span></span><span></span>
+      <span class="is-accent"></span><span></span><span></span><span></span><span></span><span></span>
+    </span>
+    <span>08 / 12</span>
+  </div>
+</section>
+
+<!-- ═══════════════════════ Page 9 · CAS PRATIQUE ═══════════════════════ -->
+<section class="page">
+  <header class="page__head">
+    <div class="page__logo">
+      <svg viewBox="0 0 100 100" aria-hidden="true"><rect x="2" y="2" width="29.33" height="29.33" rx="3.5" fill="#036E73"/><rect x="35.33" y="2" width="29.33" height="29.33" rx="3.5" fill="#01A09D"/><rect x="68.67" y="2" width="29.33" height="29.33" rx="3.5" fill="#00D2C8"/><rect x="2" y="35.33" width="29.33" height="29.33" rx="3.5" fill="#036E73"/><rect x="35.33" y="35.33" width="29.33" height="29.33" rx="3.5" fill="#01A09D"/><rect x="68.67" y="35.33" width="29.33" height="29.33" rx="3.5" fill="#00D2C8"/><rect x="2" y="68.67" width="29.33" height="29.33" rx="3.5" fill="#036E73"/><rect x="35.33" y="68.67" width="29.33" height="29.33" rx="3.5" fill="#01A09D"/><rect x="68.67" y="68.67" width="29.33" height="29.33" rx="3.5" fill="#FF5E3A"/></svg>
+      PXLC<span class="coral-dot" aria-hidden="true">.</span>
+    </div>
+    <div class="page__nav">09 · Cas pratique</div>
+  </header>
+
+  <span class="eyebrow">06 · Cas pratique</span>
+  <h2>SESSAD Lékoklaya · 12 ateliers · 2024<span class="coral-dot" aria-hidden="true">.</span></h2>
+  <p class="lead">Une mission pensée avec l'équipe pluridisciplinaire, sur trois mois, auprès de neuf enfants TSA et TDAH.</p>
+
+  <span class="card-head" style="margin-top: 4mm; display: block;">Cadrage</span>
+  <p style="margin-top: 2mm;">Le SESSAD Lékoklaya accueille des enfants TSA et TDAH âgés de 8 à 14 ans. L'équipe avait identifié, lors de plusieurs synthèses, que les écrans étaient un point de friction récurrent dans les familles, sans qu'aucun professionnel ne se sente légitime pour aborder le sujet en profondeur. Le dispositif PXLC a été cadré pour combler ce manque, sans empiéter sur les missions des éducateurs.</p>
+
+  <span class="card-head" style="margin-top: 5mm; display: block;">Déroulé</span>
+  <p style="margin-top: 2mm;">9 enfants ont participé à 12 ateliers individuels d'1 h chacun, suivis de 2 groupes de parole avec les parents. Restitution écrite à chaque séance, partagée avec l'éducateur référent et la psychologue. Bilan final présenté au chef de service.</p>
+
+  <span class="card-head" style="margin-top: 5mm; display: block;">Retours observés</span>
+  <p style="margin-top: 2mm;">Adhésion forte des enfants sur la durée (présence et engagement actif). Retours positifs des parents sur la qualité du dialogue retrouvé autour des écrans, et apaisement rapporté des routines du soir. Le dispositif est aujourd'hui intégré au projet de service du SESSAD.</p>
+
+  <div class="quote">
+    <span class="quotemark" aria-hidden="true">«&nbsp;</span>Andy a été le premier à proposer aux enfants un cadre où leurs jeux étaient pris au sérieux. Les retours des parents ont été immédiats.<span class="quotemark" aria-hidden="true">&nbsp;»</span>
+    <span class="quote__src">Coordinatrice · SESSAD Lékoklaya</span>
+  </div>
+
+  <p style="font-size: 8.5pt; color: var(--quiet); margin-top: 6mm; font-style: italic;">Note · les chiffres détaillés (mesures avant / après dialogue, sommeil, co-régulation) sont disponibles dans le rapport final, transmissible sur demande après validation par l'équipe Lékoklaya.</p>
+
+  <div class="page__foot">
+    <span>PXLC · Plaquette dispositif</span>
+    <span class="pixel-strip" aria-hidden="true">
+      <span></span><span></span><span></span><span></span><span></span>
+      <span class="is-accent"></span><span></span><span></span><span></span><span></span><span></span>
+    </span>
+    <span>09 / 12</span>
+  </div>
+</section>
+
+<!-- ═══════════════════════ Page 10 · ANDY ZÉBUS ═══════════════════════ -->
+<section class="page">
+  <header class="page__head">
+    <div class="page__logo">
+      <svg viewBox="0 0 100 100" aria-hidden="true"><rect x="2" y="2" width="29.33" height="29.33" rx="3.5" fill="#036E73"/><rect x="35.33" y="2" width="29.33" height="29.33" rx="3.5" fill="#01A09D"/><rect x="68.67" y="2" width="29.33" height="29.33" rx="3.5" fill="#00D2C8"/><rect x="2" y="35.33" width="29.33" height="29.33" rx="3.5" fill="#036E73"/><rect x="35.33" y="35.33" width="29.33" height="29.33" rx="3.5" fill="#01A09D"/><rect x="68.67" y="35.33" width="29.33" height="29.33" rx="3.5" fill="#00D2C8"/><rect x="2" y="68.67" width="29.33" height="29.33" rx="3.5" fill="#036E73"/><rect x="35.33" y="68.67" width="29.33" height="29.33" rx="3.5" fill="#01A09D"/><rect x="68.67" y="68.67" width="29.33" height="29.33" rx="3.5" fill="#FF5E3A"/></svg>
+      PXLC<span class="coral-dot" aria-hidden="true">.</span>
+    </div>
+    <div class="page__nav">10 · Andy Zébus</div>
+  </header>
+
+  <span class="eyebrow">07 · Le médiateur</span>
+  <h2>Andy Zébus · trois casquettes<span class="coral-dot" aria-hidden="true">.</span></h2>
+  <p style="margin-bottom: 6mm;">Né en Guadeloupe, formé à la médiation interculturelle et au numérique, Andy Zébus a passé six ans à structurer la scène esport guadeloupéenne avant de faire de la rencontre entre les écrans et la relation parent-enfant son métier.</p>
+
+  <div class="grid-3" style="margin-bottom: 6mm;">
+    <div class="card">
+      <span class="kicker">Casquette 01</span>
+      <h3 style="margin: 3mm 0 2mm 0; font-size: 11pt;">Organisateur esport</h3>
+      <p style="font-size: 9.5pt; line-height: 1.45;">Six ans à monter la scène esport guadeloupéenne avec Esports Guadeloupe — tournois, communauté, partenariats grands comptes. Connaît de l'intérieur la communauté joueurs, l'économie d'un tournoi et le langage Discord d'équipe.</p>
+    </div>
+    <div class="card">
+      <span class="kicker">Casquette 02</span>
+      <h3 style="margin: 3mm 0 2mm 0; font-size: 11pt;">Médiateur formé</h3>
+      <p style="font-size: 9.5pt; line-height: 1.45;">Formateur principal en médiation numérique chez Simplon Outre-Mer (2021–2022). Lecture rigoureuse des recommandations HAS et HCSP. Pratique en cohérence avec les standards du soutien à la parentalité.</p>
+    </div>
+    <div class="card">
+      <span class="kicker">Casquette 03</span>
+      <h3 style="margin: 3mm 0 2mm 0; font-size: 11pt;">Conseil institutionnel</h3>
+      <p style="font-size: 9.5pt; line-height: 1.45;">Affaires européennes et numérique THD à la Région Guadeloupe, formation aux élus et accompagnement des collectivités. Connaît le langage des projets de service et des bilans d'activité.</p>
+    </div>
+  </div>
+
+  <div class="quote">
+    <span class="quotemark" aria-hidden="true">«&nbsp;</span>Mon métier, ce n'est pas de défendre les écrans. C'est de défendre la relation parent-enfant — et de la faire passer par les écrans, puisque c'est là qu'elle se joue.<span class="quotemark" aria-hidden="true">&nbsp;»</span>
+    <span class="quote__src">Andy Zébus · fondateur de PXLC</span>
+  </div>
+
+  <div class="photo photo--portrait">
+    <img src="img/andy-portrait.jpg" alt="Portrait d'Andy Zébus, fondateur de PXLC, médiateur numérique en Guadeloupe">
+    <div class="photo__caption">↳ Andy Zébus · fondateur PXLC</div>
+  </div>
+
+  <div class="page__foot">
+    <span>PXLC · Plaquette dispositif</span>
+    <span class="pixel-strip" aria-hidden="true">
+      <span></span><span></span><span></span><span></span><span></span>
+      <span class="is-accent"></span><span></span><span></span><span></span><span></span><span></span>
+    </span>
+    <span>10 / 12</span>
+  </div>
+</section>
+
+<!-- ═══════════════════════ Page 11 · MODALITÉS / CONTACT ═══════════════════════ -->
+<section class="page">
+  <header class="page__head">
+    <div class="page__logo">
+      <svg viewBox="0 0 100 100" aria-hidden="true"><rect x="2" y="2" width="29.33" height="29.33" rx="3.5" fill="#036E73"/><rect x="35.33" y="2" width="29.33" height="29.33" rx="3.5" fill="#01A09D"/><rect x="68.67" y="2" width="29.33" height="29.33" rx="3.5" fill="#00D2C8"/><rect x="2" y="35.33" width="29.33" height="29.33" rx="3.5" fill="#036E73"/><rect x="35.33" y="35.33" width="29.33" height="29.33" rx="3.5" fill="#01A09D"/><rect x="68.67" y="35.33" width="29.33" height="29.33" rx="3.5" fill="#00D2C8"/><rect x="2" y="68.67" width="29.33" height="29.33" rx="3.5" fill="#036E73"/><rect x="35.33" y="68.67" width="29.33" height="29.33" rx="3.5" fill="#01A09D"/><rect x="68.67" y="68.67" width="29.33" height="29.33" rx="3.5" fill="#FF5E3A"/></svg>
+      PXLC<span class="coral-dot" aria-hidden="true">.</span>
+    </div>
+    <div class="page__nav">11 · Modalités</div>
+  </header>
+
+  <span class="eyebrow">08 · Prochain pas</span>
+  <h2>Pratique, tarif, prochaine étape<span class="coral-dot" aria-hidden="true">.</span></h2>
+
+  <div class="grid-2" style="margin-bottom: 6mm;">
+    <div class="card">
+      <span class="card-head">Tarif</span>
+      <p style="font-family: var(--font-display); font-size: 26pt; font-weight: 600; color: var(--ink); margin: 3mm 0 0 0; line-height: 1; letter-spacing: -0.03em;">100 €<span style="font-size: 13pt; color: var(--quiet); font-weight: 400;"> / heure</span></p>
+      <p style="margin-top: 3mm; font-size: 9.5pt;">Tarif appliqué à toutes les heures facturées (atelier, cadrage, rédaction, restitution, déplacement). Devis détaillé après cadrage initial.</p>
+    </div>
+    <div class="card">
+      <span class="card-head">Format type</span>
+      <ul class="bullets" style="margin: 3mm 0 0 0;">
+        <li>6 à 12 ateliers individuels d'1 h</li>
+        <li>2 groupes de parole parents</li>
+        <li>Cadrage initial + bilan final</li>
+        <li>Comptes-rendus écrits inclus</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="grid-2" style="margin-bottom: 6mm; grid-template-columns: 1.6fr 1fr; gap: 5mm; align-items: stretch;">
+    <div class="card card--ivory">
+      <span class="card-head">Périmètre d'intervention</span>
+      <p style="margin-top: 3mm;">Guadeloupe — Grande-Terre, Basse-Terre, Marie-Galante. Pour les structures hors archipel, le cadrage initial peut se faire en visio. Le présentiel reste la modalité par défaut, la médiation se faisant mieux en présence.</p>
+      <p style="margin-top: 3mm; font-size: 9.5pt;">Délai habituel entre première prise de contact et premier atelier : <strong>4 à 6 semaines</strong> (cadrage, recueil des consentements, planning équipe).</p>
+    </div>
+
+    <aside class="cta-sidecard">
+      <div class="cta-sidecard__eyebrow">Réservation</div>
+      <p class="cta-sidecard__lead">Agenda mis à jour en temps réel sur <strong>cal.eu/pxlc-gp</strong>. Les créneaux libres sont visibles immédiatement.</p>
+      <ul>
+        <li><span>Premier échange</span><span class="meta">20 min · gratuit</span></li>
+        <li><span>Visio ou WhatsApp</span><span class="meta">à votre choix</span></li>
+        <li><span>Réponse personnelle</span><span class="meta">sous 48 h</span></li>
+      </ul>
+    </aside>
+  </div>
+
+  <div class="contact-grid" style="margin-top: 0;">
+    <div class="contact-card">
+      <div class="contact-card__label">Réservation directe</div>
+      <div class="contact-card__value">cal.eu / pxlc-gp</div>
+    </div>
+    <div class="contact-card">
+      <div class="contact-card__label">Email</div>
+      <div class="contact-card__value">contact@pxlc.fr</div>
+    </div>
+    <div class="contact-card">
+      <div class="contact-card__label">WhatsApp / Téléphone</div>
+      <div class="contact-card__value">+590 690 71 76 18</div>
+    </div>
+    <div class="contact-card">
+      <div class="contact-card__label">LinkedIn</div>
+      <div class="contact-card__value">linkedin.com / in / azebus</div>
+    </div>
+  </div>
+
+  <div class="page__foot">
+    <span>PXLC · Plaquette dispositif</span>
+    <span class="pixel-strip" aria-hidden="true">
+      <span></span><span></span><span></span><span></span><span></span>
+      <span class="is-accent"></span><span></span><span></span><span></span><span></span><span></span>
+    </span>
+    <span>11 / 12</span>
+  </div>
+</section>
+
+<!-- ═══════════════════════ Page 12 · ANNEXE CONSENTEMENT ═══════════════════════ -->
+<section class="page">
+  <header class="page__head">
+    <div class="page__logo">
+      <svg viewBox="0 0 100 100" aria-hidden="true"><rect x="2" y="2" width="29.33" height="29.33" rx="3.5" fill="#036E73"/><rect x="35.33" y="2" width="29.33" height="29.33" rx="3.5" fill="#01A09D"/><rect x="68.67" y="2" width="29.33" height="29.33" rx="3.5" fill="#00D2C8"/><rect x="2" y="35.33" width="29.33" height="29.33" rx="3.5" fill="#036E73"/><rect x="35.33" y="35.33" width="29.33" height="29.33" rx="3.5" fill="#01A09D"/><rect x="68.67" y="35.33" width="29.33" height="29.33" rx="3.5" fill="#00D2C8"/><rect x="2" y="68.67" width="29.33" height="29.33" rx="3.5" fill="#036E73"/><rect x="35.33" y="68.67" width="29.33" height="29.33" rx="3.5" fill="#01A09D"/><rect x="68.67" y="68.67" width="29.33" height="29.33" rx="3.5" fill="#FF5E3A"/></svg>
+      PXLC<span class="coral-dot" aria-hidden="true">.</span>
+    </div>
+    <div class="page__nav">12 · Annexe RGPD</div>
+  </header>
+
+  <span class="eyebrow">Annexe · à imprimer et faire signer</span>
+  <h2 style="font-size: 16pt;">Consentement parental — médiation numérique<span class="coral-dot" aria-hidden="true">.</span></h2>
+
+  <div class="consent">
+    <p><strong>Je soussigné·e ____________________________________</strong>, titulaire de l'autorité parentale sur l'enfant <strong>____________________________________</strong>, né·e le <strong>__/__/____</strong>, accueilli·e au sein de la structure <strong>____________________________________</strong>,</p>
+    <p>autorise la participation de mon enfant au dispositif de médiation numérique animé par <strong>Andy Zébus (PXLC · Pixels Caraïbes · SIRET 813 793 528 00023)</strong> dans le cadre de son projet personnalisé d'accompagnement.</p>
+
+    <h3>1. Finalité du traitement</h3>
+    <p>Les données collectées (observations cliniques, comportements en jeu, échanges parent-enfant, progression sur les indicateurs PXLC) sont utilisées exclusivement pour : <em>(i)</em> animer les séances de médiation, <em>(ii)</em> rédiger les comptes-rendus transmis à l'équipe pluridisciplinaire de la structure, <em>(iii)</em> documenter le bilan final remis à la structure et à la famille.</p>
+
+    <h3>2. Base légale (art. 6.1.a RGPD)</h3>
+    <p>Le traitement repose sur le consentement libre, éclairé et révocable des titulaires de l'autorité parentale. Ce consentement peut être retiré à tout moment, sans justification, par simple notification écrite à <em>contact@pxlc.fr</em>, sans incidence sur la prise en charge de l'enfant par la structure.</p>
+
+    <h3>3. Données collectées et durée de conservation</h3>
+    <p>Les données personnelles collectées sont strictement limitées au prénom de l'enfant, à sa tranche d'âge, à ses centres d'intérêt en jeu, et aux observations utiles à la médiation. <strong>Aucune donnée de santé sensible n'est collectée par PXLC en dehors de ce qui est explicitement transmis par la structure dans le cadre du secret partagé.</strong> Les comptes-rendus sont conservés pendant la durée de la mission, puis archivés 3 ans à compter de la date du bilan final, conformément aux recommandations CNIL.</p>
+
+    <h3>4. Destinataires</h3>
+    <p>Les comptes-rendus sont transmis exclusivement à l'équipe pluridisciplinaire désignée de la structure (chef de service, éducateur référent, psychologue, médecin), aux titulaires de l'autorité parentale, et conservés par PXLC sur support local chiffré. Aucun transfert hors UE. Aucun sous-traitant.</p>
+
+    <h3>5. Droit à l'image (le cas échéant)</h3>
+    <p>Aucune photographie, vidéo ou enregistrement audio de l'enfant n'est réalisé pendant les séances, sauf accord exprès et écrit préalable des titulaires de l'autorité parentale, par avenant au présent consentement.</p>
+
+    <h3>6. Droits de la personne concernée</h3>
+    <p>Conformément aux articles 15 à 22 du RGPD et à la loi française « Informatique et libertés » (n° 78-17 modifiée), vous disposez des droits d'accès, de rectification, d'effacement, de limitation, de portabilité et d'opposition. Vous pouvez exercer ces droits à tout moment auprès du responsable de traitement : <em>contact@pxlc.fr</em>. En cas de différend, vous pouvez saisir la CNIL (cnil.fr).</p>
+
+    <div class="consent__sigs">
+      <div class="consent__sig">
+        Date et lieu :
+        <span class="consent__sig-line"></span>
+      </div>
+      <div class="consent__sig">
+        Signature parent / représentant légal :
+        <span class="consent__sig-line"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="page__foot">
+    <span>PXLC · Plaquette dispositif · v2</span>
+    <span class="pixel-strip" aria-hidden="true">
+      <span></span><span></span><span></span><span></span><span></span>
+      <span class="is-accent"></span><span></span><span></span><span></span><span></span><span></span>
+    </span>
+    <span>12 / 12</span>
+  </div>
+</section>
+
+</body>
+</html>
