@@ -31,8 +31,12 @@ defineOgImage('PxlcOg', {
         </div>
         <div>
           <h3>Parcours</h3>
-          <p class="mt-3">Six ans à organiser la scène esport guadeloupéenne avec Esports Guadeloupe — tournois, communauté, partenariats — avant la médiation numérique en SESSAD. Un parcours qui fait du jeu vidéo un objet de travail, pas un cliché à combattre.</p>
-          <p class="mt-3">Formateur principal en médiation numérique chez Simplon Outre-Mer (2021–2022), formé aux référentiels HAS, HCSP et CNAF — je traduis les recommandations institutionnelles en gestes concrets pour les familles et les équipes.</p>
+          <p class="mt-3">Six ans à organiser la scène esport guadeloupéenne avec Esports Guadeloupe — tournois, communauté, partenariats grands comptes — avant la médiation numérique en SESSAD. Un parcours qui fait du jeu vidéo un objet de travail, pas un cliché à combattre.</p>
+          <p class="mt-3">Formateur principal en médiation numérique chez Simplon Outre-Mer (2021–2022), formé aux référentiels HAS 2020 et HCSP 2019-2020 — je traduis les recommandations institutionnelles en gestes concrets pour les équipes pluridisciplinaires.</p>
+
+          <h3 class="mt-5">Mon rôle dans les dispositifs</h3>
+          <p class="mt-3">J’interviens en <strong>gamer médiateur-numérique partenaire</strong> : le projet est toujours porté par votre structure (psychologue du SESSAD, coordinateur d’association, équipe d’une collectivité). Je n’interviens pas en direct auprès des parents — toute mon activité passe par une structure porteuse.</p>
+          <p class="mt-3">Ma fonction est précise : choix des jeux et adaptabilité aux objectifs psycho-éducatifs, accompagnement en situation de jeu, explication des mécaniques aux parents, démystification de la culture numérique.</p>
         </div>
       </div>
     </div>

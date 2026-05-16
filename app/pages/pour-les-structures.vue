@@ -2,28 +2,41 @@
 useSeoMeta({
   title: 'Dispositif de médiation numérique pour SESSAD, IME, associations',
   description:
-    'Un dispositif clé en main pour SESSAD, IME, associations et collectivités de Guadeloupe : cadre HAS, indicateurs, médiateur formé, restitution écrite à chaque séance.',
+    'Un dispositif clé en main pour SESSAD, IME, associations et collectivités de Guadeloupe : ateliers thématiques parent-enfant, équipe pluridisciplinaire, indicateurs d’évaluation, cadre HAS et HCSP.',
 })
 
 defineOgImage('PxlcOg', {
   eyebrow: 'PXLC · POUR LES STRUCTURES',
   title: 'Un dispositif de médiation numérique fondé sur les repères HAS',
-  description: 'Cadre théorique, indicateurs, médiateur formé, restitution écrite — prêt à intégrer à vos projets de service.',
+  description: 'Ateliers thématiques parent-enfant co-encadrés par votre équipe pluridisciplinaire et le gamer médiateur-numérique. Cadre HAS / HCSP, indicateurs d’évaluation, bilan en fin de dispositif.',
 })
 
 const facts: [string, string][] = [
-  ['Format', '6 à 12 ateliers · individuels'],
-  ['Profils', 'TSA · TDAH · TCND · Dys-'],
-  ['Âges', '8 à 17 ans'],
-  ['Restitution', 'Écrite · à chaque séance'],
-  ['Références', 'HAS 2020 · HCSP 2019 · CNAF'],
+  ['Format', 'Ateliers thématiques parent-enfant'],
+  ['Profils', 'TSA · TDAH · TCND · DM · neuropathie'],
+  ['Âges', '12 à 17 ans (adaptable)'],
+  ['Encadrement', 'Équipe pluridisciplinaire + gamer médiateur'],
+  ['Références', 'HAS 2020 · HCSP 2019 · HCSP 2020'],
   ['Tarif', 'Sur devis'],
 ]
 
 const frameworks = [
-  { key: 'HAS', year: '2020', title: 'Soutien à la parentalité', desc: '« Soutenir la fonction parentale dans la médiation des écrans plutôt que prescrire des interdits ».' },
-  { key: 'HCSP', year: '2019', title: 'Avis sur les écrans', desc: 'Rappel des risques et des leviers — le cadre familial, les pratiques partagées, la qualité du contenu.' },
-  { key: 'CNAF', year: '2022', title: 'Soutien à la parentalité', desc: 'Référentiel des actions de soutien à la parentalité — la médiation numérique s’inscrit dans cette catégorie.' },
+  { key: 'HAS', year: '2020', title: 'Soutien à la parentalité', desc: '« Soutenir la fonction parentale dans la médiation des écrans plutôt que prescrire des interdits ». Axe central du protocole.' },
+  { key: 'HCSP', year: '2019', title: 'Effets de l’exposition aux écrans', desc: 'L’accompagnement parental actif est le facteur clé pour limiter les effets négatifs. Cadre familial, pratiques partagées, qualité du contenu.' },
+  { key: 'HCSP', year: '2020', title: 'De l’usage excessif à la dépendance', desc: 'Seconde partie du rapport — repères pour identifier et prévenir le basculement vers un usage problématique. Calibration des indicateurs PXLC.' },
+]
+
+const themes = [
+  { title: 'Coopération', desc: 'Jeux choisis pour valoriser l’entraide et la stratégie partagée. Pont avec un jeu traditionnel + un conte sur le même thème.' },
+  { title: 'Émotions & récits', desc: 'Renforcement des fonctions exécutives (planification, inhibition, prise de décision) via des jeux narratifs.' },
+  { title: 'Différence & complémentarité', desc: 'Faire de la différence parent-enfant un levier d’alliance plutôt qu’une source de tension.' },
+]
+
+const team = [
+  { role: 'Psychologue', detail: 'porteur du projet, cadrage clinique, entretien initial, bilan' },
+  { role: 'Psychomotricienne', detail: 'auto-régulation des affects et des pulsions motrices' },
+  { role: 'Intervenants culturels', detail: 'jeux traditionnels et contes en miroir des thèmes numériques' },
+  { role: 'Gamer médiateur-numérique', detail: 'choix des jeux, accompagnement en situation, démystification' },
 ]
 </script>
 
@@ -35,17 +48,17 @@ const frameworks = [
         <div>
           <div class="structures-badges">
             <span class="badge badge--audience">Pour les structures</span>
-            <span class="badge badge--soft">SESSAD · IME · associations</span>
+            <span class="badge badge--soft">SESSAD · IME · associations · collectivités</span>
           </div>
           <h1 id="hero-title" class="hero__title">
             Un dispositif de médiation numérique fondé sur les repères HAS<span class="coral-dot" aria-hidden="true">.</span>
           </h1>
           <p class="hero__lead">
-            Cadre théorique, indicateurs d’évaluation, médiateur formé, restitution écrite à chaque séance. Un protocole prêt à intégrer à vos projets de service.
+            « Jouons Ensemble! » — ateliers thématiques parent-enfant co-encadrés par votre équipe pluridisciplinaire et le gamer médiateur-numérique. Cadre théorique HAS / HCSP, indicateurs d’évaluation qualitatifs, bilan en fin de dispositif.
           </p>
           <div class="hero__actions">
             <NuxtLink to="/contact" class="btn btn--primary btn--lg">Demander un devis</NuxtLink>
-            <a href="#plaquette" class="btn btn--ghost btn--lg">Plaquette PDF · 12 pages</a>
+            <a href="/files/plaquette-pxlc.pdf" target="_blank" rel="noopener" class="btn btn--ghost btn--lg">Plaquette PDF · 12 pages</a>
           </div>
         </div>
 
@@ -62,15 +75,34 @@ const frameworks = [
     </div>
   </section>
 
+  <section class="section">
+    <div class="container">
+      <header class="section__head">
+        <span class="eyebrow">Jouons Ensemble!</span>
+        <h2>Trois thèmes d’atelier, un protocole<span class="coral-dot" aria-hidden="true">.</span></h2>
+        <p class="lead">
+          Chaque atelier articule un temps de jeu partagé (30 à 45 min) et un temps d’échange verbal (45 min à 1 h). Liste de thèmes non exhaustive — calibrée avec votre équipe selon les besoins du public accueilli.
+        </p>
+      </header>
+      <div class="grid grid--3">
+        <article v-for="t in themes" :key="t.title" class="card">
+          <span class="kicker">Thème</span>
+          <h3 class="mt-3 theme-title">{{ t.title }}</h3>
+          <p class="mt-3 theme-desc">{{ t.desc }}</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <section class="section section--soft">
     <div class="container">
       <header class="section__head">
         <span class="eyebrow">Cadre théorique</span>
         <h2>Trois sources qui structurent la démarche<span class="coral-dot" aria-hidden="true">.</span></h2>
-        <p class="lead">Pas un avis personnel sur les écrans : un cadre construit à partir des recommandations institutionnelles françaises.</p>
+        <p class="lead">Pas un avis personnel sur les écrans : un cadre construit à partir des recommandations institutionnelles françaises. Chaque référence est citée explicitement dans les bilans transmis aux équipes.</p>
       </header>
       <div class="grid grid--3">
-        <article v-for="c in frameworks" :key="c.key" class="card">
+        <article v-for="c in frameworks" :key="c.key + c.year" class="card">
           <div class="framework-tag">
             <span class="framework-tag__dot" />
             <span class="kicker framework-tag__label">{{ c.key }} · {{ c.year }}</span>
@@ -78,6 +110,25 @@ const frameworks = [
           <h3 class="framework-title">{{ c.title }}</h3>
           <p class="framework-desc">{{ c.desc }}</p>
           <span class="kicker mt-3 framework-meta">↳ référence officielle</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <header class="section__head">
+        <span class="eyebrow">Équipe pluridisciplinaire</span>
+        <h2>Le gamer ne remplace personne — il complète<span class="coral-dot" aria-hidden="true">.</span></h2>
+        <p class="lead">
+          Le projet est porté par la psychologue de votre structure. Le gamer médiateur-numérique intervient en partenariat, sur le terrain spécifique de la culture jeu vidéo.
+        </p>
+      </header>
+      <div class="grid grid--2 team-grid">
+        <article v-for="m in team" :key="m.role" class="card">
+          <span class="kicker">Rôle</span>
+          <h3 class="mt-3 team-role">{{ m.role }}</h3>
+          <p class="mt-3 team-detail">{{ m.detail }}</p>
         </article>
       </div>
     </div>
@@ -107,4 +158,9 @@ const frameworks = [
 .framework-title { font-size: 20px; margin-bottom: 8px; }
 .framework-desc { font-size: 14.5px; line-height: 1.6; }
 .framework-meta { display: block; }
+.theme-title { font-size: 20px; }
+.theme-desc { font-size: 14.5px; line-height: 1.6; }
+.team-grid { align-items: stretch; }
+.team-role { font-size: 18px; }
+.team-detail { font-size: 14.5px; line-height: 1.6; }
 </style>

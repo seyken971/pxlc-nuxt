@@ -54,7 +54,7 @@ export default defineNuxtConfig({
 
   site: {
     url: "https://pxlc.fr",
-    name: "PXLC - Médiation numérique pour les familles en Guadeloupe",
+    name: "PXLC",
     description:
       "PXLC accompagne les familles et structures sociales de Guadeloupe avec des ateliers Parent–Écran–Enfant.",
     defaultLocale: "fr_FR",
@@ -99,7 +99,7 @@ export default defineNuxtConfig({
       author: "Andy Zébus",
       colorScheme: "dark light",
       twitterTitle:
-        "PXLC - Médiation numérique pour les familles en Guadeloupe",
+        "PXLC | Médiation numérique pour les familles en Guadeloupe",
       twitterCreator: "@seyken971",
       ogSiteName: "PXLC",
       ogLocale: "fr_FR",
@@ -159,8 +159,4 @@ export default defineNuxtConfig({
       ],
     },
   },
-
-  // ogImage: {
-  //   zeroRuntime: true,
-  // },
 });

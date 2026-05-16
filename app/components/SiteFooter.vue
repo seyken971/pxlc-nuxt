@@ -27,8 +27,8 @@ const year = new Date().getFullYear()
         <div>
           <h3 class="site-footer__col-title">Pour qui</h3>
           <ul class="site-footer__col-list" role="list">
-            <li><NuxtLink class="site-footer__col-link" to="/ateliers">Parents · ateliers</NuxtLink></li>
-            <li><NuxtLink class="site-footer__col-link" to="/pour-les-structures">SESSAD &amp; associations</NuxtLink></li>
+            <li><NuxtLink class="site-footer__col-link" to="/pour-les-structures">SESSAD &amp; IME</NuxtLink></li>
+            <li><NuxtLink class="site-footer__col-link" to="/pour-les-structures">Associations</NuxtLink></li>
             <li><NuxtLink class="site-footer__col-link" to="/pour-les-structures">Collectivités</NuxtLink></li>
           </ul>
         </div>
@@ -56,7 +56,7 @@ const year = new Date().getFullYear()
       <div class="site-footer__legal">
         <p>PIXELS CARAÏBES · SIRET 813 793 528 00023 · APE 70.21Z · © {{ year }}</p>
         <ul class="site-footer__legal-links" role="list">
-          <li><a href="/mentions-legales">Mentions légales</a></li>
+          <li><NuxtLink to="/mentions-legales">Mentions légales</NuxtLink></li>
         </ul>
         <PixelStrip :count="11" :accent-at="5" />
       </div>
