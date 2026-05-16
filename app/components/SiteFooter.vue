@@ -27,8 +27,8 @@ const year = new Date().getFullYear()
         <div>
           <h3 class="site-footer__col-title">Pour qui</h3>
           <ul class="site-footer__col-list" role="list">
-            <li><NuxtLink class="site-footer__col-link" to="/ateliers">Parents · ateliers</NuxtLink></li>
-            <li><NuxtLink class="site-footer__col-link" to="/pour-les-structures">SESSAD &amp; associations</NuxtLink></li>
+            <li><NuxtLink class="site-footer__col-link" to="/pour-les-structures">SESSAD &amp; IME</NuxtLink></li>
+            <li><NuxtLink class="site-footer__col-link" to="/pour-les-structures">Associations</NuxtLink></li>
             <li><NuxtLink class="site-footer__col-link" to="/pour-les-structures">Collectivités</NuxtLink></li>
           </ul>
         </div>

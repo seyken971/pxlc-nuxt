@@ -4,39 +4,43 @@ import type { MethodStep } from '~/components/MethodGrid.vue'
 useSeoMeta({
   title: 'Médiation numérique parent-écran-enfant en Guadeloupe',
   description:
-    'Andy Zébus, médiateur numérique, accompagne les familles et structures sociales de Guadeloupe avec des ateliers Parent-Écran-Enfant fondés sur les repères HAS et HCSP.',
+    'Andy Zébus accompagne les SESSAD, IME, associations et collectivités de Guadeloupe en gamer médiateur-numérique, partenaire de programmes parent-écran-enfant fondés sur les repères HAS et HCSP.',
 })
 
 defineOgImage('PxlcOg', {
   eyebrow: 'PXLC · MÉDIATION NUMÉRIQUE · GUADELOUPE',
   title: 'Les écrans sont le reflet de la relation parent-enfant',
-  description: 'Andy Zébus transforme le temps d’écran en levier de compréhension et de lien — avec les familles, les SESSAD et les structures sociales de Guadeloupe.',
+  description: 'Gamer médiateur-numérique, partenaire des SESSAD, IME, associations et collectivités de Guadeloupe sur leurs programmes parent-écran-enfant.',
 })
 
+// Trois temps de la médiation, alignés sur les 4 étapes opérationnelles du
+// projet « Jouons Ensemble! » (préparation, ateliers thématiques, groupe de
+// parole + bilan) — résumés ici en 3 mouvements pour la page d'accueil.
 const methodSteps: MethodStep[] = [
-  { num: '01', title: 'Comprendre l’enfant', desc: 'Andy joue avec l’enfant à son jeu favori et identifie ce qu’il y investit émotionnellement — compétence, lien social, refuge, structuration.', tag: 'observation' },
-  { num: '02', title: 'Traduire aux parents', desc: 'Le jeu devient un langage commun : Andy restitue ce que l’enfant met dans son écran, sans jugement, sans jargon technique.', tag: 'médiation' },
-  { num: '03', title: 'Restaurer le lien',   desc: 'Parents et enfant repartent avec un cadre et des rituels concrets — pas une liste d’interdictions, une nouvelle façon de partager.', tag: 'consolidation' },
+  { num: '01', title: 'Comprendre l’enfant', desc: 'Entretien initial avec l’équipe pluridisciplinaire, identification du profil ludique de chaque enfant, construction des binômes parent-enfant.', tag: 'préparation' },
+  { num: '02', title: 'Jouer ensemble',     desc: 'Ateliers thématiques parent-enfant — coopération, émotions, différence — co-encadrés par psychologue, psychomotricienne, intervenants culturels et gamer médiateur-numérique.', tag: 'ateliers' },
+  { num: '03', title: 'Restaurer le lien',  desc: 'Groupe de parole familiale puis bilan : synthèse des acquis et pistes de continuité à la maison, transmises à l’équipe et aux parents.', tag: 'bilan' },
 ]
 </script>
 
 <template>
   <Hero
     title="Les écrans sont le reflet de <br/>la relation parent-enfant<span class='coral-dot' aria-hidden='true'>.</span>"
-    lead="Andy Zébus, médiateur numérique et organisateur de la scène esport guadeloupéenne pendant six ans, transforme le temps d’écran des enfants en levier de compréhension et de lien — avec les familles, les SESSAD et les structures sociales de l’archipel."
-    :cta-primary="{ label: 'Je suis parent', href: '/ateliers' }"
-    :cta-secondary="{ label: 'Je représente une structure', href: '/pour-les-structures' }"
+    lead="Andy Zébus accompagne les SESSAD, IME, associations et collectivités de Guadeloupe en gamer médiateur-numérique — partenaire des programmes parent-écran-enfant fondés sur les repères HAS et HCSP."
+    :cta-primary="{ label: 'Voir le dispositif', href: '/pour-les-structures' }"
+    :cta-secondary="{ label: 'Plaquette PDF · 12 p.', href: '/files/plaquette-pxlc.pdf', external: true }"
+    hint="↘ pour les structures porteuses"
     photo-src="/assets/img/photos/andy-event.jpg"
     photo-alt="Andy Zébus en animation lors d’un événement gaming en Guadeloupe"
-    :pill="{ eyebrow: 'Repères HAS & HCSP', text: 'Méthode construite à partir du rapport HAS (2020) et de l’avis du HCSP (2019).' }"
+    :pill="{ eyebrow: 'Repères HAS & HCSP', text: 'Méthode construite à partir du rapport HAS (2020) et des avis HCSP (2019, 2020).' }"
   />
   <PartnerStrip />
   <MethodGrid :steps="methodSteps" />
-  <BifurcationGrid />
+  <ThemesGrid />
   <SessadCase />
   <CitationBlock
-    source="HAS · Recommandation 2020"
-    quote="L’enjeu n’est pas de bannir les écrans mais de soutenir la fonction parentale dans leur médiation."
-    attribution="Haute Autorité de Santé · 2020 · soutien à la parentalité numérique"
+    source="« Jouons Ensemble! » · projet 2026"
+    quote="Jouer ensemble, c’est mieux comprendre, mieux se parler, et mieux grandir."
+    attribution="Tagline du projet · SESSAD Lékoklaya × PXLC"
   />
 </template>
