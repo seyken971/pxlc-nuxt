@@ -1,0 +1,123 @@
+/* =============================================================
+   PXLC — Design tokens
+   Mirrors pxlc-design-system/colors_and_type.css.
+   Fonts (Sora, DM Sans, JetBrains Mono) are self-hosted by
+   @nuxt/fonts — no @import needed here, the font-family
+   declarations below trigger the module's auto-resolution.
+   ============================================================= */
+
+:root {
+  /* ── Colour scale ───────────────────────────────────────── */
+  --pxlc-teal-deep:   #036E73;
+  --pxlc-teal-mid:    #01A09D;
+  --pxlc-cyan:        #00D2C8;
+  --pxlc-coral:       #FF5E3A;
+  --pxlc-coral-deep:  #E8492A;
+
+  --pxlc-bg-light:        #EAF6F4;
+  --pxlc-bg-dark:         #082B36;
+  --pxlc-bg-dark-soft:    #0C3340;
+  --pxlc-bg-dark-deep:    #06212A;
+  --pxlc-ivory:           #F4F1EA;
+  --pxlc-ivory-soft:      #EBE6DA;
+
+  --pxlc-text-ink:        #082B36;
+  --pxlc-text-on-light:   #2C4751;
+  --pxlc-text-secondary:  #5A6B70;
+  --pxlc-text-on-dark-soft: #A9C8D0;
+
+  --pxlc-border:        #C4D1D2;
+  --pxlc-border-soft:   #D9D2BF;
+  --pxlc-border-dark:   #103847;
+  --pxlc-border-dark-2: #1F4A59;
+  --pxlc-white:         #FFFFFF;
+
+  /* ── Semantic surface tokens (light) ────────────────────── */
+  --bg:           var(--pxlc-bg-light);
+  --bg-soft:      var(--pxlc-ivory);
+  --bg-elev:      var(--pxlc-white);
+  --bg-rule:      var(--pxlc-border-soft);
+  --on-dark-bg:   var(--pxlc-bg-dark);
+
+  --ink:          var(--pxlc-text-ink);
+  --ink-quiet:    var(--pxlc-text-on-light);
+  --quiet:        var(--pxlc-text-secondary);
+
+  --rule:         var(--pxlc-border);
+  --rule-strong:  var(--pxlc-border);
+
+  --teal-deep:    var(--pxlc-teal-deep);
+  --teal-mid:     var(--pxlc-teal-mid);
+  --cyan:         var(--pxlc-cyan);
+  --accent:       var(--pxlc-coral);
+  --accent-deep:  var(--pxlc-coral-deep);
+  --eyebrow:      var(--pxlc-teal-deep);
+
+  /* ── Typography ─────────────────────────────────────────── */
+  --font-display: "Sora", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-body:    "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono:    "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  --fs-display-1: 72px;  --lh-display-1: 1;    --ls-display-1: -0.035em;
+  --fs-display-2: 60px;  --lh-display-2: 1.02; --ls-display-2: -0.030em;
+  --fs-display-3: 48px;  --lh-display-3: 1.05; --ls-display-3: -0.025em;
+  --fs-h1: 56px;  --lh-h1: 1.05; --ls-h1: -0.025em;
+  --fs-h2: 42px;  --lh-h2: 1.05; --ls-h2: -0.025em;
+  --fs-h3: 24px;  --lh-h3: 1.15; --ls-h3: -0.015em;
+  --fs-h4: 20px;  --lh-h4: 1.25; --ls-h4: -0.01em;
+  --fs-lead:  19px; --lh-lead: 1.55;
+  --fs-body:  16px; --lh-body: 1.6;
+  --fs-small: 14px; --lh-small: 1.5;
+  --fs-caption: 12px; --ls-caption: 0.18em;
+  --fs-eyebrow: 11px; --ls-eyebrow: 0.22em;
+
+  /* ── Rythme 8 px ────────────────────────────────────────── */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 16px;
+  --space-4: 24px;
+  --space-5: 32px;
+  --space-6: 48px;
+  --space-7: 64px;
+  --space-8: 96px;
+  --space-9: 128px;
+
+  /* ── Radius ─────────────────────────────────────────────── */
+  --radius-sm:   4px;
+  --radius-md:   8px;
+  --radius-lg:   14px;
+  --radius-pill: 999px;
+
+  /* ── Elevation (light) ──────────────────────────────────── */
+  --shadow-1: 0 1px 0 rgba(8,43,54,.04);
+  --shadow-2: 0 8px 24px -12px rgba(8,43,54,.18);
+  --shadow-3: 0 24px 60px -28px rgba(8,43,54,.28);
+
+  /* ── Motion ─────────────────────────────────────────────── */
+  --ease-step: cubic-bezier(.6, 0, .2, 1);
+  --dur-fast:  120ms;
+  --dur-base:  200ms;
+  --dur-slow:  320ms;
+
+  /* ── Layout ─────────────────────────────────────────────── */
+  --container-max: 1200px;
+  --container-pad: clamp(20px, 4vw, 56px);
+}
+
+/* ── Dark theme overrides ─────────────────────────────────── */
+[data-theme="dark"] {
+  --bg:           var(--pxlc-bg-dark);
+  --bg-soft:      var(--pxlc-bg-dark-deep);
+  --bg-elev:      var(--pxlc-bg-dark-soft);
+  --bg-rule:      var(--pxlc-border-dark);
+  --ink:          var(--pxlc-ivory);
+  --ink-quiet:    var(--pxlc-text-on-dark-soft);
+  --quiet:        #8A9DA3;
+  --rule:         var(--pxlc-border-dark-2);
+  --rule-strong:  var(--pxlc-border-dark);
+  --eyebrow:      var(--pxlc-cyan);
+
+  --shadow-1: 0 1px 0 rgba(0,0,0,.20);
+  --shadow-2: 0 8px 24px -12px rgba(0,0,0,.45);
+  --shadow-3: 0 24px 60px -28px rgba(0,0,0,.55);
+}
