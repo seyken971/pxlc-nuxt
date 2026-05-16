@@ -264,36 +264,49 @@ img { max-width: 100%; display: block; }
 .mobile-menu__cta { margin-top: 32px; }
 
 /* ── Hero ────────────────────────────────────────────────── */
+/* Vertical budget: header (~70px) + hero must fit a typical laptop
+   viewport (768-900px) so the CTAs land above the fold. Padding,
+   title cap, and inter-element margins all calibrated for that.
+   On very tall viewports the hero breathes naturally via the bottom
+   of the page — we don't grow it to fill. */
 .hero {
-  position: relative; overflow: hidden; padding: clamp(64px, 10vw, 96px) 0;
+  position: relative; overflow: hidden; padding: clamp(40px, 5vw, 64px) 0;
   background: var(--bg);
 }
 .hero--soft { background: var(--bg-soft); }
-.hero__strip { position: absolute; top: 32px; right: clamp(20px, 4vw, 56px); }
+.hero__strip { position: absolute; top: 24px; right: clamp(20px, 4vw, 56px); }
 .hero__bg-mark {
   position: absolute; right: -40px; bottom: -40px; opacity: 0.08; pointer-events: none;
 }
 [data-theme="dark"] .hero__bg-mark { opacity: 0.18; }
 .hero__bg-mark .mark-svg { width: 420px; height: 420px; transform: rotate(-8deg); }
+/* align-items: start anchors the text column to the top of the row so
+   the photo column can be taller without pushing the CTAs down with it. */
 .hero__inner {
-  display: grid; grid-template-columns: 1fr; gap: 48px; align-items: center;
+  display: grid; grid-template-columns: 1fr; gap: 40px; align-items: start;
   position: relative; z-index: 1;
 }
-@media (min-width: 1024px) { .hero__inner { grid-template-columns: 1.5fr 1fr; gap: clamp(32px, 5vw, 64px); } }
+@media (min-width: 1024px) { .hero__inner { grid-template-columns: 1.4fr 1fr; gap: clamp(32px, 5vw, 56px); } }
+/* Title caps at 64px (was 78). 4 lines × 64 × 1.02 = 261px, saves ~57px
+   vs the previous cap, and the page still reads as "display" size. */
 .hero__title {
   font-family: var(--font-display); font-weight: 600;
-  font-size: clamp(38px, 7vw, 78px); line-height: 1.02; letter-spacing: -0.035em;
-  margin: 0 0 24px; color: var(--ink); max-width: 760px;
+  font-size: clamp(36px, 5.4vw, 64px); line-height: 1.04; letter-spacing: -0.03em;
+  margin: 0 0 20px; color: var(--ink); max-width: 760px;
 }
 .hero__lead {
-  font-family: var(--font-body); font-size: clamp(16px, 1.4vw, 19px);
-  line-height: 1.55; color: var(--ink-quiet); max-width: 580px; margin: 0 0 32px;
+  font-family: var(--font-body); font-size: clamp(15px, 1.2vw, 17px);
+  line-height: 1.55; color: var(--ink-quiet); max-width: 580px; margin: 0 0 24px;
 }
-.hero__actions { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
+.hero__actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
 .hero__hint { font-family: var(--font-mono); font-size: 12px; color: var(--quiet); letter-spacing: 0.1em; margin-left: 8px; }
 .hero__media { position: relative; }
+/* Photo capped at 4/5 ratio but never taller than ~62vh so it can't
+   single-handedly push the page beyond the fold on short viewports.
+   The image stays object-fit:cover so the crop is benign. */
 .hero__media-img {
   aspect-ratio: 4 / 5; border-radius: 14px; overflow: hidden; position: relative;
+  max-height: 62vh;
 }
 .hero__media-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .hero__pill {
