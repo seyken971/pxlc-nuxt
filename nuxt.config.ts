@@ -78,6 +78,10 @@ export default defineNuxtConfig({
     currency: "EUR",
   },
 
+  // `@nuxtjs/robots` est la SEULE source de vérité pour robots.txt.
+  // Le fichier public/_robots.txt (legacy Jekyll) a été supprimé — il
+  // dupliquait le bloc `User-agent: *` parce que le module fusionne
+  // public/_robots.txt avec ce config block.
   robots: {
     groups: [
       {
@@ -93,6 +97,25 @@ export default defineNuxtConfig({
           "ai-train": "no",
         },
       },
+      // Disallow explicite pour les principaux scrapers IA — équivalent
+      // de blockAiBots:true du module, mais listés ici pour traçabilité.
+      ...[
+        "GPTBot",
+        "ChatGPT-User",
+        "Claude-Web",
+        "anthropic-ai",
+        "Applebot-Extended",
+        "Bytespider",
+        "CCBot",
+        "cohere-ai",
+        "Diffbot",
+        "FacebookBot",
+        "Google-Extended",
+        "ImagesiftBot",
+        "PerplexityBot",
+        "OmigiliBot",
+        "Omigili",
+      ].map((userAgent) => ({ userAgent, disallow: "/" })),
     ],
     sitemap: ["https://pxlc.fr/sitemap.xml"],
   },
