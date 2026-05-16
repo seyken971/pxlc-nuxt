@@ -2,13 +2,13 @@
 useSeoMeta({
   title: 'À propos d’Andy Zébus — médiateur numérique en Guadeloupe',
   description:
-    'De la scène esport pro à la médiation en SESSAD. Andy Zébus traduit les repères HAS, HCSP et CNAF en gestes concrets pour les familles et les équipes.',
+    'Six ans à organiser la scène esport guadeloupéenne, formé à la médiation numérique chez Simplon, Andy Zébus traduit les repères HAS, HCSP et CNAF en gestes concrets pour les familles et les équipes.',
 })
 
 defineOgImage('PxlcOg', {
   eyebrow: 'PXLC · À PROPOS',
-  title: 'Médiateur numérique, ancien joueur professionnel',
-  description: 'De la scène esport pro à la médiation en SESSAD : un parcours qui fait du jeu vidéo un objet de travail, pas un cliché à combattre.',
+  title: 'Médiateur numérique, organisateur esport guadeloupéen',
+  description: 'Six ans à monter la scène esport guadeloupéenne avant la médiation numérique en SESSAD : un parcours qui fait du jeu vidéo un objet de travail, pas un cliché à combattre.',
 })
 </script>
 
@@ -17,7 +17,7 @@ defineOgImage('PxlcOg', {
     <div class="container">
       <span class="eyebrow eyebrow--lg">À propos</span>
       <h1 class="about-title">
-        Médiateur numérique, ancien joueur professionnel<span class="coral-dot" aria-hidden="true">.</span>
+        Médiateur numérique, six ans dans l’esport guadeloupéen<span class="coral-dot" aria-hidden="true">.</span>
       </h1>
       <p class="lead about-lead">
         Andy Zébus accompagne depuis la Guadeloupe les familles, SESSAD, IME et associations pour faire des écrans un langage commun plutôt qu’un point de friction.
@@ -31,8 +31,8 @@ defineOgImage('PxlcOg', {
         </div>
         <div>
           <h3>Parcours</h3>
-          <p class="mt-3">De la scène esport pro à la médiation en SESSAD : un parcours qui fait du jeu vidéo un objet de travail, pas un cliché à combattre.</p>
-          <p class="mt-3">Formé aux référentiels HAS, HCSP et CNAF — je traduis les recommandations institutionnelles en gestes concrets pour les familles et les équipes.</p>
+          <p class="mt-3">Six ans à organiser la scène esport guadeloupéenne avec Esports Guadeloupe — tournois, communauté, partenariats — avant la médiation numérique en SESSAD. Un parcours qui fait du jeu vidéo un objet de travail, pas un cliché à combattre.</p>
+          <p class="mt-3">Formateur principal en médiation numérique chez Simplon Outre-Mer (2021–2022), formé aux référentiels HAS, HCSP et CNAF — je traduis les recommandations institutionnelles en gestes concrets pour les familles et les équipes.</p>
         </div>
       </div>
     </div>

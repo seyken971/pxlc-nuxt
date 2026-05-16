@@ -23,7 +23,7 @@ const methodSteps: MethodStep[] = [
 <template>
   <Hero
     title="Les écrans sont le reflet de <br/>la relation parent-enfant<span class='coral-dot' aria-hidden='true'>.</span>"
-    lead="Andy Zébus, médiateur numérique et ancien joueur professionnel, transforme le temps d’écran des enfants en levier de compréhension et de lien — avec les familles, les SESSAD et les structures sociales de Guadeloupe."
+    lead="Andy Zébus, médiateur numérique et organisateur de la scène esport guadeloupéenne pendant six ans, transforme le temps d’écran des enfants en levier de compréhension et de lien — avec les familles, les SESSAD et les structures sociales de l’archipel."
     :cta-primary="{ label: 'Je suis parent', href: '/ateliers' }"
     :cta-secondary="{ label: 'Je représente une structure', href: '/pour-les-structures' }"
     photo-src="/assets/img/photos/andy-event.jpg"
