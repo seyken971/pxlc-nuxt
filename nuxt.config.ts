@@ -10,6 +10,7 @@ export default defineNuxtConfig({
 
   modules: [
     "@nuxt/a11y",
+    "@nuxt/content",
     "@nuxt/fonts",
     "@nuxt/hints",
     "@nuxt/icon",
