@@ -12,15 +12,31 @@ defineOgImage('PxlcOg', {
 })
 
 const form = reactive({ name: '', structure: '', email: '', message: '' })
-const sending = ref(false)
 const sent = ref(false)
 
-const submit = async (event: Event) => {
+// GitHub Pages ne traite pas de POST — on construit un mailto: avec
+// les champs du formulaire et on ouvre le client mail de l'utilisateur.
+// Avantage : zéro service tiers, illimité, traçable côté Andy.
+// Inconvénient : nécessite un client mail configuré côté visiteur.
+// Le raccourci cal.eu au-dessus reste la voie principale ; ce form est
+// le fallback pour les structures qui préfèrent l'écrit.
+const submit = (event: Event) => {
   event.preventDefault()
-  sending.value = true
-  // Démo · à câbler avec un endpoint réel (Netlify Forms, Formspree, etc.).
-  await new Promise(r => setTimeout(r, 600))
-  sending.value = false
+  const lines = [
+    `Nom : ${form.name}`,
+    form.structure ? `Structure : ${form.structure}` : null,
+    `Email : ${form.email}`,
+    '',
+    'Message :',
+    form.message || '(vide)',
+  ].filter((l): l is string => l !== null)
+
+  const subject = `Contact PXLC — ${form.name}${form.structure ? ` (${form.structure})` : ''}`
+  const body = lines.join('\n')
+  const href = `mailto:contact@pxlc.fr?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+
+  // window.location pour ne pas garder un onglet vide ouvert
+  if (import.meta.client) window.location.href = href
   sent.value = true
 }
 </script>
@@ -98,10 +114,12 @@ const submit = async (event: Event) => {
             class="form-textarea"
           />
         </div>
-        <button type="submit" class="btn btn--primary btn--lg contact-submit" :disabled="sending || sent">
-          {{ sent ? 'Message envoyé' : sending ? 'Envoi…' : 'Envoyer le message' }}
+        <button type="submit" class="btn btn--primary btn--lg contact-submit">
+          Ouvrir mon client mail
         </button>
-        <p v-if="sent" class="contact-sent">Merci — je réponds en personne sous 48 h.</p>
+        <p v-if="sent" class="contact-sent">
+          Votre client mail s’est ouvert avec le message pré-rempli — il ne vous reste plus qu’à appuyer sur « envoyer ». Je réponds en personne sous 48 h.
+        </p>
       </form>
     </div>
   </section>
