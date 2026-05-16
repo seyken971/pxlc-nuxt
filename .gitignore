@@ -1,0 +1,34 @@
+# Nuxt dev/build outputs
+.output
+.data
+.nuxt
+.nitro
+.cache
+dist
+
+# Node dependencies
+node_modules
+
+# Logs
+logs
+*.log
+
+# Misc
+.DS_Store
+.fleet
+.idea
+
+# Local env files
+.env
+.env.*
+!.env.example
+
+# Local tool / agent state
+.claude
+.unlighthouse
+CLAUDE.md
+
+# Plaquette build artefacts (PDF lives in public/files/, previews are local)
+_plaquette/node_modules
+_plaquette/.previews
+_plaquette/*.log
