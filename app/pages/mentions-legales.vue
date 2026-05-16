@@ -36,7 +36,7 @@ const lastUpdated = computed(() =>
         <h2>Éditeur du site</h2>
         <p>
           <strong>Andy Zébus — Entrepreneur Individuel</strong><br>
-          Nom commercial : Pixels Caraïbes (PXLC)<br>
+          Nom commercial : PXLC (Pixels Caraïbes)<br>
           Adresse : 8 Résidence la familiale, rue Man Manigard Alfred, Dugazon — 97139 Les Abymes, Guadeloupe (FR)<br>
           SIRET : 813 793 528 00023<br>
           Code APE : 70.21Z — Conseil en relations publiques et communication<br>
