@@ -25,8 +25,20 @@ withDefaults(defineProps<Props>(), {
           </h2>
           <p class="cta-block__lead">{{ lead }}</p>
           <div class="cta-block__actions">
-            <a href="https://cal.eu/pxlc-gp" target="_blank" rel="noopener" class="btn btn--primary btn--lg">Réserver un échange</a>
-            <a href="#plaquette" class="btn btn--ghost btn--lg">Plaquette PDF</a>
+            <a
+              href="https://cal.eu/pxlc-gp"
+              target="_blank"
+              rel="noopener"
+              class="btn btn--primary btn--lg"
+              aria-label="Réserver un échange (nouvel onglet)"
+            >Réserver un échange</a>
+            <a
+              href="/files/plaquette-pxlc.pdf"
+              target="_blank"
+              rel="noopener"
+              class="btn btn--ghost btn--lg"
+              aria-label="Plaquette PDF, 12 pages (nouvel onglet)"
+            >Plaquette PDF</a>
           </div>
         </div>
 
