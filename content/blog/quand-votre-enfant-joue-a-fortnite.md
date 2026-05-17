@@ -39,6 +39,6 @@ Souvent, c'est la première fois depuis longtemps que ce genre de phrase circule
 
 ## Pour aller plus loin
 
-- HAS (2020), *Recommandations sur le soutien à la parentalité* — l'idée que les écrans sont un terrain d'accompagnement actif plutôt qu'un terrain d'interdit
-- HCSP (2019), *Effets de l'exposition aux écrans* — le rôle clé du cadre familial et des pratiques partagées
+- HCSP (2019), *Effets de l'exposition aux écrans* — le rôle clé du cadre familial et des pratiques partagées : [hcsp.fr/Explore.cgi/AvisRapportsDomaine?clefr=759](https://www.hcsp.fr/Explore.cgi/AvisRapportsDomaine?clefr=759)
+- HCSP (2020), *De l'usage excessif à la dépendance* — repères pour identifier et prévenir le basculement vers un usage problématique : [hcsp.fr/Explore.cgi/AvisRapportsDomaine?clefr=1074](https://www.hcsp.fr/Explore.cgi/AvisRapportsDomaine?clefr=1074)
 - Le projet « Jouons Ensemble! » au SESSAD Lékoklaya — où ces principes se déclinent en ateliers parent-enfant concrets

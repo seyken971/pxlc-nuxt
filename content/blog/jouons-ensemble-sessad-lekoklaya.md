@@ -67,7 +67,7 @@ Quatre indicateurs qualitatifs, renseignés tout au long du dispositif :
 3. **Conflits familiaux** — évolution des conflits liés aux écrans, rapportée en groupe de parole
 4. **Engagement** — assiduité aux ateliers sur la durée
 
-Pas de pourcentages garantis. Pas d'échelle Rosenberg. Les indicateurs sont qualitatifs et contextuels — alignés sur les recommandations HAS 2020 et HCSP 2019-2020.
+Pas de pourcentages garantis. Pas d'échelle Rosenberg. Les indicateurs sont qualitatifs et contextuels — alignés sur les rapports HCSP 2019-2020.
 
 ## Suite
 
