@@ -32,3 +32,12 @@
     </div>
   </section>
 </template>
+
+<style scoped>
+.image-with-badge { position: relative; }
+.image-with-badge .full-bleed-img { width: 100%; aspect-ratio: 16 / 10; border-radius: var(--radius-lg); overflow: hidden; }
+/* :deep() because <NuxtImg> renders the <img> outside the component's own
+   scope token, but the wrapper .full-bleed-img is scoped. */
+.image-with-badge .full-bleed-img :deep(img) { width: 100%; height: 100%; object-fit: cover; display: block; }
+.image-with-badge__tag { position: absolute; top: 16px; left: 16px; }
+</style>

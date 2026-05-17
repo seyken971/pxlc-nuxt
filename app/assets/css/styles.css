@@ -375,19 +375,7 @@ img { max-width: 100%; display: block; }
 .pixel-corner span.is-accent { background: var(--pxlc-coral); }
 .pixel-corner span.is-off    { background: transparent; }
 
-/* ── Partners ────────────────────────────────────────────── */
-.partners { background: var(--bg-soft); border-top: 1px solid var(--bg-rule); border-bottom: 1px solid var(--bg-rule); padding: 24px 0; }
-.partners__inner { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-5); justify-content: space-between; }
-.partners__label { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--quiet); }
-.partners__list { display: flex; flex-wrap: wrap; gap: clamp(16px, 3vw, 48px); align-items: center; list-style: none; padding: 0; margin: 0; }
-.partners__item {
-  display: flex; align-items: center; gap: var(--space-2);
-  font-family: var(--font-display); font-weight: 500; font-size: 15px;
-  /* No opacity multiplier — diluting --quiet by 15% pushed the
-     effective text below WCAG AA contrast on --bg-soft. */
-  color: var(--quiet);
-}
-.partners__item::before { content: ""; width: 10px; height: 10px; background: var(--rule); border-radius: 2px; }
+/* Partners — moved to <PartnerStrip> scoped style */
 
 /* ── Cards ───────────────────────────────────────────────── */
 .card {
@@ -422,21 +410,9 @@ img { max-width: 100%; display: block; }
 .badge--soft { background: rgba(0,210,200,.12); color: var(--pxlc-teal-deep); border: 0; }
 [data-theme="dark"] .badge--soft { background: rgba(0,210,200,.18); color: var(--pxlc-cyan); }
 
-/* ── Image with badge / case ─────────────────────────────── */
-.image-with-badge { position: relative; }
-.image-with-badge .full-bleed-img { width: 100%; aspect-ratio: 16 / 10; border-radius: var(--radius-lg); overflow: hidden; }
-.image-with-badge .full-bleed-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.image-with-badge__tag { position: absolute; top: 16px; left: 16px; }
+/* Image-with-badge — moved to <SessadCase> scoped style */
 
-/* ── Citation ────────────────────────────────────────────── */
-.citation { text-align: center; max-width: 880px; margin: 0 auto; }
-.citation__source { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--eyebrow); margin-bottom: var(--space-4); }
-.citation__quote {
-  margin: 0 0 16px; font-family: var(--font-display); font-weight: 500;
-  font-size: clamp(22px, 3vw, 30px); line-height: 1.25; letter-spacing: -0.015em; color: var(--ink);
-}
-.citation__quote .quotemark { color: var(--pxlc-coral); }
-.citation__attr { font-family: var(--font-body); font-size: 14px; letter-spacing: 0.04em; color: var(--quiet); }
+/* Citation — moved to <CitationBlock> scoped style */
 
 /* ── CTA block ───────────────────────────────────────────── */
 .cta-block {
@@ -521,16 +497,7 @@ img { max-width: 100%; display: block; }
 .site-footer__legal a:hover { color: var(--pxlc-cyan); }
 .site-footer__legal-links { display: flex; gap: var(--space-3); list-style: none; padding: 0; margin: 0; }
 
-/* ── Form inputs (contact) ───────────────────────────────── */
-.form-label { font-family: var(--font-body); font-size: 13px; font-weight: 600; color: var(--ink); display: block; margin-bottom: 6px; }
-.form-input, .form-textarea {
-  width: 100%; padding: 12px 14px; border-radius: var(--radius-md);
-  border: 1px solid var(--rule); background: var(--bg-elev); color: var(--ink);
-  font: inherit; font-size: 14px;
-}
-.form-textarea { resize: vertical; min-height: 120px; }
-.form-row { display: grid; gap: var(--space-3); grid-template-columns: 1fr; }
-@media (min-width: 600px) { .form-row { grid-template-columns: 1fr 1fr; } }
+/* Form inputs — moved to /contact scoped style */
 
 /* ── Utility helpers ─────────────────────────────────────── */
 /* Spacing utilities map straight to the 8 px rhythm tokens. */

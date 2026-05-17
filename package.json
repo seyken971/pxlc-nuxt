@@ -11,7 +11,8 @@
     "postbuild": "node scripts/prune-public.mjs",
     "postgenerate": "node scripts/prune-public.mjs",
     "a11y": "node scripts/a11y-audit.mjs",
-    "a11y:runtime": "node scripts/a11y-runtime.mjs"
+    "a11y:runtime": "node scripts/a11y-runtime.mjs",
+    "lighthouse": "node scripts/lighthouse-audit.mjs"
   },
   "dependencies": {
     "@nuxt/content": "^3.13.0",
@@ -29,7 +30,9 @@
   "devDependencies": {
     "@axe-core/playwright": "^4.11.3",
     "axe-core": "^4.11.4",
+    "chrome-launcher": "^1.2.1",
     "jsdom": "^29.1.1",
+    "lighthouse": "^13.3.0",
     "playwright": "^1.60.0"
   }
 }
