@@ -20,8 +20,48 @@ const { data: posts } = await useAsyncData('blog-index', () =>
     .all(),
 )
 
+// Type this page as CollectionPage and reference each article in hasPart
+// so Google understands the blog index as the parent of its posts.
+useSchemaOrg([
+  defineWebPage({
+    '@type': ['WebPage', 'CollectionPage'],
+    name: 'Le journal PXLC',
+    description: 'Décryptages, repères et retours de terrain sur la médiation numérique parent-écran-enfant en Guadeloupe.',
+    hasPart: (posts.value || []).map(p => ({
+      '@type': 'BlogPosting',
+      '@id': `https://pxlc.fr${p.path}#article`,
+      headline: p.title,
+      url: `https://pxlc.fr${p.path}`,
+    })),
+  }),
+])
+
+// Categories distillées depuis les articles existants — pas de filtre si
+// un seul est présent (anti-clutter).
+const categories = computed(() => {
+  const set = new Set<string>()
+  ;(posts.value || []).forEach(p => p.category && set.add(p.category))
+  return Array.from(set).sort()
+})
+
+const activeCategory = ref<string | null>(null)
+const filteredPosts = computed(() => {
+  const all = posts.value || []
+  if (!activeCategory.value) return all
+  return all.filter(p => p.category === activeCategory.value)
+})
+
 const fmtDate = (iso: string) =>
   new Intl.DateTimeFormat('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' }).format(new Date(iso))
+
+// Map a category to a thumbnail pattern modifier so cards aren't visually
+// identical. Falls back to "default" if a new unknown category appears.
+const thumbModifier = (category?: string): string => {
+  if (!category) return 'default'
+  const slug = category.toLowerCase().replace(/[^a-z0-9]+/g, '-')
+  if (['parents', 'cas-pratique', 'decryptage'].includes(slug)) return slug
+  return 'default'
+}
 </script>
 
 <template>
@@ -35,27 +75,52 @@ const fmtDate = (iso: string) =>
         Ce que les écrans des enfants nous apprennent — sur eux, sur nous, sur le lien.
       </p>
 
-      <div v-if="posts && posts.length" class="grid grid--3 mt-6">
+      <div v-if="categories.length > 1" class="blog-filters" role="group" aria-label="Filtrer par catégorie">
+        <button
+          type="button"
+          class="blog-filters__chip"
+          :class="{ 'is-active': activeCategory === null }"
+          :aria-pressed="activeCategory === null"
+          @click="activeCategory = null"
+        >Tous</button>
+        <button
+          v-for="c in categories"
+          :key="c"
+          type="button"
+          class="blog-filters__chip"
+          :class="{ 'is-active': activeCategory === c }"
+          :aria-pressed="activeCategory === c"
+          @click="activeCategory = c"
+        >{{ c }}</button>
+      </div>
+
+      <div v-if="filteredPosts.length" class="grid grid--3 mt-6">
         <NuxtLink
-          v-for="p in posts"
+          v-for="p in filteredPosts"
           :key="p.path"
           :to="p.path"
           class="card card--hover blog-card"
         >
-          <div class="blog-card__thumb" aria-hidden="true" />
+          <div
+            class="blog-card__thumb"
+            :class="`blog-card__thumb--${thumbModifier(p.category)}`"
+            aria-hidden="true"
+          />
           <div class="blog-card__body">
             <span class="badge">{{ p.category }}</span>
-            <h3 class="blog-card__title">{{ p.title }}</h3>
+            <h2 class="blog-card__title">{{ p.title }}</h2>
             <p v-if="p.description" class="blog-card__excerpt">{{ p.description }}</p>
             <div class="blog-card__meta">
-              <span>{{ fmtDate(p.date) }}</span>
+              <time :datetime="p.date">{{ fmtDate(p.date) }}</time>
               <span v-if="p.readingTime">· {{ p.readingTime }}</span>
             </div>
           </div>
         </NuxtLink>
       </div>
 
-      <p v-else class="lead mt-6">Aucun article publié pour le moment.</p>
+      <p v-else class="lead mt-6">
+        Aucun article dans la catégorie « {{ activeCategory }} » pour le moment.
+      </p>
     </div>
   </section>
 </template>
@@ -64,17 +129,61 @@ const fmtDate = (iso: string) =>
 .blog-title { font-size: clamp(38px, 6vw, 64px); letter-spacing: -0.025em; line-height: 1.05; margin-bottom: 24px; }
 .blog-lead { max-width: 640px; margin-bottom: 32px; }
 
+.blog-filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+.blog-filters__chip {
+  font-family: var(--font-body); font-size: 13px; font-weight: 500;
+  padding: 8px 14px; border-radius: 999px;
+  background: transparent; color: var(--ink-quiet);
+  border: 1px solid var(--rule); cursor: pointer;
+  transition: color 120ms, border-color 120ms, background 120ms;
+}
+.blog-filters__chip:hover {
+  color: var(--ink); border-color: var(--ink); background: var(--bg-soft);
+}
+.blog-filters__chip.is-active {
+  color: var(--pxlc-text-ink); background: var(--pxlc-coral); border-color: var(--pxlc-coral);
+}
+.blog-filters__chip:focus-visible {
+  outline: 3px solid var(--pxlc-coral); outline-offset: 2px;
+}
+
 .blog-card {
   padding: 0; overflow: hidden; display: flex; flex-direction: column;
   min-height: 360px; text-decoration: none; color: inherit;
 }
 .blog-card:hover { text-decoration: none; }
+/* Each category gets its own thumbnail pattern so the index is not a
+   wall of identical cards. Light/dark variants follow the brand. */
 .blog-card__thumb {
   aspect-ratio: 16 / 9;
   background-image: repeating-linear-gradient(135deg, #d6cebd 0 6px, #cdc4b0 6px 12px);
 }
-[data-theme="dark"] .blog-card__thumb {
+.blog-card__thumb--parents {
+  background-image: radial-gradient(circle at 1px 1px, #d6cebd 1px, transparent 1.5px);
+  background-size: 16px 16px; background-color: #ebe6da;
+}
+.blog-card__thumb--cas-pratique {
+  background-image: repeating-linear-gradient(135deg, #d6cebd 0 6px, #cdc4b0 6px 12px);
+}
+.blog-card__thumb--decryptage {
+  background-image:
+    linear-gradient(45deg, #d6cebd 25%, transparent 25%),
+    linear-gradient(-45deg, #d6cebd 25%, transparent 25%);
+  background-size: 18px 18px; background-color: #ebe6da;
+}
+[data-theme="dark"] .blog-card__thumb { background-image: repeating-linear-gradient(135deg, #103847 0 6px, #1F4A59 6px 12px); }
+[data-theme="dark"] .blog-card__thumb--parents {
+  background-image: radial-gradient(circle at 1px 1px, #1F4A59 1px, transparent 1.5px);
+  background-size: 16px 16px; background-color: #0C3340;
+}
+[data-theme="dark"] .blog-card__thumb--cas-pratique {
   background-image: repeating-linear-gradient(135deg, #103847 0 6px, #1F4A59 6px 12px);
+}
+[data-theme="dark"] .blog-card__thumb--decryptage {
+  background-image:
+    linear-gradient(45deg, #1F4A59 25%, transparent 25%),
+    linear-gradient(-45deg, #1F4A59 25%, transparent 25%);
+  background-size: 18px 18px; background-color: #0C3340;
 }
 .blog-card__body { padding: 24px 24px 32px; display: flex; flex-direction: column; gap: 12px; flex: 1; }
 .blog-card__title { font-size: 18px; line-height: 1.25; letter-spacing: -0.01em; color: var(--ink); }

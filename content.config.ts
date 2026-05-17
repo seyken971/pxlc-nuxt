@@ -13,7 +13,13 @@ export default defineContentConfig({
         title: z.string(),
         description: z.string(),
         date: z.string(), // format YYYY-MM-DD
+        // Optional last-modified date — when set, drives the article's
+        // dateModified in the BlogPosting schema (vs date which stays
+        // datePublished). Format YYYY-MM-DD.
+        updated: z.string().optional(),
         category: z.string(),
+        // Optional manual override; if absent, the page computes one from
+        // the body text via useReadingTime().
         readingTime: z.string().optional(),
         cover: z.string().optional(),
         coverAlt: z.string().optional(),
