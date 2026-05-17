@@ -144,21 +144,33 @@ img { max-width: 100%; display: block; }
 /* ── Header ──────────────────────────────────────────────── */
 .site-header {
   position: sticky; top: 0; z-index: 50;
-  background: rgba(234, 246, 244, 0.92);
+  background: var(--bg-glass);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--rule);
-  transition: background 200ms, border-color 200ms;
+  transition: background var(--dur-base), border-color var(--dur-base),
+              box-shadow var(--dur-base), padding var(--dur-base);
 }
-[data-theme="dark"] .site-header { background: rgba(8, 43, 54, 0.92); border-bottom-color: var(--pxlc-border-dark); }
+[data-theme="dark"] .site-header { border-bottom-color: var(--pxlc-border-dark); }
+/* Scrolled state: collapses padding slightly and replaces the hairline rule
+   with a soft elevation shadow — signals "you've left the page top". */
+.site-header.is-scrolled { border-bottom-color: transparent; box-shadow: 0 2px 14px -6px rgba(8,43,54,.14); }
+[data-theme="dark"] .site-header.is-scrolled { box-shadow: 0 2px 14px -6px rgba(0,0,0,.45); }
 .site-header__inner {
   display: flex; align-items: center; justify-content: space-between;
   padding: 16px 0; gap: 16px;
+  transition: padding var(--dur-base);
 }
 @media (min-width: 768px) { .site-header__inner { padding: 18px 0; } }
+.site-header.is-scrolled .site-header__inner { padding: 10px 0; }
+@media (min-width: 768px) { .site-header.is-scrolled .site-header__inner { padding: 12px 0; } }
 .site-header__right { display: flex; align-items: center; gap: 12px; }
-.site-header__cta { display: none; }
+.site-header__cta { display: none; transition: opacity var(--dur-base), transform var(--dur-base); }
 @media (min-width: 768px) { .site-header__cta { display: inline-flex; padding: 13px 18px; font-size: 14px; min-height: 44px; } }
+.site-header__cta--hidden { opacity: 0; transform: translateY(-4px); pointer-events: none; }
+@media (prefers-reduced-motion: reduce) {
+  .site-header, .site-header__inner, .site-header__cta { transition: none; }
+}
 
 .lockup { display: inline-flex; align-items: center; gap: 12px; color: var(--ink); text-decoration: none; }
 .lockup:hover { text-decoration: none; }
