@@ -62,22 +62,22 @@ const fmtDate = (iso: string) =>
 </template>
 
 <style scoped>
-.blog-related { margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--rule); }
+.blog-related { margin-top: var(--space-6); padding-top: var(--space-5); border-top: 1px solid var(--rule); }
 .blog-related__title {
   font-size: clamp(20px, 2.4vw, 24px);
-  letter-spacing: -0.015em; margin-bottom: 24px;
+  letter-spacing: -0.015em; margin-bottom: var(--space-4);
 }
 .blog-related__list {
   list-style: none; padding: 0; margin: 0;
-  display: grid; gap: 16px; grid-template-columns: 1fr;
+  display: grid; gap: var(--space-3); grid-template-columns: 1fr;
 }
 @media (min-width: 768px) { .blog-related__list { grid-template-columns: repeat(3, 1fr); } }
 .blog-related__item { display: flex; }
 .blog-related__link {
-  display: flex; flex-direction: column; gap: 8px;
+  display: flex; flex-direction: column; gap: var(--space-2);
   padding: 20px; width: 100%;
-  background: var(--bg-elev); border: 1px solid var(--rule); border-radius: 10px;
-  color: inherit; transition: border-color 120ms, transform 120ms;
+  background: var(--bg-elev); border: 1px solid var(--rule); border-radius: var(--radius-md);
+  color: inherit; transition: border-color var(--dur-fast), transform var(--dur-fast);
 }
 .blog-related__link:hover {
   border-color: var(--pxlc-coral); text-decoration: none;

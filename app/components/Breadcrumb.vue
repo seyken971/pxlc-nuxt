@@ -39,18 +39,18 @@ useSchemaOrg([
 </template>
 
 <style scoped>
-.breadcrumb { margin-bottom: 24px; }
+.breadcrumb { margin-bottom: var(--space-4); }
 .breadcrumb__list {
-  display: flex; flex-wrap: wrap; gap: 8px;
+  display: flex; flex-wrap: wrap; gap: var(--space-2);
   list-style: none; padding: 0; margin: 0;
   font-family: var(--font-mono); font-size: 11px;
   letter-spacing: 0.18em; text-transform: uppercase;
   color: var(--quiet);
 }
 .breadcrumb__item:not(:last-child)::after {
-  content: "/"; margin-left: 8px; color: var(--quiet);
+  content: "/"; margin-left: var(--space-2); color: var(--quiet);
 }
-.breadcrumb__link { color: var(--teal-deep); transition: color 120ms; }
+.breadcrumb__link { color: var(--teal-deep); transition: color var(--dur-fast); }
 .breadcrumb__link:hover { color: var(--pxlc-coral); text-decoration: none; }
 [data-theme="dark"] .breadcrumb__link { color: var(--cyan); }
 .breadcrumb__current { color: var(--ink); font-weight: 600; }

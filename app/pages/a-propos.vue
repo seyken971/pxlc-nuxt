@@ -197,20 +197,20 @@ const formations = [
 </template>
 
 <style scoped>
-.about-title { font-size: clamp(38px, 6vw, 64px); letter-spacing: -0.025em; line-height: 1.05; max-width: 760px; margin-bottom: 24px; }
-.about-lead { max-width: 640px; margin-bottom: 32px; }
+.about-title { font-size: clamp(38px, 6vw, 64px); letter-spacing: -0.025em; line-height: 1.05; max-width: 760px; margin-bottom: var(--space-4); }
+.about-lead { max-width: 640px; margin-bottom: var(--space-5); }
 .about-grid { align-items: flex-start; }
 /* Portrait is natively 1:1 — using aspect-ratio: 1/1 instead of 4/5 to
    stop cropping ~25% of the photo. */
 .about-portrait {
-  aspect-ratio: 1 / 1; border-radius: 14px; overflow: hidden; max-width: 420px;
+  aspect-ratio: 1 / 1; border-radius: var(--radius-lg); overflow: hidden; max-width: 420px;
 }
 .about-portrait :deep(img) { width: 100%; height: 100%; object-fit: cover; display: block; }
 .about-h2 { font-size: clamp(22px, 2.5vw, 26px); letter-spacing: -0.015em; }
 .about-actions { display: flex; flex-wrap: wrap; gap: 12px; }
 
-.formations { list-style: none; padding: 0; margin: 16px 0 0; display: grid; gap: 16px; }
-.formation { display: grid; gap: 4px 16px; grid-template-columns: 1fr; padding-bottom: 16px; border-bottom: 1px dashed var(--rule); }
+.formations { list-style: none; padding: 0; margin: 16px 0 0; display: grid; gap: var(--space-3); }
+.formation { display: grid; gap: 4px 16px; grid-template-columns: 1fr; padding-bottom: var(--space-3); border-bottom: 1px dashed var(--rule); }
 .formation:last-child { border-bottom: 0; padding-bottom: 0; }
 @media (min-width: 600px) { .formation { grid-template-columns: 110px 1fr; } }
 .formation__years {
@@ -221,5 +221,5 @@ const formations = [
 .formation__body { display: flex; flex-direction: column; gap: 2px; }
 .formation__title { color: var(--ink); font-weight: 600; }
 .formation__spec { color: var(--ink-quiet); font-size: 14.5px; }
-.formation__school { color: var(--quiet); font-size: 13.5px; margin-top: 4px; }
+.formation__school { color: var(--quiet); font-size: 13.5px; margin-top: var(--space-1); }
 </style>

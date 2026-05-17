@@ -191,18 +191,18 @@ const whatsappHref = `https://wa.me/590690717618?text=${encodeURIComponent('Bonj
 
 <style scoped>
 .contact-container { max-width: 820px; }
-.contact-title { font-size: clamp(38px, 6vw, 64px); letter-spacing: -0.025em; line-height: 1.05; margin-bottom: 24px; }
-.contact-lead { margin-bottom: 32px; }
+.contact-title { font-size: clamp(38px, 6vw, 64px); letter-spacing: -0.025em; line-height: 1.05; margin-bottom: var(--space-4); }
+.contact-lead { margin-bottom: var(--space-5); }
 
 .contact-quick {
-  display: grid; gap: 24px;
+  display: grid; gap: var(--space-4);
   grid-template-columns: 1fr;
   align-items: center;
   background: var(--bg-soft);
   border: 1px solid var(--bg-rule);
-  border-radius: 14px;
-  padding: 24px;
-  margin-bottom: 32px;
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+  margin-bottom: var(--space-5);
 }
 @media (min-width: 720px) { .contact-quick { grid-template-columns: 1fr auto; } }
 .contact-quick__head { display: flex; flex-direction: column; gap: 6px; }
@@ -219,7 +219,7 @@ const whatsappHref = `https://wa.me/590690717618?text=${encodeURIComponent('Bonj
    the previous .contact-divider but it's now an actual <h2>, so screen
    readers and keyboard users land on it instead of an unlabelled chunk. */
 .contact-divider {
-  display: flex; align-items: center; gap: 16px;
+  display: flex; align-items: center; gap: var(--space-3);
   margin: 32px 0;
   color: var(--quiet);
   font-family: var(--font-mono); font-size: 11px; font-weight: 600;
@@ -230,7 +230,7 @@ const whatsappHref = `https://wa.me/590690717618?text=${encodeURIComponent('Bonj
   content: ""; flex: 1; height: 1px; background: var(--rule);
 }
 
-.contact-form { display: grid; gap: 16px; }
+.contact-form { display: grid; gap: var(--space-3); }
 .contact-form__required-note {
   font-size: 13px;
   color: var(--quiet);
@@ -252,10 +252,10 @@ const whatsappHref = `https://wa.me/590690717618?text=${encodeURIComponent('Bonj
 .contact-sent {
   color: var(--teal-deep);
   font-weight: 600;
-  padding: 16px;
+  padding: var(--space-3);
   background: var(--bg-soft);
   border-left: 3px solid var(--pxlc-coral);
-  border-radius: 4px;
+  border-radius: var(--radius-sm);
   margin: 0;
 }
 .contact-sent:focus-visible { outline: 3px solid var(--pxlc-coral); outline-offset: 2px; }

@@ -364,12 +364,12 @@ useSchemaOrg(
 </template>
 
 <style scoped>
-.structures-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; align-items: center; }
-.facts-card { background: var(--bg-elev); border: 1px solid var(--rule); border-radius: 14px; padding: 24px; }
-.facts-list { display: grid; gap: 16px; list-style: none; padding: 0; margin: 0; }
+.structures-badges { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-bottom: var(--space-4); align-items: center; }
+.facts-card { background: var(--bg-elev); border: 1px solid var(--rule); border-radius: var(--radius-lg); padding: var(--space-4); }
+.facts-list { display: grid; gap: var(--space-3); list-style: none; padding: 0; margin: 0; }
 .facts-list li {
-  display: flex; justify-content: space-between; gap: 16px;
-  padding-bottom: 16px; border-bottom: 1px dashed var(--rule);
+  display: flex; justify-content: space-between; gap: var(--space-3);
+  padding-bottom: var(--space-3); border-bottom: 1px dashed var(--rule);
 }
 .facts-list li:last-child { border-bottom: 0; padding-bottom: 0; }
 .facts-list__value {
@@ -380,16 +380,16 @@ useSchemaOrg(
 .process-grid { align-items: stretch; }
 
 .framework-tag {
-  display: inline-flex; align-items: center; gap: 8px;
+  display: inline-flex; align-items: center; gap: var(--space-2);
   background: var(--bg); border: 1px solid var(--rule);
-  padding: 6px 12px; border-radius: 6px; margin-bottom: 16px;
+  padding: 6px 12px; border-radius: 6px; margin-bottom: var(--space-3);
 }
 .framework-tag__dot { width: 8px; height: 8px; background: var(--pxlc-coral); border-radius: 2px; }
 .framework-tag__label { color: var(--ink); }
-.framework-title { font-size: 20px; margin-bottom: 8px; }
+.framework-title { font-size: 20px; margin-bottom: var(--space-2); }
 .framework-desc { font-size: 14.5px; line-height: 1.6; }
 .framework-meta { display: block; }
-.framework-meta--link { color: var(--teal-deep); transition: color 120ms; }
+.framework-meta--link { color: var(--teal-deep); transition: color var(--dur-fast); }
 .framework-meta--link:hover { color: var(--pxlc-coral); text-decoration: none; }
 [data-theme="dark"] .framework-meta--link { color: var(--cyan); }
 
@@ -415,19 +415,19 @@ useSchemaOrg(
 
 .faq { display: grid; gap: 12px; max-width: 820px; margin: 0 auto; }
 .faq__item {
-  border: 1px solid var(--rule); border-radius: 10px;
+  border: 1px solid var(--rule); border-radius: var(--radius-md);
   background: var(--bg-elev); padding: 16px 20px;
-  transition: border-color 120ms;
+  transition: border-color var(--dur-fast);
 }
 .faq__item[open] { border-color: var(--pxlc-coral); }
 .faq__q {
   font-family: var(--font-display); font-weight: 600; font-size: 16px;
   color: var(--ink); cursor: pointer; list-style: none;
-  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  display: flex; align-items: center; justify-content: space-between; gap: var(--space-3);
 }
 .faq__q::after {
   content: "+"; font-family: var(--font-mono); font-weight: 400;
-  color: var(--pxlc-coral); font-size: 22px; transition: transform 200ms;
+  color: var(--pxlc-coral); font-size: 22px; transition: transform var(--dur-base);
 }
 .faq__item[open] .faq__q::after { content: "−"; }
 .faq__q::-webkit-details-marker { display: none; }
@@ -437,7 +437,7 @@ useSchemaOrg(
 
 .structures-final-cta {
   text-align: center; max-width: 720px; margin: 0 auto;
-  padding: clamp(40px, 6vw, 64px); border-radius: 14px;
+  padding: clamp(40px, 6vw, 64px); border-radius: var(--radius-lg);
   background: var(--bg-soft); border: 1px solid var(--bg-rule);
 }
 .structures-final-cta__title { font-size: clamp(30px, 4vw, 40px); letter-spacing: -0.025em; }
