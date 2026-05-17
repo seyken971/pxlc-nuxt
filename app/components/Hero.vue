@@ -86,6 +86,7 @@ const props = withDefaults(defineProps<Props>(), {
               :alt="props.photoAlt || ''"
               :width="props.photoWidth"
               :height="props.photoHeight"
+              format="webp"
               loading="eager"
               fetchpriority="high"
             />

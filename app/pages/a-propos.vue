@@ -134,6 +134,7 @@ const formations = [
             alt="Portrait d’Andy Zébus, gamer médiateur-numérique en Guadeloupe"
             width="738"
             height="738"
+            format="webp"
             loading="eager"
             fetchpriority="high"
           />
