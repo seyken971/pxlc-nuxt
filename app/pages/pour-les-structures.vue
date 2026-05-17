@@ -26,11 +26,7 @@ const frameworks = [
   { key: 'HCSP', year: '2020', title: 'De l’usage excessif à la dépendance', desc: 'Seconde partie du rapport — repères pour identifier et prévenir le basculement vers un usage problématique. Calibration des indicateurs PXLC.' },
 ]
 
-const themes = [
-  { title: 'Coopération', desc: 'Jeux choisis pour valoriser l’entraide et la stratégie partagée. Pont avec un jeu traditionnel + un conte sur le même thème.' },
-  { title: 'Émotions & récits', desc: 'Renforcement des fonctions exécutives (planification, inhibition, prise de décision) via des jeux narratifs.' },
-  { title: 'Différence & complémentarité', desc: 'Faire de la différence parent-enfant un levier d’alliance plutôt qu’une source de tension.' },
-]
+const { themes } = useProjectThemes()
 
 const team = [
   { role: 'Psychologue', detail: 'porteur du projet, cadrage clinique, entretien initial, bilan' },
@@ -88,7 +84,7 @@ const team = [
         <article v-for="t in themes" :key="t.title" class="card">
           <span class="kicker">Thème</span>
           <h3 class="mt-3 theme-title">{{ t.title }}</h3>
-          <p class="mt-3 theme-desc">{{ t.desc }}</p>
+          <p class="mt-3 theme-desc">{{ t.long }}</p>
         </article>
       </div>
     </div>

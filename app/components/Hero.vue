@@ -11,19 +11,26 @@ interface Props {
   hint?: string | null
   photoSrc?: string
   photoAlt?: string
+  /** Natural width of the photo, in px. Required when photoSrc is set so
+   *  the browser reserves layout space and avoids CLS. */
+  photoWidth?: number
+  /** Natural height of the photo, in px. Same rationale as photoWidth. */
+  photoHeight?: number
   pill?: Pill | null
   showBgMark?: boolean
 }
 const props = withDefaults(defineProps<Props>(), {
-  eyebrow: 'PXLC · Pointe-à-Pitre · Guadeloupe',
-  ctaPrimary: () => ({ label: 'Je suis parent', href: '/ateliers' }),
-  ctaSecondary: () => ({ label: 'Je représente une structure', href: '/pour-les-structures' }),
-  hint: '↘ choisissez votre parcours',
-  showBgMark: true,
-  pill: null,
+  eyebrow: 'PXLC · Guadeloupe · 971',
   lead: '',
+  ctaPrimary: null,
+  ctaSecondary: null,
+  hint: null,
   photoSrc: '',
   photoAlt: '',
+  photoWidth: undefined,
+  photoHeight: undefined,
+  pill: null,
+  showBgMark: true,
 })
 </script>
 
@@ -51,6 +58,7 @@ const props = withDefaults(defineProps<Props>(), {
               target="_blank"
               rel="noopener"
               class="btn btn--primary btn--lg"
+              :aria-label="`${props.ctaPrimary.label} (nouvel onglet)`"
             >{{ props.ctaPrimary.label }}</a>
 
             <NuxtLink
@@ -64,6 +72,7 @@ const props = withDefaults(defineProps<Props>(), {
               target="_blank"
               rel="noopener"
               class="btn btn--secondary btn--lg btn--no-arrow"
+              :aria-label="`${props.ctaSecondary.label} (nouvel onglet)`"
             >{{ props.ctaSecondary.label }}</a>
 
             <span v-if="props.hint" class="hero__hint">{{ props.hint }}</span>
@@ -72,7 +81,14 @@ const props = withDefaults(defineProps<Props>(), {
 
         <div v-if="props.photoSrc" class="hero__media">
           <div class="hero__media-img">
-            <NuxtImg :src="props.photoSrc" :alt="props.photoAlt || ''" loading="lazy" />
+            <NuxtImg
+              :src="props.photoSrc"
+              :alt="props.photoAlt || ''"
+              :width="props.photoWidth"
+              :height="props.photoHeight"
+              loading="eager"
+              fetchpriority="high"
+            />
           </div>
           <div v-if="props.pill" class="hero__pill">
             <div class="hero__pill-eyebrow">{{ props.pill.eyebrow }}</div>
@@ -83,3 +99,10 @@ const props = withDefaults(defineProps<Props>(), {
     </div>
   </section>
 </template>
+
+<style scoped>
+/* Let the browser balance line breaks responsively instead of relying on
+   hard <br/>s in the title prop. balance is the right call for short
+   marketing headings; pretty would be for paragraphs. */
+.hero__title { text-wrap: balance; }
+</style>

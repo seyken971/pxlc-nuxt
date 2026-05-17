@@ -1,23 +1,7 @@
 <script setup lang="ts">
-// Les 3 thèmes d'atelier du projet « Jouons Ensemble! » (SESSAD Lékoklaya, 2026)
-// — source : _plaquette/PROJET PARENTS – ECRAN – ENFANT.md
-const themes = [
-  {
-    num: '01',
-    title: 'Coopération',
-    desc: 'Jeux choisis avec le médiateur numérique pour valoriser l’entraide et la stratégie partagée. Les intervenants culturels proposent en parallèle un jeu traditionnel et un conte sur la coopération.',
-  },
-  {
-    num: '02',
-    title: 'Émotions & récits',
-    desc: 'Travail sur les fonctions exécutives (planification, inhibition, prise de décision) à travers des jeux narratifs. Le temps d’échange verbal explore ce que l’enfant a ressenti, nommé, partagé pendant la séance.',
-  },
-  {
-    num: '03',
-    title: 'Différence & complémentarité',
-    desc: 'Comprendre comment chaque membre du binôme parent-enfant joue, observe, contribue — et faire de cette différence un levier d’alliance plutôt qu’une source de tension.',
-  },
-]
+// Long-form descriptions live in /pour-les-structures; the home overview
+// uses the short pitch from useProjectThemes() to stay in sync.
+const { themes } = useProjectThemes()
 </script>
 
 <template>
@@ -35,7 +19,7 @@ const themes = [
           <div class="card__pixel"><PixelCorner /></div>
           <div class="card__step-num">THÈME {{ t.num }}</div>
           <h3>{{ t.title }}</h3>
-          <p>{{ t.desc }}</p>
+          <p>{{ t.short }}</p>
         </article>
       </div>
     </div>
