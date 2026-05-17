@@ -1,6 +1,13 @@
 {
-  "name": "PXLC - Médiation numérique pour les familles en Guadeloupe",
+  "name": "PXLC — Pixels Caraïbes",
   "short_name": "PXLC",
+  "description": "Médiation numérique en Guadeloupe — ateliers Parent-Écran-Enfant pour SESSAD, IME, associations et collectivités.",
+  "lang": "fr-FR",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#EAF6F4",
+  "theme_color": "#EAF6F4",
   "icons": [
     {
       "src": "/icon-192x192.png",
@@ -14,8 +21,5 @@
       "type": "image/png",
       "purpose": "maskable"
     }
-  ],
-  "theme_color": "#ffffff",
-  "background_color": "#ffffff",
-  "display": "standalone"
+  ]
 }

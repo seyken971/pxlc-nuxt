@@ -133,27 +133,25 @@ export default defineNuxtConfig({
         { content: "#082B36", media: "(prefers-color-scheme: dark)" },
         { content: "#EAF6F4", media: "(prefers-color-scheme: light)" },
       ],
+      // Default description — only used as fallback when a page doesn't
+      // call useSeoMeta({ description }). @nuxtjs/seo's inferSeoMeta
+      // plugin then propagates the page-level value to ogDescription and
+      // twitterDescription automatically.
       description:
         "PXLC accompagne les familles et structures sociales de Guadeloupe avec des ateliers Parent–Écran–Enfant.",
       author: "Andy Zébus",
       colorScheme: "dark light",
-      twitterTitle:
-        "PXLC | Médiation numérique pour les familles en Guadeloupe",
       twitterCreator: "@seyken971",
       ogSiteName: "PXLC",
       ogLocale: "fr_FR",
       ogType: "website",
-      ogUrl: "https://pxlc.fr",
-      ogTitle: "PXLC - Médiation numérique pour les familles en Guadeloupe",
       robots:
         "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
-      ogDescription:
-        "PXLC - Médiation numérique pour les familles en Guadeloupe",
-      // Social Media
-      //twitterSite: "@mysite",
-
-      // App Info
-      //applicationName: "My App",
+      // NB: do NOT set ogTitle / ogDescription / twitterTitle / ogUrl here.
+      // When global defaults exist for those, they override the per-page
+      // values inferred from useSeoMeta({ title, description }) — meaning
+      // every page would share the same social preview. Let inference do
+      // its job; pages can still call useSeoMeta to customize.
     },
   },
 

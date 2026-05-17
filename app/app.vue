@@ -2,8 +2,10 @@
 // Head config — recommended Nuxt 4 pattern is to own this in app.vue
 // rather than nuxt.config.ts so it stays reactive and colocated with
 // the app's runtime concerns (theme anti-flash, etc.).
+// `htmlAttrs.lang` is driven by `site.defaultLocale` in nuxt.config.ts
+// (currently "fr_FR" → emitted as lang="fr-FR"). Setting it here too
+// would duplicate the source of truth and risk drift.
 useHead({
-  htmlAttrs: { lang: "fr" },
   link: [
     { rel: "icon", type: "image/svg+xml", href: "/assets/img/favicon.svg" },
     { rel: "icon", type: "image/png", sizes: "32x32", href: "/icon-32x32.png" },

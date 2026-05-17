@@ -10,6 +10,39 @@ defineOgImage('PxlcOg', {
   title: 'Médiateur numérique, organisateur esport guadeloupéen',
   description: 'Six ans à monter la scène esport guadeloupéenne avant la médiation numérique en SESSAD : un parcours qui fait du jeu vidéo un objet de travail, pas un cliché à combattre.',
 })
+
+// Type this page as AboutPage and surface Andy as a Person entity with
+// his credentials. The LocalBusiness identity in nuxt.config.ts is the
+// publisher; here Andy is the *mainEntity* of the page.
+useSchemaOrg([
+  defineWebPage({
+    '@type': 'AboutPage',
+    name: 'À propos d’Andy Zébus',
+    about: { '@id': 'https://pxlc.fr/#andy' },
+  }),
+  definePerson({
+    '@id': 'https://pxlc.fr/#andy',
+    name: 'Andy Zébus',
+    jobTitle: 'Gamer médiateur-numérique',
+    description: 'Médiateur numérique en Guadeloupe, organisateur esport, formé aux référentiels HAS 2020 et HCSP 2019-2020.',
+    image: 'https://pxlc.fr/assets/img/photos/andy-portrait.jpg',
+    url: 'https://pxlc.fr/a-propos',
+    worksFor: { '@id': 'https://pxlc.fr/#identity' },
+    alumniOf: {
+      '@type': 'CollegeOrUniversity',
+      name: 'Université des Antilles',
+      alternateName: 'Université des Antilles et de la Guyane',
+      url: 'https://www.univ-antilles.fr/',
+    },
+    sameAs: [
+      'https://www.linkedin.com/in/azebus',
+      'https://www.github.com/seyken971',
+      'https://www.instagram.com/seyken971',
+      'https://www.twitter.com/seyken971',
+      'https://bsky.app/profile/seyken.pxlc.fr',
+    ],
+  }),
+])
 </script>
 
 <template>
@@ -26,7 +59,11 @@ defineOgImage('PxlcOg', {
         <div class="full-bleed-img about-portrait">
           <NuxtImg
             src="/assets/img/photos/andy-portrait.jpg"
-            alt="Portrait Andy Zébus"
+            alt="Portrait d’Andy Zébus, gamer médiateur-numérique en Guadeloupe"
+            width="738"
+            height="738"
+            loading="eager"
+            fetchpriority="high"
           />
         </div>
         <div>
