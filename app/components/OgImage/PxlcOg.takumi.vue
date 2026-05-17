@@ -57,7 +57,12 @@ const coral = '#FF5E3A'
       padding: '64px 72px',
     }"
   >
-    <!-- Decorative PxlcMark (bottom-right, low-opacity, tilted -8deg) -->
+    <!-- Decorative PxlcMark (bottom-right, low-opacity, tilted -8deg).
+         The mark is inlined here as raw <rect>s with hex fills because the
+         takumi OG renderer runs at build time and can't resolve
+         var(--pxlc-*) custom properties — using <PxlcMark> would render
+         blank fills. Keep the colours in sync with app/components/PxlcMark.vue
+         and tokens.css. -->
     <div
       :style="{
         position: 'absolute',
