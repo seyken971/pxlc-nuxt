@@ -4,6 +4,8 @@ export interface NavItem {
 }
 
 export const useNav = () => {
+  const route = useRoute()
+
   // Single-funnel since the offer flows exclusively through structures
   // (SESSAD, IME, associations, collectivités) — there's no direct-to-parent
   // workshop path. /ateliers was removed accordingly.
@@ -14,5 +16,11 @@ export const useNav = () => {
     { label: 'Blog', url: '/blog' },
     { label: 'Contact', url: '/contact' },
   ]
-  return { items }
+
+  const isActive = (url: string) => {
+    if (url === '/') return route.path === '/'
+    return route.path === url || route.path.startsWith(url + '/')
+  }
+
+  return { items, isActive }
 }
