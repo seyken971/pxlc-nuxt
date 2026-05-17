@@ -4,6 +4,8 @@ const { theme, toggle } = useTheme()
 const route = useRoute()
 const menuOpen = useState<boolean>('pxlc-menu-open', () => false)
 
+const closeBtn = ref<HTMLButtonElement | null>(null)
+
 const isActive = (url: string) => {
   if (url === '/') return route.path === '/'
   return route.path === url || route.path.startsWith(url + '/')
@@ -11,22 +13,52 @@ const isActive = (url: string) => {
 
 const close = () => { menuOpen.value = false }
 
-watch(menuOpen, (open) => {
+// Return focus to the burger trigger after explicit dismissals (✕ or Escape).
+// Route-change closes are handled by Nuxt's natural focus reset, so we don't
+// force focus back there.
+const closeAndRestore = () => {
+  close()
+  if (!import.meta.client) return
+  nextTick(() => {
+    document.querySelector<HTMLButtonElement>('.burger')?.focus()
+  })
+}
+
+const onKeydown = (e: KeyboardEvent) => {
+  if (e.key === 'Escape' && menuOpen.value) closeAndRestore()
+}
+
+watch(menuOpen, async (open) => {
   if (!import.meta.client) return
   document.body.style.overflow = open ? 'hidden' : ''
+  if (open) {
+    await nextTick()
+    closeBtn.value?.focus()
+  }
+})
+
+onMounted(() => {
+  document.addEventListener('keydown', onKeydown)
 })
 
 onBeforeUnmount(() => {
-  if (import.meta.client) document.body.style.overflow = ''
+  if (!import.meta.client) return
+  document.body.style.overflow = ''
+  document.removeEventListener('keydown', onKeydown)
 })
 
 watch(() => route.fullPath, () => { menuOpen.value = false })
 </script>
 
 <template>
-  <div class="mobile-menu" :class="{ 'is-open': menuOpen }" :aria-hidden="!menuOpen">
+  <div
+    id="mobile-menu"
+    class="mobile-menu"
+    :class="{ 'is-open': menuOpen }"
+    :inert="!menuOpen"
+  >
     <div class="mobile-menu__head">
-      <Lockup />
+      <Lockup @click="close" />
       <div class="mobile-menu__head-actions">
         <button
           type="button"
@@ -43,7 +75,13 @@ watch(() => route.fullPath, () => { menuOpen.value = false })
             <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
           </svg>
         </button>
-        <button type="button" class="mobile-menu__close" aria-label="Fermer le menu" @click="close">✕</button>
+        <button
+          ref="closeBtn"
+          type="button"
+          class="mobile-menu__close"
+          aria-label="Fermer le menu"
+          @click="closeAndRestore"
+        >✕</button>
       </div>
     </div>
     <nav class="mobile-menu__nav" aria-label="Navigation mobile">
@@ -55,10 +93,32 @@ watch(() => route.fullPath, () => { menuOpen.value = false })
         :class="{ 'is-active': isActive(n.url) }"
         @click="close"
       >{{ n.label }}</NuxtLink>
+      <a
+        href="/files/plaquette-pxlc.pdf"
+        target="_blank"
+        rel="noopener"
+        class="mobile-menu__link"
+        @click="close"
+      >Plaquette PDF · 12 p.</a>
     </nav>
     <div class="mobile-menu__cta">
-      <a href="https://cal.eu/pxlc-gp" target="_blank" rel="noopener" class="btn btn--primary btn--block btn--lg">
+      <a
+        href="https://cal.eu/pxlc-gp"
+        target="_blank"
+        rel="noopener"
+        class="btn btn--primary btn--block btn--lg"
+        @click="close"
+      >
         Réserver un échange
+      </a>
+      <a
+        href="https://wa.me/590690717618"
+        target="_blank"
+        rel="noopener"
+        class="btn btn--ghost btn--block btn--lg mobile-menu__cta-secondary"
+        @click="close"
+      >
+        WhatsApp
       </a>
     </div>
   </div>
