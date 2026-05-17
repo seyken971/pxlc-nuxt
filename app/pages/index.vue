@@ -4,9 +4,9 @@ import type { MethodStep } from '~/components/MethodGrid.vue'
 useSeoMeta({
   title: 'Médiation numérique parent-écran-enfant en Guadeloupe',
   // Description kept under ~160 chars so Google doesn't truncate the
-  // "HAS / HCSP" credibility marker at the tail.
+  // HCSP credibility marker at the tail.
   description:
-    'Andy Zébus, gamer médiateur-numérique en Guadeloupe — partenaire des SESSAD, IME, associations et collectivités sur les repères HAS et HCSP.',
+    'Andy Zébus, gamer médiateur-numérique en Guadeloupe — partenaire des SESSAD, IME, associations et collectivités sur les rapports HCSP.',
 })
 
 defineOgImage('PxlcOg', {
@@ -28,7 +28,7 @@ const methodSteps: MethodStep[] = [
 <template>
   <Hero
     title="Les écrans sont le reflet de la relation parent-enfant<span class='coral-dot' aria-hidden='true'>.</span>"
-    lead="Andy Zébus accompagne les SESSAD, IME, associations et collectivités de Guadeloupe en gamer médiateur-numérique — partenaire des programmes parent-écran-enfant fondés sur les repères HAS et HCSP."
+    lead="Andy Zébus accompagne les SESSAD, IME, associations et collectivités de Guadeloupe en gamer médiateur-numérique — partenaire des programmes parent-écran-enfant fondés sur les rapports HCSP."
     :cta-primary="{ label: 'Voir le dispositif', href: '/pour-les-structures' }"
     :cta-secondary="{ label: 'Plaquette PDF · 12 p.', href: '/files/plaquette-pxlc.pdf', external: true }"
     hint="↘ pour les structures porteuses"
@@ -36,7 +36,7 @@ const methodSteps: MethodStep[] = [
     photo-alt="Andy Zébus en animation lors d’un événement gaming en Guadeloupe"
     :photo-width="740"
     :photo-height="740"
-    :pill="{ eyebrow: 'Repères HAS & HCSP', text: 'Méthode construite à partir du rapport HAS (2020) et des avis HCSP (2019, 2020).' }"
+    :pill="{ eyebrow: 'Repères HCSP', text: 'Méthode construite à partir des avis HCSP de 2019 et 2020 sur les effets de l’exposition aux écrans.' }"
   />
   <PartnerStrip />
   <MethodGrid :steps="methodSteps" />

@@ -67,7 +67,7 @@ const lastUpdated = computed(() =>
           autorisation écrite préalable.
         </p>
         <p>
-          Les recommandations institutionnelles citées (HAS, HCSP, CNAF) demeurent la propriété de leurs
+          Les recommandations institutionnelles citées (HCSP, CNAF) demeurent la propriété de leurs
           auteurs respectifs ; PXLC se contente de les commenter et d’y faire référence dans le cadre de son
           activité de médiation.
         </p>
@@ -100,7 +100,7 @@ const lastUpdated = computed(() =>
 
         <h2>Liens externes</h2>
         <p>
-          Le site peut contenir des liens vers des ressources externes (HAS, HCSP, LinkedIn, cal.eu, etc.).
+          Le site peut contenir des liens vers des ressources externes (HCSP, LinkedIn, cal.eu, etc.).
           PXLC n’exerce aucun contrôle sur le contenu de ces sites tiers et décline toute responsabilité quant
           à leur disponibilité, leurs pratiques ou leurs contenus.
         </p>

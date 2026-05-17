@@ -1,10 +1,9 @@
 <script setup lang="ts">
 useSeoMeta({
   title: 'À propos d’Andy Zébus — médiateur numérique en Guadeloupe',
-  // Kept under ~160 chars so Google doesn't truncate the "HAS / HCSP"
-  // credibility tail.
+  // Kept under ~160 chars so Google doesn't truncate the HCSP credibility tail.
   description:
-    'Andy Zébus, gamer médiateur-numérique aux Abymes (Guadeloupe). Six ans dans l’esport, formé aux référentiels HAS et HCSP, partenaire des SESSAD et IME.',
+    'Andy Zébus, gamer médiateur-numérique aux Abymes (Guadeloupe). Six ans dans l’esport, formé aux rapports HCSP 2019-2020, partenaire des SESSAD et IME.',
 })
 
 defineOgImage('PxlcOg', {
@@ -26,7 +25,7 @@ useSchemaOrg([
     '@id': 'https://pxlc.fr/#andy',
     name: 'Andy Zébus',
     jobTitle: 'Gamer médiateur-numérique',
-    description: 'Médiateur numérique en Guadeloupe, organisateur esport, formé aux référentiels HAS 2020 et HCSP 2019-2020.',
+    description: 'Médiateur numérique en Guadeloupe, organisateur esport, formé aux rapports HCSP 2019-2020.',
     image: 'https://pxlc.fr/assets/img/photos/andy-portrait.jpg',
     url: 'https://pxlc.fr/a-propos',
     worksFor: { '@id': 'https://pxlc.fr/#identity' },

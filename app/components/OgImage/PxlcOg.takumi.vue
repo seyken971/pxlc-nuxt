@@ -10,7 +10,7 @@ const props = withDefaults(defineProps<Props>(), {
   colorMode: 'dark',
   eyebrow: 'PXLC · MÉDIATION NUMÉRIQUE · GUADELOUPE',
   title: 'Les écrans sont le reflet de la relation parent-enfant',
-  description: 'Andy Zébus accompagne les familles, SESSAD et structures sociales de Guadeloupe — ateliers Parent-Écran-Enfant fondés sur les repères HAS et HCSP.',
+  description: 'Andy Zébus accompagne les SESSAD, IME, associations et collectivités de Guadeloupe — ateliers Parent-Écran-Enfant fondés sur les rapports HCSP.',
   site: 'pxlc.fr',
 })
 
