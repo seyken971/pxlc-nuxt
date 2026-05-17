@@ -29,12 +29,23 @@ jobs:
           node-version: 22
           cache: npm
 
+      # Cache Nuxt's build cache (fonts, @nuxt/image transforms, @nuxt/og-image
+      # rendered PNGs). Hits save ~30-60s per run when only content changes.
+      - name: Cache Nuxt build artefacts
+        uses: actions/cache@v4
+        with:
+          path: |
+            node_modules/.cache
+            .nuxt/cache
+          key: nuxt-${{ runner.os }}-${{ hashFiles('package-lock.json', 'nuxt.config.ts', 'content.config.ts') }}
+          restore-keys: |
+            nuxt-${{ runner.os }}-
+
       - name: Install dependencies
-        # `npm install` (not `npm ci`) — Nuxt 4 + @nuxt/content + @nuxtjs/seo
-        # have a transitive dep conflict (@bomb.sh/tab → commander@^13 while
-        # the tree resolves commander@^11) that npm ci refuses to install in
-        # strict mode. `npm install` resolves it on the fly. Trade-off:
-        # marginally slower + lockfile may drift; both acceptable here.
+        # `npm install` (not `npm ci`) — a transitive commander@^11 / @^13
+        # mismatch between @nuxt/content (lunr) and @bomb.sh/tab still
+        # trips npm ci's strict resolver even after the unused module
+        # deps were dropped. `npm install` resolves it on the fly.
         run: npm install --no-audit --no-fund
 
       - name: Generate static site (SSG)
@@ -43,6 +54,21 @@ jobs:
         run: npx nuxt generate
         env:
           NITRO_PRESET: github-pages
+
+      - name: Verify build output
+        # Cheap guardrail — if prerender produced an empty .output/public/
+        # or the home page is missing, fail loud instead of uploading a
+        # broken artefact to Pages.
+        run: |
+          test -f .output/public/index.html || { echo "::error::Missing .output/public/index.html"; exit 1; }
+          test -f .output/public/sitemap.xml || { echo "::error::Missing sitemap.xml"; exit 1; }
+
+      - name: A11y audit (axe-core on prerendered HTML)
+        # Static a11y check via jsdom + axe-core. Catches new violations
+        # (e.g. missing labels, broken landmarks, dropped aria-* attrs)
+        # before they reach prod. Exits non-zero on critical/serious only,
+        # so moderate noise doesn't block deploy.
+        run: npm run a11y
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
