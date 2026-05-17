@@ -50,6 +50,9 @@ watch(() => route.fullPath, () => { menuOpen.value = false })
     class="mobile-menu"
     :class="{ 'is-open': menuOpen }"
     :inert="!menuOpen"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Menu de navigation"
   >
     <div class="mobile-menu__head">
       <Lockup @click="close" />

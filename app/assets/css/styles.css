@@ -27,6 +27,13 @@ body {
 :where(a):hover { color: var(--teal-deep); text-decoration: underline; text-underline-offset: 3px; }
 [data-theme="dark"] :where(a) { color: var(--cyan); }
 [data-theme="dark"] :where(a):hover { color: var(--cyan); text-decoration: underline; text-underline-offset: 3px; }
+/* WCAG 1.4.1: links inside a text block must be distinguishable without
+   color alone. Underline every class-less inline link (HCSP refs in
+   /a-propos, mailto/cal.eu in mentions-legales, etc.); buttons, nav
+   links and other typed links carry their own classes so they're
+   exempt. */
+p a:not([class]),
+li a:not([class]) { text-decoration: underline; text-underline-offset: 3px; }
 button { font-family: inherit; }
 h1,h2,h3,h4 { margin: 0; color: var(--ink); font-family: var(--font-display); font-weight: 600; }
 p { margin: 0; color: var(--ink-quiet); }
@@ -376,7 +383,9 @@ img { max-width: 100%; display: block; }
 .partners__item {
   display: flex; align-items: center; gap: var(--space-2);
   font-family: var(--font-display); font-weight: 500; font-size: 15px;
-  color: var(--quiet); opacity: 0.85;
+  /* No opacity multiplier — diluting --quiet by 15% pushed the
+     effective text below WCAG AA contrast on --bg-soft. */
+  color: var(--quiet);
 }
 .partners__item::before { content: ""; width: 10px; height: 10px; background: var(--rule); border-radius: 2px; }
 
@@ -389,7 +398,9 @@ img { max-width: 100%; display: block; }
 .card--hover:hover { transform: translateY(-2px); box-shadow: var(--shadow-card-hover); }
 
 .card--method { min-height: 240px; padding: 32px 32px 48px; }
-.card--method .card__step-num { font-family: var(--font-mono); font-size: 11px; font-weight: 600; letter-spacing: 0.22em; color: var(--pxlc-teal-mid); margin-bottom: var(--space-5); }
+/* teal-deep (not teal-mid) so the 11px ÉTAPE label hits WCAG AA 4.5:1
+   contrast on white card surfaces. */
+.card--method .card__step-num { font-family: var(--font-mono); font-size: 11px; font-weight: 600; letter-spacing: 0.22em; color: var(--pxlc-teal-deep); margin-bottom: var(--space-5); }
 [data-theme="dark"] .card--method .card__step-num { color: var(--cyan); }
 .card--method h3 { margin: 0 0 8px; font-family: var(--font-display); font-size: 22px; line-height: 1.15; }
 .card--method p { font-size: 15px; line-height: 1.6; }
@@ -449,6 +460,12 @@ img { max-width: 100%; display: block; }
 }
 .cta-block__lead { font-size: 17px; line-height: 1.55; margin: 0 0 32px; max-width: 520px; }
 .cta-block__actions { display: flex; flex-wrap: wrap; gap: var(--space-3); }
+/* The cta-block section is always dark — force the ghost button into
+   its on-dark variant regardless of the active light/dark theme so the
+   teal-deep text doesn't sit on dark and tank contrast (2.47:1). */
+.cta-block .btn--ghost { color: var(--pxlc-ivory); box-shadow: inset 0 0 0 1px var(--pxlc-border-dark-2); }
+.cta-block .btn--ghost:hover { background: var(--pxlc-bg-dark-soft); color: var(--pxlc-cyan); box-shadow: inset 0 0 0 1px var(--pxlc-cyan); }
+.cta-block .btn--ghost:focus-visible { box-shadow: inset 0 0 0 1px var(--pxlc-cyan), var(--ring-cyan); }
 .cta-block__sidecard {
   background: var(--pxlc-bg-dark-deep); border: 1px solid var(--pxlc-border-dark); border-radius: var(--radius-lg);
   padding: var(--space-4); font-family: var(--font-mono);
@@ -495,7 +512,10 @@ img { max-width: 100%; display: block; }
   display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: var(--space-3);
 }
 .site-footer__legal p, .site-footer__legal a {
-  font-family: var(--font-mono); font-size: 11px; color: var(--pxlc-text-secondary);
+  font-family: var(--font-mono); font-size: 11px;
+  /* on-dark-soft (#A9C8D0) hits ~7.7:1 contrast on the dark footer;
+     --pxlc-text-secondary (#5A6B70) is only 2.67:1 — too dim. */
+  color: var(--pxlc-text-on-dark-soft);
   letter-spacing: 0.12em; text-transform: uppercase;
 }
 .site-footer__legal a:hover { color: var(--pxlc-cyan); }

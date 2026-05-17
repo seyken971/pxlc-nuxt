@@ -63,12 +63,29 @@ jobs:
           test -f .output/public/index.html || { echo "::error::Missing .output/public/index.html"; exit 1; }
           test -f .output/public/sitemap.xml || { echo "::error::Missing sitemap.xml"; exit 1; }
 
-      - name: A11y audit (axe-core on prerendered HTML)
-        # Static a11y check via jsdom + axe-core. Catches new violations
-        # (e.g. missing labels, broken landmarks, dropped aria-* attrs)
-        # before they reach prod. Exits non-zero on critical/serious only,
-        # so moderate noise doesn't block deploy.
+      - name: A11y audit — static (axe-core + jsdom)
+        # Fast check on the prerendered HTML. Catches semantic regressions
+        # (labels, landmarks, ARIA) but can't see contrast or layout.
         run: npm run a11y
+
+      - name: Cache Playwright browsers
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            playwright-${{ runner.os }}-
+
+      - name: Install Playwright Chromium
+        # --with-deps adds the OS-level libs Chromium needs on Ubuntu;
+        # the binary itself comes from cache on hit. ~150 MB cold, ~5 s warm.
+        run: npx playwright install chromium --with-deps
+
+      - name: A11y audit — runtime (axe-core + headless Chromium)
+        # Complements the static check with the rules that need a real
+        # browser: color-contrast, target-size, focus visibility, plus
+        # dynamic states (mobile menu open, FAQ open).
+        run: npm run a11y:runtime
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
