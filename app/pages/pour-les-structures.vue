@@ -174,7 +174,11 @@ useSchemaOrg(
           </div>
         </div>
 
-        <aside class="facts-card">
+        <!-- div instead of <aside>: this card is part of the hero, not
+             tangentially related content, so an aside landmark nested
+             inside the hero section trips axe-core
+             "landmark-complementary-is-top-level". -->
+        <div class="facts-card" role="group" aria-label="Le dispositif en un coup d’œil">
           <span class="eyebrow">En un coup d’œil</span>
           <ul class="facts-list">
             <li v-for="[k, v] in facts" :key="k">
@@ -182,7 +186,7 @@ useSchemaOrg(
               <span class="facts-list__value">{{ v }}</span>
             </li>
           </ul>
-        </aside>
+        </div>
       </div>
     </div>
   </section>

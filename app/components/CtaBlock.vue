@@ -42,7 +42,11 @@ withDefaults(defineProps<Props>(), {
           </div>
         </div>
 
-        <aside class="cta-block__sidecard" aria-label="Réservation">
+        <!-- div + aria-label instead of <aside>: this card is part of the
+             CTA section, not tangentially related content, so an aside
+             landmark nested inside the cta-block section trips axe-core
+             "landmark-complementary-is-top-level". -->
+        <div class="cta-block__sidecard" role="group" aria-label="Réservation">
           <div class="cta-block__sidecard-eyebrow">Réservation</div>
           <p class="cta-block__sidecard-lead">
             Agenda mis à jour en temps réel sur <strong>cal.eu/pxlc-gp</strong>. Les créneaux libres sont visibles immédiatement.
@@ -52,7 +56,7 @@ withDefaults(defineProps<Props>(), {
             <li><span>WhatsApp ou visio</span><span class="meta">à votre choix</span></li>
             <li><span>Réponse personnelle</span><span class="meta">sous 48 h</span></li>
           </ul>
-        </aside>
+        </div>
       </div>
     </div>
   </section>
