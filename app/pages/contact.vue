@@ -190,6 +190,18 @@ const whatsappHref = `https://wa.me/590690717618?text=${encodeURIComponent('Bonj
 </template>
 
 <style scoped>
+/* Form inputs — class-based so the v-model bindings keep working;
+   /contact is the only page that mounts them. */
+.form-label { font-family: var(--font-body); font-size: 13px; font-weight: 600; color: var(--ink); display: block; margin-bottom: 6px; }
+.form-input, .form-textarea {
+  width: 100%; padding: 12px 14px; border-radius: var(--radius-md);
+  border: 1px solid var(--rule); background: var(--bg-elev); color: var(--ink);
+  font: inherit; font-size: 14px;
+}
+.form-textarea { resize: vertical; min-height: 120px; }
+.form-row { display: grid; gap: var(--space-3); grid-template-columns: 1fr; }
+@media (min-width: 600px) { .form-row { grid-template-columns: 1fr 1fr; } }
+
 .contact-container { max-width: 820px; }
 .contact-title { font-size: clamp(38px, 6vw, 64px); letter-spacing: -0.025em; line-height: 1.05; margin-bottom: var(--space-4); }
 .contact-lead { margin-bottom: var(--space-5); }
