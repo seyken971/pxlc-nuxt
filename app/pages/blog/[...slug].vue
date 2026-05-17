@@ -22,6 +22,23 @@ defineOgImage('PxlcOg', {
   description: post.value.description,
 })
 
+// BlogPosting structured data so Google can surface the article in Discover,
+// rich results, and the Top Stories carousel. Author references the Person
+// node from /a-propos; publisher references the global LocalBusiness.
+useSchemaOrg([
+  defineArticle({
+    '@type': 'BlogPosting',
+    headline: post.value.title,
+    description: post.value.description,
+    datePublished: post.value.date,
+    dateModified: post.value.date,
+    articleSection: post.value.category,
+    author: { '@id': 'https://pxlc.fr/#andy' },
+    publisher: { '@id': 'https://pxlc.fr/#identity' },
+    inLanguage: 'fr-FR',
+  }),
+])
+
 const fmtDate = (iso: string) =>
   new Intl.DateTimeFormat('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' }).format(new Date(iso))
 </script>
