@@ -1,0 +1,94 @@
+<script setup lang="ts">
+interface Post {
+  path: string
+  title: string
+  description?: string
+  category?: string
+  date: string
+}
+interface Props {
+  /** Path of the post currently being viewed — excluded from the list. */
+  currentPath: string
+  /** Category of the current post — used to prefer same-category matches. */
+  currentCategory?: string
+  /** Maximum number of suggestions to render. */
+  limit?: number
+}
+const props = withDefaults(defineProps<Props>(), { limit: 3 })
+
+// Pull every published blog post once per page load, then pick neighbours.
+// Same-category first, fallback to most recent — so the block is never empty
+// (assuming at least one other post exists).
+const { data: posts } = await useAsyncData(
+  `blog-related-${props.currentPath}`,
+  () => queryCollection('blog').where('draft', '<>', true).order('date', 'DESC').all(),
+)
+
+const related = computed<Post[]>(() => {
+  const all = (posts.value || []) as Post[]
+  const others = all.filter(p => p.path !== props.currentPath)
+  const sameCat = props.currentCategory
+    ? others.filter(p => p.category === props.currentCategory)
+    : []
+  const picked: Post[] = []
+  const seen = new Set<string>()
+  for (const p of [...sameCat, ...others]) {
+    if (seen.has(p.path)) continue
+    seen.add(p.path)
+    picked.push(p)
+    if (picked.length >= props.limit) break
+  }
+  return picked
+})
+
+const fmtDate = (iso: string) =>
+  new Intl.DateTimeFormat('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' }).format(new Date(iso))
+</script>
+
+<template>
+  <section v-if="related.length" class="blog-related" aria-labelledby="related-title">
+    <h2 id="related-title" class="blog-related__title">Lire aussi</h2>
+    <ul class="blog-related__list" role="list">
+      <li v-for="p in related" :key="p.path" class="blog-related__item">
+        <NuxtLink :to="p.path" class="blog-related__link">
+          <span v-if="p.category" class="badge">{{ p.category }}</span>
+          <h3 class="blog-related__post-title">{{ p.title }}</h3>
+          <p v-if="p.description" class="blog-related__excerpt">{{ p.description }}</p>
+          <time :datetime="p.date" class="blog-related__date">{{ fmtDate(p.date) }}</time>
+        </NuxtLink>
+      </li>
+    </ul>
+  </section>
+</template>
+
+<style scoped>
+.blog-related { margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--rule); }
+.blog-related__title {
+  font-size: clamp(20px, 2.4vw, 24px);
+  letter-spacing: -0.015em; margin-bottom: 24px;
+}
+.blog-related__list {
+  list-style: none; padding: 0; margin: 0;
+  display: grid; gap: 16px; grid-template-columns: 1fr;
+}
+@media (min-width: 768px) { .blog-related__list { grid-template-columns: repeat(3, 1fr); } }
+.blog-related__item { display: flex; }
+.blog-related__link {
+  display: flex; flex-direction: column; gap: 8px;
+  padding: 20px; width: 100%;
+  background: var(--bg-elev); border: 1px solid var(--rule); border-radius: 10px;
+  color: inherit; transition: border-color 120ms, transform 120ms;
+}
+.blog-related__link:hover {
+  border-color: var(--pxlc-coral); text-decoration: none;
+  transform: translateY(-2px);
+}
+.blog-related__post-title { font-size: 16px; line-height: 1.3; color: var(--ink); }
+.blog-related__excerpt { font-size: 13.5px; line-height: 1.5; color: var(--ink-quiet); }
+.blog-related__date {
+  margin-top: auto;
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--quiet);
+}
+.badge { align-self: flex-start; }
+</style>

@@ -22,6 +22,9 @@ defineOgImage('PxlcOg', {
   description: post.value.description,
 })
 
+const articleUrl = `https://pxlc.fr${route.path}`
+const dateModified = post.value.updated || post.value.date
+
 // BlogPosting structured data so Google can surface the article in Discover,
 // rich results, and the Top Stories carousel. Author references the Person
 // node from /a-propos; publisher references the global LocalBusiness.
@@ -31,13 +34,23 @@ useSchemaOrg([
     headline: post.value.title,
     description: post.value.description,
     datePublished: post.value.date,
-    dateModified: post.value.date,
+    dateModified,
     articleSection: post.value.category,
     author: { '@id': 'https://pxlc.fr/#andy' },
     publisher: { '@id': 'https://pxlc.fr/#identity' },
     inLanguage: 'fr-FR',
+    url: articleUrl,
+    ...(post.value.cover ? { image: `https://pxlc.fr${post.value.cover}` } : {}),
   }),
 ])
+
+// Reading time + table of contents derived from the parsed body. Fallback
+// to the manual frontmatter value if the AST walk yields nothing (defensive
+// — shouldn't happen for real articles).
+const { readingTimeLabel, tableOfContents } = useArticleBody()
+const computedReading = computed(() => readingTimeLabel(post.value?.body))
+const readingTime = computed(() => post.value?.readingTime || computedReading.value)
+const toc = computed(() => tableOfContents(post.value?.body, ['h2']))
 
 const fmtDate = (iso: string) =>
   new Intl.DateTimeFormat('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' }).format(new Date(iso))
@@ -46,7 +59,13 @@ const fmtDate = (iso: string) =>
 <template>
   <article v-if="post" class="section">
     <div class="container post-container">
-      <NuxtLink to="/blog" class="post-back">← Tous les articles</NuxtLink>
+      <Breadcrumb
+        :items="[
+          { label: 'Accueil', to: '/' },
+          { label: 'Blog', to: '/blog' },
+          { label: post.title },
+        ]"
+      />
 
       <header class="post-header">
         <span class="badge">{{ post.category }}</span>
@@ -55,39 +74,55 @@ const fmtDate = (iso: string) =>
         </h1>
         <p class="lead post-lead">{{ post.description }}</p>
         <div class="post-meta">
-          <span>{{ fmtDate(post.date) }}</span>
-          <span v-if="post.readingTime">· {{ post.readingTime }} de lecture</span>
+          <time :datetime="post.date">{{ fmtDate(post.date) }}</time>
+          <span v-if="readingTime">· {{ readingTime }} de lecture</span>
+          <span v-if="post.updated && post.updated !== post.date">
+            · mis à jour le <time :datetime="post.updated">{{ fmtDate(post.updated) }}</time>
+          </span>
         </div>
       </header>
+
+      <figure v-if="post.cover" class="post-cover">
+        <NuxtImg :src="post.cover" :alt="post.coverAlt || ''" loading="eager" fetchpriority="high" />
+      </figure>
+
+      <BlogToc :entries="toc" />
 
       <div class="prose post-body">
         <ContentRenderer :value="post" />
       </div>
+
+      <BlogShare class="post-share" :url="articleUrl" :title="post.title" />
+
+      <BlogCta />
+
+      <BlogRelated :current-path="route.path" :current-category="post.category" />
     </div>
   </article>
 </template>
 
 <style scoped>
 .post-container { max-width: 760px; }
-.post-back {
-  font-family: var(--font-mono); font-size: 11px;
-  letter-spacing: 0.22em; text-transform: uppercase;
-  color: var(--teal-deep);
-  display: inline-block; margin-bottom: 32px;
-}
-[data-theme="dark"] .post-back { color: var(--cyan); }
 .post-header { margin-bottom: 48px; padding-bottom: 32px; border-bottom: 1px solid var(--rule); }
 .post-title {
   font-size: clamp(34px, 5vw, 52px);
   letter-spacing: -0.025em; line-height: 1.1;
   margin: 16px 0 24px;
+  text-wrap: balance;
 }
 .post-lead { margin-bottom: 24px; }
 .post-meta {
   font-family: var(--font-mono); font-size: 11px;
   letter-spacing: 0.18em; text-transform: uppercase;
   color: var(--quiet);
-  display: flex; gap: 8px;
+  display: flex; flex-wrap: wrap; gap: 8px;
 }
+.post-cover {
+  margin: 0 0 32px; border-radius: 14px; overflow: hidden;
+}
+.post-cover :deep(img) { width: 100%; height: auto; display: block; }
 .post-body { font-size: 16px; line-height: 1.7; }
+/* Anchored h2 from the TOC shouldn't disappear under the sticky header. */
+.post-body :deep(h2[id]) { scroll-margin-top: 96px; }
+.post-share { margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--rule); }
 </style>
