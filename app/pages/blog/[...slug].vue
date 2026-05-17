@@ -83,7 +83,7 @@ const fmtDate = (iso: string) =>
       </header>
 
       <figure v-if="post.cover" class="post-cover">
-        <NuxtImg :src="post.cover" :alt="post.coverAlt || ''" loading="eager" fetchpriority="high" />
+        <NuxtImg :src="post.cover" :alt="post.coverAlt || ''" format="webp" loading="eager" fetchpriority="high" />
       </figure>
 
       <BlogToc :entries="toc" />

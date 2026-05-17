@@ -8,6 +8,8 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
+    "postbuild": "node scripts/prune-public.mjs",
+    "postgenerate": "node scripts/prune-public.mjs",
     "a11y": "node scripts/a11y-audit.mjs"
   },
   "dependencies": {

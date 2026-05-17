@@ -9,6 +9,7 @@
               alt="Duo gaming, vue de dos — atelier parent-enfant"
               width="1600"
               height="1064"
+              format="webp"
               loading="lazy"
             />
           </div>

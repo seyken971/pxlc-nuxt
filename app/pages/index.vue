@@ -15,6 +15,25 @@ defineOgImage('PxlcOg', {
   description: 'Gamer médiateur-numérique, partenaire des SESSAD, IME, associations et collectivités de Guadeloupe sur leurs programmes parent-écran-enfant.',
 })
 
+// Hint the browser to start fetching the hero image as early as possible —
+// it's the LCP candidate on this page. NuxtImg with format="webp" ships
+// the variant at /_ipx/f_webp&s_WxH/...; we preload both DPR variants via
+// imagesrcset so the actual <img>'s srcset hits a warm cache (1x for
+// standard displays, 2x for retina).
+useHead({
+  link: [
+    {
+      rel: 'preload',
+      as: 'image',
+      type: 'image/webp',
+      imagesrcset:
+        '/_ipx/f_webp&s_740x740/assets/img/photos/andy-event.jpg 1x, ' +
+        '/_ipx/f_webp&s_1480x1480/assets/img/photos/andy-event.jpg 2x',
+      fetchpriority: 'high',
+    },
+  ],
+})
+
 // Trois temps de la médiation, alignés sur les 4 étapes opérationnelles du
 // projet « Jouons Ensemble! » (préparation, ateliers thématiques, groupe de
 // parole + bilan) — résumés ici en 3 mouvements pour la page d'accueil.
