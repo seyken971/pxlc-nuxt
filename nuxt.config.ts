@@ -1,12 +1,15 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+const isDev = process.env.NODE_ENV === "development"
+
 export default defineNuxtConfig({
-  compatibilityDate: "2025-07-15",
-  devtools: { enabled: true },
-  vite: {
-    optimizeDeps: {
-      include: ["@vue/devtools-core", "@vue/devtools-kit"],
-    },
-  },
+  compatibilityDate: "2026-05-17",
+  // Devtools belong in dev only. Leaving them on in prod meant the
+  // production bundle was pre-bundling @vue/devtools-* via optimizeDeps,
+  // which is wasted weight in a static marketing build.
+  devtools: { enabled: isDev },
+  vite: isDev
+    ? { optimizeDeps: { include: ["@vue/devtools-core", "@vue/devtools-kit"] } }
+    : {},
 
   modules: [
     // Trimmed from the starter set — @nuxt/a11y, @nuxt/hints, @nuxt/icon
@@ -57,7 +60,10 @@ export default defineNuxtConfig({
     prerender: {
       crawlLinks: true,
       routes: ["/"],
-      failOnError: false,
+      // Fail fast — a broken prerender used to slip through silently and
+      // ship a half-built site. If a route 500s, the CI build now stops
+      // and the deploy doesn't go out.
+      failOnError: true,
     },
   },
 
@@ -71,8 +77,11 @@ export default defineNuxtConfig({
   site: {
     url: "https://pxlc.fr",
     name: "PXLC",
+    // B2B-only funnel: the offer flows exclusively through structures
+    // (SESSAD, IME, associations, collectivités). Earlier wording said
+    // "les familles", which we removed everywhere else — config follows.
     description:
-      "PXLC accompagne les familles et structures sociales de Guadeloupe avec des ateliers Parent–Écran–Enfant.",
+      "PXLC accompagne les SESSAD, IME, associations et collectivités de Guadeloupe avec des ateliers Parent–Écran–Enfant.",
     defaultLocale: "fr_FR",
     trailingSlash: false,
     currency: "EUR",
@@ -138,9 +147,10 @@ export default defineNuxtConfig({
       // plugin then propagates the page-level value to ogDescription and
       // twitterDescription automatically.
       description:
-        "PXLC accompagne les familles et structures sociales de Guadeloupe avec des ateliers Parent–Écran–Enfant.",
+        "PXLC accompagne les SESSAD, IME, associations et collectivités de Guadeloupe avec des ateliers Parent–Écran–Enfant.",
       author: "Andy Zébus",
-      colorScheme: "dark light",
+      // light listed first = preferred when the user has no preference.
+      colorScheme: "light dark",
       twitterCreator: "@seyken971",
       ogSiteName: "PXLC",
       ogLocale: "fr_FR",
@@ -161,9 +171,11 @@ export default defineNuxtConfig({
       logo: "/logo.svg",
       name: "PXLC",
       alternateName: "Pixels Caraïbes",
-      legalName: "Andy Zébus - Entrepreneur individuel",
+      // Aligned on the mentions-legales page wording: em-dash + capital
+      // "Individuel" (the INSEE-conformant form for EI).
+      legalName: "Andy Zébus — Entrepreneur Individuel",
       description:
-        "PXLC accompagne les familles et structures sociales de Guadeloupe avec des ateliers Parent–Écran–Enfant.",
+        "PXLC accompagne les SESSAD, IME, associations et collectivités de Guadeloupe avec des ateliers Parent–Écran–Enfant.",
       url: "https://pxlc.fr",
       email: "contact@pxlc.fr",
       telephone: "+590690717618",
