@@ -54,9 +54,10 @@ const isActive = (url: string) => {
         <button
           type="button"
           class="burger"
-          aria-label="Ouvrir le menu"
+          :aria-label="menuOpen ? 'Fermer le menu' : 'Ouvrir le menu'"
           :aria-expanded="menuOpen"
-          @click="menuOpen = true"
+          aria-controls="mobile-menu"
+          @click="menuOpen = !menuOpen"
         >
           <span /><span /><span />
         </button>

@@ -72,7 +72,7 @@ const lastUpdated = computed(() =>
           activité de médiation.
         </p>
 
-        <h2>Protection des données personnelles (RGPD)</h2>
+        <h2 id="rgpd">Protection des données personnelles (RGPD)</h2>
         <p>
           Le site pxlc.fr ne dépose aucun cookie de traçage publicitaire ni d’analytics tiers. Le formulaire
           de contact envoie votre message via la boîte mail <a href="mailto:contact@pxlc.fr">contact@pxlc.fr</a> ;
@@ -129,6 +129,9 @@ const lastUpdated = computed(() =>
 
 <style scoped>
 .legal-container { max-width: 760px; }
+/* Sticky header is ~70-80 px tall, so anchored h2s (e.g. #rgpd from the footer)
+   would otherwise scroll under it. */
+.legal-container :deep(h2[id]) { scroll-margin-top: 96px; }
 .legal-title {
   font-size: clamp(38px, 5.5vw, 56px);
   letter-spacing: -0.025em;
