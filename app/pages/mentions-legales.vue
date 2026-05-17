@@ -136,8 +136,8 @@ const lastUpdated = computed(() =>
   font-size: clamp(38px, 5.5vw, 56px);
   letter-spacing: -0.025em;
   line-height: 1.05;
-  margin-bottom: 24px;
+  margin-bottom: var(--space-4);
 }
-.legal-lead { margin-bottom: 48px; }
-.legal-updated { display: block; margin-top: 48px; }
+.legal-lead { margin-bottom: var(--space-6); }
+.legal-updated { display: block; margin-top: var(--space-6); }
 </style>

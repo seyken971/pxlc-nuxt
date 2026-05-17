@@ -24,16 +24,16 @@
 
 <style scoped>
 .blog-cta {
-  margin-top: 48px;
+  margin-top: var(--space-6);
   padding: clamp(24px, 4vw, 40px);
   background: var(--bg-soft);
   border: 1px solid var(--bg-rule);
-  border-radius: 14px;
-  display: grid; gap: 24px;
+  border-radius: var(--radius-lg);
+  display: grid; gap: var(--space-4);
   grid-template-columns: 1fr;
 }
 @media (min-width: 720px) { .blog-cta { grid-template-columns: 1.6fr 1fr; align-items: center; } }
-.blog-cta__head { display: flex; flex-direction: column; gap: 8px; }
+.blog-cta__head { display: flex; flex-direction: column; gap: var(--space-2); }
 .blog-cta__title { font-size: clamp(22px, 2.6vw, 28px); letter-spacing: -0.015em; }
 .blog-cta__lead { color: var(--ink-quiet); font-size: 14.5px; line-height: 1.55; margin: 0; }
 .blog-cta__actions {

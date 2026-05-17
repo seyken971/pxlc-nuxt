@@ -25,7 +25,7 @@ const props = defineProps<Props>()
 .toc {
   background: var(--bg-soft);
   border: 1px solid var(--bg-rule);
-  border-radius: 10px;
+  border-radius: var(--radius-md);
   padding: 20px 24px;
   margin-bottom: 40px;
 }
@@ -36,7 +36,7 @@ const props = defineProps<Props>()
 }
 .toc__list { list-style: decimal inside; padding: 0; margin: 0; display: grid; gap: 6px; }
 .toc__item { font-size: 14px; line-height: 1.5; color: var(--ink-quiet); }
-.toc__link { color: var(--teal-deep); transition: color 120ms; }
+.toc__link { color: var(--teal-deep); transition: color var(--dur-fast); }
 .toc__link:hover { color: var(--pxlc-coral); text-decoration: none; }
 [data-theme="dark"] .toc__link { color: var(--cyan); }
 </style>

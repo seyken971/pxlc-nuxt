@@ -103,26 +103,26 @@ const fmtDate = (iso: string) =>
 
 <style scoped>
 .post-container { max-width: 760px; }
-.post-header { margin-bottom: 48px; padding-bottom: 32px; border-bottom: 1px solid var(--rule); }
+.post-header { margin-bottom: var(--space-6); padding-bottom: var(--space-5); border-bottom: 1px solid var(--rule); }
 .post-title {
   font-size: clamp(34px, 5vw, 52px);
   letter-spacing: -0.025em; line-height: 1.1;
   margin: 16px 0 24px;
   text-wrap: balance;
 }
-.post-lead { margin-bottom: 24px; }
+.post-lead { margin-bottom: var(--space-4); }
 .post-meta {
   font-family: var(--font-mono); font-size: 11px;
   letter-spacing: 0.18em; text-transform: uppercase;
   color: var(--quiet);
-  display: flex; flex-wrap: wrap; gap: 8px;
+  display: flex; flex-wrap: wrap; gap: var(--space-2);
 }
 .post-cover {
-  margin: 0 0 32px; border-radius: 14px; overflow: hidden;
+  margin: 0 0 32px; border-radius: var(--radius-lg); overflow: hidden;
 }
 .post-cover :deep(img) { width: 100%; height: auto; display: block; }
 .post-body { font-size: 16px; line-height: 1.7; }
 /* Anchored h2 from the TOC shouldn't disappear under the sticky header. */
 .post-body :deep(h2[id]) { scroll-margin-top: 96px; }
-.post-share { margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--rule); }
+.post-share { margin-top: var(--space-6); padding-top: var(--space-5); border-top: 1px solid var(--rule); }
 </style>

@@ -126,16 +126,16 @@ const thumbModifier = (category?: string): string => {
 </template>
 
 <style scoped>
-.blog-title { font-size: clamp(38px, 6vw, 64px); letter-spacing: -0.025em; line-height: 1.05; margin-bottom: 24px; }
-.blog-lead { max-width: 640px; margin-bottom: 32px; }
+.blog-title { font-size: clamp(38px, 6vw, 64px); letter-spacing: -0.025em; line-height: 1.05; margin-bottom: var(--space-4); }
+.blog-lead { max-width: 640px; margin-bottom: var(--space-5); }
 
-.blog-filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+.blog-filters { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-bottom: var(--space-4); }
 .blog-filters__chip {
   font-family: var(--font-body); font-size: 13px; font-weight: 500;
-  padding: 8px 14px; border-radius: 999px;
+  padding: 8px 14px; border-radius: var(--radius-pill);
   background: transparent; color: var(--ink-quiet);
   border: 1px solid var(--rule); cursor: pointer;
-  transition: color 120ms, border-color 120ms, background 120ms;
+  transition: color var(--dur-fast), border-color var(--dur-fast), background var(--dur-fast);
 }
 .blog-filters__chip:hover {
   color: var(--ink); border-color: var(--ink); background: var(--bg-soft);
@@ -189,7 +189,7 @@ const thumbModifier = (category?: string): string => {
 .blog-card__title { font-size: 18px; line-height: 1.25; letter-spacing: -0.01em; color: var(--ink); }
 .blog-card__excerpt { font-size: 14px; line-height: 1.5; color: var(--ink-quiet); flex: 1; }
 .blog-card__meta {
-  margin-top: auto; display: flex; gap: 8px;
+  margin-top: auto; display: flex; gap: var(--space-2);
   font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em;
   color: var(--quiet); text-transform: uppercase;
 }

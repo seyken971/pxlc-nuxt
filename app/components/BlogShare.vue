@@ -56,13 +56,13 @@ const shares = computed(() => {
   font-family: var(--font-mono); font-size: 11px; font-weight: 600;
   letter-spacing: 0.22em; text-transform: uppercase; color: var(--quiet);
 }
-.blog-share__list { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: 0; }
+.blog-share__list { display: flex; flex-wrap: wrap; gap: var(--space-2); list-style: none; padding: 0; margin: 0; }
 .blog-share__link {
   display: inline-flex; align-items: center; justify-content: center;
   padding: 8px 14px; font-size: 13px; font-weight: 600;
   color: var(--ink);
-  border: 1px solid var(--rule); border-radius: 999px;
-  background: transparent; transition: color 120ms, border-color 120ms, background 120ms;
+  border: 1px solid var(--rule); border-radius: var(--radius-pill);
+  background: transparent; transition: color var(--dur-fast), border-color var(--dur-fast), background var(--dur-fast);
 }
 .blog-share__link:hover {
   color: var(--pxlc-coral); border-color: var(--pxlc-coral);

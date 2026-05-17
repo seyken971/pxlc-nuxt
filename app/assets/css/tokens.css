@@ -1,9 +1,10 @@
 /* =============================================================
    PXLC — Design tokens
-   Mirrors pxlc-design-system/colors_and_type.css.
-   Fonts (Sora, DM Sans, JetBrains Mono) are self-hosted by
-   @nuxt/fonts — no @import needed here, the font-family
-   declarations below trigger the module's auto-resolution.
+   Single source of truth for colors, typography, spacing, radius,
+   elevation and motion. Wired into styles.css and component
+   scoped styles. Fonts (Sora, DM Sans, JetBrains Mono) are
+   self-hosted by @nuxt/fonts — no @import needed here, the
+   font-family declarations below trigger the module's auto-resolution.
    ============================================================= */
 
 :root {
@@ -37,7 +38,6 @@
   --bg-soft:      var(--pxlc-ivory);
   --bg-elev:      var(--pxlc-white);
   --bg-rule:      var(--pxlc-border-soft);
-  --on-dark-bg:   var(--pxlc-bg-dark);
   /* Header / overlay surfaces. Tinted variants of --bg with alpha for
      backdrop-filter glass effect. Overridden in [data-theme="dark"]. */
   --bg-glass:     rgba(234, 246, 244, 0.92);
@@ -47,7 +47,6 @@
   --quiet:        var(--pxlc-text-secondary);
 
   --rule:         var(--pxlc-border);
-  --rule-strong:  var(--pxlc-border);
 
   --teal-deep:    var(--pxlc-teal-deep);
   --teal-mid:     var(--pxlc-teal-mid);
@@ -57,33 +56,20 @@
   --eyebrow:      var(--pxlc-teal-deep);
 
   /* ── Typography ─────────────────────────────────────────── */
+  /* Only the font-families are tokenised. The scale itself is local to
+     each component (most titles use clamp() for fluid responsive sizing
+     — a fixed --fs-h1 token wouldn't fit). */
   --font-display: "Sora", system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-body:    "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-mono:    "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
 
-  --fs-display-1: 72px;  --lh-display-1: 1;    --ls-display-1: -0.035em;
-  --fs-display-2: 60px;  --lh-display-2: 1.02; --ls-display-2: -0.030em;
-  --fs-display-3: 48px;  --lh-display-3: 1.05; --ls-display-3: -0.025em;
-  --fs-h1: 56px;  --lh-h1: 1.05; --ls-h1: -0.025em;
-  --fs-h2: 42px;  --lh-h2: 1.05; --ls-h2: -0.025em;
-  --fs-h3: 24px;  --lh-h3: 1.15; --ls-h3: -0.015em;
-  --fs-h4: 20px;  --lh-h4: 1.25; --ls-h4: -0.01em;
-  --fs-lead:  19px; --lh-lead: 1.55;
-  --fs-body:  16px; --lh-body: 1.6;
-  --fs-small: 14px; --lh-small: 1.5;
-  --fs-caption: 12px; --ls-caption: 0.18em;
-  --fs-eyebrow: 11px; --ls-eyebrow: 0.22em;
-
-  /* ── Rythme 8 px ────────────────────────────────────────── */
+  /* ── Spacing — 8 px rhythm ──────────────────────────────── */
   --space-1: 4px;
   --space-2: 8px;
   --space-3: 16px;
   --space-4: 24px;
   --space-5: 32px;
   --space-6: 48px;
-  --space-7: 64px;
-  --space-8: 96px;
-  --space-9: 128px;
 
   /* ── Radius ─────────────────────────────────────────────── */
   --radius-sm:   4px;
@@ -91,10 +77,18 @@
   --radius-lg:   14px;
   --radius-pill: 999px;
 
-  /* ── Elevation (light) ──────────────────────────────────── */
-  --shadow-1: 0 1px 0 rgba(8,43,54,.04);
-  --shadow-2: 0 8px 24px -12px rgba(8,43,54,.18);
-  --shadow-3: 0 24px 60px -28px rgba(8,43,54,.28);
+  /* ── Elevation ──────────────────────────────────────────── */
+  /* Soft elevation for cards / lifted UI; overridden in dark mode. */
+  --shadow-card-hover: 0 8px 24px -12px rgba(8,43,54,.18);
+  /* Scrolled-state shadow under the sticky header. */
+  --shadow-header:     0 2px 14px -6px rgba(8,43,54,.14);
+
+  /* ── Focus rings ────────────────────────────────────────── */
+  /* All focus-visible rings reuse these — keeps the brand consistent
+     and avoids the repeated rgba() literals that were drifting before. */
+  --ring-cyan:  0 0 0 3px rgba(0,210,200,.25);
+  --ring-teal:  0 0 0 3px rgba(3,110,115,.3);
+  --ring-teal-soft: 0 0 0 3px rgba(3,110,115,.2);
 
   /* ── Motion ─────────────────────────────────────────────── */
   --ease-step: cubic-bezier(.6, 0, .2, 1);
@@ -117,12 +111,10 @@
   --ink-quiet:    var(--pxlc-text-on-dark-soft);
   --quiet:        #8A9DA3;
   --rule:         var(--pxlc-border-dark-2);
-  --rule-strong:  var(--pxlc-border-dark);
   --eyebrow:      var(--pxlc-cyan);
 
   --bg-glass:     rgba(8, 43, 54, 0.92);
 
-  --shadow-1: 0 1px 0 rgba(0,0,0,.20);
-  --shadow-2: 0 8px 24px -12px rgba(0,0,0,.45);
-  --shadow-3: 0 24px 60px -28px rgba(0,0,0,.55);
+  --shadow-card-hover: 0 8px 24px -12px rgba(0,0,0,.45);
+  --shadow-header:     0 2px 14px -6px rgba(0,0,0,.45);
 }
