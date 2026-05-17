@@ -1,45 +1,51 @@
 <script setup lang="ts">
+import { BRAND_HEX } from '~/utils/brand-colors'
+
 interface Props {
-  colorMode?: 'light' | 'dark'
   eyebrow?: string
   title?: string
   description?: string
   site?: string
 }
-const props = withDefaults(defineProps<Props>(), {
-  colorMode: 'dark',
+withDefaults(defineProps<Props>(), {
   eyebrow: 'PXLC · MÉDIATION NUMÉRIQUE · GUADELOUPE',
   title: 'Les écrans sont le reflet de la relation parent-enfant',
   description: 'Andy Zébus accompagne les SESSAD, IME, associations et collectivités de Guadeloupe — ateliers Parent-Écran-Enfant fondés sur les rapports HCSP.',
   site: 'pxlc.fr',
 })
 
-// Brand tokens — keep in sync with app/assets/css/tokens.css.
-const palette = computed(() => {
-  if (props.colorMode === 'light') {
-    return {
-      bg: '#EAF6F4',
-      bgMark: 'rgba(8, 43, 54, 0.08)',
-      ink: '#082B36',
-      inkQuiet: '#2C4751',
-      eyebrow: '#036E73',
-      meta: '#5A6B70',
-      rule: '#C4D1D2',
-    }
-  }
-  return {
-    bg: '#082B36',
-    bgMark: 'rgba(255, 255, 255, 0.06)',
-    ink: '#F4F1EA',
-    inkQuiet: '#A9C8D0',
-    eyebrow: '#00D2C8',
-    meta: '#A9C8D0',
-    rule: '#1F4A59',
-  }
-})
+// Single light surface — the colorMode prop was carrying dark-mode
+// fallback values that nothing consumed. Dropped per design call:
+// social-app previews aren't aware of system theme anyway, and the
+// ivory ground reads distinctively on dark social UIs (X/LinkedIn/Slack).
+const palette = {
+  bg: BRAND_HEX.bgLight,
+  ink: BRAND_HEX.textInk,
+  inkQuiet: BRAND_HEX.textOnLight,
+  eyebrow: BRAND_HEX.tealDeep,
+  meta: BRAND_HEX.textSecondary,
+  rule: BRAND_HEX.border,
+} as const
 
-const teals = ['#036E73', '#01A09D', '#00D2C8']
-const coral = '#FF5E3A'
+const teals = [BRAND_HEX.tealDeep, BRAND_HEX.tealMid, BRAND_HEX.cyan]
+const coral = BRAND_HEX.coral
+
+// 3×3 brand mark coords, shared between the decorative 520-px instance
+// and the 48-px lockup. nuxt-og-image enforces a renderer suffix on
+// every .vue under app/components/OgImage/, so an in-folder <OgMark>
+// sub-component isn't possible — the v-for keeps the data DRY instead.
+const MARK_POS = [2, 35.33, 68.67] as const
+const MARK_RECTS = [
+  { x: MARK_POS[0], y: MARK_POS[0], fill: BRAND_HEX.tealDeep },
+  { x: MARK_POS[1], y: MARK_POS[0], fill: BRAND_HEX.tealMid },
+  { x: MARK_POS[2], y: MARK_POS[0], fill: BRAND_HEX.cyan },
+  { x: MARK_POS[0], y: MARK_POS[1], fill: BRAND_HEX.tealDeep },
+  { x: MARK_POS[1], y: MARK_POS[1], fill: BRAND_HEX.tealMid },
+  { x: MARK_POS[2], y: MARK_POS[1], fill: BRAND_HEX.cyan },
+  { x: MARK_POS[0], y: MARK_POS[2], fill: BRAND_HEX.tealDeep },
+  { x: MARK_POS[1], y: MARK_POS[2], fill: BRAND_HEX.tealMid },
+  { x: MARK_POS[2], y: MARK_POS[2], fill: BRAND_HEX.coral },
+]
 </script>
 
 <template>
@@ -57,12 +63,12 @@ const coral = '#FF5E3A'
       padding: '64px 72px',
     }"
   >
-    <!-- Decorative PxlcMark (bottom-right, low-opacity, tilted -8deg).
-         The mark is inlined here as raw <rect>s with hex fills because the
-         takumi OG renderer runs at build time and can't resolve
-         var(--pxlc-*) custom properties — using <PxlcMark> would render
-         blank fills. Keep the colours in sync with app/components/PxlcMark.vue
-         and tokens.css. -->
+    <!-- Decorative brand mark (bottom-right, low-opacity, tilted -8deg).
+         Inlined SVG instead of a sub-component because nuxt-og-image
+         only accepts files with renderer suffixes in this folder. The
+         shared MARK_RECTS const keeps the data un-duplicated; only the
+         <svg> wrapper differs between the 520 px decorative and the
+         48 px lockup instances. -->
     <div
       :style="{
         position: 'absolute',
@@ -70,19 +76,20 @@ const coral = '#FF5E3A'
         bottom: '-80px',
         display: 'flex',
         transform: 'rotate(-8deg)',
-        opacity: colorMode === 'light' ? 0.1 : 0.18,
+        opacity: 0.1,
       }"
     >
       <svg width="520" height="520" viewBox="0 0 100 100">
-        <rect x="2"     y="2"     width="29.33" height="29.33" rx="3.5" fill="#036E73" />
-        <rect x="35.33" y="2"     width="29.33" height="29.33" rx="3.5" fill="#01A09D" />
-        <rect x="68.67" y="2"     width="29.33" height="29.33" rx="3.5" fill="#00D2C8" />
-        <rect x="2"     y="35.33" width="29.33" height="29.33" rx="3.5" fill="#036E73" />
-        <rect x="35.33" y="35.33" width="29.33" height="29.33" rx="3.5" fill="#01A09D" />
-        <rect x="68.67" y="35.33" width="29.33" height="29.33" rx="3.5" fill="#00D2C8" />
-        <rect x="2"     y="68.67" width="29.33" height="29.33" rx="3.5" fill="#036E73" />
-        <rect x="35.33" y="68.67" width="29.33" height="29.33" rx="3.5" fill="#01A09D" />
-        <rect x="68.67" y="68.67" width="29.33" height="29.33" rx="3.5" fill="#FF5E3A" />
+        <rect
+          v-for="(r, i) in MARK_RECTS"
+          :key="i"
+          :x="r.x"
+          :y="r.y"
+          width="29.33"
+          height="29.33"
+          rx="3.5"
+          :fill="r.fill"
+        />
       </svg>
     </div>
 
@@ -98,15 +105,16 @@ const coral = '#FF5E3A'
     >
       <div :style="{ display: 'flex', alignItems: 'center', gap: '16px' }">
         <svg width="48" height="48" viewBox="0 0 100 100">
-          <rect x="2"     y="2"     width="29.33" height="29.33" rx="3.5" fill="#036E73" />
-          <rect x="35.33" y="2"     width="29.33" height="29.33" rx="3.5" fill="#01A09D" />
-          <rect x="68.67" y="2"     width="29.33" height="29.33" rx="3.5" fill="#00D2C8" />
-          <rect x="2"     y="35.33" width="29.33" height="29.33" rx="3.5" fill="#036E73" />
-          <rect x="35.33" y="35.33" width="29.33" height="29.33" rx="3.5" fill="#01A09D" />
-          <rect x="68.67" y="35.33" width="29.33" height="29.33" rx="3.5" fill="#00D2C8" />
-          <rect x="2"     y="68.67" width="29.33" height="29.33" rx="3.5" fill="#036E73" />
-          <rect x="35.33" y="68.67" width="29.33" height="29.33" rx="3.5" fill="#01A09D" />
-          <rect x="68.67" y="68.67" width="29.33" height="29.33" rx="3.5" fill="#FF5E3A" />
+          <rect
+            v-for="(r, i) in MARK_RECTS"
+            :key="i"
+            :x="r.x"
+            :y="r.y"
+            width="29.33"
+            height="29.33"
+            rx="3.5"
+            :fill="r.fill"
+          />
         </svg>
         <div :style="{ display: 'flex', flexDirection: 'column' }">
           <span
@@ -136,7 +144,7 @@ const coral = '#FF5E3A'
         </div>
       </div>
 
-      <!-- Pixel strip: 14 teal cells + 1 coral accent -->
+      <!-- Pixel strip: 14 cells, premium 3-colour teal cycle, coral accent at i=10 -->
       <div :style="{ display: 'flex', alignItems: 'center', gap: '6px' }">
         <div
           v-for="i in 14"
