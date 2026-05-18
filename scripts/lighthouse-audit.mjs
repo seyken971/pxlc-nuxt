@@ -9,7 +9,7 @@
  *   node scripts/lighthouse-audit.mjs --json   # raw JSON aggregate
  */
 import http from 'node:http'
-import { readFile, stat } from 'node:fs/promises'
+import { appendFile, readFile, stat } from 'node:fs/promises'
 import { join, extname } from 'node:path'
 import lighthouse from 'lighthouse'
 import * as chromeLauncher from 'chrome-launcher'
@@ -167,6 +167,44 @@ const main = async () => {
     for (const o of r.opportunities) {
       console.log(`    -${String(o.savings).padStart(5)}ms  ${o.id} — ${o.title.slice(0, 80)}`)
     }
+  }
+
+  // GitHub Actions step summary — when GITHUB_STEP_SUMMARY is set the
+  // runner renders the file content as Markdown on the workflow page.
+  // We append a digest table so the cron run is glanceable without
+  // clicking into the raw log.
+  if (process.env.GITHUB_STEP_SUMMARY) {
+    const pct = (s) => s == null ? 'n/a' : `${Math.round(s * 100)}%`
+    const ms = (n) => n == null ? '—' : `${Math.round(n)} ms`
+    const cls = (n) => n == null ? '—' : n.toFixed(3)
+    const md = [
+      '## Lighthouse audit',
+      '',
+      `Ran on ${new Date().toISOString()} — mobile profile (4× CPU + slow 4G), localhost static server.`,
+      '',
+      '| Route | Perf | A11y | BP | SEO | LCP | CLS | TBT |',
+      '|---|---|---|---|---|---|---|---|',
+      ...all.map(r =>
+        `| \`${r.route}\` | ${pct(r.perf)} | ${pct(r.a11y)} | ${pct(r.bp)} | ${pct(r.seo)} | ${ms(r.lcp)} | ${cls(r.cls)} | ${ms(r.tbt)} |`,
+      ),
+      '',
+      '> Scores ≥ 90% green, 50–89% yellow, < 50% red. The numbers above are mobile-throttled localhost — production via GitHub Pages CDN + browser cache typically reads 10–15 points higher. Compare against PageSpeed Insights on `https://pxlc.fr` for the real baseline.',
+      '',
+    ]
+
+    const tops = all.filter(r => r.opportunities.length)
+    if (tops.length) {
+      md.push('### Top opportunities (savings > 100 ms)', '')
+      for (const r of tops) {
+        md.push(`**\`${r.route}\`**`)
+        for (const o of r.opportunities) {
+          md.push(`- \`${o.id}\` — ${o.title} (–${o.savings} ms)`)
+        }
+        md.push('')
+      }
+    }
+
+    await appendFile(process.env.GITHUB_STEP_SUMMARY, md.join('\n'))
   }
 
   // Fail the script if any score < 0.9 on perf or a11y — keeps the bar visible
