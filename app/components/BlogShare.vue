@@ -1,15 +1,10 @@
 <script setup lang="ts">
 interface Props {
-  /** Absolute URL of the article being shared. */
   url: string
-  /** Article title — prefilled in tweet/post body. */
   title: string
 }
 const props = defineProps<Props>()
 
-// Build all share URLs once. encodeURIComponent everywhere so accents and
-// "« »" survive the round-trip. Twitter via the X intent endpoint (works
-// for both x.com and twitter.com clients).
 const shares = computed(() => {
   const u = encodeURIComponent(props.url)
   const t = encodeURIComponent(props.title)
@@ -17,16 +12,19 @@ const shares = computed(() => {
     {
       key: 'linkedin',
       label: 'LinkedIn',
+      icon: 'simple-icons:linkedin',
       href: `https://www.linkedin.com/sharing/share-offsite/?url=${u}`,
     },
     {
       key: 'twitter',
       label: 'X / Twitter',
+      icon: 'simple-icons:x',
       href: `https://x.com/intent/tweet?url=${u}&text=${t}`,
     },
     {
       key: 'whatsapp',
       label: 'WhatsApp',
+      icon: 'simple-icons:whatsapp',
       href: `https://wa.me/?text=${t}%20${u}`,
     },
   ]
@@ -44,7 +42,10 @@ const shares = computed(() => {
           rel="noopener"
           class="blog-share__link"
           :aria-label="`Partager sur ${s.label} (nouvel onglet)`"
-        >{{ s.label }}</a>
+        >
+          <Icon :name="s.icon" class="blog-share__icon" aria-hidden="true" />
+          <span>{{ s.label }}</span>
+        </a>
       </li>
     </ul>
   </div>
@@ -58,12 +59,13 @@ const shares = computed(() => {
 }
 .blog-share__list { display: flex; flex-wrap: wrap; gap: var(--space-2); list-style: none; padding: 0; margin: 0; }
 .blog-share__link {
-  display: inline-flex; align-items: center; justify-content: center;
+  display: inline-flex; align-items: center; gap: 6px;
   padding: 8px 14px; font-size: 13px; font-weight: 600;
   color: var(--ink);
   border: 1px solid var(--rule); border-radius: var(--radius-pill);
   background: transparent; transition: color var(--dur-fast), border-color var(--dur-fast), background var(--dur-fast);
 }
+.blog-share__icon { width: 15px; height: 15px; flex-shrink: 0; }
 .blog-share__link:hover {
   color: var(--pxlc-coral); border-color: var(--pxlc-coral);
   background: var(--bg-soft); text-decoration: none;

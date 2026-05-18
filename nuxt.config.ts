@@ -12,13 +12,10 @@ export default defineNuxtConfig({
     : {},
 
   modules: [
-    // Trimmed from the starter set — @nuxt/a11y, @nuxt/hints, @nuxt/icon
-    // and @nuxt/scripts were installed but never referenced anywhere.
-    // @nuxt/icon in particular broke prerendering with an unresolved
-    // createRequire(import.meta.url) call in its server bundle.
     "@nuxt/content",
     "@nuxt/eslint",
     "@nuxt/fonts",
+    "@nuxt/icon",
     "@nuxt/image",
     "@nuxtjs/seo",
   ],
@@ -56,6 +53,24 @@ export default defineNuxtConfig({
   // `zeroRuntime: true` makes the og-image module prerender every OG PNG
   // at build time and ship them as static files — required for GitHub
   // Pages (no Node runtime to generate images on demand).
+  // Bundle only the 3 share icons at build time — no CDN call needed in SSG.
+  // localApiEndpoint avoids the createRequire(import.meta.url) server-bundle
+  // crash seen with older versions when the API endpoint ran server-side.
+  icon: {
+    clientBundle: {
+      icons: [
+        'simple-icons:linkedin',
+        'simple-icons:x',
+        'simple-icons:whatsapp',
+        'lucide:mail',
+        'lucide:calendar',
+        'lucide:moon',
+        'lucide:sun',
+      ],
+      scan: false,
+    },
+  },
+
   ogImage: {
     defaults: {
       width: 1200,
