@@ -30,11 +30,11 @@ Beaucoup d'enfants ne rejouent pas *la même partie* — ils **continuent** une 
 
 ## Ce qu'il ne faut pas faire
 
-❌ *"Tu pourrais varier un peu ?"* — sous-entend que ce qu'il fait n'a pas de valeur.
+— *"Tu pourrais varier un peu ?"* — sous-entend que ce qu'il fait n'a pas de valeur.
 
-❌ Lui acheter cinq nouveaux jeux pour le forcer à essayer autre chose.
+— Lui acheter cinq nouveaux jeux pour le forcer à essayer autre chose.
 
-❌ Lui interdire son jeu actuel pour le pousser vers autre chose.
+— Lui interdire son jeu actuel pour le pousser vers autre chose.
 
 Aucun de ces trois leviers ne marche. Tous renforcent l'attachement au jeu actuel, parce qu'ils en font **un enjeu de conflit** au lieu d'un **objet de dialogue**.
 

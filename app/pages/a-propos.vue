@@ -125,7 +125,7 @@ const formations = [
         Médiateur numérique, six ans dans l’esport guadeloupéen<span class="coral-dot" aria-hidden="true">.</span>
       </h1>
       <p class="lead about-lead">
-        Basé aux Abymes (Guadeloupe), Andy Zébus accompagne les SESSAD, IME, associations et collectivités pour faire des écrans un langage commun en famille plutôt qu’un point de friction.
+        Basé aux Abymes (Guadeloupe), j’accompagne les SESSAD, IME, associations et collectivités pour faire des écrans un langage commun en famille plutôt qu’un point de friction.
       </p>
       <div class="grid grid--asym mt-5 about-grid">
         <div class="full-bleed-img about-portrait">
