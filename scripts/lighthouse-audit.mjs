@@ -66,7 +66,9 @@ const ROUTES = [
   '/blog',
   '/blog/jouons-ensemble-sessad-lekoklaya',
   '/contact',
-  '/mentions-legales',
+  // /mentions-legales intentionally has robots: noindex — Lighthouse SEO
+  // audit penalises it (-40pts) even though blocking it is correct.
+  // No point tracking a page that is not meant to rank.
   '/pour-les-structures',
 ]
 
