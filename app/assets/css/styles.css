@@ -102,7 +102,12 @@ main[tabindex="-1"]:focus { outline: none; }
   text-decoration: none;
   transition: background var(--dur-base) var(--ease-step), color var(--dur-base), transform var(--dur-base), box-shadow var(--dur-base);
 }
-.btn::after { content: "→"; font-family: var(--font-mono); font-size: 13px; transform: translateY(-1px); }
+/* No font-family override on the ::after — letting "→" render in the system
+   font instead of JetBrains Mono avoids a layout shift when the mono webfont
+   swaps in (FOUT). Lighthouse caught a CLS of 0.162 from this on
+   /pour-les-structures. The glyph is U+2192, identical width in all fonts
+   for our purposes. */
+.btn::after { content: "→"; font-size: 13px; transform: translateY(-1px); }
 .btn--no-arrow::after { content: none; }
 .btn--lg { padding: 16px 28px; font-size: 16px; }
 .btn--block { width: 100%; justify-content: center; }
