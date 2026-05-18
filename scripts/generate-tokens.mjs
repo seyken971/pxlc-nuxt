@@ -66,7 +66,12 @@ const main = async () => {
     process.exit(1)
   }
 
-  const css = await readFile(CSS_TARGET, 'utf8')
+  // On Windows worktrees `core.autocrlf=true` checks the file out with CRLF,
+  // but our START/END constants use `\n`. Normalize before searching, and
+  // restore the original EOL when writing back so we don't churn the file.
+  const cssRaw = await readFile(CSS_TARGET, 'utf8')
+  const hasCRLF = cssRaw.includes('\r\n')
+  const css = hasCRLF ? cssRaw.replace(/\r\n/g, '\n') : cssRaw
   const startIdx = css.indexOf(START)
   const endIdx = css.indexOf(END)
   if (startIdx === -1 || endIdx === -1) {
@@ -77,9 +82,10 @@ const main = async () => {
   const before = css.slice(0, startIdx)
   const after = css.slice(endIdx + END.length)
   const block = `${START}\n${colors.join('\n')}\n  ${END}`
-  const next = before + block + after
+  const nextLF = before + block + after
+  const next = hasCRLF ? nextLF.replace(/\n/g, '\r\n') : nextLF
 
-  if (next === css) {
+  if (next === cssRaw) {
     console.log('gen-tokens: tokens.css already in sync')
     return
   }
