@@ -49,6 +49,11 @@ img { max-width: 100%; display: block; }
   padding: 12px 18px; background: var(--pxlc-coral); color: var(--pxlc-text-ink);
   border-radius: var(--radius-md); font-weight: 600;
 }
+/* <main tabindex="-1"> takes focus when the skip link fires. Browsers
+   default to a thick outline around the whole content area, which is
+   ugly and tells the user nothing — the content itself is the focus
+   indicator. */
+main[tabindex="-1"]:focus { outline: none; }
 
 /* ── Layout ──────────────────────────────────────────────── */
 .container { width: 100%; max-width: var(--container-max); margin: 0 auto; padding: 0 var(--container-pad); }
