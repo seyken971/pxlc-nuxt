@@ -137,6 +137,7 @@ const formations = [
             format="webp"
             loading="eager"
             fetchpriority="high"
+            preload
           />
         </div>
         <div>

@@ -43,7 +43,10 @@ export default defineNuxtConfig({
     families: [
       { name: "Sora", weights: [400, 500, 600, 700], provider: "google" },
       { name: "DM Sans", weights: [400, 500, 600], provider: "google" },
-      { name: "JetBrains Mono", weights: [400, 500, 600], provider: "google" },
+      // optional avoids FOUT entirely — no font-swap after initial render,
+      // so the eyebrow/kicker elements (mono font, many above fold on
+      // /pour-les-structures) stop contributing to CLS.
+      { name: "JetBrains Mono", weights: [400, 500, 600], provider: "google", display: "optional" },
     ],
   },
 
