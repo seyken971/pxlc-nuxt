@@ -82,7 +82,7 @@ const whatsappHref = `https://wa.me/590690717618?text=${encodeURIComponent('Bonj
            canaux plutôt que par le formulaire mailto plus bas. -->
       <aside class="contact-quick" aria-labelledby="contact-quick-title">
         <div class="contact-quick__head">
-          <div class="contact-quick__eyebrow" id="contact-quick-title">Le plus rapide</div>
+          <div id="contact-quick-title" class="contact-quick__eyebrow">Le plus rapide</div>
           <p class="contact-quick__text">
             Choisissez un créneau sur l’agenda ou écrivez sur WhatsApp — réponse personnelle sous 48 h.
           </p>

@@ -58,6 +58,19 @@ jobs:
         # deps were dropped. `npm install` resolves it on the fly.
         run: npm install --no-audit --no-fund
 
+      - name: Lint (ESLint)
+        # @nuxt/eslint flat config: catches Vue 3 / TS / Nuxt rule
+        # violations before they ship. Fast (~3 s) — runs before the
+        # heavier build / a11y / lighthouse steps so a syntax issue
+        # fails fast.
+        run: npm run lint
+
+      - name: Typecheck (vue-tsc)
+        # `nuxt typecheck` wraps vue-tsc with the right project refs.
+        # Fails the build on TS errors so type regressions can't slip
+        # past review.
+        run: npm run typecheck
+
       - name: Generate static site (SSG)
         # nuxt generate = prerender de toutes les routes + OG images
         # (ogImage.zeroRuntime: true dans nuxt.config.ts).

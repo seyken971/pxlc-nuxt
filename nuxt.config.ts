@@ -17,10 +17,22 @@ export default defineNuxtConfig({
     // @nuxt/icon in particular broke prerendering with an unresolved
     // createRequire(import.meta.url) call in its server bundle.
     "@nuxt/content",
+    "@nuxt/eslint",
     "@nuxt/fonts",
     "@nuxt/image",
     "@nuxtjs/seo",
   ],
+
+  // @nuxt/eslint regenerates a flat config (eslint.config.mjs) that
+  // imports our project-aware rules + Nuxt's built-in rule set (Vue 3,
+  // auto-imports, typescript). Keep `standalone: false` so the module
+  // wires itself into Nuxt's lifecycle instead of expecting a separate
+  // ESLint server.
+  eslint: {
+    config: {
+      stylistic: false,
+    },
+  },
 
   css: ["~/assets/css/styles.css"],
 

@@ -35,7 +35,10 @@ useSchemaOrg([
     description: post.value.description,
     datePublished: post.value.date,
     dateModified,
-    articleSection: post.value.category,
+    // nuxt-schema-org types articleSection as the intersection
+    // `string[] & string` (a TS narrowing artifact). Cast to the array
+    // form since articleSection is a single category here.
+    articleSection: [post.value.category],
     author: { '@id': 'https://pxlc.fr/#andy' },
     publisher: { '@id': 'https://pxlc.fr/#identity' },
     inLanguage: 'fr-FR',

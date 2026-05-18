@@ -16,7 +16,10 @@
     "postgenerate": "node scripts/prune-public.mjs",
     "a11y": "node scripts/a11y-audit.mjs",
     "a11y:runtime": "node scripts/a11y-runtime.mjs",
-    "lighthouse": "node scripts/lighthouse-audit.mjs"
+    "lighthouse": "node scripts/lighthouse-audit.mjs",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "typecheck": "nuxt typecheck"
   },
   "dependencies": {
     "@nuxt/content": "^3.13.0",
@@ -33,10 +36,14 @@
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.11.3",
+    "@nuxt/eslint": "^1.15.2",
     "axe-core": "^4.11.4",
     "chrome-launcher": "^1.2.1",
+    "eslint": "^9.39.4",
     "jsdom": "^29.1.1",
     "lighthouse": "^13.3.0",
-    "playwright": "^1.60.0"
+    "playwright": "^1.60.0",
+    "typescript": "^6.0.3",
+    "vue-tsc": "^3.2.9"
   }
 }
