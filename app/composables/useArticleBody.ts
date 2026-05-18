@@ -10,10 +10,15 @@
  *  - extract h2/h3 entries (slug + label) for a table of contents
  */
 
+// Loose shape — broad enough to accept @nuxt/content's MarkdownRoot
+// (where `value` and `children` are MinimarkNode trees) without forcing
+// a hard cast at the call site. We narrow on `node.type === 'text'`
+// before reading `value` as a string, so the wider type is safe at
+// runtime.
 type AstNode = {
   type?: string
   tag?: string
-  value?: string
+  value?: unknown
   props?: Record<string, unknown>
   children?: AstNode[]
 }
@@ -22,7 +27,7 @@ const WORDS_PER_MINUTE = 200
 
 const collectText = (node: AstNode | undefined | null): string => {
   if (!node) return ''
-  if (node.type === 'text') return node.value || ''
+  if (node.type === 'text') return typeof node.value === 'string' ? node.value : ''
   if (!node.children) return ''
   return node.children.map(collectText).join(' ')
 }

@@ -306,7 +306,7 @@ useSchemaOrg(
         </p>
       </header>
       <div class="grid grid--3">
-        <article v-for="a in audiences" :key="a.id" :id="a.id" class="card audience-card">
+        <article v-for="a in audiences" :id="a.id" :key="a.id" class="card audience-card">
           <span class="kicker">{{ a.label }}</span>
           <dl class="audience-list mt-3">
             <dt>Porteur</dt><dd>{{ a.porteur }}</dd>

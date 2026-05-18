@@ -33,7 +33,10 @@ const observeHero = () => {
     const hero = document.querySelector('.hero')
     if (!hero) return
     heroObserver = new IntersectionObserver(
-      ([entry]) => { heroOutOfView.value = !entry.isIntersecting },
+      ([entry]) => {
+        if (!entry) return
+        heroOutOfView.value = !entry.isIntersecting
+      },
       { threshold: 0 },
     )
     heroObserver.observe(hero)
