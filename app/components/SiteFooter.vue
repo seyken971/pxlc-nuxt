@@ -20,7 +20,7 @@ const year = new Date().getFullYear()
                 rel="noopener"
                 aria-label="LinkedIn d’Andy Zébus"
               >
-                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.22 8h4.56v15.5H.22V8zm7.91 0h4.36v2.12h.06c.61-1.15 2.1-2.37 4.32-2.37 4.62 0 5.48 3.04 5.48 7v8.75h-4.56v-7.76c0-1.85-.03-4.23-2.58-4.23-2.58 0-2.98 2.02-2.98 4.1v7.89H8.13V8z"/></svg>
+                <Icon name="simple-icons:linkedin" aria-hidden="true" />
               </a>
             </li>
             <li>
@@ -29,7 +29,7 @@ const year = new Date().getFullYear()
                 href="mailto:contact@pxlc.fr"
                 aria-label="Écrire à contact@pxlc.fr"
               >
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+                <Icon name="lucide:mail" aria-hidden="true" />
               </a>
             </li>
             <li>
@@ -40,7 +40,7 @@ const year = new Date().getFullYear()
                 rel="noopener"
                 aria-label="Réserver un échange de 20 minutes"
               >
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                <Icon name="lucide:calendar" aria-hidden="true" />
               </a>
             </li>
           </ul>
