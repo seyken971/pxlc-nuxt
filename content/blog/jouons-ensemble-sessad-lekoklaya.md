@@ -19,7 +19,7 @@ Deux ans plus tard, le projet « Jouons Ensemble! » naît de ce constat.
 Première étape : un entretien à quatre — psychologue (porteuse du projet), psychomotricienne, gamer médiateur-numérique (moi), intervenants culturels du SESSAD. Trois questions :
 
 1. **Qui sont les enfants pour qui ce dispositif fait sens ?** On identifie une cohorte de huit enfants âgés de 12 à 17 ans, avec des profils variés : TSA majoritaire, plus TDAH, TCND, dystrophie musculaire, neuropathie.
-2. **Quelles problématiques sont vraiment en jeu ?** On en sort quatre : addiction, socialisation, attention, anxiété. Pas une seule, pas la même chez tous.
+2. **Quelles problématiques sont vraiment en jeu ?** On en sort quatre : usage problématique des écrans, socialisation, attention, anxiété. Pas une seule, pas la même chez tous.
 3. **Quel rôle joue chacun pendant l'atelier ?** La psychologue cadre cliniquement. La psychomotricienne travaille les bascules sensorielles. Les intervenants culturels apportent des jeux traditionnels et des contes en miroir. Moi, je choisis les jeux vidéo, j'explique les mécaniques aux parents, j'accompagne en situation.
 
 Ce cadrage prend du temps. C'est normal. Sans lui, l'atelier se transforme en *animation gaming*, pas en dispositif thérapeutique.
