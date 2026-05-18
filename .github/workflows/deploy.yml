@@ -16,6 +16,12 @@ concurrency:
   group: pages
   cancel-in-progress: true
 
+env:
+  # Opt into Node.js 24 action runtimes before GitHub forces the migration
+  # on 2026-06-02. The build itself still targets Node.js 22 (setup-node
+  # below) — this only affects the action runner internals (checkout, etc.).
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
+
 jobs:
   build:
     runs-on: ubuntu-latest
