@@ -1,4 +1,9 @@
 <script setup lang="ts">
+// The page is already a tunnel of cal.eu / WhatsApp / mailto CTAs;
+// the global <CtaBlock> at the bottom of the layout would be a fourth
+// "Réserver un échange" button. Hide it for this route.
+definePageMeta({ hideGlobalCta: true })
+
 useSeoMeta({
   title: 'Contact — vingt minutes pour faire connaissance',
   // Kept under ~160 chars so the meta is not truncated in search results.

@@ -7,7 +7,10 @@ interface Props {
 withDefaults(defineProps<Props>(), {
   eyebrow: 'Prochain pas',
   title: '20 minutes pour échanger, sans engagement',
-  lead: 'Vous m’expliquez votre situation, je vous dis honnêtement si je peux aider — et comment. Que vous soyez parent ou directeur de structure.',
+  // B2B-only funnel — wording matches the rest of the site (PR aligning
+  // the offer through structures porteuses). Earlier draft mentioned
+  // "parents" which contradicts the actual scope.
+  lead: 'Vous m’expliquez le périmètre, le public visé et le portage envisagé, je vous dis honnêtement si la médiation s’inscrit dans vos objectifs — et comment.',
 })
 </script>
 

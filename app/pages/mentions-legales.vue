@@ -1,4 +1,8 @@
 <script setup lang="ts">
+// Legal / informational page — robots: noindex and no place for a
+// marketing CTA. Hide the global <CtaBlock> rendered by the layout.
+definePageMeta({ hideGlobalCta: true })
+
 useSeoMeta({
   title: 'Mentions légales',
   description:
