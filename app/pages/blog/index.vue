@@ -1,8 +1,9 @@
 <script setup lang="ts">
 useSeoMeta({
   title: 'Le journal — décryptages et cas pratiques PXLC',
+  // 151 chars — keyword-rich, within the 160-char window.
   description:
-    'Décryptages, repères et retours de terrain : ce que les écrans des enfants nous apprennent, en Guadeloupe et ailleurs.',
+    'Médiation numérique, jeux vidéo et lien parent-enfant — décryptages fondés sur les rapports HCSP, retours de terrain SESSAD et repères pour les équipes.',
 })
 
 defineOgImage('PxlcOg', {
