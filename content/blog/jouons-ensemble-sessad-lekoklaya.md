@@ -1,6 +1,6 @@
 ---
 title: "« Jouons Ensemble! » — comment se monte un dispositif au SESSAD"
-description: Le projet Parent-Écran-Enfant au SESSAD Lékoklaya, raconté étape par étape — du Café-Parents de 2023 aux ateliers thématiques de 2026, en passant par le cadrage avec l'équipe pluridisciplinaire.
+description: Le projet parent-écran-enfant au SESSAD Lékoklaya, raconté étape par étape — du Café-Parents de 2023 aux ateliers thématiques de 2026, en passant par le cadrage avec l'équipe pluridisciplinaire.
 date: 2026-02-10
 category: Cas pratique
 readingTime: 12 min
