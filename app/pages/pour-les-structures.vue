@@ -349,7 +349,7 @@ useSchemaOrg(
     <div class="container">
       <div class="structures-final-cta">
         <h2 class="structures-final-cta__title">
-          On en parle <span class="coral-dot" aria-hidden="true">?</span>
+          On en parle&nbsp;<span class="coral-dot" aria-hidden="true">?</span>
         </h2>
         <p class="structures-final-cta__lead">
           Vingt minutes pour cadrer le périmètre, le public visé, et voir si le dispositif s’inscrit dans vos objectifs.
