@@ -5,8 +5,9 @@ useSeoMeta({
   title: 'Médiation numérique parent-écran-enfant en Guadeloupe',
   // Description kept under ~160 chars so Google doesn't truncate the
   // HCSP credibility marker at the tail.
+  // 157 chars — HCSP years kept at the tail so Google doesn't truncate them.
   description:
-    'Andy Zébus, gamer médiateur-numérique en Guadeloupe — partenaire des SESSAD, IME, associations et collectivités sur les rapports HCSP.',
+    'Andy Zébus, gamer médiateur-numérique en Guadeloupe. Partenaire des SESSAD, IME et associations pour les ateliers parent-écran-enfant — cadre HCSP 2019-2020.',
 })
 
 defineOgImage('PxlcOg', {

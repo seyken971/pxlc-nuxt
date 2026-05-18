@@ -1,6 +1,6 @@
 <script setup lang="ts">
 useSeoMeta({
-  title: 'Dispositif de médiation numérique pour SESSAD, IME, associations',
+  title: 'Médiation numérique · SESSAD, IME et associations Guadeloupe',
   // Kept under ~160 chars so Google doesn't truncate the HCSP tail.
   description:
     'Dispositif clé en main pour SESSAD, IME, associations et collectivités de Guadeloupe : ateliers parent-enfant, équipe pluridisciplinaire, cadre HCSP.',

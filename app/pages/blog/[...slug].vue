@@ -45,6 +45,13 @@ useSchemaOrg([
     url: articleUrl,
     ...(post.value.cover ? { image: `https://pxlc.fr${post.value.cover}` } : {}),
   }),
+  defineBreadcrumb({
+    itemListElement: [
+      { name: 'Accueil', item: '/' },
+      { name: 'Blog', item: '/blog' },
+      { name: post.value.title, item: articleUrl },
+    ],
+  }),
 ])
 
 // Reading time + table of contents derived from the parsed body. Fallback
