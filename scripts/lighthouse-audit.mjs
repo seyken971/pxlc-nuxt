@@ -207,9 +207,14 @@ const main = async () => {
     await appendFile(process.env.GITHUB_STEP_SUMMARY, md.join('\n'))
   }
 
-  // Fail the script if any score < 0.9 on perf or a11y — keeps the bar visible
-  const failing = all.some(r => (r.perf < 0.9) || (r.a11y < 0.9))
-  process.exit(failing ? 1 : 0)
+  // The script always exits 0. The cron is informational — the workflow has
+  // `continue-on-error: true` on the run step and reads the Markdown summary
+  // for the trendline. A hard fail here would just produce a confusing red
+  // annotation without actually failing the job. Sub-0.9 Perf on mobile-
+  // throttled localhost is the norm, not a regression (see the disclaimer
+  // line in the Markdown summary). Real a11y regressions are caught by the
+  // dedicated axe gates in the deploy workflow, not here.
+  process.exit(0)
 }
 
 main().catch(err => { console.error(err); process.exit(2) })

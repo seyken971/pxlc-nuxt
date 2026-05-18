@@ -103,20 +103,17 @@ export default defineNuxtConfig({
   // Le fichier public/_robots.txt (legacy Jekyll) a été supprimé — il
   // dupliquait le bloc `User-agent: *` parce que le module fusionne
   // public/_robots.txt avec ce config block.
+  // Pas de `contentUsage` / `contentSignal` ici : ce sont des directives
+  // forward-looking (proposition Anthropic et al.) que Lighthouse rejette
+  // comme "Unknown directive" — -8pts SEO sitewide pour un signal que
+  // quasi aucun crawler n'honore encore. Les Disallow per-bot ci-dessous
+  // couvrent le besoin réel (les crawlers IA qui respectent robots.txt
+  // respectent Disallow).
   robots: {
     groups: [
       {
         userAgent: "*",
         allow: "/",
-        contentUsage: {
-          search: "y",
-          "train-ai": "n",
-        },
-        contentSignal: {
-          search: "yes",
-          "ai-input": "no",
-          "ai-train": "no",
-        },
       },
       // Disallow explicite pour les principaux scrapers IA — équivalent
       // de blockAiBots:true du module, mais listés ici pour traçabilité.
