@@ -91,7 +91,17 @@ export default defineNuxtConfig({
   // SSG for GitHub Pages — crawl every internal link from `/` and turn
   // the whole site into static HTML/CSS/JS/images under `.output/public/`.
   // Blog routes come from @nuxt/content's auto-prerender hook.
+  // nuxt-og-image v6.5 computes island hashes without context/source, but
+  // Nuxt 4.4 added both to computeIslandHash. Override in all build contexts
+  // to match nuxt-og-image's computation until it ships a compatibility fix.
+  alias: {
+    '#app/island-hash': './server/island-hash-compat.mjs',
+  },
+
   nitro: {
+    alias: {
+      '#app/island-hash': './server/island-hash-compat.mjs',
+    },
     prerender: {
       crawlLinks: true,
       routes: ["/"],
