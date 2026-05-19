@@ -129,35 +129,11 @@ export default defineNuxtConfig({
   // Pas de `contentUsage` / `contentSignal` ici : ce sont des directives
   // forward-looking (proposition Anthropic et al.) que Lighthouse rejette
   // comme "Unknown directive" — -8pts SEO sitewide pour un signal que
-  // quasi aucun crawler n'honore encore. Les Disallow per-bot ci-dessous
-  // couvrent le besoin réel (les crawlers IA qui respectent robots.txt
-  // respectent Disallow).
+  // quasi aucun crawler n'honore encore. blockAiBots: true couvre le
+  // besoin réel via la liste maintenue par le module.
   robots: {
-    groups: [
-      {
-        userAgent: "*",
-        allow: "/",
-      },
-      // Disallow explicite pour les principaux scrapers IA — équivalent
-      // de blockAiBots:true du module, mais listés ici pour traçabilité.
-      ...[
-        "GPTBot",
-        "ChatGPT-User",
-        "Claude-Web",
-        "anthropic-ai",
-        "Applebot-Extended",
-        "Bytespider",
-        "CCBot",
-        "cohere-ai",
-        "Diffbot",
-        "FacebookBot",
-        "Google-Extended",
-        "ImagesiftBot",
-        "PerplexityBot",
-        "OmigiliBot",
-        "Omigili",
-      ].map((userAgent) => ({ userAgent, disallow: "/" })),
-    ],
+    blockAiBots: true,
+    groups: [{ userAgent: "*", allow: "/" }],
     sitemap: ["https://pxlc.fr/sitemap.xml"],
   },
 
