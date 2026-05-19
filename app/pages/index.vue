@@ -47,7 +47,7 @@ const methodSteps: MethodStep[] = [
 
 <template>
   <Hero
-    title="Les écrans sont le reflet de la relation parent-enfant<span class='coral-dot' aria-hidden='true'>.</span>"
+    title="Transformer le temps d'écran en lien parent-enfant<span class='coral-dot' aria-hidden='true'>.</span>"
     lead="J'accompagne les SESSAD, IME, associations et collectivités de Guadeloupe en gamer médiateur-numérique — partenaire des programmes parent-écran-enfant fondés sur les rapports HCSP."
     :cta-primary="{ label: 'Voir le dispositif', href: '/pour-les-structures' }"
     :cta-secondary="{ label: 'Plaquette PDF · 12 p.', href: '/files/plaquette-pxlc.pdf', external: true }"
