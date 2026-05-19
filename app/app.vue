@@ -6,6 +6,8 @@
 // (currently "fr_FR" → emitted as lang="fr-FR"). Setting it here too
 // would duplicate the source of truth and risk drift.
 useHead({
+  // titleTemplate lives in nuxt.config.ts → seo.titleTemplate ('%s · %siteName')
+  // so site.name is the single source of truth.
   link: [
     { rel: "icon", type: "image/svg+xml", href: "/assets/img/favicon.svg" },
     { rel: "icon", type: "image/png", sizes: "32x32", href: "/icon-32x32.png" },
