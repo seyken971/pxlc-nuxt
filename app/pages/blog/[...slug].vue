@@ -57,12 +57,8 @@ const crumbs = useBreadcrumbItems({
 // to the manual frontmatter value if the AST walk yields nothing (defensive
 // — shouldn't happen for real articles).
 const { readingTimeLabel, tableOfContents } = useArticleBody()
-const computedReading = computed(() => readingTimeLabel(post.value?.body))
-const readingTime = computed(() => post.value?.readingTime || computedReading.value)
+const readingTime = computed(() => post.value?.readingTime || readingTimeLabel(post.value?.body))
 const toc = computed(() => tableOfContents(post.value?.body, ['h2']))
-
-const fmtDate = (iso: string) =>
-  new Intl.DateTimeFormat('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' }).format(new Date(iso))
 </script>
 
 <template>
