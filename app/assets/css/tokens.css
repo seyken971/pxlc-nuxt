@@ -27,12 +27,12 @@
   --pxlc-text-on-light: #2C4751;
   --pxlc-text-secondary: #5A6B70;
   --pxlc-text-on-dark-soft: #A9C8D0;
+  --pxlc-text-quiet-dark: #8A9DA3;
   --pxlc-border: #C4D1D2;
   --pxlc-border-soft: #D9D2BF;
   --pxlc-border-dark: #103847;
   --pxlc-border-dark-2: #1F4A59;
   --pxlc-white: #FFFFFF;
-  --pxlc-text-quiet-dark: #8A9DA3;
   /* BRAND HEX END */
 
   /* ── Semantic surface tokens (light) ────────────────────── */
