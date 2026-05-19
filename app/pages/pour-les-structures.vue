@@ -13,15 +13,13 @@ defineOgImage('PxlcOg', {
   description: 'Ateliers thématiques parent-enfant co-encadrés par votre équipe pluridisciplinaire et le gamer médiateur-numérique. Cadre HCSP, indicateurs d’évaluation, bilan en fin de dispositif.',
 })
 
-// Type this page as a service page: the WebPage's mainEntity is the
-// dispositif itself (Service), provided by the LocalBusiness identity.
-// FAQPage typing on the same WebPage so the FAQ block below is picked
-// up by Google for rich results.
+// FAQPage typing so Google picks up the FAQ block as rich results.
+// The Service node lives in the graph as a standalone entity — no mainEntity
+// link needed (Questions auto-attach to FAQPage via resolveRootNode).
 useSchemaOrg([
   defineWebPage({
     '@type': ['WebPage', 'FAQPage'],
     name: 'Dispositif de médiation numérique pour SESSAD, IME, associations et collectivités',
-    mainEntity: { '@id': 'https://pxlc.fr/#service' },
   }),
   // Schema.org Service — the offer Andy markets to structures.
   {
