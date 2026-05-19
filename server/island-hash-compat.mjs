@@ -15,6 +15,6 @@ export function filterIslandProps(props) {
 // validate correctly during nuxt generate.
 // TODO: remove this file + alias overrides in nuxt.config.ts once upstream fixes it.
 // Track: https://github.com/nuxt-modules/og-image/issues
-export function computeIslandHash(name, filteredProps, _context, _source) {
+export function computeIslandHash(name, filteredProps) {
   return hash([name, filteredProps]).replaceAll('_', '-')
 }
