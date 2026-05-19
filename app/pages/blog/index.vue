@@ -56,7 +56,6 @@ const filteredPosts = computed(() => {
 
 // Map a category to a thumbnail pattern modifier so cards aren't visually
 // identical. Falls back to "default" if a new unknown category appears.
-const BLOG_CATEGORIES = ['parents', 'cas-pratique', 'decryptage'] as const
 const thumbModifier = (category?: string): string => {
   if (!category) return 'default'
   const slug = category.toLowerCase().replace(/[^a-z0-9]+/g, '-')
