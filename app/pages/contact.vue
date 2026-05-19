@@ -277,4 +277,24 @@ const whatsappHref = `https://wa.me/590690717618?text=${encodeURIComponent('Bonj
 }
 .contact-sent:focus-visible { outline: 3px solid var(--pxlc-coral); outline-offset: 2px; }
 [data-theme="dark"] .contact-sent { color: var(--cyan); }
+@media (max-width: 767px) {
+  .contact-quick__actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .contact-quick__actions .btn,
+  .contact-submit {
+    width: 100%;
+    justify-content: center;
+    min-height: 56px;
+  }
+}
+
+@media (max-width: 479px) {
+  .contact-quick,
+  .contact-form {
+    padding: var(--space-3);
+  }
+}
 </style>

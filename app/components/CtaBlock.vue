@@ -61,3 +61,17 @@ withDefaults(defineProps<Props>(), {
     </div>
   </section>
 </template>
+<style scoped>
+@media (max-width: 767px) {
+  .cta-block__actions {
+    display: grid;
+    gap: 12px;
+  }
+
+  .cta-block__actions .btn {
+    width: 100%;
+    justify-content: center;
+    min-height: 56px;
+  }
+}
+</style>
