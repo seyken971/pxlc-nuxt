@@ -34,6 +34,7 @@ export const BRAND_HEX = {
   textOnLight: '#2C4751',
   textSecondary: '#5A6B70',
   textOnDarkSoft: '#A9C8D0',
+  textQuietDark: '#8A9DA3',
 
   // Borders
   border: '#C4D1D2',
