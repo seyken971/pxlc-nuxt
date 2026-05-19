@@ -1,5 +1,5 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-const isDev = process.env.NODE_ENV === "development"
+const isDev = process.env.NODE_ENV === "development";
 
 export default defineNuxtConfig({
   compatibilityDate: "2026-05-17",
@@ -46,7 +46,12 @@ export default defineNuxtConfig({
       // optional avoids FOUT entirely — no font-swap after initial render,
       // so the eyebrow/kicker elements (mono font, many above fold on
       // /pour-les-structures) stop contributing to CLS.
-      { name: "JetBrains Mono", weights: [400, 500, 600], provider: "google", display: "optional" },
+      {
+        name: "JetBrains Mono",
+        weights: [400, 500, 600],
+        provider: "google",
+        display: "optional",
+      },
     ],
   },
 
@@ -62,13 +67,13 @@ export default defineNuxtConfig({
   icon: {
     clientBundle: {
       icons: [
-        'simple-icons:linkedin',
-        'simple-icons:x',
-        'simple-icons:whatsapp',
-        'lucide:mail',
-        'lucide:calendar',
-        'lucide:moon',
-        'lucide:sun',
+        "simple-icons:linkedin",
+        "simple-icons:x",
+        "simple-icons:whatsapp",
+        "lucide:mail",
+        "lucide:calendar",
+        "lucide:moon",
+        "lucide:sun",
       ],
       scan: false,
     },
@@ -207,7 +212,7 @@ export default defineNuxtConfig({
       email: "contact@pxlc.fr",
       telephone: "+590690717618",
       contactPoint: {
-        contactType: "Prise de contact",
+        contactType: "customer service",
         email: "contact@pxlc.fr",
         telephone: "+590690717618",
       },

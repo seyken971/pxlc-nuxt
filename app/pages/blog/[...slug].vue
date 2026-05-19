@@ -14,6 +14,7 @@ if (!post.value) {
 useSeoMeta({
   title: post.value.title,
   description: post.value.description,
+  ogType: 'article',
 })
 
 defineOgImage('PxlcOg', {
