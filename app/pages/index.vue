@@ -2,7 +2,7 @@
 import type { MethodStep } from '~/components/MethodGrid.vue'
 
 useSeoMeta({
-  title: 'Médiation numérique parent-écran-enfant en Guadeloupe',
+  title: 'Transformer le temps d\'écran en lien parent-enfant',
   // Description kept under ~160 chars so Google doesn't truncate the
   // HCSP credibility marker at the tail.
   // 157 chars — HCSP years kept at the tail so Google doesn't truncate them.
@@ -12,7 +12,7 @@ useSeoMeta({
 
 defineOgImage('PxlcOg', {
   eyebrow: 'PXLC · MÉDIATION NUMÉRIQUE · GUADELOUPE',
-  title: 'Les écrans sont le reflet de la relation parent-enfant',
+  title: 'Transformer le temps d\'écran en lien parent-enfant',
   description: 'Gamer médiateur-numérique, partenaire des SESSAD, IME, associations et collectivités de Guadeloupe sur leurs programmes parent-écran-enfant.',
 })
 

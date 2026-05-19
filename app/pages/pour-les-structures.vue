@@ -442,4 +442,34 @@ useSchemaOrg(
 .structures-final-cta__title { font-size: clamp(30px, 4vw, 40px); letter-spacing: -0.025em; }
 .structures-final-cta__lead { margin: 16px auto 32px; color: var(--ink-quiet); max-width: 560px; }
 .structures-final-cta__actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+@media (max-width: 767px) {
+  .structures-final-cta__actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .structures-final-cta__actions .btn {
+    width: 100%;
+    justify-content: center;
+    min-height: 56px;
+  }
+}
+
+@media (max-width: 479px) {
+  .structures-badges {
+    align-items: stretch;
+  }
+
+  .structures-badges .badge {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    white-space: normal;
+  }
+
+  .facts-card,
+  .structures-final-cta {
+    padding: var(--space-3);
+  }
+}
 </style>
