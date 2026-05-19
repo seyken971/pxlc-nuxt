@@ -209,7 +209,8 @@ const main = async () => {
       }
     }
 
-    await appendFile(process.env.GITHUB_STEP_SUMMARY, md.join('\n')).catch(() => {})
+    await appendFile(process.env.GITHUB_STEP_SUMMARY, md.join('\n'))
+      .catch(err => process.stderr.write(`warning: failed to write step summary: ${err.message}\n`))
   }
 
   // The script always exits 0. The cron is informational — the workflow has

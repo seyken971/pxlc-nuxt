@@ -1,4 +1,5 @@
 import { defineCollection, defineContentConfig, z } from '@nuxt/content'
+import { BLOG_CATEGORIES } from './app/utils/blog-categories'
 
 // Schema d'un article de blog. Les champs déclarés ici sont validés à
 // l'ingestion : un article qui ne respecte pas le schéma fait planter
@@ -17,7 +18,7 @@ export default defineContentConfig({
         // dateModified in the BlogPosting schema (vs date which stays
         // datePublished). Format YYYY-MM-DD.
         updated: z.string().optional(),
-        category: z.enum(['parents', 'cas-pratique', 'decryptage']),
+        category: z.enum(BLOG_CATEGORIES),
         // Optional manual override; if absent, the page computes one from
         // the body text via useReadingTime().
         readingTime: z.string().optional(),
