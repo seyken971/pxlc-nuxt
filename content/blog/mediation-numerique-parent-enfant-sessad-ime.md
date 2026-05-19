@@ -2,7 +2,7 @@
 title: "Médiation numérique parent-enfant : repères pour les équipes SESSAD, IME et associations"
 description: Ce que disent les rapports HCSP sur les écrans — et comment le traduire en gestes concrets pour les familles et équipes SESSAD, IME ou associations.
 date: 2026-05-18
-category: Cas pratique
+category: cas-pratique
 readingTime: 14 min
 ---
 

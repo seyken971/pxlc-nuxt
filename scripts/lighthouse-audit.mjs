@@ -64,7 +64,10 @@ const ROUTES = [
   '/',
   '/a-propos',
   '/blog',
+  '/blog/enfant-rejoue-toujours-meme-jeu',
   '/blog/jouons-ensemble-sessad-lekoklaya',
+  '/blog/mediation-numerique-parent-enfant-sessad-ime',
+  '/blog/quand-votre-enfant-joue-a-fortnite',
   '/contact',
   // /mentions-legales intentionally has robots: noindex — Lighthouse SEO
   // audit penalises it (-40pts) even though blocking it is correct.
@@ -206,7 +209,7 @@ const main = async () => {
       }
     }
 
-    await appendFile(process.env.GITHUB_STEP_SUMMARY, md.join('\n'))
+    await appendFile(process.env.GITHUB_STEP_SUMMARY, md.join('\n')).catch(() => {})
   }
 
   // The script always exits 0. The cron is informational — the workflow has

@@ -74,6 +74,7 @@ const ROUTES = [
   '/blog',
   '/blog/enfant-rejoue-toujours-meme-jeu',
   '/blog/jouons-ensemble-sessad-lekoklaya',
+  '/blog/mediation-numerique-parent-enfant-sessad-ime',
   '/blog/quand-votre-enfant-joue-a-fortnite',
   '/contact',
   '/mentions-legales',

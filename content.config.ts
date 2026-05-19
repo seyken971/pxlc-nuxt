@@ -17,7 +17,7 @@ export default defineContentConfig({
         // dateModified in the BlogPosting schema (vs date which stays
         // datePublished). Format YYYY-MM-DD.
         updated: z.string().optional(),
-        category: z.string(),
+        category: z.enum(['parents', 'cas-pratique', 'decryptage']),
         // Optional manual override; if absent, the page computes one from
         // the body text via useReadingTime().
         readingTime: z.string().optional(),

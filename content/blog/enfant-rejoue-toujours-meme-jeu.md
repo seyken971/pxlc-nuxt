@@ -2,7 +2,7 @@
 title: Pourquoi mon enfant rejoue toujours au même jeu ?
 description: La répétition d'un jeu n'est pas un signe de manque d'imagination — c'est souvent un espace de maîtrise, un refuge structurant, ou les deux. Comprendre avant de proposer autre chose.
 date: 2026-01-15
-category: Parents
+category: parents
 readingTime: 6 min
 ---
 
