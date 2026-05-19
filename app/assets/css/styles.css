@@ -167,6 +167,9 @@ main[tabindex="-1"]:focus { outline: none; }
   transition: background var(--dur-base), border-color var(--dur-base),
               box-shadow var(--dur-base), padding var(--dur-base);
 }
+@supports not (backdrop-filter: blur(1px)) {
+  .site-header { background: var(--bg); }
+}
 [data-theme="dark"] .site-header { border-bottom-color: var(--pxlc-border-dark); }
 /* Scrolled state: collapses padding slightly and replaces the hairline rule
    with a soft elevation shadow — signals "you've left the page top". */
@@ -185,9 +188,6 @@ main[tabindex="-1"]:focus { outline: none; }
 .site-header__cta--hidden { opacity: 0; transform: translateY(-4px); pointer-events: none; }
 @media (prefers-reduced-motion: reduce) {
   .site-header, .site-header__inner, .site-header__cta { transition: none; }
-}
-@supports not (backdrop-filter: blur(1px)) {
-  .site-header { background: var(--bg); }
 }
 
 .lockup { display: inline-flex; align-items: center; gap: 12px; color: var(--ink); text-decoration: none; }
