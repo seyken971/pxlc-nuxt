@@ -57,7 +57,7 @@ watch(() => route.fullPath, () => { menuOpen.value = false })
     <div class="mobile-menu__head">
       <Lockup @click="close" />
       <div class="mobile-menu__head-actions">
-        <ThemeToggle variant="on-dark" />
+        <ThemeToggle />
         <button
           ref="closeBtn"
           type="button"

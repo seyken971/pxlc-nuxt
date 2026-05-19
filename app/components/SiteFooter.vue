@@ -9,7 +9,7 @@ const year = new Date().getFullYear()
         <div>
           <Lockup />
           <p class="site-footer__brand-text">
-            Médiation numérique en Guadeloupe — pour transformer le temps d’écran en lien parent-enfant.
+            Gamer médiateur-numérique basé en Guadeloupe.
           </p>
           <ul class="site-footer__social" role="list">
             <li>
