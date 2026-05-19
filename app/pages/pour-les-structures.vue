@@ -1,6 +1,7 @@
 <script setup lang="ts">
 useSeoMeta({
-  title: 'Médiation numérique · SESSAD, IME et associations Guadeloupe',
+  // 49 chars → 56 with " · PXLC" suffix from titleTemplate.
+  title: 'Médiation numérique · SESSAD, IME et associations',
   // Kept under ~160 chars so Google doesn't truncate the HCSP tail.
   description:
     'Dispositif clé en main pour SESSAD, IME, associations et collectivités de Guadeloupe : ateliers parent-enfant, équipe pluridisciplinaire, cadre HCSP.',

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 useSeoMeta({
-  title: 'Le journal — décryptages et cas pratiques PXLC',
+  // 41 chars → 48 with " · PXLC" suffix (removed inline PXLC to avoid "… PXLC · PXLC").
+  title: 'Le journal — décryptages et cas pratiques',
   // 151 chars — keyword-rich, within the 160-char window.
   description:
     'Médiation numérique, jeux vidéo et lien parent-enfant — décryptages fondés sur les rapports HCSP, retours de terrain SESSAD et repères pour les équipes.',

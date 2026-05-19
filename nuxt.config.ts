@@ -161,6 +161,9 @@ export default defineNuxtConfig({
   // domaine remontait des routes mortes (/ateliers, /presse).
 
   seo: {
+    // %s = page title, %siteName resolved from site.name above.
+    // Budget: keep per-page titles ≤53 chars so the full <title> stays ≤60.
+    titleTemplate: '%s · %siteName',
     meta: {
       twitterCard: "summary_large_image",
       // ogImage / twitterImage are produced dynamically by the og-image
