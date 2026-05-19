@@ -19,6 +19,7 @@ const { data: posts } = await useAsyncData('blog-index', () =>
   queryCollection('blog')
     .where('draft', '<>', true)
     .order('date', 'DESC')
+    .select('path', 'title', 'description', 'category', 'date', 'readingTime')
     .all(),
 )
 
@@ -53,16 +54,13 @@ const filteredPosts = computed(() => {
   return all.filter(p => p.category === activeCategory.value)
 })
 
-const fmtDate = (iso: string) =>
-  new Intl.DateTimeFormat('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' }).format(new Date(iso))
-
 // Map a category to a thumbnail pattern modifier so cards aren't visually
 // identical. Falls back to "default" if a new unknown category appears.
+const BLOG_CATEGORIES = ['parents', 'cas-pratique', 'decryptage'] as const
 const thumbModifier = (category?: string): string => {
   if (!category) return 'default'
   const slug = category.toLowerCase().replace(/[^a-z0-9]+/g, '-')
-  if (['parents', 'cas-pratique', 'decryptage'].includes(slug)) return slug
-  return 'default'
+  return (BLOG_CATEGORIES as readonly string[]).includes(slug) ? slug : 'default'
 }
 </script>
 

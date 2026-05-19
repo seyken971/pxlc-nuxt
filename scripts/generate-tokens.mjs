@@ -37,6 +37,7 @@ const NAME_MAP = {
   textOnLight: 'text-on-light',
   textSecondary: 'text-secondary',
   textOnDarkSoft: 'text-on-dark-soft',
+  textQuietDark: 'text-quiet-dark',
   border: 'border',
   borderSoft: 'border-soft',
   borderDark: 'border-dark',

@@ -21,7 +21,7 @@ const props = withDefaults(defineProps<Props>(), { limit: 3 })
 // (assuming at least one other post exists).
 const { data: posts } = await useAsyncData(
   `blog-related-${props.currentPath}`,
-  () => queryCollection('blog').where('draft', '<>', true).order('date', 'DESC').all(),
+  () => queryCollection('blog').where('draft', '<>', true).order('date', 'DESC').select('path', 'title', 'description', 'category', 'date').all(),
 )
 
 const related = computed<Post[]>(() => {
@@ -41,8 +41,6 @@ const related = computed<Post[]>(() => {
   return picked
 })
 
-const fmtDate = (iso: string) =>
-  new Intl.DateTimeFormat('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' }).format(new Date(iso))
 </script>
 
 <template>

@@ -32,6 +32,7 @@
   --pxlc-border-dark: #103847;
   --pxlc-border-dark-2: #1F4A59;
   --pxlc-white: #FFFFFF;
+  --pxlc-text-quiet-dark: #8A9DA3;
   /* BRAND HEX END */
 
   /* ── Semantic surface tokens (light) ────────────────────── */
@@ -52,8 +53,6 @@
   --teal-deep:    var(--pxlc-teal-deep);
   --teal-mid:     var(--pxlc-teal-mid);
   --cyan:         var(--pxlc-cyan);
-  --accent:       var(--pxlc-coral);
-  --accent-deep:  var(--pxlc-coral-deep);
   --eyebrow:      var(--pxlc-teal-deep);
 
   /* ── Typography ─────────────────────────────────────────── */
@@ -110,7 +109,7 @@
   --bg-rule:      var(--pxlc-border-dark);
   --ink:          var(--pxlc-ivory);
   --ink-quiet:    var(--pxlc-text-on-dark-soft);
-  --quiet:        #8A9DA3;
+  --quiet:        var(--pxlc-text-quiet-dark);
   --rule:         var(--pxlc-border-dark-2);
   --eyebrow:      var(--pxlc-cyan);
 

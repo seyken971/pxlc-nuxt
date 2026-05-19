@@ -8,9 +8,9 @@ const route = useRoute()
 // /mentions-legales (legal page, no marketing). Default: show.
 const showGlobalCta = computed(() => !route.meta.hideGlobalCta)
 
-onMounted(() => {
-  hydrate()
-})
+let cleanupTheme: (() => void) | undefined
+onMounted(() => { cleanupTheme = hydrate() })
+onUnmounted(() => cleanupTheme?.())
 </script>
 
 <template>
