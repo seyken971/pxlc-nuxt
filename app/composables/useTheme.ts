@@ -48,6 +48,7 @@ export const useTheme = () => {
       apply(theme.value)
     }
     mq.addEventListener('change', onSystemChange)
+    return () => mq.removeEventListener('change', onSystemChange)
   }
 
   return { theme, toggle, hydrate }
