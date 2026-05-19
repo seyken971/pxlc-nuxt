@@ -45,14 +45,12 @@ useSchemaOrg([
     url: articleUrl,
     ...(post.value.cover ? { image: `https://pxlc.fr${post.value.cover}` } : {}),
   }),
-  defineBreadcrumb({
-    itemListElement: [
-      { name: 'Accueil', item: '/' },
-      { name: 'Blog', item: '/blog' },
-      { name: post.value.title, item: articleUrl },
-    ],
-  }),
 ])
+
+// Override /blog label — its page title is too long for a breadcrumb.
+const crumbs = useBreadcrumbItems({
+  overrides: [undefined, { label: 'Blog' }],
+})
 
 // Reading time + table of contents derived from the parsed body. Fallback
 // to the manual frontmatter value if the AST walk yields nothing (defensive
@@ -69,13 +67,14 @@ const fmtDate = (iso: string) =>
 <template>
   <article v-if="post" class="section">
     <div class="container post-container">
-      <Breadcrumb
-        :items="[
-          { label: 'Accueil', to: '/' },
-          { label: 'Blog', to: '/blog' },
-          { label: post.title },
-        ]"
-      />
+      <nav class="breadcrumb" aria-label="Fil d'Ariane">
+        <ol class="breadcrumb__list" role="list">
+          <li v-for="c in crumbs" :key="c.to || c.label" class="breadcrumb__item">
+            <NuxtLink v-if="c.to && !c.current" :to="c.to" class="breadcrumb__link">{{ c.label }}</NuxtLink>
+            <span v-else class="breadcrumb__current" aria-current="page">{{ c.label }}</span>
+          </li>
+        </ol>
+      </nav>
 
       <header class="post-header">
         <span class="badge">{{ post.category }}</span>
@@ -135,4 +134,19 @@ const fmtDate = (iso: string) =>
 /* Anchored h2 from the TOC shouldn't disappear under the sticky header. */
 .post-body :deep(h2[id]) { scroll-margin-top: 96px; }
 .post-share { margin-top: var(--space-6); padding-top: var(--space-5); border-top: 1px solid var(--rule); }
+.breadcrumb { margin-bottom: var(--space-4); }
+.breadcrumb__list {
+  display: flex; flex-wrap: wrap; gap: var(--space-2);
+  list-style: none; padding: 0; margin: 0;
+  font-family: var(--font-mono); font-size: 11px;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--quiet);
+}
+.breadcrumb__item:not(:last-child)::after {
+  content: "/"; margin-left: var(--space-2); color: var(--quiet);
+}
+.breadcrumb__link { color: var(--teal-deep); transition: color var(--dur-fast); }
+.breadcrumb__link:hover { color: var(--pxlc-coral); text-decoration: none; }
+[data-theme="dark"] .breadcrumb__link { color: var(--cyan); }
+.breadcrumb__current { color: var(--ink); font-weight: 600; }
 </style>
