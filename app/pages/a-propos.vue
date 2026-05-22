@@ -1,11 +1,13 @@
 <script setup lang="ts">
-useSeoMeta({
-  // 47 chars → 54 with " · PXLC" suffix from titleTemplate.
-  title: 'Andy Zébus — médiateur numérique en Guadeloupe',
-  // Kept under ~160 chars so Google doesn't truncate the HCSP credibility tail.
-  description:
-    'Andy Zébus, gamer médiateur-numérique aux Abymes (Guadeloupe). Six ans dans l’esport, formé aux rapports HCSP 2019-2020, partenaire des SESSAD et IME.',
-})
+if (import.meta.server) {
+  useSeoMeta({
+    // 47 chars → 54 with " · PXLC" suffix from titleTemplate.
+    title: ‘Andy Zébus — médiateur numérique en Guadeloupe’,
+    // Kept under ~160 chars so Google doesn’t truncate the HCSP credibility tail.
+    description:
+      ‘Andy Zébus, gamer médiateur-numérique aux Abymes (Guadeloupe). Six ans dans l’esport, formé aux rapports HCSP 2019-2020, partenaire des SESSAD et IME.’,
+  })
+}
 
 defineOgImage('PxlcOg', {
   eyebrow: 'PXLC · À PROPOS',

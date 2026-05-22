@@ -5,11 +5,10 @@ on:
     branches: [master]
   workflow_dispatch:
 
-# Permissions minimales pour GitHub Pages via Actions
+# contents: read au niveau global (checkout dans build).
+# pages: write + id-token: write limités au job deploy uniquement.
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 # Une seule exécution à la fois — un nouveau push annule un build en cours
 concurrency:
@@ -78,11 +77,10 @@ jobs:
         run: npm run typecheck
 
       - name: Generate static site (SSG)
-        # nuxt generate = prerender de toutes les routes + OG images
-        # (ogImage.zeroRuntime: true dans nuxt.config.ts).
-        run: npx nuxt generate
-        env:
-          NITRO_PRESET: github-pages
+        # --preset github_pages = preset officiel Nitro pour GitHub Pages
+        # (génère .nojekyll, gère le 404 fallback, prerender toutes les routes
+        # via crawlLinks: true défini dans nuxt.config.ts).
+        run: npx nuxt build --preset github_pages
 
       - name: Verify build output
         # Cheap guardrail — if prerender produced an empty .output/public/
@@ -127,6 +125,9 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

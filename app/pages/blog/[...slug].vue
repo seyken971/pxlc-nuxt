@@ -44,7 +44,9 @@ useSchemaOrg([
     publisher: { '@id': 'https://pxlc.fr/#identity' },
     inLanguage: 'fr-FR',
     url: articleUrl,
-    ...(post.value.cover ? { image: `https://pxlc.fr${post.value.cover}` } : {}),
+    image: post.value.cover
+      ? `https://pxlc.fr${post.value.cover}`
+      : `https://pxlc.fr${route.path}/__og-image__/og.png`,
   }),
 ])
 
