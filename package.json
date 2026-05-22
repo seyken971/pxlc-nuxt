@@ -9,6 +9,7 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "gen:tokens": "node scripts/generate-tokens.mjs",
+    "design": "node scripts/export-design.mjs",
     "prebuild": "npm run gen:tokens",
     "pregenerate": "npm run gen:tokens",
     "predev": "npm run gen:tokens",
