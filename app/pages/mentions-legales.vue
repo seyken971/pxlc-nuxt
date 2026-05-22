@@ -3,24 +3,20 @@
 // marketing CTA. Hide the global <CtaBlock> rendered by the layout.
 definePageMeta({ hideGlobalCta: true })
 
-useSeoMeta({
-  title: 'Mentions légales',
-  description:
-    'Mentions légales et coordonnées de PXLC — Pixels Caraïbes — Andy Zébus, Entrepreneur Individuel.',
-  robots: 'noindex, follow',
-})
+if (import.meta.server) {
+  useSeoMeta({
+    title: 'Mentions légales',
+    description:
+      'Mentions légales et coordonnées de PXLC — Pixels Caraïbes — Andy Zébus, Entrepreneur Individuel.',
+    robots: 'noindex, follow',
+  })
+}
 
-defineOgImage('PxlcOg', {
-  eyebrow: 'PXLC · INFORMATIONS LÉGALES',
-  title: 'Mentions légales',
-  description: 'Éditeur, hébergement, RGPD, propriété intellectuelle — les informations légales du site pxlc.fr.',
-})
-
-// "16 mai 2026" — recomputed at render time so we never ship a stale date.
-const lastUpdated = computed(() =>
-  new Intl.DateTimeFormat('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })
-    .format(new Date()),
-)
+// Date de dernière mise à jour du contenu légal — à mettre à jour manuellement
+// si les mentions sont modifiées. new Date() était utilisé avant mais donnait
+// la date du build SSG, pas celle de la mise à jour réelle du contenu.
+const lastUpdated = new Intl.DateTimeFormat('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })
+  .format(new Date('2026-05-17T12:00:00'))
 </script>
 
 <template>

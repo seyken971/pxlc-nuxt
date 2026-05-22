@@ -4,12 +4,14 @@
 // "Réserver un échange" button. Hide it for this route.
 definePageMeta({ hideGlobalCta: true })
 
-useSeoMeta({
-  title: 'Contact — vingt minutes pour faire connaissance',
-  // Kept under ~160 chars so the meta is not truncated in search results.
-  description:
-    'Premier échange de 20 min, gratuit, sans engagement. Visio, WhatsApp ou mail — réservez sur cal.eu/pxlc-gp ou écrivez via le formulaire.',
-})
+if (import.meta.server) {
+  useSeoMeta({
+    title: 'Contact — vingt minutes pour faire connaissance',
+    // Kept under ~160 chars so the meta is not truncated in search results.
+    description:
+      'Premier échange de 20 min, gratuit, sans engagement. Visio, WhatsApp ou mail — réservez sur cal.eu/pxlc-gp ou écrivez via le formulaire.',
+  })
+}
 
 defineOgImage('PxlcOg', {
   eyebrow: 'PXLC · PREMIER PAS',
