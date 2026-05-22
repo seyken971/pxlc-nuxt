@@ -2,10 +2,10 @@
 if (import.meta.server) {
   useSeoMeta({
     // 47 chars → 54 with " · PXLC" suffix from titleTemplate.
-    title: 'Andy Zébus — médiateur numérique en Guadeloupe’,
-    // Kept under ~160 chars so Google doesn’t truncate the HCSP credibility tail.
+    title: 'Andy Zébus — médiateur numérique en Guadeloupe',
+    // Kept under ~160 chars so Google doesn't truncate the HCSP credibility tail.
     description:
-      'Andy Zébus, gamer médiateur-numérique aux Abymes (Guadeloupe). Six ans dans l’esport, formé aux rapports HCSP 2019-2020, partenaire des SESSAD et IME.’,
+      'Andy Zébus, gamer médiateur-numérique aux Abymes (Guadeloupe). Six ans dans l'esport, formé aux rapports HCSP 2019-2020, partenaire des SESSAD et IME.',
   })
 }
 
@@ -21,7 +21,7 @@ defineOgImage('PxlcOg', {
 useSchemaOrg([
   defineWebPage({
     '@type': 'AboutPage',
-    name: 'À propos d’Andy Zébus',
+    name: 'À propos d'Andy Zébus',
     about: { '@id': 'https://pxlc.fr/#andy' },
   }),
   definePerson({
@@ -68,7 +68,7 @@ useSchemaOrg([
         '@type': 'EducationalOccupationalCredential',
         credentialCategory: 'degree',
         educationalLevel: 'BTS',
-        name: 'BTS Informatique de Gestion — option Administration Réseau Local d’Entreprise',
+        name: 'BTS Informatique de Gestion — option Administration Réseau Local d'Entreprise',
         dateCreated: '2007',
         recognizedBy: { '@type': 'CollegeOrUniversity', name: 'Institut Supérieur Caraïbe (ISCA)' },
       },
@@ -102,7 +102,7 @@ const formations = [
   {
     years: '2005–2007',
     title: 'BTS Informatique de Gestion',
-    spec: 'option Administration Réseau Local d’Entreprise',
+    spec: 'option Administration Réseau Local d'Entreprise',
     school: 'Institut Supérieur Caraïbe (ISCA)',
   },
   {
@@ -125,16 +125,16 @@ const formations = [
     <div class="container">
       <span class="eyebrow eyebrow--lg">À propos</span>
       <h1 class="about-title">
-        Médiateur numérique, six ans dans l’esport guadeloupéen<span class="coral-dot" aria-hidden="true">.</span>
+        Médiateur numérique, six ans dans l'esport guadeloupéen<span class="coral-dot" aria-hidden="true">.</span>
       </h1>
       <p class="lead about-lead">
-        Basé aux Abymes (Guadeloupe), j’accompagne les SESSAD, IME, associations et collectivités pour faire des écrans un langage commun en famille plutôt qu’un point de friction.
+        Basé aux Abymes (Guadeloupe), j'accompagne les SESSAD, IME, associations et collectivités pour faire des écrans un langage commun en famille plutôt qu'un point de friction.
       </p>
       <div class="grid grid--asym mt-5 about-grid">
         <div class="full-bleed-img about-portrait">
           <NuxtImg
             src="/assets/img/photos/andy-portrait.jpg"
-            alt="Portrait d’Andy Zébus, gamer médiateur-numérique en Guadeloupe"
+            alt="Portrait d'Andy Zébus, gamer médiateur-numérique en Guadeloupe"
             width="738"
             height="738"
             format="webp"
@@ -146,13 +146,13 @@ const formations = [
         <div>
           <h2 id="parcours" class="about-h2">Parcours</h2>
           <p class="mt-3">
-            Première expérience pro dans la communauté gaming dès 2010 : Community Manager EU–FR pour <em>Atlantica Online</em> (lancement du serveur français, +100 000 inscrits). Trajectoire institutionnelle ensuite — Agent territorial Affaires Européennes Outre-Mer à la Région Guadeloupe (antenne Paris, 2013–2014), professeur d’anglais à la Région académique Guadeloupe (2016–2017), formation des élus en anglais avec ma micro-entreprise (2015–2018), com’ digitale de la Région pour la Route du Rhum 2018.
+            Première expérience pro dans la communauté gaming dès 2010 : Community Manager EU–FR pour <em>Atlantica Online</em> (lancement du serveur français, +100 000 inscrits). Trajectoire institutionnelle ensuite — Agent territorial Affaires Européennes Outre-Mer à la Région Guadeloupe (antenne Paris, 2013–2014), professeur d'anglais à la Région académique Guadeloupe (2016–2017), formation des élus en anglais avec ma micro-entreprise (2015–2018), com' digitale de la Région pour la Route du Rhum 2018.
           </p>
           <p class="mt-3">
-            Six ans à structurer la scène esport guadeloupéenne avec <strong>Esports Guadeloupe</strong> (2019–2025) — événements communautaires et grands comptes (<em>Game Over Challenge</em>, <em>Destreland Gaming Cup</em>), stratégie B2B. Une compétition a généré <strong>un mois de chiffre d’affaires en quatre jours</strong> pour une enseigne partenaire.
+            Six ans à structurer la scène esport guadeloupéenne avec <strong>Esports Guadeloupe</strong> (2019–2025) — événements communautaires et grands comptes (<em>Game Over Challenge</em>, <em>Destreland Gaming Cup</em>), stratégie B2B. Une compétition a généré <strong>un mois de chiffre d'affaires en quatre jours</strong> pour une enseigne partenaire.
           </p>
           <p class="mt-3">
-            Formateur principal en médiation numérique chez Simplon Outre-Mer (nov. 2021 – juin 2022, parcours « Responsable d’espace de médiation numérique »), formé aux référentiels
+            Formateur principal en médiation numérique chez Simplon Outre-Mer (nov. 2021 – juin 2022, parcours « Responsable d'espace de médiation numérique »), formé aux référentiels
             <a href="https://www.hcsp.fr/Explore.cgi/AvisRapportsDomaine?clefr=759" target="_blank" rel="noopener">HCSP 2019</a>
             et
             <a href="https://www.hcsp.fr/Explore.cgi/AvisRapportsDomaine?clefr=1074" target="_blank" rel="noopener">HCSP 2020</a>
@@ -174,17 +174,17 @@ const formations = [
             </li>
           </ul>
 
-          <h2 id="posture" class="about-h2 mt-5">L’aspect social du jeu vidéo</h2>
+          <h2 id="posture" class="about-h2 mt-5">L'aspect social du jeu vidéo</h2>
           <p class="mt-3">
-            Le jeu vidéo n’est pas un retrait du monde — c’est un terrain de socialisation à part entière. Coopération, leadership, gestion d’équipe, communication écrite et orale : pour beaucoup d’ados, c’est la première expérience structurée de vie en collectif hors du cercle familial.
+            Le jeu vidéo n'est pas un retrait du monde — c'est un terrain de socialisation à part entière. Coopération, leadership, gestion d'équipe, communication écrite et orale : pour beaucoup d'ados, c'est la première expérience structurée de vie en collectif hors du cercle familial.
           </p>
           <p class="mt-3">
-            Ma posture découle de là : prendre le jeu au sérieux comme objet social, pas le réduire à un temps d’écran à compter. Pas de discours moral sur les écrans, pas de procès du numérique — un cadre, des compétences identifiables, et un dialogue rendu possible entre le parent et l’enfant.
+            Ma posture découle de là : prendre le jeu au sérieux comme objet social, pas le réduire à un temps d'écran à compter. Pas de discours moral sur les écrans, pas de procès du numérique — un cadre, des compétences identifiables, et un dialogue rendu possible entre le parent et l'enfant.
           </p>
 
           <h2 id="role" class="about-h2 mt-5">Mon rôle dans les dispositifs</h2>
           <p class="mt-3">
-            J’interviens en <strong>gamer médiateur-numérique partenaire</strong> : le projet est toujours porté par votre structure (psychologue du SESSAD, coordinateur d’association, équipe d’une collectivité). Je n’interviens pas en direct auprès des parents — toute mon activité passe par une structure porteuse.
+            J'interviens en <strong>gamer médiateur-numérique partenaire</strong> : le projet est toujours porté par votre structure (psychologue du SESSAD, coordinateur d'association, équipe d'une collectivité). Je n'interviens pas en direct auprès des parents — toute mon activité passe par une structure porteuse.
           </p>
           <p class="mt-3">
             Ma fonction est précise : choix des jeux et adaptabilité aux objectifs psycho-éducatifs, accompagnement en situation de jeu, explication des mécaniques aux parents, démystification de la culture numérique.
