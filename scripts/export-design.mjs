@@ -48,7 +48,7 @@ function parseDark(css) {
 function parseSections(css) {
   // Les commentaires de section utilisent ─ (U+2500 BOX DRAWINGS LIGHT HORIZONTAL)
   // Ex: /* ── Layout ──────────────────────────────────────────────── */
-  const SECTION_RE = /\/\*\s*[─\-]{2,}\s+(.+?)\s+[─\-]+\s*\*\//g
+  const SECTION_RE = /\/\*\s*[─-]{2,}\s+(.+?)\s+[─-]+\s*\*\//g
   const sections = []
   let last = { title: 'Global', start: 0 }
   let m
