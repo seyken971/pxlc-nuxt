@@ -15,6 +15,7 @@ export default withNuxt(
       'dist/**',
       '_plaquette/**',
       'public/**',
+      '.remember/**',
     ],
   },
   {

@@ -5,7 +5,7 @@ if (import.meta.server) {
     title: 'Andy Zébus — médiateur numérique en Guadeloupe',
     // Kept under ~160 chars so Google doesn't truncate the HCSP credibility tail.
     description:
-      'Andy Zébus, gamer médiateur-numérique aux Abymes (Guadeloupe). Six ans dans l'esport, formé aux rapports HCSP 2019-2020, partenaire des SESSAD et IME.',
+      "Andy Zébus, gamer médiateur-numérique aux Abymes (Guadeloupe). Six ans dans l'esport, formé aux rapports HCSP 2019-2020, partenaire des SESSAD et IME.",
   })
 }
 
@@ -21,7 +21,7 @@ defineOgImage('PxlcOg', {
 useSchemaOrg([
   defineWebPage({
     '@type': 'AboutPage',
-    name: 'À propos d'Andy Zébus',
+    name: "À propos d'Andy Zébus",
     about: { '@id': 'https://pxlc.fr/#andy' },
   }),
   definePerson({
@@ -68,7 +68,7 @@ useSchemaOrg([
         '@type': 'EducationalOccupationalCredential',
         credentialCategory: 'degree',
         educationalLevel: 'BTS',
-        name: 'BTS Informatique de Gestion — option Administration Réseau Local d'Entreprise',
+        name: "BTS Informatique de Gestion — option Administration Réseau Local d'Entreprise",
         dateCreated: '2007',
         recognizedBy: { '@type': 'CollegeOrUniversity', name: 'Institut Supérieur Caraïbe (ISCA)' },
       },
@@ -102,7 +102,7 @@ const formations = [
   {
     years: '2005–2007',
     title: 'BTS Informatique de Gestion',
-    spec: 'option Administration Réseau Local d'Entreprise',
+    spec: "option Administration Réseau Local d'Entreprise",
     school: 'Institut Supérieur Caraïbe (ISCA)',
   },
   {
