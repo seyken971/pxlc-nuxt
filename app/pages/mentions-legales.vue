@@ -16,7 +16,7 @@ if (import.meta.server) {
 // si les mentions sont modifiées. new Date() était utilisé avant mais donnait
 // la date du build SSG, pas celle de la mise à jour réelle du contenu.
 const lastUpdated = new Intl.DateTimeFormat('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })
-  .format(new Date('2026-05-17'))
+  .format(new Date('2026-05-17T12:00:00'))
 </script>
 
 <template>
