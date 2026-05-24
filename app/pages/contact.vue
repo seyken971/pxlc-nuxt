@@ -204,6 +204,18 @@ const whatsappHref = `https://wa.me/590690717618?text=${encodeURIComponent('Bonj
   width: 100%; padding: 12px 14px; border-radius: var(--radius-md);
   border: 1px solid var(--rule); background: var(--bg-elev); color: var(--ink);
   font: inherit; font-size: 14px;
+  transition: border-color var(--dur-fast), box-shadow var(--dur-fast);
+}
+.form-input:hover, .form-textarea:hover { border-color: var(--pxlc-teal-mid); }
+.form-input:focus-visible, .form-textarea:focus-visible {
+  outline: none;
+  border-color: var(--pxlc-teal-deep);
+  box-shadow: var(--ring-teal);
+}
+[data-theme="dark"] .form-input:focus-visible,
+[data-theme="dark"] .form-textarea:focus-visible {
+  border-color: var(--pxlc-cyan);
+  box-shadow: var(--ring-cyan);
 }
 .form-textarea { resize: vertical; min-height: 120px; }
 .form-row { display: grid; gap: var(--space-3); grid-template-columns: 1fr; }

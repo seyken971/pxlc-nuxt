@@ -63,7 +63,16 @@ const shares = computed(() => {
   padding: 8px 14px; font-size: 13px; font-weight: 600;
   color: var(--ink);
   border: 1px solid var(--rule); border-radius: var(--radius-pill);
-  background: transparent; transition: color var(--dur-fast), border-color var(--dur-fast), background var(--dur-fast);
+  background: transparent; transition: color var(--dur-fast), border-color var(--dur-fast), background var(--dur-fast), box-shadow var(--dur-fast);
+}
+.blog-share__link:focus-visible {
+  outline: none;
+  border-color: var(--pxlc-teal-deep);
+  box-shadow: var(--ring-teal);
+}
+[data-theme="dark"] .blog-share__link:focus-visible {
+  border-color: var(--pxlc-cyan);
+  box-shadow: var(--ring-cyan);
 }
 .blog-share__icon { width: 15px; height: 15px; flex-shrink: 0; }
 .blog-share__link:hover {

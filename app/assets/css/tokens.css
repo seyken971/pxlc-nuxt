@@ -33,6 +33,11 @@
   --pxlc-border-dark: #103847;
   --pxlc-border-dark-2: #1F4A59;
   --pxlc-white: #FFFFFF;
+  /* Pattern colours — used in blog card thumbnail gradients.
+     Not in the main palette but still tokenised so a palette
+     update doesn't miss them. */
+  --pxlc-pattern-warm:      #D6CEBD;
+  --pxlc-pattern-warm-deep: #CDC4B0;
   /* BRAND HEX END */
 
   /* ── Semantic surface tokens (light) ────────────────────── */
@@ -66,6 +71,7 @@
   /* ── Spacing — 8 px rhythm ──────────────────────────────── */
   --space-1: 4px;
   --space-2: 8px;
+  --space-2-5: 12px;
   --space-3: 16px;
   --space-4: 24px;
   --space-5: 32px;
