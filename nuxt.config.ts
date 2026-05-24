@@ -18,6 +18,9 @@ export default defineNuxtConfig({
     "@nuxt/icon",
     "@nuxt/image",
     "@nuxtjs/seo",
+    // Détecte les liens cassés à la génération (SSG fail-fast).
+    // Dev: overlay inline. Build: rapport console + exit 1 si lien mort.
+    "nuxt-link-checker",
   ],
 
   // @nuxt/eslint regenerates a flat config (eslint.config.mjs) that
@@ -160,12 +163,9 @@ export default defineNuxtConfig({
         { content: "#082B36", media: "(prefers-color-scheme: dark)" },
         { content: "#EAF6F4", media: "(prefers-color-scheme: light)" },
       ],
-      // Default description — only used as fallback when a page doesn't
-      // call useSeoMeta({ description }). @nuxtjs/seo's inferSeoMeta
-      // plugin then propagates the page-level value to ogDescription and
-      // twitterDescription automatically.
-      description:
-        "PXLC accompagne les SESSAD, IME, associations et collectivités de Guadeloupe avec des ateliers Parent–Écran–Enfant.",
+      // description vient de site.description — @nuxtjs/seo la propage
+      // automatiquement vers og:description / twitter:description.
+      // Ne pas la dupliquer ici pour éviter la dérive entre les deux sources.
       author: "Andy Zébus",
       // light listed first = preferred when the user has no preference.
       colorScheme: "light dark",

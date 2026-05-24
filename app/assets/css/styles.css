@@ -505,6 +505,11 @@ main[tabindex="-1"]:focus { outline: none; }
 .mt-5 { margin-top: var(--space-5); }
 .mt-6 { margin-top: var(--space-6); }
 
+/* Shared body copy — 14.5/1.6 used throughout marketing pages for
+   card descriptions, detail paragraphs, etc. Avoids the duplicated
+   font-size + line-height in every component's scoped styles. */
+.body-sm { font-size: 14.5px; line-height: 1.6; }
+
 .prose .eyebrow,
 .eyebrow--lg {
   font-size: 12px;

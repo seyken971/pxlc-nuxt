@@ -388,21 +388,23 @@ useSchemaOrg(
 .framework-tag__dot { width: 8px; height: 8px; background: var(--pxlc-coral); border-radius: 2px; }
 .framework-tag__label { color: var(--ink); }
 .framework-title { font-size: 20px; margin-bottom: var(--space-2); }
-.framework-desc { font-size: 14.5px; line-height: 1.6; }
+/* .body-sm (global) fournit font-size: 14.5px; line-height: 1.6 — voir styles.css */
+.framework-desc,
+.indicator-detail,
+.theme-desc,
+.team-detail { font-size: 14.5px; line-height: 1.6; }
+
 .framework-meta { display: block; }
 .framework-meta--link { color: var(--teal-deep); transition: color var(--dur-fast); }
 .framework-meta--link:hover { color: var(--pxlc-coral); text-decoration: none; }
 [data-theme="dark"] .framework-meta--link { color: var(--cyan); }
 
 .indicator-title { font-size: 18px; }
-.indicator-detail { font-size: 14.5px; line-height: 1.6; }
 
 .theme-title { font-size: 20px; }
-.theme-desc { font-size: 14.5px; line-height: 1.6; }
 
 .team-grid { align-items: stretch; }
 .team-role { font-size: 18px; }
-.team-detail { font-size: 14.5px; line-height: 1.6; }
 
 .audience-card { scroll-margin-top: 96px; }
 .audience-list { display: grid; gap: 8px 16px; grid-template-columns: 1fr; margin: 0; }
