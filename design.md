@@ -29,6 +29,8 @@
 | `--pxlc-border-dark` | `#103847` |
 | `--pxlc-border-dark-2` | `#1F4A59` |
 | `--pxlc-white` | `#FFFFFF` |
+| `--pxlc-pattern-warm` | `#D6CEBD` |
+| `--pxlc-pattern-warm-deep` | `#CDC4B0` |
 
 ## Tokens sémantiques
 
@@ -95,6 +97,7 @@ Rythme 8 px.
 | --- | --- |
 | `--space-1` | `4px` |
 | `--space-2` | `8px` |
+| `--space-2-5` | `12px` |
 | `--space-3` | `16px` |
 | `--space-4` | `24px` |
 | `--space-5` | `32px` |
@@ -229,6 +232,7 @@ Classes issues de `styles.css`. Les styles scoped des composants Vue ne sont pas
 - `.cta-block__sidecard`
 - `.cta-block__sidecard-eyebrow`
 - `.cta-block__sidecard-lead`
+- `.cta-block__sidecard-link`
 
 ### Footer
 
@@ -237,6 +241,9 @@ Classes issues de `styles.css`. Les styles scoped des composants Vue ne sont pas
 - `.site-footer__col-title`
 - `.site-footer__col-list`
 - `.site-footer__col-link`
+- `.site-footer__col-list--icons`
+- `.site-footer__col-link--icon`
+- `.site-footer__contact-icon`
 - `.site-footer__brand-text`
 - `.site-footer__social`
 - `.site-footer__social-btn`

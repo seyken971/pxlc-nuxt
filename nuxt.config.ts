@@ -74,6 +74,7 @@ export default defineNuxtConfig({
         "simple-icons:x",
         "simple-icons:whatsapp",
         "lucide:mail",
+        "lucide:message-square",
         "lucide:calendar",
         "lucide:moon",
         "lucide:sun",

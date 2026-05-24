@@ -79,10 +79,11 @@ watch(() => route.fullPath, () => { menuOpen.value = false })
       <a
         href="/files/plaquette-pxlc.pdf"
         target="_blank"
-        rel="noopener"
+        rel="noopener noreferrer"
+        aria-label="Télécharger la plaquette (PDF, 12 pages, nouvel onglet)"
         class="mobile-menu__link"
         @click="close"
-      >Plaquette PDF · 12 p.</a>
+      >Télécharger la plaquette</a>
     </nav>
     <div class="mobile-menu__cta">
       <a
