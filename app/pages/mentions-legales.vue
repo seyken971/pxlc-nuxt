@@ -38,10 +38,10 @@ const lastUpdated = new Intl.DateTimeFormat('fr-FR', { day: 'numeric', month: 'l
           <strong>Andy Zébus — Entrepreneur Individuel</strong><br>
           Nom commercial : PXLC (Pixels Caraïbes)<br>
           Adresse : 8 Résidence la familiale, rue Man Manigard Alfred, Dugazon — 97139 Les Abymes, Guadeloupe (FR)<br>
-          SIRET : 813 793 528 00023<br>
+          SIRET : 813 793 528 00031<br>
           Code APE : 70.21Z — Conseil en relations publiques et communication<br>
           Email : <a href="mailto:contact@pxlc.fr">contact@pxlc.fr</a><br>
-          LinkedIn : <a href="https://www.linkedin.com/in/azebus" target="_blank" rel="noopener">linkedin.com/in/azebus</a>
+          LinkedIn : <a href="https://www.linkedin.com/in/azebus" target="_blank" rel="noopener noreferrer">linkedin.com/in/azebus</a>
         </p>
 
         <h2>Responsable de la publication</h2>
@@ -53,7 +53,7 @@ const lastUpdated = new Intl.DateTimeFormat('fr-FR', { day: 'numeric', month: 'l
           88 Colin P. Kelly Jr. Street<br>
           San Francisco, CA 94107<br>
           États-Unis<br>
-          <a href="https://github.com" target="_blank" rel="noopener">github.com</a>
+          <a href="https://github.com" target="_blank" rel="noopener noreferrer">github.com</a>
         </p>
         <p>
           Le site est servi via le service <em>GitHub Pages</em>, gratuit, sans publicité ni traceurs additionnels.
@@ -79,7 +79,7 @@ const lastUpdated = new Intl.DateTimeFormat('fr-FR', { day: 'numeric', month: 'l
           aucune donnée n’est stockée sur un serveur tiers à cette occasion.
         </p>
         <p>
-          Lorsque vous me contactez par email ou via <a href="https://cal.eu/pxlc-gp" target="_blank" rel="noopener">cal.eu/pxlc-gp</a>,
+          Lorsque vous me contactez par email ou via <a href="https://cal.eu/pxlc-gp" target="_blank" rel="noopener noreferrer">cal.eu/pxlc-gp</a>,
           je conserve vos coordonnées uniquement pour la durée de notre relation, et au plus pendant 3 ans à compter
           du dernier échange. Vous pouvez à tout moment demander la suppression de vos données en écrivant à
           <a href="mailto:contact@pxlc.fr">contact@pxlc.fr</a>.
@@ -110,7 +110,7 @@ const lastUpdated = new Intl.DateTimeFormat('fr-FR', { day: 'numeric', month: 'l
           En cas de litige, conformément à l’article L.612-1 du Code de la consommation, vous pouvez recourir
           gratuitement au service de médiation que je vous indiquerai sur demande. Vous pouvez également saisir
           la plateforme européenne de règlement en ligne des litiges :
-          <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">ec.europa.eu/consumers/odr</a>.
+          <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener noreferrer">ec.europa.eu/consumers/odr</a>.
         </p>
 
         <h2>Contact</h2>

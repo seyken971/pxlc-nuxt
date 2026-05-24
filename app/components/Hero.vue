@@ -56,7 +56,7 @@ const props = withDefaults(defineProps<Props>(), {
               v-else-if="props.ctaPrimary"
               :href="props.ctaPrimary.href"
               target="_blank"
-              rel="noopener"
+              rel="noopener noreferrer"
               class="btn btn--primary btn--lg"
               :aria-label="`${props.ctaPrimary.label} (nouvel onglet)`"
             >{{ props.ctaPrimary.label }}</a>
@@ -70,7 +70,7 @@ const props = withDefaults(defineProps<Props>(), {
               v-else-if="props.ctaSecondary"
               :href="props.ctaSecondary.href"
               target="_blank"
-              rel="noopener"
+              rel="noopener noreferrer"
               class="btn btn--secondary btn--lg btn--no-arrow"
               :aria-label="`${props.ctaSecondary.label} (nouvel onglet)`"
             >{{ props.ctaSecondary.label }}</a>

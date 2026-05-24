@@ -250,6 +250,20 @@ Classes issues de `styles.css`. Les styles scoped des composants Vue ne sont pas
 - `.site-footer__legal`
 - `.site-footer__legal-links`
 
+### Typographic utility classes (semantic aliases)
+
+- `.pxlc-h1`
+- `.pxlc-h2`
+- `.pxlc-h3`
+- `.pxlc-lead`
+- `.pxlc-body`
+- `.pxlc-body-sm`
+- `.pxlc-eyebrow`
+- `.pxlc-kicker`
+- `.pxlc-tag`
+- `.pxlc-mono`
+- `.pxlc-coral-dot`
+
 ### Utility helpers
 
 - `.mt-3`
