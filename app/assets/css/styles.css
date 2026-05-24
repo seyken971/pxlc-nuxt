@@ -450,6 +450,7 @@ main[tabindex="-1"]:focus { outline: none; }
 .cta-block__sidecard-lead strong { color: var(--pxlc-ivory); font-weight: 600; }
 .cta-block__sidecard-link { color: var(--pxlc-cyan); text-decoration: underline; text-underline-offset: 2px; transition: color var(--dur-fast); }
 .cta-block__sidecard-link:hover { color: var(--pxlc-ivory); }
+.cta-block__sidecard-link:focus-visible { outline: 2px solid var(--pxlc-cyan); outline-offset: 2px; border-radius: var(--radius-sm); text-decoration: none; }
 .cta-block__sidecard ul { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--space-2); }
 .cta-block__sidecard li { display: flex; justify-content: space-between; font-size: 13px; color: var(--pxlc-ivory); }
 .cta-block__sidecard li .meta { color: var(--pxlc-cyan); }
@@ -502,6 +503,21 @@ main[tabindex="-1"]:focus { outline: none; }
 .site-footer__legal-links { display: flex; gap: var(--space-3); list-style: none; padding: 0; margin: 0; }
 
 /* Form inputs — moved to /contact scoped style */
+
+/* ── Typographic utility classes (semantic aliases) ──────── */
+/* Miroir des classes .pxlc-* du UI Kit — permettent de typer
+   le rôle d'un élément sans surcharger les balises HTML. */
+.pxlc-h1 { font-family: var(--font-display); font-weight: 600; font-size: clamp(36px, 5.4vw, 64px); line-height: 1.04; letter-spacing: -0.03em; color: var(--ink); text-wrap: balance; }
+.pxlc-h2 { font-family: var(--font-display); font-weight: 600; font-size: clamp(28px, 4.2vw, 42px); line-height: 1.05; letter-spacing: -0.025em; color: var(--ink); }
+.pxlc-h3 { font-family: var(--font-display); font-weight: 600; font-size: 22px; line-height: 1.15; color: var(--ink); }
+.pxlc-lead { font-family: var(--font-body); font-size: clamp(16px, 2vw, 19px); line-height: 1.55; color: var(--ink-quiet); }
+.pxlc-body { font-family: var(--font-body); font-size: 16px; line-height: 1.6; color: var(--ink-quiet); }
+.pxlc-body-sm { font-family: var(--font-body); font-size: 14.5px; line-height: 1.6; color: var(--ink-quiet); }
+.pxlc-eyebrow { font-family: var(--font-mono); font-size: 11px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--eyebrow); display: block; }
+.pxlc-kicker { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--quiet); }
+.pxlc-tag { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--quiet); }
+.pxlc-mono { font-family: var(--font-mono); font-size: 14px; }
+.pxlc-coral-dot { color: var(--pxlc-coral); }
 
 /* ── Utility helpers ─────────────────────────────────────── */
 /* Spacing utilities map straight to the 8 px rhythm tokens. */

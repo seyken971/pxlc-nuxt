@@ -28,14 +28,14 @@ withDefaults(defineProps<Props>(), {
             <a
               href="https://cal.eu/pxlc-gp"
               target="_blank"
-              rel="noopener"
+              rel="noopener noreferrer"
               class="btn btn--primary btn--lg"
               aria-label="Réserver un échange (nouvel onglet)"
             >Réserver un échange</a>
             <a
               href="/files/plaquette-pxlc.pdf"
               target="_blank"
-              rel="noopener"
+              rel="noopener noreferrer"
               class="btn btn--ghost btn--lg"
               aria-label="Plaquette PDF, 12 pages (nouvel onglet)"
             >Plaquette PDF</a>

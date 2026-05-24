@@ -93,7 +93,7 @@ const whatsappHref = `https://wa.me/590690717618?text=${encodeURIComponent('Bonj
           <a
             href="https://cal.eu/pxlc-gp"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
             class="btn btn--primary btn--lg"
             aria-label="Réserver un créneau sur cal.eu (nouvel onglet)"
           >
@@ -102,7 +102,7 @@ const whatsappHref = `https://wa.me/590690717618?text=${encodeURIComponent('Bonj
           <a
             :href="whatsappHref"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
             class="btn btn--ghost btn--lg btn--no-arrow"
             aria-label="Démarrer une conversation WhatsApp (nouvel onglet)"
           >

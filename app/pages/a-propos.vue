@@ -153,9 +153,9 @@ const formations = [
           </p>
           <p class="mt-3">
             Formateur principal en médiation numérique chez Simplon Outre-Mer (nov. 2021 – juin 2022, parcours « Responsable d'espace de médiation numérique »), formé aux référentiels
-            <a href="https://www.hcsp.fr/Explore.cgi/AvisRapportsDomaine?clefr=759" target="_blank" rel="noopener">HCSP 2019</a>
+            <a href="https://www.hcsp.fr/Explore.cgi/AvisRapportsDomaine?clefr=759" target="_blank" rel="noopener noreferrer">HCSP 2019</a>
             et
-            <a href="https://www.hcsp.fr/Explore.cgi/AvisRapportsDomaine?clefr=1074" target="_blank" rel="noopener">HCSP 2020</a>
+            <a href="https://www.hcsp.fr/Explore.cgi/AvisRapportsDomaine?clefr=1074" target="_blank" rel="noopener noreferrer">HCSP 2020</a>
             — je traduis les recommandations institutionnelles en gestes concrets pour les équipes pluridisciplinaires.
           </p>
           <p class="mt-3">

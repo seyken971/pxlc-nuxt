@@ -193,7 +193,7 @@ export default defineNuxtConfig({
       // Aligned on the mentions-legales page wording: em-dash + capital
       // "Individuel" (the INSEE-conformant form for EI).
       legalName: "Andy Zébus — Entrepreneur Individuel",
-      taxID: "813 793 528 00023",
+      taxID: "813 793 528 00031",
       description:
         "PXLC accompagne les SESSAD, IME, associations et collectivités de Guadeloupe avec des ateliers Parent–Écran–Enfant.",
       url: "https://pxlc.fr",

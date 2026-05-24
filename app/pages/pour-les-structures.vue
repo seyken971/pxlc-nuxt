@@ -171,7 +171,7 @@ useSchemaOrg(
           </p>
           <div class="hero__actions">
             <NuxtLink to="/contact" class="btn btn--primary btn--lg">Demander un devis</NuxtLink>
-            <a href="/files/plaquette-pxlc.pdf" target="_blank" rel="noopener" class="btn btn--ghost btn--lg" aria-label="Plaquette PDF, 12 pages (nouvel onglet)">Plaquette PDF · 12 pages</a>
+            <a href="/files/plaquette-pxlc.pdf" target="_blank" rel="noopener noreferrer" class="btn btn--ghost btn--lg" aria-label="Plaquette PDF, 12 pages (nouvel onglet)">Plaquette PDF · 12 pages</a>
           </div>
         </div>
 
@@ -250,7 +250,7 @@ useSchemaOrg(
             v-if="c.url"
             :href="c.url"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
             class="kicker mt-3 framework-meta framework-meta--link"
             :aria-label="`${c.key} ${c.year}, rapport officiel (nouvel onglet)`"
           >↳ rapport officiel ↗</a>
@@ -357,7 +357,7 @@ useSchemaOrg(
         </p>
         <div class="structures-final-cta__actions">
           <NuxtLink to="/contact" class="btn btn--primary btn--lg">Demander un devis</NuxtLink>
-          <a href="https://cal.eu/pxlc-gp" target="_blank" rel="noopener" class="btn btn--ghost btn--lg" aria-label="Réserver un échange (nouvel onglet)">Réserver un échange</a>
+          <a href="https://cal.eu/pxlc-gp" target="_blank" rel="noopener noreferrer" class="btn btn--ghost btn--lg" aria-label="Réserver un échange (nouvel onglet)">Réserver un échange</a>
         </div>
       </div>
     </div>

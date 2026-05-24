@@ -83,7 +83,7 @@ onBeforeUnmount(() => {
         <a
           href="https://cal.eu/pxlc-gp"
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
           class="btn btn--primary site-header__cta"
           :class="{ 'site-header__cta--hidden': !showHeaderCta }"
           :inert="!showHeaderCta"

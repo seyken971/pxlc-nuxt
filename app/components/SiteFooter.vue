@@ -17,7 +17,7 @@ const year = new Date().getFullYear()
                 class="site-footer__social-btn"
                 href="https://www.linkedin.com/in/azebus"
                 target="_blank"
-                rel="noopener"
+                rel="noopener noreferrer"
                 aria-label="LinkedIn d’Andy Zébus"
               >
                 <Icon name="simple-icons:linkedin" aria-hidden="true" />
@@ -37,7 +37,7 @@ const year = new Date().getFullYear()
                 class="site-footer__social-btn"
                 href="https://cal.eu/pxlc-gp"
                 target="_blank"
-                rel="noopener"
+                rel="noopener noreferrer"
                 aria-label="Réserver un échange de 20 minutes"
               >
                 <Icon name="lucide:calendar" aria-hidden="true" />
@@ -88,7 +88,7 @@ const year = new Date().getFullYear()
       </div>
 
       <div class="site-footer__legal">
-        <p>PXLC · Guadeloupe · SIRET 813 793 528 00023 · APE 70.21Z · © {{ year }}</p>
+        <p>PXLC · Guadeloupe · SIRET 813 793 528 00031 · APE 70.21Z · © {{ year }}</p>
         <ul class="site-footer__legal-links" role="list">
           <li><NuxtLink to="/mentions-legales">Mentions légales</NuxtLink></li>
           <li><NuxtLink to="/mentions-legales#rgpd">Confidentialité</NuxtLink></li>

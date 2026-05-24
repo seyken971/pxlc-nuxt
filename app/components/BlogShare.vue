@@ -39,7 +39,7 @@ const shares = computed(() => {
         <a
           :href="s.href"
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
           class="blog-share__link"
           :aria-label="`Partager sur ${s.label} (nouvel onglet)`"
         >

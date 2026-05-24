@@ -89,7 +89,7 @@ watch(() => route.fullPath, () => { menuOpen.value = false })
       <a
         href="https://cal.eu/pxlc-gp"
         target="_blank"
-        rel="noopener"
+        rel="noopener noreferrer"
         class="btn btn--primary btn--block btn--lg"
         @click="close"
       >
@@ -98,7 +98,7 @@ watch(() => route.fullPath, () => { menuOpen.value = false })
       <a
         href="https://wa.me/590690717618"
         target="_blank"
-        rel="noopener"
+        rel="noopener noreferrer"
         class="btn btn--ghost btn--block btn--lg mobile-menu__cta-secondary"
         @click="close"
       >
