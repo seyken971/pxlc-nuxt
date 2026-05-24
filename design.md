@@ -249,6 +249,7 @@ Classes issues de `styles.css`. Les styles scoped des composants Vue ne sont pas
 - `.mt-4`
 - `.mt-5`
 - `.mt-6`
+- `.body-sm`
 - `.prose`
 - `.eyebrow--lg`
 
