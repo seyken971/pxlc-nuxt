@@ -82,7 +82,7 @@ watch(() => route.fullPath, () => { menuOpen.value = false })
         rel="noopener"
         class="mobile-menu__link"
         @click="close"
-      >Plaquette PDF · 12 p.</a>
+      >Télécharger la plaquette</a>
     </nav>
     <div class="mobile-menu__cta">
       <a

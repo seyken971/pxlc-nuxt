@@ -36,7 +36,7 @@ const props = withDefaults(defineProps<Props>(), {
 
 <template>
   <section class="hero" aria-labelledby="hero-title">
-    <div class="hero__strip"><PixelStrip :count="16" :accent-at="11" /></div>
+    <div class="hero__strip"><PixelStrip :count="8" :accent-at="5" /></div>
     <div v-if="props.showBgMark" class="hero__bg-mark" aria-hidden="true">
       <PxlcMark :size="420" decorative />
     </div>
