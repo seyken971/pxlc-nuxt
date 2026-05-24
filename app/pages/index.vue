@@ -15,7 +15,7 @@ if (import.meta.server) {
 defineOgImage('PxlcOg', {
   eyebrow: 'PXLC · MÉDIATION NUMÉRIQUE · GUADELOUPE',
   title: 'Transformer le temps d\'écran en lien parent-enfant',
-  description: 'Gamer médiateur-numérique, partenaire des SESSAD, IME, associations et collectivités de Guadeloupe sur leurs programmes parent-écran-enfant.',
+  description: 'Médiateur numérique par le jeu, partenaire des SESSAD, IME, associations et collectivités de Guadeloupe sur leurs programmes parent-écran-enfant.',
 })
 
 // Hint the browser to start fetching the hero image as early as possible —
@@ -53,7 +53,7 @@ const methodSteps: MethodStep[] = [
     lead="J'accompagne les SESSAD, IME, associations et collectivités de Guadeloupe en médiateur numérique par le jeu — partenaire des programmes parent-écran-enfant fondés sur les rapports HCSP."
     :cta-primary="{ label: 'Voir le dispositif', href: '/pour-les-structures' }"
     :cta-secondary="{ label: 'Télécharger la plaquette', href: '/files/plaquette-pxlc.pdf', external: true }"
-    hint="← à destination des structures"
+    hint="→ pour les structures porteuses"
     photo-src="/assets/img/photos/andy-event.jpg"
     photo-alt="Andy Zébus en animation lors d’un événement gaming en Guadeloupe"
     :photo-width="740"

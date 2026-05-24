@@ -50,7 +50,7 @@ const year = new Date().getFullYear()
           <h3 class="site-footer__col-title">Le dispositif</h3>
           <ul class="site-footer__col-list" role="list">
             <li><NuxtLink class="site-footer__col-link" to="/pour-les-structures">Pour les structures</NuxtLink></li>
-            <li><a class="site-footer__col-link" href="/files/plaquette-pxlc.pdf" target="_blank" rel="noopener">Télécharger la plaquette</a></li>
+            <li><a class="site-footer__col-link" href="/files/plaquette-pxlc.pdf" target="_blank" rel="noopener noreferrer" aria-label="Télécharger la plaquette (PDF, 12 pages, nouvel onglet)">Télécharger la plaquette</a></li>
             <li><NuxtLink class="site-footer__col-link" to="/a-propos">À propos d’Andy Zébus</NuxtLink></li>
             <li><NuxtLink class="site-footer__col-link" to="/blog">Blog</NuxtLink></li>
           </ul>
@@ -66,13 +66,13 @@ const year = new Date().getFullYear()
               </NuxtLink>
             </li>
             <li>
-              <a class="site-footer__col-link site-footer__col-link--icon" href="https://cal.eu/pxlc-gp" target="_blank" rel="noopener">
+              <a class="site-footer__col-link site-footer__col-link--icon" href="https://cal.eu/pxlc-gp" target="_blank" rel="noopener noreferrer">
                 <Icon name="lucide:calendar" aria-hidden="true" class="site-footer__contact-icon" />
                 Réserver · 20&nbsp;min
               </a>
             </li>
             <li>
-              <a class="site-footer__col-link site-footer__col-link--icon" href="https://wa.me/590690717618" target="_blank" rel="noopener">
+              <a class="site-footer__col-link site-footer__col-link--icon" href="https://wa.me/590690717618" target="_blank" rel="noopener noreferrer">
                 <Icon name="simple-icons:whatsapp" aria-hidden="true" class="site-footer__contact-icon" />
                 WhatsApp
               </a>

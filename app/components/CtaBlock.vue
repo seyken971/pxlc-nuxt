@@ -49,7 +49,7 @@ withDefaults(defineProps<Props>(), {
         <div class="cta-block__sidecard" role="group" aria-label="Réservation">
           <div class="cta-block__sidecard-eyebrow">Réservation</div>
           <p class="cta-block__sidecard-lead">
-            Agenda mis à jour en temps réel sur <a href="https://cal.eu/pxlc-gp" target="_blank" rel="noopener" class="cta-block__sidecard-link">cal.eu/pxlc-gp</a>. Les créneaux libres sont visibles immédiatement.
+            Agenda mis à jour en temps réel sur <a href="https://cal.eu/pxlc-gp" target="_blank" rel="noopener noreferrer" class="cta-block__sidecard-link">cal.eu/pxlc-gp</a>. Les créneaux libres sont visibles immédiatement.
           </p>
           <ul role="list">
             <li><span>Premier échange</span><span class="meta">20 min · gratuit</span></li>
