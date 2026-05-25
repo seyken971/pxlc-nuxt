@@ -371,7 +371,7 @@ useSchemaOrg(
 .framework-tag {
   display: inline-flex; align-items: center; gap: var(--space-2);
   background: var(--bg); border: 1px solid var(--rule);
-  padding: 6px 12px; border-radius: 6px; margin-bottom: var(--space-3);
+  padding: 6px 12px; border-radius: var(--radius-sm); margin-bottom: var(--space-3);
 }
 .framework-tag__dot { width: 8px; height: 8px; background: var(--pxlc-coral); border-radius: 2px; }
 .framework-tag__label { color: var(--ink); }

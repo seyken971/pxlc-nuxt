@@ -111,7 +111,8 @@ Rythme 8 px.
 
 | Token | Valeur |
 | --- | --- |
-| `--radius-sm` | `4px` |
+| `--radius-xs` | `4px` |
+| `--radius-sm` | `6px` |
 | `--radius-md` | `8px` |
 | `--radius-lg` | `14px` |
 | `--radius-pill` | `999px` |
