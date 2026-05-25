@@ -3,14 +3,12 @@
 // marketing CTA. Hide the global <CtaBlock> rendered by the layout.
 definePageMeta({ hideGlobalCta: true })
 
-if (import.meta.server) {
-  useSeoMeta({
-    title: 'Mentions légales',
-    description:
-      'Mentions légales et coordonnées de PXLC — Andy Zébus, Entrepreneur Individuel.',
-    robots: 'noindex, follow',
-  })
-}
+useSeoMeta({ title: 'Mentions légales' })
+useServerSeoMeta({
+  description:
+    'Mentions légales et coordonnées de PXLC — Andy Zébus, Entrepreneur Individuel.',
+  robots: 'noindex, follow',
+})
 
 // Date de dernière mise à jour du contenu légal — à mettre à jour manuellement
 // si les mentions sont modifiées. new Date() était utilisé avant mais donnait
