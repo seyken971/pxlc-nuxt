@@ -139,7 +139,7 @@ const MARK_RECTS = [
               marginTop: '6px',
             }"
           >
-            Pixels Caraïbes
+            Guadeloupe · 971
           </span>
         </div>
       </div>
