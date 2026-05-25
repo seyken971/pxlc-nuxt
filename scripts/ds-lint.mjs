@@ -109,16 +109,24 @@ function lintStyle(raw, file) {
   }
 
   // R1 — Hex brut
-  // Le filtre `extra` vérifie qu'un ':' précède le '#' sur la même ligne :
-  // les sélecteurs CSS id (#facade, #abc…) n'ont pas de ':' avant eux et
-  // sont donc ignorés — seules les valeurs de propriétés sont signalées.
+  // Le filtre `extra` détecte le contexte « valeur de propriété » en cherchant
+  // un ':' entre la dernière limite de déclaration ({, }, ;) et le '#'.
+  // Couvre à la fois les valeurs sur une seule ligne et les valeurs sur plusieurs
+  // lignes (continuation) où le ':' est sur la ligne précédente.
+  // Les sélecteurs CSS id (#facade, #abc…) n'ont jamais de ':' entre la
+  // limite de déclaration et eux-mêmes → correctement ignorés.
   flag(
     /#[0-9A-Fa-f]{3,8}\b/g,
     'hex-brut',
     m => `${m[0]} → utiliser un token CSS var(--pxlc-*) ou sémantique`,
     m => {
-      const lineStart = raw.lastIndexOf('\n', m.index) + 1
-      return raw.slice(lineStart, m.index).includes(':')
+      const before   = raw.slice(0, m.index)
+      const boundary = Math.max(
+        before.lastIndexOf(';'),
+        before.lastIndexOf('{'),
+        before.lastIndexOf('}'),
+      ) + 1
+      return before.slice(boundary).includes(':')
     },
   )
 

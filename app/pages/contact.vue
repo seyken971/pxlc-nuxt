@@ -267,6 +267,10 @@ const contactCards = [
   text-align: center;
 }
 .contact-sent:focus-visible { outline: none; box-shadow: var(--ring-coral); }
+/* forced-colors (Windows HCM) supprime box-shadow — on restitue un outline système. */
+@media (forced-colors: active) {
+  .contact-sent:focus-visible { outline: 2px solid ButtonText; outline-offset: 2px; }
+}
 .contact-sent__eyebrow {
   font-family: var(--font-mono);
   font-size: 11px; font-weight: 600;
