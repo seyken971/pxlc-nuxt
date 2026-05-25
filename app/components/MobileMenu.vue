@@ -54,55 +54,70 @@ watch(() => route.fullPath, () => { menuOpen.value = false })
     aria-modal="true"
     aria-label="Menu de navigation"
   >
+    <!-- Decorative: PxlcMark watermark (bottom-right, 7 % opacity) -->
+    <div class="mobile-menu__watermark">
+      <PxlcMark :size="400" :decorative="true" />
+    </div>
+
+    <!-- Decorative: pixel strip (top-right, 40 % opacity) -->
+    <div class="mobile-menu__strip">
+      <PixelStrip :count="7" :accent-at="5" />
+    </div>
+
+    <!-- Header row: lockup + close button -->
     <div class="mobile-menu__head">
       <Lockup @click="close" />
-      <div class="mobile-menu__head-actions">
-        <ThemeToggle />
-        <button
-          ref="closeBtn"
-          type="button"
-          class="mobile-menu__close"
-          aria-label="Fermer le menu"
-          @click="closeAndRestore"
-        >✕</button>
-      </div>
+      <button
+        ref="closeBtn"
+        type="button"
+        class="mobile-menu__close"
+        aria-label="Fermer le menu"
+        @click="closeAndRestore"
+      >
+        <svg
+          width="18"
+          height="18"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <path d="M18 6L6 18M6 6l12 12" />
+        </svg>
+      </button>
     </div>
+
+    <!-- Nav links — staggered entrance via --i CSS custom property -->
     <nav class="mobile-menu__nav" aria-label="Navigation mobile">
       <NuxtLink
-        v-for="n in items"
+        v-for="(n, i) in items"
         :key="n.url"
         :to="n.url"
         class="mobile-menu__link"
         :class="{ 'is-active': isActive(n.url) }"
+        :aria-current="isActive(n.url) ? 'page' : undefined"
+        :style="{ '--i': i }"
         @click="close"
-      >{{ n.label }}</NuxtLink>
-      <a
-        href="/files/plaquette-pxlc.pdf"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Télécharger la plaquette (PDF, 12 pages, nouvel onglet)"
-        class="mobile-menu__link"
-        @click="close"
-      >Télécharger la plaquette</a>
+      >
+        {{ n.label }}
+        <span class="mobile-menu__arrow" aria-hidden="true">→</span>
+      </NuxtLink>
     </nav>
-    <div class="mobile-menu__cta">
+
+    <!-- Bottom bar: theme toggle + primary CTA -->
+    <div class="mobile-menu__bottom">
+      <ThemeToggle />
       <a
         href="https://cal.eu/pxlc-gp"
         target="_blank"
         rel="noopener noreferrer"
-        class="btn btn--primary btn--block btn--lg"
+        class="btn btn--primary mobile-menu__cta-btn"
         @click="close"
       >
-        Réserver un échange
-      </a>
-      <a
-        href="https://wa.me/590690717618"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="btn btn--ghost btn--block btn--lg mobile-menu__cta-secondary"
-        @click="close"
-      >
-        WhatsApp
+        Réserver un échange <span aria-hidden="true">→</span>
       </a>
     </div>
   </div>
