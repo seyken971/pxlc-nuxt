@@ -194,15 +194,7 @@ main[tabindex="-1"]:focus { outline: none; }
 .lockup:hover { text-decoration: none; }
 .lockup__mark { width: 32px; height: 32px; flex: none; display: block; }
 @media (min-width: 768px) { .lockup__mark { width: 36px; height: 36px; } }
-/* line-height 1.15 + gap 4px gives the tagline breathing room under
-   the wordmark — at 1.0 the two baselines kiss and the tagline reads
-   as glyphs floating between the letters of "PXLC.". */
-.lockup__text { display: flex; flex-direction: column; gap: var(--space-1); line-height: 1.15; }
 .lockup__name { font-family: var(--font-display); font-weight: 600; font-size: 18px; letter-spacing: -0.025em; color: var(--ink); line-height: 1; }
-/* Tagline: 10px with 0.16em tracking. The 9px / 0.22em pairing from the
-   spec is unreadable on standard displays — the letters disintegrate
-   into dots. 10/0.16 keeps the mono caps register without the disintegration. */
-.lockup__tag { font-family: var(--font-mono); font-size: 10px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--quiet); line-height: 1; }
 
 .site-nav { display: none; align-items: center; gap: clamp(16px, 2vw, 30px); }
 @media (min-width: 1024px) { .site-nav { display: flex; } }
@@ -234,55 +226,111 @@ main[tabindex="-1"]:focus { outline: none; }
 [data-theme="dark"] .theme-toggle .icon--moon { display: none; }
 [data-theme="dark"] .theme-toggle .icon--sun { display: block; }
 
+/* Animated hamburger — all bars coral, morphs to × on open */
 .burger {
   width: 44px; height: 44px; display: inline-flex;
   align-items: center; justify-content: center; flex-direction: column;
-  gap: var(--space-1); cursor: pointer; background: transparent; border: 0; padding: 0;
+  gap: 5px; cursor: pointer; background: transparent;
+  border: 1px solid var(--rule); border-radius: 8px; padding: 0;
 }
 @media (min-width: 1024px) { .burger { display: none; } }
 .burger span {
-  display: block; width: 22px; height: 2px; background: var(--ink);
-  transition: transform var(--dur-base), opacity var(--dur-base), background var(--dur-fast);
+  display: block; width: 20px; height: 2px;
+  background: var(--pxlc-coral); border-radius: 1px;
+  transition: transform 200ms cubic-bezier(.6,0,.2,1), opacity 120ms ease;
 }
-.burger span:last-child { background: var(--pxlc-coral); }
-[data-theme="dark"] .burger span { background: var(--pxlc-ivory); }
-[data-theme="dark"] .burger span:last-child { background: var(--pxlc-coral); }
+.burger[aria-expanded="true"] span:first-child { transform: translateY(7px) rotate(45deg); }
+.burger[aria-expanded="true"] span:nth-child(2)  { opacity: 0; }
+.burger[aria-expanded="true"] span:last-child  { transform: translateY(-7px) rotate(-45deg); }
 
-/* ── Mobile menu ─────────────────────────────────────────── */
+/* ── Mobile menu (dark, slides from right) ───────────────── */
 .mobile-menu {
-  position: fixed; inset: 0; min-height: 100dvh;
-  background: var(--bg); color: var(--ink);
+  position: fixed; inset: 0;
+  background: #082B36; color: #F4F1EA;
   z-index: 100; display: flex; flex-direction: column;
-  padding: 24px clamp(20px, 4vw, 56px);
-  transform: translateY(-100%); transition: transform var(--dur-slow) var(--ease-step);
-  overflow-y: auto;
+  overflow: hidden;
+  transform: translateX(100%);
+  transition: transform 320ms cubic-bezier(.6,0,.2,1);
 }
-.mobile-menu.is-open { transform: translateY(0); }
+.mobile-menu.is-open { transform: translateX(0); }
 @media (prefers-reduced-motion: reduce) { .mobile-menu { transition: none; } }
 @media (min-width: 1024px) { .mobile-menu { display: none; } }
-.mobile-menu__head { display: flex; justify-content: space-between; align-items: center; padding: 16px 0; gap: 12px; }
-.mobile-menu__head .lockup__name { color: var(--ink); }
-.mobile-menu__head .lockup__tag { color: var(--ink-quiet); }
-.mobile-menu__head-actions { display: inline-flex; align-items: center; gap: var(--space-2); }
-.mobile-menu__close { width: 44px; height: 44px; background: transparent; border: 0; color: var(--ink); font-size: 24px; cursor: pointer; border-radius: var(--radius-md); }
-.mobile-menu__close:hover { background: var(--bg-soft); }
-.mobile-menu__close:focus-visible { outline: none; box-shadow: var(--ring-teal); }
-[data-theme="dark"] .mobile-menu__close:focus-visible { box-shadow: var(--ring-cyan); }
-.mobile-menu__nav { display: flex; flex-direction: column; margin-top: var(--space-5); }
-.mobile-menu__link {
-  font-family: var(--font-display); font-size: 22px; font-weight: 500;
-  color: var(--ink); padding: 16px 0;
-  border-bottom: 1px solid var(--rule);
-  display: flex; justify-content: space-between; align-items: center;
-  text-decoration: none;
+/* PxlcMark watermark — large, bottom-right, barely visible */
+.mobile-menu__watermark {
+  position: absolute; right: -80px; bottom: -80px;
+  opacity: 0.07; pointer-events: none;
 }
-.mobile-menu__link::after { content: "→"; color: var(--teal-mid); font-family: var(--font-mono); }
-.mobile-menu__link.is-active { color: var(--eyebrow); }
-.mobile-menu__link.is-active::after { color: var(--pxlc-coral); }
-.mobile-menu__cta { margin-top: var(--space-5); display: grid; gap: 12px; }
-.mobile-menu__cta-secondary { color: var(--ink); box-shadow: inset 0 0 0 1px var(--rule); }
-.mobile-menu__cta-secondary:hover { background: var(--bg-soft); color: var(--teal-mid); box-shadow: inset 0 0 0 1px var(--teal-mid); }
-.mobile-menu__cta-secondary:focus-visible { box-shadow: inset 0 0 0 1px var(--teal-mid), var(--ring-teal); }
+/* Pixel strip accent — top-right */
+.mobile-menu__strip {
+  position: absolute; top: 48px; right: 28px;
+  opacity: 0.4; pointer-events: none;
+}
+/* Header row */
+.mobile-menu__head {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 14px 24px; border-bottom: 1px solid #103847;
+  position: relative; z-index: 1; flex-shrink: 0;
+}
+/* Force lockup to read on the dark ground regardless of user's theme */
+.mobile-menu__head .lockup__name { color: #F4F1EA; }
+/* Close button */
+.mobile-menu__close {
+  width: 44px; height: 44px; flex-shrink: 0;
+  border: 1px solid #1F4A59; border-radius: 8px;
+  background: transparent; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  color: #A9C8D0;
+}
+.mobile-menu__close:hover { background: rgba(255,255,255,0.06); }
+.mobile-menu__close:focus-visible { outline: none; box-shadow: 0 0 0 2px #00D2C8; }
+/* Nav links — vertically centred, staggered entrance */
+.mobile-menu__nav {
+  flex: 1; padding: 12px 24px 24px;
+  display: flex; flex-direction: column; justify-content: flex-start;
+  position: relative; z-index: 1; overflow-y: auto;
+}
+.mobile-menu__link {
+  font-family: var(--font-display);
+  font-size: clamp(22px, 6vw, 32px); font-weight: 600;
+  line-height: 1.15; letter-spacing: -0.02em;
+  color: #F4F1EA; text-decoration: none;
+  padding: 14px 0;
+  display: flex; align-items: center; justify-content: space-between;
+  border-bottom: 1px solid #103847;
+  /* Enter from the right, staggered via --i CSS custom property */
+  opacity: 0; transform: translateX(28px);
+  transition: opacity 260ms ease, transform 260ms cubic-bezier(.6,0,.2,1), color 120ms;
+  transition-delay: 0ms;
+}
+.mobile-menu.is-open .mobile-menu__link {
+  opacity: 1; transform: translateX(0);
+  transition-delay: calc(50ms + var(--i, 0) * 52ms);
+}
+.mobile-menu__link.is-active { color: #00D2C8; }
+.mobile-menu__arrow {
+  font-family: var(--font-mono); font-size: 18px;
+  color: #1F4A59; transition: color 200ms;
+}
+.mobile-menu__link.is-active .mobile-menu__arrow { color: var(--pxlc-coral); }
+/* Bottom bar — theme toggle + full-width CTA */
+.mobile-menu__bottom {
+  padding: 20px 24px; border-top: 1px solid #103847;
+  display: flex; gap: 12px; align-items: center;
+  position: relative; z-index: 1; flex-shrink: 0;
+  opacity: 0; transition: opacity 280ms ease; transition-delay: 0ms;
+}
+.mobile-menu.is-open .mobile-menu__bottom {
+  opacity: 1; transition-delay: 320ms;
+}
+.mobile-menu__cta-btn { flex: 1; min-height: 44px; }
+/* ThemeToggle inside the dark panel */
+.mobile-menu .theme-toggle {
+  width: 44px; height: 44px; flex-shrink: 0;
+  border: 1px solid #1F4A59; border-radius: 8px;
+  color: #A9C8D0; background: transparent;
+}
+.mobile-menu .theme-toggle:hover { background: rgba(255,255,255,0.06); border-color: #2B5A6E; }
+.mobile-menu .theme-toggle:focus-visible { box-shadow: 0 0 0 2px #00D2C8; }
 
 /* ── Hero ────────────────────────────────────────────────── */
 /* Vertical budget: header (~70px) + hero must fit a typical laptop
@@ -457,11 +505,10 @@ main[tabindex="-1"]:focus { outline: none; }
 
 /* ── Footer ──────────────────────────────────────────────── */
 .site-footer { background: var(--pxlc-bg-dark); color: var(--pxlc-ivory); padding: clamp(48px, 8vw, 56px) 0 24px; }
-/* The footer is always dark, but .lockup__name / .lockup__tag are themed
-   for the page surface (--ink / --quiet). In light mode that paints
-   #082B36 on #082B36 → invisible "PXLC.". Force ivory + on-dark-soft here. */
+/* The footer is always dark, but .lockup__name is themed for the page
+   surface (--ink). In light mode that paints #082B36 on #082B36 →
+   invisible "PXLC.". Force ivory here. */
 .site-footer .lockup__name { color: var(--pxlc-ivory); }
-.site-footer .lockup__tag { color: var(--pxlc-text-on-dark-soft); }
 .site-footer__inner {
   display: grid; grid-template-columns: 1fr; gap: var(--space-5); margin-bottom: var(--space-6);
 }

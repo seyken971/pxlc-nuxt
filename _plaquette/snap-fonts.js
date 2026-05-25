@@ -55,7 +55,6 @@ const fs = require('fs');
       sample('.eyebrow', 'eyebrow (mono 600)'),
       sample('.kicker', 'kicker (mono 600/500)'),
       sample('.btn--primary', 'btn (body 600)'),
-      sample('.lockup__tag', 'tag (mono 500)'),
     ];
   });
 

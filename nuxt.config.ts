@@ -189,8 +189,6 @@ export default defineNuxtConfig({
       type: "LocalBusiness",
       logo: "/logo.svg",
       name: "PXLC",
-      // Aligned on the mentions-legales page wording: em-dash + capital
-      // "Individuel" (the INSEE-conformant form for EI).
       legalName: "Andy Zébus — Entrepreneur Individuel",
       taxID: "813 793 528 00031",
       description:

@@ -116,32 +116,18 @@ const MARK_RECTS = [
             :fill="r.fill"
           />
         </svg>
-        <div :style="{ display: 'flex', flexDirection: 'column' }">
-          <span
-            :style="{
-              fontFamily: 'Sora, system-ui, sans-serif',
-              fontWeight: 600,
-              fontSize: '28px',
-              letterSpacing: '-0.025em',
-              color: palette.ink,
-              lineHeight: 1,
-            }"
-          >
-            PXLC<span :style="{ color: coral }">.</span>
-          </span>
-          <span
-            :style="{
-              fontFamily: 'JetBrains Mono, ui-monospace, monospace',
-              fontSize: '12px',
-              letterSpacing: '0.22em',
-              textTransform: 'uppercase',
-              color: palette.meta,
-              marginTop: '6px',
-            }"
-          >
-            Guadeloupe · 971
-          </span>
-        </div>
+        <span
+          :style="{
+            fontFamily: 'Sora, system-ui, sans-serif',
+            fontWeight: 600,
+            fontSize: '28px',
+            letterSpacing: '-0.025em',
+            color: palette.ink,
+            lineHeight: 1,
+          }"
+        >
+          PXLC<span :style="{ color: coral }">.</span>
+        </span>
       </div>
 
       <!-- Pixel strip: 14 cells, premium 3-colour teal cycle, coral accent at i=10 -->
