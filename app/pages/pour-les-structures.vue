@@ -404,7 +404,7 @@ useSchemaOrg(
 }
 .audience-list dd { margin: 0; font-size: 14.5px; color: var(--ink); line-height: 1.5; }
 
-.faq { display: grid; gap: 12px; max-width: 820px; margin: 0 auto; }
+.faq { display: grid; gap: var(--space-2-5); max-width: 820px; margin: 0 auto; }
 .faq__item {
   border: 1px solid var(--rule); border-radius: var(--radius-md);
   background: var(--bg-elev); padding: 16px 20px;
@@ -423,7 +423,7 @@ useSchemaOrg(
 .faq__item[open] .faq__q::after { content: "−"; }
 .faq__q::-webkit-details-marker { display: none; }
 .faq__a {
-  margin-top: 12px; font-size: 14.5px; line-height: 1.6; color: var(--ink-quiet);
+  margin-top: var(--space-2-5); font-size: 14.5px; line-height: 1.6; color: var(--ink-quiet);
 }
 
 @media (max-width: 479px) {

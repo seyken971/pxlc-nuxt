@@ -65,7 +65,7 @@ withDefaults(defineProps<Props>(), {
 @media (max-width: 767px) {
   .cta-block__actions {
     display: grid;
-    gap: 12px;
+    gap: var(--space-2-5);
   }
 
   .cta-block__actions .btn {

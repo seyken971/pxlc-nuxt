@@ -37,7 +37,7 @@
 .blog-cta__title { font-size: clamp(22px, 2.6vw, 28px); letter-spacing: -0.015em; }
 .blog-cta__lead { color: var(--ink-quiet); font-size: 14.5px; line-height: 1.55; margin: 0; }
 .blog-cta__actions {
-  display: flex; flex-wrap: wrap; gap: 12px;
+  display: flex; flex-wrap: wrap; gap: var(--space-2-5);
   justify-content: flex-start;
 }
 @media (min-width: 720px) { .blog-cta__actions { justify-content: flex-end; } }

@@ -52,7 +52,7 @@ const shares = computed(() => {
 </template>
 
 <style scoped>
-.blog-share { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+.blog-share { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2-5); }
 .blog-share__label {
   font-family: var(--font-mono); font-size: 11px; font-weight: 600;
   letter-spacing: 0.22em; text-transform: uppercase; color: var(--quiet);

@@ -32,7 +32,7 @@ const props = defineProps<Props>()
 .toc__title {
   font-family: var(--font-mono); font-size: 11px; font-weight: 600;
   letter-spacing: 0.22em; text-transform: uppercase; color: var(--eyebrow);
-  display: block; margin-bottom: 12px;
+  display: block; margin-bottom: var(--space-2-5);
 }
 .toc__list { list-style: decimal inside; padding: 0; margin: 0; display: grid; gap: 6px; }
 .toc__item { font-size: 14px; line-height: 1.5; color: var(--ink-quiet); }
