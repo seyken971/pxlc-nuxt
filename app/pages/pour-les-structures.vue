@@ -1,13 +1,11 @@
 <script setup lang="ts">
-if (import.meta.server) {
-  useSeoMeta({
-    // 49 chars → 56 with " · PXLC" suffix from titleTemplate.
-    title: 'Médiation numérique · SESSAD, IME et associations',
-    // Kept under ~160 chars so Google doesn't truncate the HCSP tail.
-    description:
-      'Dispositif clé en main pour SESSAD, IME, associations et collectivités de Guadeloupe : ateliers parent-enfant, équipe pluridisciplinaire, cadre HCSP.',
-  })
-}
+// 49 chars → 56 with " · PXLC" suffix from titleTemplate.
+useSeoMeta({ title: 'Médiation numérique · SESSAD, IME et associations' })
+// Kept under ~160 chars so Google doesn't truncate the HCSP tail.
+useServerSeoMeta({
+  description:
+    'Dispositif clé en main pour SESSAD, IME, associations et collectivités de Guadeloupe : ateliers parent-enfant, équipe pluridisciplinaire, cadre HCSP.',
+})
 
 defineOgImage('PxlcOg', {
   eyebrow: 'PXLC · POUR LES STRUCTURES',

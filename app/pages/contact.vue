@@ -1,13 +1,11 @@
 <script setup lang="ts">
 definePageMeta({ hideGlobalCta: true })
 
-if (import.meta.server) {
-  useSeoMeta({
-    title: 'Contact — vingt minutes pour faire connaissance',
-    description:
-      'Premier échange de 20 min, gratuit, sans engagement. Visio, WhatsApp ou mail — réservez sur cal.eu/pxlc-gp ou écrivez via le formulaire.',
-  })
-}
+useSeoMeta({ title: 'Contact — vingt minutes pour faire connaissance' })
+useServerSeoMeta({
+  description:
+    'Premier échange de 20 min, gratuit, sans engagement. Visio, WhatsApp ou mail — réservez sur cal.eu/pxlc-gp ou écrivez via le formulaire.',
+})
 
 defineOgImage('PxlcOg', {
   eyebrow: 'PXLC · PREMIER PAS',
@@ -120,12 +118,12 @@ const contactCards = [
           <form v-else class="contact-form" @submit.prevent="submit">
             <div class="form-row">
               <div>
-                <label for="c-nom" class="form-label">Nom et prénom</label>
+                <label for="c-nom" class="form-label">Prénom et Nom</label>
                 <input
                   id="c-nom"
                   v-model="form.name"
                   type="text"
-                  placeholder="Andy Zébus"
+                  placeholder="Prénom Nom"
                   class="form-input"
                 >
               </div>
@@ -135,7 +133,7 @@ const contactCards = [
                   id="c-structure"
                   v-model="form.structure"
                   type="text"
-                  placeholder="SESSAD Les Flamboyants"
+                  placeholder="Association, école, collectivité…"
                   class="form-input"
                 >
               </div>

@@ -1,16 +1,18 @@
 <script setup lang="ts">
 import type { MethodStep } from '~/components/MethodGrid.vue'
 
-if (import.meta.server) {
-  useSeoMeta({
-    title: 'Transformer le temps d\'écran en lien parent-enfant',
-    // Description kept under ~160 chars so Google doesn't truncate the
-    // HCSP credibility marker at the tail.
-    // 157 chars — HCSP years kept at the tail so Google doesn't truncate them.
-    description:
-      'Andy Zébus, médiateur numérique par le jeu en Guadeloupe. Partenaire des SESSAD, IME et associations pour les ateliers parent-écran-enfant — cadre HCSP 2019-2020.',
-  })
-}
+// title must run on both sides so the titleTemplate (%s · %siteName) is
+// applied during client-side navigation; description is server-only (SEO only).
+useSeoMeta({
+  title: 'Transformer le temps d\'écran en lien parent-enfant',
+})
+// Description kept under ~160 chars so Google doesn't truncate the
+// HCSP credibility marker at the tail.
+// 157 chars — HCSP years kept at the tail so Google doesn't truncate them.
+useServerSeoMeta({
+  description:
+    'Andy Zébus, médiateur numérique par le jeu en Guadeloupe. Partenaire des SESSAD, IME et associations pour les ateliers parent-écran-enfant — cadre HCSP 2019-2020.',
+})
 
 defineOgImage('PxlcOg', {
   eyebrow: 'PXLC · MÉDIATION NUMÉRIQUE · GUADELOUPE',
