@@ -125,18 +125,6 @@ export default defineNuxtConfig({
     layoutTransition: false,
   },
 
-  experimental: {
-    defaults: {
-      nuxtLink: {
-        // Sur mobile (connexions limitées, Guadeloupe), le prefetch au scroll
-        // génère des requêtes JS pour des pages jamais visitées. On bascule sur
-        // interaction (hover/focus) : prefetch seulement quand l'intention est
-        // clairement signalée. Source : Nuxt docs — NuxtLink Prefetch Triggers.
-        prefetchOn: { interaction: true, visibility: false },
-      },
-    },
-  },
-
   site: {
     url: "https://pxlc.fr",
     name: "PXLC",

@@ -1,4 +1,4 @@
-﻿<script setup lang="ts">
+<script setup lang="ts">
 import type { MethodStep } from '~/components/MethodGrid.vue'
 
 // title must run on both sides so the titleTemplate (%s · %siteName) is
