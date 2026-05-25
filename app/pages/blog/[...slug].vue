@@ -205,7 +205,7 @@ onBeforeUnmount(() => {
 
 /* ── Author card ─────────────────────────────────────────────── */
 .post-author {
-  display: flex; align-items: center; gap: 14px;
+  display: flex; align-items: center; gap: var(--space-3);
   margin-top: var(--space-4); padding-top: var(--space-4);
   border-top: 1px solid var(--bg-rule);
 }

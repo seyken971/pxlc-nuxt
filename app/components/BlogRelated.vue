@@ -80,7 +80,7 @@ const related = computed<Post[]>(() => {
 .blog-related__item { display: flex; }
 .blog-related__link {
   display: flex; flex-direction: column; gap: var(--space-2);
-  padding: 20px; width: 100%;
+  padding: var(--space-3); width: 100%;
   background: var(--bg-elev); border: 1px solid var(--rule); border-radius: var(--radius-md);
   color: inherit; transition: border-color var(--dur-fast), transform var(--dur-fast);
 }

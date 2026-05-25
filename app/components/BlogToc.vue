@@ -26,8 +26,8 @@ const props = defineProps<Props>()
   background: var(--bg-soft);
   border: 1px solid var(--bg-rule);
   border-radius: var(--radius-md);
-  padding: 20px 24px;
-  margin-bottom: 40px;
+  padding: var(--space-4);
+  margin-bottom: var(--space-5);
 }
 .toc__title {
   font-family: var(--font-mono); font-size: 11px; font-weight: 600;

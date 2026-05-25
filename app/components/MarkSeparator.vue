@@ -10,7 +10,7 @@
 .mark-separator {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: var(--space-3);
   padding: clamp(24px, 4vw, 40px) 0;
   max-width: 320px;
   margin: 0 auto;
