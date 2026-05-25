@@ -189,7 +189,6 @@ export default defineNuxtConfig({
       type: "LocalBusiness",
       logo: "/logo.svg",
       name: "PXLC",
-      alternateName: "Pixels Caraïbes",
       // Aligned on the mentions-legales page wording: em-dash + capital
       // "Individuel" (the INSEE-conformant form for EI).
       legalName: "Andy Zébus — Entrepreneur Individuel",

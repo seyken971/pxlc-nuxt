@@ -13,12 +13,12 @@ const tagSize = computed(() => (props.size === 'lg' ? 12 : props.size === 'md' ?
 </script>
 
 <template>
-  <NuxtLink class="lockup" :to="props.to" aria-label="PXLC — Pixels Caraïbes — accueil">
+  <NuxtLink class="lockup" :to="props.to" aria-label="PXLC — Guadeloupe 971 — accueil">
     <PxlcMark :size="markSize" />
     <span class="lockup__text">
       <span class="lockup__name" :style="{ fontSize: nameSize + 'px' }"
         >PXLC<span class="coral-dot" aria-hidden="true">.</span></span>
-      <span class="lockup__tag" :style="{ fontSize: tagSize + 'px' }">Pixels Caraïbes</span>
+      <span class="lockup__tag" :style="{ fontSize: tagSize + 'px' }">Guadeloupe · 971</span>
     </span>
   </NuxtLink>
 </template>

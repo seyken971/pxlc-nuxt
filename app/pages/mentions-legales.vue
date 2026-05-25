@@ -7,7 +7,7 @@ if (import.meta.server) {
   useSeoMeta({
     title: 'Mentions légales',
     description:
-      'Mentions légales et coordonnées de PXLC — Pixels Caraïbes — Andy Zébus, Entrepreneur Individuel.',
+      'Mentions légales et coordonnées de PXLC — Andy Zébus, Entrepreneur Individuel.',
     robots: 'noindex, follow',
   })
 }
@@ -16,7 +16,7 @@ if (import.meta.server) {
 // si les mentions sont modifiées. new Date() était utilisé avant mais donnait
 // la date du build SSG, pas celle de la mise à jour réelle du contenu.
 const lastUpdated = new Intl.DateTimeFormat('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })
-  .format(new Date('2026-05-17T12:00:00'))
+  .format(new Date('2026-05-24T12:00:00'))
 </script>
 
 <template>
@@ -36,7 +36,7 @@ const lastUpdated = new Intl.DateTimeFormat('fr-FR', { day: 'numeric', month: 'l
         <h2>Éditeur du site</h2>
         <p>
           <strong>Andy Zébus — Entrepreneur Individuel</strong><br>
-          Nom commercial : PXLC (Pixels Caraïbes)<br>
+          Nom commercial : PXLC<br>
           Adresse : 8 Résidence la familiale, rue Man Manigard Alfred, Dugazon — 97139 Les Abymes, Guadeloupe (FR)<br>
           SIRET : 813 793 528 00031<br>
           Code APE : 70.21Z — Conseil en relations publiques et communication<br>
