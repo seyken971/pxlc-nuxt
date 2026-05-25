@@ -44,7 +44,9 @@ export default defineNuxtConfig({
   // vertical strokes on letters like "l". Declaring them explicitly here.
   fonts: {
     families: [
-      { name: "Sora", weights: [400, 500, 600, 700], provider: "google" },
+      // Sora 700 supprimé : aucune occurrence de font-weight: 700 dans le CSS
+      // ni les composants (vérifié au 2026-05-25). 4→3 fichiers woff2 en moins.
+      { name: "Sora", weights: [400, 500, 600], provider: "google" },
       { name: "DM Sans", weights: [400, 500, 600], provider: "google" },
       // optional avoids FOUT entirely — no font-swap after initial render,
       // so the eyebrow/kicker elements (mono font, many above fold on
@@ -121,6 +123,18 @@ export default defineNuxtConfig({
   app: {
     pageTransition: false,
     layoutTransition: false,
+  },
+
+  experimental: {
+    defaults: {
+      nuxtLink: {
+        // Sur mobile (connexions limitées, Guadeloupe), le prefetch au scroll
+        // génère des requêtes JS pour des pages jamais visitées. On bascule sur
+        // interaction (hover/focus) : prefetch seulement quand l'intention est
+        // clairement signalée. Source : Nuxt docs — NuxtLink Prefetch Triggers.
+        prefetchOn: { interaction: true, visibility: false },
+      },
+    },
   },
 
   site: {

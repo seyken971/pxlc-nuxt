@@ -88,7 +88,8 @@ const props = withDefaults(defineProps<Props>(), {
               :height="props.photoHeight"
               format="webp"
               loading="eager"
-              fetchpriority="high"
+              sizes="100vw md:740px"
+              :preload="{ fetchPriority: 'high' }"
             />
           </div>
           <div v-if="props.pill" class="hero__pill">
