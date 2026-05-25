@@ -211,7 +211,7 @@ const contactCards = [
   font-size: clamp(32px, 4.2vw, 48px);
   line-height: 1.04;
   letter-spacing: -0.03em;
-  margin: 0 0 16px;
+  margin: 0 0 var(--space-3);
   max-width: 640px;
 }
 .contact-lead {
@@ -233,7 +233,7 @@ const contactCards = [
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--eyebrow);
-  margin-bottom: 6px;
+  margin-bottom: var(--space-2);
 }
 .form-input, .form-textarea {
   width: 100%; padding: 12px 16px; border-radius: var(--radius-md);
@@ -266,18 +266,18 @@ const contactCards = [
   padding: 32px;
   text-align: center;
 }
-.contact-sent:focus-visible { outline: 3px solid var(--pxlc-coral); outline-offset: 2px; }
+.contact-sent:focus-visible { outline: none; box-shadow: var(--ring-coral); }
 .contact-sent__eyebrow {
   font-family: var(--font-mono);
   font-size: 11px; font-weight: 600;
   letter-spacing: 0.18em; text-transform: uppercase;
   color: var(--eyebrow);
-  margin-bottom: 12px;
+  margin-bottom: var(--space-2-5);
 }
 .contact-sent__text { font-size: 15px; color: var(--ink-quiet); margin: 0; }
 
 /* ── Contact cards ───────────────────────────────────────────── */
-.contact-cards { display: grid; gap: 16px; }
+.contact-cards { display: grid; gap: var(--space-3); }
 
 .contact-card {
   background: var(--bg-elev);
@@ -287,8 +287,8 @@ const contactCards = [
   transition: background var(--dur-base);
 }
 .contact-card__head {
-  display: flex; align-items: center; gap: 12px;
-  margin-bottom: 12px;
+  display: flex; align-items: center; gap: var(--space-2-5);
+  margin-bottom: var(--space-2-5);
 }
 .contact-card__icon {
   width: 36px; height: 36px; flex-shrink: 0;
@@ -306,13 +306,13 @@ const contactCards = [
   font-family: var(--font-mono);
   font-size: 11px; letter-spacing: 0.1em;
   color: var(--quiet);
-  margin-top: 2px;
+  margin-top: var(--space-1);
 }
 .contact-card__cta {
   font-family: var(--font-body);
   font-weight: 600; font-size: 14px;
   color: var(--eyebrow);
-  display: inline-flex; align-items: center; gap: 6px;
+  display: inline-flex; align-items: center; gap: var(--space-2);
 }
 .contact-card__cta:hover { color: var(--pxlc-coral); text-decoration: none; }
 [data-theme="dark"] .contact-card__cta { color: var(--cyan); }
