@@ -18,6 +18,13 @@
  *   R4 radius-brut    — border-radius > 2 px sans var(--radius-*)
  *   R5 vocab-interdit — termes bannis dans <template>
  *   R6 emoji          — emoji interdits dans <template>
+ *
+ * Corrections v2 :
+ *   - parseSfc : tous les blocs <style> sont capturés (matchAll, pas match)
+ *   - lintStyle : regexes sur raw — m.index == position réelle → lineAt correct
+ *   - R1 : sélecteurs CSS id ignorés (# sans ':' sur la même ligne)
+ *   - walk : seul ENOENT est swallowé — les autres erreurs fs sont propagées
+ *   - FORBIDDEN : 'détox' supprimé (sous-ensemble de 'détox numérique')
  */
 import { readFile, readdir } from 'node:fs/promises'
 import { join, relative }   from 'node:path'
@@ -26,8 +33,10 @@ const ROOT      = process.cwd()
 const SCAN_DIRS = ['app/components', 'app/pages', 'app/layouts']
 
 // ── Vocabulaire interdit ───────────────────────────────────────────────────────
+// Classé du plus long au plus court pour éviter les faux-positifs en cas de
+// sous-chaînes (ex. 'détox' ⊂ 'détox numérique' — on ne garde que le composé).
 const FORBIDDEN = [
-  'addiction', 'désintoxication', 'détox numérique', 'détox',
+  'addiction', 'désintoxication', 'détox numérique',
   'coach', 'expert', 'innovant', 'révolutionnaire',
 ]
 
@@ -36,7 +45,13 @@ async function walk(dir) {
   const files = []
   let entries
   try { entries = await readdir(dir, { withFileTypes: true }) }
-  catch { return files }
+  catch (err) {
+    // ENOENT = répertoire absent (ex. app/layouts inexistant) → OK, on skip.
+    // Toute autre erreur (EACCES, EPERM…) est propagée pour ne pas masquer
+    // un problème de permissions qui donnerait un faux ✓.
+    if (err.code !== 'ENOENT') throw err
+    return files
+  }
   for (const e of entries) {
     const full = join(dir, e.name)
     if (e.isDirectory())              files.push(...await walk(full))
@@ -47,15 +62,28 @@ async function walk(dir) {
 
 // ── SFC parser ────────────────────────────────────────────────────────────────
 function parseSfc(src) {
+  // matchAll (avec g) capture TOUS les blocs <style> et <style scoped>.
+  // Les blocs sont concaténés : les numéros de ligne restent cohérents
+  // au sein de chaque bloc, avec un décalage d'une ligne entre blocs.
+  const styleBlocks = [...src.matchAll(/<style[^>]*>([\s\S]*?)<\/style>/g)]
+    .map(m => m[1])
   return {
     template: src.match(/<template[^>]*>([\s\S]*?)<\/template>/)?.[1] ?? '',
-    style:    src.match(/<style[^>]*>([\s\S]*?)<\/style>/)?.[1]    ?? '',
+    style:    styleBlocks.join('\n'),
   }
 }
 
-/** Retire les blocs commentaires CSS pour ne pas signaler du code commenté. */
-function stripCssComments(css) {
-  return css.replace(/\/\*[\s\S]*?\*\//g, '').replace(/\/\/[^\n]*/g, '')
+/** Retourne les plages [start, end) de tous les blocs commentaires CSS. */
+function commentRanges(css) {
+  const ranges = []
+  for (const m of css.matchAll(/\/\*[\s\S]*?\*\//g))
+    ranges.push([m.index, m.index + m[0].length])
+  return ranges
+}
+
+/** Retourne true si idx est à l'intérieur d'un bloc commentaire. */
+function inComment(idx, ranges) {
+  return ranges.some(([s, e]) => idx >= s && idx < e)
 }
 
 /** Numéro de ligne (1-based) de l'index idx dans src. */
@@ -65,19 +93,33 @@ function lineAt(src, idx) {
 
 // ── Règles <style> ────────────────────────────────────────────────────────────
 function lintStyle(raw, file) {
-  const vs  = []
-  const css = stripCssComments(raw)
+  const vs     = []
+  const ranges = commentRanges(raw)
 
-  const flag = (re, rule, msg) => {
-    for (const m of css.matchAll(re))
+  // Les regexes tournent sur `raw` (pas sur la chaîne stripée) pour que
+  // m.index corresponde toujours à la position réelle → lineAt(raw, m.index)
+  // est exact. Les correspondances dans des commentaires sont filtrées via
+  // inComment() plutôt qu'en supprimant physiquement les commentaires.
+  const flag = (re, rule, msg, extra) => {
+    for (const m of raw.matchAll(re)) {
+      if (inComment(m.index, ranges)) continue
+      if (extra && !extra(m))         continue
       vs.push({ file, rule, line: lineAt(raw, m.index), detail: msg(m) })
+    }
   }
 
   // R1 — Hex brut
+  // Le filtre `extra` vérifie qu'un ':' précède le '#' sur la même ligne :
+  // les sélecteurs CSS id (#facade, #abc…) n'ont pas de ':' avant eux et
+  // sont donc ignorés — seules les valeurs de propriétés sont signalées.
   flag(
     /#[0-9A-Fa-f]{3,8}\b/g,
     'hex-brut',
     m => `${m[0]} → utiliser un token CSS var(--pxlc-*) ou sémantique`,
+    m => {
+      const lineStart = raw.lastIndexOf('\n', m.index) + 1
+      return raw.slice(lineStart, m.index).includes(':')
+    },
   )
 
   // R2 — Gradient
@@ -137,7 +179,7 @@ const main = async () => {
 
   const all = []
   await Promise.all(allFiles.map(async file => {
-    const src            = await readFile(file, 'utf8')
+    const src = await readFile(file, 'utf8')
     const { template, style } = parseSfc(src)
     all.push(...lintStyle(style, file), ...lintTemplate(template, file))
   }))
