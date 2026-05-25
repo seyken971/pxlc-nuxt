@@ -74,6 +74,9 @@
   --space-4: 24px;
   --space-5: 32px;
   --space-6: 48px;
+  --space-7: 64px;
+  --space-8: 80px;
+  --space-9: 96px;
 
   /* ── Radius ─────────────────────────────────────────────── */
   --radius-sm:   4px;
@@ -93,6 +96,7 @@
   --ring-cyan:  0 0 0 3px rgba(0,210,200,.25);
   --ring-teal:  0 0 0 3px rgba(3,110,115,.3);
   --ring-teal-soft: 0 0 0 3px rgba(3,110,115,.2);
+  --ring-coral: 0 0 0 3px rgba(255,94,58,.3);
 
   /* ── Motion ─────────────────────────────────────────────── */
   --ease-step: cubic-bezier(.6, 0, .2, 1);

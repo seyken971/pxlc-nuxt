@@ -78,6 +78,7 @@ Ces tokens résolvent vers la palette et basculent automatiquement en dark mode.
 | `--ring-cyan` | `0 0 0 3px rgba(0,210,200,.25)` | — |
 | `--ring-teal` | `0 0 0 3px rgba(3,110,115,.3)` | — |
 | `--ring-teal-soft` | `0 0 0 3px rgba(3,110,115,.2)` | — |
+| `--ring-coral` | `0 0 0 3px rgba(255,94,58,.3)` | — |
 
 ## Typographie
 
@@ -102,6 +103,9 @@ Rythme 8 px.
 | `--space-4` | `24px` |
 | `--space-5` | `32px` |
 | `--space-6` | `48px` |
+| `--space-7` | `64px` |
+| `--space-8` | `80px` |
+| `--space-9` | `96px` |
 
 ## Radius
 
@@ -270,7 +274,6 @@ Classes issues de `styles.css`. Les styles scoped des composants Vue ne sont pas
 - `.mt-4`
 - `.mt-5`
 - `.mt-6`
-- `.body-sm`
 - `.prose`
 - `.eyebrow--lg`
 

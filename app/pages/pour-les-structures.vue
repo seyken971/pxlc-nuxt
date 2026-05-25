@@ -376,7 +376,7 @@ useSchemaOrg(
 .framework-tag__dot { width: 8px; height: 8px; background: var(--pxlc-coral); border-radius: 2px; }
 .framework-tag__label { color: var(--ink); }
 .framework-title { font-size: 20px; margin-bottom: var(--space-2); }
-/* .body-sm (global) fournit font-size: 14.5px; line-height: 1.6 — voir styles.css */
+/* .pxlc-body-sm (global) — 14.5px / 1.6 avec font-body et ink-quiet. */
 .framework-desc,
 .indicator-detail,
 .theme-desc,

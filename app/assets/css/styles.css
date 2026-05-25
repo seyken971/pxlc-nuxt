@@ -57,10 +57,10 @@ main[tabindex="-1"]:focus { outline: none; }
 
 /* ── Layout ──────────────────────────────────────────────── */
 .container { width: 100%; max-width: var(--container-max); margin: 0 auto; padding: 0 var(--container-pad); }
-.section { padding: clamp(48px, 8vw, 96px) 0; position: relative; }
+.section { padding: clamp(var(--space-6), 8vw, var(--space-9)) 0; position: relative; }
 .section--soft { background: var(--bg-soft); border-top: 1px solid var(--bg-rule); border-bottom: 1px solid var(--bg-rule); }
 /* Padding d'ouverture de page — aligné sur .hero pour cohérence visuelle */
-.section--page { padding: clamp(40px, 5vw, 64px) 0; }
+.section--page { padding: clamp(40px, 5vw, var(--space-7)) 0; }
 .section__head { max-width: 760px; margin-bottom: var(--space-6); }
 .section__head h2 { margin-bottom: var(--space-3); font-size: clamp(28px, 4.2vw, 42px); line-height: 1.05; letter-spacing: -0.025em; }
 .section__head .lead { max-width: 640px; }
@@ -247,7 +247,7 @@ main[tabindex="-1"]:focus { outline: none; }
 /* ── Mobile menu (dark, slides from right) ───────────────── */
 .mobile-menu {
   position: fixed; inset: 0;
-  background: #082B36; color: #F4F1EA;
+  background: var(--pxlc-bg-dark); color: var(--pxlc-ivory);
   z-index: 100; display: flex; flex-direction: column;
   overflow: hidden;
   transform: translateX(100%);
@@ -269,21 +269,21 @@ main[tabindex="-1"]:focus { outline: none; }
 /* Header row */
 .mobile-menu__head {
   display: flex; justify-content: space-between; align-items: center;
-  padding: 14px 24px; border-bottom: 1px solid #103847;
+  padding: 14px 24px; border-bottom: 1px solid var(--pxlc-border-dark);
   position: relative; z-index: 1; flex-shrink: 0;
 }
 /* Force lockup to read on the dark ground regardless of user's theme */
-.mobile-menu__head .lockup__name { color: #F4F1EA; }
+.mobile-menu__head .lockup__name { color: var(--pxlc-ivory); }
 /* Close button */
 .mobile-menu__close {
   width: 44px; height: 44px; flex-shrink: 0;
-  border: 1px solid #1F4A59; border-radius: 8px;
+  border: 1px solid var(--pxlc-border-dark-2); border-radius: 8px;
   background: transparent; cursor: pointer;
   display: flex; align-items: center; justify-content: center;
-  color: #A9C8D0;
+  color: var(--pxlc-text-on-dark-soft);
 }
 .mobile-menu__close:hover { background: rgba(255,255,255,0.06); }
-.mobile-menu__close:focus-visible { outline: none; box-shadow: 0 0 0 2px #00D2C8; }
+.mobile-menu__close:focus-visible { outline: none; box-shadow: var(--ring-cyan); }
 /* Nav links — vertically centred, staggered entrance */
 .mobile-menu__nav {
   flex: 1; padding: 12px 24px 24px;
@@ -294,10 +294,10 @@ main[tabindex="-1"]:focus { outline: none; }
   font-family: var(--font-display);
   font-size: clamp(22px, 6vw, 32px); font-weight: 600;
   line-height: 1.15; letter-spacing: -0.02em;
-  color: #F4F1EA; text-decoration: none;
+  color: var(--pxlc-ivory); text-decoration: none;
   padding: 14px 0;
   display: flex; align-items: center; justify-content: space-between;
-  border-bottom: 1px solid #103847;
+  border-bottom: 1px solid var(--pxlc-border-dark);
   /* Staggered slide-in via --i — opacity removed: axe blends the element
      colour against the background weighted by its opacity, so mid-fade
      links fail WCAG contrast (2.05:1). Transform-only is sufficient:
@@ -310,15 +310,15 @@ main[tabindex="-1"]:focus { outline: none; }
   transform: translateX(0);
   transition-delay: calc(50ms + var(--i, 0) * 52ms);
 }
-.mobile-menu__link.is-active { color: #00D2C8; }
+.mobile-menu__link.is-active { color: var(--pxlc-cyan); }
 .mobile-menu__arrow {
   font-family: var(--font-mono); font-size: 18px;
-  color: #1F4A59; transition: color 200ms;
+  color: var(--pxlc-border-dark-2); transition: color 200ms;
 }
 .mobile-menu__link.is-active .mobile-menu__arrow { color: var(--pxlc-coral); }
 /* Bottom bar — theme toggle + full-width CTA */
 .mobile-menu__bottom {
-  padding: 20px 24px; border-top: 1px solid #103847;
+  padding: 20px 24px; border-top: 1px solid var(--pxlc-border-dark);
   display: flex; gap: 12px; align-items: center;
   position: relative; z-index: 1; flex-shrink: 0;
   /* Same rationale as .mobile-menu__link — transform-only, no opacity */
@@ -339,7 +339,7 @@ main[tabindex="-1"]:focus { outline: none; }
    On very tall viewports the hero breathes naturally via the bottom
    of the page — we don't grow it to fill. */
 .hero {
-  position: relative; overflow: hidden; padding: clamp(40px, 5vw, 64px) 0;
+  position: relative; overflow: hidden; padding: clamp(40px, 5vw, var(--space-7)) 0;
   background: var(--bg);
 }
 .hero--soft { background: var(--bg-soft); }
@@ -464,7 +464,7 @@ main[tabindex="-1"]:focus { outline: none; }
 /* ── CTA block ───────────────────────────────────────────── */
 .cta-block {
   background: var(--pxlc-bg-dark); color: var(--pxlc-ivory);
-  padding: clamp(48px, 8vw, 80px) 0; position: relative; overflow: hidden;
+  padding: clamp(var(--space-6), 8vw, var(--space-8)) 0; position: relative; overflow: hidden;
 }
 .cta-block h2 { color: var(--pxlc-ivory); }
 .cta-block p { color: var(--pxlc-text-on-dark-soft); }
@@ -573,10 +573,6 @@ main[tabindex="-1"]:focus { outline: none; }
 .mt-5 { margin-top: var(--space-5); }
 .mt-6 { margin-top: var(--space-6); }
 
-/* Shared body copy — 14.5/1.6 used throughout marketing pages for
-   card descriptions, detail paragraphs, etc. Avoids the duplicated
-   font-size + line-height in every component's scoped styles. */
-.body-sm { font-size: 14.5px; line-height: 1.6; }
 
 .prose .eyebrow,
 .eyebrow--lg {
