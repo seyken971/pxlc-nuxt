@@ -164,39 +164,17 @@ const thumbModifier = (category?: string): string => {
   min-height: 360px; text-decoration: none; color: inherit;
 }
 .blog-card:hover { text-decoration: none; }
-/* Each category gets its own thumbnail pattern so the index is not a
+/* Each category gets its own thumbnail colour so the index is not a
    wall of identical cards. Light/dark variants follow the brand. */
-.blog-card__thumb {
-  aspect-ratio: 16 / 9;
-  background-image: repeating-linear-gradient(135deg, var(--pxlc-pattern-warm) 0 6px, var(--pxlc-pattern-warm-deep) 6px 12px);
-}
-.blog-card__thumb--parents {
-  background-image: radial-gradient(circle at 1px 1px, var(--pxlc-pattern-warm) 1px, transparent 1.5px);
-  background-size: 16px 16px; background-color: var(--pxlc-ivory-soft);
-}
-.blog-card__thumb--cas-pratique {
-  background-image: repeating-linear-gradient(135deg, var(--pxlc-pattern-warm) 0 6px, var(--pxlc-pattern-warm-deep) 6px 12px);
-}
-.blog-card__thumb--decryptage {
-  background-image:
-    linear-gradient(45deg, var(--pxlc-pattern-warm) 25%, transparent 25%),
-    linear-gradient(-45deg, var(--pxlc-pattern-warm) 25%, transparent 25%);
-  background-size: 18px 18px; background-color: var(--pxlc-ivory-soft);
-}
-[data-theme="dark"] .blog-card__thumb { background-image: repeating-linear-gradient(135deg, var(--pxlc-border-dark) 0 6px, var(--pxlc-border-dark-2) 6px 12px); }
-[data-theme="dark"] .blog-card__thumb--parents {
-  background-image: radial-gradient(circle at 1px 1px, var(--pxlc-border-dark-2) 1px, transparent 1.5px);
-  background-size: 16px 16px; background-color: var(--pxlc-bg-dark-soft);
-}
-[data-theme="dark"] .blog-card__thumb--cas-pratique {
-  background-image: repeating-linear-gradient(135deg, var(--pxlc-border-dark) 0 6px, var(--pxlc-border-dark-2) 6px 12px);
-}
-[data-theme="dark"] .blog-card__thumb--decryptage {
-  background-image:
-    linear-gradient(45deg, var(--pxlc-border-dark-2) 25%, transparent 25%),
-    linear-gradient(-45deg, var(--pxlc-border-dark-2) 25%, transparent 25%);
-  background-size: 18px 18px; background-color: var(--pxlc-bg-dark-soft);
-}
+.blog-card__thumb            { aspect-ratio: 16 / 9; background: var(--pxlc-pattern-warm-deep); }
+.blog-card__thumb--parents   { background: var(--pxlc-ivory-soft); }
+.blog-card__thumb--cas-pratique { background: var(--pxlc-pattern-warm); }
+.blog-card__thumb--decryptage   { background: var(--pxlc-bg-light); }
+
+[data-theme="dark"] .blog-card__thumb              { background: var(--pxlc-border-dark-2); }
+[data-theme="dark"] .blog-card__thumb--parents     { background: var(--pxlc-bg-dark-soft); }
+[data-theme="dark"] .blog-card__thumb--cas-pratique { background: var(--pxlc-border-dark); }
+[data-theme="dark"] .blog-card__thumb--decryptage  { background: var(--pxlc-bg-dark-soft); }
 .blog-card__body { padding: 24px 24px 32px; display: flex; flex-direction: column; gap: 12px; flex: 1; }
 .blog-card__title { font-size: 18px; line-height: 1.25; letter-spacing: -0.01em; color: var(--ink); }
 .blog-card__excerpt { font-size: 14px; line-height: 1.5; color: var(--ink-quiet); flex: 1; }
