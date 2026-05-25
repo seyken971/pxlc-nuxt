@@ -66,7 +66,8 @@ const thumbModifier = (category?: string): string => {
 </script>
 
 <template>
-  <section class="section">
+  <!-- Page header — bg-soft + border-bottom per DS BlogPage -->
+  <section class="section section--page blog-page-header">
     <div class="container">
       <span class="eyebrow eyebrow--lg">Le journal</span>
       <h1 class="blog-title">
@@ -94,8 +95,13 @@ const thumbModifier = (category?: string): string => {
           @click="activeCategory = c"
         >{{ c }}</button>
       </div>
+    </div>
+  </section>
 
-      <div v-if="filteredPosts.length" class="grid grid--3 mt-6">
+  <!-- Cards grid -->
+  <section class="section">
+    <div class="container">
+      <div v-if="filteredPosts.length" class="grid grid--3">
         <NuxtLink
           v-for="p in filteredPosts"
           :key="p.path"
@@ -127,6 +133,13 @@ const thumbModifier = (category?: string): string => {
 </template>
 
 <style scoped>
+/* Page header section — bg-soft + border-bottom per DS */
+.blog-page-header {
+  background: var(--bg-soft);
+  border-bottom: 1px solid var(--bg-rule);
+  transition: background var(--dur-base);
+}
+
 .blog-title { font-size: clamp(38px, 6vw, 64px); letter-spacing: -0.025em; line-height: 1.05; margin-bottom: var(--space-4); }
 .blog-lead { max-width: 640px; margin-bottom: var(--space-5); }
 

@@ -62,7 +62,7 @@ const methodSteps: MethodStep[] = [
   />
   <PartnerStrip />
   <MethodGrid :steps="methodSteps" />
-  <ThemesGrid />
+  <MarkSeparator />
   <SessadCase />
   <CitationBlock
     source="« Jouons Ensemble! » · projet 2026"

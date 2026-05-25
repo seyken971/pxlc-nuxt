@@ -192,6 +192,8 @@ useSchemaOrg(
     </div>
   </section>
 
+  <PartnerStrip />
+
   <section id="processus" class="section" aria-labelledby="processus-title">
     <div class="container">
       <header class="section__head">
@@ -346,22 +348,6 @@ useSchemaOrg(
     </div>
   </section>
 
-  <section class="section">
-    <div class="container">
-      <div class="structures-final-cta">
-        <h2 class="structures-final-cta__title">
-          On en parle&nbsp;<span class="coral-dot" aria-hidden="true">?</span>
-        </h2>
-        <p class="structures-final-cta__lead">
-          Vingt minutes pour cadrer le périmètre, le public visé, et voir si le dispositif s’inscrit dans vos objectifs.
-        </p>
-        <div class="structures-final-cta__actions">
-          <NuxtLink to="/contact" class="btn btn--primary btn--lg">Demander un devis</NuxtLink>
-          <a href="https://cal.eu/pxlc-gp" target="_blank" rel="noopener noreferrer" class="btn btn--ghost btn--lg" aria-label="Réserver un échange (nouvel onglet)">Réserver un échange</a>
-        </div>
-      </div>
-    </div>
-  </section>
 </template>
 
 <style scoped>
@@ -377,6 +363,10 @@ useSchemaOrg(
   font-family: var(--font-body); font-weight: 500; font-size: 14px;
   color: var(--ink); text-align: right;
 }
+
+/* H1 structures : DS StructuresHero = clamp(32px,4.8vw,56px),
+   distinct du hero accueil = clamp(36px,5.4vw,64px). */
+.hero__title { font-size: clamp(32px, 4.8vw, 56px); }
 
 .process-grid { align-items: stretch; }
 
@@ -438,27 +428,6 @@ useSchemaOrg(
   margin-top: 12px; font-size: 14.5px; line-height: 1.6; color: var(--ink-quiet);
 }
 
-.structures-final-cta {
-  text-align: center; max-width: 720px; margin: 0 auto;
-  padding: clamp(40px, 6vw, 64px); border-radius: var(--radius-lg);
-  background: var(--bg-soft); border: 1px solid var(--bg-rule);
-}
-.structures-final-cta__title { font-size: clamp(30px, 4vw, 40px); letter-spacing: -0.025em; }
-.structures-final-cta__lead { margin: 16px auto 32px; color: var(--ink-quiet); max-width: 560px; }
-.structures-final-cta__actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
-@media (max-width: 767px) {
-  .structures-final-cta__actions {
-    display: grid;
-    grid-template-columns: 1fr;
-  }
-
-  .structures-final-cta__actions .btn {
-    width: 100%;
-    justify-content: center;
-    min-height: 56px;
-  }
-}
-
 @media (max-width: 479px) {
   .structures-badges {
     align-items: stretch;
@@ -471,8 +440,7 @@ useSchemaOrg(
     white-space: normal;
   }
 
-  .facts-card,
-  .structures-final-cta {
+  .facts-card {
     padding: var(--space-3);
   }
 }

@@ -20,7 +20,7 @@ const lastUpdated = new Intl.DateTimeFormat('fr-FR', { day: 'numeric', month: 'l
 </script>
 
 <template>
-  <section class="section">
+  <section class="section section--page">
     <div class="container legal-container">
       <span class="eyebrow eyebrow--lg">Informations légales</span>
       <h1 class="legal-title">

@@ -40,36 +40,43 @@ const related = computed<Post[]>(() => {
   }
   return picked
 })
-
 </script>
 
 <template>
   <section v-if="related.length" class="blog-related" aria-labelledby="related-title">
-    <h2 id="related-title" class="blog-related__title">Lire aussi</h2>
-    <ul class="blog-related__list" role="list">
-      <li v-for="p in related" :key="p.path" class="blog-related__item">
-        <NuxtLink :to="p.path" class="blog-related__link">
-          <span v-if="p.category" class="badge">{{ p.category }}</span>
-          <h3 class="blog-related__post-title">{{ p.title }}</h3>
-          <p v-if="p.description" class="blog-related__excerpt">{{ p.description }}</p>
-          <time :datetime="p.date" class="blog-related__date">{{ fmtDate(p.date) }}</time>
-        </NuxtLink>
-      </li>
-    </ul>
+    <div class="container blog-related__inner">
+      <span id="related-title" class="eyebrow">Articles connexes</span>
+      <ul class="blog-related__list" role="list">
+        <li v-for="p in related" :key="p.path" class="blog-related__item">
+          <NuxtLink :to="p.path" class="blog-related__link">
+            <span v-if="p.category" class="badge">{{ p.category }}</span>
+            <h3 class="blog-related__post-title">{{ p.title }}</h3>
+            <p v-if="p.description" class="blog-related__excerpt">{{ p.description }}</p>
+            <time :datetime="p.date" class="blog-related__date">{{ fmtDate(p.date) }}</time>
+          </NuxtLink>
+        </li>
+      </ul>
+    </div>
   </section>
 </template>
 
 <style scoped>
-.blog-related { margin-top: var(--space-6); padding-top: var(--space-5); border-top: 1px solid var(--rule); }
-.blog-related__title {
-  font-size: clamp(20px, 2.4vw, 24px);
-  letter-spacing: -0.015em; margin-bottom: var(--space-4);
+/* Full-width bg-soft section per DS BlogArticle "related articles" */
+.blog-related {
+  background: var(--bg-soft);
+  border-top: 1px solid var(--bg-rule);
+  padding: clamp(40px, 6vw, 64px) 0;
+  transition: background var(--dur-base);
 }
+.blog-related__inner { max-width: 800px; }
+
 .blog-related__list {
-  list-style: none; padding: 0; margin: 0;
+  list-style: none; padding: 0; margin: var(--space-4) 0 0;
   display: grid; gap: var(--space-3); grid-template-columns: 1fr;
 }
-@media (min-width: 768px) { .blog-related__list { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 600px) { .blog-related__list { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 900px) { .blog-related__list { grid-template-columns: repeat(3, 1fr); } }
+
 .blog-related__item { display: flex; }
 .blog-related__link {
   display: flex; flex-direction: column; gap: var(--space-2);
@@ -82,7 +89,7 @@ const related = computed<Post[]>(() => {
   transform: translateY(-2px);
 }
 .blog-related__post-title { font-size: 16px; line-height: 1.3; color: var(--ink); }
-.blog-related__excerpt { font-size: 13.5px; line-height: 1.5; color: var(--ink-quiet); }
+.blog-related__excerpt { font-size: 13.5px; line-height: 1.5; color: var(--ink-quiet); flex: 1; }
 .blog-related__date {
   margin-top: auto;
   font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em;

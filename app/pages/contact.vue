@@ -1,13 +1,9 @@
 <script setup lang="ts">
-// The page is already a tunnel of cal.eu / WhatsApp / mailto CTAs;
-// the global <CtaBlock> at the bottom of the layout would be a fourth
-// "Réserver un échange" button. Hide it for this route.
 definePageMeta({ hideGlobalCta: true })
 
 if (import.meta.server) {
   useSeoMeta({
     title: 'Contact — vingt minutes pour faire connaissance',
-    // Kept under ~160 chars so the meta is not truncated in search results.
     description:
       'Premier échange de 20 min, gratuit, sans engagement. Visio, WhatsApp ou mail — réservez sur cal.eu/pxlc-gp ou écrivez via le formulaire.',
   })
@@ -19,9 +15,6 @@ defineOgImage('PxlcOg', {
   description: 'Visio ou WhatsApp, à votre convenance. Réservez directement en ligne ou écrivez via le formulaire — réponse personnelle sous 48 h.',
 })
 
-// Type this page as a ContactPage in JSON-LD. The LocalBusiness identity
-// (email, phone, address, contactPoint) is already declared globally in
-// nuxt.config.ts → schemaOrg.identity, so no need to repeat it here.
 useSchemaOrg([
   defineWebPage({
     '@type': 'ContactPage',
@@ -32,14 +25,10 @@ useSchemaOrg([
 
 const form = reactive({ name: '', structure: '', email: '', message: '' })
 const sent = ref(false)
-const sentMessage = ref<HTMLParagraphElement | null>(null)
+const sentCard = ref<HTMLDivElement | null>(null)
 
-// GitHub Pages ne traite pas de POST — on construit un mailto: avec
-// les champs du formulaire et on ouvre le client mail de l'utilisateur.
-// Avantage : zéro service tiers, illimité, traçable côté Andy.
-// Inconvénient : nécessite un client mail configuré côté visiteur.
-// Le raccourci cal.eu au-dessus reste la voie principale ; ce form est
-// le fallback pour les structures qui préfèrent l'écrit.
+// GitHub Pages ne traite pas de POST — on construit un mailto: avec les
+// champs du formulaire et on ouvre le client mail de l'utilisateur.
 const submit = () => {
   const lines = [
     `Nom : ${form.name}`,
@@ -54,156 +43,204 @@ const submit = () => {
   const body = lines.join('\n')
   const href = `mailto:contact@pxlc.fr?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
 
-  // window.location pour ne pas garder un onglet vide ouvert
   if (import.meta.client) window.location.href = href
   sent.value = true
-  // Move focus to the success message so screen readers and keyboard users
-  // notice the state change; aria-live="polite" announces it for AT users
-  // who didn't move focus.
-  nextTick(() => sentMessage.value?.focus())
+  nextTick(() => sentCard.value?.focus())
 }
 
-// Prefilled WhatsApp message — encodeURIComponent so accents survive the
-// URL hop on every WhatsApp client (mobile, web, desktop).
-const whatsappHref = `https://wa.me/590690717618?text=${encodeURIComponent('Bonjour Andy, je souhaite échanger au sujet de PXLC.')}`
+const contactCards = [
+  {
+    key: 'calendar',
+    icon: 'lucide:calendar',
+    label: 'Réserver un créneau',
+    desc: '20 min · visio · gratuit',
+    cta: 'Ouvrir cal.eu/pxlc-gp',
+    href: 'https://cal.eu/pxlc-gp',
+    external: true,
+  },
+  {
+    key: 'whatsapp',
+    icon: 'simple-icons:whatsapp',
+    label: 'WhatsApp',
+    desc: '+590 690 717 618',
+    cta: 'Envoyer un message',
+    href: 'https://wa.me/590690717618',
+    external: true,
+  },
+  {
+    key: 'email',
+    icon: 'lucide:mail',
+    label: 'E-mail',
+    desc: 'contact@pxlc.fr',
+    cta: 'Écrire un mail',
+    href: 'mailto:contact@pxlc.fr',
+    external: false,
+  },
+  {
+    key: 'linkedin',
+    icon: 'simple-icons:linkedin',
+    label: 'LinkedIn',
+    desc: 'linkedin.com/in/azebus',
+    cta: 'Voir le profil',
+    href: 'https://www.linkedin.com/in/azebus',
+    external: true,
+  },
+]
 </script>
 
 <template>
-  <section class="section">
-    <div class="container contact-container">
-      <span class="eyebrow eyebrow--lg">Premier pas</span>
+  <section class="section section--page">
+    <div class="container">
+
+      <!-- Heading — pleine largeur, au-dessus du grid -->
+      <span class="eyebrow eyebrow--lg">Contact</span>
       <h1 class="contact-title">
-        Vingt minutes pour faire connaissance<span class="coral-dot" aria-hidden="true">.</span>
+        On en parle<span class="coral-dot" aria-hidden="true">?</span>
       </h1>
-      <p class="lead contact-lead">
-        Visio ou WhatsApp, à votre convenance. Vingt minutes pour cadrer le périmètre, le public visé, et voir si la médiation s’inscrit dans vos objectifs ARS / DRJSCS.
+      <p class="contact-lead">
+        Décrivez votre structure, le public accompagné et le projet envisagé — je reviens sous 48 h.
       </p>
 
-      <!-- Raccourci direct : cal.eu pour la visio, WhatsApp pour l'instant.
-           La majorité des échanges initiaux passent par l'un de ces deux
-           canaux plutôt que par le formulaire mailto plus bas. -->
-      <aside class="contact-quick" aria-labelledby="contact-quick-title">
-        <div class="contact-quick__head">
-          <div id="contact-quick-title" class="contact-quick__eyebrow">Le plus rapide</div>
-          <p class="contact-quick__text">
-            Choisissez un créneau sur l’agenda ou écrivez sur WhatsApp — réponse personnelle sous 48 h.
-          </p>
-        </div>
-        <div class="contact-quick__actions">
-          <a
-            href="https://cal.eu/pxlc-gp"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn btn--primary btn--lg"
-            aria-label="Réserver un créneau sur cal.eu (nouvel onglet)"
-          >
-            Réserver · 20 min
-          </a>
-          <a
-            :href="whatsappHref"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn btn--ghost btn--lg btn--no-arrow"
-            aria-label="Démarrer une conversation WhatsApp (nouvel onglet)"
-          >
-            <Icon name="simple-icons:whatsapp" aria-hidden="true" style="width:18px;height:18px;flex-shrink:0" />
-            WhatsApp
-          </a>
-        </div>
-      </aside>
+      <div class="contact-grid">
 
-      <h2 id="form-title" class="contact-divider">
-        <span>ou écrivez-moi</span>
-      </h2>
-
-      <form class="card contact-form" aria-labelledby="form-title" @submit.prevent="submit">
-        <p class="contact-form__required-note">
-          Les champs marqués <span class="contact-required" aria-hidden="true">*</span> sont obligatoires.
-        </p>
-
-        <div class="form-row">
-          <div>
-            <label for="contact-name" class="form-label">
-              Votre nom <span class="contact-required" aria-hidden="true">*</span>
-            </label>
-            <input
-              id="contact-name"
-              v-model="form.name"
-              type="text"
-              required
-              placeholder="Marie Lemoine"
-              class="form-input"
-              autocomplete="name"
-            >
-          </div>
-          <div>
-            <label for="contact-structure" class="form-label">Structure</label>
-            <input
-              id="contact-structure"
-              v-model="form.structure"
-              type="text"
-              placeholder="SESSAD Lékoklaya"
-              class="form-input"
-              autocomplete="organization"
-            >
-          </div>
-        </div>
+        <!-- ── Colonne gauche — formulaire ──────────────────── -->
         <div>
-          <label for="contact-email" class="form-label">
-            Email <span class="contact-required" aria-hidden="true">*</span>
-          </label>
-          <input
-            id="contact-email"
-            v-model="form.email"
-            type="email"
-            required
-            placeholder="marie@example.com"
-            class="form-input"
-            autocomplete="email"
+          <div
+            v-if="sent"
+            ref="sentCard"
+            tabindex="-1"
+            role="status"
+            aria-live="polite"
+            class="contact-sent"
           >
+            <div class="contact-sent__eyebrow">Message envoyé</div>
+            <p class="contact-sent__text">Je reviens sous 48 h avec une réponse personnelle.</p>
+          </div>
+
+          <form v-else class="contact-form" @submit.prevent="submit">
+            <div class="form-row">
+              <div>
+                <label for="c-nom" class="form-label">Nom et prénom</label>
+                <input
+                  id="c-nom"
+                  v-model="form.name"
+                  type="text"
+                  placeholder="Andy Zébus"
+                  class="form-input"
+                >
+              </div>
+              <div>
+                <label for="c-structure" class="form-label">Structure</label>
+                <input
+                  id="c-structure"
+                  v-model="form.structure"
+                  type="text"
+                  placeholder="SESSAD Les Flamboyants"
+                  class="form-input"
+                >
+              </div>
+            </div>
+
+            <div>
+              <label for="c-email" class="form-label">Adresse e-mail</label>
+              <input
+                id="c-email"
+                v-model="form.email"
+                type="email"
+                placeholder="contact@structure.fr"
+                class="form-input"
+              >
+            </div>
+
+            <div>
+              <label for="c-msg" class="form-label">Message</label>
+              <textarea
+                id="c-msg"
+                v-model="form.message"
+                rows="5"
+                placeholder="Décrivez votre projet…"
+                class="form-textarea"
+              />
+            </div>
+
+            <button type="submit" class="btn btn--primary contact-submit">
+              Envoyer
+            </button>
+          </form>
         </div>
-        <div>
-          <label for="contact-message" class="form-label">En quelques mots…</label>
-          <textarea
-            id="contact-message"
-            v-model="form.message"
-            rows="5"
-            placeholder="Nous accompagnons 12 enfants TSA/TDAH au SESSAD, les jeux vidéo sont un point de friction récurrent avec les familles — comment cadrer un dispositif ?"
-            class="form-textarea"
-          />
+
+        <!-- ── Colonne droite — cartes de contact ───────────── -->
+        <div class="contact-cards">
+          <div v-for="c in contactCards" :key="c.key" class="contact-card">
+            <div class="contact-card__head">
+              <div class="contact-card__icon" aria-hidden="true">
+                <Icon :name="c.icon" aria-hidden="true" style="width:18px;height:18px" />
+              </div>
+              <div>
+                <div class="contact-card__label">{{ c.label }}</div>
+                <div class="contact-card__desc">{{ c.desc }}</div>
+              </div>
+            </div>
+            <a
+              :href="c.href"
+              :target="c.external ? '_blank' : undefined"
+              :rel="c.external ? 'noopener noreferrer' : undefined"
+              :aria-label="c.external ? `${c.cta} (nouvel onglet)` : c.cta"
+              class="contact-card__cta"
+            >{{ c.cta }} →</a>
+          </div>
         </div>
-        <button type="submit" class="btn btn--primary btn--lg contact-submit">
-          Ouvrir mon client mail
-        </button>
-        <p class="contact-rgpd">
-          En cliquant sur « Ouvrir mon client mail », aucune donnée n’est envoyée à ce site —
-          le message part directement depuis votre client mail vers
-          <a href="mailto:contact@pxlc.fr">contact@pxlc.fr</a>.
-          <NuxtLink to="/mentions-legales#rgpd">En savoir plus sur le traitement des données</NuxtLink>.
-        </p>
-        <p
-          v-if="sent"
-          ref="sentMessage"
-          tabindex="-1"
-          role="status"
-          aria-live="polite"
-          class="contact-sent"
-        >
-          Votre client mail s’est ouvert avec le message pré-rempli — il ne vous reste plus qu’à appuyer sur « envoyer ». Je réponds en personne sous 48 h.
-        </p>
-      </form>
+
+      </div>
     </div>
   </section>
 </template>
 
 <style scoped>
-/* Form inputs — class-based so the v-model bindings keep working;
-   /contact is the only page that mounts them. */
-.form-label { font-family: var(--font-body); font-size: 13px; font-weight: 600; color: var(--ink); display: block; margin-bottom: 6px; }
+/* ── Layout ──────────────────────────────────────────────────── */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+@media (max-width: 900px) {
+  .contact-grid { grid-template-columns: 1fr; gap: 32px; }
+}
+
+/* ── Heading ─────────────────────────────────────────────────── */
+.contact-title {
+  font-size: clamp(32px, 4.2vw, 48px);
+  line-height: 1.04;
+  letter-spacing: -0.03em;
+  margin: 0 0 16px;
+  max-width: 640px;
+}
+.contact-lead {
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--ink-quiet);
+  margin-bottom: 32px;
+  max-width: 480px;
+}
+
+/* ── Form ────────────────────────────────────────────────────── */
+.contact-form { display: grid; gap: var(--space-3); }
+
+.form-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--eyebrow);
+  margin-bottom: 6px;
+}
 .form-input, .form-textarea {
-  width: 100%; padding: 12px 14px; border-radius: var(--radius-md);
+  width: 100%; padding: 12px 16px; border-radius: var(--radius-md);
   border: 1px solid var(--rule); background: var(--bg-elev); color: var(--ink);
-  font: inherit; font-size: 14px;
+  font-family: var(--font-body); font-size: 15px;
   transition: border-color var(--dur-fast), box-shadow var(--dur-fast);
 }
 .form-input:hover, .form-textarea:hover { border-color: var(--pxlc-teal-mid); }
@@ -221,94 +258,70 @@ const whatsappHref = `https://wa.me/590690717618?text=${encodeURIComponent('Bonj
 .form-row { display: grid; gap: var(--space-3); grid-template-columns: 1fr; }
 @media (min-width: 600px) { .form-row { grid-template-columns: 1fr 1fr; } }
 
-.contact-container { max-width: 820px; }
-.contact-title { font-size: clamp(38px, 6vw, 64px); letter-spacing: -0.025em; line-height: 1.05; margin-bottom: var(--space-4); }
-.contact-lead { margin-bottom: var(--space-5); }
+.contact-submit { width: fit-content; }
 
-.contact-quick {
-  display: grid; gap: var(--space-4);
-  grid-template-columns: 1fr;
-  align-items: center;
+/* ── Success card ────────────────────────────────────────────── */
+.contact-sent {
   background: var(--bg-soft);
   border: 1px solid var(--bg-rule);
   border-radius: var(--radius-lg);
-  padding: var(--space-4);
-  margin-bottom: var(--space-5);
-}
-@media (min-width: 720px) { .contact-quick { grid-template-columns: 1fr auto; } }
-.contact-quick__head { display: flex; flex-direction: column; gap: 6px; }
-.contact-quick__eyebrow {
-  font-family: var(--font-mono);
-  font-size: 11px; font-weight: 600;
-  letter-spacing: 0.22em; text-transform: uppercase;
-  color: var(--eyebrow);
-}
-.contact-quick__text { font-size: 14px; color: var(--quiet); margin: 0; }
-.contact-quick__actions { display: flex; flex-wrap: wrap; gap: 12px; }
-
-/* Visual divider that doubles as the form's accessible name. Styled like
-   the previous .contact-divider but it's now an actual <h2>, so screen
-   readers and keyboard users land on it instead of an unlabelled chunk. */
-.contact-divider {
-  display: flex; align-items: center; gap: var(--space-3);
-  margin: 32px 0;
-  color: var(--quiet);
-  font-family: var(--font-mono); font-size: 11px; font-weight: 600;
-  letter-spacing: 0.22em; text-transform: uppercase;
-}
-.contact-divider span { flex: none; }
-.contact-divider::before, .contact-divider::after {
-  content: ""; flex: 1; height: 1px; background: var(--rule);
-}
-
-.contact-form { display: grid; gap: var(--space-3); }
-.contact-form__required-note {
-  font-size: 13px;
-  color: var(--quiet);
-  margin: 0 0 4px;
-}
-.contact-required { color: var(--pxlc-coral); font-weight: 700; }
-.contact-submit { align-self: flex-start; }
-.contact-submit:disabled { cursor: not-allowed; opacity: 0.7; }
-
-.contact-rgpd {
-  font-size: 12.5px;
-  color: var(--quiet);
-  line-height: 1.5;
-  margin: 0;
-}
-.contact-rgpd a { color: var(--teal-deep); border-bottom: 1px solid currentColor; }
-[data-theme="dark"] .contact-rgpd a { color: var(--cyan); }
-
-.contact-sent {
-  color: var(--teal-deep);
-  font-weight: 600;
-  padding: var(--space-3);
-  background: var(--bg-soft);
-  border-left: 3px solid var(--pxlc-coral);
-  border-radius: var(--radius-sm);
-  margin: 0;
+  padding: 32px;
+  text-align: center;
 }
 .contact-sent:focus-visible { outline: 3px solid var(--pxlc-coral); outline-offset: 2px; }
-[data-theme="dark"] .contact-sent { color: var(--cyan); }
-@media (max-width: 767px) {
-  .contact-quick__actions {
-    display: grid;
-    grid-template-columns: 1fr;
-  }
-
-  .contact-quick__actions .btn,
-  .contact-submit {
-    width: 100%;
-    justify-content: center;
-    min-height: 56px;
-  }
+.contact-sent__eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--eyebrow);
+  margin-bottom: 12px;
 }
+.contact-sent__text { font-size: 15px; color: var(--ink-quiet); margin: 0; }
 
-@media (max-width: 479px) {
-  .contact-quick,
-  .contact-form {
-    padding: var(--space-3);
-  }
+/* ── Contact cards ───────────────────────────────────────────── */
+.contact-cards { display: grid; gap: 16px; }
+
+.contact-card {
+  background: var(--bg-elev);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  transition: background var(--dur-base);
+}
+.contact-card__head {
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 12px;
+}
+.contact-card__icon {
+  width: 36px; height: 36px; flex-shrink: 0;
+  border-radius: var(--radius-md);
+  background: var(--bg-soft);
+  color: var(--eyebrow);
+  display: flex; align-items: center; justify-content: center;
+}
+.contact-card__label {
+  font-family: var(--font-display);
+  font-weight: 600; font-size: 15px;
+  color: var(--ink);
+}
+.contact-card__desc {
+  font-family: var(--font-mono);
+  font-size: 11px; letter-spacing: 0.1em;
+  color: var(--quiet);
+  margin-top: 2px;
+}
+.contact-card__cta {
+  font-family: var(--font-body);
+  font-weight: 600; font-size: 14px;
+  color: var(--eyebrow);
+  display: inline-flex; align-items: center; gap: 6px;
+}
+.contact-card__cta:hover { color: var(--pxlc-coral); text-decoration: none; }
+[data-theme="dark"] .contact-card__cta { color: var(--cyan); }
+[data-theme="dark"] .contact-card__cta:hover { color: var(--pxlc-coral); }
+
+/* ── Mobile ──────────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .contact-submit { width: 100%; justify-content: center; min-height: 56px; }
 }
 </style>
