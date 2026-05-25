@@ -32,6 +32,7 @@ npm run dev       # http://localhost:3000
 | `npm run generate` | Build SSG → `.output/public/` |
 | `npm run preview` | Prévisualisation du build |
 | `npm run gen:tokens` | Régénère le bloc `--pxlc-*` dans `tokens.css` depuis `brand-colors.ts` — lancé automatiquement en `prebuild` / `pregenerate` / `predev` |
+| `npm run design` | Génère `design.md` depuis `tokens.css` + `styles.css` — lancé automatiquement en `prebuild` / `pregenerate` / `predev` |
 | `npm run lint` | ESLint v9 flat config |
 | `npm run lint:fix` | ESLint avec auto-fix |
 | `npm run typecheck` | `vue-tsc` via `nuxt typecheck` |

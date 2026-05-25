@@ -107,9 +107,8 @@ watch(() => route.fullPath, () => { menuOpen.value = false })
       </NuxtLink>
     </nav>
 
-    <!-- Bottom bar: theme toggle + primary CTA -->
+    <!-- Bottom bar: primary CTA only — ThemeToggle is already in the header -->
     <div class="mobile-menu__bottom">
-      <ThemeToggle />
       <a
         href="https://cal.eu/pxlc-gp"
         target="_blank"
@@ -117,7 +116,7 @@ watch(() => route.fullPath, () => { menuOpen.value = false })
         class="btn btn--primary mobile-menu__cta-btn"
         @click="close"
       >
-        Réserver un échange <span aria-hidden="true">→</span>
+        Réserver un échange
       </a>
     </div>
   </div>

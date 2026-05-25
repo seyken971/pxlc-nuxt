@@ -137,6 +137,7 @@ Classes issues de `styles.css`. Les styles scoped des composants Vue ne sont pas
 - `.container`
 - `.section`
 - `.section--soft`
+- `.section--page`
 - `.section__head`
 - `.grid`
 - `.grid--2`
@@ -163,27 +164,26 @@ Classes issues de `styles.css`. Les styles scoped des composants Vue ne sont pas
 - `.site-header__inner`
 - `.site-header__right`
 - `.site-header__cta`
-- `.site-header__cta--hidden`
 - `.lockup`
 - `.lockup__mark`
-- `.lockup__text`
 - `.lockup__name`
-- `.lockup__tag`
 - `.site-nav`
 - `.site-nav__link`
 - `.theme-toggle`
 - `.burger`
 
-### Mobile menu
+### Mobile menu (dark, slides from right)
 
 - `.mobile-menu`
+- `.mobile-menu__watermark`
+- `.mobile-menu__strip`
 - `.mobile-menu__head`
-- `.mobile-menu__head-actions`
 - `.mobile-menu__close`
 - `.mobile-menu__nav`
 - `.mobile-menu__link`
-- `.mobile-menu__cta`
-- `.mobile-menu__cta-secondary`
+- `.mobile-menu__arrow`
+- `.mobile-menu__bottom`
+- `.mobile-menu__cta-btn`
 
 ### Hero
 
