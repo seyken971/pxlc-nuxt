@@ -118,7 +118,7 @@ const contactCards = [
           <form v-else class="contact-form" @submit.prevent="submit">
             <div class="form-row">
               <div>
-                <label for="c-nom" class="form-label">Prénom et nom</label>
+                <label for="c-nom" class="form-label">Prénom et Nom</label>
                 <input
                   id="c-nom"
                   v-model="form.name"
