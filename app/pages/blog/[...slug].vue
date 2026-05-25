@@ -192,7 +192,7 @@ onBeforeUnmount(() => {
 .post-title {
   font-size: clamp(34px, 5vw, 52px);
   letter-spacing: -0.025em; line-height: 1.1;
-  margin: 16px 0 24px;
+  margin: var(--space-3) 0 var(--space-4);
   text-wrap: balance;
 }
 .post-lead { margin-bottom: var(--space-4); }
@@ -206,7 +206,7 @@ onBeforeUnmount(() => {
 /* ── Author card ─────────────────────────────────────────────── */
 .post-author {
   display: flex; align-items: center; gap: 14px;
-  margin-top: 24px; padding-top: 24px;
+  margin-top: var(--space-4); padding-top: var(--space-4);
   border-top: 1px solid var(--bg-rule);
 }
 .post-author__avatar {
@@ -218,7 +218,7 @@ onBeforeUnmount(() => {
 }
 .post-author__name {
   font-family: var(--font-display); font-weight: 600; font-size: 15px;
-  color: var(--ink); margin-bottom: 2px;
+  color: var(--ink); margin-bottom: var(--space-1);
 }
 .post-author__role {
   font-family: var(--font-mono); font-size: 11px;

@@ -199,11 +199,11 @@ const contactCards = [
 .contact-grid {
   display: grid;
   grid-template-columns: 1.6fr 1fr;
-  gap: 48px;
+  gap: var(--space-6);
   align-items: start;
 }
 @media (max-width: 900px) {
-  .contact-grid { grid-template-columns: 1fr; gap: 32px; }
+  .contact-grid { grid-template-columns: 1fr; gap: var(--space-5); }
 }
 
 /* ── Heading ─────────────────────────────────────────────────── */
@@ -218,7 +218,7 @@ const contactCards = [
   font-size: 17px;
   line-height: 1.55;
   color: var(--ink-quiet);
-  margin-bottom: 32px;
+  margin-bottom: var(--space-5);
   max-width: 480px;
 }
 
@@ -236,7 +236,7 @@ const contactCards = [
   margin-bottom: var(--space-2);
 }
 .form-input, .form-textarea {
-  width: 100%; padding: 12px 16px; border-radius: var(--radius-md);
+  width: 100%; padding: var(--space-2-5) var(--space-3); border-radius: var(--radius-md);
   border: 1px solid var(--rule); background: var(--bg-elev); color: var(--ink);
   font-family: var(--font-body); font-size: 15px;
   transition: border-color var(--dur-fast), box-shadow var(--dur-fast);
@@ -263,7 +263,7 @@ const contactCards = [
   background: var(--bg-soft);
   border: 1px solid var(--bg-rule);
   border-radius: var(--radius-lg);
-  padding: 32px;
+  padding: var(--space-5);
   text-align: center;
 }
 .contact-sent:focus-visible { outline: none; box-shadow: var(--ring-coral); }
@@ -283,7 +283,7 @@ const contactCards = [
   background: var(--bg-elev);
   border: 1px solid var(--rule);
   border-radius: var(--radius-lg);
-  padding: 24px;
+  padding: var(--space-4);
   transition: background var(--dur-base);
 }
 .contact-card__head {

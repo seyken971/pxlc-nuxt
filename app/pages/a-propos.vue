@@ -121,7 +121,7 @@ const facts = [
   font-size: 17px;
   line-height: 1.55;
   color: var(--ink-quiet);
-  margin-bottom: 16px;
+  margin-bottom: var(--space-3);
 }
 .about-sub {
   font-size: 15px;
@@ -149,7 +149,7 @@ const facts = [
 .about-facts {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 24px;
+  gap: var(--space-4);
   max-width: 820px;
 }
 @media (max-width: 600px) {
@@ -160,7 +160,7 @@ const facts = [
   background: var(--bg-elev);
   border: 1px solid var(--rule);
   border-radius: var(--radius-lg);
-  padding: 24px;
+  padding: var(--space-4);
   transition: background var(--dur-base);
 }
 .about-fact__label {
@@ -169,7 +169,7 @@ const facts = [
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--quiet);
-  margin-bottom: 8px;
+  margin-bottom: var(--space-2);
 }
 .about-fact__value {
   font-family: var(--font-display);

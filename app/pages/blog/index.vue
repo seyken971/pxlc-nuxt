@@ -175,7 +175,7 @@ const thumbModifier = (category?: string): string => {
 [data-theme="dark"] .blog-card__thumb--parents     { background: var(--pxlc-bg-dark-soft); }
 [data-theme="dark"] .blog-card__thumb--cas-pratique { background: var(--pxlc-border-dark); }
 [data-theme="dark"] .blog-card__thumb--decryptage  { background: var(--pxlc-bg-dark-soft); }
-.blog-card__body { padding: 24px 24px 32px; display: flex; flex-direction: column; gap: 12px; flex: 1; }
+.blog-card__body { padding: var(--space-4) var(--space-4) var(--space-5); display: flex; flex-direction: column; gap: var(--space-2-5); flex: 1; }
 .blog-card__title { font-size: 18px; line-height: 1.25; letter-spacing: -0.01em; color: var(--ink); }
 .blog-card__excerpt { font-size: 14px; line-height: 1.5; color: var(--ink-quiet); flex: 1; }
 .blog-card__meta {
