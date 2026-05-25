@@ -11,6 +11,7 @@
               height="1064"
               format="webp"
               loading="lazy"
+              sizes="100vw lg:50vw"
             />
           </div>
           <span class="badge badge--audience image-with-badge__tag">Jouons Ensemble!</span>

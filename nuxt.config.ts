@@ -44,7 +44,9 @@ export default defineNuxtConfig({
   // vertical strokes on letters like "l". Declaring them explicitly here.
   fonts: {
     families: [
-      { name: "Sora", weights: [400, 500, 600, 700], provider: "google" },
+      // Sora 700 supprimé : aucune occurrence de font-weight: 700 dans le CSS
+      // ni les composants (vérifié au 2026-05-25). 4→3 fichiers woff2 en moins.
+      { name: "Sora", weights: [400, 500, 600], provider: "google" },
       { name: "DM Sans", weights: [400, 500, 600], provider: "google" },
       // optional avoids FOUT entirely — no font-swap after initial render,
       // so the eyebrow/kicker elements (mono font, many above fold on
