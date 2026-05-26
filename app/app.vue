@@ -27,7 +27,7 @@ useSchemaOrg([
   {
     '@id': 'https://pxlc.fr/#service',
     '@type': 'Service',
-    name: '« Jouons Ensemble! » — Médiation numérique parent-écran-enfant',
+    name: '« Jouons Ensemble! » — Médiation numérique Parent-Écran-Enfant',
     description:
       "Dispositif d'ateliers thématiques parent-enfant co-encadrés par l'équipe pluridisciplinaire de la structure porteuse et le gamer médiateur-numérique. Cadre HCSP 2019-2020.",
     serviceType: 'Médiation numérique',

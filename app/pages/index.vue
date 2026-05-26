@@ -12,14 +12,14 @@ useSeoMeta({
 if (import.meta.server) {
   useSeoMeta({
     description:
-      'Andy Zébus, médiateur numérique par le jeu en Guadeloupe. Partenaire des SESSAD, IME et associations pour les ateliers parent-écran-enfant — cadre HCSP 2019-2020.',
+      'Andy Zébus, médiateur numérique par le jeu en Guadeloupe. Partenaire des SESSAD, IME et associations pour les ateliers Parent-Écran-Enfant — cadre HCSP 2019-2020.',
   })
 }
 
 defineOgImage('PxlcOg', {
   eyebrow: 'PXLC · MÉDIATION NUMÉRIQUE · GUADELOUPE',
   title: 'Transformer le temps d\'écran en lien parent-enfant',
-  description: 'Médiateur numérique par le jeu, partenaire des SESSAD, IME, associations et collectivités de Guadeloupe sur leurs programmes parent-écran-enfant.',
+  description: 'Médiateur numérique par le jeu, partenaire des SESSAD, IME, associations et collectivités de Guadeloupe sur leurs programmes Parent-Écran-Enfant.',
 })
 
 // Le preload du hero est géré nativement par :preload="{ fetchPriority: 'high' }"
@@ -52,7 +52,7 @@ const heroPill = {
   <Hero
     title="Transformer le temps d’écran en lien parent-enfant"
     :title-dot="true"
-    lead="J’accompagne les SESSAD, IME, associations et collectivités de Guadeloupe en médiateur numérique par le jeu — partenaire des programmes parent-écran-enfant fondés sur les rapports HCSP."
+    lead="J’accompagne les SESSAD, IME, associations et collectivités de Guadeloupe en médiateur numérique par le jeu — partenaire des programmes Parent-Écran-Enfant fondés sur les rapports HCSP."
     :cta-primary="heroCta"
     :cta-secondary="heroCtaSecondary"
     hint="← à destination des structures"
