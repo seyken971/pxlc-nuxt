@@ -1,9 +1,11 @@
 <script setup lang="ts">
 useSeoMeta({ title: 'Andy Zébus — médiateur numérique en Guadeloupe' })
-useServerSeoMeta({
-  description:
-    "Andy Zébus, gamer médiateur-numérique aux Abymes (Guadeloupe). Six ans dans l'esport, formé aux rapports HCSP 2019-2020, partenaire des SESSAD et IME.",
-})
+if (import.meta.server) {
+  useSeoMeta({
+    description:
+      "Andy Zébus, gamer médiateur-numérique aux Abymes (Guadeloupe). Six ans dans l'esport, formé aux rapports HCSP 2019-2020, partenaire des SESSAD et IME.",
+  })
+}
 
 defineOgImage('PxlcOg', {
   eyebrow: 'PXLC · À PROPOS',

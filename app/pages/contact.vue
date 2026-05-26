@@ -2,10 +2,12 @@
 definePageMeta({ hideGlobalCta: true })
 
 useSeoMeta({ title: 'Contact — vingt minutes pour faire connaissance' })
-useServerSeoMeta({
-  description:
-    'Premier échange de 20 min, gratuit, sans engagement. Visio, WhatsApp ou mail — réservez sur cal.eu/pxlc-gp ou écrivez via le formulaire.',
-})
+if (import.meta.server) {
+  useSeoMeta({
+    description:
+      'Premier échange de 20 min, gratuit, sans engagement. Visio, WhatsApp ou mail — réservez sur cal.eu/pxlc-gp ou écrivez via le formulaire.',
+  })
+}
 
 defineOgImage('PxlcOg', {
   eyebrow: 'PXLC · PREMIER PAS',
