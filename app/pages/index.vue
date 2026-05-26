@@ -9,10 +9,12 @@ useSeoMeta({
 // Description kept under ~160 chars so Google doesn't truncate the
 // HCSP credibility marker at the tail.
 // 157 chars — HCSP years kept at the tail so Google doesn't truncate them.
-useServerSeoMeta({
-  description:
-    'Andy Zébus, médiateur numérique par le jeu en Guadeloupe. Partenaire des SESSAD, IME et associations pour les ateliers parent-écran-enfant — cadre HCSP 2019-2020.',
-})
+if (import.meta.server) {
+  useSeoMeta({
+    description:
+      'Andy Zébus, médiateur numérique par le jeu en Guadeloupe. Partenaire des SESSAD, IME et associations pour les ateliers parent-écran-enfant — cadre HCSP 2019-2020.',
+  })
+}
 
 defineOgImage('PxlcOg', {
   eyebrow: 'PXLC · MÉDIATION NUMÉRIQUE · GUADELOUPE',
