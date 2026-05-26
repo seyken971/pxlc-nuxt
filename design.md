@@ -29,8 +29,6 @@
 | `--pxlc-border-dark` | `#103847` |
 | `--pxlc-border-dark-2` | `#1F4A59` |
 | `--pxlc-white` | `#FFFFFF` |
-| `--pxlc-pattern-warm` | `#D6CEBD` |
-| `--pxlc-pattern-warm-deep` | `#CDC4B0` |
 
 ## Tokens sémantiques
 

@@ -11,7 +11,8 @@
  * The TS module stays the canonical one; this script just keeps the
  * CSS in sync.
  */
-import { readFile, writeFile } from 'node:fs/promises'
+import { readFile, writeFile, readdir } from 'node:fs/promises'
+import { join } from 'node:path'
 
 const TS_SOURCE = 'app/utils/brand-colors.ts'
 const CSS_TARGET = 'app/assets/css/tokens.css'
@@ -43,6 +44,8 @@ const NAME_MAP = {
   borderDark: 'border-dark',
   borderDark2: 'border-dark-2',
   white: 'white',
+  patternWarm: 'pattern-warm',
+  patternWarmDeep: 'pattern-warm-deep',
 }
 
 const main = async () => {
@@ -88,10 +91,49 @@ const main = async () => {
 
   if (next === cssRaw) {
     console.log('gen-tokens: tokens.css already in sync')
-    return
+  } else {
+    await writeFile(CSS_TARGET, next)
+    console.log(`gen-tokens: wrote ${colors.length} colours to tokens.css`)
   }
-  await writeFile(CSS_TARGET, next)
-  console.log(`gen-tokens: wrote ${colors.length} colours to tokens.css`)
+
+  // Dead-reference check: scan .vue + .css files for var(--pxlc-*) and verify
+  // every referenced token exists in the generated set. Catches the case where
+  // a token is added directly to tokens.css (inside the managed block) instead
+  // of going through brand-colors.ts — it would be used in the code but then
+  // silently wiped on the next gen:tokens run.
+  const generated = new Set(Object.values(NAME_MAP).map(n => `--pxlc-${n}`))
+  const scanDirs = ['app']
+  const missing = []
+
+  async function scanDir(dir) {
+    let entries
+    try { entries = await readdir(dir, { withFileTypes: true }) }
+    catch { return }
+    await Promise.all(entries.map(e => {
+      const full = join(dir, e.name)
+      if (e.isDirectory()) return scanDir(full)
+      if (e.name.endsWith('.vue') || e.name.endsWith('.css')) return scanFile(full)
+    }))
+  }
+
+  async function scanFile(file) {
+    const src = await readFile(file, 'utf8')
+    for (const m of src.matchAll(/var\((--pxlc-[\w-]+)/g)) {
+      const token = m[1]
+      if (!generated.has(token))
+        missing.push({ file, token })
+    }
+  }
+
+  await scanDir('app')
+
+  if (missing.length) {
+    console.error('\ngen-tokens: dead var() references — token exists in code but not in brand-colors.ts:')
+    for (const { file, token } of missing)
+      console.error(`  ${file}: ${token}`)
+    console.error('\n  → Add the colour to brand-colors.ts + NAME_MAP, then re-run gen:tokens.\n')
+    process.exit(1)
+  }
 }
 
 main().catch(err => { console.error(err); process.exit(2) })

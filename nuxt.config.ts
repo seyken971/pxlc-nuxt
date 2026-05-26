@@ -188,7 +188,7 @@ export default defineNuxtConfig({
 
   schemaOrg: {
     identity: {
-      type: "LocalBusiness",
+      type: "Organization",
       logo: "/logo.svg",
       name: "PXLC",
       legalName: "Andy Zébus — Entrepreneur Individuel",
