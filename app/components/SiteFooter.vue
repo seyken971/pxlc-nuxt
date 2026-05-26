@@ -47,7 +47,7 @@ const year = new Date().getFullYear()
         </div>
 
         <div>
-          <h3 class="site-footer__col-title">Le dispositif</h3>
+          <p class="site-footer__col-title">Le dispositif</p>
           <ul class="site-footer__col-list" role="list">
             <li><NuxtLink class="site-footer__col-link" to="/pour-les-structures">Pour les structures</NuxtLink></li>
             <li><a class="site-footer__col-link" href="/files/plaquette-pxlc.pdf" target="_blank" rel="noopener noreferrer" aria-label="Télécharger la plaquette (PDF, 12 pages, nouvel onglet)">Télécharger la plaquette</a></li>
@@ -57,7 +57,7 @@ const year = new Date().getFullYear()
         </div>
 
         <div>
-          <h3 class="site-footer__col-title">Contact</h3>
+          <p class="site-footer__col-title">Contact</p>
           <ul class="site-footer__col-list site-footer__col-list--icons" role="list">
             <li>
               <NuxtLink class="site-footer__col-link site-footer__col-link--icon" to="/contact">

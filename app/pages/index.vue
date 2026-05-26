@@ -48,7 +48,8 @@ const heroPill = {
 
 <template>
   <Hero
-    title="Transformer le temps d’écran en lien parent-enfant<span class=’coral-dot’ aria-hidden=’true’>.</span>"
+    title="Transformer le temps d’écran en lien parent-enfant"
+    :title-dot="true"
     lead="J’accompagne les SESSAD, IME, associations et collectivités de Guadeloupe en médiateur numérique par le jeu — partenaire des programmes parent-écran-enfant fondés sur les rapports HCSP."
     :cta-primary="heroCta"
     :cta-secondary="heroCtaSecondary"

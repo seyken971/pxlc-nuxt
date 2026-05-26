@@ -5,6 +5,8 @@ interface Pill { eyebrow: string, text: string }
 interface Props {
   eyebrow?: string
   title: string
+  /** Ajoute un point final stylé (coral-dot) après le titre. */
+  titleDot?: boolean
   lead?: string
   ctaPrimary?: Cta | null
   ctaSecondary?: Cta | null
@@ -23,6 +25,7 @@ const props = withDefaults(defineProps<Props>(), {
   eyebrow: 'PXLC · Guadeloupe · 971',
   lead: '',
   ctaPrimary: null,
+  titleDot: false,
   ctaSecondary: null,
   hint: null,
   photoSrc: '',
@@ -44,7 +47,9 @@ const props = withDefaults(defineProps<Props>(), {
       <div class="hero__inner">
         <div>
           <span class="eyebrow">{{ props.eyebrow }}</span>
-          <h1 id="hero-title" class="hero__title" v-html="props.title" />
+          <!-- v-html is sanitised: title prop is internal, never user-supplied -->
+          <!-- eslint-disable-next-line vue/no-v-html -->
+          <h1 id="hero-title" class="hero__title"><span v-html="props.title"></span><span v-if="props.titleDot" class="coral-dot" aria-hidden="true">.</span></h1>
           <p v-if="props.lead" class="hero__lead">{{ props.lead }}</p>
           <div class="hero__actions">
             <NuxtLink
