@@ -102,7 +102,6 @@ const main = async () => {
   // of going through brand-colors.ts — it would be used in the code but then
   // silently wiped on the next gen:tokens run.
   const generated = new Set(Object.values(NAME_MAP).map(n => `--pxlc-${n}`))
-  const scanDirs = ['app']
   const missing = []
 
   async function scanDir(dir) {
