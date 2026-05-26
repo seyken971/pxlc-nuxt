@@ -10,7 +10,7 @@ useServerSeoMeta({
 defineOgImage('PxlcOg', {
   eyebrow: 'PXLC · POUR LES STRUCTURES',
   title: 'Un dispositif de médiation numérique fondé sur les rapports HCSP',
-  description: 'Ateliers thématiques parent-enfant co-encadrés par votre équipe pluridisciplinaire et le gamer médiateur-numérique. Cadre HCSP, indicateurs d’évaluation, bilan en fin de dispositif.',
+  description: 'Ateliers thématiques parent-enfant co-encadrés par votre équipe pluridisciplinaire et le gamer médiateur-numérique. Cadre HCSP, indicateurs d'évaluation, bilan en fin de dispositif.',
 })
 
 // FAQ — answers grounded in the plaquette + existing copy. Doubles as the
@@ -18,34 +18,34 @@ defineOgImage('PxlcOg', {
 // Défini ici (avant useSchemaOrg) pour être spreadé dans le même appel.
 const faqs = [
   {
-    id: ‘duree’,
-    q: ‘Quelle est la durée typique d’un dispositif ?’,
-    a: ‘À calibrer ensemble selon le rythme de votre structure : un cycle complet articule la préparation, plusieurs ateliers thématiques, un groupe de parole familiale et un bilan. À titre indicatif, le projet « Jouons Ensemble! » 2026 au SESSAD Lékoklaya s’étend sur l’année.’,
+    id: 'duree',
+    q: 'Quelle est la durée typique d'un dispositif ?',
+    a: 'À calibrer ensemble selon le rythme de votre structure : un cycle complet articule la préparation, plusieurs ateliers thématiques, un groupe de parole familiale et un bilan. À titre indicatif, le projet « Jouons Ensemble! » 2026 au SESSAD Lékoklaya s'étend sur l'année.',
   },
   {
-    id: ‘porteur’,
-    q: ‘Qui porte le projet côté structure ?’,
-    a: ‘La psychologue de la structure est porteuse du projet — cadrage clinique, entretien initial avec les familles, bilan final. Le gamer médiateur-numérique intervient en partenariat, sur le terrain spécifique de la culture jeu vidéo.’,
+    id: 'porteur',
+    q: 'Qui porte le projet côté structure ?',
+    a: 'La psychologue de la structure est porteuse du projet — cadrage clinique, entretien initial avec les familles, bilan final. Le gamer médiateur-numérique intervient en partenariat, sur le terrain spécifique de la culture jeu vidéo.',
   },
   {
-    id: ‘tarif’,
-    q: ‘Quel est le tarif ?’,
-    a: ‘Sur devis, calibré au périmètre (nombre d’ateliers, nombre de familles, durée). Le devis inclut la rémunération du gamer intervenant ; le prêt des consoles et des jeux peut être inclus ou pris en charge par la structure.’,
+    id: 'tarif',
+    q: 'Quel est le tarif ?',
+    a: 'Sur devis, calibré au périmètre (nombre d'ateliers, nombre de familles, durée). Le devis inclut la rémunération du gamer intervenant ; le prêt des consoles et des jeux peut être inclus ou pris en charge par la structure.',
   },
   {
-    id: ‘nombre-enfants’,
-    q: ‘Combien d’enfants par dispositif ?’,
-    a: ‘Calibré avec votre équipe. Le projet 2026 au SESSAD Lékoklaya accompagne 8 enfants âgés de 12 à 17 ans avec leurs parents, en binômes.’,
+    id: 'nombre-enfants',
+    q: 'Combien d'enfants par dispositif ?',
+    a: 'Calibré avec votre équipe. Le projet 2026 au SESSAD Lékoklaya accompagne 8 enfants âgés de 12 à 17 ans avec leurs parents, en binômes.',
   },
   {
-    id: ‘profils’,
-    q: ‘Quels profils d’enfants sont accueillis ?’,
-    a: ‘Adapté aux TSA, TDAH, TCND, DM, neuropathie — et plus largement à tout enfant suivi pour des troubles du neurodéveloppement, du comportement ou du lien social. L’adaptation se fait en concertation avec l’équipe pluridisciplinaire.’,
+    id: 'profils',
+    q: 'Quels profils d'enfants sont accueillis ?',
+    a: 'Adapté aux TSA, TDAH, TCND, DM, neuropathie — et plus largement à tout enfant suivi pour des troubles du neurodéveloppement, du comportement ou du lien social. L'adaptation se fait en concertation avec l'équipe pluridisciplinaire.',
   },
   {
-    id: ‘bilan’,
-    q: ‘Comment se passe le bilan ?’,
-    a: ‘Synthèse écrite des acquis parent/enfant transmise à l’équipe pluridisciplinaire, citant explicitement les rapports HCSP mobilisés. Plus une restitution orale aux familles avec des pistes concrètes de continuité à la maison.’,
+    id: 'bilan',
+    q: 'Comment se passe le bilan ?',
+    a: 'Synthèse écrite des acquis parent/enfant transmise à l'équipe pluridisciplinaire, citant explicitement les rapports HCSP mobilisés. Plus une restitution orale aux familles avec des pistes concrètes de continuité à la maison.',
   },
 ]
 
@@ -53,13 +53,13 @@ const faqs = [
 // Service #service est déclaré globalement dans app.vue.
 useSchemaOrg([
   defineWebPage({
-    ‘@type’: [‘WebPage’, ‘FAQPage’],
-    name: ‘Dispositif de médiation numérique pour SESSAD, IME, associations et collectivités’,
+    '@type': ['WebPage', 'FAQPage'],
+    name: 'Dispositif de médiation numérique pour SESSAD, IME, associations et collectivités',
   }),
   ...faqs.map(f =>
     defineQuestion({
       name: f.q,
-      acceptedAnswer: { ‘@type’: ‘Answer’, text: f.a },
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
     }),
   ),
 ])
@@ -75,22 +75,22 @@ const facts: [string, string][] = [
 
 // Mode opératoire en 4 étapes — source : _plaquette/PROJET PARENTS – ECRAN – ENFANT.md
 const steps = [
-  { num: '01', title: 'Préparation', detail: 'Entretiens familiaux avec l’équipe (psychologue, psychomotricienne, gamer médiateur, intervenants culturels). Identification du profil ludique des enfants, construction des binômes parent-enfant.' },
-  { num: '02', title: 'Ateliers thématiques parent-enfant', detail: 'Coopération · Émotions & récits · Différence & complémentarité. Chaque atelier : temps de jeu partagé (30-45 min) + temps d’échange verbal (45 min - 1 h). Observation et guidance des interactions.' },
-  { num: '03', title: 'Groupe de parole familiale', detail: 'Espace d’échange entre familles : régulation, limites, signes d’alerte, posture parentale.' },
-  { num: '04', title: 'Bilan', detail: 'Synthèse des acquis parent/enfant, élaboration de pistes de continuité à la maison, transmission écrite à l’équipe pluridisciplinaire.' },
+  { num: '01', title: 'Préparation', detail: 'Entretiens familiaux avec l'équipe (psychologue, psychomotricienne, gamer médiateur, intervenants culturels). Identification du profil ludique des enfants, construction des binômes parent-enfant.' },
+  { num: '02', title: 'Ateliers thématiques parent-enfant', detail: 'Coopération · Émotions & récits · Différence & complémentarité. Chaque atelier : temps de jeu partagé (30-45 min) + temps d'échange verbal (45 min - 1 h). Observation et guidance des interactions.' },
+  { num: '03', title: 'Groupe de parole familiale', detail: 'Espace d'échange entre familles : régulation, limites, signes d'alerte, posture parentale.' },
+  { num: '04', title: 'Bilan', detail: 'Synthèse des acquis parent/enfant, élaboration de pistes de continuité à la maison, transmission écrite à l'équipe pluridisciplinaire.' },
 ]
 
 const frameworks = [
-  { key: 'HCSP', year: '2019', title: 'Effets de l’exposition aux écrans', desc: 'L’accompagnement parental actif est le facteur clé pour limiter les effets négatifs. Cadre familial, pratiques partagées, qualité du contenu.', url: 'https://www.hcsp.fr/Explore.cgi/AvisRapportsDomaine?clefr=759' },
-  { key: 'HCSP', year: '2020', title: 'De l’usage excessif à la dépendance', desc: 'Seconde partie du rapport — repères pour identifier et prévenir le basculement vers un usage problématique. Calibration des indicateurs PXLC.', url: 'https://www.hcsp.fr/Explore.cgi/AvisRapportsDomaine?clefr=1074' },
+  { key: 'HCSP', year: '2019', title: 'Effets de l'exposition aux écrans', desc: 'L'accompagnement parental actif est le facteur clé pour limiter les effets négatifs. Cadre familial, pratiques partagées, qualité du contenu.', url: 'https://www.hcsp.fr/Explore.cgi/AvisRapportsDomaine?clefr=759' },
+  { key: 'HCSP', year: '2020', title: 'De l'usage excessif à la dépendance', desc: 'Seconde partie du rapport — repères pour identifier et prévenir le basculement vers un usage problématique. Calibration des indicateurs PXLC.', url: 'https://www.hcsp.fr/Explore.cgi/AvisRapportsDomaine?clefr=1074' },
 ]
 
 // Indicateurs d'évaluation — source : plaquette §"Indicateurs d'évaluation".
 const indicators = [
   { title: 'Questionnaires de satisfaction', detail: 'Recueillis en fin de chaque cycle auprès des parents et des enfants. Items standardisés + champ libre.' },
-  { title: 'Grilles d’observation des compétences', detail: 'Coopération, communication, gestion des émotions — observées pendant les ateliers et restituées dans le bilan.' },
-  { title: 'Diminution rapportée des conflits familiaux liés aux écrans', detail: 'Auto-évaluation parents, complétée par le suivi de l’équipe pluridisciplinaire entre les ateliers.' },
+  { title: 'Grilles d'observation des compétences', detail: 'Coopération, communication, gestion des émotions — observées pendant les ateliers et restituées dans le bilan.' },
+  { title: 'Diminution rapportée des conflits familiaux liés aux écrans', detail: 'Auto-évaluation parents, complétée par le suivi de l'équipe pluridisciplinaire entre les ateliers.' },
   { title: 'Engagement et assiduité aux ateliers', detail: 'Taux de présence, participation active, demandes de prolongation — indicateurs simples mais structurants pour le bilan transmis.' },
 ]
 
@@ -117,16 +117,16 @@ const audiences = [
   {
     id: 'associations',
     label: 'Associations',
-    porteur: 'La personne en charge de la coordination ou de la direction de l’association',
+    porteur: 'La personne en charge de la coordination ou de la direction de l'association',
     financement: 'Subvention projet (CAF, ARS, mécénat, fonds européens)',
-    public: 'Familles adhérentes ou bénéficiaires d’un programme parentalité',
+    public: 'Familles adhérentes ou bénéficiaires d'un programme parentalité',
   },
   {
     id: 'collectivites',
     label: 'Collectivités',
     porteur: 'Le service jeunesse, éducation ou cohésion sociale',
     financement: 'Budget de la collectivité, dispositifs REAAP / parentalité',
-    public: 'Familles du territoire dans le cadre d’actions de soutien à la parentalité',
+    public: 'Familles du territoire dans le cadre d'actions de soutien à la parentalité',
   },
 ]
 
