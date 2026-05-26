@@ -38,7 +38,7 @@
 
   /* Semantic shortcuts */
   --ink:        var(--pxlc-text-ink);
-  --ink-soft:   var(--pxlc-text-on-light);
+  --ink-quiet:  var(--pxlc-text-on-light);
   --quiet:      var(--pxlc-text-secondary);
   --rule:       var(--pxlc-border);
   --rule-soft:  var(--pxlc-border-soft);
@@ -67,7 +67,7 @@ html, body {
   font-family: var(--font-body);
   font-size: 11pt;
   line-height: 1.55;
-  color: var(--ink-soft);
+  color: var(--ink-quiet);
   background: white;
   -webkit-print-color-adjust: exact;
   print-color-adjust: exact;
@@ -176,7 +176,7 @@ h4 { font-size: 10pt; margin-bottom: 1mm; }
 .lead {
   font-size: 13pt;
   line-height: 1.45;
-  color: var(--ink-soft);
+  color: var(--ink-quiet);
   margin-bottom: 8mm;
   max-width: 165mm;
 }
@@ -358,7 +358,7 @@ h4 { font-size: 10pt; margin-bottom: 1mm; }
 }
 .kpi__meaning {
   font-size: 9.5pt;
-  color: var(--ink-soft);
+  color: var(--ink-quiet);
   line-height: 1.4;
   margin-bottom: 3mm;
 }
@@ -509,7 +509,7 @@ h4 { font-size: 10pt; margin-bottom: 1mm; }
   align-items: baseline;
   font-family: var(--font-body);
   font-size: 10.5pt;
-  color: var(--ink-soft);
+  color: var(--ink-quiet);
   border-bottom: 1px dotted var(--rule);
   padding-bottom: 2mm;
 }
@@ -660,7 +660,7 @@ h4 { font-size: 10pt; margin-bottom: 1mm; }
 .cta-sidecard li .meta { color: var(--cyan); font-family: var(--font-mono); font-size: 8.5pt; letter-spacing: 0.10em; }
 
 /* ── Consentement (annexe) ────────────────────────────────── */
-.consent { font-size: 9pt; line-height: 1.55; color: var(--ink-soft); }
+.consent { font-size: 9pt; line-height: 1.55; color: var(--ink-quiet); }
 .consent h3 {
   font-family: var(--font-mono);
   font-size: 8.5pt;
@@ -753,14 +753,14 @@ h4 { font-size: 10pt; margin-bottom: 1mm; }
     <div class="toc__row"><span class="toc__num">03</span><span>Dispositif type — 4 étapes & livrables</span><span class="toc__page">p. 05–06</span></div>
     <div class="toc__row"><span class="toc__num">04</span><span>Indicateurs d'évaluation</span><span class="toc__page">p. 07</span></div>
     <div class="toc__row"><span class="toc__num">05</span><span>Profils bénéficiaires</span><span class="toc__page">p. 08</span></div>
-    <div class="toc__row"><span class="toc__num">06</span><span>Cas pratique — SESSAD Lékoklaya</span><span class="toc__page">p. 09</span></div>
+    <div class="toc__row"><span class="toc__num">06</span><span>Cas pratique — {{projet.structure}}</span><span class="toc__page">p. 09</span></div>
     <div class="toc__row"><span class="toc__num">07</span><span>Andy Zébus — fondateur, parcours</span><span class="toc__page">p. 10</span></div>
     <div class="toc__row"><span class="toc__num">08</span><span>Modalités, tarif, contact</span><span class="toc__page">p. 11</span></div>
     <div class="toc__row"><span class="toc__num">09</span><span>Annexe — consentement parental</span><span class="toc__page">p. 12</span></div>
   </div>
 
   <div class="page__foot">
-    <span>PXLC · Plaquette dispositif · v2</span>
+    <span>PXLC · Plaquette dispositif · {{version}}</span>
     <span class="pixel-strip" aria-hidden="true">
       <span></span><span></span><span></span><span></span><span></span>
       <span class="is-accent"></span><span></span><span></span><span></span><span></span><span></span>
@@ -807,7 +807,7 @@ h4 { font-size: 10pt; margin-bottom: 1mm; }
   </div>
 
   <div class="page__foot">
-    <span>PXLC · Plaquette dispositif · v2</span>
+    <span>PXLC · Plaquette dispositif · {{version}}</span>
     <span class="pixel-strip" aria-hidden="true">
       <span></span><span></span><span></span><span></span><span></span>
       <span class="is-accent"></span><span></span><span></span><span></span><span></span><span></span>
@@ -845,7 +845,7 @@ h4 { font-size: 10pt; margin-bottom: 1mm; }
     <div>
       <div class="step__phase">Ateliers thématiques <span class="step__duration">parent-enfant en binôme</span></div>
       <h3 class="step__title">Jouer ensemble</h3>
-      <p class="step__desc">Ateliers parent-enfant sur trois thèmes (coopération, émotions & récits, différence & complémentarité). Temps de jeu partagé (30 à 45 min, voire 1 h) suivi d'un temps d'échange verbal (45 min à 1 h), co-encadrés par l'équipe pluridisciplinaire.</p>
+      <p class="step__desc">Ateliers parent-enfant sur trois thèmes (coopération, émotions & récits, différence & complémentarité). Temps de jeu partagé (30 à 45&nbsp;min, voire 1&nbsp;h) suivi d'un temps d'échange verbal (45&nbsp;min à 1&nbsp;h), co-encadrés par l'équipe pluridisciplinaire.</p>
       <span class="step__deliv">↳ <strong>livrable</strong> · une nouvelle façon d'écouter ce que dit l'enfant en jouant</span>
     </div>
   </div>
@@ -867,7 +867,7 @@ h4 { font-size: 10pt; margin-bottom: 1mm; }
   </div>
 
   <div class="page__foot">
-    <span>PXLC · Plaquette dispositif · v2</span>
+    <span>PXLC · Plaquette dispositif · {{version}}</span>
     <span class="pixel-strip" aria-hidden="true">
       <span></span><span></span><span></span><span></span><span></span>
       <span class="is-accent"></span><span></span><span></span><span></span><span></span><span></span>
@@ -905,13 +905,13 @@ h4 { font-size: 10pt; margin-bottom: 1mm; }
     <div>
       <div class="step__phase">Ateliers thématiques <span class="step__duration">parent-enfant en binôme</span></div>
       <h3 class="step__title">Ateliers parent-enfant</h3>
-      <p class="step__desc">Trois thèmes (liste non exhaustive) : coopération, émotions &amp; récits, différence &amp; complémentarité. Chaque atelier : temps de jeu partagé (30 à 45 min, voire 1 h) + temps d'échange verbal (45 min à 1 h), co-encadré par l'équipe pluridisciplinaire et le gamer médiateur-numérique.</p>
+      <p class="step__desc">Trois thèmes (liste non exhaustive) : coopération, émotions &amp; récits, différence &amp; complémentarité. Chaque atelier : temps de jeu partagé (30 à 45&nbsp;min, voire 1&nbsp;h) + temps d'échange verbal (45&nbsp;min à 1&nbsp;h), co-encadré par l'équipe pluridisciplinaire et le gamer médiateur-numérique.</p>
       <span class="step__deliv">↳ <strong>livrable</strong> · observation et guidance des interactions</span>
     </div>
   </div>
 
   <div class="page__foot">
-    <span>PXLC · Plaquette dispositif · v2</span>
+    <span>PXLC · Plaquette dispositif · {{version}}</span>
     <span class="pixel-strip" aria-hidden="true">
       <span></span><span></span><span></span><span></span><span></span>
       <span class="is-accent"></span><span></span><span></span><span></span><span></span><span></span>
@@ -959,7 +959,7 @@ h4 { font-size: 10pt; margin-bottom: 1mm; }
   </div>
 
   <div class="page__foot">
-    <span>PXLC · Plaquette dispositif · v2</span>
+    <span>PXLC · Plaquette dispositif · {{version}}</span>
     <span class="pixel-strip" aria-hidden="true">
       <span></span><span></span><span></span><span></span><span></span>
       <span class="is-accent"></span><span></span><span></span><span></span><span></span><span></span>
@@ -1015,7 +1015,7 @@ h4 { font-size: 10pt; margin-bottom: 1mm; }
   </div>
 
   <div class="page__foot">
-    <span>PXLC · Plaquette dispositif · v2</span>
+    <span>PXLC · Plaquette dispositif · {{version}}</span>
     <span class="pixel-strip" aria-hidden="true">
       <span></span><span></span><span></span><span></span><span></span>
       <span class="is-accent"></span><span></span><span></span><span></span><span></span><span></span>
@@ -1036,7 +1036,7 @@ h4 { font-size: 10pt; margin-bottom: 1mm; }
 
   <span class="eyebrow">05 · Publics accueillis</span>
   <h2>Une approche par profil<span class="coral-dot" aria-hidden="true">.</span></h2>
-  <p style="margin-bottom: 6mm;">Pas une méthode unique — des entrées spécifiques selon les besoins du public accueilli. La grille ci-dessous reflète la cohorte du projet « Jouons Ensemble! » au SESSAD Lékoklaya (2026). L'approche concrète est calibrée enfant par enfant avec l'équipe pluridisciplinaire.</p>
+  <p style="margin-bottom: 6mm;">Pas une méthode unique — des entrées spécifiques selon les besoins du public accueilli. La grille ci-dessous reflète la cohorte du projet « Jouons Ensemble! » au {{projet.structure}} ({{projet.annee}}). L'approche concrète est calibrée enfant par enfant avec l'équipe pluridisciplinaire.</p>
 
   <div class="grid-2" style="gap: 5mm;">
     <div class="profile">
@@ -1063,11 +1063,11 @@ h4 { font-size: 10pt; margin-bottom: 1mm; }
 
   <div class="card card--ivory" style="margin-top: 8mm;">
     <span class="card-head">Tranche d'âge</span>
-    <p style="margin-top: 3mm;"><strong>12 à 17 ans</strong> pour le projet « Jouons Ensemble! » au SESSAD Lékoklaya. Le dispositif peut être adapté à des publics plus jeunes (8-11 ans) ou plus âgés (jeunes adultes, transition vers l'autonomie) en lien avec votre équipe pluridisciplinaire.</p>
+    <p style="margin-top: 3mm;"><strong>{{profils.tranche_age}}</strong> pour le projet au {{projet.structure}}. Le dispositif peut être adapté à des publics plus jeunes (8-11 ans) ou plus âgés (jeunes adultes, transition vers l'autonomie) en lien avec votre équipe pluridisciplinaire.</p>
   </div>
 
   <div class="page__foot">
-    <span>PXLC · Plaquette dispositif · v2</span>
+    <span>PXLC · Plaquette dispositif · {{version}}</span>
     <span class="pixel-strip" aria-hidden="true">
       <span></span><span></span><span></span><span></span><span></span>
       <span class="is-accent"></span><span></span><span></span><span></span><span></span><span></span>
@@ -1087,27 +1087,27 @@ h4 { font-size: 10pt; margin-bottom: 1mm; }
   </header>
 
   <span class="eyebrow">06 · Cas pratique</span>
-  <h2>SESSAD Lékoklaya · «&nbsp;Jouons Ensemble&nbsp;!&nbsp;» · 2026<span class="coral-dot" aria-hidden="true">.</span></h2>
-  <p class="lead">Un projet porté par la psychologue du SESSAD, en partenariat avec le gamer médiateur-numérique, auprès de huit enfants âgés de 12 à 17 ans.</p>
+  <h2>{{projet.structure}} · «&nbsp;Jouons Ensemble&nbsp;!&nbsp;» · {{projet.annee}}<span class="coral-dot" aria-hidden="true">.</span></h2>
+  <p class="lead">{{cas_pratique.lead}}</p>
 
   <span class="card-head" style="margin-top: 4mm; display: block;">Contexte</span>
-  <p style="margin-top: 2mm;">Le projet s'inscrit dans la continuité du Café-Parents du 14 décembre 2023 « Enfants Écrans ». L'équipe du SESSAD avait identifié que les jeux vidéo étaient un point de friction récurrent dans les familles (temps d'écran, isolement, conflits) — particulièrement chez les enfants accompagnés pour des troubles du neurodéveloppement, du comportement ou du lien social.</p>
+  <p style="margin-top: 2mm;">{{cas_pratique.contexte}}</p>
 
   <span class="card-head" style="margin-top: 5mm; display: block;">Cohorte</span>
-  <p style="margin-top: 2mm;">Huit enfants (TSA, TDAH, TND, dystrophie musculaire, neuropathies) âgés de 12 à 17 ans. Problématiques ciblées : addiction, socialisation, attention, anxiété. Chaque enfant participe en binôme avec un parent.</p>
+  <p style="margin-top: 2mm;">{{cas_pratique.cohorte}}</p>
 
   <span class="card-head" style="margin-top: 5mm; display: block;">Déroulé</span>
-  <p style="margin-top: 2mm;">Ateliers thématiques parent-enfant (coopération, émotions, différence) co-encadrés par la psychologue, la psychomotricienne, les intervenants culturels et le gamer médiateur-numérique. Chaque atelier : 30 à 45 min de jeu partagé + 45 min à 1 h d'échange verbal. Groupe de parole familiale puis bilan en fin de dispositif.</p>
+  <p style="margin-top: 2mm;">{{cas_pratique.deroule}}</p>
 
   <div class="quote">
     <span class="quotemark" aria-hidden="true">«&nbsp;</span>Jouer ensemble, c'est mieux comprendre, mieux se parler, et mieux grandir.<span class="quotemark" aria-hidden="true">&nbsp;»</span>
-    <span class="quote__src">Tagline du projet · SESSAD Lékoklaya × PXLC</span>
+    <span class="quote__src">Tagline du projet · {{projet.structure}} × PXLC</span>
   </div>
 
-  <p style="font-size: 8.5pt; color: var(--quiet); margin-top: 6mm; font-style: italic;">Note · projet en cours, démarrage 2026. Le bilan final (synthèse qualitative + pistes de continuité à la maison) sera communicable sur demande après validation par l'équipe Lékoklaya.</p>
+  <p style="font-size: 8.5pt; color: var(--quiet); margin-top: 6mm; font-style: italic;">Note · projet en cours, démarrage {{projet.annee}}. Le bilan final (synthèse qualitative + pistes de continuité à la maison) sera communicable sur demande après validation par l'équipe {{projet.structure}}.</p>
 
   <div class="page__foot">
-    <span>PXLC · Plaquette dispositif · v2</span>
+    <span>PXLC · Plaquette dispositif · {{version}}</span>
     <span class="pixel-strip" aria-hidden="true">
       <span></span><span></span><span></span><span></span><span></span>
       <span class="is-accent"></span><span></span><span></span><span></span><span></span><span></span>
@@ -1128,28 +1128,28 @@ h4 { font-size: 10pt; margin-bottom: 1mm; }
 
   <span class="eyebrow">07 · Le médiateur</span>
   <h2>Andy Zébus · trois casquettes<span class="coral-dot" aria-hidden="true">.</span></h2>
-  <p style="margin-bottom: 6mm;">Né en Guadeloupe, formé à la médiation interculturelle et au numérique, Andy Zébus a passé six ans à structurer la scène esport guadeloupéenne avant de devenir <strong>gamer médiateur-numérique partenaire</strong> des structures porteuses (SESSAD, IME, associations, collectivités) sur leurs projets parent-écran-enfant.</p>
+  <p style="margin-bottom: 6mm;">{{andy.bio}}</p>
 
   <div class="grid-3" style="margin-bottom: 6mm;">
     <div class="card">
       <span class="kicker">Casquette 01</span>
-      <h3 style="margin: 3mm 0 2mm 0; font-size: 11pt;">Organisateur esport</h3>
-      <p style="font-size: 9.5pt; line-height: 1.45;">Six ans à monter la scène esport guadeloupéenne avec Esports Guadeloupe — tournois, communauté, partenariats grands comptes. Connaît de l'intérieur la communauté joueurs, l'économie d'un tournoi et le langage Discord d'équipe.</p>
+      <h3 style="margin: 3mm 0 2mm 0; font-size: 11pt;">{{andy.casquette1.titre}}</h3>
+      <p style="font-size: 9.5pt; line-height: 1.45;">{{andy.casquette1.desc}}</p>
     </div>
     <div class="card">
       <span class="kicker">Casquette 02</span>
-      <h3 style="margin: 3mm 0 2mm 0; font-size: 11pt;">Médiateur formé</h3>
-      <p style="font-size: 9.5pt; line-height: 1.45;">Formateur principal en médiation numérique chez Simplon Outre-Mer (2021–2022). Lecture rigoureuse des recommandations HAS et HCSP. Pratique en cohérence avec les standards du soutien à la parentalité.</p>
+      <h3 style="margin: 3mm 0 2mm 0; font-size: 11pt;">{{andy.casquette2.titre}}</h3>
+      <p style="font-size: 9.5pt; line-height: 1.45;">{{andy.casquette2.desc}}</p>
     </div>
     <div class="card">
       <span class="kicker">Casquette 03</span>
-      <h3 style="margin: 3mm 0 2mm 0; font-size: 11pt;">Conseil institutionnel</h3>
-      <p style="font-size: 9.5pt; line-height: 1.45;">Affaires européennes et numérique THD à la Région Guadeloupe, formation aux élus et accompagnement des collectivités. Connaît le langage des projets de service et des bilans d'activité.</p>
+      <h3 style="margin: 3mm 0 2mm 0; font-size: 11pt;">{{andy.casquette3.titre}}</h3>
+      <p style="font-size: 9.5pt; line-height: 1.45;">{{andy.casquette3.desc}}</p>
     </div>
   </div>
 
   <div class="quote">
-    <span class="quotemark" aria-hidden="true">«&nbsp;</span>Mon métier, ce n'est pas de défendre les écrans. C'est de défendre la relation parent-enfant — et de la faire passer par les écrans, puisque c'est là qu'elle se joue.<span class="quotemark" aria-hidden="true">&nbsp;»</span>
+    <span class="quotemark" aria-hidden="true">«&nbsp;</span>{{andy.quote}}<span class="quotemark" aria-hidden="true">&nbsp;»</span>
     <span class="quote__src">Andy Zébus · fondateur de PXLC</span>
   </div>
 
@@ -1159,7 +1159,7 @@ h4 { font-size: 10pt; margin-bottom: 1mm; }
   </div>
 
   <div class="page__foot">
-    <span>PXLC · Plaquette dispositif · v2</span>
+    <span>PXLC · Plaquette dispositif · {{version}}</span>
     <span class="pixel-strip" aria-hidden="true">
       <span></span><span></span><span></span><span></span><span></span>
       <span class="is-accent"></span><span></span><span></span><span></span><span></span><span></span>
@@ -1184,13 +1184,13 @@ h4 { font-size: 10pt; margin-bottom: 1mm; }
   <div class="grid-2" style="margin-bottom: 6mm;">
     <div class="card">
       <span class="card-head">Tarif</span>
-      <p style="font-family: var(--font-display); font-size: 26pt; font-weight: 600; color: var(--ink); margin: 3mm 0 0 0; line-height: 1; letter-spacing: -0.03em;">100&nbsp;€<span style="font-size: 13pt; color: var(--quiet); font-weight: 400;"> / heure</span></p>
+      <p style="font-family: var(--font-display); font-size: 26pt; font-weight: 600; color: var(--ink); margin: 3mm 0 0 0; line-height: 1; letter-spacing: -0.03em;">{{tarif.horaire}}&nbsp;€<span style="font-size: 13pt; color: var(--quiet); font-weight: 400;"> / heure</span></p>
       <p style="margin-top: 3mm; font-size: 9.5pt;">Tarif appliqué à toutes les heures facturées (atelier, cadrage, rédaction, restitution, déplacement). Devis détaillé après cadrage initial.</p>
     </div>
     <div class="card">
       <span class="card-head">Format type</span>
       <ul class="bullets" style="margin: 3mm 0 0 0;">
-        <li>6 à 12 ateliers individuels d'1 h</li>
+        <li>6 à 12 ateliers individuels d'1&nbsp;h</li>
         <li>2 groupes de parole parents</li>
         <li>Cadrage initial + bilan final</li>
         <li>Comptes-rendus écrits inclus</li>
@@ -1207,9 +1207,9 @@ h4 { font-size: 10pt; margin-bottom: 1mm; }
 
     <aside class="cta-sidecard">
       <div class="cta-sidecard__eyebrow">Réservation</div>
-      <p class="cta-sidecard__lead">Agenda mis à jour en temps réel sur <strong>cal.eu/pxlc-gp</strong>. Les créneaux libres sont visibles immédiatement.</p>
+      <p class="cta-sidecard__lead">Agenda mis à jour en temps réel sur <strong>{{contact.cal}}</strong>. Les créneaux libres sont visibles immédiatement.</p>
       <ul>
-        <li><span>Premier échange</span><span class="meta">20 min · gratuit</span></li>
+        <li><span>Premier échange</span><span class="meta">20&nbsp;min · gratuit</span></li>
         <li><span>Visio ou WhatsApp</span><span class="meta">à votre choix</span></li>
         <li><span>Réponse personnelle</span><span class="meta">sous 48&nbsp;h</span></li>
       </ul>
@@ -1219,24 +1219,24 @@ h4 { font-size: 10pt; margin-bottom: 1mm; }
   <div class="contact-grid" style="margin-top: 0;">
     <div class="contact-card">
       <div class="contact-card__label">Réservation directe</div>
-      <div class="contact-card__value">cal.eu/pxlc-gp</div>
+      <div class="contact-card__value">{{contact.cal}}</div>
     </div>
     <div class="contact-card">
       <div class="contact-card__label">Email</div>
-      <div class="contact-card__value">contact@pxlc.fr</div>
+      <div class="contact-card__value">{{contact.email}}</div>
     </div>
     <div class="contact-card">
       <div class="contact-card__label">WhatsApp / Téléphone</div>
-      <div class="contact-card__value">+590 690 71 76 18</div>
+      <div class="contact-card__value">{{contact.phone}}</div>
     </div>
     <div class="contact-card">
       <div class="contact-card__label">LinkedIn</div>
-      <div class="contact-card__value">linkedin.com / in / azebus</div>
+      <div class="contact-card__value">{{contact.linkedin}}</div>
     </div>
   </div>
 
   <div class="page__foot">
-    <span>PXLC · Plaquette dispositif · v2</span>
+    <span>PXLC · Plaquette dispositif · {{version}}</span>
     <span class="pixel-strip" aria-hidden="true">
       <span></span><span></span><span></span><span></span><span></span>
       <span class="is-accent"></span><span></span><span></span><span></span><span></span><span></span>
@@ -1260,13 +1260,13 @@ h4 { font-size: 10pt; margin-bottom: 1mm; }
 
   <div class="consent">
     <p><strong>Je soussigné·e ____________________________________</strong>, titulaire de l'autorité parentale sur l'enfant <strong>____________________________________</strong>, né·e le <strong>__/__/____</strong>, accueilli·e au sein de la structure <strong>____________________________________</strong>,</p>
-    <p>autorise la participation de mon enfant au dispositif de médiation numérique animé par <strong>Andy Zébus (PXLC · Pixels Caraïbes · SIRET 813 793 528 00031)</strong> dans le cadre de son projet personnalisé d'accompagnement.</p>
+    <p>autorise la participation de mon enfant au dispositif de médiation numérique animé par <strong>Andy Zébus (PXLC · Pixels Caraïbes · SIRET {{siret}})</strong> dans le cadre de son projet personnalisé d'accompagnement.</p>
 
     <h3>1. Finalité du traitement</h3>
     <p>Les données collectées (observations cliniques, comportements en jeu, échanges parent-enfant, progression sur les indicateurs PXLC) sont utilisées exclusivement pour : <em>(i)</em> animer les séances de médiation, <em>(ii)</em> rédiger les comptes-rendus transmis à l'équipe pluridisciplinaire de la structure, <em>(iii)</em> documenter le bilan final remis à la structure et à la famille.</p>
 
     <h3>2. Base légale (art. 6.1.a RGPD)</h3>
-    <p>Le traitement repose sur le consentement libre, éclairé et révocable des titulaires de l'autorité parentale. Ce consentement peut être retiré à tout moment, sans justification, par simple notification écrite à <em>contact@pxlc.fr</em>, sans incidence sur la prise en charge de l'enfant par la structure.</p>
+    <p>Le traitement repose sur le consentement libre, éclairé et révocable des titulaires de l'autorité parentale. Ce consentement peut être retiré à tout moment, sans justification, par simple notification écrite à <em>{{contact.email}}</em>, sans incidence sur la prise en charge de l'enfant par la structure.</p>
 
     <h3>3. Données collectées et durée de conservation</h3>
     <p>Les données personnelles collectées sont strictement limitées au prénom de l'enfant, à sa tranche d'âge, à ses centres d'intérêt en jeu, et aux observations utiles à la médiation. <strong>Aucune donnée de santé sensible n'est collectée par PXLC en dehors de ce qui est explicitement transmis par la structure dans le cadre du secret partagé.</strong> Les comptes-rendus sont conservés pendant la durée de la mission, puis archivés 3 ans à compter de la date du bilan final, conformément aux recommandations CNIL.</p>
@@ -1278,7 +1278,7 @@ h4 { font-size: 10pt; margin-bottom: 1mm; }
     <p>Aucune photographie, vidéo ou enregistrement audio de l'enfant n'est réalisé pendant les séances, sauf accord exprès et écrit préalable des titulaires de l'autorité parentale, par avenant au présent consentement.</p>
 
     <h3>6. Droits de la personne concernée</h3>
-    <p>Conformément aux articles 15 à 22 du RGPD et à la loi française « Informatique et libertés » (n° 78-17 modifiée), vous disposez des droits d'accès, de rectification, d'effacement, de limitation, de portabilité et d'opposition. Vous pouvez exercer ces droits à tout moment auprès du responsable de traitement : <em>contact@pxlc.fr</em>. En cas de différend, vous pouvez saisir la CNIL (cnil.fr).</p>
+    <p>Conformément aux articles 15 à 22 du RGPD et à la loi française « Informatique et libertés » (n° 78-17 modifiée), vous disposez des droits d'accès, de rectification, d'effacement, de limitation, de portabilité et d'opposition. Vous pouvez exercer ces droits à tout moment auprès du responsable de traitement : <em>{{contact.email}}</em>. En cas de différend, vous pouvez saisir la CNIL (cnil.fr).</p>
 
     <div class="consent__sigs">
       <div class="consent__sig">
@@ -1293,7 +1293,7 @@ h4 { font-size: 10pt; margin-bottom: 1mm; }
   </div>
 
   <div class="page__foot">
-    <span>PXLC · Plaquette dispositif · v2</span>
+    <span>PXLC · Plaquette dispositif · {{version}}</span>
     <span class="pixel-strip" aria-hidden="true">
       <span></span><span></span><span></span><span></span><span></span>
       <span class="is-accent"></span><span></span><span></span><span></span><span></span><span></span>

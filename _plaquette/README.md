@@ -1,6 +1,10 @@
 # Plaquette PXLC — génération PDF
 
-Source HTML : `plaquette.html` (12 pages A4, design system PXLC v2 — aligné sur `app/assets/css/tokens.css`).
+Sources :
+- **`data.json`** — toutes les valeurs variables (contact, tarif, SIRET, cas pratique, Andy, …). **C'est ici qu'on met les infos à jour.**
+- **`plaquette.template.html`** — structure HTML avec tokens `{{section.clé}}`. À modifier pour changer la mise en page ou le contenu fixe (méthodo, cadre HAS/HCSP, …).
+- **`plaquette.html`** — fichier généré, ne pas éditer à la main (ignoré par git).
+
 Sortie : `../public/files/plaquette-pxlc.pdf`, servi par Nuxt à `https://pxlc.fr/files/plaquette-pxlc.pdf`.
 
 ## Pourquoi pas wkhtmltopdf ?
@@ -14,12 +18,27 @@ Résultat : les photos débordent, les footers se superposent, le rendu diffère
 de ce qu'on voit dans Chrome. **On utilise Chromium headless** (via Puppeteer)
 qui rend exactement comme un Chrome normal en « Imprimer en PDF ».
 
+## Workflow recommandé — mettre à jour les infos
+
+**Modifier `data.json`** (contact, tarif, SIRET, cas pratique, Andy…), puis :
+
+```bash
+cd _plaquette
+npm run build   # génère plaquette.html depuis data.json + construit le PDF
+```
+
+Pour générer uniquement le HTML (vérification visuelle dans Chrome avant le PDF) :
+
+```bash
+npm run generate   # → plaquette.html seulement
+```
+
 ## Méthode 1 — Puppeteer (recommandée)
 
 ```bash
 cd _plaquette
 npm install                 # première fois uniquement
-npm run build
+npm run build               # generate-html.js + build-pdf.js
 ```
 
 Puppeteer télécharge automatiquement une version de Chromium (~170 Mo)
@@ -70,11 +89,12 @@ Bon pour vérifier visuellement avant de commiter une nouvelle version.
 ## Workflow recommandé
 
 À chaque modification du contenu de la plaquette :
-1. Éditer `plaquette.html`.
-2. Ouvrir dans Chrome pour vérifier visuellement.
-3. Lancer `npm run build` pour regénérer le PDF.
-4. Vérifier le PDF de sortie.
-5. Commiter le `.html` ET le `.pdf` ensemble.
+1. Éditer **`data.json`** pour les valeurs variables (contact, tarif, cas pratique…).
+2. Éditer **`plaquette.template.html`** pour le contenu fixe (méthodo, layout).
+3. Lancer `npm run generate` et ouvrir `plaquette.html` dans Chrome pour vérifier.
+4. Lancer `npm run build` pour regénérer le PDF.
+5. Vérifier le PDF de sortie.
+6. Commiter `data.json`, `plaquette.template.html` ET le `.pdf` ensemble.
 
 Le PDF est servi par Nuxt depuis `public/files/` à
 `https://pxlc.fr/files/plaquette-pxlc.pdf` (lien direct, pas de redirection).
