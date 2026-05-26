@@ -1,6 +1,6 @@
 <script setup lang="ts">
 // Entités globales du graphe schema.org — présentes sur TOUTES les pages.
-// #identity (LocalBusiness) est déclaré via schemaOrg.identity dans nuxt.config.ts.
+// #identity (Organization) est déclaré via schemaOrg.identity dans nuxt.config.ts.
 // Note : schemaOrg.identity.logo génère un nœud #organization (comportement interne
 //   nuxt-schema-org non suppressible) — le validator ne remonte pas d'erreur dessus.
 // #andy et #service sont ici car ils sont référencés depuis plusieurs pages :

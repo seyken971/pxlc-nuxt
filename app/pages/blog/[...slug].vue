@@ -28,7 +28,7 @@ const dateModified = post.value.updated || post.value.date
 
 // BlogPosting structured data so Google can surface the article in Discover,
 // rich results, and the Top Stories carousel. Author references the Person
-// node from /a-propos; publisher references the global LocalBusiness.
+// node from /a-propos; publisher references the global Organization.
 useSchemaOrg([
   defineArticle({
     '@type': 'BlogPosting',
