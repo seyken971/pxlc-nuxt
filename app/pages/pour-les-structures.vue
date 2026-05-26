@@ -13,28 +13,55 @@ defineOgImage('PxlcOg', {
   description: 'Ateliers thématiques parent-enfant co-encadrés par votre équipe pluridisciplinaire et le gamer médiateur-numérique. Cadre HCSP, indicateurs d’évaluation, bilan en fin de dispositif.',
 })
 
-// FAQPage typing so Google picks up the FAQ block as rich results.
-// The Service node lives in the graph as a standalone entity — no mainEntity
-// link needed (Questions auto-attach to FAQPage via resolveRootNode).
+// FAQ — answers grounded in the plaquette + existing copy. Doubles as the
+// FAQPage rich-result source (defineQuestion below).
+// Défini ici (avant useSchemaOrg) pour être spreadé dans le même appel.
+const faqs = [
+  {
+    id: ‘duree’,
+    q: ‘Quelle est la durée typique d’un dispositif ?’,
+    a: ‘À calibrer ensemble selon le rythme de votre structure : un cycle complet articule la préparation, plusieurs ateliers thématiques, un groupe de parole familiale et un bilan. À titre indicatif, le projet « Jouons Ensemble! » 2026 au SESSAD Lékoklaya s’étend sur l’année.’,
+  },
+  {
+    id: ‘porteur’,
+    q: ‘Qui porte le projet côté structure ?’,
+    a: ‘La psychologue de la structure est porteuse du projet — cadrage clinique, entretien initial avec les familles, bilan final. Le gamer médiateur-numérique intervient en partenariat, sur le terrain spécifique de la culture jeu vidéo.’,
+  },
+  {
+    id: ‘tarif’,
+    q: ‘Quel est le tarif ?’,
+    a: ‘Sur devis, calibré au périmètre (nombre d’ateliers, nombre de familles, durée). Le devis inclut la rémunération du gamer intervenant ; le prêt des consoles et des jeux peut être inclus ou pris en charge par la structure.’,
+  },
+  {
+    id: ‘nombre-enfants’,
+    q: ‘Combien d’enfants par dispositif ?’,
+    a: ‘Calibré avec votre équipe. Le projet 2026 au SESSAD Lékoklaya accompagne 8 enfants âgés de 12 à 17 ans avec leurs parents, en binômes.’,
+  },
+  {
+    id: ‘profils’,
+    q: ‘Quels profils d’enfants sont accueillis ?’,
+    a: ‘Adapté aux TSA, TDAH, TCND, DM, neuropathie — et plus largement à tout enfant suivi pour des troubles du neurodéveloppement, du comportement ou du lien social. L’adaptation se fait en concertation avec l’équipe pluridisciplinaire.’,
+  },
+  {
+    id: ‘bilan’,
+    q: ‘Comment se passe le bilan ?’,
+    a: ‘Synthèse écrite des acquis parent/enfant transmise à l’équipe pluridisciplinaire, citant explicitement les rapports HCSP mobilisés. Plus une restitution orale aux familles avec des pistes concrètes de continuité à la maison.’,
+  },
+]
+
+// Un seul appel : WebPage (FAQPage) + toutes les questions.
+// Service #service est déclaré globalement dans app.vue.
 useSchemaOrg([
   defineWebPage({
-    '@type': ['WebPage', 'FAQPage'],
-    name: 'Dispositif de médiation numérique pour SESSAD, IME, associations et collectivités',
+    ‘@type’: [‘WebPage’, ‘FAQPage’],
+    name: ‘Dispositif de médiation numérique pour SESSAD, IME, associations et collectivités’,
   }),
-  // Schema.org Service — the offer Andy markets to structures.
-  {
-    '@id': 'https://pxlc.fr/#service',
-    '@type': 'Service',
-    name: '« Jouons Ensemble! » — Médiation numérique parent-écran-enfant',
-    description: 'Dispositif d’ateliers thématiques parent-enfant co-encadrés par l’équipe pluridisciplinaire de la structure porteuse et le gamer médiateur-numérique. Cadre HCSP 2019-2020.',
-    serviceType: 'Médiation numérique',
-    provider: { '@id': 'https://pxlc.fr/#identity' },
-    areaServed: { '@type': 'AdministrativeArea', name: 'Guadeloupe' },
-    audience: {
-      '@type': 'BusinessAudience',
-      audienceType: 'SESSAD, IME, associations, collectivités',
-    },
-  },
+  ...faqs.map(f =>
+    defineQuestion({
+      name: f.q,
+      acceptedAnswer: { ‘@type’: ‘Answer’, text: f.a },
+    }),
+  ),
 ])
 
 const facts: [string, string][] = [
@@ -103,52 +130,6 @@ const audiences = [
   },
 ]
 
-// FAQ — answers grounded in the plaquette + existing copy. Doubles as the
-// FAQPage rich-result source (defineQuestion in useSchemaOrg below).
-const faqs = [
-  {
-    id: 'duree',
-    q: 'Quelle est la durée typique d’un dispositif ?',
-    a: 'À calibrer ensemble selon le rythme de votre structure : un cycle complet articule la préparation, plusieurs ateliers thématiques, un groupe de parole familiale et un bilan. À titre indicatif, le projet « Jouons Ensemble! » 2026 au SESSAD Lékoklaya s’étend sur l’année.',
-  },
-  {
-    id: 'porteur',
-    q: 'Qui porte le projet côté structure ?',
-    a: 'La psychologue de la structure est porteuse du projet — cadrage clinique, entretien initial avec les familles, bilan final. Le gamer médiateur-numérique intervient en partenariat, sur le terrain spécifique de la culture jeu vidéo.',
-  },
-  {
-    id: 'tarif',
-    q: 'Quel est le tarif ?',
-    a: 'Sur devis, calibré au périmètre (nombre d’ateliers, nombre de familles, durée). Le devis inclut la rémunération du gamer intervenant ; le prêt des consoles et des jeux peut être inclus ou pris en charge par la structure.',
-  },
-  {
-    id: 'nombre-enfants',
-    q: 'Combien d’enfants par dispositif ?',
-    a: 'Calibré avec votre équipe. Le projet 2026 au SESSAD Lékoklaya accompagne 8 enfants âgés de 12 à 17 ans avec leurs parents, en binômes.',
-  },
-  {
-    id: 'profils',
-    q: 'Quels profils d’enfants sont accueillis ?',
-    a: 'Adapté aux TSA, TDAH, TCND, DM, neuropathie — et plus largement à tout enfant suivi pour des troubles du neurodéveloppement, du comportement ou du lien social. L’adaptation se fait en concertation avec l’équipe pluridisciplinaire.',
-  },
-  {
-    id: 'bilan',
-    q: 'Comment se passe le bilan ?',
-    a: 'Synthèse écrite des acquis parent/enfant transmise à l’équipe pluridisciplinaire, citant explicitement les rapports HCSP mobilisés. Plus une restitution orale aux familles avec des pistes concrètes de continuité à la maison.',
-  },
-]
-
-// Add each FAQ to the schema graph so Google can render the FAQPage
-// rich result. defineQuestion auto-attaches the questions to the page
-// when the WebPage is typed as FAQPage (done above).
-useSchemaOrg(
-  faqs.map(f =>
-    defineQuestion({
-      name: f.q,
-      acceptedAnswer: { '@type': 'Answer', text: f.a },
-    }),
-  ),
-)
 </script>
 
 <template>

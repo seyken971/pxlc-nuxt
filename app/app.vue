@@ -1,4 +1,43 @@
 <script setup lang="ts">
+// Entités globales du graphe schema.org — présentes sur TOUTES les pages.
+// #identity (LocalBusiness) est déclaré via schemaOrg.identity dans nuxt.config.ts.
+// #andy et #service sont ici car ils sont référencés depuis plusieurs pages :
+//   - #andy : author des BlogPosting dans blog/[...slug].vue
+//   - #service : offre principale, utile sur homepage et blog aussi
+useSchemaOrg([
+  definePerson({
+    '@id': 'https://pxlc.fr/#andy',
+    name: 'Andy Zébus',
+    jobTitle: 'Gamer médiateur-numérique',
+    description:
+      'Médiateur numérique par le jeu vidéo, basé aux Abymes (Guadeloupe). Ateliers parent-enfant ancrés dans les rapports HCSP 2019-2020, en partenariat avec les structures médico-sociales et associatives.',
+    image: 'https://pxlc.fr/assets/img/photos/andy-portrait.jpg',
+    url: 'https://pxlc.fr/a-propos',
+    worksFor: { '@id': 'https://pxlc.fr/#identity' },
+    sameAs: [
+      'https://www.linkedin.com/in/azebus',
+      'https://www.github.com/seyken971',
+      'https://www.instagram.com/seyken971',
+      'https://www.twitter.com/seyken971',
+      'https://bsky.app/profile/seyken.pxlc.fr',
+    ],
+  }),
+  {
+    '@id': 'https://pxlc.fr/#service',
+    '@type': 'Service',
+    name: '« Jouons Ensemble! » — Médiation numérique parent-écran-enfant',
+    description:
+      "Dispositif d'ateliers thématiques parent-enfant co-encadrés par l'équipe pluridisciplinaire de la structure porteuse et le gamer médiateur-numérique. Cadre HCSP 2019-2020.",
+    serviceType: 'Médiation numérique',
+    provider: { '@id': 'https://pxlc.fr/#identity' },
+    areaServed: { '@type': 'AdministrativeArea', name: 'Guadeloupe' },
+    audience: {
+      '@type': 'BusinessAudience',
+      audienceType: 'SESSAD, IME, associations, collectivités',
+    },
+  },
+])
+
 // Head config — recommended Nuxt 4 pattern is to own this in app.vue
 // rather than nuxt.config.ts so it stays reactive and colocated with
 // the app's runtime concerns (theme anti-flash, etc.).

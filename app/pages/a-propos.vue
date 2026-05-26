@@ -12,27 +12,12 @@ defineOgImage('PxlcOg', {
     'Basé aux Abymes, je construis des ateliers de médiation numérique ancrés dans le jeu vidéo avec les SESSAD, IME et associations de Guadeloupe.',
 })
 
+// Person #andy est déclaré globalement dans app.vue — disponible sur toutes les pages.
 useSchemaOrg([
   defineWebPage({
     '@type': 'AboutPage',
     name: "À propos d'Andy Zébus",
     about: { '@id': 'https://pxlc.fr/#andy' },
-  }),
-  definePerson({
-    '@id': 'https://pxlc.fr/#andy',
-    name: 'Andy Zébus',
-    jobTitle: 'Gamer médiateur-numérique',
-    description: 'Médiateur numérique par le jeu vidéo, basé aux Abymes (Guadeloupe). Ateliers parent-enfant ancrés dans les rapports HCSP 2019-2020, en partenariat avec les structures médico-sociales et associatives.',
-    image: 'https://pxlc.fr/assets/img/photos/andy-portrait.jpg',
-    url: 'https://pxlc.fr/a-propos',
-    worksFor: { '@id': 'https://pxlc.fr/#identity' },
-    sameAs: [
-      'https://www.linkedin.com/in/azebus',
-      'https://www.github.com/seyken971',
-      'https://www.instagram.com/seyken971',
-      'https://www.twitter.com/seyken971',
-      'https://bsky.app/profile/seyken.pxlc.fr',
-    ],
   }),
 ])
 
