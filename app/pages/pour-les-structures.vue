@@ -10,7 +10,7 @@ useServerSeoMeta({
 defineOgImage('PxlcOg', {
   eyebrow: 'PXLC · POUR LES STRUCTURES',
   title: 'Un dispositif de médiation numérique fondé sur les rapports HCSP',
-  description: 'Ateliers thématiques parent-enfant co-encadrés par votre équipe pluridisciplinaire et le gamer médiateur-numérique. Cadre HCSP, indicateurs d’évaluation, bilan en fin de dispositif.',
+  description: 'Ateliers thématiques parent-enfant co-encadrés par votre équipe pluridisciplinaire et le gamer médiateur-numérique. Cadre HCSP, indicateurs d'évaluation, bilan en fin de dispositif.',
 })
 
 
@@ -49,7 +49,6 @@ const faqs = [
     a: 'Synthèse écrite des acquis parent/enfant transmise à l’équipe pluridisciplinaire, citant explicitement les rapports HCSP mobilisés. Plus une restitution orale aux familles avec des pistes concrètes de continuité à la maison.',
   },
 ]
-
 // Un seul appel : WebPage (FAQPage) + toutes les questions.
 // Service #service est déclaré globalement dans app.vue.
 useSchemaOrg([
@@ -76,22 +75,22 @@ const facts: [string, string][] = [
 
 // Mode opératoire en 4 étapes — source : _plaquette/PROJET PARENTS – ECRAN – ENFANT.md
 const steps = [
-  { num: '01', title: 'Préparation', detail: 'Entretiens familiaux avec l’équipe (psychologue, psychomotricienne, gamer médiateur, intervenants culturels). Identification du profil ludique des enfants, construction des binômes parent-enfant.' },
-  { num: '02', title: 'Ateliers thématiques parent-enfant', detail: 'Coopération · Émotions & récits · Différence & complémentarité. Chaque atelier : temps de jeu partagé (30-45 min) + temps d’échange verbal (45 min - 1 h). Observation et guidance des interactions.' },
-  { num: '03', title: 'Groupe de parole familiale', detail: 'Espace d’échange entre familles : régulation, limites, signes d’alerte, posture parentale.' },
-  { num: '04', title: 'Bilan', detail: 'Synthèse des acquis parent/enfant, élaboration de pistes de continuité à la maison, transmission écrite à l’équipe pluridisciplinaire.' },
+  { num: '01', title: 'Préparation', detail: 'Entretiens familiaux avec l'équipe (psychologue, psychomotricienne, gamer médiateur, intervenants culturels). Identification du profil ludique des enfants, construction des binômes parent-enfant.' },
+  { num: '02', title: 'Ateliers thématiques parent-enfant', detail: 'Coopération · Émotions & récits · Différence & complémentarité. Chaque atelier : temps de jeu partagé (30-45 min) + temps d'échange verbal (45 min - 1 h). Observation et guidance des interactions.' },
+  { num: '03', title: 'Groupe de parole familiale', detail: 'Espace d'échange entre familles : régulation, limites, signes d'alerte, posture parentale.' },
+  { num: '04', title: 'Bilan', detail: 'Synthèse des acquis parent/enfant, élaboration de pistes de continuité à la maison, transmission écrite à l'équipe pluridisciplinaire.' },
 ]
 
 const frameworks = [
-  { key: 'HCSP', year: '2019', title: 'Effets de l’exposition aux écrans', desc: 'L’accompagnement parental actif est le facteur clé pour limiter les effets négatifs. Cadre familial, pratiques partagées, qualité du contenu.', url: 'https://www.hcsp.fr/Explore.cgi/AvisRapportsDomaine?clefr=759' },
-  { key: 'HCSP', year: '2020', title: 'De l’usage excessif à la dépendance', desc: 'Seconde partie du rapport — repères pour identifier et prévenir le basculement vers un usage problématique. Calibration des indicateurs PXLC.', url: 'https://www.hcsp.fr/Explore.cgi/AvisRapportsDomaine?clefr=1074' },
+  { key: 'HCSP', year: '2019', title: 'Effets de l'exposition aux écrans', desc: 'L'accompagnement parental actif est le facteur clé pour limiter les effets négatifs. Cadre familial, pratiques partagées, qualité du contenu.', url: 'https://www.hcsp.fr/Explore.cgi/AvisRapportsDomaine?clefr=759' },
+  { key: 'HCSP', year: '2020', title: 'De l'usage excessif à la dépendance', desc: 'Seconde partie du rapport — repères pour identifier et prévenir le basculement vers un usage problématique. Calibration des indicateurs PXLC.', url: 'https://www.hcsp.fr/Explore.cgi/AvisRapportsDomaine?clefr=1074' },
 ]
 
 // Indicateurs d'évaluation — source : plaquette §"Indicateurs d'évaluation".
 const indicators = [
   { title: 'Questionnaires de satisfaction', detail: 'Recueillis en fin de chaque cycle auprès des parents et des enfants. Items standardisés + champ libre.' },
-  { title: 'Grilles d’observation des compétences', detail: 'Coopération, communication, gestion des émotions — observées pendant les ateliers et restituées dans le bilan.' },
-  { title: 'Diminution rapportée des conflits familiaux liés aux écrans', detail: 'Auto-évaluation parents, complétée par le suivi de l’équipe pluridisciplinaire entre les ateliers.' },
+  { title: 'Grilles d'observation des compétences', detail: 'Coopération, communication, gestion des émotions — observées pendant les ateliers et restituées dans le bilan.' },
+  { title: 'Diminution rapportée des conflits familiaux liés aux écrans', detail: 'Auto-évaluation parents, complétée par le suivi de l'équipe pluridisciplinaire entre les ateliers.' },
   { title: 'Engagement et assiduité aux ateliers', detail: 'Taux de présence, participation active, demandes de prolongation — indicateurs simples mais structurants pour le bilan transmis.' },
 ]
 
@@ -118,16 +117,16 @@ const audiences = [
   {
     id: 'associations',
     label: 'Associations',
-    porteur: 'La personne en charge de la coordination ou de la direction de l’association',
+    porteur: 'La personne en charge de la coordination ou de la direction de l'association',
     financement: 'Subvention projet (CAF, ARS, mécénat, fonds européens)',
-    public: 'Familles adhérentes ou bénéficiaires d’un programme parentalité',
+    public: 'Familles adhérentes ou bénéficiaires d'un programme parentalité',
   },
   {
     id: 'collectivites',
     label: 'Collectivités',
     porteur: 'Le service jeunesse, éducation ou cohésion sociale',
     financement: 'Budget de la collectivité, dispositifs REAAP / parentalité',
-    public: 'Familles du territoire dans le cadre d’actions de soutien à la parentalité',
+    public: 'Familles du territoire dans le cadre d'actions de soutien à la parentalité',
   },
 ]
 
@@ -147,7 +146,7 @@ const audiences = [
             Un dispositif de médiation numérique fondé sur les rapports HCSP<span class="coral-dot" aria-hidden="true">.</span>
           </h1>
           <p class="hero__lead">
-            « Jouons Ensemble! » — ateliers thématiques parent-enfant co-encadrés par votre équipe pluridisciplinaire et le gamer médiateur-numérique. Cadre théorique HCSP, indicateurs d’évaluation qualitatifs, bilan en fin de dispositif.
+            « Jouons Ensemble! » — ateliers thématiques parent-enfant co-encadrés par votre équipe pluridisciplinaire et le gamer médiateur-numérique. Cadre théorique HCSP, indicateurs d'évaluation qualitatifs, bilan en fin de dispositif.
           </p>
           <div class="hero__actions">
             <NuxtLink to="/contact" class="btn btn--primary btn--lg">Demander un devis</NuxtLink>
@@ -159,8 +158,8 @@ const audiences = [
              tangentially related content, so an aside landmark nested
              inside the hero section trips axe-core
              "landmark-complementary-is-top-level". -->
-        <div class="facts-card" role="group" aria-label="Le dispositif en un coup d’œil">
-          <span class="eyebrow">En un coup d’œil</span>
+        <div class="facts-card" role="group" aria-label="Le dispositif en un coup d'œil">
+          <span class="eyebrow">En un coup d'œil</span>
           <ul class="facts-list">
             <li v-for="[k, v] in facts" :key="k">
               <span class="kicker">{{ k }}</span>
@@ -198,9 +197,9 @@ const audiences = [
     <div class="container">
       <header class="section__head">
         <span class="eyebrow">Jouons Ensemble!</span>
-        <h2 id="themes-title">Trois thèmes d’atelier, un protocole<span class="coral-dot" aria-hidden="true">.</span></h2>
+        <h2 id="themes-title">Trois thèmes d'atelier, un protocole<span class="coral-dot" aria-hidden="true">.</span></h2>
         <p class="lead">
-          Chaque atelier articule un temps de jeu partagé (30 à 45 min) et un temps d’échange verbal (45 min à 1 h). Liste de thèmes non exhaustive — calibrée avec votre équipe selon les besoins du public accueilli.
+          Chaque atelier articule un temps de jeu partagé (30 à 45 min) et un temps d'échange verbal (45 min à 1 h). Liste de thèmes non exhaustive — calibrée avec votre équipe selon les besoins du public accueilli.
         </p>
       </header>
       <div class="grid grid--3">
@@ -285,7 +284,7 @@ const audiences = [
         <span class="eyebrow">Adapté à votre structure</span>
         <h2 id="audiences-title">Trois types de portage, un même protocole<span class="coral-dot" aria-hidden="true">.</span></h2>
         <p class="lead">
-          La méthode reste la même ; le portage et le financement s’adaptent à votre cadre institutionnel.
+          La méthode reste la même ; le portage et le financement s'adaptent à votre cadre institutionnel.
         </p>
       </header>
       <div class="grid grid--3">
