@@ -48,8 +48,12 @@ const props = withDefaults(defineProps<Props>(), {
         <div>
           <span class="eyebrow">{{ props.eyebrow }}</span>
           <!-- v-html is sanitised: title prop is internal, never user-supplied -->
-          <!-- eslint-disable-next-line vue/no-v-html -->
-          <h1 id="hero-title" class="hero__title"><span v-html="props.title"></span><span v-if="props.titleDot" class="coral-dot" aria-hidden="true">.</span></h1>
+          <h1
+            id="hero-title"
+            class="hero__title"
+            :class="{ 'hero__title--dot': props.titleDot }"
+            v-html="props.title"
+          />
           <p v-if="props.lead" class="hero__lead">{{ props.lead }}</p>
           <div class="hero__actions">
             <NuxtLink
@@ -112,4 +116,6 @@ const props = withDefaults(defineProps<Props>(), {
    hard <br/>s in the title prop. balance is the right call for short
    marketing headings; pretty would be for paragraphs. */
 .hero__title { text-wrap: balance; }
+/* Coral-dot period rendered via CSS — immune to source-whitespace sensitivity. */
+.hero__title--dot::after { content: '.'; color: var(--pxlc-coral); }
 </style>
