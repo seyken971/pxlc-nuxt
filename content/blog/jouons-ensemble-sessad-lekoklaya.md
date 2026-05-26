@@ -1,6 +1,6 @@
 ---
 title: "« Jouons Ensemble! » — comment se monte un dispositif au SESSAD"
-description: Le projet parent-écran-enfant au SESSAD Lékoklaya, raconté étape par étape — du Café-Parents de 2023 aux ateliers thématiques de 2026, en passant par le cadrage avec l'équipe pluridisciplinaire.
+description: Le projet Parent-Écran-Enfant au SESSAD Lékoklaya, raconté étape par étape — du Café-Parents de 2023 aux ateliers thématiques de 2026, en passant par le cadrage avec l'équipe pluridisciplinaire.
 date: 2026-02-10
 category: cas-pratique
 readingTime: 12 min
@@ -36,7 +36,7 @@ Trois thèmes, calibrés avec l'équipe :
 
 ### Thème 01 — Coopération
 
-Jeux choisis pour valoriser l'entraide et la stratégie partagée. Les intervenants culturels proposent en parallèle un jeu traditionnel (souvent un jeu de cartes ou de société) et un conte sur la coopération.
+Jeux choisis pour valoriser l'entraide et la stratégie partagée. Les intervenants culturels proposent en parallèle un jeu traditionnel sur le thème de la coopération.
 
 ### Thème 02 — Émotions & récits
 
