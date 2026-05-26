@@ -36,7 +36,7 @@ Trois thèmes, calibrés avec l'équipe :
 
 ### Thème 01 — Coopération
 
-Jeux choisis pour valoriser l'entraide et la stratégie partagée. Les intervenants culturels proposent en parallèle un jeu traditionnel (souvent un jeu de cartes ou de société) et un conte sur la coopération.
+Jeux choisis pour valoriser l'entraide et la stratégie partagée. Les intervenants culturels proposent en parallèle un jeu traditionnel sur le thème de la coopération.
 
 ### Thème 02 — Émotions & récits
 
