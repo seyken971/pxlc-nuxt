@@ -9,8 +9,8 @@ interface Props {
 }
 withDefaults(defineProps<Props>(), {
   eyebrow: 'PXLC · MÉDIATION NUMÉRIQUE · GUADELOUPE',
-  title: 'Les écrans sont le reflet de la relation parent-enfant',
-  description: 'Gamer médiateur-numérique, partenaire des SESSAD, IME, associations et collectivités de Guadeloupe — ateliers Parents-Écran-Enfant fondés sur les rapports HCSP.',
+  title: 'Médiation numérique par le jeu',
+  description: 'PXLC conçoit des programmes de médiation numérique par le jeu pour les SESSAD, IME, associations et collectivités de Guadeloupe — Parents-Écran-Enfant, cadre HCSP.',
   site: 'pxlc.fr',
 })
 
@@ -225,7 +225,7 @@ const MARK_RECTS = [
           color: palette.meta,
         }"
       >
-        · médiation numérique · Guadeloupe
+        · médiation numérique par le jeu · Guadeloupe
       </span>
     </div>
   </div>
