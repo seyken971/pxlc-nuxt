@@ -1,18 +1,18 @@
 <script setup lang="ts">
 // 41 chars → 48 with " · PXLC" suffix (removed inline PXLC to avoid "… PXLC · PXLC").
-useSeoMeta({ title: 'Le journal — décryptages et cas pratiques' })
+useSeoMeta({ title: 'Le journal PXLC — médiation numérique par le jeu' })
 // 151 chars — keyword-rich, within the 160-char window.
 if (import.meta.server) {
   useSeoMeta({
     description:
-      'Médiation numérique, jeux vidéo et lien parent-enfant — décryptages fondés sur les rapports HCSP, retours de terrain SESSAD et repères pour les équipes.',
+      'Ressources PXLC sur la médiation numérique par le jeu — décryptages fondés sur les rapports HCSP, retours de terrain en SESSAD et repères pour les équipes et les familles.',
   })
 }
 
 defineOgImage('PxlcOg', {
   eyebrow: 'PXLC · LE JOURNAL',
   title: 'Décryptages, repères, retours de terrain',
-  description: 'Ce que les écrans des enfants nous apprennent — sur eux, sur nous, sur le lien.',
+  description: 'Ressources et décryptages de PXLC sur la médiation numérique par le jeu — pour les familles et les équipes qui accompagnent.',
 })
 
 // `queryCollection` est l'API Nuxt Content v3 — tri descendant par date,
@@ -31,7 +31,7 @@ useSchemaOrg([
   defineWebPage({
     '@type': ['WebPage', 'CollectionPage'],
     name: 'Le journal PXLC',
-    description: 'Décryptages, repères et retours de terrain sur la médiation numérique Parent-Écran-Enfant en Guadeloupe.',
+    description: 'Décryptages, repères et retours de terrain sur la médiation numérique parent-écran-enfant en Guadeloupe.',
     hasPart: (posts.value || []).map(p => ({
       '@type': 'BlogPosting',
       '@id': `https://pxlc.fr${p.path}#article`,
@@ -74,7 +74,7 @@ const thumbModifier = (category?: string): string => {
         Décryptages, repères, retours de terrain<span class="coral-dot" aria-hidden="true">.</span>
       </h1>
       <p class="lead blog-lead">
-        Ce que les écrans des enfants nous apprennent — sur eux, sur nous, sur le lien.
+        Ce que le jeu révèle sur le lien parent-enfant — décryptages et retours de terrain de PXLC, pour les familles et les équipes.
       </p>
 
       <div v-if="categories.length > 1" class="blog-filters" role="group" aria-label="Filtrer par catégorie">
