@@ -1,9 +1,9 @@
 <script setup lang="ts">
-useSeoMeta({ title: 'Andy Zébus — médiateur numérique en Guadeloupe' })
+useSeoMeta({ title: 'Andy Zébus — fondateur de PXLC · Guadeloupe' })
 if (import.meta.server) {
   useSeoMeta({
     description:
-      "Andy Zébus, gamer médiateur-numérique aux Abymes (Guadeloupe). Six ans dans l'esport, formé aux rapports HCSP 2019-2020, partenaire des SESSAD et IME.",
+      "Andy Zébus a fondé PXLC, entreprise de médiation numérique par le jeu en Guadeloupe. Ancien organisateur esport, médiateur formé, ancré dans les recommandations HCSP 2019-2020.",
   })
 }
 
@@ -11,7 +11,7 @@ defineOgImage('PxlcOg', {
   eyebrow: 'PXLC · À PROPOS',
   title: 'Médiateur numérique par le jeu',
   description:
-    'Basé aux Abymes, je construis des ateliers de médiation numérique ancrés dans le jeu vidéo avec les SESSAD, IME et associations de Guadeloupe.',
+    "J'ai fondé PXLC pour concevoir des programmes de médiation numérique par le jeu avec les SESSAD, IME, associations et collectivités de Guadeloupe.",
 })
 
 // Person #andy est déclaré globalement dans app.vue — disponible sur toutes les pages.
@@ -24,10 +24,28 @@ useSchemaOrg([
 ])
 
 const facts = [
+  { label: 'Entreprise', value: 'PXLC — Entrepreneur Individuel' },
   { label: 'Territoire', value: 'Guadeloupe · 971' },
-  { label: 'Statut',     value: 'Micro-entreprise · APE 70.21Z' },
   { label: 'SIRET',      value: '813 793 528 00031' },
   { label: 'Cadre',      value: 'HCSP 2019-2020' },
+]
+
+const casquettes = [
+  {
+    num: '01',
+    titre: 'Organisateur esport',
+    desc: "Six ans à monter la scène esport guadeloupéenne avec Esports Guadeloupe — tournois, communauté, partenariats grands comptes. Connaît de l'intérieur la communauté joueurs, l'économie d'un tournoi et le langage Discord d'équipe.",
+  },
+  {
+    num: '02',
+    titre: 'Médiateur formé',
+    desc: "Formateur principal en médiation numérique chez Simplon Outre-Mer (2021–2022). Lecture rigoureuse des recommandations HAS et HCSP. Pratique en cohérence avec les standards du soutien à la parentalité.",
+  },
+  {
+    num: '03',
+    titre: 'Conseil institutionnel',
+    desc: "Affaires européennes et numérique THD à la Région Guadeloupe, formation aux élus et accompagnement des collectivités. Connaît le langage des projets de service et des bilans d'activité.",
+  },
 ]
 </script>
 
@@ -42,7 +60,7 @@ const facts = [
             Andy Zébus, médiateur numérique par le jeu<span class="coral-dot" aria-hidden="true">.</span>
           </h1>
           <p class="about-lead">
-            Basé aux Abymes (Guadeloupe), je travaille avec les structures du secteur médico-social et associatif pour construire des ateliers de médiation numérique ancrés dans le jeu vidéo.
+            Basé aux Abymes (Guadeloupe), j'ai fondé PXLC pour concevoir et animer des programmes de médiation numérique par le jeu avec les structures du secteur médico-social et associatif.
           </p>
           <p class="about-sub">
             Mon point de départ : les rapports HCSP 2019-2020. Mon terrain : les ateliers parent-enfant où le jeu vidéo devient un outil de lien plutôt qu'un sujet de conflit.
@@ -76,6 +94,35 @@ const facts = [
       </div>
     </div>
   </section>
+
+  <!-- ── Parcours ──────────────────────────────────────────────── -->
+  <section class="section" aria-labelledby="parcours-title">
+    <div class="container">
+      <header class="section__head">
+        <span class="eyebrow">Parcours</span>
+        <h2 id="parcours-title">Trois casquettes, une cohérence<span class="coral-dot" aria-hidden="true">.</span></h2>
+        <p class="lead">
+          Né en Guadeloupe, formé à la médiation interculturelle et au numérique,
+          j'ai passé six ans à structurer la scène esport guadeloupéenne avant de
+          fonder <strong>PXLC</strong>, entreprise de médiation numérique par le
+          jeu partenaire des structures médico-sociales et associatives.
+        </p>
+      </header>
+      <div class="grid grid--3">
+        <article v-for="c in casquettes" :key="c.num" class="card">
+          <span class="kicker">Casquette {{ c.num }}</span>
+          <h3 class="casquette-title">{{ c.titre }}</h3>
+          <p class="casquette-desc">{{ c.desc }}</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <CitationBlock
+    source="Andy Zébus · fondateur de PXLC"
+    quote="Mon travail, ce n'est pas de juger l'usage des écrans. C'est de faire du jeu vidéo un espace de rencontre — entre un enfant et son parent, entre une famille et votre équipe."
+    attribution="Andy Zébus · fondateur de PXLC"
+  />
 </template>
 
 <style scoped>
@@ -164,4 +211,8 @@ const facts = [
   font-size: 18px;
   color: var(--ink);
 }
+
+/* ── Casquettes ──────────────────────────────────────────────── */
+.casquette-title { font-size: 18px; margin: var(--space-2) 0; }
+.casquette-desc  { font-size: 14.5px; line-height: 1.6; }
 </style>
