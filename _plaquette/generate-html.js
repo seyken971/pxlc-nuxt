@@ -106,8 +106,6 @@ function parseListSection(markdown, heading) {
 
 function normalizeBrandCopy(text) {
   return String(text || '')
-    .replace(/Parent[–-]Écran[–-]Enfant/g, 'parent-écran-enfant')
-    .replace(/Parent[–-]Ecran[–-]Enfant/g, 'parent-écran-enfant')
 }
 
 // ── Détection de la fiche .md ────────────────────────────────────────────────
