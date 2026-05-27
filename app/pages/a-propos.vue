@@ -62,6 +62,12 @@ const casquettes = [
           <p class="about-lead">
             Basé aux Abymes (Guadeloupe), j'ai fondé PXLC pour concevoir et animer des programmes de médiation numérique par le jeu avec les structures du secteur médico-social et associatif.
           </p>
+          <div class="about-facts">
+            <div v-for="f in facts" :key="f.label" class="about-fact">
+              <div class="about-fact__label">{{ f.label }}</div>
+              <div class="about-fact__value">{{ f.value }}</div>
+            </div>
+          </div>
         </div>
 
         <div class="about-portrait">
@@ -75,18 +81,6 @@ const casquettes = [
             fetchpriority="high"
             preload
           />
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── Facts ─────────────────────────────────────────────── -->
-  <section class="section">
-    <div class="container">
-      <div class="about-facts">
-        <div v-for="f in facts" :key="f.label" class="about-fact">
-          <div class="about-fact__label">{{ f.label }}</div>
-          <div class="about-fact__value">{{ f.value }}</div>
         </div>
       </div>
     </div>
@@ -191,11 +185,9 @@ const casquettes = [
 /* ── Facts ───────────────────────────────────────────────────── */
 .about-facts {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--space-4);
-}
-@media (max-width: 700px) {
-  .about-facts { grid-template-columns: 1fr 1fr; }
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3);
+  margin-top: var(--space-3);
 }
 
 .about-fact {
