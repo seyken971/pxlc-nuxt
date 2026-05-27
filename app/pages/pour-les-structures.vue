@@ -1,17 +1,17 @@
 <script setup lang="ts">
 // 49 chars → 56 with " · PXLC" suffix from titleTemplate.
-useSeoMeta({ title: 'Médiation numérique · SESSAD, IME et associations' })
+useSeoMeta({ title: 'Programmes de médiation numérique par le jeu · SESSAD, IME, associations' })
 // Kept under ~160 chars so Google doesn't truncate the HCSP tail.
 if (import.meta.server) {
   useSeoMeta({
     description:
-      'Dispositif clé en main pour SESSAD, IME, associations et collectivités de Guadeloupe : ateliers parent-enfant, équipe pluridisciplinaire, cadre HCSP.',
+      'Je conçois des programmes de médiation numérique par le jeu sur mesure pour les SESSAD, IME, associations et collectivités de Guadeloupe — cadre HCSP 2019-2020, co-encadrement pluridisciplinaire, bilan transmis à vos tutelles.',
   })
 }
 
 defineOgImage('PxlcOg', {
   eyebrow: 'PXLC · POUR LES STRUCTURES',
-  title: 'Un dispositif de médiation numérique fondé sur les rapports HCSP',
+  title: 'Programmes de médiation numérique par le jeu — SESSAD, IME, associations',
   description: 'Ateliers thématiques parent-enfant co-encadrés par votre équipe pluridisciplinaire et le gamer médiateur-numérique. Cadre HCSP, indicateurs d’évaluation, bilan en fin de dispositif.',
 })
 
@@ -57,7 +57,7 @@ const faqs = [
 useSchemaOrg([
   defineWebPage({
     '@type': ['WebPage', 'FAQPage'],
-    name: 'Dispositif de médiation numérique pour SESSAD, IME, associations et collectivités',
+    name: 'Programmes de médiation numérique par le jeu pour SESSAD, IME, associations et collectivités',
   }),
   ...faqs.map(f =>
     defineQuestion({
@@ -146,10 +146,10 @@ const audiences = [
             <span class="badge badge--soft">SESSAD · IME · associations · collectivités</span>
           </div>
           <h1 id="hero-title" class="hero__title">
-            Un dispositif de médiation numérique fondé sur les rapports HCSP<span class="coral-dot" aria-hidden="true">.</span>
+            Des programmes de médiation numérique par le jeu, co-construits avec votre équipe<span class="coral-dot" aria-hidden="true">.</span>
           </h1>
           <p class="hero__lead">
-            « Jouons Ensemble! » — ateliers thématiques parent-enfant co-encadrés par votre équipe pluridisciplinaire et le gamer médiateur-numérique. Cadre théorique HCSP, indicateurs d’évaluation qualitatifs, bilan en fin de dispositif.
+            Je conçois et anime des ateliers parent-enfant sur mesure, co-encadrés par votre équipe pluridisciplinaire. Programme phare&nbsp;: parent-écran-enfant, ancré dans les recommandations HCSP&nbsp;2019-2020 — indicateurs qualitatifs, bilan transmis à vos tutelles en fin de dispositif.
           </p>
           <div class="hero__actions">
             <NuxtLink to="/contact" class="btn btn--primary btn--lg">Demander un devis</NuxtLink>
@@ -199,7 +199,7 @@ const audiences = [
   <section id="themes" class="section section--soft" aria-labelledby="themes-title">
     <div class="container">
       <header class="section__head">
-        <span class="eyebrow">Jouons Ensemble!</span>
+        <span class="eyebrow">Ateliers thématiques</span>
         <h2 id="themes-title">Trois thèmes d’atelier, un protocole<span class="coral-dot" aria-hidden="true">.</span></h2>
         <p class="lead">
           Chaque atelier articule un temps de jeu partagé (30 à 45 min) et un temps d’échange verbal (45 min à 1 h). Liste de thèmes non exhaustive — calibrée avec votre équipe selon les besoins du public accueilli.
