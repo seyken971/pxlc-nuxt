@@ -4,22 +4,19 @@ import type { MethodStep } from '~/components/MethodGrid.vue'
 // title must run on both sides so the titleTemplate (%s · %siteName) is
 // applied during client-side navigation; description is server-only (SEO only).
 useSeoMeta({
-  title: 'Transformer le temps d\'écran en lien parent-enfant',
+  title: 'Médiation numérique par le jeu · Guadeloupe',
 })
-// Description kept under ~160 chars so Google doesn't truncate the
-// HCSP credibility marker at the tail.
-// 157 chars — HCSP years kept at the tail so Google doesn't truncate them.
 if (import.meta.server) {
   useSeoMeta({
     description:
-      'Andy Zébus, médiateur numérique par le jeu en Guadeloupe. Partenaire des SESSAD, IME et associations pour les ateliers Parent-Écran-Enfant — cadre HCSP 2019-2020.',
+      'Andy Zébus · PXLC — programmes de médiation numérique par le jeu pour les structures médico-sociales et associatives de Guadeloupe. Programme phare : Parent-Écran-Enfant (cadre HCSP 2019-2020).',
   })
 }
 
 defineOgImage('PxlcOg', {
   eyebrow: 'PXLC · MÉDIATION NUMÉRIQUE · GUADELOUPE',
-  title: 'Transformer le temps d\'écran en lien parent-enfant',
-  description: 'Médiateur numérique par le jeu, partenaire des SESSAD, IME, associations et collectivités de Guadeloupe sur leurs programmes Parent-Écran-Enfant.',
+  title: 'Médiation numérique par le jeu',
+  description: 'PXLC conçoit des programmes pour les SESSAD, IME, associations et collectivités de Guadeloupe. Programme phare : Parent-Écran-Enfant — cadre HCSP 2019-2020.',
 })
 
 // Le preload du hero est géré nativement par :preload="{ fetchPriority: 'high' }"
@@ -40,27 +37,22 @@ const methodSteps: MethodStep[] = [
 // Props du Hero extraits du template : le macro-parser Vue traite U+2019 comme
 // terminateur de string dans les expressions ":prop="{...}"".
 // En <script setup>, c'est du JS standard — U+2019 dans le contenu est valide.
-const heroCta = { label: 'Voir le dispositif', href: '/pour-les-structures' }
+const heroCta = { label: 'Voir mes programmes', href: '/pour-les-structures' }
 const heroCtaSecondary = { label: 'Télécharger la plaquette', href: '/files/plaquette-pxlc.pdf', external: true }
-const heroPill = {
-  eyebrow: 'Repères HCSP',
-  text: 'Méthode construite à partir des avis HCSP de 2019 et 2020 sur les effets de l’exposition aux écrans.',
-}
 </script>
 
 <template>
   <Hero
-    title="Transformer le temps d’écran en lien parent-enfant"
+    title="Médiation numérique par le jeu"
     :title-dot="true"
-    lead="J’accompagne les SESSAD, IME, associations et collectivités de Guadeloupe en médiateur numérique par le jeu — partenaire des programmes Parent-Écran-Enfant fondés sur les rapports HCSP."
+    lead="Je conçois et anime des programmes sur mesure pour les SESSAD, IME, associations et collectivités de Guadeloupe. Programme phare : Parent-Écran-Enfant, qui transforme le temps d’écran en lien entre parents et enfants — fondé sur les avis HCSP 2019-2020."
     :cta-primary="heroCta"
     :cta-secondary="heroCtaSecondary"
-    hint="← à destination des structures"
+    hint="← programmes pour les structures"
     photo-src="/assets/img/photos/andy-event.jpg"
     photo-alt="Andy Zébus en animation lors d’un événement gaming en Guadeloupe"
     :photo-width="740"
     :photo-height="740"
-    :pill="heroPill"
   />
   <!-- hydrate-on-visible : JS des composants below-fold parsé/exécuté seulement
        quand ils entrent dans le viewport → réduit le TBT au chargement initial. -->

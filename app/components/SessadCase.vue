@@ -17,7 +17,7 @@
           <span class="badge badge--audience image-with-badge__tag">Jouons Ensemble!</span>
         </div>
         <div>
-          <span class="eyebrow">SESSAD Lékoklaya · projet 2026 · 8 enfants</span>
+          <span class="eyebrow">Programme Parent-Écran-Enfant · SESSAD Lékoklaya · 2026</span>
           <h2 id="sessad-title">Un dispositif pensé avec l’équipe pluridisciplinaire<span class="coral-dot" aria-hidden="true">.</span></h2>
           <p class="lead mt-4">
             « Jouons Ensemble! » accompagne huit enfants âgés de 12 à 17 ans (TSA, TDAH, TCND, DM, neuropathie) en binômes parent-enfant, sur des ateliers thématiques co-encadrés par la psychologue du SESSAD, la psychomotricienne, les intervenants culturels — et moi en gamer médiateur-numérique.
@@ -26,7 +26,7 @@
             Le projet s’inscrit dans la continuité du Café-Parents du 14 décembre 2023 « Enfants Écrans » et dans le cadre des rapports HCSP 2019-2020. L’objectif : faire du jeu vidéo un outil d’alliance entre parents et enfants, pas un terrain de conflit.
           </p>
           <div class="mt-5">
-            <NuxtLink class="linkout" to="/pour-les-structures">Voir le dispositif</NuxtLink>
+            <NuxtLink class="linkout" to="/pour-les-structures">Voir le programme</NuxtLink>
           </div>
         </div>
       </div>

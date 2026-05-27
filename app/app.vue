@@ -27,9 +27,9 @@ useSchemaOrg([
   {
     '@id': 'https://pxlc.fr/#service',
     '@type': 'Service',
-    name: '« Jouons Ensemble! » — Médiation numérique Parent-Écran-Enfant',
+    name: 'Médiation numérique par le jeu — Programmes PXLC',
     description:
-      "Dispositif d'ateliers thématiques parent-enfant co-encadrés par l'équipe pluridisciplinaire de la structure porteuse et le gamer médiateur-numérique. Cadre HCSP 2019-2020.",
+      "Programmes de médiation numérique sur mesure pour les structures médico-sociales et associatives. Programme phare : Parent-Écran-Enfant, ateliers thématiques parent-enfant co-encadrés par l'équipe pluridisciplinaire. Cadre HCSP 2019-2020.",
     serviceType: 'Médiation numérique',
     provider: { '@id': 'https://pxlc.fr/#identity' },
     areaServed: { '@type': 'AdministrativeArea', name: 'Guadeloupe' },
