@@ -9,14 +9,14 @@ useSeoMeta({
 if (import.meta.server) {
   useSeoMeta({
     description:
-      'Andy Zébus · PXLC — programmes de médiation numérique par le jeu pour les structures médico-sociales et associatives de Guadeloupe. Programme phare : Parent-Écran-Enfant (cadre HCSP 2019-2020).',
+      'Andy Zébus · PXLC — programmes de médiation numérique par le jeu pour les structures médico-sociales et associatives de Guadeloupe. Programme phare : Parents-Écran-Enfant (cadre HCSP 2019-2020).',
   })
 }
 
 defineOgImage('PxlcOg', {
   eyebrow: 'PXLC · MÉDIATION NUMÉRIQUE · GUADELOUPE',
   title: 'Médiation numérique par le jeu',
-  description: 'PXLC conçoit des programmes pour les SESSAD, IME, associations et collectivités de Guadeloupe. Programme phare : Parent-Écran-Enfant — cadre HCSP 2019-2020.',
+  description: 'PXLC conçoit des programmes pour les SESSAD, IME, associations et collectivités de Guadeloupe. Programme phare : Parents-Écran-Enfant — cadre HCSP 2019-2020.',
 })
 
 // Le preload du hero est géré nativement par :preload="{ fetchPriority: 'high' }"
@@ -45,7 +45,7 @@ const heroCtaSecondary = { label: 'Télécharger la plaquette', href: '/files/pl
   <Hero
     title="Médiation numérique par le jeu"
     :title-dot="true"
-    lead="Je conçois et anime des programmes sur mesure pour les SESSAD, IME, associations et collectivités de Guadeloupe. Programme phare : Parent-Écran-Enfant, qui transforme le temps d’écran en lien entre parents et enfants — fondé sur les avis HCSP 2019-2020."
+    lead="Je conçois et anime des programmes sur mesure pour les SESSAD, IME, associations et collectivités de Guadeloupe. Programme phare : Parents-Écran-Enfant, qui transforme le temps d’écran en lien entre parents et enfants — fondé sur les avis HCSP 2019-2020."
     :cta-primary="heroCta"
     :cta-secondary="heroCtaSecondary"
     hint="← programmes pour les structures"

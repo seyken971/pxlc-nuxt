@@ -149,7 +149,7 @@ const audiences = [
             Des programmes de médiation numérique par le jeu, co-construits avec votre équipe<span class="coral-dot" aria-hidden="true">.</span>
           </h1>
           <p class="hero__lead">
-            Je conçois et anime des ateliers parent-enfant sur mesure, co-encadrés par votre équipe pluridisciplinaire. Programme phare&nbsp;: Parent-Écran-Enfant, ancré dans les recommandations HCSP&nbsp;2019-2020 — indicateurs qualitatifs, bilan transmis à vos tutelles en fin de dispositif.
+            Je conçois et anime des ateliers parent-enfant sur mesure, co-encadrés par votre équipe pluridisciplinaire. Programme phare&nbsp;: Parents-Écran-Enfant, ancré dans les recommandations HCSP&nbsp;2019-2020 — indicateurs qualitatifs, bilan transmis à vos tutelles en fin de dispositif.
           </p>
           <div class="hero__actions">
             <NuxtLink to="/contact" class="btn btn--primary btn--lg">Demander un devis</NuxtLink>

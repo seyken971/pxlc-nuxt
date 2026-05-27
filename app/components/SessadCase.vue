@@ -17,7 +17,7 @@
           <span class="badge badge--audience image-with-badge__tag">Jouons Ensemble!</span>
         </div>
         <div>
-          <span class="eyebrow">Programme Parent-Écran-Enfant · SESSAD Lékoklaya · 2026</span>
+          <span class="eyebrow">Programme Parents-Écran-Enfant · SESSAD Lékoklaya · 2026</span>
           <h2 id="sessad-title">Un dispositif pensé avec l’équipe pluridisciplinaire<span class="coral-dot" aria-hidden="true">.</span></h2>
           <p class="lead mt-4">
             « Jouons Ensemble! » accompagne huit enfants âgés de 12 à 17 ans (TSA, TDAH, TCND, DM, neuropathie) en binômes parent-enfant, sur des ateliers thématiques co-encadrés par la psychologue du SESSAD, la psychomotricienne, les intervenants culturels — et moi en gamer médiateur-numérique.

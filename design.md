@@ -292,7 +292,7 @@ Classes issues de `styles.css`. Les styles scoped des composants Vue ne sont pas
 - **Termes naked** (sans guillemets ni traduction) : HCSP, SESSAD, TCND, TND, hyperfocus
 - Espaces insécables avant `!`, `?`, `:`, `;`, `»` et entre nombre + unité (`48 h`, `20 min`, `100 €`)
 - Chiffres en numéraux sauf en début de phrase
-- `Parent-Écran-Enfant` avec majuscules (pas parent-écran-enfant)
+- `Parents-Écran-Enfant` avec majuscules
 
 ### Visuel
 
