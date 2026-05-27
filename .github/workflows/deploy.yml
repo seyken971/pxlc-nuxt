@@ -56,12 +56,12 @@ jobs:
           restore-keys: |
             nuxt-v2-${{ runner.os }}-
 
-      - name: Install dependencies
-        # `npm install` (not `npm ci`) — a transitive commander@^11 / @^13
-        # mismatch between @nuxt/content (lunr) and @bomb.sh/tab still
-        # trips npm ci's strict resolver even after the unused module
-        # deps were dropped. `npm install` resolves it on the fly.
-        run: npm install --no-audit --no-fund
+      - name: Install & update dependencies
+        # `npm update` (not `npm ci`) — updates packages to their latest
+        # compatible versions on every deploy, keeping deps fresh without
+        # manual version bumps. Avoids the transitive commander@^11/@^13
+        # mismatch that trips npm ci's strict resolver.
+        run: npm update --no-audit --no-fund
 
       - name: Lint (ESLint)
         # @nuxt/eslint flat config: catches Vue 3 / TS / Nuxt rule
