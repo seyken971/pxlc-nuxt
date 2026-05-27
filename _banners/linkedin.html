@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600&family=DM+Sans:wght@400;500&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  width: 1584px;
+  height: 396px;
+  overflow: hidden;
+  background: #EAF6F4;
+  color: #082B36;
+  font-family: 'DM Sans', system-ui, sans-serif;
+  position: relative;
+}
+
+/* ── Decorative watermark — large mark, bottom-right, rotated ── */
+.watermark {
+  position: absolute;
+  right: -70px;
+  bottom: -70px;
+  opacity: 0.07;
+  transform: rotate(-8deg);
+  pointer-events: none;
+}
+
+/* ── Main layout container ──────────────────────────────────── */
+/* left: 280px keeps all content clear of the circular profile
+   photo that LinkedIn overlays at the bottom-left of the banner */
+.banner {
+  position: absolute;
+  top: 0;
+  left: 280px;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 28px 52px 28px 0;
+}
+
+/* ── Top row: lockup + pixel strip ─────────────────────────── */
+.top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.lockup {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.wordmark {
+  font-family: 'Sora', system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 22px;
+  letter-spacing: -0.025em;
+  color: #082B36;
+  line-height: 1;
+}
+.dot { color: #FF5E3A; }
+
+.pixel-strip { display: flex; align-items: center; gap: 6px; }
+.px { width: 10px; height: 10px; border-radius: 2px; }
+
+/* ── Spacer pushes content to bottom ───────────────────────── */
+.spacer { flex: 1; }
+
+/* ── Main content ───────────────────────────────────────────── */
+.main { max-width: 1050px; }
+
+.name {
+  font-family: 'Sora', system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 52px;
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  color: #082B36;
+  margin-bottom: 10px;
+}
+.role {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.4;
+  color: #2C4751;
+}
+
+/* ── Footer: hairline + site ────────────────────────────────── */
+.footer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid #C4D1D2;
+}
+.footer-dot { width: 8px; height: 8px; border-radius: 2px; background: #FF5E3A; flex-shrink: 0; }
+.footer-url {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #036E73;
+}
+.footer-meta {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #5A6B70;
+}
+</style>
+</head>
+<body>
+
+<!-- Decorative watermark mark (bottom-right, low opacity, tilted) -->
+<div class="watermark">
+  <svg width="360" height="360" viewBox="0 0 100 100">
+    <rect x="2"     y="2"     width="29.33" height="29.33" rx="3.5" fill="#036E73"/>
+    <rect x="35.33" y="2"     width="29.33" height="29.33" rx="3.5" fill="#01A09D"/>
+    <rect x="68.67" y="2"     width="29.33" height="29.33" rx="3.5" fill="#00D2C8"/>
+    <rect x="2"     y="35.33" width="29.33" height="29.33" rx="3.5" fill="#036E73"/>
+    <rect x="35.33" y="35.33" width="29.33" height="29.33" rx="3.5" fill="#01A09D"/>
+    <rect x="68.67" y="35.33" width="29.33" height="29.33" rx="3.5" fill="#00D2C8"/>
+    <rect x="2"     y="68.67" width="29.33" height="29.33" rx="3.5" fill="#036E73"/>
+    <rect x="35.33" y="68.67" width="29.33" height="29.33" rx="3.5" fill="#01A09D"/>
+    <rect x="68.67" y="68.67" width="29.33" height="29.33" rx="3.5" fill="#FF5E3A"/>
+  </svg>
+</div>
+
+<div class="banner">
+  <!-- Top row: brand lockup + pixel strip -->
+  <div class="top-row">
+    <div class="lockup">
+      <svg width="44" height="44" viewBox="0 0 100 100">
+        <rect x="2"     y="2"     width="29.33" height="29.33" rx="3.5" fill="#036E73"/>
+        <rect x="35.33" y="2"     width="29.33" height="29.33" rx="3.5" fill="#01A09D"/>
+        <rect x="68.67" y="2"     width="29.33" height="29.33" rx="3.5" fill="#00D2C8"/>
+        <rect x="2"     y="35.33" width="29.33" height="29.33" rx="3.5" fill="#036E73"/>
+        <rect x="35.33" y="35.33" width="29.33" height="29.33" rx="3.5" fill="#01A09D"/>
+        <rect x="68.67" y="35.33" width="29.33" height="29.33" rx="3.5" fill="#00D2C8"/>
+        <rect x="2"     y="68.67" width="29.33" height="29.33" rx="3.5" fill="#036E73"/>
+        <rect x="35.33" y="68.67" width="29.33" height="29.33" rx="3.5" fill="#01A09D"/>
+        <rect x="68.67" y="68.67" width="29.33" height="29.33" rx="3.5" fill="#FF5E3A"/>
+      </svg>
+      <span class="wordmark">PXLC<span class="dot">.</span></span>
+    </div>
+    <!-- 14-cell pixel strip: 3-colour teal cycle, coral at position 10 -->
+    <div class="pixel-strip">
+      <div class="px" style="background:#01A09D"></div>
+      <div class="px" style="background:#00D2C8"></div>
+      <div class="px" style="background:#036E73"></div>
+      <div class="px" style="background:#01A09D"></div>
+      <div class="px" style="background:#00D2C8"></div>
+      <div class="px" style="background:#036E73"></div>
+      <div class="px" style="background:#01A09D"></div>
+      <div class="px" style="background:#00D2C8"></div>
+      <div class="px" style="background:#036E73"></div>
+      <div class="px" style="background:#FF5E3A"></div>
+      <div class="px" style="background:#00D2C8"></div>
+      <div class="px" style="background:#036E73"></div>
+      <div class="px" style="background:#01A09D"></div>
+      <div class="px" style="background:#00D2C8"></div>
+    </div>
+  </div>
+
+  <!-- Spacer pushes name/role to the lower portion of the banner -->
+  <div class="spacer"></div>
+
+  <!-- Name + role -->
+  <div class="main">
+    <div class="name">Andy Zébus<span class="dot">.</span></div>
+    <div class="role">Fondateur de PXLC — Médiation numérique par le jeu</div>
+  </div>
+
+  <!-- Footer: hairline + site -->
+  <div class="footer">
+    <div class="footer-dot"></div>
+    <span class="footer-url">pxlc.fr</span>
+    <span class="footer-meta">· médiation numérique par le jeu · Guadeloupe</span>
+  </div>
+</div>
+
+</body>
+</html>

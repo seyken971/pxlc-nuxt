@@ -1,0 +1,10 @@
+{
+  "name": "pxlc-banners",
+  "private": true,
+  "scripts": {
+    "generate": "node generate-banners.js"
+  },
+  "dependencies": {
+    "puppeteer": "^23.11.1"
+  }
+}
