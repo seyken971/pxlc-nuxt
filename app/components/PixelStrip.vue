@@ -3,7 +3,7 @@ interface Props {
   count?: number
   accentAt?: number
 }
-const props = withDefaults(defineProps<Props>(), { count: 14, accentAt: 10 })
+const props = withDefaults(defineProps<Props>(), { count: 14, accentAt: 11 })
 const cells = computed(() => Array.from({ length: props.count }, (_, i) => i))
 </script>
 

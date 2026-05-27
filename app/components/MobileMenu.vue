@@ -61,7 +61,7 @@ watch(() => route.fullPath, () => { menuOpen.value = false })
 
     <!-- Decorative: pixel strip (top-right, 40 % opacity) -->
     <div class="mobile-menu__strip">
-      <PixelStrip :count="7" :accent-at="5" />
+      <PixelStrip :count="7" :accent-at="4" />
     </div>
 
     <!-- Header row: lockup + close button -->

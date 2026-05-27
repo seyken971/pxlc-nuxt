@@ -130,7 +130,7 @@ const MARK_RECTS = [
         </span>
       </div>
 
-      <!-- Pixel strip: 14 cells, premium 3-colour teal cycle, coral accent at i=10 -->
+      <!-- Pixel strip: 14 cells, premium 3-colour teal cycle, coral accent at i=12 -->
       <div :style="{ display: 'flex', alignItems: 'center', gap: '6px' }">
         <div
           v-for="i in 14"
@@ -139,7 +139,7 @@ const MARK_RECTS = [
             width: '10px',
             height: '10px',
             borderRadius: '2px',
-            backgroundColor: i === 10 ? coral : teals[i % 3],
+            backgroundColor: i === 12 ? coral : teals[i % 3],
           }"
         />
       </div>
