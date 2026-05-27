@@ -62,15 +62,12 @@ const casquettes = [
           <p class="about-lead">
             Basé aux Abymes (Guadeloupe), j'ai fondé PXLC pour concevoir et animer des programmes de médiation numérique par le jeu avec les structures du secteur médico-social et associatif.
           </p>
-          <p class="about-sub">
-            Mon point de départ : les rapports HCSP 2019-2020. Mon terrain : les ateliers parent-enfant où le jeu vidéo devient un outil de lien plutôt qu'un sujet de conflit.
-          </p>
         </div>
 
         <div class="about-portrait">
           <NuxtImg
             src="/assets/img/photos/andy-portrait.jpg"
-            alt="Portrait d'Andy Zébus, gamer médiateur-numérique en Guadeloupe"
+            alt="Portrait d'Andy Zébus, fondateur de PXLC, médiateur numérique par le jeu"
             width="480"
             height="600"
             format="webp"
@@ -102,10 +99,7 @@ const casquettes = [
         <span class="eyebrow">Parcours</span>
         <h2 id="parcours-title">Trois casquettes, une cohérence<span class="coral-dot" aria-hidden="true">.</span></h2>
         <p class="lead">
-          Né en Guadeloupe, formé à la médiation interculturelle et au numérique,
-          j'ai passé six ans à structurer la scène esport guadeloupéenne avant de
-          fonder <strong>PXLC</strong>, entreprise de médiation numérique par le
-          jeu partenaire des structures médico-sociales et associatives.
+          Trois expériences professionnelles distinctes — et une seule cohérence : mettre le jeu au service du lien.
         </p>
       </header>
       <div class="grid grid--3">
@@ -123,6 +117,28 @@ const casquettes = [
     quote="Mon travail, ce n'est pas de juger l'usage des écrans. C'est de faire du jeu vidéo un espace de rencontre — entre un enfant et son parent, entre une famille et votre équipe."
     attribution="Andy Zébus · fondateur de PXLC"
   />
+
+  <!-- ── CTA ───────────────────────────────────────────────────── -->
+  <section class="section section--soft" aria-labelledby="cta-about-title">
+    <div class="container about-cta-section">
+      <span class="eyebrow">Prochaine étape</span>
+      <h2 id="cta-about-title">Travailler avec PXLC<span class="coral-dot" aria-hidden="true">.</span></h2>
+      <p class="lead">
+        Pour les structures médico-sociales et associatives de Guadeloupe —
+        devis sur mesure, plaquette PDF disponible.
+      </p>
+      <div class="about-cta-actions">
+        <NuxtLink to="/pour-les-structures" class="btn btn--primary btn--lg">Voir mes programmes</NuxtLink>
+        <a
+          href="/files/plaquette-pxlc.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn--ghost btn--lg"
+          aria-label="Plaquette PDF, 12 pages (nouvel onglet)"
+        >Plaquette PDF · 12 pages</a>
+      </div>
+    </div>
+  </section>
 </template>
 
 <style scoped>
@@ -157,13 +173,6 @@ const casquettes = [
   color: var(--ink-quiet);
   margin-bottom: var(--space-3);
 }
-.about-sub {
-  font-size: 15px;
-  line-height: 1.6;
-  color: var(--quiet);
-  margin: 0;
-}
-
 .about-portrait {
   border-radius: var(--radius-lg);
   overflow: hidden;
@@ -182,12 +191,11 @@ const casquettes = [
 /* ── Facts ───────────────────────────────────────────────────── */
 .about-facts {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(4, 1fr);
   gap: var(--space-4);
-  max-width: 820px;
 }
-@media (max-width: 600px) {
-  .about-facts { grid-template-columns: 1fr; }
+@media (max-width: 700px) {
+  .about-facts { grid-template-columns: 1fr 1fr; }
 }
 
 .about-fact {
@@ -215,4 +223,13 @@ const casquettes = [
 /* ── Casquettes ──────────────────────────────────────────────── */
 .casquette-title { font-size: 18px; margin: var(--space-2) 0; }
 .casquette-desc  { font-size: 14.5px; line-height: 1.6; }
+
+/* ── CTA ─────────────────────────────────────────────────────── */
+.about-cta-section { max-width: 720px; }
+.about-cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-5);
+}
 </style>
