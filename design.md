@@ -29,6 +29,8 @@
 | `--pxlc-border-dark` | `#103847` |
 | `--pxlc-border-dark-2` | `#1F4A59` |
 | `--pxlc-white` | `#FFFFFF` |
+| `--pxlc-pattern-warm` | `#D6CEBD` |
+| `--pxlc-pattern-warm-deep` | `#CDC4B0` |
 
 ## Tokens sémantiques
 
@@ -290,7 +292,7 @@ Classes issues de `styles.css`. Les styles scoped des composants Vue ne sont pas
 - **Termes naked** (sans guillemets ni traduction) : HCSP, SESSAD, TCND, TND, hyperfocus
 - Espaces insécables avant `!`, `?`, `:`, `;`, `»` et entre nombre + unité (`48 h`, `20 min`, `100 €`)
 - Chiffres en numéraux sauf en début de phrase
-- `Parent-Écran-Enfant` avec majuscules (nom propre du dispositif)
+- `parent-écran-enfant` en minuscules (pas Parent-Écran-Enfant)
 
 ### Visuel
 

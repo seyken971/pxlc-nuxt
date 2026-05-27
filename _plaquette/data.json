@@ -1,11 +1,6 @@
 {
   "version": "v2",
 
-  "projet": {
-    "structure": "SESSAD Lékoklaya",
-    "annee": "2026"
-  },
-
   "contact": {
     "email": "contact@pxlc.fr",
     "phone": "+590 690 71 76 18",
@@ -16,23 +11,8 @@
 
   "siret": "813 793 528 00031",
 
-  "tarif": {
-    "horaire": "100"
-  },
-
-  "profils": {
-    "tranche_age": "12 à 17 ans"
-  },
-
-  "cas_pratique": {
-    "lead": "Un projet porté par la psychologue du SESSAD, en partenariat avec le gamer médiateur-numérique, auprès de huit enfants âgés de 12 à 17 ans.",
-    "contexte": "Le projet s'inscrit dans la continuité du Café-Parents du 14 décembre 2023 « Enfants Écrans ». L'équipe du SESSAD avait identifié que les jeux vidéo étaient un point de friction récurrent dans les familles (temps d'écran, isolement, conflits) — particulièrement chez les enfants accompagnés pour des troubles du neurodéveloppement, du comportement ou du lien social.",
-    "cohorte": "Huit enfants (TSA, TDAH, TND, dystrophie musculaire, neuropathies) âgés de 12 à 17 ans. Problématiques ciblées : usage excessif des écrans, socialisation, attention, anxiété. Chaque enfant participe en binôme avec un parent.",
-    "deroule": "Ateliers thématiques parent-enfant (coopération, émotions, différence) co-encadrés par la psychologue, la psychomotricienne, les intervenants culturels et le gamer médiateur-numérique. Chaque atelier : 30 à 45&nbsp;min de jeu partagé + 45&nbsp;min à 1&nbsp;h d'échange verbal. Groupe de parole familiale puis bilan en fin de dispositif."
-  },
-
   "andy": {
-    "bio": "Né en Guadeloupe, formé à la médiation interculturelle et au numérique, Andy Zébus a passé six ans à structurer la scène esport guadeloupéenne avant de devenir <strong>gamer médiateur-numérique partenaire</strong> des structures porteuses (SESSAD, IME, associations, collectivités) sur leurs projets parent-écran-enfant.",
+    "bio": "Né en Guadeloupe, formé à la médiation interculturelle et au numérique, Andy Zébus a passé six ans à structurer la scène esport guadeloupéenne avant de fonder <strong>PXLC</strong>, entreprise de médiation numérique par le jeu partenaire des structures médico-sociales et associatives de Guadeloupe.",
     "casquette1": {
       "titre": "Organisateur esport",
       "desc": "Six ans à monter la scène esport guadeloupéenne avec Esports Guadeloupe — tournois, communauté, partenariats grands comptes. Connaît de l'intérieur la communauté joueurs, l'économie d'un tournoi et le langage Discord d'équipe."

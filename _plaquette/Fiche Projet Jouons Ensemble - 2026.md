@@ -1,3 +1,21 @@
+---
+{
+  "projet": {
+    "structure": "SESSAD Lékoklaya",
+    "annee": "2026"
+  },
+  "cas_pratique": {
+    "lead": "Un projet porté par la psychologue du SESSAD, en partenariat avec le entrepreneur en médiation numérique, auprès de huit enfants âgés de 12 à 17 ans.",
+    "contexte": "Le projet s'inscrit dans la continuité du Café-Parents du 14 décembre 2023 « Enfants Écrans ». L'équipe du SESSAD avait identifié que les jeux vidéo étaient un point de friction récurrent dans les familles (temps d'écran, isolement, conflits) — particulièrement chez les enfants accompagnés pour des troubles du neurodéveloppement, du comportement ou du lien social.",
+    "cohorte": "Huit enfants (TSA, TDAH, TND, dystrophie musculaire, neuropathies) âgés de 12 à 17 ans. Problématiques ciblées : usage excessif des écrans, socialisation, attention, anxiété. Chaque enfant participe en binôme avec un parent.",
+    "deroule": "Ateliers thématiques parent-enfant (coopération, émotions, différence) co-encadrés par la psychologue, la psychomotricienne, les intervenants culturels et le entrepreneur en médiation numérique. Chaque atelier : 30 à 45&nbsp;min de jeu partagé + 45&nbsp;min à 1&nbsp;h d'échange verbal. Groupe de parole familiale puis bilan en fin de dispositif."
+  },
+  "profils": {
+    "tranche_age": "12 à 17 ans"
+  }
+}
+---
+
 # PROJET PARENTS – ÉCRAN – ENFANT
 ## "Jouons Ensemble !"
 
@@ -50,13 +68,13 @@ Cette démarche s'inscrit dans les recommandations de la HAS (2020) et du HCSP, 
 
 #### Première étape : Préparation
 
-- Entretiens familiaux (psychologue, psychomotricienne, gamer médiateur-numérique et intervenants culturels).
+- Entretiens familiaux (psychologue, psychomotricienne, entrepreneur en médiation numérique et intervenants culturels).
 - Identification du profil ludique des enfants.
 - Construction des équipes parent-enfant.
 
 #### Deuxième étape : Ateliers thématiques parents-enfants
 
-Encadrés par le psychologue, la psychomotricienne, le gamer médiateur-numérique et les intervenants culturels.
+Encadrés par le psychologue, la psychomotricienne, le entrepreneur en médiation numérique et les intervenants culturels.
 
 Thèmes (non exhaustif) :
 
@@ -82,7 +100,7 @@ Chaque atelier inclut :
 
 ---
 
-### Fonction du gamer partenaire
+### Fonction du partenaire en médiation numérique
 
 - Choix des jeux et adaptabilité aux objectifs psycho-éducatifs.
 - Explication des mécaniques de jeu aux parents.
@@ -124,7 +142,7 @@ Chaque atelier inclut :
 
 ### Budget (à prévoir — voir devis €)
 
-- Rémunération du gamer intervenant.
+- Rémunération du entrepreneur intervenant en médiation numérique.
 - Rémunération des intervenants culturels.
 - Prêt des consoles et des jeux.
 - Matériel pour les sessions (écrans, mobilier, jeux et jouets traditionnels).
