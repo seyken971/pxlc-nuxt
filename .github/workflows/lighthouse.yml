@@ -42,6 +42,9 @@ jobs:
       - name: Install dependencies
         run: npm install --no-audit --no-fund
 
+      - name: Nuxt prepare
+        run: npx nuxt prepare
+
       - name: Generate static site
         run: npx nuxt generate
         env:

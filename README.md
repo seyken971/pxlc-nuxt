@@ -1,6 +1,6 @@
 # pxlc.fr — site marketing
 
-Site marketing de **Andy Zébus**, gamer médiateur-numérique basé aux Abymes (Guadeloupe).  
+Site marketing de **Andy Zébus**, fondateur médiateur numérique par le jeu basé aux Abymes (Guadeloupe).  
 Déployé sur **https://pxlc.fr**.
 
 ## Stack
@@ -14,6 +14,7 @@ Déployé sur **https://pxlc.fr**.
 | Fonts | @nuxt/fonts (auto-hébergé, pas de Google CDN) |
 | Hosting | GitHub Pages — SSG via `actions/deploy-pages` |
 | CI | GitHub Actions — lint + typecheck + a11y + deploy (bloquant) · Lighthouse hebdo (info) |
+| Environnement | Node 22 LTS |
 
 ## Démarrage rapide
 
@@ -33,7 +34,8 @@ npm run dev       # http://localhost:3000
 | `npm run preview` | Prévisualisation du build |
 | `npm run gen:tokens` | Régénère le bloc `--pxlc-*` dans `tokens.css` depuis `brand-colors.ts` — lancé automatiquement en `prebuild` / `pregenerate` / `predev` |
 | `npm run design` | Génère `design.md` depuis `tokens.css` + `styles.css` — lancé automatiquement en `prebuild` / `pregenerate` / `predev` |
-| `npm run lint` | ESLint v9 flat config |
+| `npm run ds-lint` | Vérifie la cohérence du design system (couleurs, tokens) — lancé automatiquement en `prebuild` / `pregenerate` |
+| `npm run lint` | ESLint v10 flat config |
 | `npm run lint:fix` | ESLint avec auto-fix |
 | `npm run typecheck` | `vue-tsc` via `nuxt typecheck` |
 | `npm run a11y` | Audit axe-core statique (jsdom) |
@@ -70,15 +72,17 @@ Pour modifier une couleur : éditer `brand-colors.ts` — `prebuild` synchronise
 
 ## CI
 
-Le pipeline `deploy.yml` est bloquant sur `master` :
+Le pipeline `deploy.yml` tourne sur `push master` et sur chaque **pull request** :
 
 ```
 checkout → node 22 → npm install → lint → typecheck
 → nuxt generate → verify output → a11y static → a11y runtime
-→ upload artifact → deploy
+→ upload artifact → deploy (master uniquement)
 ```
 
 Le workflow `lighthouse.yml` tourne chaque dimanche 18h UTC (non-bloquant, summary Markdown dans l'onglet Actions).
+
+Les mises à jour de dépendances npm sont gérées via **Dependabot** (`.github/dependabot.yml`) — PRs groupées chaque lundi matin.
 
 ## Conventions
 
@@ -90,4 +94,4 @@ Le workflow `lighthouse.yml` tourne chaque dimanche 18h UTC (non-bloquant, summa
 
 ## Licence
 
-© 2025 Andy Zébus – pxlc. Voir [LICENSE](LICENSE).
+© 2026 Andy Zébus – pxlc. Voir [LICENSE](LICENSE).

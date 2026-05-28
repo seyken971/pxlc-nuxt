@@ -1,0 +1,29 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: "/"
+    schedule:
+      interval: weekly
+      day: monday
+      time: "03:00"
+    open-pull-requests-limit: 5
+    groups:
+      nuxt-ecosystem:
+        patterns:
+          - "nuxt"
+          - "@nuxt/*"
+          - "@nuxtjs/*"
+      tooling:
+        patterns:
+          - "eslint*"
+          - "@nuxt/eslint"
+          - "typescript"
+          - "vue-tsc"
+      testing:
+        patterns:
+          - "playwright"
+          - "@axe-core/*"
+          - "axe-core"
+          - "lighthouse"
+          - "jsdom"
+          - "chrome-launcher"
