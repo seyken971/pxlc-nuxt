@@ -45,7 +45,7 @@
     "eslint": "^10.4.0",
     "jsdom": "^29.1.1",
     "lighthouse": "^13.3.0",
-    "nuxt-link-checker": "^4.0.0",
+    "nuxt-link-checker": "^5.0.10",
     "playwright": "^1.60.0",
     "typescript": "^6.0.3",
     "vue-tsc": "^3.3.2"
