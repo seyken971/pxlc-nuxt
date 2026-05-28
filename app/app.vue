@@ -70,7 +70,7 @@ useHead({
 
 // Register the brand OG image as the site-wide default. Pages can override
 // per-route via defineOgImage(...) if they want custom title/eyebrow.
-defineOgImage("PxlcOg");
+defineOgImage("PxlcOgBrand");
 </script>
 
 <template>

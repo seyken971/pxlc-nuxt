@@ -13,11 +13,7 @@ if (import.meta.server) {
   })
 }
 
-defineOgImage('PxlcOg', {
-  eyebrow: 'PXLC · MÉDIATION NUMÉRIQUE · GUADELOUPE',
-  title: 'Médiation numérique par le jeu',
-  description: 'PXLC conçoit des programmes pour les SESSAD, IME, associations et collectivités de Guadeloupe. Programme phare : Parents-Écran-Enfant — cadre HCSP 2019-2020.',
-})
+defineOgImage('PxlcOgBrand')
 
 // Le preload du hero est géré nativement par :preload="{ fetchPriority: 'high' }"
 // sur <NuxtImg> dans Hero.vue — @nuxt/image calcule automatiquement l'imagesrcset
