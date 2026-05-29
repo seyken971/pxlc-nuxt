@@ -1,6 +1,6 @@
 <script setup lang="ts">
-// 49 chars → 56 with " · PXLC" suffix from titleTemplate.
-useSeoMeta({ title: 'Programmes de médiation numérique par le jeu · SESSAD, IME, associations' })
+// 50 chars → 57 with " · PXLC" suffix from titleTemplate.
+useSeoMeta({ title: 'SESSAD, IME, associations — programmes par le jeu' })
 // Kept under ~160 chars so Google doesn't truncate the HCSP tail.
 if (import.meta.server) {
   useSeoMeta({

@@ -4,7 +4,7 @@ import type { MethodStep } from '~/components/MethodGrid.vue'
 // title must run on both sides so the titleTemplate (%s · %siteName) is
 // applied during client-side navigation; description is server-only (SEO only).
 useSeoMeta({
-  title: 'Médiation numérique par le jeu · Guadeloupe',
+  title: 'Médiation numérique par le jeu — Guadeloupe',
 })
 if (import.meta.server) {
   useSeoMeta({

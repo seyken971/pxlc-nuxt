@@ -1,6 +1,6 @@
 <script setup lang="ts">
-// 41 chars → 48 with " · PXLC" suffix (removed inline PXLC to avoid "… PXLC · PXLC").
-useSeoMeta({ title: 'Le journal PXLC — médiation numérique par le jeu' })
+// 44 chars → 51 with " · PXLC" suffix from titleTemplate.
+useSeoMeta({ title: 'Le journal — médiation numérique par le jeu' })
 // 151 chars — keyword-rich, within the 160-char window.
 if (import.meta.server) {
   useSeoMeta({
