@@ -30,25 +30,26 @@ body {
 }
 
 /* ── Main layout container ──────────────────────────────────── */
-/* left: 480px keeps all content clear of the circular profile
-   photo that Bluesky overlays at the bottom-left of the banner */
+/* left: 800px keeps all content clear of the circular profile
+   photo — at Bluesky's display scale (~600px), 800px maps to
+   ~160px, safely beyond the ~133px profile-photo diameter */
 .banner {
   position: absolute;
   top: 0;
-  left: 480px;
+  left: 0;
   right: 0;
   bottom: 0;
-  display: flex;
-  flex-direction: column;
-  padding: 72px 112px 72px 0;
 }
 
 /* ── Top row: lockup + pixel strip ─────────────────────────── */
 .top-row {
+  position: absolute;
+  top: 72px;
+  left: 800px;
+  right: 112px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
 }
 
 .lockup {
@@ -69,11 +70,15 @@ body {
 .pixel-strip { display: flex; align-items: center; gap: 12px; }
 .px { width: 20px; height: 20px; border-radius: 4px; }
 
-/* ── Spacer pushes content to bottom ───────────────────────── */
-.spacer { flex: 1; }
-
-/* ── Main content ───────────────────────────────────────────── */
-.main { max-width: 2100px; }
+/* ── Main content: vertically centered ─────────────────────── */
+.main {
+  position: absolute;
+  top: 50%;
+  left: 800px;
+  right: 112px;
+  transform: translateY(-50%);
+  max-width: 2100px;
+}
 
 .name {
   font-family: 'Sora', system-ui, sans-serif;
@@ -103,10 +108,13 @@ body {
 
 /* ── Footer: hairline + site ────────────────────────────────── */
 .footer {
+  position: absolute;
+  bottom: 72px;
+  left: 800px;
+  right: 112px;
   display: flex;
   align-items: center;
   gap: 24px;
-  margin-top: 48px;
   padding-top: 32px;
   border-top: 2px solid #C4D1D2;
 }
@@ -180,9 +188,6 @@ body {
       <div class="px" style="background:#00D2C8"></div>
     </div>
   </div>
-
-  <!-- Spacer pushes name/role/tagline to the lower portion of the banner -->
-  <div class="spacer"></div>
 
   <!-- Name + role + tagline -->
   <div class="main">
