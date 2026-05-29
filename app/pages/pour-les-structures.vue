@@ -71,14 +71,14 @@ const facts: [string, string][] = [
   ['Format', 'Ateliers thématiques parent-enfant'],
   ['Profils', 'TSA · TDAH · TCND · DM · neuropathie'],
   ['Âges', '12 à 17 ans (adaptable)'],
-  ['Encadrement', 'Équipe pluridisciplinaire + gamer médiateur'],
+  ['Encadrement', 'Équipe pluridisciplinaire + médiateur numérique'],
   ['Références', 'HCSP 2019 · HCSP 2020'],
   ['Tarif', 'Sur devis'],
 ]
 
 // Mode opératoire en 4 étapes — source : _plaquette/PROJET PARENTS – ECRAN – ENFANT.md
 const steps = [
-  { num: '01', title: 'Préparation', detail: 'Entretiens familiaux avec l’équipe (psychologue, psychomotricienne, gamer médiateur, intervenants culturels). Identification du profil ludique des enfants, construction des binômes parent-enfant.' },
+  { num: '01', title: 'Préparation', detail: 'Entretiens familiaux avec l’équipe (psychologue, psychomotricienne, médiateur numérique, intervenants culturels). Identification du profil ludique des enfants, construction des binômes parent-enfant.' },
   { num: '02', title: 'Ateliers thématiques parent-enfant', detail: 'Coopération · Émotions & récits · Différence & complémentarité. Chaque atelier : temps de jeu partagé (30-45 min) + temps d’échange verbal (45 min - 1 h). Observation et guidance des interactions.' },
   { num: '03', title: 'Groupe de parole familiale', detail: 'Espace d’échange entre familles : régulation, limites, signes d’alerte, posture parentale.' },
   { num: '04', title: 'Bilan', detail: 'Synthèse des acquis parent/enfant, élaboration de pistes de continuité à la maison, transmission écrite à l’équipe pluridisciplinaire.' },
@@ -266,9 +266,9 @@ const audiences = [
     <div class="container">
       <header class="section__head">
         <span class="eyebrow">Équipe pluridisciplinaire</span>
-        <h2 id="equipe-title">Le gamer ne remplace personne — il complète<span class="coral-dot" aria-hidden="true">.</span></h2>
+        <h2 id="equipe-title">Le médiateur numérique ne remplace personne — il complète<span class="coral-dot" aria-hidden="true">.</span></h2>
         <p class="lead">
-          Le projet est porté par la psychologue de votre structure. Le gamer médiateur-numérique intervient en partenariat, sur le terrain spécifique de la culture jeu vidéo.
+          Le projet est porté par la psychologue de votre structure. Le médiateur numérique par le jeu intervient en partenariat, sur le terrain spécifique de la culture jeu vidéo.
         </p>
       </header>
       <div class="grid grid--2 team-grid">
