@@ -28,12 +28,12 @@ const faqs = [
   {
     id: 'porteur',
     q: 'Qui porte le projet côté structure ?',
-    a: 'La psychologue de la structure est porteuse du projet — cadrage clinique, entretien initial avec les familles, bilan final. Le gamer médiateur-numérique intervient en partenariat, sur le terrain spécifique de la culture jeu vidéo.',
+    a: 'La psychologue de la structure est porteuse du projet — cadrage clinique, entretien initial avec les familles, bilan final. Le médiateur numérique intervient en partenariat, sur le terrain spécifique de la culture jeu vidéo.',
   },
   {
     id: 'tarif',
     q: 'Quel est le tarif ?',
-    a: 'Sur devis, calibré au périmètre (nombre d’ateliers, nombre de familles, durée). Le devis inclut la rémunération du gamer intervenant ; le prêt des consoles et des jeux peut être inclus ou pris en charge par la structure.',
+    a: 'Sur devis, calibré au périmètre (nombre d’ateliers, nombre de familles, durée). Le devis inclut la rémunération du médiateur intervenant ; le prêt des consoles et des jeux peut être inclus ou pris en charge par la structure.',
   },
   {
     id: 'nombre-enfants',
