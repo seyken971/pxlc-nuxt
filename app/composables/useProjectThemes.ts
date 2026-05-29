@@ -30,4 +30,4 @@ const THEMES: ProjectTheme[] = [
   },
 ]
 
-export const useProjectThemes = () => ({ themes: THEMES })
+export const useProjectThemes = () => ({ themes: readonly(THEMES) })

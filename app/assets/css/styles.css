@@ -13,7 +13,7 @@ body {
   background: var(--bg);
   color: var(--ink);
   font-family: var(--font-body);
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 1.6;
   font-weight: 400;
   transition: background var(--dur-base) var(--ease-step), color var(--dur-base) var(--ease-step);
@@ -555,8 +555,8 @@ main[tabindex="-1"]:focus { outline: none; }
 /* Miroir des classes .pxlc-* du UI Kit — permettent de typer
    le rôle d'un élément sans surcharger les balises HTML. */
 .pxlc-h1 { font-family: var(--font-display); font-weight: 600; font-size: clamp(36px, 5.4vw, 64px); line-height: 1.04; letter-spacing: -0.03em; color: var(--ink); text-wrap: balance; }
-.pxlc-h2 { font-family: var(--font-display); font-weight: 600; font-size: clamp(28px, 4.2vw, 42px); line-height: 1.05; letter-spacing: -0.025em; color: var(--ink); }
-.pxlc-h3 { font-family: var(--font-display); font-weight: 600; font-size: 22px; line-height: 1.15; color: var(--ink); }
+.pxlc-h2 { font-family: var(--font-display); font-weight: 600; font-size: clamp(28px, 4.2vw, 42px); line-height: 1.05; letter-spacing: -0.025em; color: var(--ink); text-wrap: balance; }
+.pxlc-h3 { font-family: var(--font-display); font-weight: 600; font-size: 26px; line-height: 1.15; letter-spacing: -0.01em; color: var(--ink); text-wrap: balance; }
 .pxlc-lead { font-family: var(--font-body); font-size: clamp(16px, 2vw, 19px); line-height: 1.55; color: var(--ink-quiet); }
 .pxlc-body { font-family: var(--font-body); font-size: 16px; line-height: 1.6; color: var(--ink-quiet); }
 .pxlc-body-sm { font-family: var(--font-body); font-size: 14.5px; line-height: 1.6; color: var(--ink-quiet); }
@@ -581,7 +581,7 @@ main[tabindex="-1"]:focus { outline: none; }
 }
 
 /* ── Long-form prose (mentions légales, blog post body, etc.) ─────────── */
-.prose { font-size: 15.5px; line-height: 1.65; color: var(--ink-quiet); }
+.prose { font-size: 15.5px; line-height: 1.65; color: var(--ink-quiet); max-width: 72ch; }
 .prose h2 {
   font-family: var(--font-display);
   font-size: clamp(20px, 2vw, 24px);

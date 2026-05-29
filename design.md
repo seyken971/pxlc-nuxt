@@ -84,8 +84,8 @@ Ces tokens résolvent vers la palette et basculent automatiquement en dark mode.
 
 | Token | Stack |
 | --- | --- |
-| `--font-display` | `"Sora", system-ui, -apple-system, "Segoe UI", sans-serif` |
-| `--font-body` | `"DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif` |
+| `--font-display` | `"Sora", "Sora Fallback", system-ui, -apple-system, "Segoe UI", sans-serif` |
+| `--font-body` | `"DM Sans", "DM Sans Fallback", system-ui, -apple-system, "Segoe UI", sans-serif` |
 | `--font-mono` | `"JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace` |
 
 > Les tailles de titre utilisent `clamp()` défini localement dans chaque composant — pas de token `--fs-h1` global.

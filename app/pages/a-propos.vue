@@ -80,6 +80,7 @@ const casquettes = [
             loading="eager"
             fetchpriority="high"
             preload
+            sizes="sm:100vw md:480px"
           />
         </div>
       </div>
