@@ -28,25 +28,26 @@ body {
 }
 
 /* ── Main layout container ──────────────────────────────────── */
-/* left: 280px keeps all content clear of the circular profile
-   photo that LinkedIn overlays at the bottom-left of the banner */
+/* left: 420px keeps all content clear of the circular profile
+   photo — at LinkedIn's display scale (~990px), 420px maps to
+   ~263px, safely beyond the ~200px profile-photo diameter */
 .banner {
   position: absolute;
   top: 0;
-  left: 280px;
+  left: 0;
   right: 0;
   bottom: 0;
-  display: flex;
-  flex-direction: column;
-  padding: 28px 52px 28px 0;
 }
 
 /* ── Top row: lockup + pixel strip ─────────────────────────── */
 .top-row {
+  position: absolute;
+  top: 28px;
+  left: 420px;
+  right: 52px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
 }
 
 .lockup {
@@ -67,11 +68,15 @@ body {
 .pixel-strip { display: flex; align-items: center; gap: 6px; }
 .px { width: 10px; height: 10px; border-radius: 2px; }
 
-/* ── Spacer pushes content to bottom ───────────────────────── */
-.spacer { flex: 1; }
-
-/* ── Main content ───────────────────────────────────────────── */
-.main { max-width: 1050px; }
+/* ── Main content: vertically centered ─────────────────────── */
+.main {
+  position: absolute;
+  top: 50%;
+  left: 420px;
+  right: 52px;
+  transform: translateY(-50%);
+  max-width: 1050px;
+}
 
 .name {
   font-family: 'Sora', system-ui, sans-serif;
@@ -92,10 +97,13 @@ body {
 
 /* ── Footer: hairline + site ────────────────────────────────── */
 .footer {
+  position: absolute;
+  bottom: 28px;
+  left: 420px;
+  right: 52px;
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-top: 20px;
   padding-top: 16px;
   border-top: 1px solid #C4D1D2;
 }
@@ -169,9 +177,6 @@ body {
       <div class="px" style="background:#00D2C8"></div>
     </div>
   </div>
-
-  <!-- Spacer pushes name/role to the lower portion of the banner -->
-  <div class="spacer"></div>
 
   <!-- Name + role -->
   <div class="main">
