@@ -28,25 +28,26 @@ body {
 }
 
 /* ── Main layout container ──────────────────────────────────── */
-/* left: 240px keeps all content clear of the circular profile
-   photo that Twitter/X overlays at the bottom-left of the banner */
+/* left: 400px keeps all content clear of the circular profile
+   photo — at X's display scale (~600px), 400px maps to ~160px,
+   safely beyond the ~133px profile-photo diameter */
 .banner {
   position: absolute;
   top: 0;
-  left: 240px;
+  left: 0;
   right: 0;
   bottom: 0;
-  display: flex;
-  flex-direction: column;
-  padding: 36px 56px 36px 0;
 }
 
 /* ── Top row: lockup + pixel strip ─────────────────────────── */
 .top-row {
+  position: absolute;
+  top: 36px;
+  left: 400px;
+  right: 56px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
 }
 
 .lockup {
@@ -67,11 +68,15 @@ body {
 .pixel-strip { display: flex; align-items: center; gap: 6px; }
 .px { width: 10px; height: 10px; border-radius: 2px; }
 
-/* ── Spacer pushes content to bottom ───────────────────────── */
-.spacer { flex: 1; }
-
-/* ── Main content ───────────────────────────────────────────── */
-.main { max-width: 1050px; }
+/* ── Main content: vertically centered ─────────────────────── */
+.main {
+  position: absolute;
+  top: 50%;
+  left: 400px;
+  right: 56px;
+  transform: translateY(-50%);
+  max-width: 1050px;
+}
 
 .name {
   font-family: 'Sora', system-ui, sans-serif;
@@ -101,10 +106,13 @@ body {
 
 /* ── Footer: hairline + site ────────────────────────────────── */
 .footer {
+  position: absolute;
+  bottom: 36px;
+  left: 400px;
+  right: 56px;
   display: flex;
   align-items: center;
   gap: 14px;
-  margin-top: 24px;
   padding-top: 18px;
   border-top: 1px solid #C4D1D2;
 }
@@ -178,9 +186,6 @@ body {
       <div class="px" style="background:#00D2C8"></div>
     </div>
   </div>
-
-  <!-- Spacer pushes name/role/tagline to the lower portion of the banner -->
-  <div class="spacer"></div>
 
   <!-- Name + role + tagline -->
   <div class="main">
