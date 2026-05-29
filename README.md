@@ -1,6 +1,6 @@
 # pxlc.fr — site marketing
 
-Site marketing de **Andy Zébus**, fondateur médiateur numérique par le jeu basé aux Abymes (Guadeloupe).  
+Site marketing de **Andy Zébus**, médiateur numérique par le jeu basé aux Abymes (Guadeloupe).  
 Déployé sur **https://pxlc.fr**.
 
 ## Stack

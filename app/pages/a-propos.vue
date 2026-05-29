@@ -1,5 +1,5 @@
 <script setup lang="ts">
-useSeoMeta({ title: 'Andy Zébus — fondateur de PXLC · Guadeloupe' })
+useSeoMeta({ title: 'Andy Zébus — médiateur numérique · Guadeloupe' })
 if (import.meta.server) {
   useSeoMeta({
     description:
@@ -73,7 +73,7 @@ const casquettes = [
         <div class="about-portrait">
           <NuxtImg
             src="/assets/img/photos/andy-portrait.jpg"
-            alt="Portrait d'Andy Zébus, fondateur de PXLC, médiateur numérique par le jeu"
+            alt="Portrait d'Andy Zébus, médiateur numérique par le jeu"
             width="480"
             height="600"
             format="webp"
@@ -107,9 +107,9 @@ const casquettes = [
   </section>
 
   <CitationBlock
-    source="Andy Zébus · fondateur de PXLC"
+    source="Andy Zébus · médiateur numérique"
     quote="Mon travail, ce n'est pas de juger l'usage des écrans. C'est de faire du jeu vidéo un espace de rencontre — entre un enfant et son parent, entre une famille et votre équipe."
-    attribution="Andy Zébus · fondateur de PXLC"
+    attribution="Andy Zébus · médiateur numérique"
   />
 
   <!-- ── CTA ───────────────────────────────────────────────────── -->

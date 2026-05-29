@@ -19,7 +19,7 @@ useSchemaOrg([
   defineWebPage({
     '@type': 'ContactPage',
     name: 'Contact PXLC',
-    description: 'Page de prise de contact avec PXLC — Andy Zébus, fondateur, médiateur numérique par le jeu en Guadeloupe.',
+    description: 'Page de prise de contact avec PXLC — Andy Zébus, médiateur numérique par le jeu en Guadeloupe.',
   }),
 ])
 
