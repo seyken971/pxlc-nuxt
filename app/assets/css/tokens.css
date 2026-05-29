@@ -7,23 +7,22 @@
    font-family declarations below trigger the module's auto-resolution.
    ============================================================= */
 
-/* Adjusted fallback fonts — match approximate x-height of Sora/DM Sans
-   against Arial so font-display:swap doesn't cause CLS between fallback
-   and webfont render. Values are approximations; verify by blocking
-   fonts.googleapis.com in DevTools and checking for layout shift. */
+/* Adjusted fallback fonts — match approximate x-height of Nunito/Lora
+   against system fonts so font-display:swap doesn't cause CLS. Values are
+   approximations; verify by blocking fonts.googleapis.com in DevTools. */
 @font-face {
-  font-family: "Sora Fallback";
+  font-family: "Nunito Fallback";
   src: local("Arial");
-  size-adjust: 96%;
-  ascent-override: 96%;
+  size-adjust: 97%;
+  ascent-override: 97%;
   descent-override: normal;
   line-gap-override: normal;
 }
 @font-face {
-  font-family: "DM Sans Fallback";
-  src: local("Arial");
-  size-adjust: 100%;
-  ascent-override: 100%;
+  font-family: "Lora Fallback";
+  src: local("Georgia");
+  size-adjust: 103%;
+  ascent-override: 103%;
   descent-override: normal;
   line-gap-override: normal;
 }
@@ -82,9 +81,12 @@
   /* Only the font-families are tokenised. The scale itself is local to
      each component (most titles use clamp() for fluid responsive sizing
      — a fixed --fs-h1 token wouldn't fit). */
-  --font-display: "Sora", "Sora Fallback", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-body:    "DM Sans", "DM Sans Fallback", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-mono:    "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --font-display: "Nunito", "Nunito Fallback", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-body:    "Lora", "Lora Fallback", Georgia, "Times New Roman", serif;
+  /* --font-mono repurposed as the label/eyebrow font (Nunito with tracking).
+     Actual code blocks use --font-code (system monospace, zero load). */
+  --font-mono:    "Nunito", "Nunito Fallback", system-ui, sans-serif;
+  --font-code:    ui-monospace, "SFMono-Regular", Menlo, "Courier New", monospace;
 
   /* ── Spacing — 8 px rhythm ──────────────────────────────── */
   --space-1: 4px;
@@ -146,7 +148,4 @@
 
   --shadow-card-hover: 0 8px 24px -12px rgba(0,0,0,.45);
   --shadow-header:     0 2px 14px -6px rgba(0,0,0,.45);
-  /* DM Sans v3 est une variable font — bump léger pour compenser
-     la perception de légèreté du texte sur fond sombre. */
-  font-weight: 425;
 }

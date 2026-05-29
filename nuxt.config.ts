@@ -37,26 +37,16 @@ export default defineNuxtConfig({
   css: ["~/assets/css/styles.css"],
 
   // @nuxt/fonts auto-discovers families from font-family CSS, but it
-  // only loads the weights it can detect inline. Sora 600 / DM Sans 500-600 /
-  // JetBrains Mono 500-600 are set via CSS variables (not literal weights
-  // next to the family name), so they're missed by auto-detection and the
-  // browser synthesises a fake bold from weight 400 — producing the doubled
-  // vertical strokes on letters like "l". Declaring them explicitly here.
+  // only loads the weights it can detect inline. Nunito 700/800 and
+  // Lora 500/600 are set via CSS variables (not literal weights next to
+  // the family name), so they're missed by auto-detection. Declaring them
+  // explicitly here to avoid synthesised bold artefacts.
   fonts: {
     families: [
-      // Sora 700 supprimé : aucune occurrence de font-weight: 700 dans le CSS
-      // ni les composants (vérifié au 2026-05-25). 4→3 fichiers woff2 en moins.
-      { name: "Sora", weights: [400, 500, 600], provider: "google" },
-      { name: "DM Sans", weights: [400, 500, 600], provider: "google" },
-      // optional avoids FOUT entirely — no font-swap after initial render,
-      // so the eyebrow/kicker elements (mono font, many above fold on
-      // /pour-les-structures) stop contributing to CLS.
-      {
-        name: "JetBrains Mono",
-        weights: [400, 500, 600],
-        provider: "google",
-        display: "optional",
-      },
+      // Display / headings / labels (replaces Sora + JetBrains Mono)
+      { name: "Nunito", weights: [400, 600, 700, 800], provider: "google" },
+      // Body / prose (replaces DM Sans)
+      { name: "Lora", weights: [400, 500, 600], provider: "google" },
     ],
   },
 
