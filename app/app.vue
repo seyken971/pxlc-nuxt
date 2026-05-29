@@ -10,7 +10,7 @@ useSchemaOrg([
   definePerson({
     '@id': 'https://pxlc.fr/#andy',
     name: 'Andy Zébus',
-    jobTitle: 'Gamer médiateur-numérique',
+    jobTitle: 'Médiateur numérique par le jeu',
     description:
       'Médiateur numérique par le jeu vidéo, basé aux Abymes (Guadeloupe). Ateliers parent-enfant ancrés dans les rapports HCSP 2019-2020, en partenariat avec les structures médico-sociales et associatives.',
     image: 'https://pxlc.fr/assets/img/photos/andy-portrait.jpg',

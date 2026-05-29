@@ -1,20 +1,4 @@
-/**
- * Helpers for traversing a @nuxt/content document body (AST).
- *
- * The body shape is roughly:
- *   { type: 'root', children: [{ type: 'element', tag: 'h2', props: { id: 'foo' }, children: [...] }, ...] }
- * — text nodes are { type: 'text', value: '...' }.
- *
- * Two needs:
- *  - estimate reading time from the rendered text
- *  - extract h2/h3 entries (slug + label) for a table of contents
- */
-
-// Loose shape — broad enough to accept @nuxt/content's MarkdownRoot
-// (where `value` and `children` are MinimarkNode trees) without forcing
-// a hard cast at the call site. We narrow on `node.type === 'text'`
-// before reading `value` as a string, so the wider type is safe at
-// runtime.
+// Loose shape — broad enough to accept @nuxt/content's MarkdownRoot without forcing a hard cast at the call site.
 type AstNode = {
   type?: string
   tag?: string
@@ -59,13 +43,11 @@ export const useArticleBody = () => {
     return Math.max(1, Math.round(words / WORDS_PER_MINUTE))
   }
 
-  /**
-   * "8 min de lecture" — French wording matching the existing copy.
-   * Returns null when the body is empty (no point pretending).
-   */
+  // Returns null when the body is empty (no point pretending).
   const readingTimeLabel = (body: AstNode | undefined | null): string | null => {
-    if (wordCount(body) === 0) return null
-    return `${readingMinutes(body)} min`
+    const count = wordCount(body)
+    if (count === 0) return null
+    return `${Math.max(1, Math.round(count / WORDS_PER_MINUTE))} min`
   }
 
   const tableOfContents = (

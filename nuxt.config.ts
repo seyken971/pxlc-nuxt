@@ -173,6 +173,7 @@ export default defineNuxtConfig({
       // light listed first = preferred when the user has no preference.
       colorScheme: "light dark",
       twitterCreator: "@seyken971",
+      twitterSite: "@seyken971",
       ogSiteName: "PXLC",
       ogLocale: "fr_FR",
       ogType: "website",

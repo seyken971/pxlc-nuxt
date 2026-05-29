@@ -33,8 +33,8 @@ export const useTheme = () => {
   const hydrate = () => {
     if (!import.meta.client) return
 
-    let stored: Theme | null = null
-    try { stored = localStorage.getItem(STORAGE_KEY) as Theme | null } catch {}
+    let stored: string | null = null
+    try { stored = localStorage.getItem(STORAGE_KEY) } catch {}
 
     userOverride.value = stored === 'light' || stored === 'dark'
     theme.value = userOverride.value ? (stored as Theme) : systemTheme()

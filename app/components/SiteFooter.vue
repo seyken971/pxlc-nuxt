@@ -9,7 +9,7 @@ const year = new Date().getFullYear()
         <div>
           <Lockup />
           <p class="site-footer__brand-text">
-            Transformer le temps d'écran<br />en lien parent-enfant.
+            Médiateur numérique par le jeu<br />en Guadeloupe.
           </p>
           <ul class="site-footer__social" role="list">
             <li>
@@ -88,7 +88,7 @@ const year = new Date().getFullYear()
       </div>
 
       <div class="site-footer__legal">
-        <p>PXLC · Guadeloupe · SIRET 813 793 528 00031 · APE 70.21Z · © {{ year }}</p>
+        <p>© 2015–{{ year }} · Andy Zébus EI · PXLC<br />Guadeloupe · SIRET 813 793 528 00031 · APE 70.21Z</p>
         <ul class="site-footer__legal-links" role="list">
           <li><NuxtLink to="/mentions-legales">Mentions légales</NuxtLink></li>
           <li><NuxtLink to="/mentions-legales#rgpd">Confidentialité</NuxtLink></li>
