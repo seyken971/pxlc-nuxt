@@ -12,7 +12,7 @@ if (import.meta.server) {
 defineOgImage('PxlcOg', {
   eyebrow: 'PXLC · POUR LES STRUCTURES',
   title: 'Programmes de médiation numérique par le jeu — SESSAD, IME, associations',
-  description: 'Ateliers thématiques parent-enfant co-encadrés par votre équipe pluridisciplinaire et le gamer médiateur-numérique. Cadre HCSP, indicateurs d’évaluation, bilan en fin de dispositif.',
+  description: 'Ateliers thématiques parent-enfant co-encadrés par votre équipe pluridisciplinaire et le médiateur-numérique. Cadre HCSP, indicateurs d’évaluation, bilan en fin de dispositif.',
 })
 
 
