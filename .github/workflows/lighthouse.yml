@@ -39,6 +39,16 @@ jobs:
           node-version: 22
           cache: npm
 
+      - name: Cache Nuxt build artefacts
+        uses: actions/cache@v4
+        with:
+          path: |
+            node_modules/.cache
+            .nuxt/cache
+          key: nuxt-v2-${{ runner.os }}-${{ hashFiles('package-lock.json', 'nuxt.config.ts', 'content.config.ts') }}
+          restore-keys: |
+            nuxt-v2-${{ runner.os }}-
+
       - name: Install dependencies
         run: npm install --no-audit --no-fund
 
@@ -46,9 +56,7 @@ jobs:
         run: npx nuxt prepare
 
       - name: Generate static site
-        run: npx nuxt generate
-        env:
-          NITRO_PRESET: github-pages
+        run: npx nuxt build --preset github_pages
 
       - name: Run Lighthouse
         # ubuntu-latest ships Google Chrome stable at /usr/bin/google-chrome,
