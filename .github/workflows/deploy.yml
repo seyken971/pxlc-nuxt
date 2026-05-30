@@ -46,7 +46,7 @@ jobs:
       # The `v2-` prefix in the key is a manual bust — restore-keys would
       # otherwise pull older saves that still contain the OG dirs.
       - name: Cache Nuxt build artefacts
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: |
             node_modules/.cache
@@ -103,7 +103,7 @@ jobs:
         run: npm run a11y
 
       - name: Cache Playwright browsers
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: ~/.cache/ms-playwright
           key: playwright-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
