@@ -11,9 +11,11 @@ on:
 permissions:
   contents: read
 
-# Une seule exécution à la fois — un nouveau push annule un build en cours
+# Une seule exécution par branche à la fois — un nouveau push annule un build
+# en cours sur la même branche. Le groupe est scopé par ref pour que les PRs
+# Dependabot ne s'annulent pas mutuellement et ne cancellent pas le run master.
 concurrency:
-  group: pages
+  group: pages-${{ github.ref }}
   cancel-in-progress: true
 
 env:
