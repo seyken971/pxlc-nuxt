@@ -15,6 +15,9 @@ useSeoMeta({
   title: post.value.title,
   description: post.value.description,
   ogType: 'article',
+  // Strip the "· PXLC" titleTemplate suffix from OG cards — og:site_name already
+  // carries the brand; the full title alone can exceed the ~60-char social limit.
+  ogTitle: post.value.title,
 })
 
 defineOgImage('PxlcOg', {

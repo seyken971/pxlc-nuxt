@@ -10,6 +10,10 @@ if (import.meta.server) {
   useSeoMeta({
     description:
       'Andy Zébus · PXLC — programmes de médiation numérique par le jeu pour les structures médico-sociales et associatives de Guadeloupe. Programme phare : Parents-Écran-Enfant (cadre HCSP 2019-2020).',
+    // og:description shown in social previews — capped at ~155 chars to avoid truncation.
+    // meta description above is longer (keyword-rich for Google snippets).
+    ogDescription:
+      'Programmes de médiation numérique par le jeu pour SESSAD, IME et associations de Guadeloupe — Parents-Écran-Enfant, cadre HCSP 2019-2020.',
   })
 }
 
