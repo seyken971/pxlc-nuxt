@@ -91,12 +91,12 @@ export default defineNuxtConfig({
   // Nuxt 4.4 added both to computeIslandHash. Override in all build contexts
   // to match nuxt-og-image's computation until it ships a compatibility fix.
   alias: {
-    '#app/island-hash': './server/island-hash-compat.mjs',
+    "#app/island-hash": "./server/island-hash-compat.mjs",
   },
 
   nitro: {
     alias: {
-      '#app/island-hash': './server/island-hash-compat.mjs',
+      "#app/island-hash": "./server/island-hash-compat.mjs",
     },
     prerender: {
       crawlLinks: true,
@@ -129,9 +129,6 @@ export default defineNuxtConfig({
   },
 
   // `@nuxtjs/robots` est la SEULE source de vérité pour robots.txt.
-  // Le fichier public/_robots.txt (legacy Jekyll) a été supprimé — il
-  // dupliquait le bloc `User-agent: *` parce que le module fusionne
-  // public/_robots.txt avec ce config block.
   // Pas de `contentUsage` / `contentSignal` ici : ce sont des directives
   // forward-looking (proposition Anthropic et al.) que Lighthouse rejette
   // comme "Unknown directive" — -8pts SEO sitewide pour un signal que
@@ -144,8 +141,7 @@ export default defineNuxtConfig({
   },
 
   // Le sitemap est auto-généré à partir des routes prérendues par
-  // @nuxtjs/seo. Pas de `sources` externe — l'ancien Jekyll au même
-  // domaine remontait des routes mortes (/ateliers, /presse).
+  // @nuxtjs/seo.
 
   seo: {
     meta: {

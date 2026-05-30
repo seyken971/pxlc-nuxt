@@ -50,9 +50,12 @@ useSchemaOrg([
   }),
 ])
 
-// Override /blog label — its page title is too long for a breadcrumb.
 const crumbs = useBreadcrumbItems({
-  overrides: [undefined, { label: 'Blog' }],
+  overrides: [
+    { label: 'Accueil' },
+    { label: 'Blog' },
+    { label: post.value.title },
+  ],
 })
 
 // Reading time + table of contents derived from the parsed body. Fallback
