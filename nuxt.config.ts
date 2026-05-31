@@ -37,14 +37,14 @@ export default defineNuxtConfig({
   css: ["~/assets/css/styles.css"],
 
   // @nuxt/fonts auto-discovers families from font-family CSS, but it
-  // only loads the weights it can detect inline. Nunito 700/800 and
+  // only loads the weights it can detect inline. Plus Jakarta Sans 400/500/600 and
   // Lora 500/600 are set via CSS variables (not literal weights next to
   // the family name), so they're missed by auto-detection. Declaring them
   // explicitly here to avoid synthesised bold artefacts.
   fonts: {
     families: [
-      // Display / headings / labels (replaces Sora + JetBrains Mono)
-      { name: "Nunito", weights: [400, 600, 700, 800], provider: "google" },
+      // Display / headings / labels
+      { name: "Plus Jakarta Sans", weights: [400, 500, 600], provider: "google" },
       // Body / prose (replaces DM Sans)
       { name: "Lora", weights: [400, 500, 600], provider: "google" },
     ],

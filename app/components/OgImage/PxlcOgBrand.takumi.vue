@@ -74,7 +74,7 @@ const MARK_RECTS = [
     <!-- PXLC. -->
     <div
       :style="{
-        fontFamily: 'Nunito, system-ui, sans-serif',
+        fontFamily: 'Plus Jakarta Sans, system-ui, sans-serif',
         fontWeight: 700,
         fontSize: '100px',
         letterSpacing: '-3px',
@@ -90,7 +90,7 @@ const MARK_RECTS = [
     <!-- Tagline -->
     <div
       :style="{
-        fontFamily: 'Nunito, system-ui, sans-serif',
+        fontFamily: 'Plus Jakarta Sans, system-ui, sans-serif',
         fontSize: '19px',
         fontWeight: 600,
         letterSpacing: '0.2em',

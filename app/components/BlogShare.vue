@@ -54,7 +54,7 @@ const shares = computed(() => {
 <style scoped>
 .blog-share { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2-5); }
 .blog-share__label {
-  font-family: var(--font-mono); font-size: 11px; font-weight: 600;
+  font-family: var(--font-label); font-size: 11px; font-weight: 600;
   letter-spacing: 0.22em; text-transform: uppercase; color: var(--quiet);
 }
 .blog-share__list { display: flex; flex-wrap: wrap; gap: var(--space-2); list-style: none; padding: 0; margin: 0; }

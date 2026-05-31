@@ -199,7 +199,7 @@ const casquettes = [
   transition: background var(--dur-base);
 }
 .about-fact__label {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: 11px;
   letter-spacing: 0.18em;
   text-transform: uppercase;

@@ -382,7 +382,7 @@ const audiences = [
 .audience-list { display: grid; gap: 8px 16px; grid-template-columns: 1fr; margin: 0; }
 @media (min-width: 480px) { .audience-list { grid-template-columns: max-content 1fr; } }
 .audience-list dt {
-  font-family: var(--font-mono); font-size: 11px; font-weight: 600;
+  font-family: var(--font-label); font-size: 11px; font-weight: 600;
   letter-spacing: 0.18em; text-transform: uppercase; color: var(--quiet);
   padding-top: 2px;
 }
@@ -401,7 +401,7 @@ const audiences = [
   display: flex; align-items: center; justify-content: space-between; gap: var(--space-3);
 }
 .faq__q::after {
-  content: "+"; font-family: var(--font-mono); font-weight: 400;
+  content: "+"; font-family: var(--font-label); font-weight: 400;
   color: var(--pxlc-coral); font-size: 22px; transition: transform var(--dur-base);
 }
 .faq__item[open] .faq__q::after { content: "−"; }

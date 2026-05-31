@@ -2,19 +2,19 @@
    PXLC — Design tokens
    Single source of truth for colors, typography, spacing, radius,
    elevation and motion. Wired into styles.css and component
-   scoped styles. Fonts (Sora, DM Sans, JetBrains Mono) are
+   scoped styles. Fonts (Plus Jakarta Sans, Lora) are
    self-hosted by @nuxt/fonts — no @import needed here, the
    font-family declarations below trigger the module's auto-resolution.
    ============================================================= */
 
-/* Adjusted fallback fonts — match approximate x-height of Nunito/Lora
+/* Adjusted fallback fonts — match approximate x-height of Plus Jakarta Sans/Lora
    against system fonts so font-display:swap doesn't cause CLS. Values are
    approximations; verify by blocking fonts.googleapis.com in DevTools. */
 @font-face {
-  font-family: "Nunito Fallback";
+  font-family: "Plus Jakarta Sans Fallback";
   src: local("Arial");
-  size-adjust: 97%;
-  ascent-override: 97%;
+  size-adjust: 100%;
+  ascent-override: 100%;
   descent-override: normal;
   line-gap-override: normal;
 }
@@ -81,11 +81,10 @@
   /* Only the font-families are tokenised. The scale itself is local to
      each component (most titles use clamp() for fluid responsive sizing
      — a fixed --fs-h1 token wouldn't fit). */
-  --font-display: "Nunito", "Nunito Fallback", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: "Plus Jakarta Sans", "Plus Jakarta Sans Fallback", system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-body:    "Lora", "Lora Fallback", Georgia, "Times New Roman", serif;
-  /* --font-mono repurposed as the label/eyebrow font (Nunito with tracking).
-     Actual code blocks use --font-code (system monospace, zero load). */
-  --font-mono:    "Nunito", "Nunito Fallback", system-ui, sans-serif;
+  /* Label/eyebrow font (Plus Jakarta Sans with tracking). Actual code blocks use --font-code. */
+  --font-label:   "Plus Jakarta Sans", "Plus Jakarta Sans Fallback", system-ui, sans-serif;
   --font-code:    ui-monospace, "SFMono-Regular", Menlo, "Courier New", monospace;
 
   /* ── Spacing — 8 px rhythm ──────────────────────────────── */

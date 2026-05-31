@@ -118,7 +118,7 @@ const MARK_RECTS = [
         </svg>
         <span
           :style="{
-            fontFamily: 'Nunito, system-ui, sans-serif',
+            fontFamily: 'Plus Jakarta Sans, system-ui, sans-serif',
             fontWeight: 600,
             fontSize: '28px',
             letterSpacing: '-0.025em',
@@ -152,7 +152,7 @@ const MARK_RECTS = [
     <div :style="{ display: 'flex', flexDirection: 'column', maxWidth: '900px', zIndex: 1 }">
       <span
         :style="{
-          fontFamily: 'Nunito, system-ui, sans-serif',
+          fontFamily: 'Plus Jakarta Sans, system-ui, sans-serif',
           fontSize: '14px',
           fontWeight: 600,
           letterSpacing: '0.22em',
@@ -165,7 +165,7 @@ const MARK_RECTS = [
       </span>
       <span
         :style="{
-          fontFamily: 'Nunito, system-ui, sans-serif',
+          fontFamily: 'Plus Jakarta Sans, system-ui, sans-serif',
           fontSize: '60px',
           fontWeight: 600,
           lineHeight: 1.05,
@@ -206,7 +206,7 @@ const MARK_RECTS = [
       <div :style="{ width: '10px', height: '10px', borderRadius: '2px', backgroundColor: coral }" />
       <span
         :style="{
-          fontFamily: 'Nunito, system-ui, sans-serif',
+          fontFamily: 'Plus Jakarta Sans, system-ui, sans-serif',
           fontSize: '14px',
           fontWeight: 600,
           letterSpacing: '0.18em',
@@ -218,7 +218,7 @@ const MARK_RECTS = [
       </span>
       <span
         :style="{
-          fontFamily: 'Nunito, system-ui, sans-serif',
+          fontFamily: 'Plus Jakarta Sans, system-ui, sans-serif',
           fontSize: '14px',
           letterSpacing: '0.12em',
           textTransform: 'uppercase',

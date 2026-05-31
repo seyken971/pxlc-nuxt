@@ -30,7 +30,7 @@ const props = defineProps<Props>()
   margin-bottom: var(--space-5);
 }
 .toc__title {
-  font-family: var(--font-mono); font-size: 11px; font-weight: 600;
+  font-family: var(--font-label); font-size: 11px; font-weight: 600;
   letter-spacing: 0.22em; text-transform: uppercase; color: var(--eyebrow);
   display: block; margin-bottom: var(--space-2-5);
 }

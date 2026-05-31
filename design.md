@@ -84,9 +84,9 @@ Ces tokens résolvent vers la palette et basculent automatiquement en dark mode.
 
 | Token | Stack |
 | --- | --- |
-| `--font-display` | `"Nunito", "Nunito Fallback", system-ui, -apple-system, "Segoe UI", sans-serif` |
+| `--font-display` | `"Plus Jakarta Sans", "Plus Jakarta Sans Fallback", system-ui, -apple-system, "Segoe UI", sans-serif` |
 | `--font-body` | `"Lora", "Lora Fallback", Georgia, "Times New Roman", serif` |
-| `--font-mono` | `"Nunito", "Nunito Fallback", system-ui, sans-serif` |
+| `--font-label` | `"Plus Jakarta Sans", "Plus Jakarta Sans Fallback", system-ui, sans-serif` |
 | `--font-code` | `ui-monospace, "SFMono-Regular", Menlo, "Courier New", monospace` |
 
 > Les tailles de titre utilisent `clamp()` défini localement dans chaque composant — pas de token `--fs-h1` global.

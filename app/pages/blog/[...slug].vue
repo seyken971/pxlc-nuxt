@@ -203,7 +203,7 @@ onBeforeUnmount(() => {
 }
 .post-lead { margin-bottom: var(--space-4); }
 .post-meta {
-  font-family: var(--font-mono); font-size: 11px;
+  font-family: var(--font-label); font-size: 11px;
   letter-spacing: 0.18em; text-transform: uppercase;
   color: var(--quiet);
   display: flex; flex-wrap: wrap; gap: var(--space-2);
@@ -227,7 +227,7 @@ onBeforeUnmount(() => {
   color: var(--ink); margin-bottom: var(--space-1);
 }
 .post-author__role {
-  font-family: var(--font-mono); font-size: 11px;
+  font-family: var(--font-label); font-size: 11px;
   letter-spacing: 0.18em; text-transform: uppercase; color: var(--quiet);
 }
 
@@ -246,7 +246,7 @@ onBeforeUnmount(() => {
 .breadcrumb__list {
   display: flex; flex-wrap: wrap; gap: var(--space-2);
   list-style: none; padding: 0; margin: 0;
-  font-family: var(--font-mono); font-size: 11px;
+  font-family: var(--font-label); font-size: 11px;
   letter-spacing: 0.18em; text-transform: uppercase;
   color: var(--quiet);
 }

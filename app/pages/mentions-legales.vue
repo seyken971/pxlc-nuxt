@@ -210,7 +210,7 @@ const lastUpdated = new Intl.DateTimeFormat('fr-FR', { day: 'numeric', month: 'l
 }
 
 .legal-card__label {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.18em;
@@ -248,7 +248,7 @@ const lastUpdated = new Intl.DateTimeFormat('fr-FR', { day: 'numeric', month: 'l
 }
 
 .legal-dl dt {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.1em;
@@ -263,7 +263,7 @@ const lastUpdated = new Intl.DateTimeFormat('fr-FR', { day: 'numeric', month: 'l
 }
 
 .legal-dl dd code {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: 13px;
   color: var(--eyebrow);
   background: var(--bg-soft);

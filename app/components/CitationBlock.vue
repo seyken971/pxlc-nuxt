@@ -24,7 +24,7 @@ withDefaults(defineProps<Props>(), { soft: true })
 
 <style scoped>
 .citation { text-align: center; max-width: 880px; margin: 0 auto; }
-.citation__source { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--eyebrow); margin-bottom: var(--space-4); }
+.citation__source { font-family: var(--font-label); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--eyebrow); margin-bottom: var(--space-4); }
 .citation__quote {
   margin: 0 0 var(--space-3); font-family: var(--font-display); font-weight: 500;
   font-size: clamp(22px, 3vw, 30px); line-height: 1.25; letter-spacing: -0.015em; color: var(--ink);

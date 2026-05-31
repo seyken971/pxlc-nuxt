@@ -92,7 +92,7 @@ const related = computed<Post[]>(() => {
 .blog-related__excerpt { font-size: 13.5px; line-height: 1.5; color: var(--ink-quiet); flex: 1; }
 .blog-related__date {
   margin-top: auto;
-  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em;
+  font-family: var(--font-label); font-size: 11px; letter-spacing: 0.18em;
   text-transform: uppercase; color: var(--quiet);
 }
 .badge { align-self: flex-start; }

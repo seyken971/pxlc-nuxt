@@ -229,7 +229,7 @@ const contactCards = [
 
 .form-label {
   display: block;
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.14em;
@@ -274,7 +274,7 @@ const contactCards = [
   .contact-sent:focus-visible { outline: 2px solid ButtonText; outline-offset: 2px; }
 }
 .contact-sent__eyebrow {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: 11px; font-weight: 600;
   letter-spacing: 0.18em; text-transform: uppercase;
   color: var(--eyebrow);
@@ -309,7 +309,7 @@ const contactCards = [
   color: var(--ink);
 }
 .contact-card__desc {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: 11px; letter-spacing: 0.1em;
   color: var(--quiet);
   margin-top: var(--space-1);

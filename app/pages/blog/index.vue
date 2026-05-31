@@ -182,7 +182,7 @@ const thumbModifier = (category?: string): string => {
 .blog-card__excerpt { font-size: 14px; line-height: 1.5; color: var(--ink-quiet); flex: 1; }
 .blog-card__meta {
   margin-top: auto; display: flex; gap: var(--space-2);
-  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em;
+  font-family: var(--font-label); font-size: 11px; letter-spacing: 0.1em;
   color: var(--quiet); text-transform: uppercase;
 }
 .badge { align-self: flex-start; }

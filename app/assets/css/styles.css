@@ -77,18 +77,18 @@ main[tabindex="-1"]:focus { outline: none; }
 
 .lead { font-size: clamp(16px, 2vw, 19px); line-height: 1.55; color: var(--ink-quiet); }
 .eyebrow {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: 11px; font-weight: 600;
   letter-spacing: 0.22em; text-transform: uppercase;
   color: var(--eyebrow);
   display: block; margin-bottom: var(--space-3);
 }
-.kicker { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--quiet); }
+.kicker { font-family: var(--font-label); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--quiet); }
 .coral-dot { color: var(--pxlc-coral); }
 
 /* ── Buttons ─────────────────────────────────────────────── */
 .btn {
-  font-family: var(--font-body);
+  font-family: var(--font-display);
   font-weight: 600;
   font-size: 15px;
   letter-spacing: -0.005em;
@@ -155,7 +155,7 @@ main[tabindex="-1"]:focus { outline: none; }
   padding: 10px 0 6px;
   transition: color var(--dur-fast), border-color var(--dur-fast), gap var(--dur-fast);
 }
-.linkout::after { content: "→"; font-family: var(--font-mono); }
+.linkout::after { content: "→"; font-family: var(--font-label); }
 .linkout:hover { gap: var(--space-3); text-decoration: none; }
 [data-theme="dark"] .linkout { color: var(--cyan); border-bottom-color: var(--cyan); }
 
@@ -200,7 +200,7 @@ main[tabindex="-1"]:focus { outline: none; }
 .site-nav { display: none; align-items: center; gap: clamp(16px, 2vw, 30px); }
 @media (min-width: 1024px) { .site-nav { display: flex; } }
 .site-nav__link {
-  font-family: var(--font-body); font-size: 14px; font-weight: 500;
+  font-family: var(--font-display); font-size: 14px; font-weight: 500;
   color: var(--ink); position: relative; padding: 10px 4px; min-width: 44px;
   text-align: center;
   transition: color var(--dur-fast);
@@ -312,7 +312,7 @@ main[tabindex="-1"]:focus { outline: none; }
 }
 .mobile-menu__link.is-active { color: var(--pxlc-cyan); }
 .mobile-menu__arrow {
-  font-family: var(--font-mono); font-size: 18px;
+  font-family: var(--font-label); font-size: 18px;
   color: var(--pxlc-border-dark-2); transition: color 200ms;
 }
 .mobile-menu__link.is-active .mobile-menu__arrow { color: var(--pxlc-coral); }
@@ -371,7 +371,7 @@ main[tabindex="-1"]:focus { outline: none; }
 @media (max-width: 767px) {
   .hero__actions .btn { width: 100%; justify-content: center; }
 }
-.hero__hint { font-family: var(--font-mono); font-size: 12px; color: var(--quiet); letter-spacing: 0.1em; margin-left: var(--space-2); }
+.hero__hint { font-family: var(--font-label); font-size: 12px; color: var(--quiet); letter-spacing: 0.1em; margin-left: var(--space-2); }
 .hero__media { position: relative; }
 /* Photo capped at 4/5 ratio but never taller than ~62vh so it can't
    single-handedly push the page beyond the fold on short viewports.
@@ -402,7 +402,7 @@ main[tabindex="-1"]:focus { outline: none; }
   }
 }
 .hero__pill-eyebrow {
-  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em;
+  font-family: var(--font-label); font-size: 10px; letter-spacing: 0.18em;
   text-transform: uppercase; color: var(--teal-deep); margin-bottom: var(--space-2); font-weight: 600;
 }
 [data-theme="dark"] .hero__pill-eyebrow { color: var(--cyan); }
@@ -436,17 +436,17 @@ main[tabindex="-1"]:focus { outline: none; }
 .card--method { min-height: 240px; padding: 32px 32px 48px; }
 /* teal-deep (not teal-mid) so the 11px ÉTAPE label hits WCAG AA 4.5:1
    contrast on white card surfaces. */
-.card--method .card__step-num { font-family: var(--font-mono); font-size: 11px; font-weight: 600; letter-spacing: 0.22em; color: var(--pxlc-teal-deep); margin-bottom: var(--space-5); }
+.card--method .card__step-num { font-family: var(--font-label); font-size: 11px; font-weight: 600; letter-spacing: 0.22em; color: var(--pxlc-teal-deep); margin-bottom: var(--space-5); }
 [data-theme="dark"] .card--method .card__step-num { color: var(--cyan); }
 .card--method h3 { margin: 0 0 8px; font-family: var(--font-display); font-size: 22px; line-height: 1.15; }
 .card--method p { font-size: 15px; line-height: 1.6; }
 .card__pixel { position: absolute; top: 24px; right: 24px; opacity: 0.7; }
-.card__tag { margin-top: var(--space-4); font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--quiet); }
+.card__tag { margin-top: var(--space-4); font-family: var(--font-label); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--quiet); }
 
 /* ── Badges ──────────────────────────────────────────────── */
 .badge {
   display: inline-flex; align-items: center; gap: 6px;
-  font-family: var(--font-mono); font-size: 11px; font-weight: 500;
+  font-family: var(--font-label); font-size: 11px; font-weight: 500;
   letter-spacing: 0.14em; text-transform: uppercase;
   padding: 6px 10px; border-radius: var(--radius-sm);
   background: var(--pxlc-bg-light); color: var(--pxlc-teal-deep);
@@ -491,7 +491,7 @@ main[tabindex="-1"]:focus { outline: none; }
 .cta-block .btn--ghost:focus-visible { box-shadow: inset 0 0 0 1px var(--pxlc-cyan), var(--ring-cyan); }
 .cta-block__sidecard {
   background: var(--pxlc-bg-dark-deep); border: 1px solid var(--pxlc-border-dark); border-radius: var(--radius-lg);
-  padding: var(--space-4); font-family: var(--font-mono);
+  padding: var(--space-4); font-family: var(--font-label);
 }
 .cta-block__sidecard-eyebrow { font-size: 11px; letter-spacing: 0.18em; color: var(--pxlc-cyan); text-transform: uppercase; margin-bottom: var(--space-3); font-weight: 600; }
 .cta-block__sidecard-lead { font-family: var(--font-body); font-size: 13px; line-height: 1.55; color: var(--pxlc-text-on-dark-soft); margin: 0 0 16px; }
@@ -515,7 +515,7 @@ main[tabindex="-1"]:focus { outline: none; }
 @media (min-width: 768px) { .site-footer__inner { grid-template-columns: 1.6fr 1fr 1fr; } }
 @media (min-width: 1024px) { .site-footer__inner { grid-template-columns: 2.4fr 1fr 1fr; } }
 .site-footer__col-title {
-  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.22em;
+  font-family: var(--font-label); font-size: 11px; letter-spacing: 0.22em;
   text-transform: uppercase; color: var(--pxlc-cyan); margin: 0 0 16px; font-weight: 600;
 }
 .site-footer__col-list { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--space-2); }
@@ -531,7 +531,7 @@ main[tabindex="-1"]:focus { outline: none; }
   background: var(--pxlc-bg-dark-soft); border: 1px solid var(--pxlc-border-dark);
   display: inline-flex; align-items: center; justify-content: center;
   color: var(--pxlc-cyan); transition: background var(--dur-fast), color var(--dur-fast), border-color var(--dur-fast);
-  font-family: var(--font-mono); font-size: 14px;
+  font-family: var(--font-label); font-size: 14px;
 }
 .site-footer__social-btn:hover { background: var(--pxlc-bg-dark-deep); color: var(--pxlc-coral); border-color: var(--pxlc-coral); }
 .site-footer__social-btn svg { width: 18px; height: 18px; }
@@ -540,7 +540,7 @@ main[tabindex="-1"]:focus { outline: none; }
   display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: var(--space-3);
 }
 .site-footer__legal p, .site-footer__legal a {
-  font-family: var(--font-mono); font-size: 11px;
+  font-family: var(--font-label); font-size: 11px;
   /* on-dark-soft (#A9C8D0) hits ~7.7:1 contrast on the dark footer;
      --pxlc-text-secondary (#5A6B70) is only 2.67:1 — too dim. */
   color: var(--pxlc-text-on-dark-soft);
@@ -560,10 +560,10 @@ main[tabindex="-1"]:focus { outline: none; }
 .pxlc-lead { font-family: var(--font-body); font-size: clamp(16px, 2vw, 19px); line-height: 1.55; color: var(--ink-quiet); }
 .pxlc-body { font-family: var(--font-body); font-size: 16px; line-height: 1.6; color: var(--ink-quiet); }
 .pxlc-body-sm { font-family: var(--font-body); font-size: 14.5px; line-height: 1.6; color: var(--ink-quiet); }
-.pxlc-eyebrow { font-family: var(--font-mono); font-size: 11px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--eyebrow); display: block; }
-.pxlc-kicker { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--quiet); }
-.pxlc-tag { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--quiet); }
-.pxlc-mono { font-family: var(--font-mono); font-size: 14px; }
+.pxlc-eyebrow { font-family: var(--font-label); font-size: 11px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--eyebrow); display: block; }
+.pxlc-kicker { font-family: var(--font-label); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--quiet); }
+.pxlc-tag { font-family: var(--font-label); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--quiet); }
+.pxlc-mono { font-family: var(--font-label); font-size: 14px; }
 .pxlc-coral-dot { color: var(--pxlc-coral); }
 
 /* ── Utility helpers ─────────────────────────────────────── */
@@ -581,7 +581,7 @@ main[tabindex="-1"]:focus { outline: none; }
 }
 
 /* ── Long-form prose (mentions légales, blog post body, etc.) ─────────── */
-.prose { font-size: 15.5px; line-height: 1.65; color: var(--ink-quiet); max-width: 72ch; }
+.prose { font-size: 16px; line-height: 1.65; color: var(--ink-quiet); max-width: 72ch; }
 .prose h2 {
   font-family: var(--font-display);
   font-size: clamp(20px, 2vw, 24px);
