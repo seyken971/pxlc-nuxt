@@ -14,8 +14,8 @@ withDefaults(defineProps<Props>(), {
   site: 'pxlc.fr',
 })
 
-const F_SANS = F_SANS
-const F_SERIF = F_SERIF
+const F_SANS = 'Plus Jakarta Sans, system-ui, sans-serif'
+const F_SERIF = 'Lora, Georgia, serif'
 
 // Single light surface — ivory ground reads distinctively on dark social UIs.
 const palette = {
