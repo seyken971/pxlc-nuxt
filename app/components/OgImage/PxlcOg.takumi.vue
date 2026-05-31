@@ -14,10 +14,10 @@ withDefaults(defineProps<Props>(), {
   site: 'pxlc.fr',
 })
 
-// Single light surface — the colorMode prop was carrying dark-mode
-// fallback values that nothing consumed. Dropped per design call:
-// social-app previews aren't aware of system theme anyway, and the
-// ivory ground reads distinctively on dark social UIs (X/LinkedIn/Slack).
+const F_SANS = F_SANS
+const F_SERIF = F_SERIF
+
+// Single light surface — ivory ground reads distinctively on dark social UIs.
 const palette = {
   bg: BRAND_HEX.bgLight,
   ink: BRAND_HEX.textInk,
@@ -59,7 +59,7 @@ const MARK_RECTS = [
       overflow: 'hidden',
       backgroundColor: palette.bg,
       color: palette.ink,
-      fontFamily: 'Lora, Georgia, serif',
+      fontFamily: F_SERIF,
       padding: '64px 72px',
     }"
   >
@@ -118,7 +118,7 @@ const MARK_RECTS = [
         </svg>
         <span
           :style="{
-            fontFamily: 'Plus Jakarta Sans, system-ui, sans-serif',
+            fontFamily: F_SANS,
             fontWeight: 600,
             fontSize: '28px',
             letterSpacing: '-0.025em',
@@ -152,7 +152,7 @@ const MARK_RECTS = [
     <div :style="{ display: 'flex', flexDirection: 'column', maxWidth: '900px', zIndex: 1 }">
       <span
         :style="{
-          fontFamily: 'Plus Jakarta Sans, system-ui, sans-serif',
+          fontFamily: F_SANS,
           fontSize: '14px',
           fontWeight: 600,
           letterSpacing: '0.22em',
@@ -165,7 +165,7 @@ const MARK_RECTS = [
       </span>
       <span
         :style="{
-          fontFamily: 'Plus Jakarta Sans, system-ui, sans-serif',
+          fontFamily: F_SANS,
           fontSize: '60px',
           fontWeight: 600,
           lineHeight: 1.05,
@@ -179,7 +179,7 @@ const MARK_RECTS = [
       <span
         v-if="description"
         :style="{
-          fontFamily: 'Lora, Georgia, serif',
+          fontFamily: F_SERIF,
           fontSize: '22px',
           fontWeight: 400,
           lineHeight: 1.45,
@@ -206,7 +206,7 @@ const MARK_RECTS = [
       <div :style="{ width: '10px', height: '10px', borderRadius: '2px', backgroundColor: coral }" />
       <span
         :style="{
-          fontFamily: 'Plus Jakarta Sans, system-ui, sans-serif',
+          fontFamily: F_SANS,
           fontSize: '14px',
           fontWeight: 600,
           letterSpacing: '0.18em',
@@ -218,7 +218,7 @@ const MARK_RECTS = [
       </span>
       <span
         :style="{
-          fontFamily: 'Plus Jakarta Sans, system-ui, sans-serif',
+          fontFamily: F_SANS,
           fontSize: '14px',
           letterSpacing: '0.12em',
           textTransform: 'uppercase',

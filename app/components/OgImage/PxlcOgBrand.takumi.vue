@@ -1,6 +1,14 @@
 <script setup lang="ts">
 import { BRAND_HEX } from '~/utils/brand-colors'
 
+const F_SANS = 'Plus Jakarta Sans, system-ui, sans-serif'
+
+const palette = {
+  bg: BRAND_HEX.bgLight,
+  ink: BRAND_HEX.textInk,
+  eyebrow: BRAND_HEX.tealDeep,
+} as const
+
 const coral = BRAND_HEX.coral
 
 const MARK_POS = [2, 35.33, 68.67] as const
@@ -29,7 +37,7 @@ const MARK_RECTS = [
       gap: '20px',
       position: 'relative',
       overflow: 'hidden',
-      backgroundColor: BRAND_HEX.bgLight,
+      backgroundColor: palette.bg,
     }"
   >
     <!-- Decorative mark: bottom-right, low-opacity, tilted -->
@@ -74,11 +82,11 @@ const MARK_RECTS = [
     <!-- PXLC. -->
     <div
       :style="{
-        fontFamily: 'Plus Jakarta Sans, system-ui, sans-serif',
+        fontFamily: F_SANS,
         fontWeight: 700,
         fontSize: '100px',
         letterSpacing: '-3px',
-        color: BRAND_HEX.textInk,
+        color: palette.ink,
         lineHeight: 1,
         display: 'flex',
         marginTop: '4px',
@@ -90,12 +98,12 @@ const MARK_RECTS = [
     <!-- Tagline -->
     <div
       :style="{
-        fontFamily: 'Plus Jakarta Sans, system-ui, sans-serif',
+        fontFamily: F_SANS,
         fontSize: '19px',
         fontWeight: 600,
         letterSpacing: '0.2em',
         textTransform: 'uppercase',
-        color: BRAND_HEX.tealDeep,
+        color: palette.eyebrow,
       }"
     >
       Médiation numérique · Guadeloupe
