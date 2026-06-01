@@ -114,7 +114,7 @@ const contactCards = [
             class="contact-sent"
           >
             <div class="contact-sent__eyebrow">Message envoyé</div>
-            <p class="contact-sent__text">Je reviens sous 48 h avec une réponse personnelle.</p>
+            <p class="contact-sent__text">Je reviens sous 48 h avec une réponse personnalisée.</p>
           </div>
 
           <form v-else class="contact-form" @submit.prevent="submit">
