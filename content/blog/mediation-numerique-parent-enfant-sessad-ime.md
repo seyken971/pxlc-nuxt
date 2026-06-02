@@ -28,6 +28,8 @@ Ces trois niveaux ne s'excluent pas. Un bon dispositif de médiation numérique 
 
 L'avis de 2019 *"Pour une politique nutritionnelle de santé publique en France — usages des écrans chez les enfants"* aboutit à une conclusion que beaucoup de professionnels méconnaissent : **le facteur le plus déterminant n'est pas le temps d'écran, c'est la qualité de la relation parent-enfant autour des écrans**.
 
+Le HCSP le formule sans ambiguïté : *« Un accompagnement dans l'utilisation des écrans est l'élément essentiel pouvant expliquer les divergences observées dans les résultats de la littérature scientifique. »* Ce point de convergence de l'ensemble de la littérature internationale est le fondement de l'approche PXLC.
+
 Trois points opérationnels pour les équipes :
 
 - **Le visionnage passif solitaire** est ce qui corrèle le plus clairement avec des effets négatifs sur le développement (langage, attention, lien social). Ce n'est pas "les écrans" en général.
@@ -77,6 +79,8 @@ Elle répond à la demande implicite des parents (donner un chiffre, une règle 
 Elle peut avoir du sens en prévention primaire (milieu scolaire ordinaire, familles sans problématiques spécifiques). Dans le médico-social, elle arrive souvent trop tard (les difficultés sont déjà installées) et s'adresse au mauvais interlocuteur (l'enfant, alors que le levier est le parent).
 
 ### Ce que ces approches ont en commun : elles traitent le numérique comme un problème à résoudre
+
+Une étude gouvernementale de 2022 (DITP/MILDECA) menée auprès de familles françaises confirme ce que le terrain montre : les changements de pratiques les plus durables ne sont pas quantitatifs (une heure de moins par jour) mais qualitatifs — apprendre à en parler, co-construire des règles avec l'enfant, partager un moment de jeu. L'interdiction seule n'ancre pas.
 
 Un dispositif de médiation numérique part d'une hypothèse inverse : **le numérique est un terrain de travail, pas un adversaire à combattre**. Le jeu vidéo, en particulier, est un langage que l'enfant maîtrise souvent mieux que ses parents — et cette asymétrie de compétence est un matériau clinique, pas un problème.
 
@@ -159,7 +163,7 @@ Le dispositif s'inscrit naturellement dans les lignes de financement des program
 
 ---
 
-*Ce guide a été rédigé à partir des rapports HCSP 2019 et 2020, du retour d'expérience du projet « Jouons Ensemble ! » au SESSAD Lékoklaya (2026), et de trois ans d'interventions de médiation numérique en Guadeloupe. Pour cadrer un dispositif adapté à votre structure, [contactez PXLC](/contact).*
+*Ce guide a été rédigé à partir des rapports HCSP 2019 et 2021, du rapport DITP/MILDECA 2022 sur les usages familiaux des écrans, du retour d'expérience du projet « Jouons Ensemble ! » au SESSAD Lékoklaya (2026), et de trois ans d'interventions de médiation numérique en Guadeloupe. Pour cadrer un dispositif adapté à votre structure, [contactez PXLC](/contact).*
 
 ---
 

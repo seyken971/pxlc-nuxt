@@ -20,6 +20,8 @@ Quand un enfant — surtout un enfant accompagné en SESSAD pour TSA ou TDAH —
 
 Dans Minecraft, après trois ans, votre enfant **sait**. Il connaît les recettes, les biomes, les comportements des mobs. Cette maîtrise est rare dans sa vie — à l'école, il est en difficulté ; à la maison, on lui demande sans cesse de faire mieux. Devant son écran, il est expert. Le jeu lui rend une **compétence visible** que personne ne lui conteste.
 
+Le Haut Conseil de la Santé Publique le confirme : un enfant qui joue intensément à un jeu ne présente pas nécessairement un usage problématique. Pour les enfants TSA ou TDAH, cet espace de compétence est souvent l'un des rares où ils se sentent capables — ce qui en fait un terrain de travail, pas un symptôme à traiter.
+
 ### 2. Le refuge structurant
 
 Un jeu connu, c'est un environnement **prévisible**. Pour un enfant qui vit avec beaucoup d'imprévu (anxiété, hyperstimulation, troubles du neurodéveloppement), revenir au même jeu c'est revenir à un espace où **les règles ne changent pas**. Ce n'est pas de l'ennui ; c'est de la régulation.
