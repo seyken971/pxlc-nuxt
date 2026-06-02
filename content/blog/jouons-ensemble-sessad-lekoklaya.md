@@ -8,7 +8,7 @@ readingTime: 12 min
 
 ## D'où vient le projet
 
-Décembre 2023. Le SESSAD Lékoklaya organise un **Café-Parents** sur la thématique « Enfants Écrans ». Une vingtaine de familles sont là. Les questions reviennent : *temps d'écran trop long, isolement dans la chambre, conflits réguliers le soir, sentiment d'impuissance.*
+Décembre 2023. Le SESSAD Lékoklaya, aux Abymes (Guadeloupe), organise un **Café-Parents** sur la thématique « Enfants Écrans ». Une vingtaine de familles sont là. Les questions reviennent : *temps d'écran trop long, isolement dans la chambre, conflits réguliers le soir, sentiment d'impuissance.*
 
 L'équipe identifie un manque. Les éducateurs et la psychologue accompagnent au quotidien des enfants TSA, TDAH, TCND — mais **personne ne se sent légitime pour parler des jeux vidéo en profondeur**. Aborder Minecraft ou Fortnite avec un parent, ça demande de connaître Minecraft et Fortnite.
 
@@ -74,3 +74,9 @@ Pas de pourcentages garantis. Pas d'échelle Rosenberg. Les indicateurs sont qua
 Le bilan complet sera communicable sur demande après validation par l'équipe Lékoklaya. Les perspectives ouvertes par le projet : élargissement aux fratries, réplication en milieu scolaire ou associatif, création d'une boîte à outils parents.
 
 > *« Jouer ensemble, c'est mieux comprendre, mieux se parler, et mieux grandir. »* — tagline du projet
+
+<!-- TÉMOIGNAGE LÉKOKLAYA — à ajouter après réunion du 03/06/2026 -->
+
+---
+
+*Andy Zébus est médiateur numérique par le jeu, basé aux Abymes (Guadeloupe). Il intervient comme prestataire de service auprès des structures médico-sociales et associatives sur la médiation parent-enfant par le jeu vidéo.*

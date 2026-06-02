@@ -6,7 +6,7 @@ category: cas-pratique
 readingTime: 14 min
 ---
 
-Dans les équipes de SESSAD et d'IME, la question revient presque à chaque réunion de synthèse : *comment aborder les écrans avec les familles sans tomber dans le discours moral, sans minimiser les vraies difficultés, et sans improviser ?*
+Dans les équipes de SESSAD et d'IME — notamment en Guadeloupe —, la question revient presque à chaque réunion de synthèse : *comment aborder les écrans avec les familles sans tomber dans le discours moral, sans minimiser les vraies difficultés, et sans improviser ?*
 
 Ce guide ne prétend pas trancher le débat "pour ou contre les écrans". Il s'appuie sur les deux rapports de référence du Haut Conseil de la Santé Publique — l'[avis de 2019](https://www.hcsp.fr/Explore.cgi/AvisRapportsDomaine?clefr=759) sur les effets de l'exposition aux écrans, et celui de [2020](https://www.hcsp.fr/Explore.cgi/AvisRapportsDomaine?clefr=1074) sur les usages excessifs — pour donner aux équipes pluridisciplinaires des repères concrets, mobilisables en pratique.
 
@@ -160,3 +160,7 @@ Le dispositif s'inscrit naturellement dans les lignes de financement des program
 ---
 
 *Ce guide a été rédigé à partir des rapports HCSP 2019 et 2020, du retour d'expérience du projet « Jouons Ensemble ! » au SESSAD Lékoklaya (2026), et de trois ans d'interventions de médiation numérique en Guadeloupe. Pour cadrer un dispositif adapté à votre structure, [contactez PXLC](/contact).*
+
+---
+
+*Andy Zébus est médiateur numérique par le jeu, basé aux Abymes (Guadeloupe). Il intervient comme prestataire de service auprès des structures médico-sociales et associatives sur la médiation parent-enfant par le jeu vidéo.*

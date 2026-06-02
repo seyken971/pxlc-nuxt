@@ -48,4 +48,10 @@ Et c'est à partir de là, et seulement à partir de là, qu'on peut éventuelle
 
 ## En une phrase
 
+*Observations issues des ateliers « Jouons Ensemble ! » menés en Guadeloupe.*
+
 > Un enfant qui rejoue au même jeu n'est pas en train de **stagner**. Il est en train de **maîtriser**. La question n'est pas "comment lui faire jouer à autre chose" — c'est "qu'est-ce qu'il est en train de me dire en jouant à ça ?"
+
+---
+
+*Andy Zébus est médiateur numérique par le jeu, basé aux Abymes (Guadeloupe). Il intervient comme prestataire de service auprès des structures médico-sociales et associatives sur la médiation parent-enfant par le jeu vidéo.*

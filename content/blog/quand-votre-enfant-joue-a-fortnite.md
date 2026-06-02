@@ -8,7 +8,7 @@ readingTime: 8 min
 
 ## Le constat qui revient
 
-Dans neuf entretiens familiaux sur dix, le mot "Fortnite" arrive avant la fin de la première phrase. Souvent dit avec un soupir. Parfois avec une pointe de panique. Rarement avec curiosité.
+Dans neuf entretiens familiaux sur dix, en Guadeloupe, le mot "Fortnite" arrive avant la fin de la première phrase. Souvent dit avec un soupir. Parfois avec une pointe de panique. Rarement avec curiosité.
 
 Pourtant Fortnite, comme tous les jeux *battle royale* compétitifs, est un **artefact culturel** que votre enfant maîtrise déjà mieux que vous. Ce n'est pas un problème à éradiquer ; c'est une **grille de lecture à apprendre**.
 
@@ -42,3 +42,7 @@ Souvent, c'est la première fois depuis longtemps que ce genre de phrase circule
 - HCSP (2019), *Effets de l'exposition aux écrans* — le rôle clé du cadre familial et des pratiques partagées : [hcsp.fr/Explore.cgi/AvisRapportsDomaine?clefr=759](https://www.hcsp.fr/Explore.cgi/AvisRapportsDomaine?clefr=759)
 - HCSP (2020), *De l'usage excessif à la dépendance* — repères pour identifier et prévenir le basculement vers un usage problématique : [hcsp.fr/Explore.cgi/AvisRapportsDomaine?clefr=1074](https://www.hcsp.fr/Explore.cgi/AvisRapportsDomaine?clefr=1074)
 - Le projet « Jouons Ensemble! » au SESSAD Lékoklaya — où ces principes se déclinent en ateliers parent-enfant concrets
+
+---
+
+*Andy Zébus est médiateur numérique par le jeu, basé aux Abymes (Guadeloupe). Il intervient comme prestataire de service auprès des structures médico-sociales et associatives sur la médiation parent-enfant par le jeu vidéo.*
