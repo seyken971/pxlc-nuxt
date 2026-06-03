@@ -9,6 +9,6 @@
     "preview": "node render-previews.js"
   },
   "dependencies": {
-    "puppeteer": "^23.11.1"
+    "puppeteer": "^24.0.0"
   }
 }
