@@ -1,17 +1,17 @@
 <script setup lang="ts">
 // 50 chars → 57 with " · PXLC" suffix from titleTemplate.
-useSeoMeta({ title: 'SESSAD, IME, associations — programmes par le jeu' })
+useSeoMeta({ title: 'SESSAD, IME, associations — médiation numérique' })
 // Kept under ~160 chars so Google doesn't truncate the HCSP tail.
 if (import.meta.server) {
   useSeoMeta({
     description:
-      'Je conçois des programmes de médiation numérique par le jeu sur mesure pour les SESSAD, IME, associations et collectivités de Guadeloupe — cadre HCSP 2019-2020, co-encadrement pluridisciplinaire, bilan transmis à vos tutelles.',
+      'Je conçois des programmes de médiation numérique sur mesure pour aider les familles à mieux utiliser les écrans — pour les SESSAD, IME, associations et collectivités de Guadeloupe. Cadre HCSP 2019-2020, bilan transmis à vos tutelles.',
   })
 }
 
 defineOgImage('PxlcOg', {
   eyebrow: 'PXLC · POUR LES STRUCTURES',
-  title: 'Programmes de médiation numérique par le jeu — SESSAD, IME, associations',
+  title: 'Programmes de médiation numérique — SESSAD, IME, associations',
   description: 'Ateliers thématiques parent-enfant co-encadrés par votre équipe pluridisciplinaire et le médiateur-numérique. Cadre HCSP, indicateurs d’évaluation, bilan en fin de dispositif.',
 })
 
@@ -28,7 +28,7 @@ const faqs = [
   {
     id: 'porteur',
     q: 'Qui porte le projet côté structure ?',
-    a: 'La psychologue de la structure est porteuse du projet — cadrage clinique, entretien initial avec les familles, bilan final. Le médiateur numérique intervient en partenariat, sur le terrain spécifique de la culture jeu vidéo.',
+    a: 'Le porteur de projet est défini avec votre structure — psychologue, coordinateur, directeur selon votre organisation. Le médiateur numérique intervient en partenariat sur les usages numériques des familles.',
   },
   {
     id: 'tarif',
@@ -43,7 +43,7 @@ const faqs = [
   {
     id: 'profils',
     q: 'Quels profils d’enfants sont accueillis ?',
-    a: 'Adapté aux TSA, TDAH, TCND, DM, neuropathie — et plus largement à tout enfant suivi pour des troubles du neurodéveloppement, du comportement ou du lien social. L’adaptation se fait en concertation avec l’équipe pluridisciplinaire.',
+    a: 'À toutes les familles accompagnées par la structure qui vivent des tensions autour des écrans. Le programme s’adapte en concertation avec votre équipe — y compris pour des profils spécifiques (TND, troubles du comportement, du lien social).',
   },
   {
     id: 'bilan',
@@ -57,7 +57,7 @@ const faqs = [
 useSchemaOrg([
   defineWebPage({
     '@type': ['WebPage', 'FAQPage'],
-    name: 'Programmes de médiation numérique par le jeu pour SESSAD, IME, associations et collectivités',
+    name: 'Programmes de médiation numérique pour SESSAD, IME, associations et collectivités',
   }),
   ...faqs.map(f =>
     defineQuestion({
@@ -69,7 +69,7 @@ useSchemaOrg([
 
 const facts: [string, string][] = [
   ['Format', 'Ateliers thématiques parent-enfant'],
-  ['Profils', 'TSA · TDAH · TCND · DM · neuropathie'],
+  ['Public', 'Familles accompagnées par votre structure'],
   ['Âges', '12 à 17 ans (adaptable)'],
   ['Encadrement', 'Équipe pluridisciplinaire + médiateur numérique'],
   ['Références', 'HCSP 2019 · HCSP 2020'],
@@ -78,7 +78,7 @@ const facts: [string, string][] = [
 
 // Mode opératoire en 4 étapes — source : _plaquette/PROJET PARENTS – ECRAN – ENFANT.md
 const steps = [
-  { num: '01', title: 'Préparation', detail: 'Entretiens familiaux avec l’équipe (psychologue, psychomotricienne, médiateur numérique, intervenants culturels). Identification du profil ludique des enfants, construction des binômes parent-enfant.' },
+  { num: '01', title: 'Préparation', detail: 'Entretiens familiaux avec votre équipe et le médiateur numérique. Identification du profil de chaque enfant, construction des binômes parent-enfant.' },
   { num: '02', title: 'Ateliers thématiques parent-enfant', detail: 'Coopération · Émotions & récits · Différence & complémentarité. Chaque atelier : temps de jeu partagé (30-45 min) + temps d’échange verbal (45 min - 1 h). Observation et guidance des interactions.' },
   { num: '03', title: 'Groupe de parole familiale', detail: 'Espace d’échange entre familles : régulation, limites, signes d’alerte, posture parentale.' },
   { num: '04', title: 'Bilan', detail: 'Synthèse des acquis parent/enfant, élaboration de pistes de continuité à la maison, transmission écrite à l’équipe pluridisciplinaire.' },
@@ -103,7 +103,7 @@ const team = [
   { role: 'Psychologue', detail: 'porteur du projet, cadrage clinique, entretien initial, bilan' },
   { role: 'Psychomotricienne', detail: 'auto-régulation des affects et des pulsions motrices' },
   { role: 'Intervenants culturels', detail: 'jeux traditionnels et contes en miroir des thèmes numériques' },
-  { role: 'Gamer médiateur-numérique', detail: 'choix des jeux, accompagnement en situation, démystification' },
+  { role: 'Médiateur numérique', detail: 'usages numériques (jeu vidéo, réseaux, temps d'écran), choix des jeux, accompagnement en situation, démystification' },
 ]
 
 // TODO Andy : valider / corriger les workflows par audience. Ce sont des
@@ -146,10 +146,10 @@ const audiences = [
             <span class="badge badge--soft">SESSAD · IME · associations · collectivités</span>
           </div>
           <h1 id="hero-title" class="hero__title">
-            Des programmes de médiation numérique par le jeu, co-construits avec votre équipe<span class="coral-dot" aria-hidden="true">.</span>
+            Des programmes de médiation numérique co-construits avec votre équipe, pour aider les familles à mieux utiliser les écrans<span class="coral-dot" aria-hidden="true">.</span>
           </h1>
           <p class="hero__lead">
-            Je conçois et anime des ateliers parent-enfant sur mesure, co-encadrés par votre équipe pluridisciplinaire. Programme phare&nbsp;: Parents-Écran-Enfant, ancré dans les recommandations HCSP&nbsp;2019-2020 — indicateurs qualitatifs, bilan transmis à vos tutelles en fin de dispositif.
+            Je conçois et anime des ateliers parent-enfant sur mesure, animés avec votre équipe selon le cadre que vous choisissez — pour aider les familles à mieux utiliser les écrans. Programme phare&nbsp;: Parents-Écran-Enfant, ancré dans les recommandations HCSP&nbsp;2019-2020 — indicateurs qualitatifs, bilan transmis à vos tutelles en fin de dispositif.
           </p>
           <div class="hero__actions">
             <NuxtLink to="/contact" class="btn btn--primary btn--lg">Demander un devis</NuxtLink>
@@ -265,10 +265,10 @@ const audiences = [
   <section id="equipe" class="section" aria-labelledby="equipe-title">
     <div class="container">
       <header class="section__head">
-        <span class="eyebrow">Équipe pluridisciplinaire</span>
+        <span class="eyebrow">Exemple de composition — SESSAD Lékoklaya 2026</span>
         <h2 id="equipe-title">Le médiateur numérique ne remplace personne — il complète<span class="coral-dot" aria-hidden="true">.</span></h2>
         <p class="lead">
-          Le projet est porté par la psychologue de votre structure. Le médiateur numérique par le jeu intervient en partenariat, sur le terrain spécifique de la culture jeu vidéo.
+          Le projet est porté par la psychologue de votre structure. Le médiateur numérique intervient en partenariat, sur son terrain d'expertise : les usages numériques des familles — jeu vidéo, réseaux, temps d'écran.
         </p>
       </header>
       <div class="grid grid--2 team-grid">

@@ -232,7 +232,9 @@ function parseNuxtConfig() {
     plaquette: {
       eyebrow: `${site.name || identity.name || 'PXLC'} · ${areaServed} · ${identity.address && identity.address.postalCode ? identity.address.postalCode.slice(0, 3) : '971'}`,
       title: 'Médiation<br>numérique<br>par le jeu',
-      coverLead: 'PXLC conçoit des programmes de médiation numérique sur mesure pour les SESSAD, IME, associations et collectivités de Guadeloupe — ancrés dans les recommandations HAS&nbsp;2020 et HCSP, co-construits avec les équipes pluridisciplinaires.',
+      coverLead: 'PXLC aide les familles à mieux utiliser les écrans. Auprès de vos équipes, pour résoudre les conflits autour du temps d\'écran et construire de bonnes pratiques numériques — pour que les familles s\'en servent sans subir.',
+      hcspValidation: 'Pour les enfants présentant des troubles cognitifs ou autistiques, l\'utilisation <strong>encadrée</strong> du numérique a des effets <strong>positifs</strong> sur l\'apprentissage et les interactions sociales. — HCSP&nbsp;2019, §&nbsp;VI.2',
+      mildecaStat: '44&nbsp;% des parents ne se sentent pas accompagnés pour réguler les écrans. — MILDECA&nbsp;·&nbsp;DITP&nbsp;2022',
       legalFooter: [
         identity.legalName || 'Andy Zébus — Entrepreneur Individuel',
         `SIRET&nbsp;${htmlNbsp(siret)}`,

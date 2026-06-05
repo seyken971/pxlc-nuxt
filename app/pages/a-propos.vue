@@ -3,15 +3,15 @@ useSeoMeta({ title: 'Andy Zébus — médiateur numérique' })
 if (import.meta.server) {
   useSeoMeta({
     description:
-      "Andy Zébus a fondé PXLC, entreprise de médiation numérique par le jeu en Guadeloupe. Ancien organisateur esport, médiateur formé, ancré dans les recommandations HCSP 2019-2020.",
+      "Andy Zébus a fondé PXLC, service de médiation numérique en Guadeloupe. Aide les familles à mieux utiliser les écrans, en partenariat avec les structures médico-sociales et associatives.",
   })
 }
 
 defineOgImage('PxlcOg', {
   eyebrow: 'PXLC · À PROPOS',
-  title: 'Médiateur numérique par le jeu',
+  title: 'Médiateur numérique',
   description:
-    "J'ai fondé PXLC pour concevoir des programmes de médiation numérique par le jeu avec les SESSAD, IME, associations et collectivités de Guadeloupe.",
+    "J'aide les familles à mieux utiliser les écrans — en partenariat avec les SESSAD, IME, associations et collectivités de Guadeloupe.",
 })
 
 // Person #andy est déclaré globalement dans app.vue — disponible sur toutes les pages.
@@ -57,10 +57,10 @@ const casquettes = [
         <div>
           <span class="eyebrow eyebrow--lg">À propos</span>
           <h1 class="about-title">
-            Andy Zébus, médiateur numérique par le jeu<span class="coral-dot" aria-hidden="true">.</span>
+            Andy Zébus, médiateur numérique<span class="coral-dot" aria-hidden="true">.</span>
           </h1>
           <p class="about-lead">
-            Basé aux Abymes (Guadeloupe), j'ai fondé PXLC pour concevoir et animer des programmes de médiation numérique par le jeu avec les structures du secteur médico-social et associatif.
+            Basé aux Abymes (Guadeloupe), j'ai fondé PXLC pour aider les familles à mieux utiliser les écrans — en partenariat avec les structures médico-sociales et associatives de Guadeloupe.
           </p>
           <div class="about-facts">
             <div v-for="f in facts" :key="f.label" class="about-fact">
@@ -109,7 +109,7 @@ const casquettes = [
 
   <CitationBlock
     source="Andy Zébus · médiateur numérique"
-    quote="Mon travail, ce n'est pas de juger l'usage des écrans. C'est de faire du jeu vidéo un espace de rencontre — entre un enfant et son parent, entre une famille et votre équipe."
+    quote="Mon travail, ce n'est pas de juger l'usage des écrans. C'est de créer un espace de rencontre — autour du jeu vidéo, des réseaux, du temps d'écran — entre un enfant et son parent, entre une famille et votre équipe."
     attribution="Andy Zébus · médiateur numérique"
   />
 

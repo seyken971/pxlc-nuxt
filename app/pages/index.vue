@@ -43,9 +43,9 @@ const heroCtaSecondary = { label: 'Télécharger la plaquette', href: '/files/pl
 
 <template>
   <Hero
-    title="Médiation numérique par le jeu"
+    title="Médiation numérique"
     :title-dot="true"
-    lead="Je conçois et anime des programmes sur mesure pour les SESSAD, IME, associations et collectivités de Guadeloupe. Programme phare : Parents-Écran-Enfant, qui transforme le temps d’écran en lien entre parents et enfants — fondé sur les avis HCSP 2019-2020."
+    lead="J’interviens auprès des structures de Guadeloupe — SESSAD, IME, associations — pour aider les familles à mieux utiliser les écrans : résoudre les conflits autour du temps d’écran, adopter les bonnes pratiques du numérique."
     :cta-primary="heroCta"
     :cta-secondary="heroCtaSecondary"
     hint="← programmes pour les structures"

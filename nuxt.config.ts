@@ -122,7 +122,7 @@ export default defineNuxtConfig({
     // (SESSAD, IME, associations, collectivités). Earlier wording said
     // "les familles", which we removed everywhere else — config follows.
     description:
-      "PXLC conçoit et anime des programmes de médiation numérique par le jeu pour les SESSAD, IME, associations et collectivités de Guadeloupe.",
+      "PXLC aide les familles à mieux utiliser les écrans : conflits autour du temps d'écran, bonnes pratiques du numérique — pour s'en servir sans subir. Interventions en Guadeloupe.",
     defaultLocale: "fr_FR",
     trailingSlash: false,
     currency: "EUR",
@@ -181,7 +181,7 @@ export default defineNuxtConfig({
       legalName: "Andy Zébus — Entrepreneur Individuel",
       taxID: "813 793 528 00031",
       description:
-        "PXLC conçoit et anime des programmes de médiation numérique par le jeu pour les SESSAD, IME, associations et collectivités de Guadeloupe.",
+        "PXLC aide les familles à mieux utiliser les écrans : conflits autour du temps d'écran, bonnes pratiques du numérique — pour s'en servir sans subir. Interventions en Guadeloupe.",
       url: "https://pxlc.fr",
       email: "contact@pxlc.fr",
       telephone: "+590690717618",

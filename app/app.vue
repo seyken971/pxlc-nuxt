@@ -10,9 +10,9 @@ useSchemaOrg([
   definePerson({
     '@id': 'https://pxlc.fr/#andy',
     name: 'Andy Zébus',
-    jobTitle: 'Médiateur numérique par le jeu',
+    jobTitle: 'Médiateur numérique',
     description:
-      'Médiateur numérique par le jeu vidéo, basé aux Abymes (Guadeloupe). Ateliers parent-enfant ancrés dans les rapports HCSP 2019-2020, en partenariat avec les structures médico-sociales et associatives.',
+      'Médiateur numérique basé aux Abymes (Guadeloupe). Aide les familles à mieux utiliser les écrans — conflits autour du temps d\'écran, bonnes pratiques numériques. Interventions en structures médico-sociales et associatives.',
     image: 'https://pxlc.fr/assets/img/photos/andy-portrait.jpg',
     url: 'https://pxlc.fr/a-propos',
     worksFor: { '@id': 'https://pxlc.fr/#identity' },
@@ -27,9 +27,9 @@ useSchemaOrg([
   {
     '@id': 'https://pxlc.fr/#service',
     '@type': 'Service',
-    name: 'Médiation numérique par le jeu — Programmes PXLC',
+    name: 'Médiation numérique — Programmes PXLC',
     description:
-      "Programmes de médiation numérique sur mesure pour les structures médico-sociales et associatives. Programme phare : Parents-Écran-Enfant, ateliers thématiques parent-enfant co-encadrés par l'équipe pluridisciplinaire. Cadre HCSP 2019-2020.",
+      'Médiation numérique pour les structures qui accompagnent des familles en Guadeloupe. Résolution des conflits autour du temps d\'écran, ateliers de bonnes pratiques, vulgarisation numérique.',
     serviceType: 'Médiation numérique',
     provider: { '@id': 'https://pxlc.fr/#identity' },
     areaServed: { '@type': 'AdministrativeArea', name: 'Guadeloupe' },
