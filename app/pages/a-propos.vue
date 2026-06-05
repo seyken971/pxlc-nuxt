@@ -129,8 +129,8 @@ const casquettes = [
           target="_blank"
           rel="noopener noreferrer"
           class="btn btn--ghost btn--lg"
-          aria-label="Plaquette PDF, 12 pages (nouvel onglet)"
-        >Plaquette PDF · 12 pages</a>
+          aria-label="Plaquette PDF, 6 pages (nouvel onglet)"
+        >Plaquette PDF · 6 pages</a>
       </div>
     </div>
   </section>

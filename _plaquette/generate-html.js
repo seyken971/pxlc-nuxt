@@ -231,9 +231,9 @@ function parseNuxtConfig() {
     siret,
     plaquette: {
       eyebrow: `${site.name || identity.name || 'PXLC'} · ${areaServed} · ${identity.address && identity.address.postalCode ? identity.address.postalCode.slice(0, 3) : '971'}`,
-      title: 'Médiation<br>numérique<br>par le jeu',
+      title: 'Médiation<br>numérique',
       coverLead: 'PXLC aide les familles à mieux utiliser les écrans. Auprès de vos équipes, pour résoudre les conflits autour du temps d\'écran et construire de bonnes pratiques numériques — pour que les familles s\'en servent sans subir.',
-      hcspValidation: 'Pour les enfants présentant des troubles cognitifs ou autistiques, l\'utilisation <strong>encadrée</strong> du numérique a des effets <strong>positifs</strong> sur l\'apprentissage et les interactions sociales. — HCSP&nbsp;2019, §&nbsp;VI.2',
+      hcspValidation: 'L\'<strong>accompagnement parental actif</strong> est le facteur clé pour limiter les effets négatifs des écrans sur les enfants. — HCSP&nbsp;2019',
       mildecaStat: '44&nbsp;% des parents ne se sentent pas accompagnés pour réguler les écrans. — MILDECA&nbsp;·&nbsp;DITP&nbsp;2022',
       legalFooter: [
         identity.legalName || 'Andy Zébus — Entrepreneur Individuel',
@@ -241,7 +241,7 @@ function parseNuxtConfig() {
         'APE&nbsp;70.21Z',
         addressInline,
       ].filter(Boolean).join(' · '),
-      public: 'TSA · TDAH · TND · dystrophie musculaire · neuropathies',
+      public: 'Familles accompagnées par votre structure',
       references: 'HAS&nbsp;2020 · HCSP&nbsp;2019-2020',
       format: 'Ateliers thématiques parent-enfant',
     },

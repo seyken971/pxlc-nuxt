@@ -1,30 +1,28 @@
 ---
 {
-  "projet": {
-    "structure": "SESSAD Lékoklaya",
-    "annee": "2026"
-  },
-  "cas_pratique": {
-    "lead": "Un projet porté par la psychologue du SESSAD, en partenariat avec l'entrepreneur en médiation numérique, auprès de huit enfants âgés de 12 à 17 ans.",
-    "contexte": "Le projet s'inscrit dans la continuité du Café-Parents du 14 décembre 2023 « Enfants Écrans ». L'équipe du SESSAD avait identifié que les jeux vidéo étaient un point de friction récurrent dans les familles (temps d'écran, isolement, conflits) — particulièrement chez les enfants accompagnés pour des troubles du neurodéveloppement, du comportement ou du lien social.",
-    "cohorte": "Huit enfants (TSA, TDAH, TND, dystrophie musculaire, neuropathies) âgés de 12 à 17 ans. Problématiques ciblées : usage excessif des écrans, socialisation, attention, anxiété. Chaque enfant participe en binôme avec un parent.",
-    "deroule": "Ateliers thématiques parent-enfant (coopération, émotions, différence) co-encadrés par la psychologue, la psychomotricienne, les intervenants culturels et l'entrepreneur en médiation numérique. Chaque atelier : 30 à 45&nbsp;min de jeu partagé + 45&nbsp;min à 1&nbsp;h d'échange verbal. Groupe de parole familiale puis bilan en fin de dispositif."
-  },
-  "profils": {
-    "tranche_age": "12 à 17 ans"
-  }
+  "projet": { "structure": "SESSAD Lékoklaya", "annee": "2026" },
+  "cas_pratique":
+    {
+      "lead": "Un projet porté par la psychologue du SESSAD, en partenariat avec l'entrepreneur en médiation numérique, auprès de huit enfants âgés de 12 à 17 ans.",
+      "contexte": "Le projet s'inscrit dans la continuité du Café-Parents du 14 décembre 2023 « Enfants Écrans ». L'équipe du SESSAD avait identifié que les jeux vidéo étaient un point de friction récurrent dans les familles (temps d'écran, isolement, conflits) — particulièrement chez les enfants accompagnés pour des troubles du neurodéveloppement, du comportement ou du lien social.",
+      "cohorte": "Huit enfants (TSA, TDAH, TND, dystrophie musculaire, neuropathies) âgés de 12 à 17 ans. Problématiques ciblées : usage excessif des écrans, socialisation, attention, anxiété. Chaque enfant participe en binôme avec un parent.",
+      "deroule": "Ateliers thématiques parent-enfant (coopération, émotions, différence) co-encadrés par la psychologue, la psychomotricienne, les intervenants culturels et l'entrepreneur en médiation numérique. Chaque atelier : 30 à 45&nbsp;min de jeu partagé + 45&nbsp;min à 1&nbsp;h d'échange verbal. Groupe de parole familiale puis bilan en fin de dispositif."
+    },
+  "profils": { "tranche_age": "12 à 17 ans" }
 }
 ---
 
 # PROJET PARENTS – ÉCRAN – ENFANT
+
 ## "Jouons Ensemble !"
 
-**Titre du projet :** *"Jouons Ensemble !"*  
+**Titre du projet :** _"Jouons Ensemble !"_  
 **Sous-titre :** Atelier de Ressources Psycho-Sociales pour le développement de l'enfant et la relation parent-enfant basé sur l'appétence numérique  
 **Structure porteuse :** SESSAD Lékoklaya  
 **Porteur du projet :** Psychologue du SESSAD  
 **Partenaires :**
-- Entrepreneur en médiation numérique
+
+- PXLC - Andy Zébus, entrepreneur en médiation numérique
 - Intervenant Culturel — Jeux traditionnels
 
 **Période :** 2026  
@@ -36,7 +34,7 @@
 
 Les jeux vidéo occupent une place importante dans le quotidien de nombreux enfants, en particulier ceux suivis en SESSAD pour des troubles du neurodéveloppement, des troubles du comportement ou du lien social. Ces jeux sont souvent source de tensions avec les familles : temps d'écran, isolement, conflits réguliers.
 
-Le projet s'inscrit dans la continuité de la sensibilisation faite aux parents lors du *Café-Parents* le 14 Décembre 2023, intitulé « Enfants Écrans ». Nous proposons une approche différente : diversifier l'écosystème ludique de l'enfant et faire du jeu vidéo un outil d'alliance entre parents et enfants, et non un terrain de conflit.
+Le projet s'inscrit dans la continuité de la sensibilisation faite aux parents lors du _Café-Parents_ le 14 Décembre 2023, intitulé « Enfants Écrans ». Nous proposons une approche différente : diversifier l'écosystème ludique de l'enfant et faire du jeu vidéo un outil d'alliance entre parents et enfants, et non un terrain de conflit.
 
 Cette démarche s'inscrit dans les recommandations de la HAS (2020) et du HCSP, qui insistent sur l'importance de **l'accompagnement parental actif**, de la **régulation** et de la **qualité des contenus**.
 
@@ -60,7 +58,7 @@ Cette démarche s'inscrit dans les recommandations de la HAS (2020) et du HCSP, 
 
 ### Profil des bénéficiaires
 
-*(à compléter)*
+_(à compléter)_
 
 ---
 
@@ -151,4 +149,4 @@ Chaque atelier inclut :
 
 Ce projet s'inscrit dans une démarche à la fois thérapeutique, préventive et éducative. Il vise à diversifier les centres d'intérêts ludiques et transformer l'appétence pour les jeux vidéo dans la famille à travers une expérience partagée, encadrée et réfléchie.
 
-*"Jouer ensemble, c'est mieux comprendre, mieux se parler, et mieux grandir."*
+_"Jouer ensemble, c'est mieux comprendre, mieux se parler, et mieux grandir."_
