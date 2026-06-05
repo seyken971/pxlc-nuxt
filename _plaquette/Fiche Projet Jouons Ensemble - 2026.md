@@ -5,10 +5,10 @@
     "annee": "2026"
   },
   "cas_pratique": {
-    "lead": "Un projet porté par la psychologue du SESSAD, en partenariat avec le entrepreneur en médiation numérique, auprès de huit enfants âgés de 12 à 17 ans.",
+    "lead": "Un projet porté par la psychologue du SESSAD, en partenariat avec l'entrepreneur en médiation numérique, auprès de huit enfants âgés de 12 à 17 ans.",
     "contexte": "Le projet s'inscrit dans la continuité du Café-Parents du 14 décembre 2023 « Enfants Écrans ». L'équipe du SESSAD avait identifié que les jeux vidéo étaient un point de friction récurrent dans les familles (temps d'écran, isolement, conflits) — particulièrement chez les enfants accompagnés pour des troubles du neurodéveloppement, du comportement ou du lien social.",
     "cohorte": "Huit enfants (TSA, TDAH, TND, dystrophie musculaire, neuropathies) âgés de 12 à 17 ans. Problématiques ciblées : usage excessif des écrans, socialisation, attention, anxiété. Chaque enfant participe en binôme avec un parent.",
-    "deroule": "Ateliers thématiques parent-enfant (coopération, émotions, différence) co-encadrés par la psychologue, la psychomotricienne, les intervenants culturels et le entrepreneur en médiation numérique. Chaque atelier : 30 à 45&nbsp;min de jeu partagé + 45&nbsp;min à 1&nbsp;h d'échange verbal. Groupe de parole familiale puis bilan en fin de dispositif."
+    "deroule": "Ateliers thématiques parent-enfant (coopération, émotions, différence) co-encadrés par la psychologue, la psychomotricienne, les intervenants culturels et l'entrepreneur en médiation numérique. Chaque atelier : 30 à 45&nbsp;min de jeu partagé + 45&nbsp;min à 1&nbsp;h d'échange verbal. Groupe de parole familiale puis bilan en fin de dispositif."
   },
   "profils": {
     "tranche_age": "12 à 17 ans"
@@ -36,7 +36,7 @@
 
 Les jeux vidéo occupent une place importante dans le quotidien de nombreux enfants, en particulier ceux suivis en SESSAD pour des troubles du neurodéveloppement, des troubles du comportement ou du lien social. Ces jeux sont souvent source de tensions avec les familles : temps d'écran, isolement, conflits réguliers.
 
-Le projet s'inscrit dans la continuité de la sensibilisation faite aux parents lors du *Café-Parents* le 14 Décembre 2023, intitulé « Enfants Écrans ». Et ici nous proposons une approche innovante : diversifier l'écosystème ludique de l'enfant et faire du jeu vidéo un outil d'alliance entre parents et enfants, et non un terrain de conflit.
+Le projet s'inscrit dans la continuité de la sensibilisation faite aux parents lors du *Café-Parents* le 14 Décembre 2023, intitulé « Enfants Écrans ». Nous proposons une approche différente : diversifier l'écosystème ludique de l'enfant et faire du jeu vidéo un outil d'alliance entre parents et enfants, et non un terrain de conflit.
 
 Cette démarche s'inscrit dans les recommandations de la HAS (2020) et du HCSP, qui insistent sur l'importance de **l'accompagnement parental actif**, de la **régulation** et de la **qualité des contenus**.
 
@@ -74,7 +74,7 @@ Cette démarche s'inscrit dans les recommandations de la HAS (2020) et du HCSP, 
 
 #### Deuxième étape : Ateliers thématiques parents-enfants
 
-Encadrés par le psychologue, la psychomotricienne, le entrepreneur en médiation numérique et les intervenants culturels.
+Encadrés par le psychologue, la psychomotricienne, l'entrepreneur en médiation numérique et les intervenants culturels.
 
 Thèmes (non exhaustif) :
 
@@ -142,7 +142,7 @@ Chaque atelier inclut :
 
 ### Budget (à prévoir — voir devis €)
 
-- Rémunération du entrepreneur intervenant en médiation numérique.
+- Rémunération de l'entrepreneur intervenant en médiation numérique.
 - Rémunération des intervenants culturels.
 - Prêt des consoles et des jeux.
 - Matériel pour les sessions (écrans, mobilier, jeux et jouets traditionnels).

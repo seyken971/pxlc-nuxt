@@ -3,12 +3,13 @@
 
 <head>
   <meta charset="utf-8">
+  <meta name="author" content="Andy Zébus — PXLC">
   <title>{{site.name}} — Plaquette · Médiation numérique par le jeu</title>
-  <link rel="icon" href="../public/assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="../public/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap">
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap">
   <link rel="stylesheet" href="../app/assets/css/styles.css">
   <style>
     /* =============================================================
@@ -30,6 +31,8 @@
       --on-dark: var(--pxlc-text-on-dark-soft);
       --rule-soft: var(--pxlc-border-soft);
       --coral: var(--pxlc-coral);
+      /* --font-mono n'existe plus dans tokens.css — alias vers --font-label (Plus Jakarta Sans) */
+      --font-mono: var(--font-label);
     }
 
     @page {
@@ -841,9 +844,10 @@
     .consent__sig {
       font-family: var(--font-mono);
       font-size: 8pt;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
       color: var(--quiet);
+      white-space: nowrap;
     }
 
     .consent__sig-line {
@@ -918,7 +922,7 @@
       <div class="card">
         <span class="eyebrow">La réponse</span>
         <p style="margin-top: 3mm;">Un dispositif co-encadré par votre équipe pluridisciplinaire (psychologue,
-          psychomotricienne, intervenants culturels — jeux traditionnels) et le entrepreneur en médiation numérique.
+          psychomotricienne, intervenants culturels — jeux traditionnels) et l'entrepreneur en médiation numérique.
           Ateliers thématiques parent-enfant, groupe de parole familiale, bilan en fin de dispositif.</p>
       </div>
     </div>
@@ -1182,7 +1186,7 @@
       <div>
         <div class="step__phase">Préparation <span class="step__duration">entretiens familiaux</span></div>
         <h3 class="step__title">Comprendre l'enfant</h3>
-        <p class="step__desc">Entretiens conjoints avec la psychologue, la psychomotricienne, le entrepreneur en
+        <p class="step__desc">Entretiens conjoints avec la psychologue, la psychomotricienne, l'entrepreneur en
           médiation numérique et les intervenants culturels. Identification du profil ludique de chaque enfant et
           construction des binômes parent-enfant.</p>
         <span class="step__deliv">Ce que l'enfant met dans son écran, sans projection adulte</span>
@@ -1251,7 +1255,7 @@
 
     <span class="eyebrow">05 · Dispositif type · 1/2</span>
     <h2>Quatre étapes, encadrement pluridisciplinaire<span class="coral-dot" aria-hidden="true">.</span></h2>
-    <p style="margin-bottom: 6mm;">Le projet est porté par votre structure (psychologue, coordinateur). Le entrepreneur
+    <p style="margin-bottom: 6mm;">Le projet est porté par votre structure (psychologue, coordinateur). L'entrepreneur
       en médiation numérique intervient en partenariat. Chaque étape est calibrée avec votre équipe selon les besoins du
       public accueilli.</p>
 
@@ -1274,7 +1278,7 @@
         <h3 class="step__title">Ateliers parent-enfant</h3>
         <p class="step__desc">Trois thèmes (liste non exhaustive) : coopération, émotions &amp; récits, différence &amp;
           complémentarité. Chaque atelier : temps de jeu partagé (30 à 45&nbsp;min, voire 1&nbsp;h) + temps d'échange
-          verbal (45&nbsp;min à 1&nbsp;h), co-encadré par l'équipe pluridisciplinaire et le entrepreneur en médiation
+          verbal (45&nbsp;min à 1&nbsp;h), co-encadré par l'équipe pluridisciplinaire et l'entrepreneur en médiation
           numérique.</p>
         <span class="step__deliv">Observation et guidance des interactions</span>
       </div>
@@ -1319,7 +1323,7 @@
         <div class="step__phase">Groupe de parole familiale <span class="step__duration">entre familles</span></div>
         <h3 class="step__title">Espace d'échange familles</h3>
         <p class="step__desc">Restitution collective entre familles, animée par l'équipe de la structure : thèmes
-          régulation, limites, signes d'alerte, posture parentale. Le entrepreneur en médiation numérique intervient sur
+          régulation, limites, signes d'alerte, posture parentale. L'entrepreneur en médiation numérique intervient sur
           les questions de culture jeu vidéo qui émergent (contrôle parental, jeux compétitifs, dynamiques de fratrie).
         </p>
         <span class="step__deliv">Repères communs partagés entre familles</span>
