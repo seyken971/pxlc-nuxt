@@ -103,7 +103,7 @@ const team = [
   { role: 'Psychologue', detail: 'porteur du projet, cadrage clinique, entretien initial, bilan' },
   { role: 'Psychomotricienne', detail: 'auto-régulation des affects et des pulsions motrices' },
   { role: 'Intervenants culturels', detail: 'jeux traditionnels et contes en miroir des thèmes numériques' },
-  { role: 'Médiateur numérique', detail: 'usages numériques (jeu vidéo, réseaux, temps d'écran), choix des jeux, accompagnement en situation, démystification' },
+  { role: 'Médiateur numérique', detail: "usages numériques (jeu vidéo, réseaux, temps d'écran), choix des jeux, accompagnement en situation, démystification" },
 ]
 
 // TODO Andy : valider / corriger les workflows par audience. Ce sont des
