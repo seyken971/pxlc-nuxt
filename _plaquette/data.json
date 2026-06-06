@@ -1,5 +1,5 @@
 {
-  "version": "v2",
+  "version": "v3",
 
   "contact": {
     "email": "contact@pxlc.fr",
@@ -11,20 +11,48 @@
 
   "siret": "813 793 528 00031",
 
+  "plaquette": {
+    "eyebrow": "Familles &amp; écrans · Guadeloupe · 971",
+    "title": "Médiation numérique",
+    "references": "HAS 2020 · HCSP",
+    "format": "Ateliers parent-enfant",
+    "public": "SESSAD · IME · associations"
+  },
+
+  "mission": {
+    "statement": "PXLC aide les familles à <strong>mieux utiliser les écrans</strong>&nbsp;: résoudre les conflits autour du temps d'écran, adopter les bonnes pratiques du numérique — pour <strong>s'en servir sans subir</strong>.",
+    "constat": "Une utilisation jugée excessive des écrans — jeux vidéo en tête — est un point de friction récurrent dans les familles&nbsp;: temps passé, isolement, conflits. Particulièrement pour les enfants suivis pour des troubles du neurodéveloppement.",
+    "partiPris": "Ni diaboliser, ni banaliser. Les recommandations HAS&nbsp;2020 invitent à <strong>soutenir la fonction parentale</strong> dans la médiation des écrans plutôt qu'à les interdire. C'est ma boussole.",
+    "pourQui": "Les professionnels des structures qui manquent de ressources spécifiques sur la culture jeu vidéo — référents, coordinateurs, équipes pluridisciplinaires — pour mieux accompagner les familles qu'ils suivent.",
+    "promesse": "Un intervenant extérieur qui parle le langage des joueurs <em>et</em> celui des projets de service&nbsp;: pas un gadget, un partenaire qui s'intègre à votre projet d'établissement, vos bilans et vos cadres de confidentialité."
+  },
+
   "andy": {
-    "bio": "Né en Guadeloupe, Andy Zébus a passé six ans à organiser la scène esport locale avant de fonder <strong>PXLC</strong>. Il intervient avec les structures qui accueillent des familles — SESSAD, médiathèques, centres sociaux, IME — pour les aider à mieux utiliser les écrans. Il lit les recommandations HCSP et HAS, parle le langage des bilans d'activité, et traduit les usages numériques des enfants pour leurs parents et l'équipe.",
+    "bio": "Né en Guadeloupe, formé à la médiation interculturelle et au numérique, j'ai passé six ans à structurer la scène esport guadeloupéenne avant de fonder <strong>PXLC</strong>, entreprise de médiation numérique par le jeu, partenaire des structures médico-sociales et associatives de l'archipel.",
     "casquette1": {
       "titre": "Organisateur esport",
-      "desc": "Six ans à monter la scène esport guadeloupéenne avec Esports Guadeloupe — tournois, communauté, partenariats grands comptes. Derrière les chiffres&nbsp;: une connaissance fine de ce qu'un enfant met dans son jeu, de pourquoi il ne peut pas s'arrêter, et du vocabulaire qui permet de lui parler. Clé d'entrée irremplaçable pour les familles qui vivent les écrans comme un conflit."
+      "desc": "Six ans à monter la scène esport guadeloupéenne avec Esports Guadeloupe — tournois, communauté, partenariats grands comptes. Je connais de l'intérieur la communauté joueurs et le langage des équipes."
     },
     "casquette2": {
       "titre": "Médiateur formé",
-      "desc": "Le HCSP (2019) l'établit&nbsp;: l'accompagnement parental actif est le facteur clé pour limiter les effets négatifs des écrans. C'est le socle. La pratique&nbsp;: formateur en médiation numérique chez Simplon Outre-Mer (2021–2022), grille d'analyse alignée HAS&nbsp;2020 et HCSP 2019–2021, indicateurs intégrables aux bilans ARS."
+      "desc": "J'ai été formateur principal en médiation numérique chez Simplon Outre-Mer (2021–2022). Je lis les recommandations HAS et HCSP en profondeur, aligné sur les standards du soutien à la parentalité."
     },
     "casquette3": {
       "titre": "Conseil institutionnel",
-      "desc": "Affaires européennes et numérique THD à la Région Guadeloupe, formation aux élus et accompagnement des collectivités. Connaît le langage des projets ARS, CPOM et des bilans d'activité. Les comptes-rendus PXLC sont structurés pour s'intégrer à vos bilans — sans travail supplémentaire pour votre équipe."
+      "desc": "J'ai piloté les affaires européennes et le numérique THD à la Région Guadeloupe, entre formation aux élus et accompagnement des collectivités. Je connais le langage des projets de service et des bilans d'activité."
     },
+    "changement": "Un seul interlocuteur qui fait le pont entre trois mondes qui se parlent rarement&nbsp;: la culture joueur, le cadre du soin et le langage institutionnel. C'est ce triple ancrage qui rend la médiation crédible — côté enfant comme côté équipe.",
     "quote": "Mon travail, ce n'est pas de juger l'usage des écrans. C'est de créer un espace de rencontre — autour du jeu vidéo, des réseaux, du temps d'écran — entre un enfant et son parent, entre une famille et votre équipe."
+  },
+
+  "cas": {
+    "intro": "Un projet porté par le psychologue du <strong>SESSAD Lékoklaya</strong> (2026), en partenariat avec PXLC, auprès de huit enfants de 12 à 17 ans. Il s'inscrit dans la continuité du Café-Parents « Enfants Écrans », où les jeux vidéo avaient été identifiés comme point de friction récurrent dans les familles.",
+    "fact1Value": "8",
+    "fact1Label": "enfants accompagnés, en binôme avec un parent",
+    "fact2Value": "12–17",
+    "fact2Label": "ans · TSA, TDAH, TND, dystrophie&nbsp;musculaire",
+    "fact3Value": "3",
+    "fact3Label": "thèmes · coopération, émotions, différence",
+    "equipe": "Co-encadrement avec le <strong>psychologue</strong> et la <strong>psychomotricienne</strong> du SESSAD, et un <strong>intervenant culturel</strong> (jeux traditionnels). Chacun garde son rôle&nbsp;: le soin reste piloté par la structure, j'apporte la lecture du jeu vidéo."
   }
 }

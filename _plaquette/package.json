@@ -5,7 +5,7 @@
   "description": "Génère la plaquette PXLC en PDF A4 depuis plaquette.template.html + data.json (Chromium headless via Puppeteer)",
   "scripts": {
     "generate": "node generate-html.js",
-    "build": "node generate-html.js && node build-pdf.js",
+    "build": "node export-pdf.mjs",
     "preview": "node render-previews.js"
   },
   "dependencies": {

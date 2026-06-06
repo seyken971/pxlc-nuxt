@@ -87,6 +87,99 @@ function pick(vars, fn) {
   return Object.entries(vars).filter(([k]) => fn(k));
 }
 
+// ── YAML Frontmatter (google-labs-code/design.md standard) ────────────────
+
+function yamlKey(cssVar) {
+  return cssVar.replace(/^--/, "");
+}
+
+function yamlVal(v) {
+  return `"${v.replace(/\\/g, "\\\\").replace(/"/g, '\\"')}"`;
+}
+
+function buildFrontmatter(root, dark) {
+  const lines = ["---", "name: PXLC Design System"];
+
+  const palette = pick(root, (k) => k.startsWith("--pxlc-"));
+  lines.push("colors:");
+  lines.push("  palette:");
+  for (const [k, v] of palette) {
+    lines.push(`    ${yamlKey(k)}: ${yamlVal(v)}`);
+  }
+
+  const semanticColors = pick(
+    root,
+    (k) =>
+      !k.startsWith("--pxlc-") &&
+      !k.startsWith("--font-") &&
+      !k.startsWith("--space-") &&
+      !k.startsWith("--radius-") &&
+      !k.startsWith("--dur-") &&
+      !k.startsWith("--ease-") &&
+      !k.startsWith("--container-"),
+  );
+  if (semanticColors.length) {
+    lines.push("  semantic:");
+    for (const [k, v] of semanticColors) {
+      const d = dark[k];
+      if (d) {
+        lines.push(`    ${yamlKey(k)}:`);
+        lines.push(`      light: ${yamlVal(v)}`);
+        lines.push(`      dark: ${yamlVal(d)}`);
+      } else {
+        lines.push(`    ${yamlKey(k)}: ${yamlVal(v)}`);
+      }
+    }
+  }
+
+  const fonts = pick(root, (k) => k.startsWith("--font-"));
+  if (fonts.length) {
+    lines.push("typography:");
+    for (const [k, v] of fonts) {
+      lines.push(`  ${yamlKey(k)}: ${yamlVal(v)}`);
+    }
+  }
+
+  const spaces = pick(root, (k) => k.startsWith("--space-"));
+  if (spaces.length) {
+    lines.push("spacing:");
+    lines.push('  base: "8px"');
+    for (const [k, v] of spaces) {
+      lines.push(`  ${yamlKey(k)}: ${yamlVal(v)}`);
+    }
+  }
+
+  const radii = pick(root, (k) => k.startsWith("--radius-"));
+  if (radii.length) {
+    lines.push("radius:");
+    for (const [k, v] of radii) {
+      lines.push(`  ${yamlKey(k)}: ${yamlVal(v)}`);
+    }
+  }
+
+  const motion = pick(
+    root,
+    (k) => k.startsWith("--dur-") || k.startsWith("--ease-"),
+  );
+  if (motion.length) {
+    lines.push("motion:");
+    for (const [k, v] of motion) {
+      lines.push(`  ${yamlKey(k)}: ${yamlVal(v)}`);
+    }
+  }
+
+  const layout = pick(root, (k) => k.startsWith("--container-"));
+  if (layout.length) {
+    lines.push("layout:");
+    for (const [k, v] of layout) {
+      lines.push(`  ${yamlKey(k)}: ${yamlVal(v)}`);
+    }
+  }
+
+  lines.push("---");
+  return lines.join("\n") + "\n";
+}
+
 // ── Main ───────────────────────────────────────────────────────────────────
 
 const main = async () => {
@@ -100,6 +193,8 @@ const main = async () => {
   const sections = parseSections(stylesCss);
 
   const md = [];
+
+  md.push(buildFrontmatter(root, dark));
 
   // ── En-tête ──────────────────────────────────────────────────────────────
   md.push("# PXLC — Design System\n");

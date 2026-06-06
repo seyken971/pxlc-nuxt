@@ -27,9 +27,12 @@ const OUTPUT_FILE = path.join(OUTPUT_DIR, 'plaquette-pxlc.pdf');
   fs.mkdirSync(OUTPUT_DIR, { recursive: true });
 
   console.log('▸ Lancement de Chromium headless...');
+  const launchArgs = process.env.PUPPETEER_NO_SANDBOX === '1'
+    ? ['--no-sandbox', '--disable-setuid-sandbox']
+    : []
   const browser = await puppeteer.launch({
-    headless: 'new',
-    args: ['--no-sandbox', '--disable-setuid-sandbox'],
+    headless: true,
+    args: launchArgs,
   });
 
   try {

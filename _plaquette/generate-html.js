@@ -104,16 +104,17 @@ function parseListSection(markdown, heading) {
   return [...block.matchAll(/^- (.+)$/gm)].map(([, item]) => item.trim())
 }
 
-function normalizeBrandCopy(text) {
-  return String(text || '')
-}
-
 // ── Détection de la fiche .md ────────────────────────────────────────────────
 
 function findFiche() {
   const argIdx = process.argv.indexOf('--fiche')
   if (argIdx !== -1) {
-    const p = path.resolve(process.argv[argIdx + 1])
+    const ficheArg = process.argv[argIdx + 1]
+    if (!ficheArg || ficheArg.startsWith('--')) {
+      console.error('✗ --fiche requiert un chemin de fichier')
+      process.exit(1)
+    }
+    const p = path.resolve(ficheArg)
     if (!fs.existsSync(p)) { console.error(`✗ Fiche introuvable : ${p}`); process.exit(1) }
     return p
   }
@@ -197,7 +198,7 @@ function parseNuxtConfig() {
       name: site.name || identity.name || 'PXLC',
       url: websiteUrl,
       website,
-      description: normalizeBrandCopy(site.description || identity.description || ''),
+      description: String(site.description || identity.description || ''),
       defaultLocale: site.defaultLocale || 'fr_FR',
       currency: site.currency || 'EUR',
     },
@@ -229,22 +230,6 @@ function parseNuxtConfig() {
       websiteUrl,
     },
     siret,
-    plaquette: {
-      eyebrow: `${site.name || identity.name || 'PXLC'} · ${areaServed} · ${identity.address && identity.address.postalCode ? identity.address.postalCode.slice(0, 3) : '971'}`,
-      title: 'Médiation<br>numérique',
-      coverLead: 'PXLC aide les familles à mieux utiliser les écrans. Auprès de vos équipes, pour résoudre les conflits autour du temps d\'écran et construire de bonnes pratiques numériques — pour que les familles s\'en servent sans subir.',
-      hcspValidation: 'L\'<strong>accompagnement parental actif</strong> est le facteur clé pour limiter les effets négatifs des écrans sur les enfants. — HCSP&nbsp;2019',
-      mildecaStat: '44&nbsp;% des parents ne se sentent pas accompagnés pour réguler les écrans. — MILDECA&nbsp;·&nbsp;DITP&nbsp;2022',
-      legalFooter: [
-        identity.legalName || 'Andy Zébus — Entrepreneur Individuel',
-        `SIRET&nbsp;${htmlNbsp(siret)}`,
-        'APE&nbsp;70.21Z',
-        addressInline,
-      ].filter(Boolean).join(' · '),
-      public: 'Familles accompagnées par votre structure',
-      references: 'HAS&nbsp;2020 · HCSP&nbsp;2019-2020',
-      format: 'Ateliers thématiques parent-enfant',
-    },
   }
 }
 

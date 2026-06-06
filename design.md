@@ -1,3 +1,107 @@
+---
+name: PXLC Design System
+colors:
+  palette:
+    pxlc-teal-deep: "#036E73"
+    pxlc-teal-mid: "#01A09D"
+    pxlc-cyan: "#00D2C8"
+    pxlc-coral: "#FF5E3A"
+    pxlc-coral-deep: "#E8492A"
+    pxlc-bg-light: "#EAF6F4"
+    pxlc-bg-dark: "#082B36"
+    pxlc-bg-dark-soft: "#0C3340"
+    pxlc-bg-dark-deep: "#06212A"
+    pxlc-ivory: "#F4F1EA"
+    pxlc-ivory-soft: "#EBE6DA"
+    pxlc-text-ink: "#082B36"
+    pxlc-text-on-light: "#2C4751"
+    pxlc-text-secondary: "#5A6B70"
+    pxlc-text-on-dark-soft: "#A9C8D0"
+    pxlc-text-quiet-dark: "#8A9DA3"
+    pxlc-border: "#C4D1D2"
+    pxlc-border-soft: "#D9D2BF"
+    pxlc-border-dark: "#103847"
+    pxlc-border-dark-2: "#1F4A59"
+    pxlc-white: "#FFFFFF"
+    pxlc-pattern-warm: "#D6CEBD"
+    pxlc-pattern-warm-deep: "#CDC4B0"
+  semantic:
+    bg:
+      light: "var(--pxlc-bg-light)"
+      dark: "var(--pxlc-bg-dark)"
+    bg-soft:
+      light: "var(--pxlc-ivory)"
+      dark: "var(--pxlc-bg-dark-deep)"
+    bg-elev:
+      light: "var(--pxlc-white)"
+      dark: "var(--pxlc-bg-dark-soft)"
+    bg-rule:
+      light: "var(--pxlc-border-soft)"
+      dark: "var(--pxlc-border-dark)"
+    bg-glass:
+      light: "rgba(234, 246, 244, 0.92)"
+      dark: "rgba(8, 43, 54, 0.92)"
+    ink:
+      light: "var(--pxlc-text-ink)"
+      dark: "var(--pxlc-ivory)"
+    ink-quiet:
+      light: "var(--pxlc-text-on-light)"
+      dark: "var(--pxlc-text-on-dark-soft)"
+    quiet:
+      light: "var(--pxlc-text-secondary)"
+      dark: "var(--pxlc-text-quiet-dark)"
+    rule:
+      light: "var(--pxlc-border)"
+      dark: "var(--pxlc-border-dark-2)"
+    teal-deep: "var(--pxlc-teal-deep)"
+    teal-mid: "var(--pxlc-teal-mid)"
+    cyan: "var(--pxlc-cyan)"
+    eyebrow:
+      light: "var(--pxlc-teal-deep)"
+      dark: "var(--pxlc-cyan)"
+    shadow-card-hover:
+      light: "0 8px 24px -12px rgba(8,43,54,.18)"
+      dark: "0 8px 24px -12px rgba(0,0,0,.45)"
+    shadow-header:
+      light: "0 2px 14px -6px rgba(8,43,54,.14)"
+      dark: "0 2px 14px -6px rgba(0,0,0,.45)"
+    ring-cyan: "0 0 0 3px rgba(0,210,200,.25)"
+    ring-teal: "0 0 0 3px rgba(3,110,115,.3)"
+    ring-teal-soft: "0 0 0 3px rgba(3,110,115,.2)"
+    ring-coral: "0 0 0 3px rgba(255,94,58,.3)"
+typography:
+  font-display: "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, -apple-system, \"Segoe UI\", sans-serif"
+  font-body: "\"Lora\", \"Lora Fallback\", Georgia, \"Times New Roman\", serif"
+  font-label: "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif"
+  font-code: "ui-monospace, \"SFMono-Regular\", Menlo, \"Courier New\", monospace"
+spacing:
+  base: "8px"
+  space-1: "4px"
+  space-2: "8px"
+  space-2-5: "12px"
+  space-3: "16px"
+  space-4: "24px"
+  space-5: "32px"
+  space-6: "48px"
+  space-7: "64px"
+  space-8: "80px"
+  space-9: "96px"
+radius:
+  radius-xs: "4px"
+  radius-sm: "6px"
+  radius-md: "8px"
+  radius-lg: "14px"
+  radius-pill: "999px"
+motion:
+  ease-step: "cubic-bezier(.6, 0, .2, 1)"
+  dur-fast: "120ms"
+  dur-base: "200ms"
+  dur-slow: "320ms"
+layout:
+  container-max: "1200px"
+  container-pad: "clamp(20px, 4vw, 56px)"
+---
+
 # PXLC — Design System
 
 > Généré automatiquement par `scripts/export-design.mjs`.
