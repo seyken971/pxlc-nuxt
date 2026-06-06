@@ -26,11 +26,6 @@ const faqs = [
     a: 'À calibrer ensemble selon le rythme de votre structure : un cycle complet articule la préparation, plusieurs ateliers thématiques, un groupe de parole familiale et un bilan. À titre indicatif, le projet « Jouons Ensemble! » 2026 au SESSAD Lékoklaya s’étend sur l’année.',
   },
   {
-    id: 'porteur',
-    q: 'Qui porte le projet côté structure ?',
-    a: 'Le porteur de projet est défini avec votre structure — psychologue, coordinateur, directeur selon votre organisation. Le médiateur numérique intervient en partenariat sur les usages numériques des familles.',
-  },
-  {
     id: 'tarif',
     q: 'Quel est le tarif ?',
     a: 'Sur devis, calibré au périmètre (nombre d’ateliers, nombre de familles, durée). Le devis inclut la rémunération du médiateur intervenant ; le prêt des consoles et des jeux peut être inclus ou pris en charge par la structure.',
@@ -44,11 +39,6 @@ const faqs = [
     id: 'profils',
     q: 'Quels profils d’enfants sont accueillis ?',
     a: 'À toutes les familles accompagnées par la structure qui vivent des tensions autour des écrans. Le programme s’adapte en concertation avec votre équipe — y compris pour des profils spécifiques (TND, troubles du comportement, du lien social).',
-  },
-  {
-    id: 'bilan',
-    q: 'Comment se passe le bilan ?',
-    a: 'Synthèse écrite des acquis parent/enfant transmise à l’équipe pluridisciplinaire, citant explicitement les rapports HCSP mobilisés. Plus une restitution orale aux familles avec des pistes concrètes de continuité à la maison.',
   },
 ]
 
@@ -79,7 +69,7 @@ const facts: [string, string][] = [
 // Mode opératoire en 4 étapes — source : _plaquette/PROJET PARENTS – ECRAN – ENFANT.md
 const steps = [
   { num: '01', title: 'Préparation', detail: 'Entretiens familiaux avec votre équipe et le médiateur numérique. Identification du profil de chaque enfant, construction des binômes parent-enfant.' },
-  { num: '02', title: 'Ateliers thématiques parent-enfant', detail: 'Coopération · Émotions & récits · Différence & complémentarité. Chaque atelier : temps de jeu partagé (30-45 min) + temps d’échange verbal (45 min - 1 h). Observation et guidance des interactions.' },
+  { num: '02', title: 'Ateliers thématiques parent-enfant', detail: 'Coopération · Émotions & récits · Différence & complémentarité.' },
   { num: '03', title: 'Groupe de parole familiale', detail: 'Espace d’échange entre familles : régulation, limites, signes d’alerte, posture parentale.' },
   { num: '04', title: 'Bilan', detail: 'Synthèse des acquis parent/enfant, élaboration de pistes de continuité à la maison, transmission écrite à l’équipe pluridisciplinaire.' },
 ]
@@ -94,7 +84,7 @@ const indicators = [
   { title: 'Questionnaires de satisfaction', detail: 'Recueillis en fin de chaque cycle auprès des parents et des enfants. Items standardisés + champ libre.' },
   { title: 'Grilles d’observation des compétences', detail: 'Coopération, communication, gestion des émotions — observées pendant les ateliers et restituées dans le bilan.' },
   { title: 'Diminution rapportée des conflits familiaux liés aux écrans', detail: 'Auto-évaluation parents, complétée par le suivi de l’équipe pluridisciplinaire entre les ateliers.' },
-  { title: 'Engagement et assiduité aux ateliers', detail: 'Taux de présence, participation active, demandes de prolongation — indicateurs simples mais structurants pour le bilan transmis.' },
+  { title: 'Engagement et assiduité aux ateliers', detail: 'Taux de présence, participation active, demandes de prolongation.' },
 ]
 
 const { themes } = useProjectThemes()
@@ -149,11 +139,11 @@ const audiences = [
             Des programmes de médiation numérique co-construits avec votre équipe, pour aider les familles à mieux utiliser les écrans<span class="coral-dot" aria-hidden="true">.</span>
           </h1>
           <p class="hero__lead">
-            Je conçois et anime des ateliers parent-enfant sur mesure, animés avec votre équipe selon le cadre que vous choisissez — pour aider les familles à mieux utiliser les écrans. Programme phare&nbsp;: Parents-Écran-Enfant, ancré dans les recommandations HCSP&nbsp;2019-2020 — indicateurs qualitatifs, bilan transmis à vos tutelles en fin de dispositif.
+            Programme phare&nbsp;: Parents-Écran-Enfant, ancré dans les recommandations HCSP&nbsp;2019-2020 — indicateurs qualitatifs, bilan transmis à vos tutelles en fin de dispositif.
           </p>
           <div class="hero__actions">
             <NuxtLink to="/contact" class="btn btn--primary btn--lg">Demander un devis</NuxtLink>
-            <a href="/files/plaquette-pxlc.pdf" target="_blank" rel="noopener noreferrer" class="btn btn--ghost btn--lg" aria-label="Plaquette PDF, 12 pages (nouvel onglet)">Plaquette PDF · 12 pages</a>
+            <a href="/files/plaquette-pxlc.pdf" target="_blank" rel="noopener noreferrer" class="btn btn--ghost btn--lg" aria-label="Plaquette PDF, 6 pages (nouvel onglet)">Plaquette PDF · 6 pages</a>
           </div>
         </div>
 
@@ -181,9 +171,6 @@ const audiences = [
       <header class="section__head">
         <span class="eyebrow">Mode opératoire</span>
         <h2 id="processus-title">Quatre étapes, de la préparation au bilan<span class="coral-dot" aria-hidden="true">.</span></h2>
-        <p class="lead">
-          Un parcours stable et lisible — le détail des ateliers se calibre avec votre équipe selon les besoins du public accueilli.
-        </p>
       </header>
       <div class="grid grid--2 process-grid">
         <article v-for="s in steps" :key="s.num" class="card card--method">
@@ -202,7 +189,7 @@ const audiences = [
         <span class="eyebrow">Ateliers thématiques</span>
         <h2 id="themes-title">Trois thèmes d’atelier, un protocole<span class="coral-dot" aria-hidden="true">.</span></h2>
         <p class="lead">
-          Chaque atelier articule un temps de jeu partagé (30 à 45 min) et un temps d’échange verbal (45 min à 1 h). Liste de thèmes non exhaustive — calibrée avec votre équipe selon les besoins du public accueilli.
+          Chaque atelier articule un temps de jeu partagé (30 à 45 min) et un temps d’échange verbal (45 min à 1 h).
         </p>
       </header>
       <div class="grid grid--3">
@@ -268,7 +255,7 @@ const audiences = [
         <span class="eyebrow">Exemple de composition — SESSAD Lékoklaya 2026</span>
         <h2 id="equipe-title">Le médiateur numérique ne remplace personne — il complète<span class="coral-dot" aria-hidden="true">.</span></h2>
         <p class="lead">
-          Le projet est porté par la psychologue de votre structure. Le médiateur numérique intervient en partenariat, sur son terrain d'expertise : les usages numériques des familles — jeu vidéo, réseaux, temps d'écran.
+          Le projet est porté par la psychologue de votre structure.
         </p>
       </header>
       <div class="grid grid--2 team-grid">
@@ -300,18 +287,6 @@ const audiences = [
           </dl>
         </article>
       </div>
-    </div>
-  </section>
-
-  <section id="reference" class="section" aria-labelledby="reference-title">
-    <div class="container">
-      <header class="section__head">
-        <span class="eyebrow">Référence concrète</span>
-        <h2 id="reference-title">Projet 2026 — SESSAD Lékoklaya<span class="coral-dot" aria-hidden="true">.</span></h2>
-        <p class="lead">
-          Première application du protocole. 8 enfants âgés de 12 à 17 ans (TSA, TDAH, TCND, DM, neuropathie) accompagnés en binômes parent-enfant, co-encadrement complet, suite directe du Café-Parents « Enfants Écrans » de décembre 2023.
-        </p>
-      </header>
     </div>
   </section>
 

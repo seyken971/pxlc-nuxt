@@ -9,7 +9,7 @@ const year = new Date().getFullYear()
         <div>
           <Lockup />
           <p class="site-footer__brand-text">
-            Médiateur numérique par le jeu<br />en Guadeloupe.
+            Médiation numérique<br />en Guadeloupe.
           </p>
           <ul class="site-footer__social" role="list">
             <li>
@@ -50,7 +50,7 @@ const year = new Date().getFullYear()
           <p class="site-footer__col-title">Le dispositif</p>
           <ul class="site-footer__col-list" role="list">
             <li><NuxtLink class="site-footer__col-link" to="/pour-les-structures">Pour les structures</NuxtLink></li>
-            <li><a class="site-footer__col-link" href="/files/plaquette-pxlc.pdf" target="_blank" rel="noopener noreferrer" aria-label="Télécharger la plaquette (PDF, 12 pages, nouvel onglet)">Télécharger la plaquette</a></li>
+            <li><a class="site-footer__col-link" href="/files/plaquette-pxlc.pdf" target="_blank" rel="noopener noreferrer" aria-label="Télécharger la plaquette (PDF, 6 pages, nouvel onglet)">Télécharger la plaquette</a></li>
             <li><NuxtLink class="site-footer__col-link" to="/a-propos">À propos d’Andy Zébus</NuxtLink></li>
             <li><NuxtLink class="site-footer__col-link" to="/blog">Blog</NuxtLink></li>
           </ul>

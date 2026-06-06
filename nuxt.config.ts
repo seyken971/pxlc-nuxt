@@ -44,7 +44,11 @@ export default defineNuxtConfig({
   fonts: {
     families: [
       // Display / headings / labels
-      { name: "Plus Jakarta Sans", weights: [400, 500, 600], provider: "google" },
+      {
+        name: "Plus Jakarta Sans",
+        weights: [400, 500, 600],
+        provider: "google",
+      },
       // Body / prose (replaces DM Sans)
       { name: "Lora", weights: [400, 500, 600], provider: "google" },
     ],
@@ -122,7 +126,7 @@ export default defineNuxtConfig({
     // (SESSAD, IME, associations, collectivités). Earlier wording said
     // "les familles", which we removed everywhere else — config follows.
     description:
-      "PXLC aide les familles à mieux utiliser les écrans : conflits autour du temps d'écran, bonnes pratiques du numérique — pour s'en servir sans subir. Interventions en Guadeloupe.",
+      "PXLC aide les familles en Guadeloupe à mieux utiliser les écrans : conflits autour du temps d'écran, bonnes pratiques du numérique — pour s'en servir sans subir.",
     defaultLocale: "fr_FR",
     trailingSlash: false,
     currency: "EUR",
