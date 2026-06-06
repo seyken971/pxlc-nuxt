@@ -9,8 +9,8 @@ interface Props {
 }
 withDefaults(defineProps<Props>(), {
   eyebrow: 'PXLC · MÉDIATION NUMÉRIQUE · GUADELOUPE',
-  title: 'Médiation numérique par le jeu',
-  description: 'PXLC conçoit des programmes de médiation numérique par le jeu pour les SESSAD, IME, associations et collectivités de Guadeloupe — Parents-Écran-Enfant, cadre HCSP.',
+  title: 'Médiation numérique',
+  description: 'PXLC aide les familles à mieux utiliser les écrans — en partenariat avec les SESSAD, IME, associations et collectivités de Guadeloupe. Cadre HAS 2020 · HCSP 2019-2020.',
   site: 'pxlc.fr',
 })
 
@@ -225,7 +225,7 @@ const MARK_RECTS = [
           color: palette.meta,
         }"
       >
-        · médiation numérique par le jeu · Guadeloupe
+        · médiation numérique · Guadeloupe
       </span>
     </div>
   </div>
