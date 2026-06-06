@@ -123,7 +123,7 @@ const casquettes = [
         devis sur mesure, plaquette PDF disponible.
       </p>
       <div class="about-cta-actions">
-        <NuxtLink to="/pour-les-structures" class="btn btn--primary btn--lg">Voir mes programmes</NuxtLink>
+        <NuxtLink to="/structures" class="btn btn--primary btn--lg">Voir mes programmes</NuxtLink>
         <a
           href="/files/plaquette-pxlc.pdf"
           target="_blank"

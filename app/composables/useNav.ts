@@ -7,7 +7,7 @@ export interface NavItem {
 // (SESSAD, IME, associations, collectivités) — /ateliers was removed accordingly.
 const NAV_ITEMS: NavItem[] = [
   { label: 'Accueil', url: '/' },
-  { label: 'Pour les structures', url: '/pour-les-structures' },
+  { label: 'Pour les structures', url: '/structures' },
   { label: 'À propos', url: '/a-propos' },
   { label: 'Blog', url: '/blog' },
   { label: 'Contact', url: '/contact' },

@@ -26,7 +26,7 @@
             Le projet s’inscrit dans la continuité du Café-Parents du 14 décembre 2023 « Enfants Écrans » et dans le cadre des rapports HCSP 2019-2020. L’objectif : faire du jeu vidéo un outil d’alliance entre parents et enfants, pas un terrain de conflit.
           </p>
           <div class="mt-5">
-            <NuxtLink class="linkout" to="/pour-les-structures">Voir le programme</NuxtLink>
+            <NuxtLink class="linkout" to="/structures">Voir le programme</NuxtLink>
           </div>
         </div>
       </div>

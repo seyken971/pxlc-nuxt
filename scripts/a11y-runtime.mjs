@@ -78,7 +78,7 @@ const ROUTES = [
   '/blog/quand-votre-enfant-joue-a-fortnite',
   '/contact',
   '/mentions-legales',
-  '/pour-les-structures',
+  '/structures',
 ]
 
 const runAxe = async (page, label) => {
@@ -143,10 +143,10 @@ const main = async () => {
     // FAQ expanded state on /pour-les-structures
     const faq = await browser.newContext({ viewport: { width: 1280, height: 800 } })
     const faqPage = await faq.newPage()
-    await faqPage.goto(`http://127.0.0.1:${port}/pour-les-structures`, { waitUntil: 'networkidle' })
+    await faqPage.goto(`http://127.0.0.1:${port}/structures`, { waitUntil: 'networkidle' })
     await faqPage.locator('.faq__item summary').first().click()
     await faqPage.waitForSelector('.faq__item[open]')
-    all.push(await runAxe(faqPage, '/pour-les-structures (FAQ open)'))
+    all.push(await runAxe(faqPage, '/structures (FAQ open)'))
     await faq.close()
   } finally {
     await browser.close()

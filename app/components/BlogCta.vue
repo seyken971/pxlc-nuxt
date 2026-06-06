@@ -16,7 +16,7 @@
       </p>
     </div>
     <div class="blog-cta__actions">
-      <NuxtLink to="/pour-les-structures" class="btn btn--primary">Voir le dispositif</NuxtLink>
+      <NuxtLink to="/structures" class="btn btn--primary">Voir le dispositif</NuxtLink>
       <NuxtLink to="/contact" class="btn btn--ghost">Me contacter</NuxtLink>
     </div>
   </aside>

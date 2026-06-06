@@ -136,7 +136,7 @@ const audiences = [
             <span class="badge badge--soft">SESSAD · IME · associations · collectivités</span>
           </div>
           <h1 id="hero-title" class="hero__title">
-            Des programmes de médiation numérique co-construits avec votre équipe, pour aider les familles à mieux utiliser les écrans<span class="coral-dot" aria-hidden="true">.</span>
+            Médiation numérique pour votre structure<span class="coral-dot" aria-hidden="true">.</span>
           </h1>
           <p class="hero__lead">
             Programme phare&nbsp;: Parents-Écran-Enfant, ancré dans les recommandations HCSP&nbsp;2019-2020 — indicateurs qualitatifs, bilan transmis à vos tutelles en fin de dispositif.

@@ -49,7 +49,7 @@ const year = new Date().getFullYear()
         <div>
           <p class="site-footer__col-title">Le dispositif</p>
           <ul class="site-footer__col-list" role="list">
-            <li><NuxtLink class="site-footer__col-link" to="/pour-les-structures">Pour les structures</NuxtLink></li>
+            <li><NuxtLink class="site-footer__col-link" to="/structures">Pour les structures</NuxtLink></li>
             <li><a class="site-footer__col-link" href="/files/plaquette-pxlc.pdf" target="_blank" rel="noopener noreferrer" aria-label="Télécharger la plaquette (PDF, 6 pages, nouvel onglet)">Télécharger la plaquette</a></li>
             <li><NuxtLink class="site-footer__col-link" to="/a-propos">À propos d’Andy Zébus</NuxtLink></li>
             <li><NuxtLink class="site-footer__col-link" to="/blog">Blog</NuxtLink></li>
