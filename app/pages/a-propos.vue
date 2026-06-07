@@ -3,7 +3,7 @@ useSeoMeta({ title: 'Andy Zébus — médiateur numérique' })
 if (import.meta.server) {
   useSeoMeta({
     description:
-      "Andy Zébus a fondé PXLC, service de médiation numérique en Guadeloupe. Aide les familles à mieux utiliser les écrans, en partenariat avec les structures médico-sociales et associatives.",
+      "Andy Zébus, médiateur numérique spécialisé en parentalité numérique en Guadeloupe — PXLC aide les familles à mieux utiliser les écrans, en partenariat avec les structures publiques et associatives de Guadeloupe.",
   })
 }
 
@@ -60,7 +60,7 @@ const casquettes = [
             Andy Zébus, médiateur numérique<span class="coral-dot" aria-hidden="true">.</span>
           </h1>
           <p class="about-lead">
-            Basé aux Abymes (Guadeloupe), j'ai fondé PXLC pour aider les familles à mieux utiliser les écrans — en partenariat avec les structures médico-sociales et associatives de Guadeloupe.
+            Basé aux Abymes (Guadeloupe), j'ai fondé PXLC pour accompagner les familles dans leur parentalité numérique — résoudre les conflits autour du temps d'écran, adopter les bonnes pratiques du numérique — en partenariat avec les structures publiques et associatives de Guadeloupe.
           </p>
           <div class="about-facts">
             <div v-for="f in facts" :key="f.label" class="about-fact">
@@ -73,7 +73,7 @@ const casquettes = [
         <div class="about-portrait">
           <NuxtImg
             src="/assets/img/photos/andy-portrait.jpg"
-            alt="Portrait d'Andy Zébus, médiateur numérique par le jeu"
+            alt="Portrait d'Andy Zébus, médiateur numérique"
             width="480"
             height="600"
             format="webp"
@@ -119,7 +119,7 @@ const casquettes = [
       <span class="eyebrow">Prochaine étape</span>
       <h2 id="cta-about-title">Travailler avec PXLC<span class="coral-dot" aria-hidden="true">.</span></h2>
       <p class="lead">
-        Pour les structures médico-sociales et associatives de Guadeloupe —
+        Pour les structures publiques et associatives de Guadeloupe —
         devis sur mesure, plaquette PDF disponible.
       </p>
       <div class="about-cta-actions">
