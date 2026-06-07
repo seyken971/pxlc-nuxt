@@ -119,49 +119,13 @@ const contactCards = [
 
           <form v-else class="contact-form" @submit.prevent="submit">
             <div class="form-row">
-              <div>
-                <label for="c-nom" class="form-label">Prénom et Nom</label>
-                <input
-                  id="c-nom"
-                  v-model="form.name"
-                  type="text"
-                  placeholder="Prénom Nom"
-                  class="form-input"
-                >
-              </div>
-              <div>
-                <label for="c-structure" class="form-label">Structure</label>
-                <input
-                  id="c-structure"
-                  v-model="form.structure"
-                  type="text"
-                  placeholder="Association, école, collectivité…"
-                  class="form-input"
-                >
-              </div>
+              <PxlcInput id="c-nom" label="Prénom et Nom" v-model="form.name" placeholder="Prénom Nom" />
+              <PxlcInput id="c-structure" label="Structure" v-model="form.structure" placeholder="Association, école, collectivité…" />
             </div>
 
-            <div>
-              <label for="c-email" class="form-label">Adresse e-mail</label>
-              <input
-                id="c-email"
-                v-model="form.email"
-                type="email"
-                placeholder="contact@structure.fr"
-                class="form-input"
-              >
-            </div>
+            <PxlcInput id="c-email" label="Adresse e-mail" type="email" v-model="form.email" placeholder="contact@structure.fr" />
 
-            <div>
-              <label for="c-msg" class="form-label">Message</label>
-              <textarea
-                id="c-msg"
-                v-model="form.message"
-                rows="5"
-                placeholder="Décrivez votre projet…"
-                class="form-textarea"
-              />
-            </div>
+            <PxlcInput id="c-msg" label="Message" v-model="form.message" :rows="5" placeholder="Décrivez votre projet…" />
 
             <button type="submit" class="btn btn--primary contact-submit">
               Envoyer
@@ -226,35 +190,6 @@ const contactCards = [
 
 /* ── Form ────────────────────────────────────────────────────── */
 .contact-form { display: grid; gap: var(--space-3); }
-
-.form-label {
-  display: block;
-  font-family: var(--font-label);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--eyebrow);
-  margin-bottom: var(--space-2);
-}
-.form-input, .form-textarea {
-  width: 100%; padding: var(--space-2-5) var(--space-3); border-radius: var(--radius-md);
-  border: 1px solid var(--rule); background: var(--bg-elev); color: var(--ink);
-  font-family: var(--font-body); font-size: 15px;
-  transition: border-color var(--dur-fast), box-shadow var(--dur-fast);
-}
-.form-input:hover, .form-textarea:hover { border-color: var(--pxlc-teal-mid); }
-.form-input:focus-visible, .form-textarea:focus-visible {
-  outline: none;
-  border-color: var(--pxlc-teal-deep);
-  box-shadow: var(--ring-teal);
-}
-[data-theme="dark"] .form-input:focus-visible,
-[data-theme="dark"] .form-textarea:focus-visible {
-  border-color: var(--pxlc-cyan);
-  box-shadow: var(--ring-cyan);
-}
-.form-textarea { resize: vertical; min-height: 120px; }
 .form-row { display: grid; gap: var(--space-3); grid-template-columns: 1fr; }
 @media (min-width: 600px) { .form-row { grid-template-columns: 1fr 1fr; } }
 

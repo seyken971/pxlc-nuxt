@@ -268,6 +268,12 @@ Classes issues de `styles.css`. Les styles scoped des composants Vue ne sont pas
 - `.btn--ghost`
 - `.linkout`
 
+### Form fields
+
+- `.form-label`
+- `.form-input`
+- `.form-textarea`
+
 ### Header
 
 - `.site-header`
