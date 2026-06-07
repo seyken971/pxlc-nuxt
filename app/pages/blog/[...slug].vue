@@ -137,7 +137,7 @@ onBeforeUnmount(() => {
             </div>
             <div>
               <div class="post-author__name">Andy Zébus</div>
-              <div class="post-author__role">Médiateur numérique par le jeu · PXLC · Guadeloupe</div>
+              <div class="post-author__role">Médiateur numérique · PXLC · Guadeloupe</div>
             </div>
           </div>
         </header>
