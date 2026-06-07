@@ -159,6 +159,36 @@ main[tabindex="-1"]:focus { outline: none; }
 .linkout:hover { gap: var(--space-3); text-decoration: none; }
 [data-theme="dark"] .linkout { color: var(--cyan); border-bottom-color: var(--cyan); }
 
+/* ── Form fields ─────────────────────────────────────────── */
+.form-label {
+  display: block;
+  font-family: var(--font-label);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--eyebrow);
+  margin-bottom: var(--space-2);
+}
+.form-input, .form-textarea {
+  width: 100%; padding: var(--space-2-5) var(--space-3); border-radius: var(--radius-md);
+  border: 1px solid var(--rule); background: var(--bg-elev); color: var(--ink);
+  font-family: var(--font-body); font-size: 15px;
+  transition: border-color var(--dur-fast), box-shadow var(--dur-fast);
+}
+.form-input:hover, .form-textarea:hover { border-color: var(--pxlc-teal-mid); }
+.form-input:focus-visible, .form-textarea:focus-visible {
+  outline: none;
+  border-color: var(--pxlc-teal-deep);
+  box-shadow: var(--ring-teal);
+}
+[data-theme="dark"] .form-input:focus-visible,
+[data-theme="dark"] .form-textarea:focus-visible {
+  border-color: var(--pxlc-cyan);
+  box-shadow: var(--ring-cyan);
+}
+.form-textarea { resize: vertical; min-height: 120px; }
+
 /* ── Header ──────────────────────────────────────────────── */
 .site-header {
   position: sticky; top: 0; z-index: 50;
