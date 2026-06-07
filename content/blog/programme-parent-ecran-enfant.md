@@ -160,6 +160,6 @@ Pour comprendre le socle institutionnel de cette approche, lisez l'article sur l
 
 ---
 
-*Andy Zébus est médiateur numérique par le jeu, basé aux Abymes (Guadeloupe). Il intervient comme prestataire de service auprès des structures médico-sociales et associatives sur la médiation parent-enfant par le jeu vidéo.*
+*Andy Zébus est médiateur numérique, fondateur de PXLC. Il accompagne les structures publiques et associatives de Guadeloupe dans leur parentalité numérique.*
 
 *Sources mobilisées : HCSP 2019 et 2021 ; DITP/MILDECA, rapport final 2022 ; dossier PXLC de médiation numérique parent-enfant par le jeu vidéo.*

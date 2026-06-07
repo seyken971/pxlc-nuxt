@@ -47,4 +47,4 @@ Souvent, c'est la première fois depuis longtemps que ce genre de phrase circule
 
 ---
 
-*Andy Zébus est médiateur numérique par le jeu, basé aux Abymes (Guadeloupe). Il intervient comme prestataire de service auprès des structures médico-sociales et associatives sur la médiation parent-enfant par le jeu vidéo.*
+*Andy Zébus est médiateur numérique, fondateur de PXLC. Il accompagne les structures publiques et associatives de Guadeloupe dans leur parentalité numérique.*
