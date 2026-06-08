@@ -3,7 +3,7 @@ useSeoMeta({ title: 'Andy Zébus — médiateur numérique' })
 if (import.meta.server) {
   useSeoMeta({
     description:
-      "Andy Zébus, médiateur numérique spécialisé en parentalité numérique en Guadeloupe — PXLC aide les familles à mieux utiliser les écrans, en partenariat avec les structures publiques et associatives de Guadeloupe.",
+      "Andy Zébus, médiateur numérique en Guadeloupe — PXLC aide les familles à mieux utiliser les écrans, en partenariat avec les structures de Guadeloupe.",
   })
 }
 
@@ -27,7 +27,7 @@ const facts = [
   { label: 'Entreprise', value: 'PXLC — Entrepreneur Individuel' },
   { label: 'Territoire', value: 'Guadeloupe · 971' },
   { label: 'SIRET',      value: '813 793 528 00031' },
-  { label: 'Cadre',      value: 'HCSP 2019-2020' },
+  { label: 'Cadre',      value: 'HCSP 2019-2020 · HAS 2020' },
 ]
 
 const casquettes = [
@@ -60,7 +60,7 @@ const casquettes = [
             Andy Zébus, médiateur numérique<span class="coral-dot" aria-hidden="true">.</span>
           </h1>
           <p class="about-lead">
-            Basé aux Abymes (Guadeloupe), j'ai fondé PXLC pour accompagner les familles dans leur parentalité numérique — résoudre les conflits autour du temps d'écran, adopter les bonnes pratiques du numérique — en partenariat avec les structures publiques et associatives de Guadeloupe.
+            Basé aux Abymes (Guadeloupe), j'ai créé PXLC pour accompagner les familles dans leur parentalité numérique — résoudre les conflits autour du temps d'écran, adopter les bonnes pratiques du numérique — en partenariat avec les structures de Guadeloupe.
           </p>
           <div class="about-facts">
             <div v-for="f in facts" :key="f.label" class="about-fact">
@@ -119,7 +119,7 @@ const casquettes = [
       <span class="eyebrow">Prochaine étape</span>
       <h2 id="cta-about-title">Travailler avec PXLC<span class="coral-dot" aria-hidden="true">.</span></h2>
       <p class="lead">
-        Pour les structures publiques et associatives de Guadeloupe —
+        Pour les structures de Guadeloupe —
         devis sur mesure, plaquette PDF disponible.
       </p>
       <div class="about-cta-actions">

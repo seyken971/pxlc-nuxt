@@ -9,11 +9,10 @@ useSeoMeta({
 if (import.meta.server) {
   useSeoMeta({
     description:
-      'Andy Zébus · PXLC — médiation numérique pour les structures médico-sociales et associatives de Guadeloupe. Programme phare : Parents-Écran-Enfant (cadre HAS 2020 · HCSP 2019-2020).',
+      'Andy Zébus · PXLC — médiation numérique pour les structures de Guadeloupe. Programme : Parents-Écran-Enfant · cadre HCSP 2019-2020 · HAS 2020.',
     // og:description shown in social previews — capped at ~155 chars to avoid truncation.
-    // meta description above is longer (keyword-rich for Google snippets).
     ogDescription:
-      'PXLC aide les familles à mieux utiliser les écrans — ateliers parent-enfant pour SESSAD, IME et associations de Guadeloupe. Cadre HAS 2020 · HCSP 2019-2020.',
+      'PXLC aide les familles à mieux utiliser les écrans — ateliers parent-enfant pour SESSAD, IME et associations de Guadeloupe. Cadre HCSP 2019-2020 · HAS 2020.',
   })
 }
 

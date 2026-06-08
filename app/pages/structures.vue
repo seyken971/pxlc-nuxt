@@ -5,7 +5,7 @@ useSeoMeta({ title: 'SESSAD, IME, associations — médiation numérique' })
 if (import.meta.server) {
   useSeoMeta({
     description:
-      'Je conçois des programmes de médiation numérique sur mesure pour aider les familles à mieux utiliser les écrans — pour les SESSAD, IME, associations et collectivités de Guadeloupe. Cadre HCSP 2019-2020, bilan transmis à vos tutelles.',
+      'Je conçois des programmes sur mesure pour SESSAD, IME et associations de Guadeloupe — cadre HCSP 2019-2020 · HAS 2020, bilan transmis à vos tutelles.',
   })
 }
 
@@ -62,7 +62,7 @@ const facts: [string, string][] = [
   ['Public', 'Familles accompagnées par votre structure'],
   ['Âges', '12 à 17 ans (adaptable)'],
   ['Encadrement', 'Équipe pluridisciplinaire + médiateur numérique'],
-  ['Références', 'HCSP 2019 · HCSP 2020'],
+  ['Références', 'HCSP 2019-2020 · HAS 2020'],
   ['Tarif', 'Sur devis'],
 ]
 
