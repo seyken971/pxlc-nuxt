@@ -47,4 +47,4 @@ Souvent, c'est la première fois depuis longtemps que ce genre de phrase circule
 
 ---
 
-*Andy Zébus est médiateur numérique, fondateur de PXLC. Il accompagne les structures publiques et associatives de Guadeloupe dans leur parentalité numérique.*
+*Andy Zébus est médiateur numérique, créateur de PXLC. Il accompagne les structures publiques et associatives de Guadeloupe dans leur parentalité numérique.*

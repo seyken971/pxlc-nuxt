@@ -56,4 +56,4 @@ Et c'est à partir de là, et seulement à partir de là, qu'on peut éventuelle
 
 ---
 
-*Andy Zébus est médiateur numérique, fondateur de PXLC. Il accompagne les structures publiques et associatives de Guadeloupe dans leur parentalité numérique.*
+*Andy Zébus est médiateur numérique, créateur de PXLC. Il accompagne les structures publiques et associatives de Guadeloupe dans leur parentalité numérique.*

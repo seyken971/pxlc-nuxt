@@ -186,6 +186,6 @@ Pour situer cette méthode dans une démarche plus large, lisez le [cadre HCSP](
 
 ---
 
-*Andy Zébus est médiateur numérique, fondateur de PXLC. Il accompagne les structures publiques et associatives de Guadeloupe dans leur parentalité numérique.*
+*Andy Zébus est médiateur numérique, créateur de PXLC. Il accompagne les structures publiques et associatives de Guadeloupe dans leur parentalité numérique.*
 
 *Sources mobilisées : HCSP 2019 et 2021 ; HCFEA 2020 ; dossier PXLC de médiation numérique parent-enfant par le jeu vidéo.*

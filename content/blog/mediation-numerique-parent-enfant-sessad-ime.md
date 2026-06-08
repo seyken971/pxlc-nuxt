@@ -167,4 +167,4 @@ Le dispositif s'inscrit naturellement dans les lignes de financement des program
 
 ---
 
-*Andy Zébus est médiateur numérique, fondateur de PXLC. Il accompagne les structures publiques et associatives de Guadeloupe dans leur parentalité numérique.*
+*Andy Zébus est médiateur numérique, créateur de PXLC. Il accompagne les structures publiques et associatives de Guadeloupe dans leur parentalité numérique.*

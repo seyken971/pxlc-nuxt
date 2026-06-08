@@ -3,7 +3,7 @@ export interface ProjectTheme {
   title: string
   /** Short pitch — used on the home overview grid. */
   short: string
-  /** Detailed description — used on the /pour-les-structures page. */
+  /** Detailed description — used on the /structures page. */
   long: string
 }
 

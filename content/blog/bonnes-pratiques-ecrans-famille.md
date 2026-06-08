@@ -268,6 +268,6 @@ Pour replacer ces conseils dans leur cadre, lisez l'article sur le [cadre HCSP](
 
 ---
 
-*Andy Zébus est médiateur numérique, fondateur de PXLC. Il accompagne les structures publiques et associatives de Guadeloupe dans leur parentalité numérique.*
+*Andy Zébus est médiateur numérique, créateur de PXLC. Il accompagne les structures publiques et associatives de Guadeloupe dans leur parentalité numérique.*
 
 *Sources mobilisées : HCSP 2019 et 2021 ; DITP/MILDECA, rapport final 2022 et bonnes pratiques Faminum ; HCFEA 2020.*

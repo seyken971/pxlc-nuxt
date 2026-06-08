@@ -119,13 +119,13 @@ const contactCards = [
 
           <form v-else class="contact-form" @submit.prevent="submit">
             <div class="form-row">
-              <PxlcInput id="c-nom" label="Prénom et Nom" v-model="form.name" placeholder="Prénom Nom" />
-              <PxlcInput id="c-structure" label="Structure" v-model="form.structure" placeholder="Association, école, collectivité…" />
+              <PxlcInput id="c-nom" v-model="form.name" label="Prénom et Nom" placeholder="Prénom Nom" />
+              <PxlcInput id="c-structure" v-model="form.structure" label="Structure" placeholder="Association, école, collectivité…" />
             </div>
 
-            <PxlcInput id="c-email" label="Adresse e-mail" type="email" v-model="form.email" placeholder="contact@structure.fr" />
+            <PxlcInput id="c-email" v-model="form.email" label="Adresse e-mail" type="email" placeholder="contact@structure.fr" />
 
-            <PxlcInput id="c-msg" label="Message" v-model="form.message" :rows="5" placeholder="Décrivez votre projet…" />
+            <PxlcInput id="c-msg" v-model="form.message" label="Message" :rows="5" placeholder="Décrivez votre projet…" />
 
             <button type="submit" class="btn btn--primary contact-submit">
               Envoyer

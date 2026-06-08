@@ -140,7 +140,7 @@ const main = async () => {
     all.push(await runAxe(mobilePage, '/ (mobile menu open)'))
     await mobile.close()
 
-    // FAQ expanded state on /pour-les-structures
+    // FAQ expanded state on /structures
     const faq = await browser.newContext({ viewport: { width: 1280, height: 800 } })
     const faqPage = await faq.newPage()
     await faqPage.goto(`http://127.0.0.1:${port}/structures`, { waitUntil: 'networkidle' })
