@@ -98,7 +98,7 @@ const stats = [
   font-family: var(--font-display);
   font-weight: 700;
   font-size: clamp(24px, 3vw, 36px);
-  color: var(--pxlc-coral);
+  color: var(--ink);
   line-height: 1;
 }
 .repere__label { font-size: 13px; color: var(--ink-quiet); line-height: 1.4; }
