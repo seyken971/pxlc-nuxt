@@ -72,7 +72,7 @@ const casquettes = [
 
         <div class="about-portrait">
           <NuxtImg
-            src="/assets/img/photos/andy-portrait.jpg"
+            src="/img/photos/andy-portrait.jpg"
             alt="Portrait d'Andy Zébus, médiateur numérique"
             width="480"
             height="600"

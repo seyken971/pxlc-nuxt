@@ -13,7 +13,7 @@ useSchemaOrg([
     jobTitle: 'Médiateur numérique',
     description:
       'Médiateur numérique basé aux Abymes (Guadeloupe). Aide les familles à mieux utiliser les écrans — conflits autour du temps d\'écran, bonnes pratiques numériques. Interventions en structures médico-sociales et associatives.',
-    image: 'https://pxlc.fr/assets/img/photos/andy-portrait.jpg',
+    image: 'https://pxlc.fr/img/photos/andy-portrait.jpg',
     url: 'https://pxlc.fr/a-propos',
     worksFor: { '@id': 'https://pxlc.fr/#identity' },
     sameAs: [

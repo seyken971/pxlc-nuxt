@@ -128,7 +128,7 @@ onBeforeUnmount(() => {
           <div class="post-author">
             <div class="post-author__avatar">
               <NuxtImg
-                src="/assets/img/photos/andy-portrait.jpg"
+                src="/img/photos/andy-portrait.jpg"
                 alt="Andy Zébus"
                 width="48"
                 height="48"
