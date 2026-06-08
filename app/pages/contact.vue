@@ -5,9 +5,9 @@ useSeoMeta({ title: 'Contacter Andy Zébus — devis ou premier échange de 20 
 if (import.meta.server) {
   useSeoMeta({
     description:
-      'Devis ou premier échange de 20 min — gratuit, sans engagement. Pour les structures de Guadeloupe : SESSAD, IME, associations, collectivités.',
+      'Devis ou premier échange de 20 min — gratuit, sans engagement. Pour les structures de Guadeloupe qui accompagnent des familles autour des écrans.',
     ogDescription:
-      'Je réponds sous 48 h — par formulaire, WhatsApp ou visio. Premier échange de 20 min gratuit pour vous dire honnêtement si ma méthode correspond à votre projet.',
+      'Réponse sous 48 h — formulaire, WhatsApp ou visio. Premier échange de 20 min gratuit pour savoir si la méthode PXLC correspond à votre projet.',
   })
 }
 

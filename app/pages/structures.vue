@@ -5,7 +5,7 @@ if (import.meta.server) {
     description:
       'Programmes parent-enfant pour les structures de Guadeloupe — HCSP 2019-2020 · HAS 2020, indicateurs qualitatifs, bilan transmis à vos tutelles.',
     ogDescription:
-      "J'interviens avec votre équipe pluridisciplinaire — ateliers parent-enfant, protocole HCSP, indicateurs qualitatifs. Un partenaire, pas un prestataire.",
+      'PXLC intervient avec votre équipe pluridisciplinaire — ateliers parent-enfant, protocole HCSP, indicateurs qualitatifs. Un partenaire, pas un prestataire.',
   })
 }
 

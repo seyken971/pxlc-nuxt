@@ -9,9 +9,9 @@ useSeoMeta({
 if (import.meta.server) {
   useSeoMeta({
     description:
-      'Programmes parent-enfant pour SESSAD, IME et associations de Guadeloupe — résoudre les tensions autour des écrans. Cadre HCSP 2019-2020 · HAS 2020.',
+      'Programmes parent-enfant pour les structures de Guadeloupe — résoudre les tensions autour des écrans. Cadre HCSP 2019-2020 · HAS 2020.',
     ogDescription:
-      "J'interviens dans vos SESSAD, IME et associations — pour transformer les tensions autour des écrans en ateliers parent-enfant, avec votre équipe.",
+      'PXLC intervient auprès des structures de Guadeloupe — ateliers parent-enfant pour transformer les tensions autour des écrans, avec votre équipe.',
   })
 }
 

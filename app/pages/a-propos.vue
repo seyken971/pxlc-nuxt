@@ -5,7 +5,7 @@ if (import.meta.server) {
     description:
       'Médiateur numérique en Guadeloupe — six ans de scène esport, formation Simplon, conseil institutionnel. Intervient auprès des SESSAD, IME, associations.',
     ogDescription:
-      "Médiateur numérique en Guadeloupe — j'aide vos familles à se réconcilier autour des écrans, en binômes parent-enfant, avec votre équipe.",
+      'Médiateur numérique en Guadeloupe — Andy Zébus aide les familles à se réconcilier autour des écrans, en binômes parent-enfant, avec votre équipe.',
   })
 }
 
