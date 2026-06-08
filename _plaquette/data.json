@@ -21,38 +21,38 @@
 
   "mission": {
     "statement": "PXLC aide les familles à <strong>mieux utiliser les écrans</strong>&nbsp;: résoudre les conflits autour du temps d'écran, adopter les bonnes pratiques du numérique — pour <strong>s'en servir sans subir</strong>.",
-    "constat": "Une utilisation jugée excessive des écrans — jeux vidéo en tête — est un point de friction récurrent dans les familles&nbsp;: temps passé, isolement, conflits. Particulièrement pour les enfants suivis pour des troubles du neurodéveloppement.",
-    "partiPris": "Ni diaboliser, ni banaliser. Les recommandations HAS&nbsp;2020 invitent à <strong>soutenir la fonction parentale</strong> dans la médiation des écrans plutôt qu'à les interdire. C'est ma boussole.",
-    "pourQui": "Les professionnels des structures qui manquent de ressources spécifiques sur la culture jeu vidéo — référents, coordinateurs, équipes pluridisciplinaires — pour mieux accompagner les familles qu'ils suivent.",
-    "promesse": "Un intervenant extérieur qui parle le langage des joueurs <em>et</em> celui des projets de service&nbsp;: pas un gadget, un partenaire qui s'intègre à votre projet d'établissement, vos bilans et vos cadres de confidentialité."
+    "constat": "Votre équipe accompagne des familles où les écrans — jeux vidéo en tête — reviennent en entretien comme point de friction récurrent. Sans que vous ayez toujours les ressources spécifiques pour y répondre dans le cadre du suivi.",
+    "partiPris": "Les recommandations HAS&nbsp;2020 invitent à <strong>soutenir la fonction parentale</strong> dans la médiation des écrans plutôt qu'à les interdire. PXLC traduit ce cadre en ateliers directement intégrables dans votre projet d'établissement.",
+    "pourQui": "Coordinateurs, référents et équipes pluridisciplinaires (SESSAD, IME, associations) qui cherchent un <strong>intervenant spécialisé</strong> — pas un module numérique générique — pour accompagner les familles où le jeu vidéo est source de tension.",
+    "promesse": "Je m'adapte à votre cadre de confidentialité, à vos bilans et à vos objectifs de soin. Je viens en appui de l'équipe — pas à sa place. Je reviens autant de fois que nécessaire, sur la durée du suivi. <strong>Premier échange de 20&nbsp;min gratuit, sans engagement&nbsp;: cal.eu/pxlc-gp</strong>"
   },
 
   "andy": {
-    "bio": "Né en Guadeloupe, formé à la médiation interculturelle et au numérique, j'ai passé plus de six ans à structurer la scène esport guadeloupéenne avant de créer <strong>PXLC</strong>, entreprise de médiation numérique partenaire des structures de Guadeloupe.",
+    "bio": "Né en Guadeloupe, formé à la médiation interculturelle et au numérique, j'ai passé plus de six ans à structurer la scène esport locale avant de créer <strong>PXLC</strong>. Ce qui me motive&nbsp;: les familles qui traversent en silence des conflits autour des écrans — et les équipes qui veulent des outils concrets pour les accompagner.",
     "casquette1": {
       "titre": "Organisateur esport",
-      "desc": "Plus de six ans sur la scène esport guadeloupéenne — tournois, partenariats grands comptes, 1 mois de CA en 4 jours lors de la Destreland Gaming Cup. Je connais la communauté joueurs de l'intérieur."
+      "desc": "Plus de six ans sur la scène esport guadeloupéenne — Destreland Gaming Cup, tournois, partenariats. Je parle aux enfants dans leur registre culturel. C'est ce qui fait que les ateliers ne ressemblent pas à une leçon."
     },
     "casquette2": {
       "titre": "Médiateur formé",
-      "desc": "Formateur principal en médiation numérique chez Simplon Outre-Mer (2021–2022). Je travaille dans le cadre des recommandations HCSP 2019-2020 · HAS 2020."
+      "desc": "Formateur principal en médiation numérique chez Simplon Outre-Mer (2021–2022). Je travaille dans le cadre HCSP 2019-2020 · HAS 2020 — ce qui facilite directement l'articulation avec votre projet de soin et vos bilans."
     },
     "casquette3": {
       "titre": "Conseil institutionnel",
-      "desc": "Affaires européennes et numérique THD à la Région Guadeloupe. Je parle le langage des projets de service et des financements publics."
+      "desc": "Affaires européennes et numérique THD à la Région Guadeloupe. Je maîtrise le vocabulaire des appels à projets, des commissions et des rapports d'activité — utile pour justifier et documenter le dispositif."
     },
-    "changement": "Un seul interlocuteur qui fait le pont entre trois mondes qui se parlent rarement&nbsp;: la culture joueur, le cadre du soin et le langage institutionnel. C'est ce triple ancrage qui rend la médiation crédible — côté enfant comme côté équipe.",
+    "changement": "Un seul interlocuteur qui fait le pont entre trois mondes qui se parlent rarement&nbsp;: la culture joueur, le cadre du soin, le langage institutionnel. Côté enfant&nbsp;: un adulte qui joue sans juger. Côté parent&nbsp;: quelqu'un qui traduit. Côté équipe&nbsp;: un partenaire qui rend compte.",
     "quote": "Mon travail, ce n'est pas de juger l'usage des écrans. C'est de créer un espace de rencontre — autour du jeu vidéo, des réseaux, du temps d'écran — entre un enfant et son parent, entre une famille et votre équipe."
   },
 
   "cas": {
-    "intro": "Un projet porté par le psychologue du <strong>SESSAD Lékoklaya</strong> (2026), en partenariat avec PXLC, auprès de huit enfants de 12 à 17 ans. Il s'inscrit dans la continuité du Café-Parents « Enfants Écrans », où les jeux vidéo avaient été identifiés comme point de friction récurrent dans les familles.",
+    "intro": "Un projet porté par le psychologue du <strong>SESSAD Lékoklaya</strong> (2026), en partenariat avec PXLC, auprès de huit enfants de 12 à 17&nbsp;ans suivis pour TSA, TDAH, TND ou dystrophie musculaire. Le point de départ&nbsp;: le jeu vidéo revenait systématiquement dans les entretiens familiaux comme source de conflit. Le dispositif a transformé ces conflits en matériau de travail pour les équipes.",
     "fact1Value": "8",
     "fact1Label": "enfants accompagnés, en binôme avec un parent",
     "fact2Value": "12–17",
     "fact2Label": "ans · TSA, TDAH, TND, dystrophie&nbsp;musculaire",
     "fact3Value": "3",
     "fact3Label": "thèmes · coopération, émotions, différence",
-    "equipe": "Co-encadrement avec le <strong>psychologue</strong> et la <strong>psychomotricienne</strong> du SESSAD, et un <strong>intervenant culturel</strong> (jeux traditionnels). Chacun garde son rôle&nbsp;: le soin reste piloté par la structure, j'apporte la lecture du jeu vidéo."
+    "equipe": "Co-encadrement avec le <strong>psychologue</strong> et la <strong>psychomotricienne</strong> du SESSAD, et un <strong>intervenant en jeux traditionnels</strong>. Chacun conserve son rôle&nbsp;: le soin reste piloté par la structure. PXLC apporte la lecture du jeu vidéo et démystifie la culture numérique de l'enfant pour sa famille. Les parents qui ne comprenaient pas pourquoi leur enfant jouait ont pu rejouer avec lui."
   }
 }
