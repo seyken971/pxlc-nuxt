@@ -9,12 +9,12 @@ export function filterIslandProps(props) {
   return out
 }
 
-// nuxt-og-image v6.5 computes hash([name, props]) — without context/source.
-// Nuxt 4.4 added context+source to computeIslandHash as a CSRF hardening.
-// This compat shim matches nuxt-og-image's computation so OG image islands
-// validate correctly during nuxt generate.
-// TODO: remove this file + alias overrides in nuxt.config.ts once upstream fixes it.
-// Track: https://github.com/nuxt-modules/og-image/issues
-export function computeIslandHash(name, filteredProps) {
-  return hash([name, filteredProps]).replaceAll('_', '-')
+// nuxt-og-image 6.5.3 (via @nuxtjs/seo 5.1.4) computes:
+//   hash([name, props, {}, undefined]).replace(/[-_]/g, "")
+// Nuxt 4.4 validates with computeIslandHash(name, props, context, source).
+// This shim overrides the server-side validation to match og-image's client-side
+// computation, using hardcoded {} and undefined regardless of actual context/source.
+// TODO: remove once @nuxtjs/seo / nuxt-og-image ships a native fix.
+export function computeIslandHash(name, filteredProps, context, source) {
+  return hash([name, filteredProps, {}, undefined]).replace(/[-_]/g, '')
 }
