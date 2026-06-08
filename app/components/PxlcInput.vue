@@ -6,6 +6,8 @@ defineProps<{
   type?: string
   placeholder?: string
   rows?: number
+  required?: boolean
+  autocomplete?: string
 }>()
 defineEmits(['update:modelValue'])
 </script>
@@ -19,6 +21,8 @@ defineEmits(['update:modelValue'])
       :value="modelValue"
       :rows="rows"
       :placeholder="placeholder"
+      :required="required"
+      :aria-required="required ? 'true' : undefined"
       class="form-textarea"
       @input="$emit('update:modelValue', ($event.target as HTMLTextAreaElement).value)"
     />
@@ -28,6 +32,9 @@ defineEmits(['update:modelValue'])
       :value="modelValue"
       :type="type ?? 'text'"
       :placeholder="placeholder"
+      :required="required"
+      :aria-required="required ? 'true' : undefined"
+      :autocomplete="autocomplete"
       class="form-input"
       @input="$emit('update:modelValue', ($event.target as HTMLInputElement).value)"
     />

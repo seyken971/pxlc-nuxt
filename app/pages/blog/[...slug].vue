@@ -148,7 +148,7 @@ onBeforeUnmount(() => {
     <section class="article-body">
       <div class="container post-container">
         <figure v-if="post.cover" class="post-cover">
-          <NuxtImg :src="post.cover" :alt="post.coverAlt || ''" format="webp" loading="eager" fetchpriority="high" />
+          <NuxtImg :src="post.cover" :alt="post.coverAlt || post.title" format="webp" loading="eager" fetchpriority="high" />
         </figure>
 
         <BlogToc :entries="toc" />
