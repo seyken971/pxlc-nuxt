@@ -59,7 +59,7 @@ const stats = [
     :photo-width="740"
     :photo-height="740"
   />
-  <section class="section section--soft reperes-section" aria-labelledby="reperes-title">
+  <section class="section reperes-section" aria-labelledby="reperes-title">
     <div class="container">
       <span id="reperes-title" class="eyebrow">Quelques repères</span>
       <div class="reperes-grid">
