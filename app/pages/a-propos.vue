@@ -34,17 +34,17 @@ const casquettes = [
   {
     num: '01',
     titre: 'Organisateur esport',
-    desc: "Six ans à monter la scène esport guadeloupéenne avec Esports Guadeloupe — tournois, communauté, partenariats grands comptes. Connaît de l'intérieur la communauté joueurs, l'économie d'un tournoi et le langage Discord d'équipe.",
+    desc: "Plus de six ans sur la scène esport guadeloupéenne — tournois, partenariats grands comptes, 1 mois de CA en 4 jours (Destreland Gaming Cup). Connaît la communauté joueurs de l'intérieur.",
   },
   {
     num: '02',
     titre: 'Médiateur formé',
-    desc: "Formateur principal en médiation numérique chez Simplon Outre-Mer (2021–2022). Lecture rigoureuse des recommandations HAS et HCSP. Pratique en cohérence avec les standards du soutien à la parentalité.",
+    desc: "Formateur principal en médiation numérique chez Simplon Outre-Mer (2021–2022). Pratique alignée sur les recommandations HAS et HCSP.",
   },
   {
     num: '03',
     titre: 'Conseil institutionnel',
-    desc: "Affaires européennes et numérique THD à la Région Guadeloupe, formation aux élus et accompagnement des collectivités. Connaît le langage des projets de service et des bilans d'activité.",
+    desc: "Affaires européennes et numérique THD à la Région Guadeloupe. Parle le langage des projets de service et des financements publics.",
   },
 ]
 </script>
