@@ -5,7 +5,7 @@
         <div class="image-with-badge">
           <div class="full-bleed-img">
             <NuxtImg
-              src="/assets/img/photos/duo-gaming.jpg"
+              src="/img/photos/duo-gaming.jpg"
               alt="Duo gaming, vue de dos — atelier parent-enfant"
               width="1600"
               height="1064"
