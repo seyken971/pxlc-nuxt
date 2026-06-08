@@ -15,6 +15,6 @@ export function filterIslandProps(props) {
 // This shim overrides the server-side validation to match og-image's client-side
 // computation, using hardcoded {} and undefined regardless of actual context/source.
 // TODO: remove once @nuxtjs/seo / nuxt-og-image ships a native fix.
-export function computeIslandHash(name, filteredProps, context, source) {
+export function computeIslandHash(name, filteredProps, _context, _source) {
   return hash([name, filteredProps, {}, undefined]).replace(/[-_]/g, '')
 }

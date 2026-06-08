@@ -61,7 +61,7 @@ const stats = [
   />
   <section class="section section--soft reperes-section" aria-labelledby="reperes-title">
     <div class="container">
-      <span class="eyebrow" id="reperes-title">Quelques repères</span>
+      <span id="reperes-title" class="eyebrow">Quelques repères</span>
       <div class="reperes-grid">
         <div v-for="s in stats" :key="s.label" class="repere">
           <span class="repere__value">{{ s.value }}</span>
