@@ -1,9 +1,11 @@
 <script setup lang="ts">
-useSeoMeta({ title: 'Andy Zébus — médiateur numérique' })
+useSeoMeta({ title: 'Andy Zébus, médiateur numérique — Guadeloupe · 971' })
 if (import.meta.server) {
   useSeoMeta({
     description:
-      "Andy Zébus, médiateur numérique en Guadeloupe — PXLC aide les familles à mieux utiliser les écrans, en partenariat avec les structures de Guadeloupe.",
+      'Médiateur numérique en Guadeloupe — six ans de scène esport, formation Simplon, conseil institutionnel. Intervient auprès des SESSAD, IME, associations.',
+    ogDescription:
+      "Médiateur numérique en Guadeloupe — j'aide vos familles à se réconcilier autour des écrans, en binômes parent-enfant, avec votre équipe.",
   })
 }
 
@@ -39,7 +41,7 @@ const casquettes = [
   {
     num: '02',
     titre: 'Médiateur formé',
-    desc: "Formateur principal en médiation numérique chez Simplon Outre-Mer (2021–2022). Pratique alignée sur les recommandations HAS et HCSP.",
+    desc: "Formateur principal en médiation numérique chez Simplon Outre-Mer (2021–2022). Pratique alignée sur les recommandations HCSP 2019-2020 · HAS 2020.",
   },
   {
     num: '03',

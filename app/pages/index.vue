@@ -4,15 +4,14 @@ import type { MethodStep } from '~/components/MethodGrid.vue'
 // title must run on both sides so the titleTemplate (%s · %siteName) is
 // applied during client-side navigation; description is server-only (SEO only).
 useSeoMeta({
-  title: 'Médiation numérique — Guadeloupe',
+  title: 'Médiation numérique pour les structures de Guadeloupe',
 })
 if (import.meta.server) {
   useSeoMeta({
     description:
-      'Andy Zébus · PXLC — médiation numérique pour les structures de Guadeloupe. Programme : Parents-Écran-Enfant · cadre HCSP 2019-2020 · HAS 2020.',
-    // og:description shown in social previews — capped at ~155 chars to avoid truncation.
+      'Programmes parent-enfant pour SESSAD, IME et associations de Guadeloupe — résoudre les tensions autour des écrans. Cadre HCSP 2019-2020 · HAS 2020.',
     ogDescription:
-      'PXLC aide les familles à mieux utiliser les écrans — ateliers parent-enfant pour SESSAD, IME et associations de Guadeloupe. Cadre HCSP 2019-2020 · HAS 2020.',
+      "J'interviens dans vos SESSAD, IME et associations — pour transformer les tensions autour des écrans en ateliers parent-enfant, avec votre équipe.",
   })
 }
 

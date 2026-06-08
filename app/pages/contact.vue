@@ -1,11 +1,13 @@
 <script setup lang="ts">
 definePageMeta({ hideGlobalCta: true })
 
-useSeoMeta({ title: 'Contact — vingt minutes pour faire connaissance' })
+useSeoMeta({ title: 'Contacter Andy Zébus — devis ou premier échange de 20 min' })
 if (import.meta.server) {
   useSeoMeta({
     description:
-      'Premier échange de 20 min, gratuit, sans engagement. Visio, WhatsApp ou mail — réservez sur cal.eu/pxlc-gp ou écrivez via le formulaire.',
+      'Devis ou premier échange de 20 min — gratuit, sans engagement. Pour les structures de Guadeloupe : SESSAD, IME, associations, collectivités.',
+    ogDescription:
+      'Je réponds sous 48 h — par formulaire, WhatsApp ou visio. Premier échange de 20 min gratuit pour vous dire honnêtement si ma méthode correspond à votre projet.',
   })
 }
 

@@ -1,10 +1,11 @@
 <script setup lang="ts">
-// 44 chars → 51 with " · PXLC" suffix from titleTemplate.
-useSeoMeta({ title: 'Le journal — médiation numérique' })
+useSeoMeta({ title: 'Médiation numérique — ressources pour les structures' })
 if (import.meta.server) {
   useSeoMeta({
     description:
-      'Ressources PXLC sur la médiation numérique — décryptages fondés sur les rapports HCSP, retours de terrain en SESSAD et repères pour les équipes et les familles.',
+      "Articles sur la médiation numérique et l'accompagnement des familles par les structures de Guadeloupe. Ressources HCSP 2019-2020 · HAS 2020.",
+    ogDescription:
+      "J'écris sur ce que j'observe en intervention — tensions autour des écrans, jeu vidéo comme levier, pratique HCSP. Pour les professionnels du soin et du lien.",
   })
 }
 

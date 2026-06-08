@@ -1,11 +1,11 @@
 <script setup lang="ts">
-// 50 chars → 57 with " · PXLC" suffix from titleTemplate.
-useSeoMeta({ title: 'SESSAD, IME, associations — médiation numérique' })
-// Kept under ~160 chars so Google doesn't truncate the HCSP tail.
+useSeoMeta({ title: 'Programmes parent-enfant pour les structures de Guadeloupe' })
 if (import.meta.server) {
   useSeoMeta({
     description:
-      'Je conçois des programmes sur mesure pour SESSAD, IME et associations de Guadeloupe — cadre HCSP 2019-2020 · HAS 2020, bilan transmis à vos tutelles.',
+      'Programmes parent-enfant pour les structures de Guadeloupe — HCSP 2019-2020 · HAS 2020, indicateurs qualitatifs, bilan transmis à vos tutelles.',
+    ogDescription:
+      "J'interviens avec votre équipe pluridisciplinaire — ateliers parent-enfant, protocole HCSP, indicateurs qualitatifs. Un partenaire, pas un prestataire.",
   })
 }
 

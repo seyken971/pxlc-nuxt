@@ -12,7 +12,7 @@ useSchemaOrg([
     name: 'Andy Zébus',
     jobTitle: 'Médiateur numérique',
     description:
-      'Médiateur numérique basé aux Abymes (Guadeloupe). Aide les familles à mieux utiliser les écrans — conflits autour du temps d\'écran, bonnes pratiques numériques. Interventions en structures médico-sociales et associatives.',
+      'Médiateur numérique basé aux Abymes (Guadeloupe). Aide les familles à mieux utiliser les écrans — conflits autour du temps d\'écran, bonnes pratiques numériques. Intervient auprès des structures de Guadeloupe — SESSAD, IME, associations, collectivités.',
     image: 'https://pxlc.fr/img/photos/andy-portrait.jpg',
     url: 'https://pxlc.fr/a-propos',
     worksFor: { '@id': 'https://pxlc.fr/#identity' },
