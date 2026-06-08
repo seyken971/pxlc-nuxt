@@ -346,6 +346,29 @@ const main = async () => {
       "- Espaces insécables avant `!`, `?`, `:`, `;`, `»` et entre nombre + unité (`48 h`, `20 min`, `100 €`)",
       "- Chiffres en numéraux sauf en début de phrase",
       "- `Parents-Écran-Enfant` avec majuscules",
+      "- Ne jamais écrire « fondateur » — écrire « créateur de PXLC »",
+      "- Écrire « structures » (jamais « structures médico-sociales et associatives »)",
+      "- Mission en une phrase : « PXLC aide les familles à mieux utiliser les écrans — pour s'en servir sans subir. »",
+      "- Cadre réglementaire : toujours citer HCSP 2019-2020 · HAS 2020 ensemble",
+    ].join("\n"),
+  );
+
+  md.push("\n### Positionnement B2B\n");
+  md.push(
+    [
+      "- **Cible primaire** : structures (SESSAD, IME, associations, collectivités) — les familles sont bénéficiaires, pas clients directs",
+      "- **Posture** : partenaire institutionnel — jamais coach, expert ou gadget",
+      "- **Jeu vidéo** = outil de médiation légitime — jamais un problème à résoudre",
+      "- **Différenciateur** : seul pont entre 3 mondes — culture joueur / cadre du soin / langage institutionnel",
+    ].join("\n"),
+  );
+
+  md.push("\n### Les 3 casquettes (ancres de légitimité)\n");
+  md.push(
+    [
+      "1. **Organisateur esport** — Plus de six ans sur la scène esport guadeloupéenne, Destreland Gaming Cup. Connaissance de la communauté joueurs de l'intérieur.",
+      "2. **Médiateur formé** — Formateur Simplon Outre-Mer 2021-2022. Travail dans le cadre HCSP · HAS.",
+      "3. **Conseil institutionnel** — Affaires européennes et numérique THD, Région Guadeloupe. Parle le langage des projets de service et des financements publics.",
     ].join("\n"),
   );
 
