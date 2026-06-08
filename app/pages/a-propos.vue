@@ -49,6 +49,16 @@ const casquettes = [
     desc: "Affaires européennes et numérique THD à la Région Guadeloupe. Parle le langage des projets de service et des financements publics.",
   },
 ]
+
+const timeline = [
+  { year: '2005',      title: 'Premières compétitions de jeux vidéo',           desc: "Organisation d'événements JV chez Kayanim' (Pointe-à-Pitre)." },
+  { year: '2010',      title: 'Community Manager — 100 000 inscrits',       desc: "Lancement du serveur EU-FR d'Atlantica Online (Ndoors Europe)." },
+  { year: '2013–2014', title: 'Région Guadeloupe — Affaires Européennes',        desc: "Suivi fonds FEDER · FSE · FEADER · FEAMP et déploiement du Très Haut Débit." },
+  { year: '2015–2018', title: 'Activité numérique indépendante',                 desc: "Stratégie digitale Région Guadeloupe Route du Rhum 2018, formation d'élus en anglais." },
+  { year: '2019–2025', title: 'Esports Guadeloupe — 6 ans',                 desc: "Scène esport guadeloupéenne — Destreland Gaming Cup, Game Over Challenge. 1 mois de CA en 4 jours pour un partenaire commercial." },
+  { year: '2021–2022', title: 'Simplon Outre-Mer — formateur principal',         desc: "Formation de futurs responsables d'espaces de médiation numérique." },
+  { year: '2026',      title: 'PXLC — médiateur numérique familial',             desc: "Programme Jouons Ensemble au SESSAD Lékoklaya — 8 familles, 12–17 ans, TSA/TDAH/TND, co-encadrement avec psychologue et psychomotricienne." },
+]
 </script>
 
 <template>
@@ -106,6 +116,24 @@ const casquettes = [
           <p class="casquette-desc">{{ c.desc }}</p>
         </article>
       </div>
+    </div>
+  </section>
+
+  <section class="section section--soft" aria-labelledby="timeline-title">
+    <div class="container">
+      <header class="section__head">
+        <span class="eyebrow">Chronologie</span>
+        <h2 id="timeline-title">De la compétition JV à la médiation familiale<span class="coral-dot" aria-hidden="true">.</span></h2>
+      </header>
+      <ul class="timeline">
+        <li v-for="step in timeline" :key="step.year" class="timeline__item">
+          <span class="timeline__year">{{ step.year }}</span>
+          <div class="timeline__body">
+            <strong class="timeline__title">{{ step.title }}</strong>
+            <p class="timeline__desc">{{ step.desc }}</p>
+          </div>
+        </li>
+      </ul>
     </div>
   </section>
 
@@ -227,4 +255,12 @@ const casquettes = [
   gap: var(--space-3);
   margin-top: var(--space-5);
 }
+
+/* ── Timeline ────────────────────────────────────────────────── */
+.timeline { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--space-4); max-width: 760px; }
+.timeline__item { display: grid; grid-template-columns: 100px 1fr; gap: var(--space-4); align-items: baseline; }
+@media (max-width: 600px) { .timeline__item { grid-template-columns: 1fr; gap: var(--space-1); } }
+.timeline__year { font-family: var(--font-label); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--pxlc-coral); padding-top: 3px; }
+.timeline__title { font-family: var(--font-display); font-weight: 600; font-size: 16px; color: var(--ink); }
+.timeline__desc { font-size: 14.5px; line-height: 1.6; color: var(--ink-quiet); margin: var(--space-1) 0 0; }
 </style>

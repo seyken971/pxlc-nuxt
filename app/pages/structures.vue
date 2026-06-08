@@ -249,6 +249,30 @@ const audiences = [
     </div>
   </section>
 
+  <section id="lekoklaya" class="section" aria-labelledby="lekoklaya-title">
+    <div class="container">
+      <header class="section__head">
+        <span class="eyebrow">Projet pilote — SESSAD Lékoklaya · 2026</span>
+        <h2 id="lekoklaya-title">Ce qu'un dispositif produit concrètement<span class="coral-dot" aria-hidden="true">.</span></h2>
+        <p class="lead">Programme «&nbsp;Jouons Ensemble&nbsp;!&nbsp;» — porté par le psychologue du SESSAD, co-construit avec PXLC.</p>
+      </header>
+      <div class="grid grid--2">
+        <div class="card">
+          <ul class="leko-list">
+            <li><span class="leko-val">8</span><span class="leko-label">enfants accompagnés en binôme avec un parent</span></li>
+            <li><span class="leko-val">12–17</span><span class="leko-label">ans · TSA, TDAH, TND, dystrophie musculaire</span></li>
+            <li><span class="leko-val">3</span><span class="leko-label">thèmes · coopération, émotions, différence</span></li>
+            <li><span class="leko-val">4</span><span class="leko-label">intervenants · psychologue, psychomotricienne, médiateur culturel, médiateur numérique</span></li>
+          </ul>
+        </div>
+        <div class="card">
+          <p class="lekoklaya-desc">Le point de départ&nbsp;: le jeu vidéo revenait systématiquement dans les entretiens familiaux comme source de conflit. Le dispositif a transformé ces tensions en matériau de travail pour l'équipe pluridisciplinaire.</p>
+          <p class="lekoklaya-desc mt-3">Les parents qui ne comprenaient pas pourquoi leur enfant jouait ont pu rejouer avec lui. Les profils ludiques ont été transmis à l'équipe dans le bilan final.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="equipe" class="section" aria-labelledby="equipe-title">
     <div class="container">
       <header class="section__head">
@@ -401,4 +425,10 @@ const audiences = [
     padding: var(--space-3);
   }
 }
+
+.leko-list { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--space-4); }
+.leko-list li { display: grid; grid-template-columns: 56px 1fr; gap: var(--space-3); align-items: center; }
+.leko-val { font-family: var(--font-display); font-weight: 700; font-size: 28px; color: var(--pxlc-coral); }
+.leko-label { font-size: 14px; line-height: 1.4; color: var(--ink-quiet); }
+.lekoklaya-desc { font-size: 14.5px; line-height: 1.6; color: var(--ink-quiet); }
 </style>

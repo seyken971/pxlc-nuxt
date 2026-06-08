@@ -23,6 +23,24 @@ useSchemaOrg([
       'https://www.twitter.com/seyken971',
       'https://bsky.app/profile/seyken.pxlc.fr',
     ],
+    knowsAbout: [
+      'Médiation numérique',
+      'Jeu vidéo thérapeutique',
+      'Parentalité numérique',
+      'esport',
+      'Troubles du neurodéveloppement',
+      'SESSAD',
+      'IME',
+      'Guadeloupe',
+    ],
+    alumniOf: [
+      { '@type': 'EducationalOrganization', name: 'Université des Antilles' },
+    ],
+    hasOccupation: {
+      '@type': 'Occupation',
+      name: 'Médiateur numérique',
+      occupationLocation: { '@type': 'AdministrativeArea', name: 'Guadeloupe' },
+    },
   }),
   {
     '@id': 'https://pxlc.fr/#service',

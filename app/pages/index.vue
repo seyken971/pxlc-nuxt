@@ -37,6 +37,13 @@ const methodSteps: MethodStep[] = [
 // En <script setup>, c'est du JS standard — U+2019 dans le contenu est valide.
 const heroCta = { label: 'Voir mes programmes', href: '/structures' }
 const heroCtaSecondary = { label: 'Télécharger la plaquette', href: '/files/plaquette-pxlc.pdf', external: true }
+
+const stats = [
+  { value: '8',          label: 'familles accompagnées en 2026' },
+  { value: '6 ans',      label: 'sur la scène esport guadeloupéenne' },
+  { value: '1',          label: 'structure partenaire engagée' },
+  { value: 'HCSP · HAS', label: 'cadre de référence (2019–2020)' },
+]
 </script>
 
 <template>
@@ -52,6 +59,17 @@ const heroCtaSecondary = { label: 'Télécharger la plaquette', href: '/files/pl
     :photo-width="740"
     :photo-height="740"
   />
+  <section class="section section--soft reperes-section" aria-labelledby="reperes-title">
+    <div class="container">
+      <span class="eyebrow" id="reperes-title">Quelques repères</span>
+      <div class="reperes-grid">
+        <div v-for="s in stats" :key="s.label" class="repere">
+          <span class="repere__value">{{ s.value }}</span>
+          <span class="repere__label">{{ s.label }}</span>
+        </div>
+      </div>
+    </div>
+  </section>
   <!-- hydrate-on-visible : JS des composants below-fold parsé/exécuté seulement
        quand ils entrent dans le viewport → réduit le TBT au chargement initial. -->
   <LazyPartnerStrip hydrate-on-visible />
@@ -65,3 +83,23 @@ const heroCtaSecondary = { label: 'Télécharger la plaquette', href: '/files/pl
     hydrate-on-visible
   />
 </template>
+
+<style scoped>
+.reperes-section { padding-block: var(--space-6); }
+.reperes-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-4);
+  margin-top: var(--space-4);
+}
+@media (max-width: 768px) { .reperes-grid { grid-template-columns: repeat(2, 1fr); } }
+.repere { display: flex; flex-direction: column; gap: var(--space-1); }
+.repere__value {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(24px, 3vw, 36px);
+  color: var(--pxlc-coral);
+  line-height: 1;
+}
+.repere__label { font-size: 13px; color: var(--ink-quiet); line-height: 1.4; }
+</style>
