@@ -52,9 +52,9 @@ withDefaults(defineProps<Props>(), {
             Agenda mis à jour en temps réel sur <a href="https://cal.eu/pxlc-gp" target="_blank" rel="noopener noreferrer" class="cta-block__sidecard-link">cal.eu/pxlc-gp</a>. Les créneaux libres sont visibles immédiatement.
           </p>
           <ul role="list">
-            <li><span>Premier échange</span><span class="meta">20 min · gratuit</span></li>
+            <li><span>Premier échange</span><span class="meta">20&nbsp;min · gratuit</span></li>
             <li><span>WhatsApp ou visio</span><span class="meta">au choix</span></li>
-            <li><span>Réponse directe</span><span class="meta">sous 48 h</span></li>
+            <li><span>Réponse directe</span><span class="meta">sous 48&nbsp;h</span></li>
           </ul>
         </div>
       </div>
