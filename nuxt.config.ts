@@ -48,9 +48,15 @@ export default defineNuxtConfig({
         name: "Plus Jakarta Sans",
         weights: [400, 500, 600],
         provider: "google",
+        global: true,
       },
       // Body / prose (replaces DM Sans)
-      { name: "Lora", weights: [400, 500, 600], provider: "google" },
+      {
+        name: "Lora",
+        weights: [400, 500, 600],
+        provider: "google",
+        global: true,
+      },
     ],
   },
 
