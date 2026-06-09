@@ -380,7 +380,7 @@ const audiences = [
 .team-grid { align-items: stretch; }
 .team-role { font-size: 18px; }
 
-.audience-card { scroll-margin-top: 96px; }
+.audience-card { scroll-margin-top: 0; }
 .audience-list { display: grid; gap: 8px 16px; grid-template-columns: 1fr; margin: 0; }
 @media (min-width: 480px) { .audience-list { grid-template-columns: max-content 1fr; } }
 .audience-list dt {

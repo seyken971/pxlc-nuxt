@@ -63,6 +63,22 @@ h1,h2,h3,h4 { margin: 0; color: var(--ink); font-family: var(--font-display); fo
 p { margin: 0; color: var(--ink-quiet); }
 img { max-width: 100%; display: block; }
 
+/* ── Page root guards ────────────────────────────────────── */
+
+/* Fix #5 — The sticky header (.site-header) is ~81px tall. A global
+   scroll-padding-top keeps EVERY in-page anchor target clear of it.
+   Complements the per-element scroll-margin-top:96px already set on
+   .audience-card and `h2[id]` targets (those can stay; this generalises it). */
+html { scroll-padding-top: 96px; }
+
+/* Fix #4 — Hero, CTA and section decorations (pixel marks) intentionally
+   bleed past the right edge. Clip horizontally so that bleed can never
+   produce a stray horizontal scrollbar at narrow/intermediate widths.
+   Use `clip` — NOT `hidden` — so the sticky header is not turned into a
+   scroll container (overflow:hidden on body would force overflow-y to auto
+   and break position:sticky). */
+body { overflow-x: clip; }
+
 /* Skip link */
 .skip-link {
   position: absolute; left: -9999px; top: auto; width: 1px; height: 1px;

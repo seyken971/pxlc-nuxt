@@ -190,8 +190,8 @@ const lastUpdated = new Intl.DateTimeFormat('fr-FR', { day: 'numeric', month: 'l
 /* ── Content container ────────────────────────────────────────── */
 .legal-container { max-width: 760px; }
 
-/* Sticky header ~70-80 px tall — les ancres #rgpd ne scrollent pas dessous. */
-.legal-container :deep(h2[id]) { scroll-margin-top: 96px; }
+/* Sticky header offset géré globalement par html { scroll-padding-top: 96px } dans styles.css. */
+.legal-container :deep(h2[id]) { scroll-margin-top: 0; }
 
 /* ── Éditeur card ─────────────────────────────────────────────── */
 .legal-card {

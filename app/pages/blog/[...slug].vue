@@ -240,8 +240,8 @@ onBeforeUnmount(() => {
 }
 .post-cover :deep(img) { width: 100%; height: auto; display: block; }
 .post-body { font-size: 16px; line-height: 1.7; }
-/* Anchored h2 from the TOC shouldn't disappear under the sticky header. */
-.post-body :deep(h2[id]) { scroll-margin-top: 96px; }
+/* Sticky header offset géré globalement par html { scroll-padding-top: 96px } dans styles.css. */
+.post-body :deep(h2[id]) { scroll-margin-top: 0; }
 .post-share { margin-top: var(--space-6); padding-top: var(--space-5); border-top: 1px solid var(--rule); }
 
 /* ── Breadcrumb ──────────────────────────────────────────────── */
