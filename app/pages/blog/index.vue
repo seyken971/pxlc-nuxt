@@ -182,13 +182,6 @@ const categoryLabel = (slug?: string): string =>
   aspect-ratio: 16 / 9;
   position: relative;
   background: var(--pxlc-pattern-warm-deep);
-  background-image: repeating-linear-gradient(
-    -45deg,
-    transparent 0,
-    transparent 6px,
-    rgba(0, 0, 0, 0.04) 6px,
-    rgba(0, 0, 0, 0.04) 7px
-  );
 }
 .blog-card__thumb--parents      { background-color: var(--pxlc-ivory-soft); }
 .blog-card__thumb--cas-pratique { background-color: var(--pxlc-pattern-warm); }
@@ -199,15 +192,6 @@ const categoryLabel = (slug?: string): string =>
 [data-theme="dark"] .blog-card__thumb--parents     { background-color: var(--pxlc-bg-dark-soft); }
 [data-theme="dark"] .blog-card__thumb--cas-pratique { background-color: var(--pxlc-border-dark); }
 [data-theme="dark"] .blog-card__thumb--decryptage  { background-color: var(--pxlc-bg-dark-soft); }
-[data-theme="dark"] .blog-card__thumb {
-  background-image: repeating-linear-gradient(
-    -45deg,
-    transparent 0,
-    transparent 6px,
-    rgba(255, 255, 255, 0.07) 6px,
-    rgba(255, 255, 255, 0.07) 7px
-  );
-}
 .blog-card__body { padding: var(--space-4) var(--space-4) var(--space-5); display: flex; flex-direction: column; gap: var(--space-2-5); flex: 1; }
 .blog-card__badges { display: flex; flex-wrap: wrap; gap: var(--space-1-5); align-items: center; }
 .badge--new { background: var(--pxlc-coral); color: var(--pxlc-text-ink); border-color: var(--pxlc-coral); }
