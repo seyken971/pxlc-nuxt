@@ -130,11 +130,12 @@ function lintStyle(raw, file) {
     },
   )
 
-  // R2 — Gradient
+  // R2 — Gradient (linear-gradient et repeating-* interdits ;
+  //   radial-gradient autorisé pour les textures type dot-grid)
   flag(
-    /(repeating-)?(linear|radial)-gradient/g,
+    /(repeating-linear|repeating-radial|linear)-gradient/g,
     'gradient',
-    m => `${m[0]}(...) → les gradients sont interdits par le DS`,
+    m => `${m[0]}(...) → les gradients linéaires et repeating sont interdits par le DS`,
   )
 
   // R3 — Font-family hardcodée

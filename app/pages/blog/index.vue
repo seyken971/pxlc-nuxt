@@ -183,13 +183,12 @@ const categoryLabel = (slug?: string): string =>
   min-height: 360px; text-decoration: none; color: inherit;
 }
 .blog-card:hover { text-decoration: none; }
-/* Each category gets its own thumbnail colour + a subtle dot-grid texture
-   (SVG data-URI, not radial-gradient per DS rule R2). */
+/* Each category gets its own thumbnail colour + a subtle dot-grid texture. */
 .blog-card__thumb {
   aspect-ratio: 16 / 9;
   position: relative;
   background-color: var(--pxlc-pattern-warm-deep);
-  background-image: url("data:image/svg+xml,%3Csvg width='18' height='18' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='9' cy='9' r='1' fill='rgba(8,43,54,.09)'/%3E%3C/svg%3E");
+  background-image: radial-gradient(circle, rgba(8,43,54,0.09) 1px, transparent 1px);
   background-size: 18px 18px;
   background-position: 8px 8px;
 }
@@ -210,7 +209,7 @@ const categoryLabel = (slug?: string): string =>
 
 [data-theme="dark"] .blog-card__thumb {
   background-color: var(--pxlc-border-dark-2);
-  background-image: url("data:image/svg+xml,%3Csvg width='18' height='18' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='9' cy='9' r='1' fill='rgba(255,255,255,.06)'/%3E%3C/svg%3E");
+  background-image: radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px);
 }
 [data-theme="dark"] .blog-card__thumb--parents     { background-color: var(--pxlc-bg-dark-deep); }
 [data-theme="dark"] .blog-card__thumb--cas-pratique { background-color: var(--pxlc-border-dark); }
