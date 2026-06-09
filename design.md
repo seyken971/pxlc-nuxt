@@ -77,6 +77,7 @@ typography:
 spacing:
   base: "8px"
   space-1: "4px"
+  space-1-5: "6px"
   space-2: "8px"
   space-2-5: "12px"
   space-3: "16px"
@@ -202,6 +203,7 @@ Rythme 8 px.
 | Token | Valeur |
 | --- | --- |
 | `--space-1` | `4px` |
+| `--space-1-5` | `6px` |
 | `--space-2` | `8px` |
 | `--space-2-5` | `12px` |
 | `--space-3` | `16px` |

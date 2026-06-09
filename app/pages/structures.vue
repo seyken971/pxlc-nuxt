@@ -273,7 +273,7 @@ const audiences = [
     </div>
   </section>
 
-  <section id="equipe" class="section" aria-labelledby="equipe-title">
+  <section id="equipe" class="section section--soft" aria-labelledby="equipe-title">
     <div class="container">
       <header class="section__head">
         <span class="eyebrow">Exemple de composition — SESSAD Lékoklaya 2026</span>
@@ -292,7 +292,7 @@ const audiences = [
     </div>
   </section>
 
-  <section id="audiences" class="section section--soft" aria-labelledby="audiences-title">
+  <section id="audiences" class="section" aria-labelledby="audiences-title">
     <div class="container">
       <header class="section__head">
         <span class="eyebrow">Adapté à votre structure</span>
@@ -359,11 +359,11 @@ const audiences = [
 .framework-tag__dot { width: 8px; height: 8px; background: var(--pxlc-coral); border-radius: 2px; }
 .framework-tag__label { color: var(--ink); }
 .framework-title { font-size: 20px; margin-bottom: var(--space-2); }
-/* .pxlc-body-sm (global) — 14.5px / 1.6 avec font-body et ink-quiet. */
+/* .pxlc-body-sm (global) — 15px / 1.6 avec font-body et ink-quiet. */
 .framework-desc,
 .indicator-detail,
 .theme-desc,
-.team-detail { font-size: 14.5px; line-height: 1.6; }
+.team-detail { font-size: 15px; line-height: 1.6; }
 
 .framework-meta { display: block; }
 .framework-meta--link { color: var(--teal-deep); transition: color var(--dur-fast); }
@@ -385,7 +385,7 @@ const audiences = [
   letter-spacing: 0.18em; text-transform: uppercase; color: var(--quiet);
   padding-top: 2px;
 }
-.audience-list dd { margin: 0; font-size: 14.5px; color: var(--ink); line-height: 1.5; }
+.audience-list dd { margin: 0; font-size: 15px; color: var(--ink); line-height: 1.5; }
 
 .faq { display: grid; gap: var(--space-2-5); max-width: 820px; margin: 0 auto; }
 .faq__item {
@@ -406,7 +406,7 @@ const audiences = [
 .faq__item[open] .faq__q::after { content: "−"; }
 .faq__q::-webkit-details-marker { display: none; }
 .faq__a {
-  margin-top: var(--space-2-5); font-size: 14.5px; line-height: 1.6; color: var(--ink-quiet);
+  margin-top: var(--space-2-5); font-size: 15px; line-height: 1.6; color: var(--ink-quiet);
 }
 
 @media (max-width: 479px) {
@@ -427,8 +427,8 @@ const audiences = [
 }
 
 .leko-list { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--space-4); }
-.leko-list li { display: grid; grid-template-columns: 56px 1fr; gap: var(--space-3); align-items: center; }
+.leko-list li { display: grid; grid-template-columns: 72px 1fr; gap: var(--space-3); align-items: center; }
 .leko-val { font-family: var(--font-display); font-weight: 700; font-size: 28px; color: var(--pxlc-coral); }
 .leko-label { font-size: 14px; line-height: 1.4; color: var(--ink-quiet); }
-.lekoklaya-desc { font-size: 14.5px; line-height: 1.6; color: var(--ink-quiet); }
+.lekoklaya-desc { font-size: 15px; line-height: 1.6; color: var(--ink-quiet); }
 </style>

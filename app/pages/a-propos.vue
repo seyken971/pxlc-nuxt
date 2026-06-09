@@ -245,10 +245,10 @@ const timeline = [
 
 /* ── Casquettes ──────────────────────────────────────────────── */
 .casquette-title { font-size: 18px; margin: var(--space-2) 0; }
-.casquette-desc  { font-size: 14.5px; line-height: 1.6; }
+.casquette-desc  { font-size: 15px; line-height: 1.6; }
 
 /* ── CTA ─────────────────────────────────────────────────────── */
-.about-cta-section { max-width: 720px; }
+.about-cta-section { max-width: 720px; margin: 0 auto; }
 .about-cta-actions {
   display: flex;
   flex-wrap: wrap;
@@ -262,5 +262,5 @@ const timeline = [
 @media (max-width: 600px) { .timeline__item { grid-template-columns: 1fr; gap: var(--space-1); } }
 .timeline__year { font-family: var(--font-label); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--eyebrow); padding-top: 3px; }
 .timeline__title { font-family: var(--font-display); font-weight: 600; font-size: 16px; color: var(--ink); }
-.timeline__desc { font-size: 14.5px; line-height: 1.6; color: var(--ink-quiet); margin: var(--space-1) 0 0; }
+.timeline__desc { font-size: 15px; line-height: 1.6; color: var(--ink-quiet); margin: var(--space-1) 0 0; }
 </style>

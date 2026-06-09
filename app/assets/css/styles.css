@@ -589,7 +589,7 @@ main[tabindex="-1"]:focus { outline: none; }
 .pxlc-h3 { font-family: var(--font-display); font-weight: 600; font-size: 26px; line-height: 1.15; letter-spacing: -0.01em; color: var(--ink); text-wrap: balance; }
 .pxlc-lead { font-family: var(--font-body); font-size: clamp(16px, 2vw, 19px); line-height: 1.55; color: var(--ink-quiet); }
 .pxlc-body { font-family: var(--font-body); font-size: 16px; line-height: 1.6; color: var(--ink-quiet); }
-.pxlc-body-sm { font-family: var(--font-body); font-size: 14.5px; line-height: 1.6; color: var(--ink-quiet); }
+.pxlc-body-sm { font-family: var(--font-body); font-size: 15px; line-height: 1.6; color: var(--ink-quiet); }
 .pxlc-eyebrow { font-family: var(--font-label); font-size: 11px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--eyebrow); display: block; }
 .pxlc-kicker { font-family: var(--font-label); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--quiet); }
 .pxlc-tag { font-family: var(--font-label); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--quiet); }
