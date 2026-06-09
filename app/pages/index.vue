@@ -66,7 +66,7 @@ const stats = [
     <div class="container">
       <span id="reperes-title" class="eyebrow">Quelques repères</span>
       <div class="reperes-grid">
-        <div v-for="s in stats" :key="s.label" class="repere">
+        <div v-for="(s, i) in stats" :key="s.label" class="repere" :style="`--anim-delay: ${i * 0.07}s`">
           <span class="repere__value">{{ s.value }}</span>
           <span class="repere__label">{{ s.label }}</span>
         </div>
@@ -100,9 +100,13 @@ const stats = [
 .repere__value {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: clamp(24px, 3vw, 36px);
+  font-size: clamp(40px, 5vw, 56px);
   color: var(--ink);
   line-height: 1;
+  letter-spacing: -0.04em;
+  border-top: 2px solid var(--pxlc-coral);
+  padding-top: var(--space-2);
+  display: block;
 }
 .repere__label { font-size: 13px; color: var(--ink-quiet); line-height: 1.4; }
 </style>

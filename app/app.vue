@@ -90,6 +90,39 @@ defineOgImage("PxlcOgBrand", {}, [
   { key: 'og' },
   { key: 'whatsapp', width: 800, height: 800 },
 ]);
+
+// Scroll reveal — add .is-visible to animated elements when they enter
+// the viewport. Re-runs after each SPA navigation so new-page elements
+// are observed. Skipped on server and when prefers-reduced-motion is set
+// (CSS already makes those elements fully visible in that case).
+if (import.meta.client) {
+  const TARGETS =
+    '.animate-in:not(.is-visible), .section__head:not(.is-visible), ' +
+    '.repere:not(.is-visible), .card--method:not(.is-visible), .blog-card:not(.is-visible)'
+
+  const scrollIO = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          ;(e.target as HTMLElement).classList.add('is-visible')
+          scrollIO.unobserve(e.target)
+        }
+      })
+    },
+    { threshold: 0.08 },
+  )
+
+  const observe = () => {
+    if (!window.matchMedia('(prefers-reduced-motion: no-preference)').matches) return
+    nextTick(() => {
+      document.querySelectorAll<HTMLElement>(TARGETS).forEach(el => scrollIO.observe(el))
+    })
+  }
+
+  onMounted(observe)
+  const route = useRoute()
+  watch(() => route.fullPath, observe)
+}
 </script>
 
 <template>

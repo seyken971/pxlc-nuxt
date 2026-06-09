@@ -3,6 +3,30 @@
 
 @import "./tokens.css";
 
+/* ── Scroll reveal ────────────────────────────────────────── */
+/* Elements fade up as they enter the viewport. JS (app.vue) adds
+   .is-visible via IntersectionObserver. Skipped entirely when the
+   user prefers reduced motion. */
+@media (prefers-reduced-motion: no-preference) {
+  .animate-in,
+  .section__head,
+  .repere,
+  .card--method,
+  .blog-card {
+    opacity: 0;
+    transform: translateY(18px);
+    transition:
+      opacity 0.5s var(--ease-step),
+      transform 0.5s var(--ease-step);
+    transition-delay: var(--anim-delay, 0s);
+  }
+  .animate-in.is-visible,
+  .section__head.is-visible,
+  .repere.is-visible,
+  .card--method.is-visible,
+  .blog-card.is-visible { opacity: 1; transform: translateY(0); }
+}
+
 /* ── Reset & globals ─────────────────────────────────────── */
 * { box-sizing: border-box; }
 @media (prefers-reduced-motion: no-preference) {
@@ -58,7 +82,18 @@ main[tabindex="-1"]:focus { outline: none; }
 /* ── Layout ──────────────────────────────────────────────── */
 .container { width: 100%; max-width: var(--container-max); margin: 0 auto; padding: 0 var(--container-pad); }
 .section { padding: clamp(var(--space-6), 8vw, var(--space-9)) 0; position: relative; }
-.section--soft { background: var(--bg-soft); border-top: 1px solid var(--bg-rule); border-bottom: 1px solid var(--bg-rule); }
+.section--soft { background: var(--bg-soft); border-bottom: 1px solid var(--bg-rule); }
+/* Gradient fade from the adjacent section colour — softer than a hard
+   border-top rule while still signalling the surface change. */
+.section--soft::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 48px;
+  background: linear-gradient(to bottom, var(--bg), transparent);
+  pointer-events: none;
+  z-index: 0;
+}
 /* Padding d'ouverture de page — aligné sur .hero pour cohérence visuelle */
 .section--page { padding: clamp(40px, 5vw, var(--space-7)) 0; }
 .section__head { max-width: 760px; margin-bottom: var(--space-6); }
@@ -118,11 +153,13 @@ main[tabindex="-1"]:focus { outline: none; }
 .btn--primary:hover { background: var(--pxlc-coral-deep); transform: translateY(-1px); box-shadow: 0 8px 24px -12px rgba(255,94,58,.6); }
 .btn--primary:focus-visible { outline: 3px solid var(--pxlc-text-ink); outline-offset: 2px; }
 
-.btn--secondary { background: var(--pxlc-teal-deep); color: var(--pxlc-white); }
-.btn--secondary:hover { background: var(--pxlc-teal-mid); color: var(--pxlc-text-ink); transform: translateY(-1px); box-shadow: 0 8px 24px -12px rgba(1,160,157,.5); }
+/* Outline style — primary is coral-filled, secondary is teal outline.
+   Contrast: #036E73 on #EAF6F4 = 7.2:1 ✓  |  #00D2C8 on #082B36 = 8.4:1 ✓ */
+.btn--secondary { background: transparent; color: var(--teal-deep); box-shadow: inset 0 0 0 2px var(--pxlc-teal-deep); }
+.btn--secondary:hover { background: var(--pxlc-teal-deep); color: var(--pxlc-white); transform: translateY(-1px); box-shadow: 0 8px 24px -12px rgba(3,110,115,.5); }
 .btn--secondary:focus-visible { outline: none; box-shadow: var(--ring-teal); }
-[data-theme="dark"] .btn--secondary { background: var(--pxlc-teal-mid); color: var(--pxlc-text-ink); }
-[data-theme="dark"] .btn--secondary:hover { background: var(--pxlc-cyan); color: var(--pxlc-bg-dark); }
+[data-theme="dark"] .btn--secondary { color: var(--cyan); box-shadow: inset 0 0 0 2px var(--pxlc-cyan); }
+[data-theme="dark"] .btn--secondary:hover { background: var(--pxlc-cyan); color: var(--pxlc-bg-dark); box-shadow: 0 8px 24px -12px rgba(0,210,200,.4); }
 
 .btn--ghost { background: transparent; color: var(--pxlc-teal-deep); box-shadow: inset 0 0 0 1px var(--pxlc-border); }
 .btn--ghost:hover { background: var(--pxlc-bg-light); }
@@ -372,12 +409,25 @@ main[tabindex="-1"]:focus { outline: none; }
   position: relative; overflow: hidden; padding: clamp(40px, 5vw, var(--space-7)) 0;
   background: var(--bg);
 }
+/* Radial gradient accent from top-right — atmospheric depth without
+   competing with the photo or copy. */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 90% at 100% -10%, rgba(0,210,200,0.14) 0%, transparent 65%);
+  pointer-events: none;
+  z-index: 0;
+}
+[data-theme="dark"] .hero::before {
+  background: radial-gradient(ellipse 70% 90% at 100% -10%, rgba(0,210,200,0.08) 0%, transparent 65%);
+}
 .hero--soft { background: var(--bg-soft); }
 .hero__strip { position: absolute; top: 24px; right: clamp(20px, 4vw, 56px); }
 .hero__bg-mark {
   position: absolute; right: -40px; bottom: -40px; opacity: 0.08; pointer-events: none;
 }
-[data-theme="dark"] .hero__bg-mark { opacity: 0.18; }
+[data-theme="dark"] .hero__bg-mark { opacity: 0.22; }
 .hero__bg-mark .mark-svg { width: 420px; height: 420px; transform: rotate(-8deg); }
 /* align-items: start anchors the text column to the top of the row so
    the photo column can be taller without pushing the CTAs down with it. */
@@ -461,7 +511,7 @@ main[tabindex="-1"]:focus { outline: none; }
   padding: var(--space-5); position: relative;
   transition: transform var(--dur-base) var(--ease-step), box-shadow var(--dur-base) var(--ease-step);
 }
-.card--hover:hover { transform: translateY(-2px); box-shadow: var(--shadow-card-hover); }
+.card--hover:hover { transform: translateY(-2px); box-shadow: var(--shadow-card-hover); border-color: var(--pxlc-coral); }
 
 .card--method { min-height: 240px; padding: 32px 32px 48px; }
 /* teal-deep (not teal-mid) so the 11px ÉTAPE label hits WCAG AA 4.5:1
@@ -499,7 +549,7 @@ main[tabindex="-1"]:focus { outline: none; }
 .cta-block h2 { color: var(--pxlc-ivory); }
 .cta-block p { color: var(--pxlc-text-on-dark-soft); }
 .cta-block .eyebrow { color: var(--pxlc-cyan); }
-.cta-block__bg-mark { position: absolute; right: -60px; bottom: -60px; opacity: 0.12; pointer-events: none; }
+.cta-block__bg-mark { position: absolute; right: -60px; bottom: -60px; opacity: 0.22; pointer-events: none; }
 .cta-block__bg-mark .mark-svg { width: 340px; height: 340px; }
 .cta-block__strip { position: absolute; top: 32px; right: clamp(20px, 4vw, 56px); }
 .cta-block__inner {
