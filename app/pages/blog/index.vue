@@ -113,6 +113,7 @@ const categoryLabel = (slug?: string): string =>
           :key="p.path"
           :to="p.path"
           class="card card--hover blog-card"
+          :style="`--anim-delay: ${Math.min(idx % 3, 2) * 0.08}s`"
         >
           <div
             class="blog-card__thumb"
@@ -120,6 +121,9 @@ const categoryLabel = (slug?: string): string =>
             aria-hidden="true"
           >
             <PixelCorner />
+            <div class="blog-card__thumb-mark">
+              <PxlcMark :size="56" decorative />
+            </div>
           </div>
           <div class="blog-card__body">
             <div class="blog-card__badges">
@@ -179,20 +183,36 @@ const categoryLabel = (slug?: string): string =>
   min-height: 360px; text-decoration: none; color: inherit;
 }
 .blog-card:hover { text-decoration: none; }
-/* Each category gets its own thumbnail colour so the index is not a
-   wall of identical cards. Light/dark variants follow the brand. */
+/* Each category gets its own thumbnail colour + a subtle dot-grid texture
+   (SVG data-URI, not radial-gradient per DS rule R2). */
 .blog-card__thumb {
   aspect-ratio: 16 / 9;
   position: relative;
-  background: var(--pxlc-pattern-warm-deep);
+  background-color: var(--pxlc-pattern-warm-deep);
+  background-image: url("data:image/svg+xml,%3Csvg width='18' height='18' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='9' cy='9' r='1' fill='rgba(8,43,54,.09)'/%3E%3C/svg%3E");
+  background-size: 18px 18px;
+  background-position: 8px 8px;
 }
+/* Category colours — differentiated: warm ivory / teal-tinted / deeper warm */
 .blog-card__thumb--parents      { background-color: var(--pxlc-ivory-soft); }
-.blog-card__thumb--cas-pratique { background-color: var(--pxlc-pattern-warm); }
-.blog-card__thumb--decryptage   { background-color: var(--pxlc-bg-light); }
+.blog-card__thumb--cas-pratique { background-color: var(--pxlc-bg-light); }
+.blog-card__thumb--decryptage   { background-color: var(--pxlc-pattern-warm); }
 .blog-card__thumb :deep(.pixel-corner) { position: absolute; bottom: 0; left: 0; }
 
-[data-theme="dark"] .blog-card__thumb              { background-color: var(--pxlc-border-dark-2); }
-[data-theme="dark"] .blog-card__thumb--parents     { background-color: var(--pxlc-bg-dark-soft); }
+/* PxlcMark watermark inside thumbnail — brand presence on every card */
+.blog-card__thumb-mark {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+[data-theme="dark"] .blog-card__thumb {
+  background-color: var(--pxlc-border-dark-2);
+  background-image: url("data:image/svg+xml,%3Csvg width='18' height='18' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='9' cy='9' r='1' fill='rgba(255,255,255,.06)'/%3E%3C/svg%3E");
+}
+[data-theme="dark"] .blog-card__thumb--parents     { background-color: var(--pxlc-bg-dark-deep); }
 [data-theme="dark"] .blog-card__thumb--cas-pratique { background-color: var(--pxlc-border-dark); }
 [data-theme="dark"] .blog-card__thumb--decryptage  { background-color: var(--pxlc-bg-dark-soft); }
 .blog-card__body { padding: var(--space-4) var(--space-4) var(--space-5); display: flex; flex-direction: column; gap: var(--space-2-5); flex: 1; }
