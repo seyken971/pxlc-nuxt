@@ -55,7 +55,7 @@ const contactCards = [
     key: 'calendar',
     icon: 'lucide:calendar',
     label: 'Réserver un créneau',
-    desc: '20 min · visio · gratuit',
+    desc: '20 min · visio · gratuit',
     cta: 'Ouvrir cal.eu/pxlc-gp',
     href: 'https://cal.eu/pxlc-gp',
     external: true,
@@ -97,10 +97,10 @@ const contactCards = [
       <!-- Heading — pleine largeur, au-dessus du grid -->
       <span class="eyebrow eyebrow--lg">Contact</span>
       <h1 class="contact-title">
-        On en parle<span class="coral-dot" aria-hidden="true">?</span>
+        On en parle<span class="coral-dot" aria-hidden="true">&nbsp;?</span>
       </h1>
       <p class="contact-lead">
-        Décrivez votre structure, le public accompagné et le projet envisagé — je reviens sous 48 h.
+        Décrivez votre structure, le public accompagné et le projet envisagé — je reviens sous 48&nbsp;h.
       </p>
 
       <div class="contact-grid">
@@ -116,7 +116,7 @@ const contactCards = [
             class="contact-sent"
           >
             <div class="contact-sent__eyebrow">Message envoyé</div>
-            <p class="contact-sent__text">Je reviens sous 48 h avec une réponse personnalisée.</p>
+            <p class="contact-sent__text">Je reviens sous 48&nbsp;h avec une réponse personnalisée.</p>
           </div>
 
           <form v-else class="contact-form" @submit.prevent="submit">

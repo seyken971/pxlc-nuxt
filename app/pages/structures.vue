@@ -189,7 +189,7 @@ const audiences = [
         <span class="eyebrow">Ateliers thématiques</span>
         <h2 id="themes-title">Trois thèmes d’atelier, un protocole<span class="coral-dot" aria-hidden="true">.</span></h2>
         <p class="lead">
-          Chaque atelier articule un temps de jeu partagé (30 à 45 min) et un temps d’échange verbal (45 min à 1 h).
+          Chaque atelier articule un temps de jeu partagé (30 à 45&nbsp;min) et un temps d’échange verbal (45&nbsp;min à 1&nbsp;h).
         </p>
       </header>
       <div class="grid grid--3">
