@@ -15,7 +15,10 @@ defineOgImage('PxlcOg', {
   eyebrow: 'PXLC · PREMIER PAS',
   title: 'Vingt minutes pour faire connaissance',
   description: 'Visio ou WhatsApp, à votre convenance. Réservez directement en ligne ou écrivez via le formulaire — réponse personnelle sous 48 h.',
-})
+}, [
+  { key: 'og' },
+  { key: 'whatsapp', width: 800, height: 800 },
+])
 
 useSchemaOrg([
   defineWebPage({
