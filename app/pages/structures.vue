@@ -9,11 +9,14 @@ if (import.meta.server) {
   })
 }
 
-defineOgImage('PxlcOg', {
-  eyebrow: 'PXLC · POUR LES STRUCTURES',
-  title: 'Programmes de médiation numérique — SESSAD, IME, associations',
-  description: 'Ateliers thématiques parent-enfant co-encadrés par votre équipe pluridisciplinaire et le médiateur-numérique. Cadre HCSP, indicateurs d’évaluation, bilan en fin de dispositif.',
-})
+defineOgImage(‘PxlcOg’, {
+  eyebrow: ‘PXLC · POUR LES STRUCTURES’,
+  title: ‘Programmes de médiation numérique — SESSAD, IME, associations’,
+  description: ‘Ateliers thématiques parent-enfant co-encadrés par votre équipe pluridisciplinaire et le médiateur-numérique. Cadre HCSP, indicateurs d’évaluation, bilan en fin de dispositif.’,
+}, [
+  { key: ‘og’ },
+  { key: ‘whatsapp’, width: 800, height: 800 },
+])
 
 
 // FAQ — answers grounded in the plaquette + existing copy. Doubles as the

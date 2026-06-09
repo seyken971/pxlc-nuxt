@@ -14,7 +14,10 @@ defineOgImage('PxlcOg', {
   title: 'Médiateur numérique',
   description:
     "J'aide les familles à mieux utiliser les écrans — en partenariat avec les SESSAD, IME, associations et collectivités de Guadeloupe.",
-})
+}, [
+  { key: 'og' },
+  { key: 'whatsapp', width: 800, height: 800 },
+])
 
 // Person #andy est déclaré globalement dans app.vue — disponible sur toutes les pages.
 useSchemaOrg([
