@@ -11,7 +11,7 @@ if (import.meta.server) {
     description:
       'Programmes parent-enfant pour les structures de Guadeloupe — résoudre les tensions autour des écrans. Cadre HCSP 2019-2020 · HAS 2020.',
     ogDescription:
-      'PXLC intervient auprès des structures de Guadeloupe — ateliers parent-enfant pour transformer les tensions autour des écrans, avec votre équipe.',
+      'Andy Zébus, créateur de PXLC, intervient dans les structures de Guadeloupe — ateliers parent-enfant, avec votre équipe.',
   })
 }
 
