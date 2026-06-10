@@ -3,7 +3,7 @@ useSeoMeta({ title: 'Médiation numérique — ressources pour les structures' }
 if (import.meta.server) {
   useSeoMeta({
     description:
-      "Articles sur la médiation numérique et l'accompagnement des familles par les structures de Guadeloupe. Ressources HCSP 2019-2020 · HAS 2020.",
+      'Articles sur la médiation numérique pour les structures de Guadeloupe. Ressources HCSP 2019-2020 · HAS 2020.',
     ogDescription:
       'Décryptages sur les tensions autour des écrans — jeu vidéo comme levier, cadre HCSP 2019-2020 · HAS 2020.',
   })

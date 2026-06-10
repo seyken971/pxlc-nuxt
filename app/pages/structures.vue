@@ -1,9 +1,9 @@
 <script setup lang="ts">
-useSeoMeta({ title: 'Programmes parent-enfant pour les structures de Guadeloupe' })
+useSeoMeta({ title: 'Programmes parent-enfant — structures de Guadeloupe' })
 if (import.meta.server) {
   useSeoMeta({
     description:
-      'Programmes parent-enfant pour les structures de Guadeloupe — HCSP 2019-2020 · HAS 2020, indicateurs qualitatifs, bilan transmis à vos tutelles.',
+      'Programmes parent-enfant — HCSP 2019-2020 · HAS 2020, indicateurs qualitatifs, bilan transmis à vos tutelles.',
     ogDescription:
       'Andy Zébus, créateur de PXLC, intervient avec votre équipe — ateliers parent-enfant, cadre HCSP 2019-2020 · HAS 2020.',
   })

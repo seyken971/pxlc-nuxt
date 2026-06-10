@@ -1,6 +1,8 @@
 ---
 title: "TND et écrans : ce que les parents nous disent en premier entretien"
 description: Les cinq inquiétudes que les familles d'enfants suivis en SESSAD ou IME expriment presque toujours dès le premier entretien — et ce que le cadre HCSP · HAS permet de leur répondre.
+seoTitle: "TND et écrans : les premières questions des parents"
+seoDescription: "Les 5 inquiétudes exprimées dès le premier entretien — et les réponses du cadre HCSP 2019-2020 · HAS 2020."
 date: 2026-06-08
 category: parents
 readingTime: 9 min

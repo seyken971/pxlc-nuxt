@@ -1,6 +1,8 @@
 ---
 title: Quand votre enfant joue à Fortnite, qu'est-ce qu'il vous dit ?
 description: Fortnite n'est pas qu'un jeu de tir. C'est une école de gestion d'équipe, de frustration partagée, de stratégie collective — et un langage que votre enfant maîtrise mieux que vous. Décryptage.
+seoTitle: "Fortnite : ce que votre enfant vous dit en jouant"
+seoDescription: "Gestion d'équipe, frustration partagée, stratégie collective : Fortnite est un langage que votre enfant maîtrise."
 date: 2026-03-05
 category: decryptage
 readingTime: 8 min

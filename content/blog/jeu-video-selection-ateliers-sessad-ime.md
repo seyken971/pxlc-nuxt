@@ -1,6 +1,8 @@
 ---
 title: "Quel jeu vidéo choisir pour un atelier de médiation parent-enfant ?"
 description: Pas n'importe quel jeu. Un guide de sélection pour choisir les jeux vidéo adaptés aux objectifs d'un atelier de médiation parent-enfant en SESSAD, IME ou association.
+seoTitle: "Choisir un jeu vidéo pour un atelier parent-enfant"
+seoDescription: "Un guide de sélection des jeux vidéo adaptés aux ateliers de médiation parent-enfant en SESSAD, IME ou association."
 date: 2026-06-08
 category: cas-pratique
 readingTime: 10 min

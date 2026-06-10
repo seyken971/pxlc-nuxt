@@ -1,6 +1,8 @@
 ---
 title: "Pourquoi j'utilise l'esport pour aider les familles en Guadeloupe"
 description: Six ans à organiser des tournois sur la scène esport guadeloupéenne, avant de créer PXLC — et comment ce parcours informe chaque atelier de médiation numérique parent-enfant.
+seoTitle: "L'esport au service des familles en Guadeloupe"
+seoDescription: "Six ans de tournois sur la scène esport guadeloupéenne — et comment ce parcours informe chaque atelier parent-enfant."
 date: 2026-06-08
 category: decryptage
 readingTime: 7 min

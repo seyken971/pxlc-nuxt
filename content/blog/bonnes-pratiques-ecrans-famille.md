@@ -1,6 +1,8 @@
 ---
 title: "Écrans en famille : les bonnes pratiques qui tiennent vraiment"
 description: Une règle utile n'est pas forcément stricte. Elle est claire, expliquée, répétée et adaptée à la vie réelle de la famille.
+seoTitle: "Écrans en famille : les bonnes pratiques qui tiennent"
+seoDescription: "Une règle utile n'est pas forcément stricte : claire, expliquée, répétée et adaptée à la vie réelle de la famille."
 date: 2026-06-03
 category: parents
 readingTime: 10 min

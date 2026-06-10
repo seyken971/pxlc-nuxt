@@ -18,6 +18,13 @@ const ROOT     = new URL('..', import.meta.url)
 const CONTENT  = fileURLToPath(new URL('content', ROOT))
 const REQUIRED = ['title', 'description', 'date']
 
+// Anti-troncature SERP : le <title> effectif (seoTitle || title) reçoit le
+// suffixe « · PXLC » (7 chars) via le titleTemplate → base ≤ 53 pour rester
+// sous 60. La description effective (seoDescription || description) doit
+// tenir sous la limite mobile Google (~120).
+const TITLE_MAX = 53
+const DESC_MAX  = 120
+
 /** Extrait le bloc frontmatter YAML entre les délimiteurs --- */
 function parseFrontmatter(src) {
   const m = src.match(/^---\r?\n([\s\S]*?)\r?\n---/)
@@ -54,6 +61,18 @@ for await (const file of walk(CONTENT)) {
   const missing = REQUIRED.filter(k => !fm[k] || fm[k] === '')
   if (missing.length) {
     console.error(`✗ ${rel} — champs manquants : ${missing.join(', ')}`)
+    errors++
+  }
+
+  const strip = v => (v || '').replace(/^["']|["']$/g, '')
+  const effTitle = strip(fm.seoTitle || fm.title)
+  const effDesc  = strip(fm.seoDescription || fm.description)
+  if (effTitle.length > TITLE_MAX) {
+    console.error(`✗ ${rel} — title SEO effectif trop long (${effTitle.length} > ${TITLE_MAX}) : ajouter/raccourcir seoTitle`)
+    errors++
+  }
+  if (effDesc.length > DESC_MAX) {
+    console.error(`✗ ${rel} — description SEO effective trop longue (${effDesc.length} > ${DESC_MAX}) : ajouter/raccourcir seoDescription`)
     errors++
   }
 }

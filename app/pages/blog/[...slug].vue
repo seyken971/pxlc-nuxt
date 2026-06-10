@@ -12,8 +12,10 @@ if (!post.value) {
 }
 
 useSeoMeta({
-  title: post.value.title,
-  description: post.value.description,
+  // seoTitle/seoDescription : variantes courtes anti-troncature (53/120) ;
+  // le title/description éditorial reste le H1 et le lead.
+  title: post.value.seoTitle || post.value.title,
+  description: post.value.seoDescription || post.value.description,
   ogType: 'article',
   // Strip the "· PXLC" titleTemplate suffix from OG cards — og:site_name already
   // carries the brand; the full title alone can exceed the ~60-char social limit.

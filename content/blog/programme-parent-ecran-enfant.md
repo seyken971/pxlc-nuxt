@@ -1,6 +1,8 @@
 ---
 title: "Parent-Écran-Enfant : un programme pour rejouer le dialogue en famille"
 description: Le programme Parent-Écran-Enfant aide les familles à sortir du face-à-face autour des écrans pour construire des règles, des échanges et des temps partagés.
+seoTitle: "Parent-Écran-Enfant : rejouer le dialogue en famille"
+seoDescription: "Le programme Parent-Écran-Enfant aide les familles à construire des règles, des échanges et des temps partagés."
 date: 2026-06-03
 category: cas-pratique
 readingTime: 9 min

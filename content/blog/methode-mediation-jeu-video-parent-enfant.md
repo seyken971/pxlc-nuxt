@@ -1,6 +1,8 @@
 ---
 title: "La méthode PXLC : utiliser le jeu vidéo pour mieux se parler"
 description: La médiation par le jeu vidéo ne consiste pas à laisser jouer davantage. Elle transforme le jeu en terrain d'observation, de dialogue et de cadre partagé.
+seoTitle: "La méthode PXLC : le jeu vidéo pour mieux se parler"
+seoDescription: "La médiation par le jeu vidéo transforme le jeu en terrain d'observation, de dialogue et de cadre partagé."
 date: 2026-06-03
 category: decryptage
 readingTime: 9 min

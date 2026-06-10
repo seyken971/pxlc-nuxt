@@ -13,6 +13,12 @@ export default defineContentConfig({
       schema: z.object({
         title: z.string(),
         description: z.string(),
+        // Variantes SEO optionnelles : <title> et meta description courts
+        // (title ≤ 53 car le titleTemplate ajoute « · PXLC », description
+        // ≤ 120 pour éviter la troncature mobile). Le title/description
+        // éditorial reste le H1 et le lead de la page.
+        seoTitle: z.string().optional(),
+        seoDescription: z.string().optional(),
         date: z.string(), // format YYYY-MM-DD
         // Optional last-modified date — when set, drives the article's
         // dateModified in the BlogPosting schema (vs date which stays
