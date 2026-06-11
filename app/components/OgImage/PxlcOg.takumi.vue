@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { BRAND_HEX } from '~/utils/brand-colors'
+import { MARK_RECTS, OG_F_SANS } from '~/utils/og-mark'
 
 interface Props {
   eyebrow?: string
@@ -8,13 +9,13 @@ interface Props {
   site?: string
 }
 withDefaults(defineProps<Props>(), {
-  eyebrow: 'PXLC · MÉDIATION NUMÉRIQUE · GUADELOUPE',
+  eyebrow: 'MÉDIATION NUMÉRIQUE · GUADELOUPE',
   title: 'Médiation numérique',
-  description: 'Andy Zébus, créateur de PXLC, accompagne les familles vers un meilleur usage des écrans — médiathèques, SESSAD, IME et collectivités de Guadeloupe.',
+  description: 'Andy Zébus, créateur de PXLC, aide les familles à mieux utiliser les écrans — SESSAD, IME, associations et collectivités de Guadeloupe.',
   site: 'pxlc.fr',
 })
 
-const F_SANS = 'Plus Jakarta Sans, system-ui, sans-serif'
+const F_SANS = OG_F_SANS
 const F_SERIF = 'Lora, Georgia, serif'
 
 // Single light surface — ivory ground reads distinctively on dark social UIs.
@@ -30,22 +31,6 @@ const palette = {
 const teals = [BRAND_HEX.tealDeep, BRAND_HEX.tealMid, BRAND_HEX.cyan]
 const coral = BRAND_HEX.coral
 
-// 3×3 brand mark coords, shared between the decorative 520-px instance
-// and the 48-px lockup. nuxt-og-image enforces a renderer suffix on
-// every .vue under app/components/OgImage/, so an in-folder <OgMark>
-// sub-component isn't possible — the v-for keeps the data DRY instead.
-const MARK_POS = [2, 35.33, 68.67] as const
-const MARK_RECTS = [
-  { x: MARK_POS[0], y: MARK_POS[0], fill: BRAND_HEX.tealDeep },
-  { x: MARK_POS[1], y: MARK_POS[0], fill: BRAND_HEX.tealMid },
-  { x: MARK_POS[2], y: MARK_POS[0], fill: BRAND_HEX.cyan },
-  { x: MARK_POS[0], y: MARK_POS[1], fill: BRAND_HEX.tealDeep },
-  { x: MARK_POS[1], y: MARK_POS[1], fill: BRAND_HEX.tealMid },
-  { x: MARK_POS[2], y: MARK_POS[1], fill: BRAND_HEX.cyan },
-  { x: MARK_POS[0], y: MARK_POS[2], fill: BRAND_HEX.tealDeep },
-  { x: MARK_POS[1], y: MARK_POS[2], fill: BRAND_HEX.tealMid },
-  { x: MARK_POS[2], y: MARK_POS[2], fill: BRAND_HEX.coral },
-]
 </script>
 
 <template>
@@ -148,7 +133,8 @@ const MARK_RECTS = [
     <!-- Spacer pushes content to bottom -->
     <div :style="{ flex: '1', display: 'flex' }" />
 
-    <!-- Content -->
+    <!-- Content. maxWidth only bites in the 1200×600 format — the
+         800×800 WhatsApp frame is already narrower than 900px. -->
     <div :style="{ display: 'flex', flexDirection: 'column', maxWidth: '900px', zIndex: 1 }">
       <span
         :style="{
@@ -184,7 +170,6 @@ const MARK_RECTS = [
           fontWeight: 400,
           lineHeight: 1.45,
           color: palette.inkQuiet,
-          maxWidth: '880px',
         }"
       >
         {{ description }}

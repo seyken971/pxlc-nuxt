@@ -10,10 +10,10 @@ if (import.meta.server) {
 }
 
 defineOgImage('PxlcOg', {
-  eyebrow: 'PXLC · À PROPOS',
+  eyebrow: 'À PROPOS',
   title: 'Médiateur numérique',
   description:
-    "J'aide les familles à mieux utiliser les écrans — en partenariat avec les SESSAD, IME, associations et collectivités de Guadeloupe.",
+    "J'aide les familles à mieux utiliser les écrans — en ateliers parent-enfant co-encadrés avec les équipes des SESSAD, IME, associations et collectivités de Guadeloupe.",
 }, [
   { key: 'og' },
   { key: 'whatsapp', width: 800, height: 800 },

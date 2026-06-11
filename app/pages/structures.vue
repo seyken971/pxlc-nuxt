@@ -10,7 +10,7 @@ if (import.meta.server) {
 }
 
 defineOgImage('PxlcOg', {
-  eyebrow: 'PXLC · POUR LES STRUCTURES',
+  eyebrow: 'POUR LES STRUCTURES',
   title: 'Programmes de médiation numérique — SESSAD, IME, associations',
   description: 'Ateliers thématiques parent-enfant co-encadrés par votre équipe pluridisciplinaire et le médiateur-numérique. Cadre HCSP 2019-2020 · HAS 2020, indicateurs d’évaluation, bilan en fin de dispositif.',
 }, [
@@ -26,7 +26,7 @@ const faqs = [
   {
     id: 'duree',
     q: 'Quelle est la durée typique d’un dispositif ?',
-    a: 'À calibrer ensemble selon le rythme de votre structure : un cycle complet articule la préparation, plusieurs ateliers thématiques, un groupe de parole familiale et un bilan. À titre indicatif, le projet « Jouons Ensemble! » 2026 au SESSAD Lékoklaya s’étend sur l’année.',
+    a: 'À calibrer ensemble selon le rythme de votre structure : un cycle complet articule la préparation, plusieurs ateliers thématiques, un groupe de parole familiale et un bilan. À titre indicatif, le projet « Jouons Ensemble ! » 2026 au SESSAD Lékoklaya s’étend sur l’année.',
   },
   {
     id: 'tarif',

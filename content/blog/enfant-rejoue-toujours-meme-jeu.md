@@ -43,7 +43,7 @@ Aucun de ces trois leviers ne marche. Tous renforcent l'attachement au jeu actue
 
 ## Ce qu'on fait en atelier
 
-La première séance de « Jouons Ensemble! » avec un enfant qui rejoue toujours au même jeu, c'est presque toujours la même : on **joue à son jeu**, on lui demande de nous **faire visiter**, on **observe**.
+La première séance de « Jouons Ensemble ! » avec un enfant qui rejoue toujours au même jeu, c'est presque toujours la même : on **joue à son jeu**, on lui demande de nous **faire visiter**, on **observe**.
 
 C'est souvent à ce moment-là, en regardant son parent regarder son monde, que l'enfant commence à parler. Pas de ce qu'il joue. De ce qu'il y met.
 

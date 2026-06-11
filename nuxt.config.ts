@@ -105,6 +105,15 @@ export default defineNuxtConfig({
   },
 
   nitro: {
+    // Le site est 100 % SSG. Déclarer `static` ici (et pas seulement via
+    // `--preset github_pages` en CI) permet à nuxt-og-image de détecter le
+    // runtime `nitro-prerender` au setup — sinon il lit le nom de preset
+    // "github-pages", absent de sa table de compatibilité, et log
+    // « Unknown Nitro preset » avant de retomber sur node-server.
+    // Jamais en dev : @nuxt/nitro-server ajoute routeRules['/**'] =
+    // { prerender: true } quand static && dev, ce qui fait passer chaque
+    // réponse SSR de dev par le cache payload (risque de rendus obsolètes).
+    static: !isDev,
     alias: {
       "#app/island-hash": "./server/island-hash-compat.mjs",
     },

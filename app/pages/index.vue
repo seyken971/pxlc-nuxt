@@ -80,7 +80,7 @@ const stats = [
   <LazyPxlcMarkSeparator hydrate-on-visible />
   <LazySessadCase hydrate-on-visible />
   <LazyCitationBlock
-    source="« Jouons Ensemble! » · projet 2026"
+    source="« Jouons Ensemble&nbsp;! » · projet 2026"
     quote="Jouer ensemble, c’est mieux comprendre, mieux se parler, et mieux grandir."
     attribution="Tagline du projet · SESSAD Lékoklaya × PXLC"
     hydrate-on-visible

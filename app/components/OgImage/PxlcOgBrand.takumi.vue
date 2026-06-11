@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { BRAND_HEX } from '~/utils/brand-colors'
+import { MARK_RECTS, OG_F_SANS } from '~/utils/og-mark'
 
-const F_SANS = 'Plus Jakarta Sans, system-ui, sans-serif'
+const F_SANS = OG_F_SANS
 
 const palette = {
   bg: BRAND_HEX.bgLight,
@@ -10,19 +11,6 @@ const palette = {
 } as const
 
 const coral = BRAND_HEX.coral
-
-const MARK_POS = [2, 35.33, 68.67] as const
-const MARK_RECTS = [
-  { x: MARK_POS[0], y: MARK_POS[0], fill: BRAND_HEX.tealDeep },
-  { x: MARK_POS[1], y: MARK_POS[0], fill: BRAND_HEX.tealMid },
-  { x: MARK_POS[2], y: MARK_POS[0], fill: BRAND_HEX.cyan },
-  { x: MARK_POS[0], y: MARK_POS[1], fill: BRAND_HEX.tealDeep },
-  { x: MARK_POS[1], y: MARK_POS[1], fill: BRAND_HEX.tealMid },
-  { x: MARK_POS[2], y: MARK_POS[1], fill: BRAND_HEX.cyan },
-  { x: MARK_POS[0], y: MARK_POS[2], fill: BRAND_HEX.tealDeep },
-  { x: MARK_POS[1], y: MARK_POS[2], fill: BRAND_HEX.tealMid },
-  { x: MARK_POS[2], y: MARK_POS[2], fill: BRAND_HEX.coral },
-]
 </script>
 
 <template>
