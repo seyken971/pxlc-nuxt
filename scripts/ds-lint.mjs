@@ -18,6 +18,8 @@
  *   R4 radius-brut    — border-radius > 2 px sans var(--radius-*)
  *   R5 vocab-interdit — termes bannis dans <template>
  *   R6 emoji          — emoji interdits dans <template>
+ *   R7 seo-longueur   — title/description useSeoMeta trop longs (pages)
+ *                       et site.description de nuxt.config.ts
  *
  * Corrections v2 :
  *   - parseSfc : tous les blocs <style> sont capturés (matchAll, pas match)
@@ -28,6 +30,7 @@
  */
 import { readFile, readdir } from 'node:fs/promises'
 import { join, relative }   from 'node:path'
+import { SEO_TITLE_MAX, SEO_DESC_MAX } from './seo-limits.mjs'
 
 const ROOT      = process.cwd()
 const SCAN_DIRS = ['app/components', 'app/pages', 'app/layouts']
@@ -180,6 +183,50 @@ function lintTemplate(raw, file) {
   return vs
 }
 
+// ── R7 — Longueurs SEO ────────────────────────────────────────────────────────
+// Limites partagées avec content.config.ts et validate-content.mjs
+// (scripts/seo-limits.mjs). Seules les valeurs LITTÉRALES sont vérifiées —
+// les expressions dynamiques (ex. post.value.seoTitle || …) sont couvertes
+// par validate-content côté contenu.
+function lintSeoMeta(src, file) {
+  const vs = []
+  const limits = { title: SEO_TITLE_MAX, description: SEO_DESC_MAX, ogDescription: SEO_DESC_MAX }
+
+  for (const block of src.matchAll(/useSeoMeta\(\s*\{([\s\S]*?)\}\s*\)/g)) {
+    const body = block[1]
+    const bodyOffset = block.index + block[0].indexOf(body)
+    for (const m of body.matchAll(/\b(title|description|ogDescription)\s*:\s*(['"])((?:\\.|(?!\2)[\s\S])*?)\2/g)) {
+      const [, key, , value] = m
+      const max = limits[key]
+      if (value.length > max) {
+        const hint = key === 'title'
+          ? `le titleTemplate ajoute « · PXLC » → base ≤ ${max}`
+          : `limite mobile/cartes sociales ≤ ${max}`
+        vs.push({ file, rule: 'seo-longueur', line: lineAt(src, bodyOffset + m.index),
+          detail: `${key} de ${value.length} caractères — ${hint}` })
+      }
+    }
+  }
+  return vs
+}
+
+/** Vérifie site.description de nuxt.config.ts (meta description par défaut). */
+async function lintNuxtConfig() {
+  const file = join(ROOT, 'nuxt.config.ts')
+  let src
+  try { src = await readFile(file, 'utf8') }
+  catch (err) {
+    if (err.code !== 'ENOENT') throw err
+    return []
+  }
+  const m = src.match(/site:\s*\{[\s\S]*?description:\s*(['"])((?:\\.|(?!\1)[\s\S])*?)\1/)
+  if (m && m[2].length > SEO_DESC_MAX) {
+    return [{ file, rule: 'seo-longueur', line: lineAt(src, m.index),
+      detail: `site.description de ${m[2].length} caractères — limite mobile/cartes sociales ≤ ${SEO_DESC_MAX}` }]
+  }
+  return []
+}
+
 // ── Main ──────────────────────────────────────────────────────────────────────
 const main = async () => {
   const allFiles = (
@@ -190,8 +237,9 @@ const main = async () => {
   await Promise.all(allFiles.map(async file => {
     const src = await readFile(file, 'utf8')
     const { template, style } = parseSfc(src)
-    all.push(...lintStyle(style, file), ...lintTemplate(template, file))
+    all.push(...lintStyle(style, file), ...lintTemplate(template, file), ...lintSeoMeta(src, file))
   }))
+  all.push(...await lintNuxtConfig())
 
   if (!all.length) {
     console.log('ds-lint: ✓ aucune violation DS')

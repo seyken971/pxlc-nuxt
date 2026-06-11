@@ -1,18 +1,18 @@
 <script setup lang="ts">
-useSeoMeta({ title: 'Programmes parent-enfant pour les structures de Guadeloupe' })
+useSeoMeta({ title: 'Programmes parent-enfant — structures de Guadeloupe' })
 if (import.meta.server) {
   useSeoMeta({
     description:
-      'Programmes parent-enfant pour les structures de Guadeloupe — HCSP 2019-2020 · HAS 2020, indicateurs qualitatifs, bilan transmis à vos tutelles.',
+      'Programmes parent-enfant — HCSP 2019-2020 · HAS 2020, indicateurs qualitatifs, bilan transmis à vos tutelles.',
     ogDescription:
-      'PXLC intervient avec votre équipe pluridisciplinaire — ateliers parent-enfant, protocole HCSP, indicateurs qualitatifs. Un partenaire, pas un prestataire.',
+      'Andy Zébus, créateur de PXLC, intervient avec votre équipe — ateliers parent-enfant, cadre HCSP 2019-2020 · HAS 2020.',
   })
 }
 
 defineOgImage('PxlcOg', {
   eyebrow: 'PXLC · POUR LES STRUCTURES',
   title: 'Programmes de médiation numérique — SESSAD, IME, associations',
-  description: 'Ateliers thématiques parent-enfant co-encadrés par votre équipe pluridisciplinaire et le médiateur-numérique. Cadre HCSP, indicateurs d’évaluation, bilan en fin de dispositif.',
+  description: 'Ateliers thématiques parent-enfant co-encadrés par votre équipe pluridisciplinaire et le médiateur-numérique. Cadre HCSP 2019-2020 · HAS 2020, indicateurs d’évaluation, bilan en fin de dispositif.',
 }, [
   { key: 'og' },
   { key: 'whatsapp', width: 800, height: 800 },
@@ -142,7 +142,7 @@ const audiences = [
             Médiation numérique pour votre structure<span class="coral-dot" aria-hidden="true">.</span>
           </h1>
           <p class="hero__lead">
-            Programme phare&nbsp;: Parents-Écran-Enfant, ancré dans les recommandations HCSP&nbsp;2019-2020 — indicateurs qualitatifs, bilan transmis à vos tutelles en fin de dispositif.
+            Programme phare&nbsp;: Parents-Écran-Enfant, ancré dans les recommandations HCSP&nbsp;2019-2020 · HAS&nbsp;2020 — indicateurs qualitatifs, bilan transmis à vos tutelles en fin de dispositif.
           </p>
           <div class="hero__actions">
             <NuxtLink to="/contact" class="btn btn--primary btn--lg">Demander un devis</NuxtLink>

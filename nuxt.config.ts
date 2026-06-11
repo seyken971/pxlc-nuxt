@@ -131,7 +131,7 @@ export default defineNuxtConfig({
     // B2B-only funnel: the offer flows exclusively through structures
     // (SESSAD, IME, associations, collectivités).
     description:
-      "Médiateur numérique en Guadeloupe, PXLC accompagne IME, SESSAD et associations : ateliers, sensibilisation, conseil — pour s'en servir sans subir.",
+      "Andy Zébus, créateur de PXLC, aide les lieux qui accueillent les familles en Guadeloupe à mieux utiliser les écrans.",
     defaultLocale: "fr_FR",
     trailingSlash: false,
     currency: "EUR",

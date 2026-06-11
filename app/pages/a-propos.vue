@@ -3,9 +3,9 @@ useSeoMeta({ title: 'Andy Zébus, médiateur numérique — Guadeloupe · 971' }
 if (import.meta.server) {
   useSeoMeta({
     description:
-      'Médiateur numérique en Guadeloupe — six ans de scène esport, formation Simplon, conseil institutionnel. Intervient auprès des SESSAD, IME, associations.',
+      'Médiateur numérique en Guadeloupe — 6 ans de scène esport, formation Simplon, conseil institutionnel.',
     ogDescription:
-      'Médiateur numérique en Guadeloupe — Andy Zébus aide les familles à se réconcilier autour des écrans, en binômes parent-enfant, avec votre équipe.',
+      'Andy Zébus aide les familles à se réconcilier autour des écrans, en binômes parent-enfant, avec votre équipe.',
   })
 }
 

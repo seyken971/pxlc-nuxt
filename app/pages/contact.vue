@@ -1,13 +1,13 @@
 <script setup lang="ts">
 definePageMeta({ hideGlobalCta: true })
 
-useSeoMeta({ title: 'Contacter Andy Zébus — devis ou premier échange de 20 min' })
+useSeoMeta({ title: 'Contacter Andy Zébus — devis ou premier échange' })
 if (import.meta.server) {
   useSeoMeta({
     description:
-      'Devis ou premier échange de 20 min — gratuit, sans engagement. Pour les structures de Guadeloupe qui accompagnent des familles autour des écrans.',
+      'Devis ou premier échange de 20 min — gratuit, sans engagement. Pour les structures qui accompagnent des familles.',
     ogDescription:
-      'Réponse sous 48 h — formulaire, WhatsApp ou visio. Premier échange de 20 min gratuit pour savoir si la méthode PXLC correspond à votre projet.',
+      'Réponse sous 48 h — formulaire, WhatsApp ou visio. Premier échange de 20 min gratuit pour cadrer votre projet.',
   })
 }
 

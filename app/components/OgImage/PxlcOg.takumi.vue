@@ -10,7 +10,7 @@ interface Props {
 withDefaults(defineProps<Props>(), {
   eyebrow: 'PXLC · MÉDIATION NUMÉRIQUE · GUADELOUPE',
   title: 'Médiation numérique',
-  description: 'PXLC aide les familles à mieux utiliser les écrans — en partenariat avec les SESSAD, IME, associations et collectivités de Guadeloupe. Cadre HAS 2020 · HCSP 2019-2020.',
+  description: 'Andy Zébus, créateur de PXLC, accompagne les familles vers un meilleur usage des écrans — médiathèques, SESSAD, IME et collectivités de Guadeloupe.',
   site: 'pxlc.fr',
 })
 

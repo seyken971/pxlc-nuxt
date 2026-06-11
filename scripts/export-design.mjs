@@ -339,9 +339,10 @@ const main = async () => {
   md.push("### Copy\n");
   md.push(
     [
-      "- Voix 1ère personne « je » — jamais « Andy Zébus accompagne » dans le copy page (OK dans meta/OG)",
+      "- Voix 1ère personne « je » — « je » porte les verbes d'action (j'anime, j'accompagne) ; « PXLC » est un nom de marque, jamais sujet d'un verbe d'action dans le copy page (exception : la mission verbatim)",
+      "- 3e personne (« Andy Zébus, créateur de PXLC, accompagne… ») réservée aux meta/OG, mentions légales, bios auteur du blog et documents qui engagent l'entité (devis, conventions, factures, dossiers de subvention)",
       "- Pas d'emoji, nulle part",
-      "- **Vocabulaire interdit** : addiction, désintoxication, détox numérique, coach, expert, innovant, révolutionnaire",
+      "- **Vocabulaire interdit** : addiction, désintoxication, détox numérique, coach, expert, innovant, révolutionnaire — fondement : avis HCSP du 08/03/2021, la MILDECA préfère « usage problématique des écrans » ; utiliser ce terme",
       "- **Termes naked** (sans guillemets ni traduction) : HCSP, SESSAD, TCND, TND, hyperfocus",
       "- Espaces insécables avant `!`, `?`, `:`, `;`, `»` et entre nombre + unité (`48 h`, `20 min`, `100 €`)",
       "- Chiffres en numéraux sauf en début de phrase",
@@ -350,13 +351,16 @@ const main = async () => {
       "- Écrire « structures » (jamais « structures médico-sociales et associatives »)",
       "- Mission en une phrase : « PXLC aide les familles à mieux utiliser les écrans — pour s'en servir sans subir. »",
       "- Cadre réglementaire : toujours citer HCSP 2019-2020 · HAS 2020 ensemble",
+      "- Toute affirmation santé/usage des écrans doit être sourcée depuis docs/references/ (document + section) — ne jamais inventer un chiffre ou une recommandation",
     ].join("\n"),
   );
 
   md.push("\n### Positionnement B2B\n");
   md.push(
     [
-      "- **Cible primaire** : structures (SESSAD, IME, associations, collectivités) — les familles sont bénéficiaires, pas clients directs",
+      "- **Principe** : intervenir dans les lieux qui accueillent déjà des familles — le lieu apporte le public, j'apporte l'atelier et le cadre",
+      "- **Clients** = les lieux et leurs gestionnaires : médiathèques et collectivités, centres sociaux et espaces de vie sociale, LAEP, structures médico-sociales (SESSAD, IME, CMPP, CAMSP), dispositifs CLAS — les familles sont bénéficiaires, pas clients directs",
+      "- **Levier de financement** : appels à projets parentalité de la CAF (FNP, ex-REAAP) — le lieu porte le dossier, PXLC intervient comme prestataire externe",
       "- **Posture** : partenaire institutionnel — jamais coach, expert ou gadget",
       "- **Jeu vidéo** = outil de médiation légitime — jamais un problème à résoudre",
       "- **Différenciateur** : seul pont entre 3 mondes — culture joueur / cadre du soin / langage institutionnel",
