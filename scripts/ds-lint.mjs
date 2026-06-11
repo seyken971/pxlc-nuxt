@@ -3,9 +3,11 @@
  * scripts/ds-lint.mjs
  * Design-system compliance linter.
  *
- * Scanne app/components, app/pages, app/layouts à la recherche
+ * Scanne app/components, app/pages, app/layouts (.vue) ainsi que
+ * app/assets/css/styles.css (règles <style> uniquement) à la recherche
  * de violations du design system PXLC et quitte avec code 1
  * (build annulé) si au moins une violation est trouvée.
+ * tokens.css est exempté — c'est la source des valeurs littérales.
  *
  * Usage :
  *   node scripts/ds-lint.mjs
@@ -37,6 +39,14 @@ import { SEO_TITLE_MAX, SEO_DESC_MAX } from './seo-limits.mjs'
 
 const ROOT      = process.cwd()
 const SCAN_DIRS = ['app/components', 'app/pages', 'app/layouts']
+// Feuilles CSS globales soumises aux règles couleurs brutes (R1 hex, R8 rgba).
+// tokens.css est exempté : c'est la source des valeurs hex/rgba — les
+// littéraux y sont légitimes, c'est partout ailleurs qu'ils sont interdits.
+// R2 (gradient) ne s'applique pas ici : le fade de .section--soft::before est
+// un linear-gradient volontaire (surface → transparent, pas un gradient de
+// marque) ; R3/R4 restent scoppés aux .vue.
+const CSS_FILES = ['app/assets/css/styles.css']
+const CSS_RULES = new Set(['hex-brut', 'rgba-brut'])
 
 // ── Vocabulaire interdit ───────────────────────────────────────────────────────
 // Classé du plus long au plus court pour éviter les faux-positifs en cas de
@@ -98,7 +108,7 @@ function lineAt(src, idx) {
 }
 
 // ── Règles <style> ────────────────────────────────────────────────────────────
-function lintStyle(raw, file) {
+function lintStyle(raw, file, only = null) {
   const vs     = []
   const ranges = commentRanges(raw)
 
@@ -106,7 +116,10 @@ function lintStyle(raw, file) {
   // m.index corresponde toujours à la position réelle → lineAt(raw, m.index)
   // est exact. Les correspondances dans des commentaires sont filtrées via
   // inComment() plutôt qu'en supprimant physiquement les commentaires.
+  // `only` (Set de noms de règles) restreint le jeu de règles — utilisé pour
+  // les feuilles CSS globales où seules les règles couleur s'appliquent.
   const flag = (re, rule, msg, extra) => {
+    if (only && !only.has(rule)) return
     for (const m of raw.matchAll(re)) {
       if (inComment(m.index, ranges)) continue
       if (extra && !extra(m))         continue
@@ -248,6 +261,11 @@ const main = async () => {
     const src = await readFile(file, 'utf8')
     const { template, style } = parseSfc(src)
     all.push(...lintStyle(style, file), ...lintTemplate(template, file), ...lintSeoMeta(src, file))
+  }))
+  // Feuilles CSS globales : le fichier entier passe par les règles couleur.
+  await Promise.all(CSS_FILES.map(async rel => {
+    const file = join(ROOT, rel)
+    all.push(...lintStyle(await readFile(file, 'utf8'), file, CSS_RULES))
   }))
   all.push(...await lintNuxtConfig())
 

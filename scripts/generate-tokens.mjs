@@ -11,8 +11,9 @@
  * The TS module stays the canonical one; this script just keeps the
  * CSS in sync.
  */
-import { readFile, writeFile, readdir } from 'node:fs/promises'
+import { readFile, readdir } from 'node:fs/promises'
 import { join } from 'node:path'
+import { writeFilePreservingEol } from './write-file-eol.mjs'
 
 const TS_SOURCE = 'app/utils/brand-colors.ts'
 const CSS_TARGET = 'app/assets/css/tokens.css'
@@ -71,11 +72,10 @@ const main = async () => {
   }
 
   // On Windows worktrees `core.autocrlf=true` checks the file out with CRLF,
-  // but our START/END constants use `\n`. Normalize before searching, and
-  // restore the original EOL when writing back so we don't churn the file.
+  // but our START/END constants use `\n`. Normalize before searching; the
+  // shared EOL-preserving writer restores CRLF (and skips no-op writes).
   const cssRaw = await readFile(CSS_TARGET, 'utf8')
-  const hasCRLF = cssRaw.includes('\r\n')
-  const css = hasCRLF ? cssRaw.replace(/\r\n/g, '\n') : cssRaw
+  const css = cssRaw.includes('\r\n') ? cssRaw.replace(/\r\n/g, '\n') : cssRaw
   const startIdx = css.indexOf(START)
   const endIdx = css.indexOf(END)
   if (startIdx === -1 || endIdx === -1) {
@@ -87,14 +87,11 @@ const main = async () => {
   const after = css.slice(endIdx + END.length)
   const block = `${START}\n${colors.join('\n')}\n  ${END}`
   const nextLF = before + block + after
-  const next = hasCRLF ? nextLF.replace(/\n/g, '\r\n') : nextLF
 
-  if (next === cssRaw) {
-    console.log('gen-tokens: tokens.css already in sync')
-  } else {
-    await writeFile(CSS_TARGET, next)
-    console.log(`gen-tokens: wrote ${colors.length} colours to tokens.css`)
-  }
+  const wrote = await writeFilePreservingEol(CSS_TARGET, nextLF)
+  console.log(wrote
+    ? `gen-tokens: wrote ${colors.length} colours to tokens.css`
+    : 'gen-tokens: tokens.css already in sync')
 
   // Dead-reference check: scan .vue + .css files for var(--pxlc-*) and verify
   // every referenced token exists in the generated set. Catches the case where

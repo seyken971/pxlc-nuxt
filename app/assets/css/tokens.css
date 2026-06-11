@@ -67,6 +67,12 @@
   --bg-glass:     rgba(234, 246, 244, 0.92);
   /* Points du motif dot-grid (vignettes blog) — bascule seul en dark. */
   --dot-grid:     rgba(8, 43, 54, 0.09);
+  /* Halo radial cyan du hero — plus discret en dark. */
+  --halo-cyan:    rgba(0, 210, 200, 0.14);
+  /* Fond du badge soft — légèrement renforcé en dark. */
+  --badge-soft-bg: rgba(0, 210, 200, 0.12);
+  /* Hover sur surface toujours sombre (menu mobile) — pas de variante. */
+  --hover-on-dark: rgba(255, 255, 255, 0.06);
 
   --ink:          var(--pxlc-text-ink);
   --ink-quiet:    var(--pxlc-text-on-light);
@@ -163,6 +169,8 @@
 
   --bg-glass:     rgba(8, 43, 54, 0.92);
   --dot-grid:     rgba(255, 255, 255, 0.06);
+  --halo-cyan:    rgba(0, 210, 200, 0.08);
+  --badge-soft-bg: rgba(0, 210, 200, 0.18);
 
   --shadow-card-hover: 0 8px 24px -12px rgba(0,0,0,.45);
   --shadow-header:     0 2px 14px -6px rgba(0,0,0,.45);

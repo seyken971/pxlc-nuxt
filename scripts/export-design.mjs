@@ -9,7 +9,9 @@
  * Le fichier est écrit à la racine du repo. Relancer après toute
  * modification de tokens.css ou styles.css.
  */
-import { readFile, writeFile } from "node:fs/promises";
+import { readFile, readdir } from "node:fs/promises";
+import { join } from "node:path";
+import { writeFilePreservingEol } from "./write-file-eol.mjs";
 
 const TOKENS = "app/assets/css/tokens.css";
 const STYLES = "app/assets/css/styles.css";
@@ -70,6 +72,21 @@ function parseSections(css) {
       return { title, classes };
     })
     .filter((s) => s.classes.length > 0);
+}
+
+/**
+ * Liste les noms de composants Vue depuis app/components/ (récursif),
+ * suffixes .takumi/.vue retirés — la doc de nommage est dérivée du
+ * filesystem pour ne jamais dériver de la réalité.
+ */
+async function listComponents(dir = "app/components") {
+  const names = [];
+  for (const e of await readdir(dir, { withFileTypes: true })) {
+    if (e.isDirectory()) names.push(...(await listComponents(join(dir, e.name))));
+    else if (e.name.endsWith(".vue"))
+      names.push(e.name.replace(/(\.takumi)?\.vue$/, ""));
+  }
+  return names.sort();
 }
 
 // ── Helpers Markdown ───────────────────────────────────────────────────────
@@ -187,9 +204,10 @@ function buildFrontmatter(root, dark) {
 // ── Main ───────────────────────────────────────────────────────────────────
 
 const main = async () => {
-  const [tokensCss, stylesCss] = await Promise.all([
+  const [tokensCss, stylesCss, components] = await Promise.all([
     readFile(TOKENS, "utf8"),
     readFile(STYLES, "utf8"),
+    listComponents(),
   ]);
 
   const root = parseRoot(tokensCss);
@@ -235,6 +253,9 @@ const main = async () => {
           "--bg-rule",
           "--bg-glass",
           "--dot-grid",
+          "--halo-cyan",
+          "--badge-soft-bg",
+          "--hover-on-dark",
         ].includes(k),
     ],
     ["Texte", (k) => k === "--ink" || k === "--ink-quiet" || k === "--quiet"],
@@ -389,12 +410,21 @@ const main = async () => {
   );
 
   md.push("\n### Nommage des composants Vue\n");
+  // Les listes d'exemples sont dérivées de app/components/ — seule la règle
+  // (l'attribution d'un préfixe) est de la prose.
+  const ticks = (arr) => arr.map((n) => `\`${n}\``).join(", ");
+  const pxlcNames = components.filter((n) => n.startsWith("Pxlc"));
+  const siteNames = components.filter((n) => n.startsWith("Site"));
+  const blogNames = components.filter((n) => n.startsWith("Blog"));
+  const plainNames = components.filter(
+    (n) => !pxlcNames.includes(n) && !siteNames.includes(n) && !blogNames.includes(n),
+  );
   md.push(
     [
-      "- **`Pxlc*`** — primitives de marque réutilisables partout : `PxlcMark`, `PxlcLockup`, `PxlcPixelStrip`, `PxlcPixelCorner`, `PxlcMarkSeparator`, `PxlcInput`, `PxlcLinkout`, `PxlcOg*`",
-      "- **`Site*`** — chrome du site (présent sur toutes les pages) : `SiteHeader`, `SiteFooter`, `SiteMobileMenu`",
-      "- **`Blog*`** — composants propres au contexte blog : `BlogCta`, `BlogShare`, `BlogToc`, `BlogRelated`",
-      "- **Sans préfixe** — sections de page, blocs de contenu et utilitaires autonomes : `Hero`, `CtaBlock`, `MethodGrid`, `PartnerStrip`, `SessadCase`, `CitationBlock`, `ThemeToggle`",
+      `- **\`Pxlc*\`** — primitives de marque réutilisables partout : ${ticks(pxlcNames)}`,
+      `- **\`Site*\`** — chrome du site (présent sur toutes les pages) : ${ticks(siteNames)}`,
+      `- **\`Blog*\`** — composants propres au contexte blog : ${ticks(blogNames)}`,
+      `- **Sans préfixe** — sections de page, blocs de contenu et utilitaires autonomes : ${ticks(plainNames)}`,
       "- Deux mots minimum par nom (style guide Vue — évite les collisions avec de futurs éléments HTML natifs)",
     ].join("\n"),
   );
@@ -419,27 +449,13 @@ const main = async () => {
   );
 
   // ── Écriture ──────────────────────────────────────────────────────────────
-  // Comme generate-tokens.mjs : sur les checkouts Windows (autocrlf), le
-  // fichier existant est en CRLF — on respecte son EOL et on ne réécrit que
-  // si le contenu change, pour ne pas churner design.md à chaque run.
   const contentLF = md.join("\n") + "\n";
-  let existing = null;
-  try {
-    existing = await readFile(OUTPUT, "utf8");
-  } catch (err) {
-    if (err.code !== "ENOENT") throw err;
-  }
-  const hasCRLF = existing?.includes("\r\n") ?? false;
-  const content = hasCRLF ? contentLF.replace(/\n/g, "\r\n") : contentLF;
-
-  if (content === existing) {
-    console.log(`export-design: ${OUTPUT} déjà à jour`);
-  } else {
-    await writeFile(OUTPUT, content, "utf8");
-    console.log(
-      `export-design: ${OUTPUT} écrit (${content.length} chars, ${content.split("\n").length} lignes)`,
-    );
-  }
+  const wrote = await writeFilePreservingEol(OUTPUT, contentLF);
+  console.log(
+    wrote
+      ? `export-design: ${OUTPUT} écrit (${contentLF.length} chars, ${contentLF.split("\n").length} lignes)`
+      : `export-design: ${OUTPUT} déjà à jour`,
+  );
 };
 
 main().catch((err) => {

@@ -365,7 +365,7 @@ main[tabindex="-1"]:focus { outline: none; }
   display: flex; align-items: center; justify-content: center;
   color: var(--pxlc-text-on-dark-soft);
 }
-.mobile-menu__close:hover { background: rgba(255,255,255,0.06); }
+.mobile-menu__close:hover { background: var(--hover-on-dark); }
 .mobile-menu__close:focus-visible { outline: none; box-shadow: var(--ring-cyan); }
 /* Nav links — vertically centred, staggered entrance */
 .mobile-menu__nav {
@@ -431,12 +431,10 @@ main[tabindex="-1"]:focus { outline: none; }
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse 70% 90% at 100% -10%, rgba(0,210,200,0.14) 0%, transparent 65%);
+  /* --halo-cyan bascule seul en dark — pas d'override [data-theme] nécessaire. */
+  background: radial-gradient(ellipse 70% 90% at 100% -10%, var(--halo-cyan) 0%, transparent 65%);
   pointer-events: none;
   z-index: 0;
-}
-[data-theme="dark"] .hero::before {
-  background: radial-gradient(ellipse 70% 90% at 100% -10%, rgba(0,210,200,0.08) 0%, transparent 65%);
 }
 .hero--soft { background: var(--bg-soft); }
 .hero__strip { position: absolute; top: 24px; right: clamp(20px, 4vw, 56px); }
@@ -550,8 +548,8 @@ main[tabindex="-1"]:focus { outline: none; }
 }
 [data-theme="dark"] .badge { background: var(--pxlc-bg-dark-soft); color: var(--pxlc-cyan); border-color: var(--pxlc-border-dark-2); }
 .badge--audience { background: var(--pxlc-bg-dark); color: var(--pxlc-cyan); border-color: transparent; }
-.badge--soft { background: rgba(0,210,200,.12); color: var(--pxlc-teal-deep); border: 0; }
-[data-theme="dark"] .badge--soft { background: rgba(0,210,200,.18); color: var(--pxlc-cyan); }
+.badge--soft { background: var(--badge-soft-bg); color: var(--pxlc-teal-deep); border: 0; }
+[data-theme="dark"] .badge--soft { color: var(--pxlc-cyan); }
 
 /* Image-with-badge — moved to <SessadCase> scoped style */
 

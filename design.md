@@ -44,6 +44,13 @@ colors:
     dot-grid:
       light: "rgba(8, 43, 54, 0.09)"
       dark: "rgba(255, 255, 255, 0.06)"
+    halo-cyan:
+      light: "rgba(0, 210, 200, 0.14)"
+      dark: "rgba(0, 210, 200, 0.08)"
+    badge-soft-bg:
+      light: "rgba(0, 210, 200, 0.12)"
+      dark: "rgba(0, 210, 200, 0.18)"
+    hover-on-dark: "rgba(255, 255, 255, 0.06)"
     ink:
       light: "var(--pxlc-text-ink)"
       dark: "var(--pxlc-ivory)"
@@ -163,6 +170,9 @@ Ces tokens résolvent vers la palette et basculent automatiquement en dark mode.
 | `--bg-rule` | `var(--pxlc-border-soft)` | `var(--pxlc-border-dark)` |
 | `--bg-glass` | `rgba(234, 246, 244, 0.92)` | `rgba(8, 43, 54, 0.92)` |
 | `--dot-grid` | `rgba(8, 43, 54, 0.09)` | `rgba(255, 255, 255, 0.06)` |
+| `--halo-cyan` | `rgba(0, 210, 200, 0.14)` | `rgba(0, 210, 200, 0.08)` |
+| `--badge-soft-bg` | `rgba(0, 210, 200, 0.12)` | `rgba(0, 210, 200, 0.18)` |
+| `--hover-on-dark` | `rgba(255, 255, 255, 0.06)` | — |
 
 ### Texte
 
@@ -456,10 +466,10 @@ Classes issues de `styles.css`. Les styles scoped des composants Vue ne sont pas
 
 ### Nommage des composants Vue
 
-- **`Pxlc*`** — primitives de marque réutilisables partout : `PxlcMark`, `PxlcLockup`, `PxlcPixelStrip`, `PxlcPixelCorner`, `PxlcMarkSeparator`, `PxlcInput`, `PxlcLinkout`, `PxlcOg*`
-- **`Site*`** — chrome du site (présent sur toutes les pages) : `SiteHeader`, `SiteFooter`, `SiteMobileMenu`
-- **`Blog*`** — composants propres au contexte blog : `BlogCta`, `BlogShare`, `BlogToc`, `BlogRelated`
-- **Sans préfixe** — sections de page, blocs de contenu et utilitaires autonomes : `Hero`, `CtaBlock`, `MethodGrid`, `PartnerStrip`, `SessadCase`, `CitationBlock`, `ThemeToggle`
+- **`Pxlc*`** — primitives de marque réutilisables partout : `PxlcInput`, `PxlcLinkout`, `PxlcLockup`, `PxlcMark`, `PxlcMarkSeparator`, `PxlcOg`, `PxlcOgBrand`, `PxlcPixelCorner`, `PxlcPixelStrip`
+- **`Site*`** — chrome du site (présent sur toutes les pages) : `SiteFooter`, `SiteHeader`, `SiteMobileMenu`
+- **`Blog*`** — composants propres au contexte blog : `BlogCta`, `BlogRelated`, `BlogShare`, `BlogToc`
+- **Sans préfixe** — sections de page, blocs de contenu et utilitaires autonomes : `CitationBlock`, `CtaBlock`, `Hero`, `MethodGrid`, `PartnerStrip`, `SessadCase`, `ThemeToggle`
 - Deux mots minimum par nom (style guide Vue — évite les collisions avec de futurs éléments HTML natifs)
 
 ### Visuel
