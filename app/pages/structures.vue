@@ -381,7 +381,7 @@ const audiences = [
 .team-role { font-size: 18px; }
 
 .audience-card { scroll-margin-top: 0; }
-.audience-list { display: grid; gap: 8px 16px; grid-template-columns: 1fr; margin: 0; }
+.audience-list { display: grid; gap: var(--space-2) var(--space-3); grid-template-columns: 1fr; margin: 0; }
 @media (min-width: 480px) { .audience-list { grid-template-columns: max-content 1fr; } }
 .audience-list dt {
   font-family: var(--font-label); font-size: 11px; font-weight: 600;
