@@ -20,6 +20,9 @@
  *   R6 emoji          — emoji interdits dans <template>
  *   R7 seo-longueur   — title/description useSeoMeta trop longs (pages)
  *                       et site.description de nuxt.config.ts
+ *   R8 rgba-brut      — rgba()/rgb() dans <style> → utiliser un token
+ *                       (radial-gradient reste autorisé, mais sa couleur
+ *                       doit être un token, ex. var(--dot-grid))
  *
  * Corrections v2 :
  *   - parseSfc : tous les blocs <style> sont capturés (matchAll, pas match)
@@ -153,6 +156,13 @@ function lintStyle(raw, file) {
     /border-radius\s*:[^\n;]*\b([3-9]\d*|[1-9]\d+)px/g,
     'radius-brut',
     m => `${m[0].trim()} → utiliser var(--radius-xs|sm|md|lg|pill)`,
+  )
+
+  // R8 — rgba()/rgb() brut (continuité de R1 : les alphas dérivent aussi)
+  flag(
+    /\brgba?\(/g,
+    'rgba-brut',
+    () => 'rgba()/rgb() → utiliser un token (--shadow-*, --ring-*, --dot-grid, --rule-accent…)',
   )
 
   return vs

@@ -13,7 +13,7 @@ withDefaults(defineProps<Props>(), {
 
 <template>
   <section class="cta-block" aria-labelledby="cta-final-title">
-    <div class="cta-block__strip"><PixelStrip :count="8" :accent-at="5" /></div>
+    <div class="cta-block__strip"><PxlcPixelStrip :count="8" :accent-at="5" /></div>
     <div class="cta-block__bg-mark"><PxlcMark :size="340" decorative /></div>
 
     <div class="container">

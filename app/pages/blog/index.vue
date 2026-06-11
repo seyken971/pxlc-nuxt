@@ -120,7 +120,7 @@ const categoryLabel = (slug?: string): string =>
             :class="`blog-card__thumb--${thumbModifier(p.category)}`"
             aria-hidden="true"
           >
-            <PixelCorner />
+            <PxlcPixelCorner />
             <div class="blog-card__thumb-mark">
               <PxlcMark :size="56" decorative />
             </div>
@@ -188,7 +188,7 @@ const categoryLabel = (slug?: string): string =>
   aspect-ratio: 16 / 9;
   position: relative;
   background-color: var(--pxlc-pattern-warm-deep);
-  background-image: radial-gradient(circle, rgba(8,43,54,0.09) 1px, transparent 1px);
+  background-image: radial-gradient(circle, var(--dot-grid) 1px, transparent 1px);
   background-size: 18px 18px;
   background-position: 8px 8px;
 }
@@ -207,9 +207,9 @@ const categoryLabel = (slug?: string): string =>
   pointer-events: none;
 }
 
+/* --dot-grid bascule seul en dark — seule la couleur de fond est surchargée. */
 [data-theme="dark"] .blog-card__thumb {
   background-color: var(--pxlc-border-dark-2);
-  background-image: radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px);
 }
 [data-theme="dark"] .blog-card__thumb--parents     { background-color: var(--pxlc-bg-dark-deep); }
 [data-theme="dark"] .blog-card__thumb--cas-pratique { background-color: var(--pxlc-border-dark); }

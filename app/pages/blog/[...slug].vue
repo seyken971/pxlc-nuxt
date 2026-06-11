@@ -178,7 +178,7 @@ onBeforeUnmount(() => {
 <style scoped>
 /* ── Reading progress bar ─────────────────────────────────────── */
 .reading-bar {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  position: fixed; top: 0; left: 0; right: 0; z-index: var(--z-progress);
   height: 3px; background: transparent; pointer-events: none;
 }
 .reading-bar__fill {

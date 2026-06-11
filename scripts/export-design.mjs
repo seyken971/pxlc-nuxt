@@ -116,7 +116,8 @@ function buildFrontmatter(root, dark) {
       !k.startsWith("--radius-") &&
       !k.startsWith("--dur-") &&
       !k.startsWith("--ease-") &&
-      !k.startsWith("--container-"),
+      !k.startsWith("--container-") &&
+      !k.startsWith("--z-"),
   );
   if (semanticColors.length) {
     lines.push("  semantic:");
@@ -168,7 +169,10 @@ function buildFrontmatter(root, dark) {
     }
   }
 
-  const layout = pick(root, (k) => k.startsWith("--container-"));
+  const layout = pick(
+    root,
+    (k) => k.startsWith("--container-") || k.startsWith("--z-"),
+  );
   if (layout.length) {
     lines.push("layout:");
     for (const [k, v] of layout) {
@@ -224,12 +228,17 @@ const main = async () => {
     [
       "Surfaces",
       (k) =>
-        ["--bg", "--bg-soft", "--bg-elev", "--bg-rule", "--bg-glass"].includes(
-          k,
-        ),
+        [
+          "--bg",
+          "--bg-soft",
+          "--bg-elev",
+          "--bg-rule",
+          "--bg-glass",
+          "--dot-grid",
+        ].includes(k),
     ],
     ["Texte", (k) => k === "--ink" || k === "--ink-quiet" || k === "--quiet"],
-    ["Bordures", (k) => k === "--rule"],
+    ["Bordures", (k) => k.startsWith("--rule")],
     [
       "Couleurs accent",
       (k) => ["--teal-deep", "--teal-mid", "--cyan", "--eyebrow"].includes(k),
@@ -306,7 +315,10 @@ const main = async () => {
 
   // ── Layout ────────────────────────────────────────────────────────────────
   md.push("\n## Layout\n");
-  const layout = pick(root, (k) => k.startsWith("--container-"));
+  const layout = pick(
+    root,
+    (k) => k.startsWith("--container-") || k.startsWith("--z-"),
+  );
   md.push(
     table(
       ["Token", "Valeur"],
@@ -376,6 +388,17 @@ const main = async () => {
     ].join("\n"),
   );
 
+  md.push("\n### Nommage des composants Vue\n");
+  md.push(
+    [
+      "- **`Pxlc*`** — primitives de marque réutilisables partout : `PxlcMark`, `PxlcLockup`, `PxlcPixelStrip`, `PxlcPixelCorner`, `PxlcMarkSeparator`, `PxlcInput`, `PxlcLinkout`, `PxlcOg*`",
+      "- **`Site*`** — chrome du site (présent sur toutes les pages) : `SiteHeader`, `SiteFooter`, `SiteMobileMenu`",
+      "- **`Blog*`** — composants propres au contexte blog : `BlogCta`, `BlogShare`, `BlogToc`, `BlogRelated`",
+      "- **Sans préfixe** — sections de page, blocs de contenu et utilitaires autonomes : `Hero`, `CtaBlock`, `MethodGrid`, `PartnerStrip`, `SessadCase`, `CitationBlock`, `ThemeToggle`",
+      "- Deux mots minimum par nom (style guide Vue — évite les collisions avec de futurs éléments HTML natifs)",
+    ].join("\n"),
+  );
+
   md.push("\n### Visuel\n");
   md.push(
     [
@@ -396,11 +419,27 @@ const main = async () => {
   );
 
   // ── Écriture ──────────────────────────────────────────────────────────────
-  const content = md.join("\n") + "\n";
-  await writeFile(OUTPUT, content, "utf8");
-  console.log(
-    `export-design: ${OUTPUT} écrit (${content.length} chars, ${content.split("\n").length} lignes)`,
-  );
+  // Comme generate-tokens.mjs : sur les checkouts Windows (autocrlf), le
+  // fichier existant est en CRLF — on respecte son EOL et on ne réécrit que
+  // si le contenu change, pour ne pas churner design.md à chaque run.
+  const contentLF = md.join("\n") + "\n";
+  let existing = null;
+  try {
+    existing = await readFile(OUTPUT, "utf8");
+  } catch (err) {
+    if (err.code !== "ENOENT") throw err;
+  }
+  const hasCRLF = existing?.includes("\r\n") ?? false;
+  const content = hasCRLF ? contentLF.replace(/\n/g, "\r\n") : contentLF;
+
+  if (content === existing) {
+    console.log(`export-design: ${OUTPUT} déjà à jour`);
+  } else {
+    await writeFile(OUTPUT, content, "utf8");
+    console.log(
+      `export-design: ${OUTPUT} écrit (${content.length} chars, ${content.split("\n").length} lignes)`,
+    );
+  }
 };
 
 main().catch((err) => {

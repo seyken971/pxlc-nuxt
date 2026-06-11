@@ -77,7 +77,7 @@ const stats = [
        quand ils entrent dans le viewport → réduit le TBT au chargement initial. -->
   <LazyPartnerStrip hydrate-on-visible />
   <LazyMethodGrid :steps="methodSteps" hydrate-on-visible />
-  <LazyMarkSeparator hydrate-on-visible />
+  <LazyPxlcMarkSeparator hydrate-on-visible />
   <LazySessadCase hydrate-on-visible />
   <LazyCitationBlock
     source="« Jouons Ensemble! » · projet 2026"

@@ -16,7 +16,7 @@ onUnmounted(() => cleanupTheme?.())
 <template>
   <a class="skip-link" href="#main">Aller au contenu</a>
   <SiteHeader />
-  <MobileMenu />
+  <SiteMobileMenu />
   <!-- tabindex="-1" makes <main> a valid focus target so the skip link
        actually moves focus (and screen-reader virtual cursor) into the
        page content instead of just scrolling past the header. -->
