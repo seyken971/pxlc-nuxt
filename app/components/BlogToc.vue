@@ -34,7 +34,7 @@ const props = defineProps<Props>()
   letter-spacing: 0.22em; text-transform: uppercase; color: var(--eyebrow);
   display: block; margin-bottom: var(--space-2-5);
 }
-.toc__list { list-style: decimal inside; padding: 0; margin: 0; display: grid; gap: 6px; }
+.toc__list { list-style: decimal inside; padding: 0; margin: 0; display: grid; gap: var(--space-1-5); }
 .toc__item { font-size: 14px; line-height: 1.5; color: var(--ink-quiet); }
 .toc__link { color: var(--teal-deep); transition: color var(--dur-fast); }
 .toc__link:hover { color: var(--pxlc-coral); text-decoration: none; }
