@@ -75,6 +75,7 @@ const timeline = [
     <div class="container">
       <div class="about-grid">
         <div>
+          <SiteBreadcrumb :overrides="[{ label: 'Accueil' }, { label: 'À propos' }]" />
           <span class="eyebrow eyebrow--lg">À propos</span>
           <h1 class="about-title">
             Andy Zébus, médiateur numérique<span class="coral-dot" aria-hidden="true">.</span>
