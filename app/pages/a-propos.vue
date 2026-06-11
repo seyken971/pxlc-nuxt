@@ -3,7 +3,7 @@ useSeoMeta({ title: 'Andy Zébus, médiateur numérique — Guadeloupe · 971' }
 if (import.meta.server) {
   useSeoMeta({
     description:
-      'Médiateur numérique en Guadeloupe — 6 ans de scène esport, formation Simplon, conseil institutionnel.',
+      'Médiateur numérique en Guadeloupe — 6 ans de scène esport, formation Simplon, conseil institutionnel.',
     ogDescription:
       'Andy Zébus aide les familles à se réconcilier autour des écrans, en binômes parent-enfant, avec votre équipe.',
   })
@@ -53,6 +53,10 @@ const casquettes = [
   },
 ]
 
+// Filet supérieur des cartes : progression de la palette teal → cyan
+// (le coral reste réservé au nœud final de la chronologie).
+const casqAccents = ['var(--teal-deep)', 'var(--teal-mid)', 'var(--cyan)']
+
 const timeline = [
   { year: '2005',      title: 'Premières compétitions de jeux vidéo',           desc: "Organisation d'événements JV chez Kayanim' (Pointe-à-Pitre)." },
   { year: '2010',      title: 'Community Manager — 100 000 inscrits',       desc: "Lancement du serveur EU-FR d'Atlantica Online (Ndoors Europe)." },
@@ -67,6 +71,7 @@ const timeline = [
 <template>
   <!-- ── Hero ──────────────────────────────────────────────── -->
   <section class="about-hero">
+    <PxlcPixelStrip class="about-hero__strip" />
     <div class="container">
       <div class="about-grid">
         <div>
@@ -77,28 +82,33 @@ const timeline = [
           <p class="about-lead">
             Basé aux Abymes (Guadeloupe), j'ai créé PXLC pour accompagner les familles dans leur parentalité numérique — résoudre les conflits autour du temps d'écran, adopter les bonnes pratiques du numérique — en partenariat avec les structures de Guadeloupe.
           </p>
-          <div class="about-facts">
-            <div v-for="f in facts" :key="f.label" class="about-fact">
-              <div class="about-fact__label">{{ f.label }}</div>
-              <div class="about-fact__value">{{ f.value }}</div>
-            </div>
-          </div>
         </div>
 
         <div class="about-portrait">
-          <NuxtImg
-            src="/img/photos/andy-portrait.jpg"
-            alt="Portrait d'Andy Zébus, médiateur numérique"
-            width="480"
-            height="600"
-            format="webp"
-            loading="eager"
-            fetchpriority="high"
-            preload
-            sizes="sm:100vw md:480px"
-          />
+          <div class="about-portrait__img">
+            <NuxtImg
+              src="/img/photos/andy-portrait.jpg"
+              alt="Portrait d'Andy Zébus, médiateur numérique"
+              width="480"
+              height="600"
+              format="webp"
+              loading="eager"
+              fetchpriority="high"
+              preload
+              sizes="sm:100vw md:480px"
+            />
+          </div>
+          <PxlcPixelCorner class="about-portrait__corner" />
         </div>
       </div>
+
+      <!-- Spec sheet — fiche technique du professionnel -->
+      <dl class="about-facts">
+        <div v-for="f in facts" :key="f.label" class="about-fact">
+          <dt class="about-fact__label">{{ f.label }}</dt>
+          <dd class="about-fact__value">{{ f.value }}</dd>
+        </div>
+      </dl>
     </div>
   </section>
 
@@ -112,8 +122,14 @@ const timeline = [
           Trois expériences professionnelles distinctes — et une seule cohérence : mettre le jeu au service du lien.
         </p>
       </header>
-      <div class="grid grid--3">
-        <article v-for="c in casquettes" :key="c.num" class="card">
+      <div class="grid grid--3 casquettes">
+        <article
+          v-for="(c, i) in casquettes"
+          :key="c.num"
+          class="card casquette-card animate-in"
+          :style="`--anim-delay: ${i * 0.09}s; --casq-accent: ${casqAccents[i]}`"
+        >
+          <span class="casquette-num" aria-hidden="true">{{ c.num }}</span>
           <span class="kicker">Casquette {{ c.num }}</span>
           <h3 class="casquette-title">{{ c.titre }}</h3>
           <p class="casquette-desc">{{ c.desc }}</p>
@@ -129,8 +145,14 @@ const timeline = [
         <h2 id="timeline-title">De la compétition JV à la médiation familiale<span class="coral-dot" aria-hidden="true">.</span></h2>
       </header>
       <ul class="timeline">
-        <li v-for="step in timeline" :key="step.year" class="timeline__item">
-          <span class="timeline__year">{{ step.year }}</span>
+        <li
+          v-for="(step, i) in timeline"
+          :key="step.year"
+          class="timeline__item animate-in"
+          :style="`--anim-delay: ${i * 0.07}s`"
+        >
+          <span class="timeline__year" :class="{ 'timeline__year--range': step.year.length > 4 }">{{ step.year }}</span>
+          <span class="timeline__node" :class="{ 'timeline__node--last': i === timeline.length - 1 }" aria-hidden="true" />
           <div class="timeline__body">
             <strong class="timeline__title">{{ step.title }}</strong>
             <p class="timeline__desc">{{ step.desc }}</p>
@@ -144,11 +166,13 @@ const timeline = [
     source="Andy Zébus · médiateur numérique"
     quote="Mon travail, ce n'est pas de juger l'usage des écrans. C'est de créer un espace de rencontre — autour du jeu vidéo, des réseaux, du temps d'écran — entre un enfant et son parent, entre une famille et votre équipe."
     attribution="Andy Zébus · médiateur numérique"
+    :soft="false"
   />
 
   <!-- ── CTA ───────────────────────────────────────────────────── -->
-  <section class="section section--soft" aria-labelledby="cta-about-title">
+  <section class="section section--soft about-cta" aria-labelledby="cta-about-title">
     <div class="container about-cta-section">
+      <PxlcPixelStrip class="about-cta__strip" :count="9" :accent-at="8" />
       <span class="eyebrow">Prochaine étape</span>
       <h2 id="cta-about-title">Travailler avec PXLC<span class="coral-dot" aria-hidden="true">.</span></h2>
       <p class="lead">
@@ -172,10 +196,27 @@ const timeline = [
 <style scoped>
 /* ── Hero ────────────────────────────────────────────────────── */
 .about-hero {
+  position: relative;
   background: var(--bg-soft);
   border-bottom: 1px solid var(--bg-rule);
   padding: clamp(40px, 5vw, 64px) 0;
   transition: background var(--dur-base);
+}
+/* Texture dot-grid — la trame pixel de la marque, fondue vers le bas. */
+.about-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(var(--dot-grid) 1.5px, transparent 1.5px);
+  background-size: 22px 22px;
+  mask-image: radial-gradient(ellipse 150% 90% at 50% 0%, black 30%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse 150% 90% at 50% 0%, black 30%, transparent 75%);
+  pointer-events: none;
+}
+.about-hero__strip {
+  position: absolute;
+  top: 24px;
+  right: clamp(20px, 4vw, 56px);
 }
 
 .about-grid {
@@ -183,13 +224,14 @@ const timeline = [
   grid-template-columns: 1.4fr 1fr;
   gap: clamp(32px, 5vw, 56px);
   align-items: start;
+  position: relative;
 }
 @media (max-width: 900px) {
   .about-grid { grid-template-columns: 1fr; }
 }
 
 .about-title {
-  font-size: clamp(32px, 4.8vw, 52px);
+  font-size: clamp(36px, 5.4vw, 64px);
   line-height: 1.04;
   letter-spacing: -0.03em;
   margin: 0 0 20px;
@@ -199,37 +241,60 @@ const timeline = [
   font-size: 17px;
   line-height: 1.55;
   color: var(--ink-quiet);
-  margin-bottom: var(--space-3);
+  max-width: 580px;
 }
-.about-portrait {
+
+/* ── Portrait — la photo se résout elle aussi en point coral ──── */
+.about-portrait { position: relative; }
+/* Cadre décalé — écho géométrique du pixel, derrière la photo. */
+.about-portrait::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  transform: translate(12px, 12px);
+  border: 2px solid var(--teal-mid);
+  border-radius: var(--radius-lg);
+  pointer-events: none;
+}
+.about-portrait__img {
+  position: relative;
+  aspect-ratio: 4 / 5;
   border-radius: var(--radius-lg);
   overflow: hidden;
-  aspect-ratio: 4 / 5;
 }
 @media (max-width: 900px) {
-  .about-portrait { max-height: 50vh; }
+  .about-portrait__img { max-height: 50vh; }
 }
-.about-portrait :deep(img) {
+.about-portrait__img :deep(img) {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
 }
-
-/* ── Facts ───────────────────────────────────────────────────── */
-.about-facts {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-3);
-  margin-top: var(--space-3);
+.about-portrait__corner {
+  position: absolute;
+  right: -6px;
+  bottom: -6px;
 }
 
+/* ── Facts — bandeau spec sheet ──────────────────────────────── */
+.about-facts {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-block: 1px solid var(--rule);
+  margin: var(--space-6) 0 0;
+  position: relative;
+}
 .about-fact {
-  background: var(--bg-elev);
-  border: 1px solid var(--rule);
-  border-radius: var(--radius-lg);
-  padding: var(--space-4);
-  transition: background var(--dur-base);
+  padding: var(--space-3) var(--space-4);
+  margin: 0;
+}
+.about-fact + .about-fact { border-left: 1px solid var(--rule); }
+.about-fact:first-child { padding-left: 0; }
+@media (max-width: 899px) {
+  .about-facts { grid-template-columns: 1fr 1fr; }
+  .about-fact:nth-child(odd) { border-left: 0; padding-left: 0; }
+  .about-fact:nth-child(n + 3) { border-top: 1px solid var(--rule); }
 }
 .about-fact__label {
   font-family: var(--font-label);
@@ -242,28 +307,206 @@ const timeline = [
 .about-fact__value {
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: 18px;
+  font-size: 17px;
+  font-variant-numeric: tabular-nums;
   color: var(--ink);
+  margin: 0;
 }
 
-/* ── Casquettes ──────────────────────────────────────────────── */
-.casquette-title { font-size: 18px; margin: var(--space-2) 0; }
-.casquette-desc  { font-size: 15px; line-height: 1.6; }
+/* ── Casquettes — numéros fantômes, escalier du parcours ─────── */
+.casquette-card { overflow: hidden; }
+/* Filet supérieur — progression teal-deep → teal-mid → cyan. */
+.casquette-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--casq-accent, var(--teal-mid));
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+.casquette-num {
+  position: absolute;
+  top: -14px;
+  right: 8px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 96px;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: color-mix(in srgb, var(--ink) 7%, transparent);
+  pointer-events: none;
+  user-select: none;
+  transition: color var(--dur-base) var(--ease-step);
+}
+.casquette-card:hover .casquette-num {
+  color: color-mix(in srgb, var(--teal-mid) 22%, transparent);
+}
+.casquette-title { font-size: 18px; margin: var(--space-2) 0; position: relative; }
+.casquette-desc  { font-size: 15px; line-height: 1.6; position: relative; }
+/* Escalier — le décalage évoque la progression du parcours. */
+@media (min-width: 1024px) {
+  .casquettes { padding-bottom: 48px; }
+  .casquette-card:nth-child(2) { transform: translateY(24px); }
+  .casquette-card:nth-child(3) { transform: translateY(48px); }
+  /* Le reveal .animate-in anime transform — une fois visible, on rend
+     la main au décalage de l'escalier via la transition existante. */
+  .casquette-card:nth-child(2):not(.is-visible) { transform: translateY(42px); }
+  .casquette-card:nth-child(3):not(.is-visible) { transform: translateY(66px); }
+}
 
 /* ── CTA ─────────────────────────────────────────────────────── */
-.about-cta-section { max-width: 720px; margin: 0 auto; }
+/* Texture dot-grid en miroir du hero — la page se referme sur la trame. */
+.about-cta::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(var(--dot-grid) 1.5px, transparent 1.5px);
+  background-size: 22px 22px;
+  mask-image: radial-gradient(ellipse 150% 90% at 50% 100%, black 30%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse 150% 90% at 50% 100%, black 30%, transparent 75%);
+  pointer-events: none;
+}
+.about-cta-section {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+.about-cta__strip { margin-bottom: var(--space-4); }
 .about-cta-actions {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-3);
   margin-top: var(--space-5);
+  justify-content: center;
 }
 
-/* ── Timeline ────────────────────────────────────────────────── */
-.timeline { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--space-4); max-width: 760px; }
-.timeline__item { display: grid; grid-template-columns: 100px 1fr; gap: var(--space-4); align-items: baseline; }
-@media (max-width: 600px) { .timeline__item { grid-template-columns: 1fr; gap: var(--space-1); } }
-.timeline__year { font-family: var(--font-label); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--eyebrow); padding-top: 3px; }
-.timeline__title { font-family: var(--font-display); font-weight: 600; font-size: 16px; color: var(--ink); }
-.timeline__desc { font-size: 15px; line-height: 1.6; color: var(--ink-quiet); margin: var(--space-1) 0 0; }
+/* ── Timeline — le rail se résout en un point coral ──────────── */
+.timeline {
+  --year-col: 150px;
+  --node-col: 24px;
+  --node-top: 12px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-width: 860px;
+}
+.timeline__item {
+  display: grid;
+  grid-template-columns: var(--year-col) var(--node-col) 1fr;
+  column-gap: var(--space-4);
+  padding-bottom: var(--space-6);
+}
+.timeline__item:last-child { padding-bottom: 0; }
+
+.timeline__year {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(24px, 3vw, 36px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+  color: var(--ink);
+  text-align: right;
+  white-space: nowrap;
+}
+/* Les plages (« 2019–2025 ») descendent d'un cran pour tenir la colonne. */
+.timeline__year--range {
+  font-size: clamp(17px, 2vw, 21px);
+  padding-top: 8px;
+}
+
+/* Nœud pixel + segment de rail — le rail est porté par chaque item,
+   il s'arrête donc naturellement sur le nœud coral de 2026. */
+.timeline__node {
+  position: relative;
+  align-self: stretch;
+  justify-self: center;
+  width: 16px;
+}
+.timeline__node::before {
+  content: '';
+  position: absolute;
+  top: var(--node-top);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 12px;
+  height: 12px;
+  border-radius: 1px;
+  background: var(--teal-mid);
+  box-shadow: 0 0 0 4px var(--bg-soft);
+  z-index: 1;
+}
+.timeline__node::after {
+  content: '';
+  position: absolute;
+  top: calc(var(--node-top) + 16px);
+  bottom: calc(-1 * var(--node-top) - 2px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  background: var(--rule);
+}
+/* 2026 — la grille se résout : nœud coral, fin du rail. */
+.timeline__node--last::before {
+  width: 16px;
+  height: 16px;
+  background: var(--pxlc-coral);
+}
+.timeline__node--last::after { content: none; }
+
+/* Le rail se dessine au scroll — progressive enhancement CSS-only. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .timeline__node::after {
+      transform-origin: top;
+      animation: rail-grow linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 80%;
+    }
+    @keyframes rail-grow {
+      from { transform: translateX(-50%) scaleY(0); }
+      to   { transform: translateX(-50%) scaleY(1); }
+    }
+  }
+}
+
+.timeline__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 17px;
+  color: var(--ink);
+  display: block;
+  padding-top: 6px;
+}
+.timeline__desc {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--ink-quiet);
+  margin: var(--space-1) 0 0;
+}
+
+@media (max-width: 900px) {
+  .timeline { --year-col: 96px; }
+  .timeline__year { font-size: 22px; }
+  .timeline__year--range { font-size: 15px; padding-top: 6px; }
+}
+@media (max-width: 600px) {
+  .timeline { --node-top: 6px; }
+  .timeline__item {
+    grid-template-columns: var(--node-col) 1fr;
+    column-gap: var(--space-3);
+  }
+  /* Le rail survit au mobile : nœud à gauche, année au-dessus du corps. */
+  .timeline__node { grid-row: 1 / span 2; grid-column: 1; }
+  .timeline__year {
+    grid-column: 2;
+    text-align: left;
+    font-size: 20px;
+  }
+  .timeline__year--range { font-size: 16px; padding-top: 2px; }
+  .timeline__body { grid-column: 2; }
+  .timeline__title { padding-top: var(--space-1); }
+}
 </style>
