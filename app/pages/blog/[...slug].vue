@@ -59,12 +59,6 @@ useSchemaOrg([
   }),
 ])
 
-const crumbs = [
-  { label: 'Accueil' },
-  { label: 'Blog' },
-  { label: post.value.title },
-]
-
 // Reading time + table of contents derived from the parsed body. Fallback
 // to the manual frontmatter value if the AST walk yields nothing (defensive
 // — shouldn't happen for real articles).
@@ -106,7 +100,7 @@ onBeforeUnmount(() => {
     <!-- Article header — bg-soft section per DS -->
     <section class="article-intro">
       <div class="container article-intro__inner">
-        <SiteBreadcrumb :overrides="crumbs" />
+        <SiteBreadcrumb :current-label="post.title" />
 
         <header class="post-header">
           <span class="badge">{{ post.category }}</span>

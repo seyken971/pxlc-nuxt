@@ -75,7 +75,7 @@ const categoryLabel = (slug?: string): string =>
   <!-- Page header — bg-soft + border-bottom per DS BlogPage -->
   <section class="section section--page blog-page-header">
     <div class="container">
-      <SiteBreadcrumb :overrides="[{ label: 'Accueil' }, { label: 'Blog' }]" />
+      <SiteBreadcrumb />
       <span class="eyebrow eyebrow--lg">Le journal</span>
       <h1 class="blog-title">
         Décryptages, repères, retours de terrain<span class="coral-dot" aria-hidden="true">.</span>

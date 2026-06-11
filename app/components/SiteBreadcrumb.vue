@@ -3,11 +3,26 @@
 // BreadcrumbList JSON-LD côté serveur (schemaOrg activé par défaut),
 // signal de hiérarchie utilisé par Google pour les sitelinks.
 const props = defineProps<{
-  /** Libellés par segment, alignés sur l'index du chemin (racine incluse). */
-  overrides?: { label: string }[]
+  /** Libellé du segment final quand il n'est pas dans la nav (ex. titre d'article). */
+  currentLabel?: string
 }>()
 
-const crumbs = useBreadcrumbItems({ overrides: props.overrides })
+const route = useRoute()
+const { items: navItems } = useNav()
+
+// Libellés repris de NAV_ITEMS (source unique, alignée header/footer) par
+// correspondance de chemin ; currentLabel couvre le segment final hors nav.
+const overrides = computed(() => {
+  const segments = route.path.split('/').filter(Boolean)
+  const paths = ['/', ...segments.map((_, i) => '/' + segments.slice(0, i + 1).join('/'))]
+  return paths.map((p, i) => {
+    const nav = navItems.find(n => n.url === p)
+    if (nav) return { label: nav.label }
+    return i === paths.length - 1 && props.currentLabel ? { label: props.currentLabel } : undefined
+  })
+})
+
+const crumbs = useBreadcrumbItems({ overrides })
 </script>
 
 <template>
