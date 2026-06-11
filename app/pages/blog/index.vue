@@ -10,7 +10,7 @@ if (import.meta.server) {
 }
 
 defineOgImage('PxlcOg', {
-  eyebrow: 'PXLC · LE JOURNAL',
+  eyebrow: 'LE JOURNAL',
   title: 'Décryptages, repères, retours de terrain',
   description: 'Ressources et décryptages de PXLC sur la médiation numérique — pour les familles et les équipes qui accompagnent.',
 }, [

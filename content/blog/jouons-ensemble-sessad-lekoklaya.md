@@ -1,7 +1,7 @@
 ---
-title: "« Jouons Ensemble! » — comment se monte un dispositif au SESSAD"
+title: "« Jouons Ensemble ! » — comment se monte un dispositif au SESSAD"
 description: Le projet Parents-Écran-Enfant au SESSAD Lékoklaya, raconté étape par étape — du Café-Parents de 2023 aux ateliers thématiques de 2026, en passant par le cadrage avec l'équipe pluridisciplinaire.
-seoTitle: "« Jouons Ensemble! » — un dispositif au SESSAD"
+seoTitle: "« Jouons Ensemble ! » — un dispositif au SESSAD"
 seoDescription: "Le projet Parents-Écran-Enfant au SESSAD Lékoklaya, du Café-Parents de 2023 aux ateliers de 2026, étape par étape."
 date: 2026-02-10
 category: cas-pratique
@@ -14,7 +14,7 @@ Décembre 2023. Le SESSAD Lékoklaya, aux Abymes (Guadeloupe), organise un **Caf
 
 L'équipe identifie un manque. Les éducateurs et la psychologue accompagnent au quotidien des enfants TSA, TDAH, TCND — mais **personne ne se sent légitime pour parler des jeux vidéo en profondeur**. Aborder Minecraft ou Fortnite avec un parent, ça demande de connaître Minecraft et Fortnite.
 
-Deux ans plus tard, le projet « Jouons Ensemble! » naît de ce constat.
+Deux ans plus tard, le projet « Jouons Ensemble ! » naît de ce constat.
 
 ## Le cadrage initial
 

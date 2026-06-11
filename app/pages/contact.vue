@@ -7,14 +7,14 @@ if (import.meta.server) {
     description:
       'Devis ou premier échange de 20 min — gratuit, sans engagement. Pour les structures qui accompagnent des familles.',
     ogDescription:
-      'Réponse sous 48 h — formulaire, WhatsApp ou visio. Premier échange de 20 min gratuit pour cadrer votre projet.',
+      'Réponse sous 2 jours ouvrés — formulaire, WhatsApp ou visio. Premier échange de 20 min gratuit pour cadrer votre projet.',
   })
 }
 
 defineOgImage('PxlcOg', {
-  eyebrow: 'PXLC · PREMIER PAS',
+  eyebrow: 'PREMIER PAS',
   title: 'Vingt minutes pour faire connaissance',
-  description: 'Visio ou WhatsApp, à votre convenance. Réservez directement en ligne ou écrivez via le formulaire — réponse personnelle sous 48 h.',
+  description: 'Visio ou WhatsApp, à votre convenance. Réservez directement en ligne ou écrivez via le formulaire — réponse personnelle sous 2 jours ouvrés.',
 }, [
   { key: 'og' },
   { key: 'whatsapp', width: 800, height: 800 },
@@ -103,7 +103,7 @@ const contactCards = [
         On en parle<span class="coral-dot" aria-hidden="true">&nbsp;?</span>
       </h1>
       <p class="contact-lead">
-        Décrivez votre structure, le public accompagné et le projet envisagé — je reviens sous 48&nbsp;h.
+        Décrivez votre structure, le public accompagné et le projet envisagé — je reviens sous 2&nbsp;jours ouvrés.
       </p>
 
       <div class="contact-grid">
@@ -119,7 +119,7 @@ const contactCards = [
             class="contact-sent"
           >
             <div class="contact-sent__eyebrow">Message envoyé</div>
-            <p class="contact-sent__text">Je reviens sous 48&nbsp;h avec une réponse personnalisée.</p>
+            <p class="contact-sent__text">Je reviens sous 2&nbsp;jours ouvrés avec une réponse personnalisée.</p>
           </div>
 
           <form v-else class="contact-form" @submit.prevent="submit">
