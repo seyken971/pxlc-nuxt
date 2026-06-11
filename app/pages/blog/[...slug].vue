@@ -12,8 +12,9 @@ if (!post.value) {
 }
 
 useSeoMeta({
-  // seoTitle/seoDescription : variantes courtes anti-troncature (53/120) ;
-  // le title/description éditorial reste le H1 et le lead.
+  // seoTitle/seoDescription : variantes courtes anti-troncature (limites
+  // dans scripts/seo-limits.mjs) ; le title/description éditorial reste
+  // le H1 et le lead.
   title: post.value.seoTitle || post.value.title,
   description: post.value.seoDescription || post.value.description,
   ogType: 'article',

@@ -13,17 +13,19 @@
 import { readFile, readdir } from 'node:fs/promises'
 import { join, relative }   from 'node:path'
 import { fileURLToPath }    from 'node:url'
+import { SEO_TITLE_MAX, SEO_DESC_MAX } from './seo-limits.mjs'
 
 const ROOT     = new URL('..', import.meta.url)
 const CONTENT  = fileURLToPath(new URL('content', ROOT))
 const REQUIRED = ['title', 'description', 'date']
 
 // Anti-troncature SERP : le <title> effectif (seoTitle || title) reçoit le
-// suffixe « · PXLC » (7 chars) via le titleTemplate → base ≤ 53 pour rester
-// sous 60. La description effective (seoDescription || description) doit
-// tenir sous la limite mobile Google (~120).
-const TITLE_MAX = 53
-const DESC_MAX  = 120
+// suffixe « · PXLC » via le titleTemplate ; la description effective
+// (seoDescription || description) doit tenir sous la limite mobile.
+// Limites partagées avec content.config.ts et ds-lint.mjs (seo-limits.mjs).
+
+/** Retire les guillemets YAML englobants d'une valeur brute du frontmatter. */
+const strip = v => (v || '').replace(/^["']|["']$/g, '')
 
 /** Extrait le bloc frontmatter YAML entre les délimiteurs --- */
 function parseFrontmatter(src) {
@@ -64,15 +66,16 @@ for await (const file of walk(CONTENT)) {
     errors++
   }
 
-  const strip = v => (v || '').replace(/^["']|["']$/g, '')
-  const effTitle = strip(fm.seoTitle || fm.title)
-  const effDesc  = strip(fm.seoDescription || fm.description)
-  if (effTitle.length > TITLE_MAX) {
-    console.error(`✗ ${rel} — title SEO effectif trop long (${effTitle.length} > ${TITLE_MAX}) : ajouter/raccourcir seoTitle`)
+  // Strip AVANT le fallback : `seoTitle: ""` (vide quoté) doit retomber sur
+  // title, comme le fait le vrai parser YAML de @nuxt/content au runtime.
+  const effTitle = strip(fm.seoTitle) || strip(fm.title)
+  const effDesc  = strip(fm.seoDescription) || strip(fm.description)
+  if (effTitle.length > SEO_TITLE_MAX) {
+    console.error(`✗ ${rel} — title SEO effectif trop long (${effTitle.length} > ${SEO_TITLE_MAX}) : ajouter/raccourcir seoTitle`)
     errors++
   }
-  if (effDesc.length > DESC_MAX) {
-    console.error(`✗ ${rel} — description SEO effective trop longue (${effDesc.length} > ${DESC_MAX}) : ajouter/raccourcir seoDescription`)
+  if (effDesc.length > SEO_DESC_MAX) {
+    console.error(`✗ ${rel} — description SEO effective trop longue (${effDesc.length} > ${SEO_DESC_MAX}) : ajouter/raccourcir seoDescription`)
     errors++
   }
 }
