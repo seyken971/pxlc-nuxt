@@ -59,7 +59,7 @@ const shares = computed(() => {
 }
 .blog-share__list { display: flex; flex-wrap: wrap; gap: var(--space-2); list-style: none; padding: 0; margin: 0; }
 .blog-share__link {
-  display: inline-flex; align-items: center; gap: 6px;
+  display: inline-flex; align-items: center; gap: var(--space-1-5);
   padding: 8px 14px; font-size: 13px; font-weight: 600;
   color: var(--ink);
   border: 1px solid var(--rule); border-radius: var(--radius-pill);

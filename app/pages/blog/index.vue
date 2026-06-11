@@ -224,6 +224,6 @@ const categoryLabel = (slug?: string): string =>
   font-family: var(--font-label); font-size: 11px; letter-spacing: 0.1em;
   color: var(--quiet); text-transform: uppercase;
 }
-.blog-card__rt { display: inline-flex; align-items: center; gap: 4px; }
+.blog-card__rt { display: inline-flex; align-items: center; gap: var(--space-1); }
 .blog-card__rt svg { width: 11px; height: 11px; flex-shrink: 0; }
 </style>

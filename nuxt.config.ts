@@ -157,6 +157,9 @@ export default defineNuxtConfig({
 
   // Le sitemap est auto-généré à partir des routes prérendues par
   // @nuxtjs/seo.
+  sitemap: {
+    zeroRuntime: true,
+  },
 
   seo: {
     meta: {
