@@ -31,36 +31,36 @@ useSchemaOrg([
 const facts = [
   { label: 'Entreprise', value: 'PXLC — Entrepreneur Individuel' },
   { label: 'Territoire', value: 'Guadeloupe · 971' },
-  { label: 'SIRET',      value: '813 793 528 00031' },
-  { label: 'Cadre',      value: 'HCSP 2019-2020 · HAS 2020' },
+  { label: 'SIRET', value: '813 793 528 00031' },
+  { label: 'Cadre', value: 'HCSP 2019-2020 · HAS 2020' },
 ]
 
 const casquettes = [
   {
     num: '01',
     titre: 'Organisateur esport',
-    desc: "Plus de six ans sur la scène esport guadeloupéenne — tournois, partenariats grands comptes, 1 mois de CA en 4 jours (Destreland Gaming Cup). Connaît la communauté joueurs de l'intérieur.",
+    desc: "Plus de 6&nbsp;ans sur la scène esport guadeloupéenne — Destreland Gaming Cup, tournois, partenariats. Je parle aux enfants dans leur registre culturel. C'est ce qui fait que les ateliers ne ressemblent pas à une leçon.",
   },
   {
     num: '02',
     titre: 'Médiateur formé',
-    desc: "Formateur principal en médiation numérique chez Simplon Outre-Mer (2021–2022). Pratique alignée sur les recommandations HCSP 2019-2020 · HAS 2020.",
+    desc: "Formateur principal en médiation numérique chez Simplon Outre-Mer (2021–2022). Je travaille dans le cadre HCSP 2019-2020 · HAS 2020 — ce qui facilite directement l'articulation avec votre projet de soin et vos bilans.",
   },
   {
     num: '03',
     titre: 'Conseil institutionnel',
-    desc: "Affaires européennes et numérique THD à la Région Guadeloupe. Parle le langage des projets de service et des financements publics.",
+    desc: "Affaires européennes et numérique THD à la Région Guadeloupe. Je maîtrise le vocabulaire des appels à projets, des commissions et des rapports d'activité — utile pour justifier et documenter le dispositif.",
   },
 ]
 
 const timeline = [
-  { year: '2005',      title: 'Premières compétitions de jeux vidéo',           desc: "Organisation d'événements JV chez Kayanim' (Pointe-à-Pitre)." },
-  { year: '2010',      title: 'Community Manager — 100 000 inscrits',       desc: "Lancement du serveur EU-FR d'Atlantica Online (Ndoors Europe)." },
-  { year: '2013–2014', title: 'Région Guadeloupe — Affaires Européennes',        desc: "Suivi fonds FEDER · FSE · FEADER · FEAMP et déploiement du Très Haut Débit." },
-  { year: '2015–2018', title: 'Activité numérique indépendante',                 desc: "Stratégie digitale Région Guadeloupe Route du Rhum 2018, formation d'élus en anglais." },
-  { year: '2019–2025', title: 'Esports Guadeloupe — 6 ans',                 desc: "Scène esport guadeloupéenne — Destreland Gaming Cup, Game Over Challenge. 1 mois de CA en 4 jours pour un partenaire commercial." },
-  { year: '2021–2022', title: 'Simplon Outre-Mer — formateur principal',         desc: "Formation de futurs responsables d'espaces de médiation numérique." },
-  { year: '2026',      title: 'PXLC — médiateur numérique familial',             desc: "Programme Jouons Ensemble au SESSAD Lékoklaya — 8 familles, 12–17 ans, TSA/TDAH/TND, co-encadrement avec psychologue et psychomotricienne." },
+  { year: '2005', title: 'Premières compétitions de jeux vidéo', desc: "Organisation d'événements JV chez Kayanim' (Pointe-à-Pitre)." },
+  { year: '2010', title: 'Community Manager — 100 000 inscrits', desc: "Lancement du serveur EU-FR d'Atlantica Online (Ndoors Europe)." },
+  { year: '2013–2014', title: 'Région Guadeloupe — Affaires Européennes', desc: "Suivi fonds FEDER · FSE · FEADER · FEAMP et déploiement du Très Haut Débit." },
+  { year: '2015–2018', title: 'Activité numérique indépendante', desc: "Stratégie digitale Région Guadeloupe Route du Rhum 2018, formation d'élus en anglais." },
+  { year: '2019–2025', title: 'Esports Guadeloupe — 6 ans', desc: "Scène esport guadeloupéenne — Destreland Gaming Cup, Game Over Challenge. 1 mois de CA en 4 jours pour un partenaire commercial." },
+  { year: '2021–2022', title: 'Simplon Outre-Mer — formateur principal', desc: "Formation de futurs responsables d'espaces de médiation numérique." },
+  { year: '2026', title: 'PXLC — médiateur numérique familial', desc: "Programme Jouons Ensemble au SESSAD Lékoklaya — 8 familles, 12–17 ans, TSA/TDAH/TND, co-encadrement avec psychologue et psychomotricienne." },
 ]
 </script>
 
@@ -75,7 +75,9 @@ const timeline = [
             Andy Zébus, médiateur numérique<span class="coral-dot" aria-hidden="true">.</span>
           </h1>
           <p class="about-lead">
-            Basé aux Abymes (Guadeloupe), j'ai créé PXLC pour accompagner les familles dans leur parentalité numérique — résoudre les conflits autour du temps d'écran, adopter les bonnes pratiques du numérique — en partenariat avec les structures de Guadeloupe.
+            Basé aux Abymes (Guadeloupe), j'ai créé PXLC pour accompagner les familles dans leur parentalité numérique —
+            résoudre les conflits autour du temps d'écran, adopter les bonnes pratiques du numérique — en partenariat
+            avec les structures de Guadeloupe.
           </p>
           <div class="about-facts">
             <div v-for="f in facts" :key="f.label" class="about-fact">
@@ -86,17 +88,8 @@ const timeline = [
         </div>
 
         <div class="about-portrait">
-          <NuxtImg
-            src="/img/photos/andy-portrait.jpg"
-            alt="Portrait d'Andy Zébus, médiateur numérique"
-            width="480"
-            height="600"
-            format="webp"
-            loading="eager"
-            fetchpriority="high"
-            preload
-            sizes="sm:100vw md:480px"
-          />
+          <NuxtImg src="/img/photos/andy-portrait.jpg" alt="Portrait d'Andy Zébus, médiateur numérique" width="480"
+            height="600" format="webp" loading="eager" fetchpriority="high" preload sizes="sm:100vw md:480px" />
         </div>
       </div>
     </div>
@@ -126,7 +119,8 @@ const timeline = [
     <div class="container">
       <header class="section__head">
         <span class="eyebrow">Chronologie</span>
-        <h2 id="timeline-title">De la compétition JV à la médiation familiale<span class="coral-dot" aria-hidden="true">.</span></h2>
+        <h2 id="timeline-title">De la compétition JV à la médiation familiale<span class="coral-dot"
+            aria-hidden="true">.</span></h2>
       </header>
       <ul class="timeline">
         <li v-for="step in timeline" :key="step.year" class="timeline__item">
@@ -140,11 +134,9 @@ const timeline = [
     </div>
   </section>
 
-  <CitationBlock
-    source="Andy Zébus · médiateur numérique"
+  <CitationBlock source="Andy Zébus · médiateur numérique"
     quote="Mon travail, ce n'est pas de juger l'usage des écrans. C'est de créer un espace de rencontre — autour du jeu vidéo, des réseaux, du temps d'écran — entre un enfant et son parent, entre une famille et votre équipe."
-    attribution="Andy Zébus · médiateur numérique"
-  />
+    attribution="Andy Zébus · médiateur numérique" />
 
   <!-- ── CTA ───────────────────────────────────────────────────── -->
   <section class="section section--soft" aria-labelledby="cta-about-title">
@@ -157,13 +149,8 @@ const timeline = [
       </p>
       <div class="about-cta-actions">
         <NuxtLink to="/structures" class="btn btn--primary btn--lg">Voir mes programmes</NuxtLink>
-        <a
-          href="/files/plaquette-pxlc.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="btn btn--ghost btn--lg"
-          aria-label="Plaquette PDF, 6 pages (nouvel onglet)"
-        >Plaquette PDF · 6 pages</a>
+        <a href="/files/plaquette-pxlc.pdf" target="_blank" rel="noopener noreferrer" class="btn btn--ghost btn--lg"
+          aria-label="Plaquette PDF, 6 pages (nouvel onglet)">Plaquette PDF · 6 pages</a>
       </div>
     </div>
   </section>
@@ -184,8 +171,11 @@ const timeline = [
   gap: clamp(32px, 5vw, 56px);
   align-items: start;
 }
+
 @media (max-width: 900px) {
-  .about-grid { grid-template-columns: 1fr; }
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .about-title {
@@ -195,20 +185,26 @@ const timeline = [
   margin: 0 0 20px;
   text-wrap: balance;
 }
+
 .about-lead {
   font-size: 17px;
   line-height: 1.55;
   color: var(--ink-quiet);
   margin-bottom: var(--space-3);
 }
+
 .about-portrait {
   border-radius: var(--radius-lg);
   overflow: hidden;
   aspect-ratio: 4 / 5;
 }
+
 @media (max-width: 900px) {
-  .about-portrait { max-height: 50vh; }
+  .about-portrait {
+    max-height: 50vh;
+  }
 }
+
 .about-portrait :deep(img) {
   width: 100%;
   height: 100%;
@@ -231,6 +227,7 @@ const timeline = [
   padding: var(--space-4);
   transition: background var(--dur-base);
 }
+
 .about-fact__label {
   font-family: var(--font-label);
   font-size: 11px;
@@ -239,6 +236,7 @@ const timeline = [
   color: var(--quiet);
   margin-bottom: var(--space-2);
 }
+
 .about-fact__value {
   font-family: var(--font-display);
   font-weight: 600;
@@ -247,11 +245,22 @@ const timeline = [
 }
 
 /* ── Casquettes ──────────────────────────────────────────────── */
-.casquette-title { font-size: 18px; margin: var(--space-2) 0; }
-.casquette-desc  { font-size: 15px; line-height: 1.6; }
+.casquette-title {
+  font-size: 18px;
+  margin: var(--space-2) 0;
+}
+
+.casquette-desc {
+  font-size: 15px;
+  line-height: 1.6;
+}
 
 /* ── CTA ─────────────────────────────────────────────────────── */
-.about-cta-section { max-width: 720px; margin: 0 auto; }
+.about-cta-section {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
 .about-cta-actions {
   display: flex;
   flex-wrap: wrap;
@@ -260,10 +269,49 @@ const timeline = [
 }
 
 /* ── Timeline ────────────────────────────────────────────────── */
-.timeline { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--space-4); max-width: 760px; }
-.timeline__item { display: grid; grid-template-columns: 100px 1fr; gap: var(--space-4); align-items: baseline; }
-@media (max-width: 600px) { .timeline__item { grid-template-columns: 1fr; gap: var(--space-1); } }
-.timeline__year { font-family: var(--font-label); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--eyebrow); padding-top: 3px; }
-.timeline__title { font-family: var(--font-display); font-weight: 600; font-size: 16px; color: var(--ink); }
-.timeline__desc { font-size: 15px; line-height: 1.6; color: var(--ink-quiet); margin: var(--space-1) 0 0; }
+.timeline {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: var(--space-4);
+  max-width: 760px;
+}
+
+.timeline__item {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: var(--space-4);
+  align-items: baseline;
+}
+
+@media (max-width: 600px) {
+  .timeline__item {
+    grid-template-columns: 1fr;
+    gap: var(--space-1);
+  }
+}
+
+.timeline__year {
+  font-family: var(--font-label);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--eyebrow);
+  padding-top: 3px;
+}
+
+.timeline__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--ink);
+}
+
+.timeline__desc {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--ink-quiet);
+  margin: var(--space-1) 0 0;
+}
 </style>
