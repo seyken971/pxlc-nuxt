@@ -47,13 +47,11 @@ const props = withDefaults(defineProps<Props>(), {
       <div class="hero__inner">
         <div>
           <span class="eyebrow">{{ props.eyebrow }}</span>
-          <!-- v-html is sanitised: title prop is internal, never user-supplied -->
           <h1
             id="hero-title"
             class="hero__title"
             :class="{ 'hero__title--dot': props.titleDot }"
-            v-html="props.title"
-          />
+          >{{ props.title }}</h1>
           <p v-if="props.lead" class="hero__lead">{{ props.lead }}</p>
           <div class="hero__actions">
             <NuxtLink
