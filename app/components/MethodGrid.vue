@@ -22,7 +22,7 @@ defineProps<Props>()
           :data-num="s.num"
           :style="`--anim-delay: ${i * 0.09}s`"
         >
-          <div class="card__pixel"><PixelCorner /></div>
+          <div class="card__pixel"><PxlcPixelCorner /></div>
           <div class="card__step-num">ÉTAPE {{ s.num }}</div>
           <h3>{{ s.title }}</h3>
           <p>{{ s.desc }}</p>
@@ -52,7 +52,7 @@ defineProps<Props>()
   user-select: none;
 }
 [data-theme="dark"] .card--method {
-  border-top: 2px solid rgba(1, 160, 157, 0.25);
+  border-top: 2px solid var(--rule-accent);
 }
 [data-theme="dark"] .card--method::before {
   opacity: 0.09;

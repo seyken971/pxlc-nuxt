@@ -9,7 +9,9 @@
  * Le fichier est écrit à la racine du repo. Relancer après toute
  * modification de tokens.css ou styles.css.
  */
-import { readFile, writeFile } from "node:fs/promises";
+import { readFile, readdir } from "node:fs/promises";
+import { join } from "node:path";
+import { writeFilePreservingEol } from "./write-file-eol.mjs";
 
 const TOKENS = "app/assets/css/tokens.css";
 const STYLES = "app/assets/css/styles.css";
@@ -72,6 +74,21 @@ function parseSections(css) {
     .filter((s) => s.classes.length > 0);
 }
 
+/**
+ * Liste les noms de composants Vue depuis app/components/ (récursif),
+ * suffixes .takumi/.vue retirés — la doc de nommage est dérivée du
+ * filesystem pour ne jamais dériver de la réalité.
+ */
+async function listComponents(dir = "app/components") {
+  const names = [];
+  for (const e of await readdir(dir, { withFileTypes: true })) {
+    if (e.isDirectory()) names.push(...(await listComponents(join(dir, e.name))));
+    else if (e.name.endsWith(".vue"))
+      names.push(e.name.replace(/(\.takumi)?\.vue$/, ""));
+  }
+  return names.sort();
+}
+
 // ── Helpers Markdown ───────────────────────────────────────────────────────
 
 function table(headers, rows) {
@@ -116,7 +133,8 @@ function buildFrontmatter(root, dark) {
       !k.startsWith("--radius-") &&
       !k.startsWith("--dur-") &&
       !k.startsWith("--ease-") &&
-      !k.startsWith("--container-"),
+      !k.startsWith("--container-") &&
+      !k.startsWith("--z-"),
   );
   if (semanticColors.length) {
     lines.push("  semantic:");
@@ -168,7 +186,10 @@ function buildFrontmatter(root, dark) {
     }
   }
 
-  const layout = pick(root, (k) => k.startsWith("--container-"));
+  const layout = pick(
+    root,
+    (k) => k.startsWith("--container-") || k.startsWith("--z-"),
+  );
   if (layout.length) {
     lines.push("layout:");
     for (const [k, v] of layout) {
@@ -183,9 +204,10 @@ function buildFrontmatter(root, dark) {
 // ── Main ───────────────────────────────────────────────────────────────────
 
 const main = async () => {
-  const [tokensCss, stylesCss] = await Promise.all([
+  const [tokensCss, stylesCss, components] = await Promise.all([
     readFile(TOKENS, "utf8"),
     readFile(STYLES, "utf8"),
+    listComponents(),
   ]);
 
   const root = parseRoot(tokensCss);
@@ -224,12 +246,20 @@ const main = async () => {
     [
       "Surfaces",
       (k) =>
-        ["--bg", "--bg-soft", "--bg-elev", "--bg-rule", "--bg-glass"].includes(
-          k,
-        ),
+        [
+          "--bg",
+          "--bg-soft",
+          "--bg-elev",
+          "--bg-rule",
+          "--bg-glass",
+          "--dot-grid",
+          "--halo-cyan",
+          "--badge-soft-bg",
+          "--hover-on-dark",
+        ].includes(k),
     ],
     ["Texte", (k) => k === "--ink" || k === "--ink-quiet" || k === "--quiet"],
-    ["Bordures", (k) => k === "--rule"],
+    ["Bordures", (k) => k.startsWith("--rule")],
     [
       "Couleurs accent",
       (k) => ["--teal-deep", "--teal-mid", "--cyan", "--eyebrow"].includes(k),
@@ -306,7 +336,10 @@ const main = async () => {
 
   // ── Layout ────────────────────────────────────────────────────────────────
   md.push("\n## Layout\n");
-  const layout = pick(root, (k) => k.startsWith("--container-"));
+  const layout = pick(
+    root,
+    (k) => k.startsWith("--container-") || k.startsWith("--z-"),
+  );
   md.push(
     table(
       ["Token", "Valeur"],
@@ -376,6 +409,26 @@ const main = async () => {
     ].join("\n"),
   );
 
+  md.push("\n### Nommage des composants Vue\n");
+  // Les listes d'exemples sont dérivées de app/components/ — seule la règle
+  // (l'attribution d'un préfixe) est de la prose.
+  const ticks = (arr) => arr.map((n) => `\`${n}\``).join(", ");
+  const pxlcNames = components.filter((n) => n.startsWith("Pxlc"));
+  const siteNames = components.filter((n) => n.startsWith("Site"));
+  const blogNames = components.filter((n) => n.startsWith("Blog"));
+  const plainNames = components.filter(
+    (n) => !pxlcNames.includes(n) && !siteNames.includes(n) && !blogNames.includes(n),
+  );
+  md.push(
+    [
+      `- **\`Pxlc*\`** — primitives de marque réutilisables partout : ${ticks(pxlcNames)}`,
+      `- **\`Site*\`** — chrome du site (présent sur toutes les pages) : ${ticks(siteNames)}`,
+      `- **\`Blog*\`** — composants propres au contexte blog : ${ticks(blogNames)}`,
+      `- **Sans préfixe** — sections de page, blocs de contenu et utilitaires autonomes : ${ticks(plainNames)}`,
+      "- Deux mots minimum par nom (style guide Vue — évite les collisions avec de futurs éléments HTML natifs)",
+    ].join("\n"),
+  );
+
   md.push("\n### Visuel\n");
   md.push(
     [
@@ -396,10 +449,12 @@ const main = async () => {
   );
 
   // ── Écriture ──────────────────────────────────────────────────────────────
-  const content = md.join("\n") + "\n";
-  await writeFile(OUTPUT, content, "utf8");
+  const contentLF = md.join("\n") + "\n";
+  const wrote = await writeFilePreservingEol(OUTPUT, contentLF);
   console.log(
-    `export-design: ${OUTPUT} écrit (${content.length} chars, ${content.split("\n").length} lignes)`,
+    wrote
+      ? `export-design: ${OUTPUT} écrit (${contentLF.length} chars, ${contentLF.split("\n").length} lignes)`
+      : `export-design: ${OUTPUT} déjà à jour`,
   );
 };
 

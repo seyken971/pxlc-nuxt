@@ -30,7 +30,7 @@ onBeforeUnmount(() => {
 <template>
   <header class="site-header" :class="{ 'is-scrolled': isScrolled }">
     <div class="container site-header__inner">
-      <Lockup />
+      <PxlcLockup />
 
       <nav class="site-nav" aria-label="Navigation principale">
         <NuxtLink

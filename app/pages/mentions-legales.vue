@@ -22,7 +22,7 @@ const lastUpdated = new Intl.DateTimeFormat('fr-FR', { day: 'numeric', month: 'l
   <!-- ── Hero ──────────────────────────────────────────────── -->
   <section class="legal-hero">
     <div class="container">
-      <PixelStrip class="legal-hero__strip" />
+      <PxlcPixelStrip class="legal-hero__strip" />
       <span class="eyebrow eyebrow--lg">Informations légales</span>
       <h1 class="legal-title">
         Mentions légales<span class="coral-dot" aria-hidden="true">.</span>
@@ -41,7 +41,7 @@ const lastUpdated = new Intl.DateTimeFormat('fr-FR', { day: 'numeric', month: 'l
 
       <!-- Éditeur — carte branded -->
       <div class="legal-card">
-        <PixelCorner class="card__pixel legal-card__corner" />
+        <PxlcPixelCorner class="card__pixel legal-card__corner" />
         <h2 class="legal-card__label">Éditeur du site</h2>
         <div class="legal-card__name">Andy Zébus — Entrepreneur Individuel</div>
         <dl class="legal-dl">
@@ -76,7 +76,7 @@ const lastUpdated = new Intl.DateTimeFormat('fr-FR', { day: 'numeric', month: 'l
         </dl>
       </div>
 
-      <MarkSeparator />
+      <PxlcMarkSeparator />
 
       <article class="prose">
         <h2>Responsable de la publication</h2>

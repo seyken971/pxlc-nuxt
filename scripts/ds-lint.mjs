@@ -3,9 +3,11 @@
  * scripts/ds-lint.mjs
  * Design-system compliance linter.
  *
- * Scanne app/components, app/pages, app/layouts à la recherche
+ * Scanne app/components, app/pages, app/layouts (.vue) ainsi que
+ * app/assets/css/styles.css (règles <style> uniquement) à la recherche
  * de violations du design system PXLC et quitte avec code 1
  * (build annulé) si au moins une violation est trouvée.
+ * tokens.css est exempté — c'est la source des valeurs littérales.
  *
  * Usage :
  *   node scripts/ds-lint.mjs
@@ -20,6 +22,14 @@
  *   R6 emoji          — emoji interdits dans <template>
  *   R7 seo-longueur   — title/description useSeoMeta trop longs (pages)
  *                       et site.description de nuxt.config.ts
+ *   R8 rgba-brut      — rgba()/rgb() dans <style> → utiliser un token
+ *                       (radial-gradient reste autorisé, mais sa couleur
+ *                       doit être un token, ex. var(--dot-grid))
+ *   R9 ease-brut      — cubic-bezier() brut → utiliser var(--ease-step)
+ *                       (les durées ne sont pas lintées : les delays de
+ *                       chorégraphie hors échelle sont légitimes)
+ *   R10 nommage       — composants app/components en PascalCase, deux
+ *                       mots minimum (style guide Vue)
  *
  * Corrections v2 :
  *   - parseSfc : tous les blocs <style> sont capturés (matchAll, pas match)
@@ -34,6 +44,14 @@ import { SEO_TITLE_MAX, SEO_DESC_MAX } from './seo-limits.mjs'
 
 const ROOT      = process.cwd()
 const SCAN_DIRS = ['app/components', 'app/pages', 'app/layouts']
+// Feuilles CSS globales soumises aux règles couleurs brutes (R1 hex, R8 rgba).
+// tokens.css est exempté : c'est la source des valeurs hex/rgba — les
+// littéraux y sont légitimes, c'est partout ailleurs qu'ils sont interdits.
+// R2 (gradient) ne s'applique pas ici : le fade de .section--soft::before est
+// un linear-gradient volontaire (surface → transparent, pas un gradient de
+// marque) ; R3/R4 restent scoppés aux .vue.
+const CSS_FILES = ['app/assets/css/styles.css']
+const CSS_RULES = new Set(['hex-brut', 'rgba-brut', 'ease-brut'])
 
 // ── Vocabulaire interdit ───────────────────────────────────────────────────────
 // Classé du plus long au plus court pour éviter les faux-positifs en cas de
@@ -95,7 +113,7 @@ function lineAt(src, idx) {
 }
 
 // ── Règles <style> ────────────────────────────────────────────────────────────
-function lintStyle(raw, file) {
+function lintStyle(raw, file, only = null) {
   const vs     = []
   const ranges = commentRanges(raw)
 
@@ -103,7 +121,10 @@ function lintStyle(raw, file) {
   // m.index corresponde toujours à la position réelle → lineAt(raw, m.index)
   // est exact. Les correspondances dans des commentaires sont filtrées via
   // inComment() plutôt qu'en supprimant physiquement les commentaires.
+  // `only` (Set de noms de règles) restreint le jeu de règles — utilisé pour
+  // les feuilles CSS globales où seules les règles couleur s'appliquent.
   const flag = (re, rule, msg, extra) => {
+    if (only && !only.has(rule)) return
     for (const m of raw.matchAll(re)) {
       if (inComment(m.index, ranges)) continue
       if (extra && !extra(m))         continue
@@ -155,6 +176,20 @@ function lintStyle(raw, file) {
     m => `${m[0].trim()} → utiliser var(--radius-xs|sm|md|lg|pill)`,
   )
 
+  // R8 — rgba()/rgb() brut (continuité de R1 : les alphas dérivent aussi)
+  flag(
+    /\brgba?\(/g,
+    'rgba-brut',
+    () => 'rgba()/rgb() → utiliser un token (--shadow-*, --ring-*, --dot-grid, --rule-accent…)',
+  )
+
+  // R9 — cubic-bezier() brut (la courbe de marque est var(--ease-step))
+  flag(
+    /\bcubic-bezier\(/g,
+    'ease-brut',
+    () => 'cubic-bezier() → utiliser var(--ease-step)',
+  )
+
   return vs
 }
 
@@ -181,6 +216,19 @@ function lintTemplate(raw, file) {
   }
 
   return vs
+}
+
+// ── R10 — Nommage des composants ──────────────────────────────────────────────
+// PascalCase, deux mots minimum (style guide Vue — évite les collisions avec
+// de futurs éléments HTML natifs). L'attribution du préfixe (Pxlc/Site/Blog)
+// reste un jugement documenté dans design.md — seule la forme est mécanisable.
+const COMPONENT_NAME_RE = /^[A-Z][a-z0-9]*([A-Z][a-z0-9]*)+$/
+
+function lintComponentName(file) {
+  const base = file.split(/[\\/]/).pop().replace(/(\.takumi)?\.vue$/, '')
+  if (COMPONENT_NAME_RE.test(base)) return []
+  return [{ file, rule: 'nommage-composant', line: 1,
+    detail: `"${base}" → PascalCase, deux mots minimum (ex. PxlcMark, SiteHeader)` }]
 }
 
 // ── R7 — Longueurs SEO ────────────────────────────────────────────────────────
@@ -234,10 +282,17 @@ const main = async () => {
   ).flat()
 
   const all = []
+  const componentsRoot = join(ROOT, 'app/components')
   await Promise.all(allFiles.map(async file => {
     const src = await readFile(file, 'utf8')
     const { template, style } = parseSfc(src)
     all.push(...lintStyle(style, file), ...lintTemplate(template, file), ...lintSeoMeta(src, file))
+    if (file.startsWith(componentsRoot)) all.push(...lintComponentName(file))
+  }))
+  // Feuilles CSS globales : le fichier entier passe par les règles couleur.
+  await Promise.all(CSS_FILES.map(async rel => {
+    const file = join(ROOT, rel)
+    all.push(...lintStyle(await readFile(file, 'utf8'), file, CSS_RULES))
   }))
   all.push(...await lintNuxtConfig())
 

@@ -130,7 +130,7 @@ const audiences = [
 
 <template>
   <section class="hero hero--soft" aria-labelledby="hero-title">
-    <div class="hero__strip"><PixelCorner /></div>
+    <div class="hero__strip"><PxlcPixelCorner /></div>
     <div class="container">
       <div class="hero__inner">
         <div>
@@ -177,7 +177,7 @@ const audiences = [
       </header>
       <div class="grid grid--2 process-grid">
         <article v-for="s in steps" :key="s.num" class="card card--method">
-          <div class="card__pixel"><PixelCorner /></div>
+          <div class="card__pixel"><PxlcPixelCorner /></div>
           <div class="card__step-num">ÉTAPE {{ s.num }}</div>
           <h3>{{ s.title }}</h3>
           <p>{{ s.detail }}</p>

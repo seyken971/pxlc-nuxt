@@ -41,6 +41,16 @@ colors:
     bg-glass:
       light: "rgba(234, 246, 244, 0.92)"
       dark: "rgba(8, 43, 54, 0.92)"
+    dot-grid:
+      light: "rgba(8, 43, 54, 0.09)"
+      dark: "rgba(255, 255, 255, 0.06)"
+    halo-cyan:
+      light: "rgba(0, 210, 200, 0.14)"
+      dark: "rgba(0, 210, 200, 0.08)"
+    badge-soft-bg:
+      light: "rgba(0, 210, 200, 0.12)"
+      dark: "rgba(0, 210, 200, 0.18)"
+    hover-on-dark: "rgba(255, 255, 255, 0.06)"
     ink:
       light: "var(--pxlc-text-ink)"
       dark: "var(--pxlc-ivory)"
@@ -53,6 +63,7 @@ colors:
     rule:
       light: "var(--pxlc-border)"
       dark: "var(--pxlc-border-dark-2)"
+    rule-accent: "rgba(1, 160, 157, 0.25)"
     teal-deep: "var(--pxlc-teal-deep)"
     teal-mid: "var(--pxlc-teal-mid)"
     cyan: "var(--pxlc-cyan)"
@@ -65,6 +76,10 @@ colors:
     shadow-header:
       light: "0 2px 14px -6px rgba(8,43,54,.14)"
       dark: "0 2px 14px -6px rgba(0,0,0,.45)"
+    shadow-btn-rest: "0 1px 0 rgba(8,43,54,.06)"
+    shadow-btn-coral: "0 8px 24px -12px rgba(255,94,58,.6)"
+    shadow-btn-teal: "0 8px 24px -12px rgba(3,110,115,.5)"
+    shadow-btn-cyan: "0 8px 24px -12px rgba(0,210,200,.4)"
     ring-cyan: "0 0 0 3px rgba(0,210,200,.25)"
     ring-teal: "0 0 0 3px rgba(3,110,115,.3)"
     ring-teal-soft: "0 0 0 3px rgba(3,110,115,.2)"
@@ -101,6 +116,10 @@ motion:
 layout:
   container-max: "1200px"
   container-pad: "clamp(20px, 4vw, 56px)"
+  z-header: "50"
+  z-menu: "100"
+  z-progress: "200"
+  z-skip: "1000"
 ---
 
 # PXLC — Design System
@@ -150,6 +169,10 @@ Ces tokens résolvent vers la palette et basculent automatiquement en dark mode.
 | `--bg-elev` | `var(--pxlc-white)` | `var(--pxlc-bg-dark-soft)` |
 | `--bg-rule` | `var(--pxlc-border-soft)` | `var(--pxlc-border-dark)` |
 | `--bg-glass` | `rgba(234, 246, 244, 0.92)` | `rgba(8, 43, 54, 0.92)` |
+| `--dot-grid` | `rgba(8, 43, 54, 0.09)` | `rgba(255, 255, 255, 0.06)` |
+| `--halo-cyan` | `rgba(0, 210, 200, 0.14)` | `rgba(0, 210, 200, 0.08)` |
+| `--badge-soft-bg` | `rgba(0, 210, 200, 0.12)` | `rgba(0, 210, 200, 0.18)` |
+| `--hover-on-dark` | `rgba(255, 255, 255, 0.06)` | — |
 
 ### Texte
 
@@ -164,6 +187,7 @@ Ces tokens résolvent vers la palette et basculent automatiquement en dark mode.
 | Token | Light | Dark |
 | --- | --- | --- |
 | `--rule` | `var(--pxlc-border)` | `var(--pxlc-border-dark-2)` |
+| `--rule-accent` | `rgba(1, 160, 157, 0.25)` | — |
 
 ### Couleurs accent
 
@@ -180,6 +204,10 @@ Ces tokens résolvent vers la palette et basculent automatiquement en dark mode.
 | --- | --- | --- |
 | `--shadow-card-hover` | `0 8px 24px -12px rgba(8,43,54,.18)` | `0 8px 24px -12px rgba(0,0,0,.45)` |
 | `--shadow-header` | `0 2px 14px -6px rgba(8,43,54,.14)` | `0 2px 14px -6px rgba(0,0,0,.45)` |
+| `--shadow-btn-rest` | `0 1px 0 rgba(8,43,54,.06)` | — |
+| `--shadow-btn-coral` | `0 8px 24px -12px rgba(255,94,58,.6)` | — |
+| `--shadow-btn-teal` | `0 8px 24px -12px rgba(3,110,115,.5)` | — |
+| `--shadow-btn-cyan` | `0 8px 24px -12px rgba(0,210,200,.4)` | — |
 | `--ring-cyan` | `0 0 0 3px rgba(0,210,200,.25)` | — |
 | `--ring-teal` | `0 0 0 3px rgba(3,110,115,.3)` | — |
 | `--ring-teal-soft` | `0 0 0 3px rgba(3,110,115,.2)` | — |
@@ -239,6 +267,10 @@ Rythme 8 px.
 | --- | --- |
 | `--container-max` | `1200px` |
 | `--container-pad` | `clamp(20px, 4vw, 56px)` |
+| `--z-header` | `50` |
+| `--z-menu` | `100` |
+| `--z-progress` | `200` |
+| `--z-skip` | `1000` |
 
 ## Composants CSS globaux
 
@@ -431,6 +463,14 @@ Classes issues de `styles.css`. Les styles scoped des composants Vue ne sont pas
 1. **Organisateur esport** — Plus de 6 ans sur la scène esport guadeloupéenne, Destreland Gaming Cup. Connaissance de la communauté joueurs de l'intérieur.
 2. **Médiateur formé** — Formateur Simplon Outre-Mer 2021-2022. Travail dans le cadre HCSP · HAS.
 3. **Conseil institutionnel** — Affaires européennes et numérique THD, Région Guadeloupe. Parle le langage des projets de service et des financements publics.
+
+### Nommage des composants Vue
+
+- **`Pxlc*`** — primitives de marque réutilisables partout : `PxlcInput`, `PxlcLinkout`, `PxlcLockup`, `PxlcMark`, `PxlcMarkSeparator`, `PxlcOg`, `PxlcOgBrand`, `PxlcPixelCorner`, `PxlcPixelStrip`
+- **`Site*`** — chrome du site (présent sur toutes les pages) : `SiteFooter`, `SiteHeader`, `SiteMobileMenu`
+- **`Blog*`** — composants propres au contexte blog : `BlogCta`, `BlogRelated`, `BlogShare`, `BlogToc`
+- **Sans préfixe** — sections de page, blocs de contenu et utilitaires autonomes : `CitationBlock`, `CtaBlock`, `HeroSection`, `MethodGrid`, `PartnerStrip`, `SessadCase`, `ThemeToggle`
+- Deux mots minimum par nom (style guide Vue — évite les collisions avec de futurs éléments HTML natifs)
 
 ### Visuel
 

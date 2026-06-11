@@ -7,7 +7,7 @@ const year = new Date().getFullYear()
     <div class="container">
       <div class="site-footer__inner">
         <div>
-          <Lockup />
+          <PxlcLockup />
           <p class="site-footer__brand-text">
             Médiation numérique<br />en Guadeloupe.
           </p>
@@ -93,7 +93,7 @@ const year = new Date().getFullYear()
           <li><NuxtLink to="/mentions-legales">Mentions légales</NuxtLink></li>
           <li><NuxtLink to="/mentions-legales#rgpd">Confidentialité</NuxtLink></li>
         </ul>
-        <PixelStrip :count="7" :accent-at="4" />
+        <PxlcPixelStrip :count="7" :accent-at="4" />
       </div>
     </div>
   </footer>
