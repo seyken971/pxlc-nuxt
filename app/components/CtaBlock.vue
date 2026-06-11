@@ -54,7 +54,7 @@ withDefaults(defineProps<Props>(), {
           <ul role="list">
             <li><span>Premier échange</span><span class="meta">20&nbsp;min · gratuit</span></li>
             <li><span>WhatsApp ou visio</span><span class="meta">au choix</span></li>
-            <li><span>Réponse directe</span><span class="meta">sous 48&nbsp;h</span></li>
+            <li><span>Réponse directe</span><span class="meta">sous 2&nbsp;jours ouvrés</span></li>
           </ul>
         </div>
       </div>

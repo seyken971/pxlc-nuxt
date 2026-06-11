@@ -32,7 +32,7 @@
     "@nuxt/icon": "^2.2.3",
     "@nuxt/image": "^2.0.0",
     "@nuxtjs/seo": "^5.2.6",
-    "@takumi-rs/core": "^1.7.0",
+    "@takumi-rs/core": "^1.8.1",
     "better-sqlite3": "^12.10.0",
     "nuxt": "^4.4.8",
     "puppeteer": "^25.1.0",

@@ -14,11 +14,10 @@ const props = withDefaults(defineProps<Props>(), { size: 36, decorative: false }
  * pxlc-design-system spec and stay literal so the SVG renders pixel-
  * identical to the brand source.
  *
- * NB: this mark is also inlined as raw <rect>s with hex fills in
- * app/components/OgImage/PxlcOg.takumi.vue because the OG image renderer
- * runs at build time outside any CSS context and can't resolve
- * var(--pxlc-*) custom properties. Keep the two copies in sync when the
- * mark evolves.
+ * NB: the same geometry also lives in app/utils/og-mark.ts (MARK_RECTS,
+ * hex fills) for the OG image renderers, which run at build time outside
+ * any CSS context and can't resolve var(--pxlc-*) custom properties.
+ * Keep the two copies in sync when the mark evolves.
  */
 const POS = [2, 35.33, 68.67] as const
 const TEAL  = 'var(--pxlc-teal-deep)'

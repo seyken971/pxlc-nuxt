@@ -110,7 +110,10 @@ export default defineNuxtConfig({
     // runtime `nitro-prerender` au setup — sinon il lit le nom de preset
     // "github-pages", absent de sa table de compatibilité, et log
     // « Unknown Nitro preset » avant de retomber sur node-server.
-    static: true,
+    // Jamais en dev : @nuxt/nitro-server ajoute routeRules['/**'] =
+    // { prerender: true } quand static && dev, ce qui fait passer chaque
+    // réponse SSR de dev par le cache payload (risque de rendus obsolètes).
+    static: !isDev,
     alias: {
       "#app/island-hash": "./server/island-hash-compat.mjs",
     },
