@@ -428,7 +428,7 @@ Classes issues de `styles.css`. Les styles scoped des composants Vue ne sont pas
 
 ### Les 3 casquettes (ancres de légitimité)
 
-1. **Organisateur esport** — Plus de six ans sur la scène esport guadeloupéenne, Destreland Gaming Cup. Connaissance de la communauté joueurs de l'intérieur.
+1. **Organisateur esport** — Plus de 6 ans sur la scène esport guadeloupéenne, Destreland Gaming Cup. Connaissance de la communauté joueurs de l'intérieur.
 2. **Médiateur formé** — Formateur Simplon Outre-Mer 2021-2022. Travail dans le cadre HCSP · HAS.
 3. **Conseil institutionnel** — Affaires européennes et numérique THD, Région Guadeloupe. Parle le langage des projets de service et des financements publics.
 
