@@ -21,7 +21,7 @@ defineOgImage('PxlcOgBrand', {}, [
 ])
 
 // Le preload du hero est géré nativement par :preload="{ fetchPriority: 'high' }"
-// sur <NuxtImg> dans Hero.vue — @nuxt/image calcule automatiquement l'imagesrcset
+// sur <NuxtImg> dans HeroSection.vue — @nuxt/image calcule automatiquement l'imagesrcset
 // et l'imagesizes à partir de l'attribut sizes, ce qui est plus fiable que
 // le preload manuel (les descripteurs 1x/2x sans imagesizes étaient ignorés
 // par certains navigateurs mobiles).
@@ -50,7 +50,7 @@ const stats = [
 </script>
 
 <template>
-  <Hero
+  <HeroSection
     title="Médiation numérique"
     :title-dot="true"
     lead="J’interviens auprès des structures de Guadeloupe — SESSAD, IME, associations — pour aider les familles à mieux utiliser les écrans : résoudre les conflits autour du temps d’écran, adopter les bonnes pratiques du numérique."

@@ -25,6 +25,11 @@
  *   R8 rgba-brut      — rgba()/rgb() dans <style> → utiliser un token
  *                       (radial-gradient reste autorisé, mais sa couleur
  *                       doit être un token, ex. var(--dot-grid))
+ *   R9 ease-brut      — cubic-bezier() brut → utiliser var(--ease-step)
+ *                       (les durées ne sont pas lintées : les delays de
+ *                       chorégraphie hors échelle sont légitimes)
+ *   R10 nommage       — composants app/components en PascalCase, deux
+ *                       mots minimum (style guide Vue)
  *
  * Corrections v2 :
  *   - parseSfc : tous les blocs <style> sont capturés (matchAll, pas match)
@@ -46,7 +51,7 @@ const SCAN_DIRS = ['app/components', 'app/pages', 'app/layouts']
 // un linear-gradient volontaire (surface → transparent, pas un gradient de
 // marque) ; R3/R4 restent scoppés aux .vue.
 const CSS_FILES = ['app/assets/css/styles.css']
-const CSS_RULES = new Set(['hex-brut', 'rgba-brut'])
+const CSS_RULES = new Set(['hex-brut', 'rgba-brut', 'ease-brut'])
 
 // ── Vocabulaire interdit ───────────────────────────────────────────────────────
 // Classé du plus long au plus court pour éviter les faux-positifs en cas de
@@ -178,6 +183,13 @@ function lintStyle(raw, file, only = null) {
     () => 'rgba()/rgb() → utiliser un token (--shadow-*, --ring-*, --dot-grid, --rule-accent…)',
   )
 
+  // R9 — cubic-bezier() brut (la courbe de marque est var(--ease-step))
+  flag(
+    /\bcubic-bezier\(/g,
+    'ease-brut',
+    () => 'cubic-bezier() → utiliser var(--ease-step)',
+  )
+
   return vs
 }
 
@@ -204,6 +216,19 @@ function lintTemplate(raw, file) {
   }
 
   return vs
+}
+
+// ── R10 — Nommage des composants ──────────────────────────────────────────────
+// PascalCase, deux mots minimum (style guide Vue — évite les collisions avec
+// de futurs éléments HTML natifs). L'attribution du préfixe (Pxlc/Site/Blog)
+// reste un jugement documenté dans design.md — seule la forme est mécanisable.
+const COMPONENT_NAME_RE = /^[A-Z][a-z0-9]*([A-Z][a-z0-9]*)+$/
+
+function lintComponentName(file) {
+  const base = file.split(/[\\/]/).pop().replace(/(\.takumi)?\.vue$/, '')
+  if (COMPONENT_NAME_RE.test(base)) return []
+  return [{ file, rule: 'nommage-composant', line: 1,
+    detail: `"${base}" → PascalCase, deux mots minimum (ex. PxlcMark, SiteHeader)` }]
 }
 
 // ── R7 — Longueurs SEO ────────────────────────────────────────────────────────
@@ -257,10 +282,12 @@ const main = async () => {
   ).flat()
 
   const all = []
+  const componentsRoot = join(ROOT, 'app/components')
   await Promise.all(allFiles.map(async file => {
     const src = await readFile(file, 'utf8')
     const { template, style } = parseSfc(src)
     all.push(...lintStyle(style, file), ...lintTemplate(template, file), ...lintSeoMeta(src, file))
+    if (file.startsWith(componentsRoot)) all.push(...lintComponentName(file))
   }))
   // Feuilles CSS globales : le fichier entier passe par les règles couleur.
   await Promise.all(CSS_FILES.map(async rel => {

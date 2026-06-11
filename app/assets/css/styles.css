@@ -321,7 +321,7 @@ main[tabindex="-1"]:focus { outline: none; }
 .burger span {
   display: block; width: 20px; height: 2px;
   background: var(--pxlc-coral); border-radius: 1px;
-  transition: transform 200ms cubic-bezier(.6,0,.2,1), opacity 120ms ease;
+  transition: transform var(--dur-base) var(--ease-step), opacity var(--dur-fast) ease;
 }
 .burger[aria-expanded="true"] span:first-child { transform: translateY(7px) rotate(45deg); }
 .burger[aria-expanded="true"] span:nth-child(2)  { opacity: 0; }
@@ -334,7 +334,7 @@ main[tabindex="-1"]:focus { outline: none; }
   z-index: var(--z-menu); display: flex; flex-direction: column;
   overflow: hidden;
   transform: translateX(100%);
-  transition: transform 320ms cubic-bezier(.6,0,.2,1);
+  transition: transform var(--dur-slow) var(--ease-step);
 }
 .mobile-menu.is-open { transform: translateX(0); }
 @media (prefers-reduced-motion: reduce) { .mobile-menu { transition: none; } }
@@ -386,7 +386,9 @@ main[tabindex="-1"]:focus { outline: none; }
      links fail WCAG contrast (2.05:1). Transform-only is sufficient:
      links are off-screen while the panel is closed (translateX(100%)). */
   transform: translateX(28px);
-  transition: transform 280ms cubic-bezier(.6,0,.2,1), color 120ms;
+  /* 280ms : durée de chorégraphie du menu, volontairement entre --dur-base
+     et --dur-slow — pas un cran d'échelle, reste littérale (comme les delays). */
+  transition: transform 280ms var(--ease-step), color var(--dur-fast);
   transition-delay: 0ms;
 }
 .mobile-menu.is-open .mobile-menu__link {
@@ -396,7 +398,7 @@ main[tabindex="-1"]:focus { outline: none; }
 .mobile-menu__link.is-active { color: var(--pxlc-cyan); }
 .mobile-menu__arrow {
   font-family: var(--font-label); font-size: 18px;
-  color: var(--pxlc-border-dark-2); transition: color 200ms;
+  color: var(--pxlc-border-dark-2); transition: color var(--dur-base);
 }
 .mobile-menu__link.is-active .mobile-menu__arrow { color: var(--pxlc-coral); }
 /* Bottom bar — theme toggle + full-width CTA */
@@ -406,7 +408,7 @@ main[tabindex="-1"]:focus { outline: none; }
   position: relative; z-index: 1; flex-shrink: 0;
   /* Same rationale as .mobile-menu__link — transform-only, no opacity */
   transform: translateY(8px);
-  transition: transform 280ms cubic-bezier(.6,0,.2,1);
+  transition: transform 280ms var(--ease-step);
   transition-delay: 0ms;
 }
 .mobile-menu.is-open .mobile-menu__bottom {
