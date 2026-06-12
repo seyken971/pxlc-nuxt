@@ -46,6 +46,13 @@ Si aucun sujet n'est fourni, demander le sujet avant de continuer.
    le H1 vient du `title`). S'inspirer du ton des articles existants
    (ex : `content/blog/jouons-ensemble-sessad-lekoklaya.md`).
 
+   Terminer l'article par la bio auteur, verbatim (3e personne autorisée
+   pour les bios) :
+
+   ```markdown
+   *Les écrans sont devenus un point de friction dans les familles. Andy Zébus, médiateur numérique et créateur de PXLC, aide les structures en Guadeloupe à accompagner les familles — avec le jeu vidéo comme outil de médiation, jamais comme problème.*
+   ```
+
 4. **Vérifier** : lancer `npm run validate-content` et corriger jusqu'à zéro
    erreur. (Le hook post-édition le fait aussi automatiquement.)
 

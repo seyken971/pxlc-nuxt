@@ -6,6 +6,10 @@ déployé sur GitHub Pages via `nuxt generate`.
 Mission en une phrase (à reprendre verbatim, seule phrase où PXLC est sujet) :
 « PXLC aide les familles à mieux utiliser les écrans. »
 
+Formule des descriptions (meta, OG, bios auteur) — ≤ 20 mots, cible puis
+bénéfice : « Andy Zébus aide les structures (en Guadeloupe) à accompagner
+les familles autour des écrans. »
+
 Le contexte de positionnement et de stratégie vit dans `CLAUDE.local.md`
 (non versionné) — le consulter quand il est présent.
 

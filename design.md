@@ -444,8 +444,9 @@ Classes issues de `styles.css`. Les styles scoped des composants Vue ne sont pas
 - Chiffres en numéraux sauf en début de phrase
 - `Parents-Écran-Enfant` avec majuscules
 - Ne jamais écrire « fondateur » — écrire « créateur de PXLC »
-- Écrire « structures » (jamais « structures médico-sociales et associatives »)
+- Écrire « structures » seul dans le copy — « structures médico-sociales » est trop spécifique (et jamais « structures médico-sociales et associatives »)
 - Mission en une phrase : « PXLC aide les familles à mieux utiliser les écrans. »
+- Formule des descriptions (meta, OG, bios auteur) — « Andy Zébus aide les structures (en Guadeloupe) à accompagner les familles autour des écrans » : ≤ 20 mots, cible puis bénéfice
 - Cadre réglementaire : toujours citer HCSP 2019-2020 · HAS 2020 ensemble
 - Toute affirmation santé/usage des écrans doit être sourcée depuis docs/references/ (document + section) — ne jamais inventer un chiffre ou une recommandation
 
