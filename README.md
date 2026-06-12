@@ -1,6 +1,6 @@
-# pxlc.fr — site marketing
+# pxlc.fr — site vitrine de PXLC
 
-Site marketing de **Andy Zébus**, médiateur numérique par le jeu basé aux Abymes (Guadeloupe).  
+Site vitrine de **PXLC**, médiation numérique portée par Andy Zébus aux Abymes (Guadeloupe).  
 Déployé sur **https://pxlc.fr**.
 
 ## Stack
