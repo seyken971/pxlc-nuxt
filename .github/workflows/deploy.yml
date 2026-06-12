@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [master]
+    branches: [main]
   pull_request:
   workflow_dispatch:
 
@@ -13,7 +13,7 @@ permissions:
 
 # Une seule exécution par branche à la fois — un nouveau push annule un build
 # en cours sur la même branche. Le groupe est scopé par ref pour que les PRs
-# Dependabot ne s'annulent pas mutuellement et ne cancellent pas le run master.
+# Dependabot ne s'annulent pas mutuellement et ne cancellent pas le run main.
 concurrency:
   group: pages-${{ github.ref }}
   cancel-in-progress: true
@@ -124,18 +124,18 @@ jobs:
         run: npm run a11y:runtime
 
       - name: Setup Pages
-        if: github.ref == 'refs/heads/master'
+        if: github.ref == 'refs/heads/main'
         uses: actions/configure-pages@v6
 
       - name: Upload artifact
-        if: github.ref == 'refs/heads/master'
+        if: github.ref == 'refs/heads/main'
         uses: actions/upload-pages-artifact@v5
         with:
           path: .output/public
 
   deploy:
     needs: build
-    if: github.ref == 'refs/heads/master'
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     permissions:
       pages: write
