@@ -382,7 +382,7 @@ const main = async () => {
       "- `Parents-Écran-Enfant` avec majuscules",
       "- Ne jamais écrire « fondateur » — écrire « créateur de PXLC »",
       "- Écrire « structures » (jamais « structures médico-sociales et associatives »)",
-      "- Mission en une phrase : « PXLC aide les familles à mieux utiliser les écrans — pour s'en servir sans subir. »",
+      "- Mission en une phrase : « PXLC aide les familles à mieux utiliser les écrans. »",
       "- Cadre réglementaire : toujours citer HCSP 2019-2020 · HAS 2020 ensemble",
       "- Toute affirmation santé/usage des écrans doit être sourcée depuis docs/references/ (document + section) — ne jamais inventer un chiffre ou une recommandation",
     ].join("\n"),

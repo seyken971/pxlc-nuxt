@@ -4,7 +4,7 @@ Site vitrine de PXLC (médiation numérique, Guadeloupe). Nuxt 4, site statique
 déployé sur GitHub Pages via `nuxt generate`.
 
 Mission en une phrase (à reprendre verbatim, seule phrase où PXLC est sujet) :
-« PXLC aide les familles à mieux utiliser les écrans — pour s'en servir sans subir. »
+« PXLC aide les familles à mieux utiliser les écrans. »
 
 Le contexte de positionnement et de stratégie vit dans `CLAUDE.local.md`
 (non versionné) — le consulter quand il est présent.
