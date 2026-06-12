@@ -72,12 +72,12 @@ Pour modifier une couleur : éditer `brand-colors.ts` — `prebuild` synchronise
 
 ## CI
 
-Le pipeline `deploy.yml` tourne sur `push master` et sur chaque **pull request** :
+Le pipeline `deploy.yml` tourne sur `push main` et sur chaque **pull request** :
 
 ```
 checkout → node 22 → npm install → lint → typecheck
 → nuxt generate → verify output → a11y static → a11y runtime
-→ upload artifact → deploy (master uniquement)
+→ upload artifact → deploy (main uniquement)
 ```
 
 Le workflow `lighthouse.yml` tourne chaque dimanche 18h UTC (non-bloquant, summary Markdown dans l'onglet Actions).
