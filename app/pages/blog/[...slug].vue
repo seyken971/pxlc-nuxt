@@ -24,7 +24,7 @@ useSeoMeta({
 })
 
 defineOgImage('PxlcOg', {
-  eyebrow: (post.value.category || 'JOURNAL').toUpperCase(),
+  eyebrow: (BLOG_CATEGORY_LABELS[post.value.category ?? ''] ?? post.value.category ?? 'Journal').toUpperCase(),
   title: post.value.title,
   description: post.value.description,
 })
