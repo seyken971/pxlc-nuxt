@@ -27,10 +27,7 @@ defineOgImage('PxlcOg', {
   eyebrow: (post.value.category || 'JOURNAL').toUpperCase(),
   title: post.value.title,
   description: post.value.description,
-}, [
-  { key: 'og' },
-  { key: 'whatsapp', width: 800, height: 800 },
-])
+})
 
 const articleUrl = `https://pxlc.fr${route.path}`
 const dateModified = post.value.updated || post.value.date

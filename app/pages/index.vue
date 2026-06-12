@@ -15,10 +15,7 @@ if (import.meta.server) {
   })
 }
 
-defineOgImage('PxlcOgBrand', {}, [
-  { key: 'og' },
-  { key: 'whatsapp', width: 800, height: 800 },
-])
+defineOgImage('PxlcOg')
 
 // Le preload du hero est géré nativement par :preload="{ fetchPriority: 'high' }"
 // sur <NuxtImg> dans HeroSection.vue — @nuxt/image calcule automatiquement l'imagesrcset
