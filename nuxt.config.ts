@@ -140,7 +140,7 @@ export default defineNuxtConfig({
     // B2B-only funnel: the offer flows exclusively through structures
     // (SESSAD, IME, associations, collectivités).
     description:
-      "Andy Zébus, créateur de PXLC, aide les lieux qui accueillent les familles en Guadeloupe à mieux utiliser les écrans.",
+      "Andy Zébus, créateur de PXLC, aide les structures en Guadeloupe à accompagner les familles autour des écrans.",
     defaultLocale: "fr_FR",
     trailingSlash: false,
     currency: "EUR",
@@ -202,7 +202,7 @@ export default defineNuxtConfig({
       legalName: "Andy Zébus — Entrepreneur Individuel",
       taxID: "813 793 528 00031",
       description:
-        "PXLC est un service de médiation numérique en Guadeloupe, porté par Andy Zébus. Accompagnement des structures (IME, SESSAD, associations, collectivités) dans leurs usages du numérique — pour s'en servir sans subir.",
+        "PXLC est un service de médiation numérique en Guadeloupe, porté par Andy Zébus, qui aide les structures (IME, SESSAD, associations, collectivités) à accompagner les familles autour des écrans.",
       url: "https://pxlc.fr",
       email: "contact@pxlc.fr",
       telephone: "+590690717618",

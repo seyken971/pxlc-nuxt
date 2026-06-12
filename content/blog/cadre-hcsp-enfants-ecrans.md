@@ -120,6 +120,6 @@ Pour continuer la série, vous pouvez lire la présentation du [programme Parent
 
 ---
 
-*Andy Zébus est médiateur numérique, créateur de PXLC. Il accompagne les lieux qui accueillent les familles en Guadeloupe — médiathèques, centres sociaux, structures médico-sociales — pour mieux utiliser les écrans.*
+*Les écrans sont devenus un point de friction dans les familles. Andy Zébus, médiateur numérique et créateur de PXLC, aide les structures en Guadeloupe à accompagner les familles — avec le jeu vidéo comme outil de médiation, jamais comme problème.*
 
 *Sources mobilisées : HCSP, avis du 12 décembre 2019 sur les effets de l'exposition des enfants et des jeunes aux écrans ; HCSP, avis du 8 mars 2021 sur l'usage excessif et la dépendance ; DITP/MILDECA, rapport final 2022 sur le bon usage des écrans par les familles.*

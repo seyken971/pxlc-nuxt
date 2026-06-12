@@ -49,4 +49,4 @@ Souvent, c'est la première fois depuis longtemps que ce genre de phrase circule
 
 ---
 
-*Andy Zébus est médiateur numérique, créateur de PXLC. Il accompagne les lieux qui accueillent les familles en Guadeloupe — médiathèques, centres sociaux, structures médico-sociales — pour mieux utiliser les écrans.*
+*Les écrans sont devenus un point de friction dans les familles. Andy Zébus, médiateur numérique et créateur de PXLC, aide les structures en Guadeloupe à accompagner les familles — avec le jeu vidéo comme outil de médiation, jamais comme problème.*

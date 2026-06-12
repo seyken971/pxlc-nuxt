@@ -5,7 +5,7 @@ if (import.meta.server) {
     description:
       'Médiateur numérique en Guadeloupe — 6 ans de scène esport, formation Simplon, conseil institutionnel.',
     ogDescription:
-      'Andy Zébus aide les familles à se réconcilier autour des écrans, en binômes parent-enfant, avec votre équipe.',
+      'Andy Zébus aide les structures à accompagner les familles autour des écrans — binômes parent-enfant, avec votre équipe.',
   })
 }
 
@@ -81,7 +81,7 @@ const timeline = [
             Andy Zébus, médiateur numérique<span class="coral-dot" aria-hidden="true">.</span>
           </h1>
           <p class="about-lead">
-            Basé aux Abymes (Guadeloupe), j'ai créé PXLC pour accompagner les familles dans leur parentalité numérique — résoudre les conflits autour du temps d'écran, adopter les bonnes pratiques du numérique — en partenariat avec les structures de Guadeloupe.
+            Dans les familles que reçoivent vos équipes, les écrans sont souvent devenus un point de friction. Médiateur numérique basé aux Abymes (Guadeloupe), j'ai créé PXLC pour y répondre autrement&nbsp;: faire du jeu vidéo un terrain de rencontre entre l'enfant, son parent et votre équipe — jamais un problème à résoudre.
           </p>
         </div>
 
