@@ -23,10 +23,14 @@ logs
 .env.*
 !.env.example
 
-# Local tool / agent state
-.claude
+# Local tool / agent state — sauf la config Claude Code partagée
+# (hooks, skills, settings.json), versionnée pour tous les worktrees
+.claude/*
+!.claude/hooks/
+!.claude/skills/
+!.claude/settings.json
 .unlighthouse
-CLAUDE.md
+CLAUDE.local.md
 
 # Plaquette build artefacts (PDF lives in public/files/, previews are local)
 _plaquette/node_modules
