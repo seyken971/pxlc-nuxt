@@ -12,7 +12,7 @@ readingTime: 12 min
 
 Décembre 2023. Le SESSAD Lékoklaya, aux Abymes (Guadeloupe), organise un **Café-Parents** sur la thématique « Enfants Écrans ». Une vingtaine de familles sont là. Les questions reviennent : *temps d'écran trop long, isolement dans la chambre, conflits réguliers le soir, sentiment d'impuissance.*
 
-L'équipe identifie un manque. Les éducateurs et la psychologue accompagnent au quotidien des enfants TSA, TDAH, TCND — mais **personne ne se sent légitime pour parler des jeux vidéo en profondeur**. Aborder Minecraft ou Fortnite avec un parent, ça demande de connaître Minecraft et Fortnite.
+L'équipe identifie un manque. Les éducateurs et le psychologue accompagnent au quotidien des enfants TSA, TDAH, TCND — mais **personne ne se sent légitime pour parler des jeux vidéo en profondeur**. Aborder Minecraft ou Fortnite avec un parent, ça demande de connaître Minecraft et Fortnite.
 
 Deux ans plus tard, le projet « Jouons Ensemble ! » naît de ce constat.
 
