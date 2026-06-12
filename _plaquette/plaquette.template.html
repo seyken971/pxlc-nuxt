@@ -9,41 +9,56 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap">
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap">
   <style>
 /* =============================================================
    PXLC — Plaquette de présentation (A4, print)
-   Design system : Plus Jakarta Sans / Lora / JetBrains Mono
+   Design system : Plus Jakarta Sans / Lora
    Tokens repris de app/assets/css/tokens.css (source de vérité).
    Impression toujours en mode clair.
    ============================================================= */
 
 :root {
-  --teal-deep: #036E73;
-  --teal-mid:  #01A09D;
-  --cyan:      #00D2C8;
-  --coral:     #FF5E3A;
-  --coral-deep:#E8492A;
+  /* ── Palette — noms et hex identiques à tokens.css ───────── */
+  --pxlc-teal-deep: #036E73;
+  --pxlc-teal-mid: #01A09D;
+  --pxlc-cyan: #00D2C8;
+  --pxlc-coral: #FF5E3A;
+  --pxlc-coral-deep: #E8492A;
+  --pxlc-bg-light: #EAF6F4;
+  --pxlc-bg-dark: #082B36;
+  --pxlc-bg-dark-soft: #0C3340;
+  --pxlc-bg-dark-deep: #06212A;
+  --pxlc-ivory: #F4F1EA;
+  --pxlc-ivory-soft: #EBE6DA;
+  --pxlc-text-ink: #082B36;
+  --pxlc-text-on-light: #2C4751;
+  --pxlc-text-secondary: #5A6B70;
+  --pxlc-text-on-dark-soft: #A9C8D0;
+  --pxlc-text-quiet-dark: #8A9DA3;
+  --pxlc-border: #C4D1D2;
+  --pxlc-border-soft: #D9D2BF;
+  --pxlc-white: #FFFFFF;
 
-  --bg-light:  #EAF6F4;
-  --dark:      #082B36;
-  --dark-soft: #0C3340;
-  --dark-deep: #06212A;
-  --ivory:     #F4F1EA;
-  --ivory-soft:#EBE6DA;
+  /* ── Alias sémantiques (mode clair uniquement) ───────────── */
+  --ink:       var(--pxlc-text-ink);
+  --ink-quiet: var(--pxlc-text-on-light);
+  --quiet:     var(--pxlc-text-secondary);
+  --rule:      var(--pxlc-border);
+  --teal-deep: var(--pxlc-teal-deep);
+  --teal-mid:  var(--pxlc-teal-mid);
+  --cyan:      var(--pxlc-cyan);
+  --eyebrow:   var(--pxlc-teal-deep);
 
-  --ink:       #082B36;
-  --ink-quiet: #2C4751;
-  --quiet:     #5A6B70;
-  --on-dark:   #A9C8D0;
-  --quiet-dark:#8A9DA3;
-
-  --rule:      #C4D1D2;
-  --rule-soft: #D9D2BF;
+  /* ── Radius — échelle du DS ──────────────────────────────── */
+  --radius-xs:   4px;
+  --radius-sm:   6px;
+  --radius-md:   8px;
+  --radius-lg:   14px;
 
   --font-display: 'Plus Jakarta Sans', system-ui, sans-serif;
   --font-body:    'Lora', Georgia, serif;
-  --font-mono:    'JetBrains Mono', ui-monospace, monospace;
+  --font-label:   'Plus Jakarta Sans', system-ui, sans-serif;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -76,24 +91,24 @@ p { margin: 0 0 3mm 0; }
 strong { color: var(--ink); font-weight: 600; }
 em { font-style: italic; }
 
-.coral-dot { color: var(--coral); }
+.coral-dot { color: var(--pxlc-coral); }
 
 /* ── Eyebrow / kicker ──────────────────────────────────────── */
 .eyebrow {
   display: block;
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: 8.5pt;
   font-weight: 600;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--teal-deep);
+  color: var(--eyebrow);
   margin-bottom: 5mm;
 }
 .kicker {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: 7.5pt;
   font-weight: 600;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--quiet);
 }
@@ -140,7 +155,7 @@ em { font-style: italic; }
 }
 .page__logo svg { width: 22px; height: 22px; display: block; flex: none; }
 .page__nav {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: 8pt;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -155,7 +170,7 @@ em { font-style: italic; }
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: 7.5pt;
   color: var(--quiet);
   letter-spacing: 0.16em;
@@ -166,7 +181,7 @@ em { font-style: italic; }
 }
 .pixel-strip { display: inline-flex; gap: 4px; }
 .pixel-strip span { width: 6px; height: 6px; border-radius: 1px; background: var(--teal-mid); }
-.pixel-strip span.is-accent { background: var(--coral); }
+.pixel-strip span.is-accent { background: var(--pxlc-coral); }
 
 /* ── Marque décorative 3×3 ─────────────────────────────────── */
 .deco-mark {
@@ -181,12 +196,12 @@ em { font-style: italic; }
 .deco-mark span:nth-child(3n+1) { background: var(--teal-deep); }
 .deco-mark span:nth-child(3n+2) { background: var(--teal-mid); }
 .deco-mark span:nth-child(3n)   { background: var(--cyan); }
-.deco-mark span:nth-child(9)    { background: var(--coral); }
+.deco-mark span:nth-child(9)    { background: var(--pxlc-coral); }
 
 /* ── Couverture ────────────────────────────────────────────── */
 .cover {
-  background: var(--dark);
-  color: var(--ivory);
+  background: var(--pxlc-bg-dark);
+  color: var(--pxlc-ivory);
   padding: 0;
 }
 .cover__inner {
@@ -210,17 +225,17 @@ em { font-style: italic; }
   font-family: var(--font-display);
   font-weight: 600;
   font-size: 17pt;
-  color: var(--ivory);
+  color: var(--pxlc-ivory);
   letter-spacing: -0.025em;
   margin-bottom: 26mm;
 }
 .cover__brand svg { width: 26px; height: 26px; }
 .cover__strip { display: inline-flex; gap: 5px; margin-bottom: 12mm; }
 .cover__strip span { width: 16px; height: 16px; border-radius: 2px; background: var(--teal-mid); }
-.cover__strip span.is-accent { background: var(--coral); }
+.cover__strip span.is-accent { background: var(--pxlc-coral); }
 .cover__strip span.is-quiet  { background: rgba(255,255,255,0.08); }
 .cover__eyebrow {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: 9pt;
   font-weight: 600;
   letter-spacing: 0.28em;
@@ -234,7 +249,7 @@ em { font-style: italic; }
   font-weight: 600;
   line-height: 1.02;
   letter-spacing: -0.035em;
-  color: var(--ivory);
+  color: var(--pxlc-ivory);
   margin-bottom: 9mm;
   max-width: 168mm;
 }
@@ -242,11 +257,11 @@ em { font-style: italic; }
   font-family: var(--font-body);
   font-size: 13pt;
   line-height: 1.5;
-  color: var(--on-dark);
+  color: var(--pxlc-text-on-dark-soft);
   max-width: 150mm;
   margin-bottom: auto;
 }
-.cover__lead strong { color: var(--ivory); font-weight: 600; }
+.cover__lead strong { color: var(--pxlc-ivory); font-weight: 600; }
 .cover__meta {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -254,14 +269,14 @@ em { font-style: italic; }
   margin-top: 20mm;
   padding-top: 8mm;
   border-top: 1px solid rgba(255,255,255,0.15);
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: 8pt;
-  color: var(--on-dark);
+  color: var(--pxlc-text-on-dark-soft);
   letter-spacing: 0.16em;
   text-transform: uppercase;
 }
 .cover__meta strong {
-  color: var(--ivory);
+  color: var(--pxlc-ivory);
   display: block;
   font-weight: 600;
   margin-top: 2mm;
@@ -275,24 +290,24 @@ em { font-style: italic; }
 .card {
   background: white;
   border: 1px solid var(--rule);
-  border-radius: 4mm;
+  border-radius: var(--radius-lg);
   padding: 6mm;
 }
 .card p { margin: 3mm 0 0 0; font-size: 10pt; line-height: 1.5; }
 .card .eyebrow { margin-bottom: 0; }
-.card--ivory { background: var(--ivory); border-color: var(--rule-soft); }
+.card--ivory { background: var(--pxlc-ivory); border-color: var(--pxlc-border-soft); }
 .card--dark {
-  background: var(--dark);
-  border-color: var(--dark-soft);
-  color: var(--ivory);
+  background: var(--pxlc-bg-dark);
+  border-color: var(--pxlc-bg-dark-soft);
+  color: var(--pxlc-ivory);
 }
-.card--dark h3, .card--dark h4 { color: var(--ivory); }
-.card--dark p { color: var(--on-dark); }
+.card--dark h3, .card--dark h4 { color: var(--pxlc-ivory); }
+.card--dark p { color: var(--pxlc-text-on-dark-soft); }
 .card--dark .eyebrow { color: var(--cyan); }
 
 /* ── Citation ──────────────────────────────────────────────── */
 .quote {
-  border-left: 3px solid var(--coral);
+  border-left: 3px solid var(--pxlc-coral);
   padding: 3mm 6mm;
   font-family: var(--font-display);
   font-size: 14pt;
@@ -302,11 +317,11 @@ em { font-style: italic; }
   letter-spacing: -0.015em;
   margin: 7mm 0;
 }
-.quote .quotemark { color: var(--coral); }
+.quote .quotemark { color: var(--pxlc-coral); }
 .quote__src {
   display: block;
   margin-top: 3mm;
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: 8pt;
   color: var(--quiet);
   letter-spacing: 0.2em;
@@ -327,12 +342,12 @@ em { font-style: italic; }
   font-family: var(--font-display);
   font-size: 30pt;
   font-weight: 600;
-  color: var(--coral);
+  color: var(--pxlc-coral);
   line-height: 1;
   letter-spacing: -0.04em;
 }
 .step__phase {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: 7.5pt;
   font-weight: 600;
   letter-spacing: 0.2em;
@@ -341,7 +356,7 @@ em { font-style: italic; }
   margin-bottom: 1.5mm;
 }
 .step__duration {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: 7.5pt;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -351,7 +366,7 @@ em { font-style: italic; }
 .step__title { font-size: 13pt; }
 .step__desc { font-size: 10pt; line-height: 1.5; margin: 2mm 0; }
 .step__deliv {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: 8pt;
   color: var(--teal-deep);
   letter-spacing: 0.08em;
@@ -364,16 +379,16 @@ em { font-style: italic; }
 /* ── Framework pills ───────────────────────────────────────── */
 .frameworks { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4mm; margin-top: 2mm; }
 .framework {
-  background: var(--ivory);
-  border: 1px solid var(--rule-soft);
-  border-radius: 3mm;
+  background: var(--pxlc-ivory);
+  border: 1px solid var(--pxlc-border-soft);
+  border-radius: var(--radius-md);
   padding: 4.5mm;
 }
 .framework__pill {
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: 7.5pt;
   font-weight: 600;
   letter-spacing: 0.18em;
@@ -383,7 +398,7 @@ em { font-style: italic; }
 }
 .framework__pill::before {
   content: ""; width: 7px; height: 7px;
-  background: var(--coral); border-radius: 1px;
+  background: var(--pxlc-coral); border-radius: 1px;
 }
 .framework h4 { font-size: 10.5pt; margin-bottom: 1.5mm; }
 .framework p { font-size: 9pt; margin: 0; line-height: 1.4; }
@@ -391,7 +406,7 @@ em { font-style: italic; }
 /* ── Photos ────────────────────────────────────────────────── */
 .photo {
   width: 100%;
-  border-radius: 3mm;
+  border-radius: var(--radius-md);
   overflow: hidden;
   position: relative;
 }
@@ -399,18 +414,18 @@ em { font-style: italic; }
 .photo__badge {
   position: absolute;
   top: 4mm; left: 4mm;
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: 7.5pt;
   font-weight: 600;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--cyan);
-  background: var(--dark);
+  background: var(--pxlc-bg-dark);
   padding: 1.5mm 3mm;
-  border-radius: 2mm;
+  border-radius: var(--radius-sm);
 }
 .photo__caption {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: 7.5pt;
   color: var(--quiet);
   letter-spacing: 0.16em;
@@ -422,7 +437,7 @@ em { font-style: italic; }
 .facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4mm; }
 .fact {
   border: 1px solid var(--rule);
-  border-radius: 3mm;
+  border-radius: var(--radius-md);
   padding: 4.5mm;
   background: white;
 }
@@ -436,7 +451,7 @@ em { font-style: italic; }
   margin-bottom: 2mm;
 }
 .fact__label {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: 7.5pt;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -457,14 +472,14 @@ em { font-style: italic; }
   content: ""; position: absolute;
   left: 0; top: 6px;
   width: 8px; height: 8px;
-  background: var(--coral); border-radius: 1px;
+  background: var(--pxlc-coral); border-radius: 1px;
 }
 
 /* ── Consentement ──────────────────────────────────────────── */
 .consent { font-size: 9.5pt; line-height: 1.55; color: var(--ink-quiet); }
 .consent__intro { font-size: 10pt; margin-bottom: 5mm; }
 .consent h3 {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: 8.5pt;
   font-weight: 600;
   letter-spacing: 0.2em;
@@ -480,14 +495,14 @@ em { font-style: italic; }
   gap: 3mm;
   align-items: start;
   border: 1px solid var(--rule);
-  border-radius: 2.5mm;
+  border-radius: var(--radius-md);
   padding: 3.5mm 4mm;
-  background: var(--ivory);
+  background: var(--pxlc-ivory);
 }
 .consent__box {
   width: 5mm; height: 5mm;
   border: 1.5px solid var(--teal-deep);
-  border-radius: 1.5mm;
+  border-radius: var(--radius-xs);
   margin-top: 0.5mm;
 }
 .consent__check p { margin: 0; font-size: 9.5pt; line-height: 1.4; }
@@ -501,7 +516,7 @@ em { font-style: italic; }
 .field { display: flex; flex-direction: column; gap: 1.5mm; }
 .field--full { grid-column: 1 / -1; }
 .field__label {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: 7.5pt;
   font-weight: 600;
   letter-spacing: 0.16em;
@@ -521,7 +536,7 @@ em { font-style: italic; }
   padding-top: 5mm;
 }
 .consent__sig {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: 8pt;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -541,11 +556,11 @@ em { font-style: italic; }
   width: 100%;
   height: 18mm;
   border: 1px dashed var(--rule);
-  border-radius: 2mm;
+  border-radius: var(--radius-sm);
   margin-top: 3mm;
 }
 .legal-note {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: 7.5pt;
   line-height: 1.5;
   color: var(--quiet);
@@ -760,7 +775,7 @@ em { font-style: italic; }
 
       <span class="eyebrow">03 · La méthode</span>
       <h2 style="margin-bottom: 4mm;">Trois temps, un protocole<span class="coral-dot" aria-hidden="true">.</span></h2>
-      <p class="lead" style="margin-bottom: 4mm; font-size: 12pt;">Un protocole simple, qui transpose les repères des rapports HAS et HCSP
+      <p class="lead" style="margin-bottom: 4mm; font-size: 12pt;">Un protocole simple, qui transpose les repères du cadre HCSP&nbsp;2019-2020 · HAS&nbsp;2020
         dans le quotidien d'une famille. Pas de discours moral, pas d'écrans diabolisés — un cadre, co-encadré avec votre
         équipe pluridisciplinaire.</p>
 
@@ -815,7 +830,7 @@ em { font-style: italic; }
         </div>
         <div class="framework">
           <span class="framework__pill">HCSP · 2020</span>
-          <h4>Usage à la dépendance</h4>
+          <h4>Usage problématique des écrans</h4>
           <p>Des repères pour prévenir le basculement vers un usage problématique.</p>
         </div>
       </div>
@@ -851,7 +866,7 @@ em { font-style: italic; }
       </header>
 
       <span class="eyebrow">04 · Mon intervention</span>
-      <h2>« Jouons Ensemble&nbsp;! »<span class="coral-dot" aria-hidden="true">.</span></h2>
+      <h2>« Jouons Ensemble&nbsp;!&nbsp;»<span class="coral-dot" aria-hidden="true">.</span></h2>
       <p style="margin-bottom: 5mm; max-width: 165mm;">{{cas.intro}}</p>
 
       <div class="photo" style="margin-bottom: 5mm;">
@@ -925,7 +940,7 @@ em { font-style: italic; }
       <h2>Consentement parental<span class="coral-dot" aria-hidden="true">.</span></h2>
 
       <div class="consent">
-        <p class="consent__intro">Dans le cadre du dispositif de médiation numérique « Jouons Ensemble&nbsp;! », je
+        <p class="consent__intro">Dans le cadre du dispositif de médiation numérique « Jouons Ensemble&nbsp;!&nbsp;», je
           soussigné(e), responsable légal de l'enfant, déclare avoir été informé(e) des objectifs, du déroulé et du
           cadre du projet, et autorise&nbsp;:</p>
 
