@@ -381,7 +381,7 @@ const main = async () => {
       "- Chiffres en numéraux sauf en début de phrase",
       "- `Parents-Écran-Enfant` avec majuscules",
       "- Ne jamais écrire « fondateur » — écrire « créateur de PXLC »",
-      "- Écrire « structures » seul dans le copy — « structures médico-sociales » est trop spécifique (et jamais « structures médico-sociales et associatives »)",
+      "- Écrire « structures » seul dans la présentation de l'offre (descriptions, bios, leads) — « structures médico-sociales » est trop spécifique ; le terme reste légitime comme vocabulaire sectoriel dans les articles et les tableaux de financement (et jamais « structures médico-sociales et associatives »)",
       "- Mission en une phrase : « PXLC aide les familles à mieux utiliser les écrans. »",
       "- Formule des descriptions (meta, OG, bios auteur) — « Andy Zébus aide les structures (en Guadeloupe) à accompagner les familles autour des écrans » : ≤ 20 mots, cible puis bénéfice",
       "- Cadre réglementaire : toujours citer HCSP 2019-2020 · HAS 2020 ensemble",
