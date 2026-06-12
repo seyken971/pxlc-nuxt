@@ -1,9 +1,9 @@
 /**
- * Shared constants for the OG image renderers (PxlcOg / PxlcOgBrand).
+ * Shared constants for the OG image renderer (PxlcOg).
  *
  * nuxt-og-image requires every .vue file under app/components/OgImage/
  * to carry a renderer suffix, so the 3×3 brand-mark data can't live in a
- * sub-component — both renderers import it from here instead.
+ * sub-component — the renderer imports it from here instead.
  */
 import { BRAND_HEX } from '~/utils/brand-colors'
 

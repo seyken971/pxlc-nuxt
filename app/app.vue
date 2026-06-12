@@ -86,10 +86,7 @@ useHead({
 
 // Register the brand OG image as the site-wide default. Pages can override
 // per-route via defineOgImage(...) if they want custom title/eyebrow.
-defineOgImage("PxlcOgBrand", {}, [
-  { key: 'og' },
-  { key: 'whatsapp', width: 800, height: 800 },
-]);
+defineOgImage("PxlcOg");
 
 // Scroll reveal — add .is-visible to animated elements when they enter
 // the viewport. Re-runs after each SPA navigation so new-page elements

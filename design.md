@@ -467,7 +467,7 @@ Classes issues de `styles.css`. Les styles scoped des composants Vue ne sont pas
 
 ### Nommage des composants Vue
 
-- **`Pxlc*`** — primitives de marque réutilisables partout : `PxlcInput`, `PxlcLinkout`, `PxlcLockup`, `PxlcMark`, `PxlcMarkSeparator`, `PxlcOg`, `PxlcOgBrand`, `PxlcPixelCorner`, `PxlcPixelStrip`
+- **`Pxlc*`** — primitives de marque réutilisables partout : `PxlcInput`, `PxlcLinkout`, `PxlcLockup`, `PxlcMark`, `PxlcMarkSeparator`, `PxlcOg`, `PxlcPixelCorner`, `PxlcPixelStrip`
 - **`Site*`** — chrome du site (présent sur toutes les pages) : `SiteBreadcrumb`, `SiteFooter`, `SiteHeader`, `SiteMobileMenu`
 - **`Blog*`** — composants propres au contexte blog : `BlogCta`, `BlogRelated`, `BlogShare`, `BlogToc`
 - **Sans préfixe** — sections de page, blocs de contenu et utilitaires autonomes : `CitationBlock`, `CtaBlock`, `HeroSection`, `MethodGrid`, `PartnerStrip`, `SessadCase`, `ThemeToggle`

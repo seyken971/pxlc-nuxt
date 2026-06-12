@@ -13,10 +13,7 @@ defineOgImage('PxlcOg', {
   eyebrow: 'LE JOURNAL',
   title: 'Décryptages, repères, retours de terrain',
   description: 'Ressources et décryptages de PXLC sur la médiation numérique — pour les familles et les équipes qui accompagnent.',
-}, [
-  { key: 'og' },
-  { key: 'whatsapp', width: 800, height: 800 },
-])
+})
 
 // `queryCollection` est l'API Nuxt Content v3 — tri descendant par date,
 // brouillons exclus. Le schéma est défini dans content.config.ts.

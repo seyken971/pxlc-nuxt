@@ -133,8 +133,8 @@ const coral = BRAND_HEX.coral
     <!-- Spacer pushes content to bottom -->
     <div :style="{ flex: '1', display: 'flex' }" />
 
-    <!-- Content. maxWidth only bites in the 1200×600 format — the
-         800×800 WhatsApp frame is already narrower than 900px. -->
+    <!-- Content. maxWidth keeps the text block from spanning the full
+         1200px frame. -->
     <div :style="{ display: 'flex', flexDirection: 'column', maxWidth: '900px', zIndex: 1 }">
       <span
         :style="{
