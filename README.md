@@ -11,6 +11,7 @@ Déployé sur **https://pxlc.fr**.
 | Contenu | [@nuxt/content](https://content.nuxt.com) v3 (Markdown, SSG) |
 | SEO | [@nuxtjs/seo](https://nuxtseo.com) — sitemap, robots, schemaOrg, OG images |
 | Images | @nuxt/image (WebP auto) |
+| Icônes | [@nuxt/icon](https://nuxt.com/modules/icon) (clientBundle — simple-icons + lucide) |
 | Fonts | @nuxt/fonts (auto-hébergé, pas de Google CDN) |
 | Hosting | GitHub Pages — SSG via `actions/deploy-pages` |
 | CI | GitHub Actions — lint + typecheck + a11y + deploy (bloquant) · Lighthouse hebdo (info) |
@@ -35,13 +36,13 @@ npm run dev       # http://localhost:3000
 | `npm run gen:tokens` | Régénère le bloc `--pxlc-*` dans `tokens.css` depuis `brand-colors.ts` — lancé automatiquement en `prebuild` / `pregenerate` / `predev` |
 | `npm run design` | Génère `design.md` depuis `tokens.css` + `styles.css` — lancé automatiquement en `prebuild` / `pregenerate` / `predev` |
 | `npm run ds-lint` | Vérifie la cohérence du design system (couleurs, tokens) — lancé automatiquement en `prebuild` / `pregenerate` |
+| `npm run validate-content` | Valide le contenu éditorial (frontmatter, limites meta SEO, règles copy) — lancé automatiquement en `prebuild` / `pregenerate` |
 | `npm run lint` | ESLint v10 flat config |
 | `npm run lint:fix` | ESLint avec auto-fix |
 | `npm run typecheck` | `vue-tsc` via `nuxt typecheck` |
 | `npm run a11y` | Audit axe-core statique (jsdom) |
 | `npm run a11y:runtime` | Audit axe-core Playwright (Chrome headless, couvre menu mobile + FAQ ouverts) |
 | `npm run lighthouse` | Lighthouse mobile sur 7 routes (Chrome headless) — Markdown summary CI-aware |
-| `node scripts/probe-sqlite-network.mjs` | Mesure le coût réseau du WASM `@nuxt/content` — confirmé à 0 octet en runtime SSG |
 
 ## Architecture des couleurs (source unique)
 
@@ -64,7 +65,7 @@ Pour modifier une couleur : éditer `brand-colors.ts` — `prebuild` synchronise
 |---|---|
 | `/` | Accueil |
 | `/a-propos` | Présentation d'Andy Zébus |
-| `/pour-les-structures` | Offre B2B (SESSAD, IME, associations, collectivités) |
+| `/structures` | Offre B2B (SESSAD, IME, associations, collectivités) |
 | `/blog` | Index des articles |
 | `/blog/[slug]` | Article Markdown |
 | `/contact` | Formulaire + WhatsApp |
