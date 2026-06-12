@@ -8,15 +8,33 @@ interface Props {
   description?: string
   site?: string
 }
-withDefaults(defineProps<Props>(), {
-  eyebrow: 'MÉDIATION NUMÉRIQUE · GUADELOUPE',
-  title: 'Médiation numérique',
-  description: 'Andy Zébus, créateur de PXLC, aide les familles à mieux utiliser les écrans — SESSAD, IME, associations et collectivités de Guadeloupe.',
+const props = withDefaults(defineProps<Props>(), {
+  eyebrow: 'ATELIERS PARENT-ENFANT · GUADELOUPE',
+  title: 'PXLC aide les familles à mieux utiliser les écrans',
+  description: 'Andy Zébus aide les structures de Guadeloupe — SESSAD, IME, associations et collectivités — à accompagner les familles.',
   site: 'pxlc.fr',
 })
 
 const F_SANS = OG_F_SANS
 const F_SERIF = 'Lora, Georgia, serif'
+
+// Garde-fous longueur : le cadre 1200×600 n'a ni overflow visible ni reflow —
+// on tronque au mot et on réduit le corps du titre par paliers plutôt que de
+// mesurer les glyphes (rendu au build, vérifié visuellement).
+const truncateAtWord = (text: string, max: number): string => {
+  if (text.length <= max) return text
+  const cut = text.lastIndexOf(' ', max)
+  return `${text.slice(0, cut > 0 ? cut : max)}…`
+}
+
+const displayTitle = computed(() => truncateAtWord(props.title, 110))
+const displayDescription = computed(() => truncateAtWord(props.description, 180))
+const titleSize = computed(() => {
+  const len = displayTitle.value.length
+  if (len <= 45) return '60px'
+  if (len <= 75) return '52px'
+  return '44px'
+})
 
 // Single light surface — ivory ground reads distinctively on dark social UIs.
 const palette = {
@@ -152,7 +170,7 @@ const coral = BRAND_HEX.coral
       <span
         :style="{
           fontFamily: F_SANS,
-          fontSize: '60px',
+          fontSize: titleSize,
           fontWeight: 600,
           lineHeight: 1.05,
           letterSpacing: '-0.03em',
@@ -160,7 +178,7 @@ const coral = BRAND_HEX.coral
           marginBottom: '20px',
         }"
       >
-        {{ title }}<span :style="{ color: coral }">.</span>
+        {{ displayTitle }}<span :style="{ color: coral }">.</span>
       </span>
       <span
         v-if="description"
@@ -172,7 +190,7 @@ const coral = BRAND_HEX.coral
           color: palette.inkQuiet,
         }"
       >
-        {{ description }}
+        {{ displayDescription }}
       </span>
     </div>
 
