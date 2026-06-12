@@ -13,7 +13,7 @@ defineOgImage('PxlcOg', {
   eyebrow: 'À PROPOS',
   title: 'Médiateur numérique',
   description:
-    "J'aide les familles à mieux utiliser les écrans — en ateliers parent-enfant co-encadrés avec les équipes des SESSAD, IME, associations et collectivités de Guadeloupe.",
+    'Andy Zébus aide les structures de Guadeloupe à accompagner les familles autour des écrans — ateliers parent-enfant co-encadrés avec votre équipe.',
 })
 
 // Person #andy est déclaré globalement dans app.vue — disponible sur toutes les pages.
