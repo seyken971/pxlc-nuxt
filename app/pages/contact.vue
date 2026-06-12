@@ -98,6 +98,7 @@ const contactCards = [
     <div class="container">
 
       <!-- Heading — pleine largeur, au-dessus du grid -->
+      <SiteBreadcrumb />
       <span class="eyebrow eyebrow--lg">Contact</span>
       <h1 class="contact-title">
         On en parle<span class="coral-dot" aria-hidden="true">&nbsp;?</span>

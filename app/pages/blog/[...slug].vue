@@ -59,14 +59,6 @@ useSchemaOrg([
   }),
 ])
 
-const crumbs = useBreadcrumbItems({
-  overrides: [
-    { label: 'Accueil' },
-    { label: 'Blog' },
-    { label: post.value.title },
-  ],
-})
-
 // Reading time + table of contents derived from the parsed body. Fallback
 // to the manual frontmatter value if the AST walk yields nothing (defensive
 // — shouldn't happen for real articles).
@@ -108,14 +100,7 @@ onBeforeUnmount(() => {
     <!-- Article header — bg-soft section per DS -->
     <section class="article-intro">
       <div class="container article-intro__inner">
-        <nav class="breadcrumb" aria-label="Fil d'Ariane">
-          <ol class="breadcrumb__list" role="list">
-            <li v-for="c in crumbs" :key="c.to || c.label" class="breadcrumb__item">
-              <NuxtLink v-if="c.to && !c.current" :to="c.to" class="breadcrumb__link">{{ c.label }}</NuxtLink>
-              <span v-else class="breadcrumb__current" aria-current="page">{{ c.label }}</span>
-            </li>
-          </ol>
-        </nav>
+        <SiteBreadcrumb :current-label="post.title" />
 
         <header class="post-header">
           <span class="badge">{{ post.category }}</span>
@@ -246,21 +231,4 @@ onBeforeUnmount(() => {
 /* Sticky header offset géré globalement par html { scroll-padding-top: 96px } dans styles.css. */
 .post-body :deep(h2[id]) { scroll-margin-top: 0; }
 .post-share { margin-top: var(--space-6); padding-top: var(--space-5); border-top: 1px solid var(--rule); }
-
-/* ── Breadcrumb ──────────────────────────────────────────────── */
-.breadcrumb { margin-bottom: var(--space-4); }
-.breadcrumb__list {
-  display: flex; flex-wrap: wrap; gap: var(--space-2);
-  list-style: none; padding: 0; margin: 0;
-  font-family: var(--font-label); font-size: 11px;
-  letter-spacing: 0.18em; text-transform: uppercase;
-  color: var(--quiet);
-}
-.breadcrumb__item:not(:last-child)::after {
-  content: "/"; margin-left: var(--space-2); color: var(--quiet);
-}
-.breadcrumb__link { color: var(--teal-deep); transition: color var(--dur-fast); }
-.breadcrumb__link:hover { color: var(--pxlc-coral); text-decoration: none; }
-[data-theme="dark"] .breadcrumb__link { color: var(--cyan); }
-.breadcrumb__current { color: var(--ink); font-weight: 600; }
 </style>

@@ -134,6 +134,7 @@ const audiences = [
     <div class="container">
       <div class="hero__inner">
         <div>
+          <SiteBreadcrumb />
           <div class="structures-badges">
             <span class="badge badge--audience">Pour les structures</span>
             <span class="badge badge--soft">SESSAD · IME · associations · collectivités</span>
