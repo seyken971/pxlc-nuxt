@@ -50,6 +50,6 @@
     "nuxt-link-checker": "^5.1.0",
     "playwright": "^1.60.0",
     "typescript": "^6.0.3",
-    "vue-tsc": "^3.3.4"
+    "vue-tsc": "^3.3.5"
   }
 }
