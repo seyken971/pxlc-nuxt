@@ -230,6 +230,8 @@ export default defineNuxtConfig({
         "https://www.linkedin.com/in/azebus",
         "https://www.github.com/seyken971",
         "https://www.instagram.com/seyken971",
+        "https://www.youtube.com/@seyken971",
+        "https://www.threads.net/@seyken971",
         "https://www.twitter.com/seyken971",
         "https://bsky.app/profile/seyken.pxlc.fr",
       ],
