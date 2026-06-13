@@ -10,7 +10,7 @@ interface Props {
 }
 const props = withDefaults(defineProps<Props>(), {
   eyebrow: 'ATELIERS PARENT-ENFANT · GUADELOUPE',
-  title: 'PXLC aide les familles à mieux utiliser les écrans',
+  title: 'PXLC accompagne les familles dans l\'éducation numérique des enfants',
   description: 'Andy Zébus aide les structures de Guadeloupe — SESSAD, IME, associations et collectivités — à accompagner les familles.',
   site: 'pxlc.fr',
 })

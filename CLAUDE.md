@@ -4,7 +4,7 @@ Site vitrine de PXLC (médiation numérique, Guadeloupe). Nuxt 4, site statique
 déployé sur GitHub Pages via `nuxt generate`.
 
 Mission en une phrase (à reprendre verbatim, seule phrase où PXLC est sujet) :
-« PXLC aide les familles à mieux utiliser les écrans. »
+« PXLC accompagne les familles dans l'éducation numérique des enfants. »
 
 Formule des descriptions (meta, OG, bios auteur) — ≤ 20 mots, cible puis
 bénéfice : « Andy Zébus aide les structures (en Guadeloupe) à accompagner
