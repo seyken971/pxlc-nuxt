@@ -82,7 +82,8 @@ function parseSections(css) {
 async function listComponents(dir = "app/components") {
   const names = [];
   for (const e of await readdir(dir, { withFileTypes: true })) {
-    if (e.isDirectory()) names.push(...(await listComponents(join(dir, e.name))));
+    if (e.isDirectory())
+      names.push(...(await listComponents(join(dir, e.name))));
     else if (e.name.endsWith(".vue"))
       names.push(e.name.replace(/(\.takumi)?\.vue$/, ""));
   }
@@ -382,7 +383,7 @@ const main = async () => {
       "- `Parents-Écran-Enfant` avec majuscules",
       "- Ne jamais écrire « fondateur » — écrire « créateur de PXLC »",
       "- Nommer les clients : terme générique « les lieux d'accueil des familles » (court « les lieux ») ; en adresse directe, nommer le lieu (« votre médiathèque ») ou « votre structure » ; « structures » seul = sous-ensemble médico-social et associatif, jamais le parapluie",
-      "- Mission en une phrase : « PXLC aide les familles à mieux utiliser les écrans — pour s'en servir sans subir. »",
+      "- Mission en une phrase : « PXLC accompagne les familles dans l'éducation numérique des enfants — pour s'en servir sans subir. »",
       "- Cadre réglementaire : toujours citer HCSP 2019-2020 · HAS 2020 ensemble",
       "- Toute affirmation santé/usage des écrans doit être sourcée depuis docs/references/ (document + section) — ne jamais inventer un chiffre ou une recommandation",
     ].join("\n"),
@@ -417,7 +418,10 @@ const main = async () => {
   const siteNames = components.filter((n) => n.startsWith("Site"));
   const blogNames = components.filter((n) => n.startsWith("Blog"));
   const plainNames = components.filter(
-    (n) => !pxlcNames.includes(n) && !siteNames.includes(n) && !blogNames.includes(n),
+    (n) =>
+      !pxlcNames.includes(n) &&
+      !siteNames.includes(n) &&
+      !blogNames.includes(n),
   );
   md.push(
     [

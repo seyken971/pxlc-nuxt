@@ -138,7 +138,7 @@ export default defineNuxtConfig({
     url: "https://pxlc.fr",
     name: "PXLC",
     // B2B-only funnel: the offer flows exclusively through structures
-    // (SESSAD, IME, associations, collectivités).
+    // Médiathèques et collectivités, centres sociaux et espaces de vie sociale, LAEP, structures médico-sociales (SESSAD, IME, CMPP, CAMSP), dispositifs CLAS.
     description:
       "Andy Zébus, créateur de PXLC, aide les structures en Guadeloupe à accompagner les familles autour des écrans.",
     defaultLocale: "fr_FR",

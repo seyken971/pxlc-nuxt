@@ -5,17 +5,17 @@ Déployé sur **https://pxlc.fr**.
 
 ## Stack
 
-| Couche | Tech |
-|---|---|
-| Framework | [Nuxt](https://nuxt.com) 4.4 + Vue 3.5 |
-| Contenu | [@nuxt/content](https://content.nuxt.com) v3 (Markdown, SSG) |
-| SEO | [@nuxtjs/seo](https://nuxtseo.com) — sitemap, robots, schemaOrg, OG images |
-| Images | @nuxt/image (WebP auto) |
-| Icônes | [@nuxt/icon](https://nuxt.com/modules/icon) (clientBundle — simple-icons + lucide) |
-| Fonts | @nuxt/fonts (auto-hébergé, pas de Google CDN) |
-| Hosting | GitHub Pages — SSG via `actions/deploy-pages` |
-| CI | GitHub Actions — lint + typecheck + a11y + deploy (bloquant) · Lighthouse hebdo (info) |
-| Environnement | Node 22 LTS |
+| Couche        | Tech                                                                                   |
+| ------------- | -------------------------------------------------------------------------------------- |
+| Framework     | [Nuxt](https://nuxt.com) 4.4 + Vue 3.5                                                 |
+| Contenu       | [@nuxt/content](https://content.nuxt.com) v3 (Markdown, SSG)                           |
+| SEO           | [@nuxtjs/seo](https://nuxtseo.com) — sitemap, robots, schemaOrg, OG images             |
+| Images        | [@nuxt/image](https://image.nuxt.com/) (WebP auto)                                     |
+| Icônes        | [@nuxt/icon](https://nuxt.com/modules/icon) (clientBundle — simple-icons + lucide)     |
+| Fonts         | @nuxt/fonts (auto-hébergé, pas de Google CDN)                                          |
+| Hosting       | GitHub Pages — SSG via `actions/deploy-pages`                                          |
+| CI            | GitHub Actions — lint + typecheck + a11y + deploy (bloquant) · Lighthouse hebdo (info) |
+| Environnement | Node 22 LTS                                                                            |
 
 ## Démarrage rapide
 
@@ -28,21 +28,21 @@ npm run dev       # http://localhost:3000
 
 ## Scripts
 
-| Commande | Rôle |
-|---|---|
-| `npm run dev` | Serveur de dev |
-| `npm run generate` | Build SSG → `.output/public/` |
-| `npm run preview` | Prévisualisation du build |
-| `npm run gen:tokens` | Régénère le bloc `--pxlc-*` dans `tokens.css` depuis `brand-colors.ts` — lancé automatiquement en `prebuild` / `pregenerate` / `predev` |
-| `npm run design` | Génère `design.md` depuis `tokens.css` + `styles.css` — lancé automatiquement en `prebuild` / `pregenerate` / `predev` |
-| `npm run ds-lint` | Vérifie la cohérence du design system (couleurs, tokens) — lancé automatiquement en `prebuild` / `pregenerate` |
-| `npm run validate-content` | Valide le contenu éditorial (frontmatter, limites meta SEO, règles copy) — lancé automatiquement en `prebuild` / `pregenerate` |
-| `npm run lint` | ESLint v10 flat config |
-| `npm run lint:fix` | ESLint avec auto-fix |
-| `npm run typecheck` | `vue-tsc` via `nuxt typecheck` |
-| `npm run a11y` | Audit axe-core statique (jsdom) |
-| `npm run a11y:runtime` | Audit axe-core Playwright (Chrome headless, couvre menu mobile + FAQ ouverts) |
-| `npm run lighthouse` | Lighthouse mobile sur 7 routes (Chrome headless) — Markdown summary CI-aware |
+| Commande                   | Rôle                                                                                                                                    |
+| -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| `npm run dev`              | Serveur de dev                                                                                                                          |
+| `npm run generate`         | Build SSG → `.output/public/`                                                                                                           |
+| `npm run preview`          | Prévisualisation du build                                                                                                               |
+| `npm run gen:tokens`       | Régénère le bloc `--pxlc-*` dans `tokens.css` depuis `brand-colors.ts` — lancé automatiquement en `prebuild` / `pregenerate` / `predev` |
+| `npm run design`           | Génère `design.md` depuis `tokens.css` + `styles.css` — lancé automatiquement en `prebuild` / `pregenerate` / `predev`                  |
+| `npm run ds-lint`          | Vérifie la cohérence du design system (couleurs, tokens) — lancé automatiquement en `prebuild` / `pregenerate`                          |
+| `npm run validate-content` | Valide le contenu éditorial (frontmatter, limites meta SEO, règles copy) — lancé automatiquement en `prebuild` / `pregenerate`          |
+| `npm run lint`             | ESLint v10 flat config                                                                                                                  |
+| `npm run lint:fix`         | ESLint avec auto-fix                                                                                                                    |
+| `npm run typecheck`        | `vue-tsc` via `nuxt typecheck`                                                                                                          |
+| `npm run a11y`             | Audit axe-core statique (jsdom)                                                                                                         |
+| `npm run a11y:runtime`     | Audit axe-core Playwright (Chrome headless, couvre menu mobile + FAQ ouverts)                                                           |
+| `npm run lighthouse`       | Lighthouse mobile sur 7 routes (Chrome headless) — Markdown summary CI-aware                                                            |
 
 ## Architecture des couleurs (source unique)
 
@@ -61,15 +61,15 @@ Pour modifier une couleur : éditer `brand-colors.ts` — `prebuild` synchronise
 
 ## Pages
 
-| Route | Description |
-|---|---|
-| `/` | Accueil |
-| `/a-propos` | Présentation d'Andy Zébus |
-| `/structures` | Offre B2B (SESSAD, IME, associations, collectivités) |
-| `/blog` | Index des articles |
-| `/blog/[slug]` | Article Markdown |
-| `/contact` | Formulaire + WhatsApp |
-| `/mentions-legales` | Mentions légales (`noindex`) |
+| Route               | Description                                          |
+| ------------------- | ---------------------------------------------------- |
+| `/`                 | Accueil                                              |
+| `/a-propos`         | Présentation d'Andy Zébus                            |
+| `/structures`       | Offre B2B (SESSAD, IME, associations, collectivités) |
+| `/blog`             | Index des articles                                   |
+| `/blog/[slug]`      | Article Markdown                                     |
+| `/contact`          | Formulaire + WhatsApp                                |
+| `/mentions-legales` | Mentions légales (`noindex`)                         |
 
 ## CI
 

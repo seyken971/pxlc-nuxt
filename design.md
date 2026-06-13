@@ -445,7 +445,7 @@ Classes issues de `styles.css`. Les styles scoped des composants Vue ne sont pas
 - `Parents-Écran-Enfant` avec majuscules
 - Ne jamais écrire « fondateur » — écrire « créateur de PXLC »
 - Nommer les clients : terme générique « les lieux d'accueil des familles » (court « les lieux ») ; en adresse directe, nommer le lieu (« votre médiathèque ») ou « votre structure » ; « structures » seul = sous-ensemble médico-social et associatif, jamais le parapluie
-- Mission en une phrase : « PXLC aide les familles à mieux utiliser les écrans — pour s'en servir sans subir. »
+- Mission en une phrase : « PXLC accompagne les familles dans l'éducation numérique des enfants — pour s'en servir sans subir. »
 - Cadre réglementaire : toujours citer HCSP 2019-2020 · HAS 2020 ensemble
 - Toute affirmation santé/usage des écrans doit être sourcée depuis docs/references/ (document + section) — ne jamais inventer un chiffre ou une recommandation
 
