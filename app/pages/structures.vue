@@ -9,11 +9,7 @@ if (import.meta.server) {
   })
 }
 
-defineOgImage('PxlcOg', {
-  eyebrow: 'POUR LES STRUCTURES',
-  title: 'Programmes de médiation numérique — SESSAD, IME, associations',
-  description: 'Ateliers thématiques parent-enfant co-encadrés par votre équipe pluridisciplinaire et le médiateur numérique. Cadre HCSP 2019-2020 · HAS 2020, indicateurs d’évaluation, bilan en fin de dispositif.',
-})
+defineOgImage('PxlcOg')
 
 
 // FAQ — answers grounded in the plaquette + existing copy. Doubles as the

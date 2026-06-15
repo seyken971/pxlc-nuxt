@@ -11,11 +11,7 @@ if (import.meta.server) {
   })
 }
 
-defineOgImage('PxlcOg', {
-  eyebrow: 'PREMIER PAS',
-  title: 'Vingt minutes pour faire connaissance',
-  description: 'Visio ou WhatsApp, à votre convenance. Réservez directement en ligne ou écrivez via le formulaire — réponse personnelle sous 2 jours ouvrés.',
-})
+defineOgImage('PxlcOg')
 
 useSchemaOrg([
   defineWebPage({

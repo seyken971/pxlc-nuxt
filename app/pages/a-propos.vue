@@ -9,12 +9,7 @@ if (import.meta.server) {
   })
 }
 
-defineOgImage('PxlcOg', {
-  eyebrow: 'À PROPOS',
-  title: 'Médiateur numérique',
-  description:
-    'Andy Zébus aide les structures de Guadeloupe à accompagner les familles autour des écrans — ateliers parent-enfant co-encadrés avec votre équipe.',
-})
+defineOgImage('PxlcOg')
 
 // Person #andy est déclaré globalement dans app.vue — disponible sur toutes les pages.
 useSchemaOrg([

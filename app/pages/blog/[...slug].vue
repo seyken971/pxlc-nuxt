@@ -23,11 +23,7 @@ useSeoMeta({
   ogTitle: post.value.title,
 })
 
-defineOgImage('PxlcOg', {
-  eyebrow: (BLOG_CATEGORY_LABELS[post.value.category ?? ''] ?? post.value.category ?? 'Journal').toUpperCase(),
-  title: post.value.title,
-  description: post.value.description,
-})
+defineOgImage('PxlcOg')
 
 const articleUrl = `https://pxlc.fr${route.path}`
 const dateModified = post.value.updated || post.value.date

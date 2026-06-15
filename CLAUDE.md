@@ -94,8 +94,9 @@ violé, pas un bug à contourner.
 - Contenu éditorial via @nuxt/content — toute modification de contenu doit
   passer `npm run validate-content`.
 - OG images : composant `app/components/OgImage/PxlcOg.takumi.vue`, générées
-  au build (`ogImage.zeroRuntime: true`), non visibles en dev. Chaque page
-  définit la sienne via `defineOgImage('PxlcOg', { eyebrow, title, description })`.
+  au build (`ogImage.zeroRuntime: true`), non visibles en dev. Carte de marque
+  statique (logo + tagline), identique sur toutes les pages — chaque page
+  l'active via `defineOgImage('PxlcOg')` (le composant n'accepte pas de props).
 - Hébergement GitHub Pages : pas de runtime serveur — aucune API route,
   aucune fonctionnalité SSR dynamique. Tout doit fonctionner en statique.
 
