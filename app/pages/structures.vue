@@ -326,6 +326,16 @@ const audiences = [
     </div>
   </section>
 
+  <RelatedReading
+    eyebrow="À lire"
+    title="Pour approfondir le dispositif"
+    :paths="[
+      '/blog/mediation-numerique-parent-enfant-sessad-ime',
+      '/blog/jouons-ensemble-sessad-lekoklaya',
+      '/blog/programme-parent-ecran-enfant',
+    ]"
+  />
+
 </template>
 
 <style scoped>

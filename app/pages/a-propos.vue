@@ -162,6 +162,16 @@ const timeline = [
     :soft="false"
   />
 
+  <RelatedReading
+    eyebrow="À lire"
+    title="Ma démarche, en détail"
+    :paths="[
+      '/blog/esport-guadeloupe-mediation-numerique-familles',
+      '/blog/cadre-hcsp-enfants-ecrans',
+      '/blog/methode-mediation-jeu-video-parent-enfant',
+    ]"
+  />
+
   <!-- ── CTA ───────────────────────────────────────────────────── -->
   <section class="section section--soft about-cta" aria-labelledby="cta-about-title">
     <div class="container about-cta-section">
