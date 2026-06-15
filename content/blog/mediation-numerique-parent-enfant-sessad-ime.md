@@ -10,7 +10,7 @@ readingTime: 14 min
 
 Dans les équipes de SESSAD et d'IME — notamment en Guadeloupe —, la question revient presque à chaque réunion de synthèse : *comment aborder les écrans avec les familles sans tomber dans le discours moral, sans minimiser les vraies difficultés, et sans improviser ?*
 
-Ce guide ne prétend pas trancher le débat "pour ou contre les écrans". Il s'appuie sur les deux rapports de référence du Haut Conseil de la Santé Publique — l'[avis de 2019](https://www.hcsp.fr/Explore.cgi/AvisRapportsDomaine?clefr=759) sur les effets de l'exposition aux écrans, et celui de [2020](https://www.hcsp.fr/Explore.cgi/AvisRapportsDomaine?clefr=1074) sur les usages excessifs — pour donner aux équipes pluridisciplinaires des repères concrets, mobilisables en pratique.
+Ce guide ne prétend pas trancher le débat "pour ou contre les écrans". Il s'appuie sur les deux rapports de référence du Haut Conseil de la Santé Publique — l'[avis de 2019](https://www.hcsp.fr/Explore.cgi/AvisRapportsDomaine?clefr=759) sur les effets de l'exposition aux écrans, et celui de [2021](https://www.hcsp.fr/Explore.cgi/AvisRapportsDomaine?clefr=1074) sur les usages excessifs — pour donner aux équipes pluridisciplinaires des repères concrets, mobilisables en pratique.
 
 ## Ce que "médiation numérique parent-enfant" veut vraiment dire
 
@@ -22,7 +22,7 @@ Le terme est souvent utilisé de façon vague. Dans le champ de la protection de
 
 3. **La médiation thérapeutique via le numérique** : utiliser le jeu vidéo comme support de travail clinique — pour travailler la coopération, la gestion des émotions, le lien parent-enfant — dans le cadre d'un dispositif porté par une équipe pluridisciplinaire.
 
-Ces trois niveaux ne s'excluent pas. Un bon dispositif de médiation numérique les articule. C'est précisément ce que structure le programme « Jouons Ensemble ! » déployé au SESSAD Lékoklaya en 2026 — et ce que ce guide décrit étape par étape.
+Ces trois niveaux ne s'excluent pas. Un bon dispositif de médiation numérique les articule. C'est précisément ce que structure le programme « Jouons Ensemble ! » déployé au SESSAD Lékoklaya en 2026 — et ce que ce guide décrit étape par étape.
 
 ## Ce que disent les rapports HCSP : l'essentiel pour votre équipe
 
@@ -30,7 +30,7 @@ Ces trois niveaux ne s'excluent pas. Un bon dispositif de médiation numérique 
 
 L'avis de 2019 *"Pour une politique nutritionnelle de santé publique en France — usages des écrans chez les enfants"* aboutit à une conclusion que beaucoup de professionnels méconnaissent : **le facteur le plus déterminant n'est pas le temps d'écran, c'est la qualité de la relation parent-enfant autour des écrans**.
 
-Le HCSP le formule sans ambiguïté : *« Un accompagnement dans l'utilisation des écrans est l'élément essentiel pouvant expliquer les divergences observées dans les résultats de la littérature scientifique. »* Ce point de convergence de l'ensemble de la littérature internationale est le fondement de l'approche PXLC.
+Le HCSP le formule sans ambiguïté : *« Un accompagnement dans l'utilisation des écrans est l'élément essentiel pouvant expliquer les divergences observées dans les résultats de la littérature scientifique. »* Ce point de convergence de l'ensemble de la littérature internationale est le fondement de l'approche PXLC.
 
 Trois points opérationnels pour les équipes :
 
@@ -40,9 +40,9 @@ Trois points opérationnels pour les équipes :
 
 Ce point est central pour calibrer un dispositif : on ne travaille pas sur le temps d'écran. On travaille sur **la qualité de la présence parentale pendant et autour du temps d'écran**.
 
-### Le rapport HCSP 2020 : repérer sans sur-diagnostiquer
+### Le rapport HCSP 2021 : repérer sans sur-diagnostiquer
 
-L'avis de 2020 *"De l'usage excessif des écrans à la dépendance"* affine les repères cliniques pour distinguer un usage problématique d'un usage intense mais non pathologique.
+L'avis de 2021 *"De l'usage excessif des écrans à la dépendance"* affine les repères cliniques pour distinguer un usage problématique d'un usage intense mais non pathologique.
 
 Points clés pour une équipe SESSAD ou IME :
 
@@ -106,7 +106,7 @@ Quand un parent joue avec son enfant dans un cadre structuré et bienveillant, l
 
 Pour le psychologue ou la psychomotricienne présents pendant l'atelier, le jeu crée des situations observables en temps réel : comment l'enfant gère-t-il la frustration ? Comment communique-t-il avec son parent sous pression ? Comment le parent réagit-il à l'erreur de l'enfant ? Ces observations alimentent directement le travail clinique.
 
-## À quoi ressemble un dispositif concret : le modèle « Jouons Ensemble ! »
+## À quoi ressemble un dispositif concret : le modèle « Jouons Ensemble ! »
 
 Le programme déployé au SESSAD Lékoklaya en 2026 articule quatre temps, pensés pour être reproductibles dans n'importe quelle structure médico-sociale :
 
@@ -165,7 +165,7 @@ Le dispositif s'inscrit naturellement dans les lignes de financement des program
 
 ---
 
-*Ce guide a été rédigé à partir des rapports HCSP 2019 et 2021, du rapport DITP/MILDECA 2022 sur les usages familiaux des écrans, du retour d'expérience du projet « Jouons Ensemble ! » au SESSAD Lékoklaya (2026), et de trois ans d'interventions de médiation numérique en Guadeloupe. Pour cadrer un dispositif adapté à votre structure, [contactez PXLC](/contact).*
+*Ce guide a été rédigé à partir des rapports HCSP 2019 et 2021, du rapport DITP/MILDECA 2022 sur les usages familiaux des écrans, du retour d'expérience du projet « Jouons Ensemble ! » au SESSAD Lékoklaya (2026), et de trois ans d'interventions de médiation numérique en Guadeloupe. Pour cadrer un dispositif adapté à votre structure, [contactez PXLC](/contact).*
 
 ---
 

@@ -8,7 +8,7 @@ category: decryptage
 readingTime: 7 min
 ---
 
-La première question que me posent les équipes quand je me présente : *« Mais vous êtes thérapeute ? »*
+La première question que me posent les équipes quand je me présente : *« Mais vous êtes thérapeute ? »*
 
 Non. Je suis médiateur numérique — et avant de créer PXLC, j'ai passé six ans à organiser des tournois de jeux vidéo en Guadeloupe. Voilà ma formation de terrain.
 
@@ -24,23 +24,23 @@ J'ai organisé des dizaines d'événements en Guadeloupe — dont la Destreland 
 
 **Ce que le jeu vidéo signifie pour ceux qui y investissent vraiment.** Ce n'est pas de la distraction. C'est de l'identité, de la compétence, de la reconnaissance. Un enfant de 13 ans qui maîtrise un jeu complexe a construit quelque chose — même si ses parents ne voient qu'un écran allumé.
 
-**Comment parler aux joueurs.** Pas en surplomb, pas en traducteur, mais dans leur registre. Si je comprends les mécaniques d'un jeu, si je sais ce qu'est un « tilt », un « carry », un « clutch » — je parle à l'enfant dans une langue qu'il ne s'attendait pas que je connaisse. C'est ce qui crée la confiance.
+**Comment parler aux joueurs.** Pas en surplomb, pas en traducteur, mais dans leur registre. Si je comprends les mécaniques d'un jeu, si je sais ce qu'est un « tilt », un « carry », un « clutch » — je parle à l'enfant dans une langue qu'il ne s'attendait pas que je connaisse. C'est ce qui crée la confiance.
 
 ## La scène guadeloupéenne : un terrain particulier
 
 La Guadeloupe n'est pas n'importe où. C'est une île — une communauté de joueurs serrée, où tout le monde se connaît, où les réseaux sociaux amplifient chaque événement, où la scène locale a une identité spécifique. Pendant longtemps, les connexions internet limitées ont favorisé les LANs et les tournois physiques : une culture du jeu en présence, collective, que vous ne retrouvez pas de la même façon ailleurs.
 
-J'ai grandi dans cette scène. J'en connais les figures, les codes, les moments qui ont compté. Ce n'est pas anecdotique pour la médiation : quand j'interviens dans une structure guadeloupéenne, je parle aux enfants d'une culture qu'ils vivent localement — pas d'une version standardisée de « les jeux vidéo ». Je cite des événements qui ont eu lieu à Pointe-à-Pitre. Je connais des joueurs qu'ils ont peut-être vus en tournoi.
+J'ai grandi dans cette scène. J'en connais les figures, les codes, les moments qui ont compté. Ce n'est pas anecdotique pour la médiation : quand j'interviens dans une structure guadeloupéenne, je parle aux enfants d'une culture qu'ils vivent localement — pas d'une version standardisée de « les jeux vidéo ». Je cite des événements qui ont eu lieu à Pointe-à-Pitre. Je connais des joueurs qu'ils ont peut-être vus en tournoi.
 
 Cette proximité culturelle change quelque chose, avant même que la séance commence. Dans les familles où l'enfant a l'impression que les adultes ne comprennent rien à son monde, l'arrivée d'un intervenant qui connaît ce monde ouvre une porte.
 
 ## Le moment où j'ai compris que c'était utile
 
-Il y a quelques années, pendant la préparation d'un tournoi, j'avais à gérer un conflit entre un joueur et sa famille. Les parents voulaient qu'il arrête le jeu — « trop de temps, pas assez de travail » — et lui voulait poursuivre la compétition.
+Il y a quelques années, pendant la préparation d'un tournoi, j'avais à gérer un conflit entre un joueur et sa famille. Les parents voulaient qu'il arrête le jeu — « trop de temps, pas assez de travail » — et lui voulait poursuivre la compétition.
 
 Ce qui s'est passé ensuite m'a marqué : en prenant le temps d'expliquer aux parents ce que leur fils faisait concrètement — les heures d'entraînement, la stratégie d'équipe, la gestion de la défaite, les compétences réelles mobilisées —, quelque chose a changé dans leur regard. Pas une réconciliation totale, pas une adhésion au jeu. Mais un début de compréhension.
 
-Le père m'a dit : *« Je ne savais pas que c'était aussi sérieux. »*
+Le père m'a dit : *« Je ne savais pas que c'était aussi sérieux. »*
 
 Ce moment m'a donné l'idée de ce que je fais aujourd'hui : se mettre entre le joueur et ses parents, non pas pour arbitrer, mais pour traduire.
 

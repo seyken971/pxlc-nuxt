@@ -8,17 +8,17 @@ category: cas-pratique
 readingTime: 10 min
 ---
 
-C'est la question que les équipes me posent en premier, souvent avec un peu d'appréhension : *« Vous avez un exemple de jeu qu'on pourrait utiliser ? »*
+C'est la question que les équipes me posent en premier, souvent avec un peu d'appréhension : *« Vous avez un exemple de jeu qu'on pourrait utiliser ? »*
 
-La réponse honnête est : ça dépend. Pas du budget, pas de l'âge de l'enfant — de ce que vous voulez travailler. Un atelier de médiation parent-enfant via le jeu vidéo ne fonctionne que si le jeu est choisi en fonction d'un objectif précis, pas parce qu'il est populaire ou parce qu'il « a l'air éducatif ».
+La réponse honnête est : ça dépend. Pas du budget, pas de l'âge de l'enfant — de ce que vous voulez travailler. Un atelier de médiation parent-enfant via le jeu vidéo ne fonctionne que si le jeu est choisi en fonction d'un objectif précis, pas parce qu'il est populaire ou parce qu'il « a l'air éducatif ».
 
 Ce guide expose la méthode de sélection que j'utilise dans les dispositifs que je co-anime avec les équipes SESSAD et IME. Il ne donne pas une liste définitive — parce que le jeu qui convient à une séquence avec un enfant TSA de 14 ans n'est pas celui qui convient à une séquence avec un enfant TDAH de 10 ans. Il donne les critères pour choisir.
 
 ## Le critère n° 1 : la mécanique, pas le genre
 
-La première erreur à éviter est de choisir un jeu par genre (*« un jeu de coopération »*, *« un jeu éducatif »*). Ce qui compte, c'est la **mécanique** — c'est-à-dire ce que le jeu demande concrètement de faire et de communiquer.
+La première erreur à éviter est de choisir un jeu par genre (*« un jeu de coopération »*, *« un jeu éducatif »*). Ce qui compte, c'est la **mécanique** — c'est-à-dire ce que le jeu demande concrètement de faire et de communiquer.
 
-Deux jeux « coopératifs » peuvent avoir des mécaniques opposées. *Overcooked* demande de communiquer en temps réel sous pression, de se coordonner dans l'urgence, de gérer l'erreur de l'autre. *A Way Out* demande de faire confiance, d'attendre le bon moment, de se concerter sans hâte. Ces deux jeux travaillent des aspects très différents de la relation parent-enfant.
+Deux jeux « coopératifs » peuvent avoir des mécaniques opposées. *Overcooked* demande de communiquer en temps réel sous pression, de se coordonner dans l'urgence, de gérer l'erreur de l'autre. *A Way Out* demande de faire confiance, d'attendre le bon moment, de se concerter sans hâte. Ces deux jeux travaillent des aspects très différents de la relation parent-enfant.
 
 La question à poser avant tout choix : **qu'est-ce que ce jeu va forcer le parent et l'enfant à faire ensemble ?**
 
@@ -34,7 +34,7 @@ Le jeu crée une situation où parent et enfant doivent coordonner leurs actions
 
 *Jeux* : *Overcooked 2*, *Unravel Two*, *Moving Out*, *It Takes Two* (séquences adaptées selon l'âge).
 
-### 2. L'inversion de l'expertise
+### 2. L'inversion des rôles
 
 Le jeu place l'enfant dans une position de compétence supérieure au parent. C'est lui qui sait, qui guide, qui évalue.
 
@@ -101,9 +101,9 @@ Le jeu est le support — l'espace de relation qu'il ouvre est le matériau.
 
 **Ce qu'on observe** : comment s'organisent-ils spontanément ? L'enfant s'octroie-t-il un rôle directif ? Le parent suit-il ou résiste-t-il ? Comment gèrent-ils le premier échec collectif ?
 
-**Temps de jeu** : 25 min. Temps d'échange verbal guidé : *« Qu'est-ce qui a bien marché ? Qu'est-ce qui a bloqué ? À quoi ça te fait penser à la maison ? »*
+**Temps de jeu** : 25 min. Temps d'échange verbal guidé : *« Qu'est-ce qui a bien marché ? Qu'est-ce qui a bloqué ? À quoi ça te fait penser à la maison ? »*
 
-### Séquence B — Inversion de l'expertise avec un enfant TSA (12–17 ans)
+### Séquence B — Inversion des rôles avec un enfant TSA (12–17 ans)
 
 **Jeu** : le jeu que l'enfant joue habituellement chez lui. On lui demande de nous l'indiquer en amont.
 
@@ -111,7 +111,7 @@ Le jeu est le support — l'espace de relation qu'il ouvre est le matériau.
 
 **Ce qu'on observe** : l'enfant est-il à l'aise pour expliquer ? Le parent demande-t-il vraiment, ou fait-il semblant d'apprendre ? Comment l'enfant réagit-il à l'erreur de son parent ?
 
-**Temps de jeu** : 30 min. Temps d'échange verbal guidé : *« Comment c'était d'apprendre quelque chose à quelqu'un ? Comment c'était de ne pas savoir ? »*
+**Temps de jeu** : 30 min. Temps d'échange verbal guidé : *« Comment c'était d'apprendre quelque chose à quelqu'un ? Comment c'était de ne pas savoir ? »*
 
 ---
 

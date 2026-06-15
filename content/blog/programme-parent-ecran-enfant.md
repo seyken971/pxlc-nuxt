@@ -79,7 +79,7 @@ Le programme propose de transformer temporairement l'écran en support partagé.
 
 Cela peut passer par un jeu vidéo, une vidéo commentée, une discussion autour d'une plateforme, une exploration accompagnée des paramètres, ou un échange sur les habitudes numériques de chacun.
 
-Le but n'est pas que le parent devienne expert. Le but est qu'il puisse dire à son enfant : "montre-moi ce que tu fais", et que l'enfant puisse répondre sans se sentir immédiatement jugé.
+Le but n'est pas que le parent maîtrise les jeux. Le but est qu'il puisse dire à son enfant : "montre-moi ce que tu fais", et que l'enfant puisse répondre sans se sentir immédiatement jugé.
 
 Quand un enfant explique son jeu à son parent, quelque chose change. Il n'est plus seulement celui qui "abuse des écrans". Il devient quelqu'un qui sait, qui raconte, qui transmet. Et le parent peut observer autrement : ce qui le passionne, ce qui le frustre, ce qui le sécurise, ce qui le déborde.
 

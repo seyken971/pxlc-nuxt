@@ -131,7 +131,7 @@ L'objectif n'est pas que la famille joue tout le temps ensemble. L'objectif est 
 
 Quand le parent a vu, essayé, écouté, il peut poser une limite avec plus de précision :
 
-"Je comprends que tu veuilles finir ta partie. On avait dit repas à 19h30. La prochaine fois, tu lances une partie plus courte à partir de 19h."
+"Je comprends que tu veuilles finir ta partie. On avait dit repas à 19 h 30. La prochaine fois, tu lances une partie plus courte à partir de 19 h."
 
 C'est très différent de :
 
