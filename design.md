@@ -391,6 +391,9 @@ Classes issues de `styles.css`. Les styles scoped des composants Vue ne sont pas
 ### Footer
 
 - `.site-footer`
+- `.site-footer__top`
+- `.site-footer__mission`
+- `.site-footer__mission-link`
 - `.site-footer__inner`
 - `.site-footer__col-title`
 - `.site-footer__col-list`
