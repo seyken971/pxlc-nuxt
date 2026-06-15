@@ -5,6 +5,16 @@ const year = new Date().getFullYear()
 <template>
   <footer class="site-footer">
     <div class="container">
+      <div class="site-footer__top">
+        <PxlcPixelStrip :count="7" :accent-at="2" />
+        <p class="site-footer__mission">
+          PXLC accompagne les familles dans l’éducation numérique des enfants.
+        </p>
+        <a class="site-footer__mission-link" href="https://cal.eu/pxlc-gp" target="_blank" rel="noopener noreferrer">
+          Réserver un échange · 20&nbsp;min
+        </a>
+      </div>
+
       <div class="site-footer__inner">
         <div>
           <PxlcLockup />

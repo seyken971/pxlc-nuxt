@@ -602,6 +602,24 @@ main[tabindex="-1"]:focus { outline: none; }
 
 /* ── Footer ──────────────────────────────────────────────── */
 .site-footer { background: var(--pxlc-bg-dark); color: var(--pxlc-ivory); padding: clamp(48px, 8vw, 56px) 0 24px; }
+.site-footer__top {
+  display: grid; gap: var(--space-3); justify-items: start;
+  margin-bottom: var(--space-6); padding-bottom: var(--space-5);
+  border-bottom: 1px solid var(--pxlc-border-dark);
+}
+.site-footer__mission {
+  font-family: var(--font-display); font-weight: 600;
+  font-size: clamp(20px, 3vw, 28px); line-height: 1.2; letter-spacing: -0.02em;
+  color: var(--pxlc-ivory); max-width: 26ch; margin: 0; text-wrap: balance;
+}
+.site-footer__mission-link {
+  font-family: var(--font-label); font-size: 13px; font-weight: 600;
+  letter-spacing: 0.04em; color: var(--pxlc-cyan);
+  display: inline-flex; align-items: center; gap: var(--space-1-5);
+  transition: color var(--dur-fast);
+}
+.site-footer__mission-link::after { content: "→"; }
+.site-footer__mission-link:hover { color: var(--pxlc-coral); }
 /* The footer is always dark, but .lockup__name is themed for the page
    surface (--ink). In light mode that paints #082B36 on #082B36 →
    invisible "PXLC.". Force ivory here. */
