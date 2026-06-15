@@ -48,7 +48,7 @@ const stats = [
 
 <template>
   <HeroSection
-    title="Médiation numérique"
+    title="Médiation numérique en Guadeloupe"
     :title-dot="true"
     lead="J’interviens auprès des structures de Guadeloupe — SESSAD, IME, associations — pour accompagner les familles dans l’éducation numérique des enfants&nbsp;: résoudre les conflits autour du temps d’écran, adopter les bonnes pratiques du numérique."
     :cta-primary="heroCta"

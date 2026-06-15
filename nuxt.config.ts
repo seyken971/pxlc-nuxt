@@ -1,4 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import { defineLocalBusiness } from "nuxt-schema-org/schema";
+
 const isDev = process.env.NODE_ENV === "development";
 
 export default defineNuxtConfig({
@@ -195,8 +197,12 @@ export default defineNuxtConfig({
   },
 
   schemaOrg: {
-    identity: {
-      type: "Organization",
+    // ProfessionalService = sous-type LocalBusiness le plus précis pour une
+    // prestation de médiation sans point de vente. Renforce le signal local
+    // (Google recommande le type LocalBusiness le plus spécifique). Les nœuds
+    // #andy (worksFor) et #service (provider) référencent toujours #identity.
+    identity: defineLocalBusiness({
+      "@type": "ProfessionalService",
       logo: "/logo.svg",
       name: "PXLC",
       legalName: "Andy Zébus — Entrepreneur Individuel",
@@ -206,6 +212,7 @@ export default defineNuxtConfig({
       url: "https://pxlc.fr",
       email: "contact@pxlc.fr",
       telephone: "+590690717618",
+      availableLanguage: "fr",
       contactPoint: {
         contactType: "customer service",
         email: "contact@pxlc.fr",
@@ -220,10 +227,21 @@ export default defineNuxtConfig({
         addressRegion: "Guadeloupe",
         addressCountry: "FR",
       },
-      areaServed: {
-        "@type": "AdministrativeArea",
-        name: "Guadeloupe",
+      geo: {
+        "@type": "GeoCoordinates",
+        latitude: 16.2496,
+        longitude: -61.5181,
       },
+      // Prestataire qui se déplace : toute la Guadeloupe est desservie, avec
+      // les communes de l'agglomération centrale (où se concentrent les
+      // structures accueillant des familles) nommées pour le signal local.
+      areaServed: [
+        { "@type": "AdministrativeArea", name: "Guadeloupe" },
+        { "@type": "City", name: "Les Abymes" },
+        { "@type": "City", name: "Pointe-à-Pitre" },
+        { "@type": "City", name: "Baie-Mahault" },
+        { "@type": "City", name: "Le Gosier" },
+      ],
       foundingDate: "2015",
       founder: "Andy Zébus",
       sameAs: [
@@ -235,6 +253,6 @@ export default defineNuxtConfig({
         "https://www.twitter.com/seyken971",
         "https://bsky.app/profile/seyken.pxlc.fr",
       ],
-    },
+    }),
   },
 });
