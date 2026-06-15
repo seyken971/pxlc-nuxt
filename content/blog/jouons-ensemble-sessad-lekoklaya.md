@@ -1,8 +1,8 @@
 ---
-title: "« Jouons Ensemble ! » — comment se monte un dispositif au SESSAD"
-description: Le projet Parents-Écran-Enfant au SESSAD Lékoklaya, raconté étape par étape — du Café-Parents de 2023 aux ateliers thématiques de 2026, en passant par le cadrage avec l'équipe pluridisciplinaire.
-seoTitle: "« Jouons Ensemble ! » — un dispositif au SESSAD"
-seoDescription: "Le projet Parents-Écran-Enfant au SESSAD Lékoklaya, du Café-Parents de 2023 aux ateliers de 2026, étape par étape."
+title: "« Jouons Ensemble ! » — comment se monte un dispositif au SESSAD"
+description: Le projet Parent-Écran-Enfant au SESSAD Lékoklaya, raconté étape par étape — du Café-Parents de 2023 aux ateliers thématiques de 2026, en passant par le cadrage avec l'équipe pluridisciplinaire.
+seoTitle: "« Jouons Ensemble ! » — un dispositif au SESSAD"
+seoDescription: "Le projet Parent-Écran-Enfant au SESSAD Lékoklaya, du Café-Parents de 2023 aux ateliers de 2026, étape par étape."
 date: 2026-02-10
 category: cas-pratique
 readingTime: 12 min
@@ -10,11 +10,11 @@ readingTime: 12 min
 
 ## D'où vient le projet
 
-Décembre 2023. Le SESSAD Lékoklaya, aux Abymes (Guadeloupe), organise un **Café-Parents** sur la thématique « Enfants Écrans ». Une vingtaine de familles sont là. Les questions reviennent : *temps d'écran trop long, isolement dans la chambre, conflits réguliers le soir, sentiment d'impuissance.*
+Décembre 2023. Le SESSAD Lékoklaya, aux Abymes (Guadeloupe), organise un **Café-Parents** sur la thématique « Enfants Écrans ». Une vingtaine de familles sont là. Les questions reviennent : *temps d'écran trop long, isolement dans la chambre, conflits réguliers le soir, sentiment d'impuissance.*
 
 L'équipe identifie un manque. Les éducateurs et le psychologue accompagnent au quotidien des enfants TSA, TDAH, TCND — mais **personne ne se sent légitime pour parler des jeux vidéo en profondeur**. Aborder Minecraft ou Fortnite avec un parent, ça demande de connaître Minecraft et Fortnite.
 
-Deux ans plus tard, le projet « Jouons Ensemble ! » naît de ce constat.
+Deux ans plus tard, le projet « Jouons Ensemble ! » naît de ce constat.
 
 ## Le cadrage initial
 
@@ -75,7 +75,7 @@ Pas de pourcentages garantis. Pas d'échelle Rosenberg. Les indicateurs sont qua
 
 Le bilan complet sera communicable sur demande après validation par l'équipe Lékoklaya. Les perspectives ouvertes par le projet : élargissement aux fratries, réplication en milieu scolaire ou associatif, création d'une boîte à outils parents.
 
-> *« Jouer ensemble, c'est mieux comprendre, mieux se parler, et mieux grandir. »* — tagline du projet
+> *« Jouer ensemble, c'est mieux comprendre, mieux se parler, et mieux grandir. »* — tagline du projet
 
 <!-- TÉMOIGNAGE LÉKOKLAYA — à ajouter après réunion du 03/06/2026 -->
 

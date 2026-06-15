@@ -108,7 +108,7 @@ Vous pouvez dire :
 - "Il reste 15 minutes."
 - "C'est ta dernière partie."
 - "Tu termines cette mission, puis on coupe."
-- "À 19h, la console s'éteint. À 18h50, je te préviens."
+- "À 19 h, la console s'éteint. À 18 h 50, je te préviens."
 
 Pour certains enfants, un minuteur visible aide beaucoup. Pour d'autres, c'est le fait de pouvoir sauvegarder ou dire au revoir à leurs amis en ligne qui rend l'arrêt possible.
 

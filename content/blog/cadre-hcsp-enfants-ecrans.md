@@ -76,11 +76,11 @@ Quelques questions simples changent déjà le regard :
 
 Numérique ne veut pas dire mauvais. Un usage devient plus ou moins aidant selon ce qu'il produit dans la vie de l'enfant.
 
-## Usage intense ne veut pas dire addiction
+## Usage intense ne veut pas dire dépendance
 
 Le second avis du HCSP, publié en 2021, porte sur le passage de l'usage excessif à la dépendance. Son intérêt est justement d'éviter les raccourcis.
 
-Tous les enfants qui jouent beaucoup ne sont pas "addicts". Tous les adolescents qui défendent leur temps de jeu ne relèvent pas d'une prise en charge spécialisée.
+Tous les enfants qui jouent beaucoup ne relèvent pas d'un usage problématique. Tous les adolescents qui défendent leur temps de jeu ne relèvent pas d'une prise en charge spécialisée.
 
 Les signes qui doivent alerter sont plutôt :
 
@@ -94,7 +94,7 @@ Les signes qui doivent alerter sont plutôt :
 
 Même là, l'écran doit être regardé comme un signal. Il peut révéler une anxiété, une difficulté relationnelle, un besoin de reconnaissance, un trouble de l'attention, ou une tension familiale déjà présente.
 
-Nommer trop vite "l'addiction" peut fermer la discussion. Observer précisément ouvre des pistes.
+Nommer trop vite une dépendance peut fermer la discussion. Observer précisément ouvre des pistes.
 
 ## Ce que ça change pour un parent
 

@@ -31,11 +31,11 @@ Quand votre enfant explose après une partie perdue, ce n'est pas "à cause des 
 
 C'est exactement la frustration d'un sportif qui sort d'un match perdu. La seule différence, c'est que vous ne reconnaissez pas le match.
 
-Le HCSP le formule clairement dans son avis de 2021 : *« Les écrans pourraient être des révélateurs de la vulnérabilité des enfants plutôt que sa cause. »* Ce que vous voyez après une partie perdue n'est pas créé par Fortnite — c'est quelque chose qui existait déjà, que le jeu a simplement rendu visible.
+Le HCSP le formule clairement dans son avis de 2021 : *« Les écrans pourraient être des révélateurs de la vulnérabilité des enfants plutôt que sa cause. »* Ce que vous voyez après une partie perdue n'est pas créé par Fortnite — c'est quelque chose qui existait déjà, que le jeu a simplement rendu visible.
 
 ## Ce qu'on fait en atelier
 
-Dans le cadre du dispositif « Jouons Ensemble ! », le **temps de jeu partagé** sert précisément à voir cette mécanique de l'intérieur. Le parent joue une partie en binôme avec son enfant — pas pour gagner, pour **observer ce que son enfant vit**.
+Dans le cadre du dispositif « Jouons Ensemble ! », le **temps de jeu partagé** sert précisément à voir cette mécanique de l'intérieur. Le parent joue une partie en binôme avec son enfant — pas pour gagner, pour **observer ce que son enfant vit**.
 
 Le **temps d'échange verbal** qui suit n'est pas un débriefing tactique. C'est une traduction : *"j'ai vu que tu as crié quand on a perdu, est-ce que tu peux me dire ce que ça t'a fait ?"*
 
@@ -44,8 +44,8 @@ Souvent, c'est la première fois depuis longtemps que ce genre de phrase circule
 ## Pour aller plus loin
 
 - HCSP (2019), *Effets de l'exposition aux écrans* — le rôle clé du cadre familial et des pratiques partagées : [hcsp.fr/Explore.cgi/AvisRapportsDomaine?clefr=759](https://www.hcsp.fr/Explore.cgi/AvisRapportsDomaine?clefr=759)
-- HCSP (2020), *De l'usage excessif à la dépendance* — repères pour identifier et prévenir le basculement vers un usage problématique : [hcsp.fr/Explore.cgi/AvisRapportsDomaine?clefr=1074](https://www.hcsp.fr/Explore.cgi/AvisRapportsDomaine?clefr=1074)
-- Le projet « Jouons Ensemble ! » au SESSAD Lékoklaya — où ces principes se déclinent en ateliers parent-enfant concrets
+- HCSP (2021), *De l'usage excessif à la dépendance* — repères pour identifier et prévenir le basculement vers un usage problématique : [hcsp.fr/Explore.cgi/AvisRapportsDomaine?clefr=1074](https://www.hcsp.fr/Explore.cgi/AvisRapportsDomaine?clefr=1074)
+- Le projet « Jouons Ensemble ! » au SESSAD Lékoklaya — où ces principes se déclinent en ateliers parent-enfant concrets
 
 ---
 
