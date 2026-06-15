@@ -202,7 +202,7 @@ export default defineNuxtConfig({
       legalName: "Andy Zébus — Entrepreneur Individuel",
       taxID: "813 793 528 00031",
       description:
-        "PXLC est un service de médiation numérique en Guadeloupe, porté par Andy Zébus, qui aide les structures (IME, SESSAD, associations, collectivités) à accompagner les familles autour des écrans.",
+        "PXLC accompagne les familles dans l’éducation numérique des enfants. Médiation numérique en Guadeloupe, portée par Andy Zébus, auprès des structures qui accompagnent des familles.",
       url: "https://pxlc.fr",
       email: "contact@pxlc.fr",
       telephone: "+590690717618",

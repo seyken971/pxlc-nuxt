@@ -22,22 +22,22 @@ defineOgImage('PxlcOg', {
 const faqs = [
   {
     id: 'duree',
-    q: 'Quelle est la durée typique d’un dispositif ?',
-    a: 'À calibrer ensemble selon le rythme de votre structure : un cycle complet articule la préparation, plusieurs ateliers thématiques, un groupe de parole familiale et un bilan. À titre indicatif, le projet « Jouons Ensemble ! » 2026 au SESSAD Lékoklaya s’étend sur l’année.',
+    q: 'Quelle est la durée typique d’un dispositif ?',
+    a: 'À calibrer ensemble selon le rythme de votre structure : un cycle complet articule la préparation, plusieurs ateliers thématiques, un groupe de parole familiale et un bilan. À titre indicatif, le projet « Jouons Ensemble ! » 2026 au SESSAD Lékoklaya s’étend sur l’année.',
   },
   {
     id: 'tarif',
-    q: 'Quel est le tarif ?',
-    a: 'Sur devis, calibré au périmètre (nombre d’ateliers, nombre de familles, durée). Le devis inclut la rémunération du médiateur intervenant ; le prêt des consoles et des jeux peut être inclus ou pris en charge par la structure.',
+    q: 'Quel est le tarif ?',
+    a: 'Sur devis, calibré au périmètre (nombre d’ateliers, nombre de familles, durée). Le devis inclut la rémunération du médiateur intervenant ; le prêt des consoles et des jeux peut être inclus ou pris en charge par la structure.',
   },
   {
     id: 'nombre-enfants',
-    q: 'Combien d’enfants par dispositif ?',
+    q: 'Combien d’enfants par dispositif ?',
     a: 'Calibré avec votre équipe. Le projet 2026 au SESSAD Lékoklaya accompagne 8 enfants âgés de 12 à 17 ans avec leurs parents, en binômes.',
   },
   {
     id: 'profils',
-    q: 'Quels profils d’enfants sont accueillis ?',
+    q: 'Quels profils d’enfants sont accueillis ?',
     a: 'À toutes les familles accompagnées par la structure qui vivent des tensions autour des écrans. Le programme s’adapte en concertation avec votre équipe — y compris pour des profils spécifiques (TND, troubles du comportement, du lien social).',
   },
 ]
@@ -70,7 +70,7 @@ const facts: [string, string][] = [
 const steps = [
   { num: '01', title: 'Préparation', detail: 'Entretiens familiaux avec votre équipe et le médiateur numérique. Identification du profil de chaque enfant, construction des binômes parent-enfant.' },
   { num: '02', title: 'Ateliers thématiques parent-enfant', detail: 'Coopération · Émotions & récits · Différence & complémentarité.' },
-  { num: '03', title: 'Groupe de parole familiale', detail: 'Espace d’échange entre familles : régulation, limites, signes d’alerte, posture parentale.' },
+  { num: '03', title: 'Groupe de parole familiale', detail: 'Espace d’échange entre familles : régulation, limites, signes d’alerte, posture parentale.' },
   { num: '04', title: 'Bilan', detail: 'Synthèse des acquis parent/enfant, élaboration de pistes de continuité à la maison, transmission écrite à l’équipe pluridisciplinaire.' },
 ]
 
@@ -208,7 +208,7 @@ const audiences = [
       <header class="section__head">
         <span class="eyebrow">Cadre théorique</span>
         <h2 id="cadre-title">Deux rapports qui structurent la démarche<span class="coral-dot" aria-hidden="true">.</span></h2>
-        <p class="lead">Pas un avis personnel sur les écrans : un cadre construit à partir des rapports du Haut Conseil de la Santé Publique. Chaque rapport est cité explicitement dans les bilans transmis aux équipes.</p>
+        <p class="lead">Pas un avis personnel sur les écrans&nbsp;: un cadre construit à partir des rapports du Haut Conseil de la Santé Publique. Chaque rapport est cité explicitement dans les bilans transmis aux équipes.</p>
       </header>
       <div class="grid grid--2">
         <article v-for="c in frameworks" :key="c.key + c.year" class="card">
@@ -299,7 +299,7 @@ const audiences = [
         <span class="eyebrow">Adapté à votre structure</span>
         <h2 id="audiences-title">Trois types de portage, un même protocole<span class="coral-dot" aria-hidden="true">.</span></h2>
         <p class="lead">
-          La méthode reste la même ; le portage et le financement s’adaptent à votre cadre institutionnel.
+          La méthode reste la même&nbsp;; le portage et le financement s’adaptent à votre cadre institutionnel.
         </p>
       </header>
       <div class="grid grid--3">

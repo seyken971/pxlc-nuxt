@@ -50,7 +50,7 @@ const stats = [
   <HeroSection
     title="Médiation numérique"
     :title-dot="true"
-    lead="J’interviens auprès des structures de Guadeloupe — SESSAD, IME, associations — pour accompagner les familles dans l’éducation numérique des enfants : résoudre les conflits autour du temps d’écran, adopter les bonnes pratiques du numérique."
+    lead="J’interviens auprès des structures de Guadeloupe — SESSAD, IME, associations — pour accompagner les familles dans l’éducation numérique des enfants&nbsp;: résoudre les conflits autour du temps d’écran, adopter les bonnes pratiques du numérique."
     :cta-primary="heroCta"
     :cta-secondary="heroCtaSecondary"
     hint="← programmes pour les structures"
@@ -77,7 +77,7 @@ const stats = [
   <LazyPxlcMarkSeparator hydrate-on-visible />
   <LazySessadCase hydrate-on-visible />
   <LazyCitationBlock
-    source="« Jouons Ensemble&nbsp;! » · projet 2026"
+    source="«&nbsp;Jouons Ensemble&nbsp;!&nbsp;» · projet 2026"
     quote="Jouer ensemble, c’est mieux comprendre, mieux se parler, et mieux grandir."
     attribution="Tagline du projet · SESSAD Lékoklaya × PXLC"
     hydrate-on-visible

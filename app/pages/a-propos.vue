@@ -117,7 +117,7 @@ const timeline = [
         <span class="eyebrow">Parcours</span>
         <h2 id="parcours-title">Trois casquettes, une cohérence<span class="coral-dot" aria-hidden="true">.</span></h2>
         <p class="lead">
-          Trois expériences professionnelles distinctes — et une seule cohérence : mettre le jeu au service du lien.
+          Trois expériences professionnelles distinctes — et une seule cohérence&nbsp;: mettre le jeu au service du lien.
         </p>
       </header>
       <div class="grid grid--3 casquettes">

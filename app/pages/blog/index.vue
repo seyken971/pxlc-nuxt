@@ -141,7 +141,7 @@ const categoryLabel = (slug?: string): string =>
       </div>
 
       <p v-else class="lead mt-6">
-        Aucun article dans la catégorie « {{ activeCategory }} » pour le moment.
+        Aucun article dans la catégorie «&nbsp;{{ activeCategory }}&nbsp;» pour le moment.
       </p>
     </div>
   </section>

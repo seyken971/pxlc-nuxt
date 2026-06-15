@@ -33,11 +33,11 @@ const sentCard = ref<HTMLDivElement | null>(null)
 // champs du formulaire et on ouvre le client mail de l'utilisateur.
 const submit = () => {
   const lines = [
-    `Nom : ${form.name}`,
-    form.structure ? `Structure : ${form.structure}` : null,
-    `Email : ${form.email}`,
+    `Nom\u00A0: ${form.name}`,
+    form.structure ? `Structure\u00A0: ${form.structure}` : null,
+    `Email\u00A0: ${form.email}`,
     '',
-    'Message :',
+    'Message\u00A0:',
     form.message || '(vide)',
   ].filter((l): l is string => l !== null)
 

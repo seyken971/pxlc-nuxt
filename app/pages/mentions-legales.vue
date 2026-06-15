@@ -103,14 +103,14 @@ const lastUpdated = new Intl.DateTimeFormat('fr-FR', { day: 'numeric', month: 'l
         </p>
         <p>
           Les recommandations institutionnelles citées (HCSP, CNAF) demeurent la propriété de leurs
-          auteurs respectifs ; PXLC se contente de les commenter et d'y faire référence dans le cadre de son
+          auteurs respectifs&nbsp;; PXLC se contente de les commenter et d'y faire référence dans le cadre de son
           activité de médiation.
         </p>
 
         <h2 id="rgpd">Protection des données personnelles (RGPD)</h2>
         <p>
           Le site pxlc.fr ne dépose aucun cookie de traçage publicitaire ni d'analytics tiers. Le formulaire
-          de contact envoie votre message via la boîte mail <a href="mailto:contact@pxlc.fr">contact@pxlc.fr</a> ;
+          de contact envoie votre message via la boîte mail <a href="mailto:contact@pxlc.fr">contact@pxlc.fr</a>&nbsp;;
           aucune donnée n'est stockée sur un serveur tiers à cette occasion.
         </p>
         <p>
@@ -120,7 +120,7 @@ const lastUpdated = new Intl.DateTimeFormat('fr-FR', { day: 'numeric', month: 'l
           <a href="mailto:contact@pxlc.fr">contact@pxlc.fr</a>.
         </p>
         <p>
-          Conformément au règlement européen 2016/679 (RGPD) et à la loi française « Informatique et libertés »,
+          Conformément au règlement européen 2016/679 (RGPD) et à la loi française «&nbsp;Informatique et libertés&nbsp;»,
           vous disposez des droits d'accès, de rectification, d'effacement, de portabilité et d'opposition sur
           vos données personnelles.
         </p>
@@ -144,18 +144,18 @@ const lastUpdated = new Intl.DateTimeFormat('fr-FR', { day: 'numeric', month: 'l
         <p>
           En cas de litige, conformément à l'article L.612-1 du Code de la consommation, vous pouvez recourir
           gratuitement au service de médiation que je vous indiquerai sur demande. Vous pouvez également saisir
-          la plateforme européenne de règlement en ligne des litiges :
+          la plateforme européenne de règlement en ligne des litiges&nbsp;:
           <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener noreferrer">ec.europa.eu/consumers/odr</a>.
         </p>
 
         <h2>Contact</h2>
         <p>
-          Pour toute question relative aux présentes mentions ou au traitement de vos données :
+          Pour toute question relative aux présentes mentions ou au traitement de vos données&nbsp;:
           <a href="mailto:contact@pxlc.fr">contact@pxlc.fr</a>.
         </p>
 
         <p class="kicker legal-updated">
-          Dernière mise à jour : {{ lastUpdated }}
+          Dernière mise à jour&nbsp;: {{ lastUpdated }}
         </p>
       </article>
     </div>

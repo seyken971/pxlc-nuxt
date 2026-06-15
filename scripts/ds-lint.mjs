@@ -30,6 +30,8 @@
  *                       chorégraphie hors échelle sont légitimes)
  *   R10 nommage       — composants app/components en PascalCase, deux
  *                       mots minimum (style guide Vue)
+ *   R11 nbsp-manquante— espace ASCII avant ? ! : ; » / après « / nombre +
+ *                       unité-symbole (h, min, €, %) → insécable manquante
  *
  * Corrections v2 :
  *   - parseSfc : tous les blocs <style> sont capturés (matchAll, pas match)
@@ -258,6 +260,59 @@ function lintSeoMeta(src, file) {
   return vs
 }
 
+// ── R11 — Espaces insécables manquants ────────────────────────────────────────
+// Détecte un espace ASCII (U+0020) là où la typo française impose une insécable :
+// avant ? ! : ; », après «, et entre un nombre et une unité-symbole (h, min, €, %).
+// Les unités en toutes lettres (ans, mois, jours) sont hors scope (décision marque).
+// Scanne UNIQUEMENT la copy, jamais le code, pour éviter les faux positifs
+// (ternaires `a ? b : c`, styles takumi, apostrophes ASCII en commentaire) :
+//   1. texte rendu de <template> — balises <…> et mustaches {{…}} neutralisées ;
+//   2. valeurs d'attributs statiques du template (source=, placeholder=…) —
+//      les bindings :x / @x / v-x sont exclus (ce sont du JS) ;
+//   3. valeurs de chaîne des clés porteuses de copy (title, description, q, a…)
+//      ancrées sur « clé: 'littéral' » — un ternaire (clé: cond ? …) ou un
+//      commentaire ne matchent pas (pas de quote immédiate après la clé).
+function lintNbsp(src, file) {
+  const vs = []
+  const blank = s => ' '.repeat(s.length)
+  const RE = / ([?!:;»])|(«) |\d (?:h|min)\b|\d ([€%])/g
+  const hits = (text, base) => {
+    for (const m of text.matchAll(RE)) {
+      const what = m[1] ? `espace avant « ${m[1]} »`
+        : m[2] !== undefined ? 'espace après «'
+        : m[3] ? `espace avant « ${m[3]} »`
+        : 'espace entre nombre et unité'
+      vs.push({ file, rule: 'nbsp-manquante', line: lineAt(src, base + m.index),
+        detail: `${what} → insécable manquante (\\u00A0 en JS, &nbsp; en template)` })
+    }
+  }
+
+  const t = src.match(/<template[^>]*>([\s\S]*?)<\/template>/)
+  if (t) {
+    const body = t[1]
+    const base = t.index + t[0].indexOf(body)
+    // 1) Texte rendu : on blanchit commentaires <!-- -->, balises et mustaches
+    //    (longueur préservée → lineAt reste exact).
+    hits(body
+      .replace(/<!--[\s\S]*?-->/g, blank)
+      .replace(/<[^>]*>/g, blank)
+      .replace(/\{\{[\s\S]*?\}\}/g, blank), base)
+    // 2) Attributs statiques (nom sans préfixe : @ v-). m[2] = valeur.
+    for (const m of body.matchAll(/(?<![\w:@-])([a-zA-Z][\w-]*)="([^"]*)"/g)) {
+      if (m[1].startsWith('v-')) continue
+      hits(m[2], base + m.index + m[0].length - m[2].length - 1)
+    }
+  }
+
+  // 3) Valeurs de chaîne des clés de copy (script & objets template).
+  const KEYS = 'title|description|ogDescription|eyebrow|lead|quote|attribution|source|name|detail|placeholder|q|a'
+  const keyRe = new RegExp(`\\b(?:${KEYS})\\s*:\\s*(['"\`])((?:\\\\.|(?!\\1)[\\s\\S])*?)\\1`, 'g')
+  for (const m of src.matchAll(keyRe))
+    hits(m[2], m.index + m[0].length - m[2].length - 1)
+
+  return vs
+}
+
 /** Vérifie site.description de nuxt.config.ts (meta description par défaut). */
 async function lintNuxtConfig() {
   const file = join(ROOT, 'nuxt.config.ts')
@@ -286,7 +341,7 @@ const main = async () => {
   await Promise.all(allFiles.map(async file => {
     const src = await readFile(file, 'utf8')
     const { template, style } = parseSfc(src)
-    all.push(...lintStyle(style, file), ...lintTemplate(template, file), ...lintSeoMeta(src, file))
+    all.push(...lintStyle(style, file), ...lintTemplate(template, file), ...lintSeoMeta(src, file), ...lintNbsp(src, file))
     if (file.startsWith(componentsRoot)) all.push(...lintComponentName(file))
   }))
   // Feuilles CSS globales : le fichier entier passe par les règles couleur.
