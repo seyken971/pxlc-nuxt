@@ -448,7 +448,8 @@ const main = async () => {
     [
       "- Composant : `app/components/OgImage/PxlcOg.takumi.vue`",
       "- Générées au build (`ogImage.zeroRuntime: true`) — non disponibles en dev",
-      "- Chaque page surcharge via `defineOgImage('PxlcOg', { eyebrow, title, description })`",
+      "- Carte de marque statique (logo + tagline), identique sur toutes les pages",
+      "- Chaque page l'active via `defineOgImage('PxlcOg')` (le composant n'accepte pas de props)",
     ].join("\n"),
   );
 
