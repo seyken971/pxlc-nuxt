@@ -12,7 +12,7 @@ Déployé sur **https://pxlc.fr**.
 | SEO           | [@nuxtjs/seo](https://nuxtseo.com) — sitemap, robots, schemaOrg, OG images             |
 | Images        | [@nuxt/image](https://image.nuxt.com/) (WebP auto)                                     |
 | Icônes        | [@nuxt/icon](https://nuxt.com/modules/icon) (clientBundle — simple-icons + lucide)     |
-| Fonts         | @nuxt/fonts (auto-hébergé, pas de Google CDN)                                          |
+| Fonts         | [@nuxt/fonts](https://fonts.nuxt.com) (auto-hébergé, pas de Google CDN)                |
 | Hosting       | GitHub Pages — SSG via `actions/deploy-pages`                                          |
 | CI            | GitHub Actions — lint + typecheck + a11y + deploy (bloquant) · Lighthouse hebdo (info) |
 | Environnement | Node 22 LTS                                                                            |
