@@ -22,7 +22,9 @@
     "lighthouse": "node scripts/lighthouse-audit.mjs",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "typecheck": "nuxt typecheck"
+    "typecheck": "nuxt typecheck",
+    "build:lib": "vite build --config vite.lib.config.ts",
+    "build:ce": "vite build --config vite.ce.config.ts"
   },
   "dependencies": {
     "@iconify-json/lucide": "^1.2.112",
