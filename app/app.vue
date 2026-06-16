@@ -4,15 +4,16 @@
 // Note : schemaOrg.identity.logo génère un nœud #organization (comportement interne
 //   nuxt-schema-org non suppressible) — le validator ne remonte pas d'erreur dessus.
 // #andy et #service sont ici car ils sont référencés depuis plusieurs pages :
-//   - #andy : author des BlogPosting dans blog/[...slug].vue
-//   - #service : offre principale, utile sur homepage et blog aussi
+//   - #andy : author des BlogPosting dans blog/[...slug].vue, about de la
+//     WebPage dans a-propos.vue
+//   - #service : offre principale, about de la WebPage dans structures.vue
 useSchemaOrg([
   definePerson({
     '@id': 'https://pxlc.fr/#andy',
     name: 'Andy Zébus',
     jobTitle: 'Médiateur numérique',
     description:
-      'Médiateur numérique basé aux Abymes (Guadeloupe). Aide les structures — SESSAD, IME, associations, collectivités — à accompagner les familles autour des écrans : conflits autour du temps d\'écran, bonnes pratiques numériques.',
+      'Médiateur numérique basé aux Abymes (Guadeloupe). Aide les structures — SESSAD, IME, associations, collectivités — à accompagner les familles autour des écrans : conflits autour du temps d’écran, bonnes pratiques numériques.',
     image: 'https://pxlc.fr/img/photos/andy-portrait.jpg',
     url: 'https://pxlc.fr/a-propos',
     worksFor: { '@id': 'https://pxlc.fr/#identity' },
@@ -20,12 +21,14 @@ useSchemaOrg([
       'https://www.linkedin.com/in/azebus',
       'https://www.github.com/seyken971',
       'https://www.instagram.com/seyken971',
+      'https://www.youtube.com/@seyken971',
+      'https://www.threads.net/@seyken971',
       'https://www.twitter.com/seyken971',
       'https://bsky.app/profile/seyken.pxlc.fr',
     ],
     knowsAbout: [
       'Médiation numérique',
-      'Jeu vidéo thérapeutique',
+      'Médiation par le jeu vidéo',
       'Parentalité numérique',
       'esport',
       'Troubles du neurodéveloppement',
@@ -47,7 +50,7 @@ useSchemaOrg([
     '@type': 'Service',
     name: 'Médiation numérique — Programmes PXLC',
     description:
-      'Médiation numérique pour les structures qui accompagnent des familles en Guadeloupe. Résolution des conflits autour du temps d\'écran, ateliers de bonnes pratiques, vulgarisation numérique.',
+      'Médiation numérique pour les structures qui accompagnent des familles en Guadeloupe. Résolution des conflits autour du temps d’écran, ateliers de bonnes pratiques, vulgarisation numérique.',
     serviceType: 'Médiation numérique',
     provider: { '@id': 'https://pxlc.fr/#identity' },
     areaServed: { '@type': 'AdministrativeArea', name: 'Guadeloupe' },
