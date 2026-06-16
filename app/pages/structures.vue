@@ -39,11 +39,13 @@ const faqs = [
 ]
 
 // Un seul appel : WebPage (FAQPage) + toutes les questions.
-// Service #service est déclaré globalement dans app.vue.
+// Service #service est déclaré globalement dans app.vue — la WebPage le
+// référence via `about` pour le rattacher au graphe.
 useSchemaOrg([
   defineWebPage({
     '@type': ['WebPage', 'FAQPage'],
     name: 'Programmes de médiation numérique pour SESSAD, IME, associations et collectivités',
+    about: { '@id': 'https://pxlc.fr/#service' },
   }),
   ...faqs.map(f =>
     defineQuestion({
