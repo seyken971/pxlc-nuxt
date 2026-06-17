@@ -87,7 +87,7 @@ onBeforeUnmount(() => {
 
     <!-- Reading progress bar — coral line fixed at viewport top -->
     <div class="reading-bar" aria-hidden="true">
-      <div class="reading-bar__fill" :style="{ width: readingProgress + '%' }" />
+      <div class="reading-bar__fill" :style="{ transform: `scaleX(${readingProgress / 100})` }" />
     </div>
 
     <!-- Article header — bg-soft section per DS -->
@@ -160,8 +160,9 @@ onBeforeUnmount(() => {
   height: 3px; background: transparent; pointer-events: none;
 }
 .reading-bar__fill {
-  height: 100%; background: var(--pxlc-coral);
-  transition: width 80ms linear;
+  height: 100%; width: 100%; background: var(--pxlc-coral);
+  transform-origin: left; transform: scaleX(0);
+  transition: transform 80ms linear;
 }
 
 /* ── Article header (bg-soft section) ───────────────────────── */

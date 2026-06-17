@@ -55,6 +55,7 @@ const contactCards = [
     cta: 'Ouvrir cal.eu/pxlc-gp',
     href: 'https://cal.eu/pxlc-gp',
     external: true,
+    featured: true,
   },
   {
     key: 'whatsapp',
@@ -134,7 +135,7 @@ const contactCards = [
 
         <!-- ── Colonne droite — cartes de contact ───────────── -->
         <div class="contact-cards">
-          <div v-for="c in contactCards" :key="c.key" class="contact-card">
+          <div v-for="c in contactCards" :key="c.key" class="contact-card" :class="{ 'contact-card--featured': c.featured }">
             <div class="contact-card__head">
               <div class="contact-card__icon" aria-hidden="true">
                 <Icon :name="c.icon" aria-hidden="true" style="width:18px;height:18px" />
@@ -224,7 +225,15 @@ const contactCards = [
   border: 1px solid var(--rule);
   border-radius: var(--radius-lg);
   padding: var(--space-4);
-  transition: background var(--dur-base);
+  transition: background var(--dur-base), border-color var(--dur-base);
+}
+.contact-card--featured {
+  border-color: var(--pxlc-teal-deep);
+  box-shadow: var(--ring-teal-soft);
+}
+[data-theme="dark"] .contact-card--featured {
+  border-color: var(--pxlc-cyan);
+  box-shadow: var(--ring-cyan);
 }
 .contact-card__head {
   display: flex; align-items: center; gap: var(--space-2-5);

@@ -248,15 +248,16 @@ const audiences = [
     </div>
   </section>
 
-  <section id="lekoklaya" class="section" aria-labelledby="lekoklaya-title">
+  <section id="lekoklaya" class="leko-section" aria-labelledby="lekoklaya-title">
+    <PxlcPixelStrip class="leko-section__strip" :count="7" :accent-at="5" />
     <div class="container">
       <header class="section__head">
-        <span class="eyebrow">Projet pilote — SESSAD Lékoklaya · 2026</span>
-        <h2 id="lekoklaya-title">Ce qu'un dispositif produit concrètement<span class="coral-dot" aria-hidden="true">.</span></h2>
-        <p class="lead">Programme «&nbsp;Jouons Ensemble&nbsp;!&nbsp;» — porté par le psychologue du SESSAD, co-construit avec PXLC.</p>
+        <span class="eyebrow leko-eyebrow">Projet pilote — SESSAD Lékoklaya · 2026</span>
+        <h2 id="lekoklaya-title" class="leko-title">Ce qu'un dispositif produit concrètement<span class="coral-dot" aria-hidden="true">.</span></h2>
+        <p class="lead leko-lead">Programme «&nbsp;Jouons Ensemble&nbsp;!&nbsp;» — porté par le psychologue du SESSAD, co-construit avec PXLC.</p>
       </header>
-      <div class="grid grid--2">
-        <div class="card">
+      <div class="grid grid--2 leko-grid">
+        <div>
           <ul class="leko-list">
             <li><span class="leko-val">8</span><span class="leko-label">enfants accompagnés en binôme avec un parent</span></li>
             <li><span class="leko-val">12–17</span><span class="leko-label">ans · TSA, TDAH, TND, dystrophie musculaire</span></li>
@@ -264,7 +265,7 @@ const audiences = [
             <li><span class="leko-val">4</span><span class="leko-label">intervenants · psychologue, psychomotricienne, médiateur culturel, médiateur numérique</span></li>
           </ul>
         </div>
-        <div class="card">
+        <div>
           <p class="lekoklaya-desc">Le point de départ&nbsp;: le jeu vidéo revenait systématiquement dans les entretiens familiaux comme source de conflit. Le dispositif a transformé ces tensions en matériau de travail pour l'équipe pluridisciplinaire.</p>
           <p class="lekoklaya-desc mt-3">Les parents qui ne comprenaient pas pourquoi leur enfant jouait ont pu rejouer avec lui. Les profils ludiques ont été transmis à l'équipe dans le bilan final.</p>
         </div>
@@ -281,13 +282,12 @@ const audiences = [
           Le projet est porté par la psychologue de votre structure.
         </p>
       </header>
-      <div class="grid grid--2 team-grid">
-        <article v-for="m in team" :key="m.role" class="card">
-          <span class="kicker">Rôle</span>
-          <h3 class="mt-3 team-role">{{ m.role }}</h3>
-          <p class="mt-3 team-detail">{{ m.detail }}</p>
-        </article>
-      </div>
+      <dl class="team-list">
+        <div v-for="m in team" :key="m.role" class="team-item">
+          <dt class="team-role">{{ m.role }}</dt>
+          <dd class="team-detail">{{ m.detail }}</dd>
+        </div>
+      </dl>
     </div>
   </section>
 
@@ -354,9 +354,7 @@ const audiences = [
   color: var(--ink); text-align: right;
 }
 
-/* H1 structures : DS StructuresHero = clamp(32px,4.8vw,56px),
-   distinct du hero accueil = clamp(36px,5.4vw,64px). */
-.hero__title { font-size: clamp(32px, 4.8vw, 56px); }
+.hero__title { font-size: clamp(36px, 5.4vw, 64px); }
 
 .process-grid { align-items: stretch; }
 
@@ -383,8 +381,21 @@ const audiences = [
 
 .theme-title { font-size: 20px; }
 
-.team-grid { align-items: stretch; }
-.team-role { font-size: 18px; }
+.team-list {
+  display: grid; grid-template-columns: 1fr; gap: 0; margin: 0;
+  max-width: 820px;
+}
+@media (min-width: 768px) { .team-list { grid-template-columns: repeat(2, 1fr); } }
+.team-item {
+  padding: var(--space-4); border-bottom: 1px solid var(--rule);
+}
+.team-item:last-child { border-bottom: 0; }
+@media (min-width: 768px) {
+  .team-item:nth-child(odd) { border-right: 1px solid var(--rule); }
+  .team-item:nth-last-child(-n+2) { border-bottom: 0; }
+}
+.team-role { font-family: var(--font-display); font-weight: 600; font-size: 17px; color: var(--ink); margin: 0 0 var(--space-1); }
+.team-detail { margin: 0; color: var(--ink-quiet); }
 
 .audience-card { scroll-margin-top: 0; }
 .audience-list { display: grid; gap: var(--space-2) var(--space-3); grid-template-columns: 1fr; margin: 0; }
@@ -435,9 +446,21 @@ const audiences = [
   }
 }
 
+/* Lekoklaya dark section — casse la monotonie des sections standard */
+.leko-section {
+  background: var(--pxlc-bg-dark); color: var(--pxlc-ivory);
+  padding: clamp(var(--space-6), 8vw, var(--space-9)) 0;
+  position: relative; overflow: hidden;
+}
+.leko-section__strip { position: absolute; top: 32px; right: clamp(20px, 4vw, 56px); }
+.leko-eyebrow { color: var(--pxlc-cyan); }
+.leko-title { color: var(--pxlc-ivory); }
+.leko-lead { color: var(--pxlc-text-on-dark-soft); }
+.leko-grid { align-items: start; }
+
 .leko-list { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--space-4); }
 .leko-list li { display: grid; grid-template-columns: 72px 1fr; gap: var(--space-3); align-items: center; }
 .leko-val { font-family: var(--font-display); font-weight: 700; font-size: 28px; color: var(--pxlc-coral); }
-.leko-label { font-size: 14px; line-height: 1.4; color: var(--ink-quiet); }
-.lekoklaya-desc { font-size: 15px; line-height: 1.6; color: var(--ink-quiet); }
+.leko-label { font-size: 14px; line-height: 1.4; color: var(--pxlc-text-on-dark-soft); }
+.lekoklaya-desc { font-size: 15px; line-height: 1.6; color: var(--pxlc-text-on-dark-soft); }
 </style>

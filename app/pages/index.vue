@@ -105,5 +105,5 @@ const stats = [
   padding-top: var(--space-2);
   display: block;
 }
-.repere__label { font-size: 13px; color: var(--ink-quiet); line-height: 1.4; }
+.repere__label { font-family: var(--font-label); font-size: 12px; letter-spacing: 0.04em; color: var(--ink-quiet); line-height: 1.4; }
 </style>

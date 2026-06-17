@@ -151,7 +151,7 @@ const categoryLabel = (slug?: string): string =>
   transition: background var(--dur-base);
 }
 
-.blog-title { font-size: clamp(38px, 6vw, 64px); letter-spacing: -0.025em; line-height: 1.05; margin-bottom: var(--space-4); }
+.blog-title { font-size: clamp(36px, 5.4vw, 64px); letter-spacing: -0.025em; line-height: 1.05; margin-bottom: var(--space-4); }
 .blog-lead { max-width: 640px; margin-bottom: var(--space-5); }
 
 .blog-filters { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-bottom: var(--space-4); }
@@ -166,7 +166,10 @@ const categoryLabel = (slug?: string): string =>
   color: var(--ink); border-color: var(--ink); background: var(--bg-soft);
 }
 .blog-filters__chip.is-active {
-  color: var(--pxlc-text-ink); background: var(--pxlc-coral); border-color: var(--pxlc-coral);
+  color: var(--pxlc-white); background: var(--pxlc-teal-deep); border-color: var(--pxlc-teal-deep);
+}
+[data-theme="dark"] .blog-filters__chip.is-active {
+  color: var(--pxlc-bg-dark); background: var(--pxlc-cyan); border-color: var(--pxlc-cyan);
 }
 .blog-filters__chip:focus-visible {
   outline: 3px solid var(--pxlc-coral); outline-offset: 2px;
@@ -201,18 +204,19 @@ const categoryLabel = (slug?: string): string =>
   pointer-events: none;
 }
 
-/* --dot-grid bascule seul en dark — seule la couleur de fond est surchargée. */
+/* --dot-grid bascule seul en dark — teintes mixees pour garder la
+   differenciation par categorie visible sur fond sombre. */
 [data-theme="dark"] .blog-card__thumb {
   background-color: var(--pxlc-border-dark-2);
 }
-[data-theme="dark"] .blog-card__thumb--parents     { background-color: var(--pxlc-bg-dark-deep); }
-[data-theme="dark"] .blog-card__thumb--cas-pratique { background-color: var(--pxlc-border-dark); }
-[data-theme="dark"] .blog-card__thumb--decryptage  { background-color: var(--pxlc-bg-dark-soft); }
+[data-theme="dark"] .blog-card__thumb--parents     { background-color: color-mix(in srgb, var(--pxlc-ivory) 8%, var(--pxlc-bg-dark)); }
+[data-theme="dark"] .blog-card__thumb--cas-pratique { background-color: color-mix(in srgb, var(--pxlc-teal-mid) 10%, var(--pxlc-bg-dark)); }
+[data-theme="dark"] .blog-card__thumb--decryptage  { background-color: color-mix(in srgb, var(--pxlc-coral) 6%, var(--pxlc-bg-dark)); }
 .blog-card__body { padding: var(--space-4) var(--space-4) var(--space-5); display: flex; flex-direction: column; gap: var(--space-2-5); flex: 1; }
 .blog-card__badges { display: flex; flex-wrap: wrap; gap: var(--space-1-5); align-items: center; }
 .badge--new { background: var(--pxlc-coral); color: var(--pxlc-text-ink); border-color: var(--pxlc-coral); }
 .blog-card__title { font-size: 18px; line-height: 1.25; letter-spacing: -0.01em; color: var(--ink); }
-.blog-card__excerpt { font-size: 14px; line-height: 1.5; color: var(--ink-quiet); flex: 1; }
+.blog-card__excerpt { font-size: 15px; line-height: 1.5; color: var(--ink-quiet); flex: 1; }
 .blog-card__meta {
   margin-top: auto; display: flex; gap: var(--space-2);
   font-family: var(--font-label); font-size: 11px; letter-spacing: 0.1em;

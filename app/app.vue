@@ -97,8 +97,7 @@ defineOgImage("PxlcOg");
 // (CSS already makes those elements fully visible in that case).
 if (import.meta.client) {
   const TARGETS =
-    '.animate-in:not(.is-visible), .section__head:not(.is-visible), ' +
-    '.repere:not(.is-visible), .card--method:not(.is-visible), .blog-card:not(.is-visible)'
+    '.animate-in:not(.is-visible), .card--method:not(.is-visible), .blog-card:not(.is-visible)'
 
   const scrollIO = new IntersectionObserver(
     (entries) => {
