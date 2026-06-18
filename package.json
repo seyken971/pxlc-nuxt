@@ -27,7 +27,7 @@
     "build:ce": "vite build --config vite.ce.config.ts"
   },
   "dependencies": {
-    "@iconify-json/lucide": "^1.2.112",
+    "@iconify-json/lucide": "^1.2.113",
     "@iconify-json/simple-icons": "^1.2.86",
     "@nuxt/content": "^3.14.0",
     "@nuxt/fonts": "^0.14.0",
