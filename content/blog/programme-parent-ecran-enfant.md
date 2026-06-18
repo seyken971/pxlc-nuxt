@@ -18,11 +18,11 @@ Le programme **Parent-Écran-Enfant** part de cette situation concrète. Il ne p
 
 Quand les écrans sont devenus un sujet sensible, chaque phrase peut être entendue comme une attaque.
 
-"Éteins maintenant."
+« Éteins maintenant. »
 
-"Tu joues trop."
+« Tu joues trop. »
 
-"Tu ne fais que ça."
+« Tu ne fais que ça. »
 
 Ces phrases partent souvent d'une inquiétude légitime. Mais elles ferment vite la discussion. L'enfant se défend, le parent insiste, et chacun reste dans son rôle.
 
@@ -38,11 +38,11 @@ On ne peut pas construire un cadre solide sur une situation qu'on ne comprend pa
 
 ## Un programme pour les familles, pas contre les écrans
 
-Le programme ne dit pas aux parents : "laissez faire". Il ne dit pas non plus : "interdisez tout".
+Le programme ne dit pas aux parents : « laissez faire ». Il ne dit pas non plus : « interdisez tout ».
 
 Il aide à construire un cadre plus lisible.
 
-Les sources institutionnelles vont dans ce sens. Le HCSP recommande d'accompagner les enfants dans leurs usages, de protéger certains moments comme les repas et le sommeil, de veiller aux contenus, et d'aider les adultes à repérer les signes d'usage problématique.
+Les sources institutionnelles vont dans ce sens. Le HCSP recommande d'accompagner les enfants dans leurs usages, de protéger certains moments comme les repas et le sommeil, de veiller aux contenus, et d'aider les adultes à repérer les signes d'usage problématique (avis du 12 décembre 2019, section VII).
 
 Le rapport DITP/MILDECA sur Faminum montre aussi que les parents ont besoin de règles concrètes, mais surtout de règles expliquées et applicables. Les familles adhèrent mieux quand elles peuvent discuter des écrans, choisir des pratiques réalistes et ajuster progressivement.
 
@@ -79,9 +79,9 @@ Le programme propose de transformer temporairement l'écran en support partagé.
 
 Cela peut passer par un jeu vidéo, une vidéo commentée, une discussion autour d'une plateforme, une exploration accompagnée des paramètres, ou un échange sur les habitudes numériques de chacun.
 
-Le but n'est pas que le parent maîtrise les jeux. Le but est qu'il puisse dire à son enfant : "montre-moi ce que tu fais", et que l'enfant puisse répondre sans se sentir immédiatement jugé.
+Le but n'est pas que le parent maîtrise les jeux. Le but est qu'il puisse dire à son enfant : « montre-moi ce que tu fais », et que l'enfant puisse répondre sans se sentir immédiatement jugé.
 
-Quand un enfant explique son jeu à son parent, quelque chose change. Il n'est plus seulement celui qui "abuse des écrans". Il devient quelqu'un qui sait, qui raconte, qui transmet. Et le parent peut observer autrement : ce qui le passionne, ce qui le frustre, ce qui le sécurise, ce qui le déborde.
+Quand un enfant explique son jeu à son parent, quelque chose change. Il n'est plus seulement celui qui « abuse des écrans ». Il devient quelqu'un qui sait, qui raconte, qui transmet. Et le parent peut observer autrement : ce qui le passionne, ce qui le frustre, ce qui le sécurise, ce qui le déborde.
 
 ## Poser des règles praticables
 
@@ -164,4 +164,4 @@ Pour comprendre le socle institutionnel de cette approche, lisez l'article sur l
 
 *Les écrans sont devenus un point de friction dans les familles. Andy Zébus, médiateur numérique et créateur de PXLC, aide les structures en Guadeloupe à accompagner les familles — avec le jeu vidéo comme outil de médiation, jamais comme problème.*
 
-*Sources mobilisées : HCSP 2019 et 2021 ; DITP/MILDECA, rapport final 2022 ; dossier PXLC de médiation numérique parent-enfant par le jeu vidéo.*
+*Sources mobilisées : HCSP 2019 (recommandations parents et encadrants section VII) et 2021 ; DITP/MILDECA, rapport final 2022 ; dossier PXLC de médiation numérique parent-enfant par le jeu vidéo.*

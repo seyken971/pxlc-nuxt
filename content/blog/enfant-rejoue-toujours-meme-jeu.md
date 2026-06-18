@@ -9,7 +9,7 @@ readingTime: 6 min
 
 ## La question qu'on entend tous les jours
 
-*"Il joue à Minecraft depuis trois ans. Il a essayé un autre jeu une fois et il est revenu sur Minecraft. C'est normal ?"*
+*« Il joue à Minecraft depuis trois ans. Il a essayé un autre jeu une fois et il est revenu sur Minecraft. C'est normal ? »*
 
 Spoiler : oui. Et c'est souvent une bonne nouvelle.
 
@@ -21,7 +21,7 @@ Quand un enfant — surtout un enfant accompagné en SESSAD pour TSA ou TDAH —
 
 Dans Minecraft, après trois ans, votre enfant **sait**. Il connaît les recettes, les biomes, les comportements des mobs. Cette maîtrise est rare dans sa vie — à l'école, il est en difficulté ; à la maison, on lui demande sans cesse de faire mieux. Devant son écran, il maîtrise. Le jeu lui rend une **compétence visible** que personne ne lui conteste.
 
-Le Haut Conseil de la Santé Publique le confirme : un enfant qui joue intensément à un jeu ne présente pas nécessairement un usage problématique. Pour les enfants TSA ou TDAH, cet espace de compétence est souvent l'un des rares où ils se sentent capables — ce qui en fait un terrain de travail, pas un symptôme à traiter.
+Le Haut Conseil de la Santé Publique le confirme : un enfant qui joue intensément à un jeu ne présente pas nécessairement un usage problématique (avis du 8 mars 2021, section 4.1). Pour les enfants TSA ou TDAH, cet espace de compétence est souvent l'un des rares où ils se sentent capables — ce qui en fait un terrain de travail, pas un symptôme à traiter.
 
 ### 2. Le refuge structurant
 
@@ -33,7 +33,7 @@ Beaucoup d'enfants ne rejouent pas *la même partie* — ils **continuent** une 
 
 ## Ce qu'il ne faut pas faire
 
-— *"Tu pourrais varier un peu ?"* — sous-entend que ce qu'il fait n'a pas de valeur.
+— *« Tu pourrais varier un peu ? »* — sous-entend que ce qu'il fait n'a pas de valeur.
 
 — Lui acheter cinq nouveaux jeux pour le forcer à essayer autre chose.
 
@@ -53,7 +53,7 @@ Et c'est à partir de là, et seulement à partir de là, qu'on peut éventuelle
 
 *Observations issues des ateliers « Jouons Ensemble ! » menés en Guadeloupe.*
 
-> Un enfant qui rejoue au même jeu n'est pas en train de **stagner**. Il est en train de **maîtriser**. La question n'est pas "comment lui faire jouer à autre chose" — c'est "qu'est-ce qu'il est en train de me dire en jouant à ça ?"
+> Un enfant qui rejoue au même jeu n'est pas en train de **stagner**. Il est en train de **maîtriser**. La question n'est pas « comment lui faire jouer à autre chose » — c'est « qu'est-ce qu'il est en train de me dire en jouant à ça ? »
 
 ---
 

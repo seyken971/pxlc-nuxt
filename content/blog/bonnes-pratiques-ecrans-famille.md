@@ -8,7 +8,7 @@ category: parents
 readingTime: 10 min
 ---
 
-Les parents demandent souvent : "quelle est la bonne règle pour les écrans ?"
+Les parents demandent souvent : « quelle est la bonne règle pour les écrans ? »
 
 La réponse la plus honnête est : il n'y en a pas une seule.
 
@@ -68,11 +68,11 @@ Si besoin, créez un panier à téléphones à l'entrée de la cuisine ou de la 
 
 Beaucoup de conflits viennent d'une règle floue.
 
-"Tu joues un peu."
+« Tu joues un peu. »
 
-"Pas trop longtemps."
+« Pas trop longtemps. »
 
-"Après tu arrêtes."
+« Après tu arrêtes. »
 
 Pour un enfant, ces phrases ne veulent pas dire grand-chose. Il faut un début, une fin, et une règle connue avant de lancer l'activité.
 
@@ -95,7 +95,7 @@ Un jeu à partie longue à 10 minutes du repas, c'est presque toujours un confl
 
 ## 5. Prévenir avant d'arrêter
 
-Dire "éteins maintenant" fonctionne rarement bien quand l'enfant est absorbé.
+Dire « éteins maintenant » fonctionne rarement bien quand l'enfant est absorbé.
 
 Prévenir ne veut pas dire négocier sans fin. En clair, c'est aider le cerveau de l'enfant à changer d'activité.
 
@@ -105,10 +105,10 @@ La règle :
 
 Vous pouvez dire :
 
-- "Il reste 15 minutes."
-- "C'est ta dernière partie."
-- "Tu termines cette mission, puis on coupe."
-- "À 19 h, la console s'éteint. À 18 h 50, je te préviens."
+- « Il reste 15 minutes. »
+- « C'est ta dernière partie. »
+- « Tu termines cette mission, puis on coupe. »
+- « À 19 h, la console s'éteint. À 18 h 50, je te préviens. »
 
 Pour certains enfants, un minuteur visible aide beaucoup. Pour d'autres, c'est le fait de pouvoir sauvegarder ou dire au revoir à leurs amis en ligne qui rend l'arrêt possible.
 
@@ -147,7 +147,7 @@ Il faut le dire explicitement. Et il faut éviter de répondre par une sanction 
 
 Vous pouvez dire :
 
-"Si quelque chose te met mal à l'aise, même si tu penses que tu n'aurais pas dû être là, tu viens me voir. Mon premier rôle sera de t'aider."
+« Si quelque chose te met mal à l'aise, même si tu penses que tu n'aurais pas dû être là, tu viens me voir. Mon premier rôle sera de t'aider. »
 
 Ce n'est pas du laxisme. C'est de la protection.
 
@@ -179,7 +179,7 @@ La règle :
 
 > Pas de réseaux sociaux avant l'âge autorisé, et pas sans discussion familiale.
 
-Pour les préados et ados, la question devient moins "autorisé ou interdit" que "dans quelles conditions ?"
+Pour les préados et ados, la question devient moins « autorisé ou interdit » que « dans quelles conditions ? »
 
 À vérifier :
 
@@ -194,7 +194,7 @@ Un réseau social n'est pas seulement une application. C'est un espace relationn
 
 ## 10. Prévoir des temps sans écran qui donnent envie
 
-Dire "arrête les écrans" sans proposer d'autre espace laisse un vide.
+Dire « arrête les écrans » sans proposer d'autre espace laisse un vide.
 
 Les enfants ont besoin d'autres sources de plaisir : dehors, sport, jeux de société, cuisine, musique, bricolage, lecture, sorties, discussions, temps avec les cousins, activités culturelles.
 
@@ -218,9 +218,9 @@ La règle :
 
 Vous pouvez dire :
 
-- "Je réponds à ce message de travail, puis je pose mon téléphone."
-- "Je regarde l'itinéraire, ce n'est pas un temps de loisir."
-- "Tu as raison, je suis trop sur mon téléphone ce soir. Je le range."
+- « Je réponds à ce message de travail, puis je pose mon téléphone. »
+- « Je regarde l'itinéraire, ce n'est pas un temps de loisir. »
+- « Tu as raison, je suis trop sur mon téléphone ce soir. Je le range. »
 
 Reconnaître ses propres usages ne diminue pas l'autorité. C'est ce qui la rend plus cohérente.
 

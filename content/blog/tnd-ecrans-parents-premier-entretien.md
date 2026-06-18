@@ -10,15 +10,15 @@ readingTime: 9 min
 
 Dans presque tous les premiers entretiens avec les familles d'enfants suivis en SESSAD ou IME, la séquence se répète. Le parent arrive avec une question formulée à l'avance — souvent la même. Et derrière cette question, il y a toujours quelque chose de plus difficile à dire : une inquiétude qu'on n'ose pas nommer directement, ou une culpabilité qu'on n'a pas envie d'exposer.
 
-Après plusieurs années d'entretiens familiaux en Guadeloupe, j'ai identifié cinq inquiétudes qui reviennent presque systématiquement. Ce texte les formule telles que je les entends — et explique ce que le cadre des rapports HCSP · HAS permet de répondre à chacune.
+Après plusieurs années d'entretiens familiaux en Guadeloupe, j'ai identifié cinq inquiétudes qui reviennent presque systématiquement. Ce texte les formule telles que je les entends — et explique ce que le cadre HCSP · HAS permet de répondre à chacune.
 
 ## « Il joue trop. »
 
 C'est souvent la première phrase. Le mot « trop » est vague mais chargé. Il signifie rarement une durée précise — il signifie plutôt : *ça me dépasse, je n'arrive plus à réguler, et j'ai peur que ça soit le signe de quelque chose de grave*.
 
-Le rapport HCSP 2021 *« De l'usage excessif des écrans à la dépendance »* est clair sur ce point : **l'usage intensif n'est pas synonyme d'usage problématique**. Un enfant qui joue beaucoup peut simplement trouver dans le jeu un espace de compétence, de maîtrise et de socialisation — particulièrement précieux pour les enfants TSA ou TDAH dont les autres espaces de réussite sont réduits.
+L'avis HCSP 2021 *« De l'usage excessif des écrans à la dépendance »* est clair sur ce point : **l'usage intensif n'est pas synonyme d'usage problématique** (avis du 8 mars 2021, section 4.1). Un enfant qui joue beaucoup peut simplement trouver dans le jeu un espace de compétence, de maîtrise et de socialisation — particulièrement précieux pour les enfants TSA ou TDAH dont les autres espaces de réussite sont réduits.
 
-Les critères à surveiller, selon le HCSP, ne sont pas quantitatifs (combien d'heures) mais qualitatifs : l'incapacité à interrompre malgré une demande claire, la désorganisation durable du sommeil et des repas, le retrait de toutes les activités préalablement investies, et l'aggravation des troubles comportementaux lors de l'interruption.
+Les critères à surveiller, selon le HCSP, ne sont pas quantitatifs (combien d'heures) mais qualitatifs : l'incapacité à interrompre malgré une demande claire, la désorganisation durable du sommeil et des repas, le retrait de toutes les activités préalablement investies, et l'aggravation des troubles comportementaux lors de l'interruption (avis du 8 mars 2021, section 4.2).
 
 Ce que je dis aux familles : *« Combien d'heures, on verra. Dites-moi d'abord : est-ce qu'il mange ? Est-ce qu'il dort ? Est-ce qu'il y a encore des moments où il fait autre chose ? »*
 
@@ -28,7 +28,7 @@ Cette phrase porte une blessure. Ce n'est pas seulement une question de gestion 
 
 Ce que le cadre clinique permet de comprendre : pour beaucoup d'enfants TSA ou TDAH, le jeu vidéo est un espace de régulation sensorielle et émotionnelle. Il offre ce que le monde social n'offre pas toujours — un feedback prévisible, des règles claires, une maîtrise possible. L'investissement intense dans cet espace n'est pas un rejet de la famille : c'est une réponse à un besoin de régulation que les interactions sociales, y compris familiales, n'arrivent pas à satisfaire de la même façon.
 
-Le rapport HCSP 2019 le formule directement : *« Un accompagnement dans l'utilisation des écrans est l'élément essentiel pouvant expliquer les divergences observées dans les résultats de la littérature scientifique. »* Ce n'est pas le jeu qui coupe du lien. C'est l'absence d'un espace commun autour du jeu.
+Le HCSP le formule directement : *« Un accompagnement dans l'utilisation des écrans est l'élément essentiel pouvant expliquer les divergences observées dans les résultats de la littérature scientifique. »* (avis du 12 décembre 2019, section IV) Ce n'est pas le jeu qui coupe du lien. C'est l'absence d'un espace commun autour du jeu.
 
 C'est précisément ce que les ateliers de médiation essaient de créer : un moment où le jeu devient un espace partagé, pas un espace où l'enfant s'isole.
 
@@ -36,7 +36,7 @@ C'est précisément ce que les ateliers de médiation essaient de créer : un m
 
 La difficulté de transition hors du jeu est l'un des premiers motifs de conflit dans les familles que j'accompagne. Elle est souvent interprétée comme de la mauvaise volonté, de l'opposition, ou comme le signe d'une dépendance.
 
-Le rapport HCSP 2021 clarifie ce point : pour les enfants présentant des troubles du neurodéveloppement, **l'interruption du jeu n'est pas une question de volonté**. Elle mobilise des ressources de régulation émotionnelle que ces enfants n'ont pas toujours disponibles à la demande. La transition hors d'un état de concentration intense — ce qu'on appelle parfois hyperfocus dans le TDAH — est neurologiquement coûteuse.
+En pratique clinique, le constat est net : pour les enfants présentant des troubles du neurodéveloppement, **l'interruption du jeu n'est pas une question de volonté**. Elle mobilise des ressources de régulation émotionnelle que ces enfants n'ont pas toujours disponibles à la demande. La transition hors d'un état de concentration intense — ce qu'on appelle parfois hyperfocus dans le TDAH — est neurologiquement coûteuse.
 
 Ce que ça change en pratique : *« Tu ne peux pas arrêter maintenant »* n'est pas une provocation. C'est une information sur les ressources disponibles à ce moment-là. La question n'est pas « comment forcer l'arrêt » — c'est « comment préparer la transition suffisamment en amont ».
 
@@ -62,7 +62,7 @@ Pour les enfants TSA : l'investissement intense dans un univers numérique pré
 
 Pour les enfants TDAH : le jeu vidéo offre un environnement attentionnel particulièrement adapté — feedback rapide, objectifs clairs, stimulation constante. Ce n'est pas un contournement de la difficulté attentionnelle : c'est une réponse adaptative à un besoin réel. Retirer le jeu sans proposer un équivalent, c'est retirer un outil de régulation sans fournir de remplacement.
 
-Dans les deux cas, le rapport HCSP 2021 rappelle que **le contexte familial amplifie ou atténue tout**. La question des écrans chez un enfant TND est inséparable de la dynamique familiale globale. C'est pourquoi une réponse isolée (« réduire le temps d'écran ») échoue presque toujours — et pourquoi un dispositif qui travaille sur la relation parent-enfant autour du jeu est plus efficace qu'une restriction unilatérale.
+Dans les deux cas, l'avis HCSP 2021 rappelle que **le contexte familial amplifie ou atténue tout** (avis du 8 mars 2021, section 6.2). La question des écrans chez un enfant TND est inséparable de la dynamique familiale globale. C'est pourquoi une réponse isolée (« réduire le temps d'écran ») échoue presque toujours — et pourquoi un dispositif qui travaille sur la relation parent-enfant autour du jeu est plus efficace qu'une restriction unilatérale.
 
 ## Quand s'inquiéter vraiment
 
@@ -88,7 +88,7 @@ Si vous accompagnez une famille dont les préoccupations autour des écrans semb
 
 ---
 
-*Ce texte s'appuie sur l'avis HCSP 2019 sur les effets de l'exposition aux écrans chez l'enfant, l'avis HCSP 2021 sur l'usage excessif et la dépendance, et les recommandations HAS 2020 sur le soutien à la parentalité. Les observations sont issues d'entretiens familiaux anonymisés conduits en Guadeloupe depuis 2023.*
+*Ce texte s'appuie sur l'avis HCSP 2019 sur les effets de l'exposition aux écrans chez l'enfant (impératif d'accompagnement sections IV et VI.1), l'avis HCSP 2021 sur l'usage excessif et la dépendance (usage problématique section 4, comorbidités et contexte familial section 6.2), et les recommandations HAS sur la guidance parentale dans les TND (HAS 2020, consolidées par le guide DITND de septembre 2025). Les observations sont issues d'entretiens familiaux anonymisés conduits en Guadeloupe depuis 2023.*
 
 ---
 

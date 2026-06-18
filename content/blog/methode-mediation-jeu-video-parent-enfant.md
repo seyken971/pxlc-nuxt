@@ -20,7 +20,7 @@ Le jeu vidéo n'est pas présenté comme une thérapie en soi. C'est un support 
 
 ## Médiation ne veut pas dire validation de tous les usages
 
-Utiliser le jeu vidéo comme outil de médiation ne veut pas dire : "laissez votre enfant jouer autant qu'il veut".
+Utiliser le jeu vidéo comme outil de médiation ne veut pas dire : « laissez votre enfant jouer autant qu'il veut ».
 
 L'idée est d'entrer dans ce qu'il fait, plutôt que de rester dehors à limiter de loin.
 
@@ -34,7 +34,7 @@ Tous les jeux vidéo ne se ressemblent pas.
 
 Minecraft, Fortnite, Roblox, FIFA, Mario Kart, Zelda, un jeu mobile, un jeu narratif ou un jeu de construction ne mobilisent pas les mêmes compétences, les mêmes émotions, les mêmes relations.
 
-La première erreur serait de tout résumer à "il joue".
+La première erreur serait de tout résumer à « il joue ».
 
 La méthode PXLC commence par des questions simples :
 
@@ -60,7 +60,7 @@ L'enfant sait souvent mieux que l'adulte. Il connaît les commandes, les règles
 
 Cette inversion est précieuse.
 
-Quand un parent accepte de dire "explique-moi", l'enfant n'est plus seulement celui qu'on limite. Il devient celui qui transmet. Il peut guider, montrer, prévenir, encourager, parfois se moquer gentiment, parfois s'agacer.
+Quand un parent accepte de dire « explique-moi », l'enfant n'est plus seulement celui qu'on limite. Il devient celui qui transmet. Il peut guider, montrer, prévenir, encourager, parfois se moquer gentiment, parfois s'agacer.
 
 Tout cela donne des informations utiles :
 
@@ -79,21 +79,21 @@ Un jeu vidéo fait apparaître des émotions très vite : excitation, frustrati
 
 Dans une famille, ces émotions sont souvent vues uniquement au moment de la crise.
 
-"Il hurle quand il perd."
+« Il hurle quand il perd. »
 
-"Elle pleure quand on coupe."
+« Elle pleure quand on coupe. »
 
-"Il devient agressif quand la partie s'arrête."
+« Il devient agressif quand la partie s'arrête. »
 
-En atelier, on cherche à ralentir la scène. On ne se contente pas de dire "ce n'est qu'un jeu". Pour l'enfant, ce n'est pas toujours "juste" un jeu. C'est parfois un effort, une équipe, une victoire presque atteinte, une construction longue, un espace où il se sent compétent.
+En atelier, on cherche à ralentir la scène. On ne se contente pas de dire « ce n'est qu'un jeu ». Pour l'enfant, ce n'est pas toujours « juste » un jeu. C'est parfois un effort, une équipe, une victoire presque atteinte, une construction longue, un espace où il se sent compétent.
 
 Mettre des mots change la suite :
 
-- "Qu'est-ce qui t'a énervé exactement ?"
-- "Tu pensais pouvoir gagner ?"
-- "C'était important pour toi de finir cette partie ?"
-- "Comment on aurait pu prévoir l'arrêt autrement ?"
-- "Qu'est-ce que tu veux que ton parent comprenne ?"
+- « Qu'est-ce qui t'a énervé exactement ? »
+- « Tu pensais pouvoir gagner ? »
+- « C'était important pour toi de finir cette partie ? »
+- « Comment on aurait pu prévoir l'arrêt autrement ? »
+- « Qu'est-ce que tu veux que ton parent comprenne ? »
 
 Le but n'est pas de justifier toutes les réactions. Le but est de comprendre ce qui les déclenche pour pouvoir poser un cadre plus efficace.
 
@@ -131,11 +131,11 @@ L'objectif n'est pas que la famille joue tout le temps ensemble. L'objectif est 
 
 Quand le parent a vu, essayé, écouté, il peut poser une limite avec plus de précision :
 
-"Je comprends que tu veuilles finir ta partie. On avait dit repas à 19 h 30. La prochaine fois, tu lances une partie plus courte à partir de 19 h."
+« Je comprends que tu veuilles finir ta partie. On avait dit repas à 19 h 30. La prochaine fois, tu lances une partie plus courte à partir de 19 h. »
 
 C'est très différent de :
 
-"Tu ne penses qu'à ton jeu."
+« Tu ne penses qu'à ton jeu. »
 
 La première phrase cadre. La seconde accuse.
 
@@ -147,24 +147,24 @@ Demandez à votre enfant de vous montrer son jeu pendant dix minutes. Pas pour l
 
 Pendant ce temps, évitez les phrases qui ferment :
 
-- "C'est violent ton truc."
-- "Je ne comprends pas comment tu peux aimer ça."
-- "De toute façon ça ne sert à rien."
+- « C'est violent ton truc. »
+- « Je ne comprends pas comment tu peux aimer ça. »
+- « De toute façon ça ne sert à rien. »
 
 Essayez plutôt :
 
-- "Qu'est-ce que tu dois faire ?"
-- "C'est quoi une bonne décision dans ce jeu ?"
-- "Tu joues avec qui ?"
-- "Qu'est-ce qui est difficile ?"
-- "Qu'est-ce qui te plaît le plus ?"
-- "Comment on sait quand une partie est finie ?"
+- « Qu'est-ce que tu dois faire ? »
+- « C'est quoi une bonne décision dans ce jeu ? »
+- « Tu joues avec qui ? »
+- « Qu'est-ce qui est difficile ? »
+- « Qu'est-ce qui te plaît le plus ? »
+- « Comment on sait quand une partie est finie ? »
 
 Ensuite seulement, revenez au cadre :
 
-- "À quel moment ce jeu peut poser problème à la maison ?"
-- "Comment on fait pour que l'arrêt se passe mieux ?"
-- "Quelle règle serait claire pour toi et acceptable pour moi ?"
+- « À quel moment ce jeu peut poser problème à la maison ? »
+- « Comment on fait pour que l'arrêt se passe mieux ? »
+- « Quelle règle serait claire pour toi et acceptable pour moi ? »
 
 La curiosité ne remplace pas l'autorité parentale. Elle la rend plus crédible.
 

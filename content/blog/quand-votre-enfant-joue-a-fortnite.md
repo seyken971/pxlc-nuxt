@@ -10,7 +10,7 @@ readingTime: 8 min
 
 ## Le constat qui revient
 
-Dans neuf entretiens familiaux sur dix, en Guadeloupe, le mot "Fortnite" arrive avant la fin de la première phrase. Souvent dit avec un soupir. Parfois avec une pointe de panique. Rarement avec curiosité.
+Dans neuf entretiens familiaux sur dix, en Guadeloupe, le mot « Fortnite » arrive avant la fin de la première phrase. Souvent dit avec un soupir. Parfois avec une pointe de panique. Rarement avec curiosité.
 
 Pourtant Fortnite, comme tous les jeux *battle royale* compétitifs, est un **artefact culturel** que votre enfant maîtrise déjà mieux que vous. Ce n'est pas un problème à éradiquer ; c'est une **grille de lecture à apprendre**.
 
@@ -27,24 +27,24 @@ Tout ça, pendant 20 minutes. Puis ça recommence.
 
 ## La frustration que vous voyez
 
-Quand votre enfant explose après une partie perdue, ce n'est pas "à cause des écrans". C'est qu'il vient de vivre, en condensé, vingt minutes de coordination d'équipe sous pression, qui se sont terminées par un échec qu'il n'a pas pu rattraper.
+Quand votre enfant explose après une partie perdue, ce n'est pas « à cause des écrans ». C'est qu'il vient de vivre, en condensé, vingt minutes de coordination d'équipe sous pression, qui se sont terminées par un échec qu'il n'a pas pu rattraper.
 
 C'est exactement la frustration d'un sportif qui sort d'un match perdu. La seule différence, c'est que vous ne reconnaissez pas le match.
 
-Le HCSP le formule clairement dans son avis de 2021 : *« Les écrans pourraient être des révélateurs de la vulnérabilité des enfants plutôt que sa cause. »* Ce que vous voyez après une partie perdue n'est pas créé par Fortnite — c'est quelque chose qui existait déjà, que le jeu a simplement rendu visible.
+Le HCSP le formule clairement dans son avis du 12 décembre 2019 (section V.7) : *« Les écrans pourraient être des révélateurs de la vulnérabilité des enfants. »* Ce que vous voyez après une partie perdue n'est pas créé par Fortnite — c'est quelque chose qui existait déjà, que le jeu a simplement rendu visible.
 
 ## Ce qu'on fait en atelier
 
 Dans le cadre du dispositif « Jouons Ensemble ! », le **temps de jeu partagé** sert précisément à voir cette mécanique de l'intérieur. Le parent joue une partie en binôme avec son enfant — pas pour gagner, pour **observer ce que son enfant vit**.
 
-Le **temps d'échange verbal** qui suit n'est pas un débriefing tactique. C'est une traduction : *"j'ai vu que tu as crié quand on a perdu, est-ce que tu peux me dire ce que ça t'a fait ?"*
+Le **temps d'échange verbal** qui suit n'est pas un débriefing tactique. C'est une traduction : *« j'ai vu que tu as crié quand on a perdu, est-ce que tu peux me dire ce que ça t'a fait ? »*
 
 Souvent, c'est la première fois depuis longtemps que ce genre de phrase circule entre un parent et son ado autour des écrans.
 
 ## Pour aller plus loin
 
-- HCSP (2019), *Effets de l'exposition aux écrans* — le rôle clé du cadre familial et des pratiques partagées : [hcsp.fr/Explore.cgi/AvisRapportsDomaine?clefr=759](https://www.hcsp.fr/Explore.cgi/AvisRapportsDomaine?clefr=759)
-- HCSP (2021), *De l'usage excessif à la dépendance* — repères pour identifier et prévenir le basculement vers un usage problématique : [hcsp.fr/Explore.cgi/AvisRapportsDomaine?clefr=1074](https://www.hcsp.fr/Explore.cgi/AvisRapportsDomaine?clefr=1074)
+- HCSP (2019), *Effets de l'exposition aux écrans* — le rôle clé du cadre familial et des pratiques partagées (révélateur de vulnérabilité section V.7, impératif d'accompagnement section VI.1, usages partagés section VII.3) : [hcsp.fr/Explore.cgi/AvisRapportsDomaine?clefr=759](https://www.hcsp.fr/Explore.cgi/AvisRapportsDomaine?clefr=759)
+- HCSP (2021), *De l'usage excessif à la dépendance* — repères pour identifier et prévenir le basculement vers un usage problématique (section 4) : [hcsp.fr/Explore.cgi/AvisRapportsDomaine?clefr=1074](https://www.hcsp.fr/Explore.cgi/AvisRapportsDomaine?clefr=1074)
 - Le projet « Jouons Ensemble ! » au SESSAD Lékoklaya — où ces principes se déclinent en ateliers parent-enfant concrets
 
 ---
