@@ -11,7 +11,7 @@ Quand un parent cherche des repères sur les écrans, il tombe vite sur des chif
 
 Ces repères existent et ils sont utiles. Mais ils ne résument pas ce que dit le Haut Conseil de la Santé Publique (HCSP).
 
-Le cadre HCSP est plus fin que ça : il ne dit pas seulement "réduisez les écrans". Il dit surtout : **regardez l'âge de l'enfant, le contexte familial, le contenu, le moment, le lieu, et la présence adulte autour de l'écran**.
+Le cadre HCSP est plus fin que ça : il ne dit pas seulement « réduisez les écrans ». Il dit surtout : **regardez l'âge de l'enfant, le contexte familial, le contenu, le moment, le lieu, et la présence adulte autour de l'écran**.
 
 Autrement dit, la bonne question n'est pas seulement : *combien de temps mon enfant passe-t-il devant un écran ?*
 
@@ -19,7 +19,7 @@ La question devient : *qu'est-ce qu'il fait, avec qui, à quel moment, dans que
 
 ## Le temps compte, mais il ne suffit pas
 
-Le HCSP rappelle qu'il existe un effet dose : plus le temps d'exposition augmente, plus certains risques augmentent aussi. Sommeil perturbé, sédentarité, fatigue, attention plus fragile, repas moins présents, conflits familiaux plus fréquents.
+Le HCSP rappelle qu'il existe un effet dose (avis du 12 décembre 2019, section VI.6) : plus le temps d'exposition augmente, plus certains risques augmentent aussi. Sommeil perturbé, sédentarité, fatigue, attention plus fragile, repas moins présents, conflits familiaux plus fréquents.
 
 Mais le HCSP insiste aussi sur une limite importante : les études ne permettent pas toujours de dire que l'écran est la cause unique d'une difficulté. Les écrans peuvent être liés à un problème de sommeil, d'attention ou d'isolement, sans être toujours l'origine du problème.
 
@@ -31,7 +31,7 @@ Compter les heures aide à poser un cadre. Comprendre l'usage aide à agir juste
 
 ## L'accompagnement adulte change tout
 
-Le message le plus important du HCSP est souvent le moins retenu : l'enfant ne doit pas être laissé seul face aux écrans, surtout quand il est jeune ou vulnérable.
+Le message le plus important du HCSP est souvent le moins retenu : l'enfant ne doit pas être laissé seul face aux écrans, surtout quand il est jeune ou vulnérable (avis du 12 décembre 2019, section VI.1).
 
 Accompagner ne veut pas dire surveiller chaque seconde. C'est être présent dans la vie numérique de l'enfant :
 
@@ -48,7 +48,7 @@ Le cadre n'est donc pas seulement une règle. C'est une relation.
 
 ## Les moments à protéger en priorité
 
-Dans les recommandations HCSP, certains repères reviennent parce qu'ils touchent directement la santé et la vie familiale.
+Dans les recommandations HCSP (avis du 12 décembre 2019, section VII), certains repères reviennent parce qu'ils touchent directement la santé et la vie familiale.
 
 **La chambre.** Un écran dans la chambre rend le sommeil plus fragile et rend l'usage moins visible pour les adultes. Le repère le plus simple reste : les écrans dorment hors de la chambre.
 
@@ -78,7 +78,7 @@ Numérique ne veut pas dire mauvais. Un usage devient plus ou moins aidant selon
 
 ## Usage intense ne veut pas dire dépendance
 
-Le second avis du HCSP, publié en 2021, porte sur le passage de l'usage excessif à la dépendance. Son intérêt est justement d'éviter les raccourcis.
+Le second avis du HCSP, publié en 2021, porte sur le passage de l'usage excessif à la dépendance (avis du 8 mars 2021, section 4). Son intérêt est justement d'éviter les raccourcis.
 
 Tous les enfants qui jouent beaucoup ne relèvent pas d'un usage problématique. Tous les adolescents qui défendent leur temps de jeu ne relèvent pas d'une prise en charge spécialisée.
 
@@ -104,7 +104,7 @@ Le cadre HCSP peut se traduire en quatre gestes simples.
 
 **Ensuite, ritualiser les moments sensibles.** Pas d'écran à table, pas d'écran avant de dormir, pas d'écran dans la chambre. Ces règles sont plus solides quand elles valent aussi pour les adultes autant que possible.
 
-**Puis, parler du contenu.** Demander "tu peux me montrer ?" fonctionne souvent mieux que "tu joues encore à ça ?"
+**Puis, parler du contenu.** Demander « tu peux me montrer ? » fonctionne souvent mieux que « tu joues encore à ça ? »
 
 **Enfin, aider la transition.** Beaucoup d'enfants ne s'opposent pas seulement à l'arrêt : ils n'arrivent pas à passer brutalement d'un univers stimulant à une demande familiale. Prévenir, laisser finir une partie, annoncer le prochain temps, proposer une étape de retour au calme : ce sont de vrais outils éducatifs.
 
@@ -122,4 +122,4 @@ Pour continuer la série, vous pouvez lire la présentation du [programme Parent
 
 *Les écrans sont devenus un point de friction dans les familles. Andy Zébus, médiateur numérique et créateur de PXLC, aide les structures en Guadeloupe à accompagner les familles — avec le jeu vidéo comme outil de médiation, jamais comme problème.*
 
-*Sources mobilisées : HCSP, avis du 12 décembre 2019 sur les effets de l'exposition des enfants et des jeunes aux écrans ; HCSP, avis du 8 mars 2021 sur l'usage excessif et la dépendance ; DITP/MILDECA, rapport final 2022 sur le bon usage des écrans par les familles.*
+*Sources mobilisées : HCSP, avis du 12 décembre 2019 sur les effets de l'exposition des enfants et des jeunes aux écrans (effet dose section VI.6, impératif d'accompagnement section VI.1, recommandations parents et encadrants section VII) ; HCSP, avis du 8 mars 2021 sur l'usage excessif et la dépendance (usage excessif et problématique section 4) ; DITP/MILDECA, rapport final 2022 sur le bon usage des écrans par les familles.*

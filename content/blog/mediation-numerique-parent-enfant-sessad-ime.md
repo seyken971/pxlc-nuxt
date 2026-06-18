@@ -1,8 +1,8 @@
 ---
 title: "Médiation numérique parent-enfant : repères pour les équipes SESSAD, IME et associations"
-description: Ce que disent les rapports HCSP sur les écrans — et comment le traduire en gestes concrets pour les familles et équipes SESSAD, IME ou associations.
+description: Ce que disent les avis HCSP sur les écrans — et comment le traduire en gestes concrets pour les familles et équipes SESSAD, IME ou associations.
 seoTitle: "Médiation numérique : repères pour les équipes"
-seoDescription: "Ce que disent les rapports HCSP — et comment le traduire en gestes concrets pour les équipes SESSAD, IME, associations."
+seoDescription: "Ce que disent les avis HCSP — et comment le traduire en gestes concrets pour les équipes SESSAD, IME, associations."
 date: 2026-05-18
 category: cas-pratique
 readingTime: 14 min
@@ -10,9 +10,9 @@ readingTime: 14 min
 
 Dans les équipes de SESSAD et d'IME — notamment en Guadeloupe —, la question revient presque à chaque réunion de synthèse : *comment aborder les écrans avec les familles sans tomber dans le discours moral, sans minimiser les vraies difficultés, et sans improviser ?*
 
-Ce guide ne prétend pas trancher le débat "pour ou contre les écrans". Il s'appuie sur les deux rapports de référence du Haut Conseil de la Santé Publique — l'[avis de 2019](https://www.hcsp.fr/Explore.cgi/AvisRapportsDomaine?clefr=759) sur les effets de l'exposition aux écrans, et celui de [2021](https://www.hcsp.fr/Explore.cgi/AvisRapportsDomaine?clefr=1074) sur les usages excessifs — pour donner aux équipes pluridisciplinaires des repères concrets, mobilisables en pratique.
+Ce guide ne prétend pas trancher le débat « pour ou contre les écrans ». Il s'appuie sur les deux avis de référence du Haut Conseil de la Santé Publique — l'[avis de 2019](https://www.hcsp.fr/Explore.cgi/AvisRapportsDomaine?clefr=759) sur les effets de l'exposition aux écrans, et celui de [2021](https://www.hcsp.fr/Explore.cgi/AvisRapportsDomaine?clefr=1074) sur les usages excessifs — pour donner aux équipes pluridisciplinaires des repères concrets, mobilisables en pratique.
 
-## Ce que "médiation numérique parent-enfant" veut vraiment dire
+## Ce que « médiation numérique parent-enfant » veut vraiment dire
 
 Le terme est souvent utilisé de façon vague. Dans le champ de la protection de l'enfance et du médico-social, il recouvre au moins trois réalités distinctes :
 
@@ -24,31 +24,31 @@ Le terme est souvent utilisé de façon vague. Dans le champ de la protection de
 
 Ces trois niveaux ne s'excluent pas. Un bon dispositif de médiation numérique les articule. C'est précisément ce que structure le programme « Jouons Ensemble ! » déployé au SESSAD Lékoklaya en 2026 — et ce que ce guide décrit étape par étape.
 
-## Ce que disent les rapports HCSP : l'essentiel pour votre équipe
+## Ce que disent les avis HCSP : l'essentiel pour votre équipe
 
-### Le rapport HCSP 2019 : l'accompagnement parental est la variable clé
+### L'avis HCSP 2019 : l'accompagnement parental est la variable clé
 
-L'avis de 2019 *"Pour une politique nutritionnelle de santé publique en France — usages des écrans chez les enfants"* aboutit à une conclusion que beaucoup de professionnels méconnaissent : **le facteur le plus déterminant n'est pas le temps d'écran, c'est la qualité de la relation parent-enfant autour des écrans**.
+L'avis de 2019 *« Effets de l'exposition des enfants et des jeunes aux écrans »* aboutit à une conclusion que beaucoup de professionnels méconnaissent : **le facteur le plus déterminant n'est pas le temps d'écran, c'est la qualité de la relation parent-enfant autour des écrans**.
 
-Le HCSP le formule sans ambiguïté : *« Un accompagnement dans l'utilisation des écrans est l'élément essentiel pouvant expliquer les divergences observées dans les résultats de la littérature scientifique. »* Ce point de convergence de l'ensemble de la littérature internationale est le fondement de l'approche PXLC.
+Le HCSP le formule sans ambiguïté : *« Un accompagnement dans l'utilisation des écrans est l'élément essentiel pouvant expliquer les divergences observées dans les résultats de la littérature scientifique. »* (avis du 12 décembre 2019, section IV) Ce point de convergence de l'ensemble de la littérature internationale est le fondement de l'approche PXLC.
 
 Trois points opérationnels pour les équipes :
 
-- **Le visionnage passif solitaire** est ce qui corrèle le plus clairement avec des effets négatifs sur le développement (langage, attention, lien social). Ce n'est pas "les écrans" en général.
+- **Le visionnage passif solitaire** est ce qui corrèle le plus clairement avec des effets négatifs sur le développement (langage, attention, lien social). Ce n'est pas « les écrans » en général.
 - **Le co-usage** — parent et enfant qui jouent, regardent ou créent ensemble — atténue significativement ces effets, y compris chez les enfants présentant des troubles du neurodéveloppement.
 - **La posture parentale active** (commenter ce qui se passe à l'écran, poser des questions sur les jeux, jouer avec l'enfant) est un facteur protecteur plus fort que le simple plafonnement du temps d'écran.
 
 Ce point est central pour calibrer un dispositif : on ne travaille pas sur le temps d'écran. On travaille sur **la qualité de la présence parentale pendant et autour du temps d'écran**.
 
-### Le rapport HCSP 2021 : repérer sans sur-diagnostiquer
+### L'avis HCSP 2021 : repérer sans sur-diagnostiquer
 
-L'avis de 2021 *"De l'usage excessif des écrans à la dépendance"* affine les repères cliniques pour distinguer un usage problématique d'un usage intense mais non pathologique.
+L'avis de 2021 *« De l'usage excessif des écrans à la dépendance »* affine les repères cliniques pour distinguer un usage problématique d'un usage intense mais non pathologique (avis du 8 mars 2021, sections 4.1 et 4.2).
 
 Points clés pour une équipe SESSAD ou IME :
 
 - **L'usage excessif n'est pas synonyme de dépendance**. Un enfant qui joue beaucoup à un jeu peut simplement trouver là un espace de compétence, de maîtrise, de socialisation — particulièrement précieux pour les enfants TSA ou TDAH dont les autres espaces de réussite sont réduits.
 - **Les critères à surveiller** sont : l'incapacité à interrompre le jeu malgré une demande claire, la désorganisation du sommeil et des repas, le retrait des autres activités y compris celles préalablement investies, et l'aggravation des troubles comportementaux lors de l'interruption.
-- **Le contexte familial amplifie ou atténue tout**. Un enfant dans un environnement familial tendu utilisera les écrans comme régulateur émotionnel — ce qui est un signal clinique sur la dynamique familiale, pas sur "les écrans".
+- **Le contexte familial amplifie ou atténue tout** (avis du 8 mars 2021, section 6.2). Un enfant dans un environnement familial tendu utilisera les écrans comme régulateur émotionnel — ce qui est un signal clinique sur la dynamique familiale, pas sur « les écrans ».
 
 Pour une équipe pluri, cela signifie concrètement : **ne pas traiter la question des écrans en silo, mais comme un révélateur du système familial**.
 
@@ -62,21 +62,21 @@ Les SESSAD, IME et associations travaillent avec des publics pour lesquels la qu
 
 **Les enfants avec DM ou neuropathie** trouvent dans le jeu vidéo un espace d'agentivité et de performance physique symbolique. Là aussi, le retrait brutal de cet espace est mal vécu non par caprice, mais parce qu'il supprime l'un des rares terrains où l'enfant se sent compétent.
 
-Dans tous ces cas, les familles arrivent aux entretiens avec une double culpabilité : culpabilité de ne pas avoir su limiter, et culpabilité de ne pas comprendre pourquoi leur enfant y tient autant. L'équipe pluri est attendue sur une position claire — qui ne peut pas se réduire à "réduire le temps d'écran".
+Dans tous ces cas, les familles arrivent aux entretiens avec une double culpabilité : culpabilité de ne pas avoir su limiter, et culpabilité de ne pas comprendre pourquoi leur enfant y tient autant. L'équipe pluri est attendue sur une position claire — qui ne peut pas se réduire à « réduire le temps d'écran ».
 
 ## Les limites des approches classiques
 
 Deux approches dominent encore dans les équipes :
 
-### L'approche prescriptive ("pas plus de X heures")
+### L'approche prescriptive (« pas plus de X heures »)
 
 Elle répond à la demande implicite des parents (donner un chiffre, une règle claire) mais échoue systématiquement dans le médico-social pour plusieurs raisons :
 
 - La règle ne tient pas à la maison si le parent ne se sent pas légitime pour la faire respecter.
 - Elle ne dit rien sur la qualité de l'usage — une heure de jeu partagé vaut davantage que trente minutes de visionnage solitaire.
-- Pour les enfants TSA/TDAH, l'interruption n'est pas une question de volonté : elle mobilise des ressources de régulation que l'enfant n'a pas toujours disponibles. Prescrire "une heure maximum" sans accompagnement de la transition, c'est créer une injonction inapplicable.
+- Pour les enfants TSA/TDAH, l'interruption n'est pas une question de volonté : elle mobilise des ressources de régulation que l'enfant n'a pas toujours disponibles. Prescrire « une heure maximum » sans accompagnement de la transition, c'est créer une injonction inapplicable.
 
-### L'approche éducative classique ("sensibiliser aux dangers")
+### L'approche éducative classique (« sensibiliser aux dangers »)
 
 Elle peut avoir du sens en prévention primaire (milieu scolaire ordinaire, familles sans problématiques spécifiques). Dans le médico-social, elle arrive souvent trop tard (les difficultés sont déjà installées) et s'adresse au mauvais interlocuteur (l'enfant, alors que le levier est le parent).
 
@@ -96,11 +96,11 @@ Dans la plupart des contextes, le parent est celui qui sait, qui décide, qui é
 
 ### Le feedback immédiat et partagé
 
-Le jeu crée des événements qui appartiennent aux deux — une victoire, un échec, un moment drôle, une décision à prendre. Ces événements deviennent des supports de dialogue naturels : "pourquoi tu as fait ça ?", "comment t'as su ?", "on recommence ?" Ce sont exactement les échanges que les familles n'arrivent plus à avoir quand le jeu est devenu un espace de conflit.
+Le jeu crée des événements qui appartiennent aux deux — une victoire, un échec, un moment drôle, une décision à prendre. Ces événements deviennent des supports de dialogue naturels : « pourquoi tu as fait ça ? », « comment t'as su ? », « on recommence ? » Ce sont exactement les échanges que les familles n'arrivent plus à avoir quand le jeu est devenu un espace de conflit.
 
 ### La désamorçage de la charge affective autour des écrans
 
-Quand un parent joue avec son enfant dans un cadre structuré et bienveillant, le jeu vidéo cesse d'être "le truc qui fait qu'on se dispute tous les soirs". Il devient quelque chose qu'on a fait ensemble, que le parent a essayé, sur lequel il a posé un regard. Ça ne résout pas tout — mais ça change la charge symbolique de l'objet.
+Quand un parent joue avec son enfant dans un cadre structuré et bienveillant, le jeu vidéo cesse d'être « le truc qui fait qu'on se dispute tous les soirs ». Il devient quelque chose qu'on a fait ensemble, que le parent a essayé, sur lequel il a posé un regard. Ça ne résout pas tout — mais ça change la charge symbolique de l'objet.
 
 ### Le support pour les équipes
 
@@ -157,7 +157,7 @@ Non. Le dispositif est porté par la psychologue de la structure. Le gamer médi
 **Quels profils d'enfants sont concernés ?**
 Le dispositif a été conçu pour les enfants accompagnés pour TSA, TDAH, TCND, dystrophie musculaire, neuropathie — et plus largement pour tout enfant suivi pour des troubles du neurodéveloppement, du comportement ou du lien social où la question des écrans est un point de friction récurrent. L'adaptation se fait en concertation avec l'équipe pluri.
 
-**Faut-il que les parents "s'y connaissent" en jeux vidéo ?**
+**Faut-il que les parents « s'y connaissent » en jeux vidéo ?**
 Non — c'est même l'inverse qui est souhaitable. Le parent qui ne connaît pas les jeux est dans une position d'apprenti authentique, ce qui est précieux pour le travail relationnel. Le gamer médiateur est là pour rendre les jeux lisibles.
 
 **Comment obtenir un financement ?**
@@ -165,7 +165,7 @@ Le dispositif s'inscrit naturellement dans les lignes de financement des program
 
 ---
 
-*Ce guide a été rédigé à partir des rapports HCSP 2019 et 2021, du rapport DITP/MILDECA 2022 sur les usages familiaux des écrans, du retour d'expérience du projet « Jouons Ensemble ! » au SESSAD Lékoklaya (2026), et de trois ans d'interventions de médiation numérique en Guadeloupe. Pour cadrer un dispositif adapté à votre structure, [contactez PXLC](/contact).*
+*Ce guide a été rédigé à partir des avis HCSP 2019 (impératif d'accompagnement section IV) et 2021 (usage problématique sections 4.1 et 4.2, contexte familial section 6.2), du rapport DITP/MILDECA 2022 sur les usages familiaux des écrans, du retour d'expérience du projet « Jouons Ensemble ! » au SESSAD Lékoklaya (2026), et de trois ans d'interventions de médiation numérique en Guadeloupe. Pour cadrer un dispositif adapté à votre structure, [contactez PXLC](/contact).*
 
 ---
 
