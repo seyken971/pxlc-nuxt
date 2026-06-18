@@ -18,6 +18,7 @@ se vérifient dans les **rapports**.
 | `rapport-promouvoir-bon-usage-ecrans-2022.md` | Rapport final DITP/MILDECA « Les enfants et les écrans » (2022) — sciences comportementales, bonnes pratiques Faminum | <https://www.modernisation.gouv.fr/publications/promouvoir-une-utilisation-raisonnee-des-ecrans-par-les-enfants> |
 | `dossier_enfantsecransnumerique.md` | Dossier HCFEA « Les enfants, les écrans et le numérique », Conseil de l'enfance et de l'adolescence, adopté le 6 mars 2020 | <https://hcfea.gouv.fr/sites/hcfea/files/files-spip/pdf/dossier_enfantsecransnumerique.pdf> |
 | `rapport-commission-enfants-ecrans-2024.md` | Rapport de la commission Enfants et écrans « À la recherche du temps perdu », remis au Président de la République le 30 avril 2024 — 29 propositions | <https://www.vie-publique.fr/rapport/293978-exposition-des-enfants-aux-ecrans-rapport-au-president-de-la-republique> |
+| `guide_guidance_parentale_2025.md` | Guide « Guidance parentale dans les troubles du neurodéveloppement — Pourquoi, comment, pour qui ? » (délégation interministérielle TND, septembre 2025) | <https://handicap.gouv.fr/sites/handicap/files/2025-12/Guide-Guidance-parentale-2025.pdf> |
 
 Les noms `hcspa*`/`hcspr*` reprennent la nomenclature officielle des PDF du
 HCSP (a = avis, r = rapport). Le communiqué de presse HCSP (`hcspc*`) a été
