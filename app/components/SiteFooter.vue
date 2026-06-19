@@ -23,7 +23,8 @@ const year = new Date().getFullYear()
           </p>
           <ul class="site-footer__social" role="list">
             <li>
-              <a class="site-footer__social-btn" href="https://www.linkedin.com/in/azebus" target="_blank"
+              <a
+                class="site-footer__social-btn" href="https://www.linkedin.com/in/azebus" target="_blank"
                 rel="noopener noreferrer" aria-label="LinkedIn d’Andy Zébus">
                 <Icon name="simple-icons:linkedin" aria-hidden="true" />
               </a>
@@ -34,7 +35,8 @@ const year = new Date().getFullYear()
               </a>
             </li>
             <li>
-              <a class="site-footer__social-btn" href="https://cal.eu/pxlc-gp" target="_blank" rel="noopener noreferrer"
+              <a
+                class="site-footer__social-btn" href="https://cal.eu/pxlc-gp" target="_blank" rel="noopener noreferrer"
                 aria-label="Réserver un échange de 20 minutes">
                 <Icon name="lucide:calendar" aria-hidden="true" />
               </a>
@@ -48,7 +50,8 @@ const year = new Date().getFullYear()
             <li>
               <NuxtLink class="site-footer__col-link" to="/structures">Pour les structures</NuxtLink>
             </li>
-            <li><a class="site-footer__col-link" href="/files/plaquette-pxlc.pdf" target="_blank"
+            <li><a
+                class="site-footer__col-link" href="/files/plaquette-pxlc.pdf" target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Télécharger la plaquette (PDF, 6 pages, nouvel onglet)">Télécharger la plaquette</a></li>
             <li>
@@ -70,14 +73,16 @@ const year = new Date().getFullYear()
               </NuxtLink>
             </li>
             <li>
-              <a class="site-footer__col-link site-footer__col-link--icon" href="https://cal.eu/pxlc-gp" target="_blank"
+              <a
+                class="site-footer__col-link site-footer__col-link--icon" href="https://cal.eu/pxlc-gp" target="_blank"
                 rel="noopener noreferrer">
                 <Icon name="lucide:calendar" aria-hidden="true" class="site-footer__contact-icon" />
                 Réserver · 20&nbsp;min
               </a>
             </li>
             <li>
-              <a class="site-footer__col-link site-footer__col-link--icon" href="https://wa.me/590690717618"
+              <a
+                class="site-footer__col-link site-footer__col-link--icon" href="https://wa.me/590690717618"
                 target="_blank" rel="noopener noreferrer">
                 <Icon name="simple-icons:whatsapp" aria-hidden="true" class="site-footer__contact-icon" />
                 WhatsApp
