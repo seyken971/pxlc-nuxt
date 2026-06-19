@@ -164,6 +164,12 @@ export default defineNuxtConfig({
   // @nuxtjs/seo.
   sitemap: {
     zeroRuntime: true,
+    // Tamponne chaque URL avec la date du build (lastmod). Sans lui le sitemap
+    // ne portait aucun <lastmod> : Google n'avait aucun signal de fraîcheur pour
+    // reprioriser le recrawl, d'où la persistance d'entrées d'index périmées
+    // (titre « 500 - Internal Server Error » capturé sur un build cassé
+    // antérieur, avant failOnError). Build-time, compatible zeroRuntime.
+    autoLastmod: true,
   },
 
   seo: {
