@@ -30,8 +30,8 @@ withDefaults(defineProps<Props>(), {
               target="_blank"
               rel="noopener noreferrer"
               class="btn btn--primary btn--lg"
-              aria-label="Réserver un échange (nouvel onglet)"
-            >Réserver un échange</a>
+              aria-label="Prendre rendez-vous (nouvel onglet)"
+            >Prendre rendez-vous</a>
             <a
               href="/files/plaquette-pxlc.pdf"
               target="_blank"
@@ -46,8 +46,8 @@ withDefaults(defineProps<Props>(), {
              CTA section, not tangentially related content, so an aside
              landmark nested inside the cta-block section trips axe-core
              "landmark-complementary-is-top-level". -->
-        <div class="cta-block__sidecard" role="group" aria-label="Réservation">
-          <div class="cta-block__sidecard-eyebrow">Réservation</div>
+        <div class="cta-block__sidecard" role="group" aria-label="Rendez-vous">
+          <div class="cta-block__sidecard-eyebrow">Rendez-vous</div>
           <p class="cta-block__sidecard-lead">
             Agenda mis à jour en temps réel sur <a href="https://cal.eu/pxlc-gp" target="_blank" rel="noopener noreferrer" class="cta-block__sidecard-link">cal.eu/pxlc-gp</a>. Les créneaux libres sont visibles immédiatement.
           </p>

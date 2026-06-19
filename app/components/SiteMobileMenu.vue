@@ -116,7 +116,7 @@ watch(() => route.fullPath, () => { menuOpen.value = false })
         class="btn btn--primary mobile-menu__cta-btn"
         @click="close"
       >
-        Réserver un échange
+        Prendre rendez-vous
       </a>
     </div>
   </div>

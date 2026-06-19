@@ -50,7 +50,7 @@ const contactCards = [
   {
     key: 'calendar',
     icon: 'lucide:calendar',
-    label: 'Réserver un créneau',
+    label: 'Prendre rendez-vous',
     desc: '20 min · visio · gratuit',
     cta: 'Ouvrir cal.eu/pxlc-gp',
     href: 'https://cal.eu/pxlc-gp',
@@ -64,24 +64,6 @@ const contactCards = [
     desc: '+590 690 717 618',
     cta: 'Envoyer un message',
     href: 'https://wa.me/590690717618',
-    external: true,
-  },
-  {
-    key: 'email',
-    icon: 'lucide:mail',
-    label: 'E-mail',
-    desc: 'contact@pxlc.fr',
-    cta: 'Écrire un mail',
-    href: 'mailto:contact@pxlc.fr',
-    external: false,
-  },
-  {
-    key: 'linkedin',
-    icon: 'simple-icons:linkedin',
-    label: 'LinkedIn',
-    desc: 'linkedin.com/in/azebus',
-    cta: 'Voir le profil',
-    href: 'https://www.linkedin.com/in/azebus',
     external: true,
   },
 ]
@@ -157,12 +139,15 @@ const contactCards = [
           <!-- NAP visible et indexable — doit correspondre à la fiche Google
                Business Profile et au nœud schema.org #identity (signal local). -->
           <address class="contact-nap">
-            <p class="contact-nap__label">Adresse</p>
+            <p class="contact-nap__label">Coordonnées</p>
             <p class="contact-nap__name">PXLC</p>
             <p class="contact-nap__line">8 Résidence la familiale, rue Man Manigard Alfred, Dugazon</p>
             <p class="contact-nap__line">97139 Les Abymes, Guadeloupe</p>
             <p class="contact-nap__line">
-              <a class="contact-nap__tel" href="tel:+590690717618">+590 690 717 618</a>
+              <a class="contact-nap__link" href="tel:+590690717618">+590 690 717 618</a>
+            </p>
+            <p class="contact-nap__line">
+              <a class="contact-nap__link" href="mailto:contact@pxlc.fr">contact@pxlc.fr</a>
             </p>
             <a
               class="contact-nap__map"
@@ -312,8 +297,8 @@ const contactCards = [
   color: var(--ink-quiet);
   margin: 0 0 var(--space-1);
 }
-.contact-nap__tel { color: var(--ink-quiet); }
-.contact-nap__tel:hover { color: var(--eyebrow); }
+.contact-nap__link { color: var(--ink-quiet); }
+.contact-nap__link:hover { color: var(--eyebrow); }
 .contact-nap__map {
   display: inline-flex; align-items: center; gap: var(--space-2);
   margin-top: var(--space-2-5);

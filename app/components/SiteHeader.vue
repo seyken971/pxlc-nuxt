@@ -51,8 +51,8 @@ onBeforeUnmount(() => {
           target="_blank"
           rel="noopener noreferrer"
           class="btn btn--primary site-header__cta"
-          aria-label="Réserver un échange (nouvel onglet)"
-        >Réserver</a>
+          aria-label="Prendre rendez-vous (nouvel onglet)"
+        >Prendre RDV</a>
 
         <button
           type="button"

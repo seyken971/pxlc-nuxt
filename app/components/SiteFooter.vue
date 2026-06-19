@@ -15,7 +15,7 @@ const year = new Date().getFullYear()
           PXLC accompagne les familles dans l’éducation numérique des enfants.
         </p>
         <a class="site-footer__mission-link" href="https://cal.eu/pxlc-gp" target="_blank" rel="noopener noreferrer">
-          Réserver un échange · 20&nbsp;min
+          Prendre rendez-vous · 20&nbsp;min
         </a>
       </div>
 
@@ -41,7 +41,7 @@ const year = new Date().getFullYear()
             <li>
               <a
                 class="site-footer__social-btn" href="https://cal.eu/pxlc-gp" target="_blank" rel="noopener noreferrer"
-                aria-label="Réserver un échange de 20 minutes">
+                aria-label="Prendre rendez-vous de 20 minutes">
                 <Icon name="lucide:calendar" aria-hidden="true" />
               </a>
             </li>
@@ -75,28 +75,6 @@ const year = new Date().getFullYear()
                 <Icon name="lucide:message-square" aria-hidden="true" class="site-footer__contact-icon" />
                 Formulaire · 5&nbsp;min
               </NuxtLink>
-            </li>
-            <li>
-              <a
-                class="site-footer__col-link site-footer__col-link--icon" href="https://cal.eu/pxlc-gp" target="_blank"
-                rel="noopener noreferrer">
-                <Icon name="lucide:calendar" aria-hidden="true" class="site-footer__contact-icon" />
-                Réserver · 20&nbsp;min
-              </a>
-            </li>
-            <li>
-              <a
-                class="site-footer__col-link site-footer__col-link--icon" href="https://wa.me/590690717618"
-                target="_blank" rel="noopener noreferrer">
-                <Icon name="simple-icons:whatsapp" aria-hidden="true" class="site-footer__contact-icon" />
-                WhatsApp
-              </a>
-            </li>
-            <li>
-              <a class="site-footer__col-link site-footer__col-link--icon" href="mailto:contact@pxlc.fr">
-                <Icon name="lucide:mail" aria-hidden="true" class="site-footer__contact-icon" />
-                contact@pxlc.fr
-              </a>
             </li>
           </ul>
         </div>
