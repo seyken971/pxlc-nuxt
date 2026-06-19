@@ -251,7 +251,7 @@ export default defineNuxtConfig({
         "https://www.youtube.com/@seyken971",
         "https://www.threads.net/@seyken971",
         "https://www.twitter.com/seyken971",
-        "https://bsky.app/profile/seyken.pxlc.fr",
+        "https://bsky.app/profile/seyken971.pxlc.fr",
       ],
     }),
   },
