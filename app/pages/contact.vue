@@ -153,6 +153,25 @@ const contactCards = [
               class="contact-card__cta"
             >{{ c.cta }} →</a>
           </div>
+
+          <!-- NAP visible et indexable — doit correspondre à la fiche Google
+               Business Profile et au nœud schema.org #identity (signal local). -->
+          <address class="contact-nap">
+            <p class="contact-nap__label">Adresse</p>
+            <p class="contact-nap__name">PXLC</p>
+            <p class="contact-nap__line">8 Résidence la familiale, rue Man Manigard Alfred, Dugazon</p>
+            <p class="contact-nap__line">97139 Les Abymes, Guadeloupe</p>
+            <p class="contact-nap__line">
+              <a class="contact-nap__tel" href="tel:+590690717618">+590 690 717 618</a>
+            </p>
+            <a
+              class="contact-nap__map"
+              href="https://maps.app.goo.gl/4UPhQWdzboD6HnAs8"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Voir PXLC sur Google Maps (nouvel onglet)"
+            >Voir sur Google Maps →</a>
+          </address>
         </div>
 
       </div>
@@ -266,6 +285,45 @@ const contactCards = [
 .contact-card__cta:hover { color: var(--pxlc-coral); text-decoration: none; }
 [data-theme="dark"] .contact-card__cta { color: var(--cyan); }
 [data-theme="dark"] .contact-card__cta:hover { color: var(--pxlc-coral); }
+
+/* ── NAP (adresse visible + lien Maps) ───────────────────────── */
+.contact-nap {
+  font-style: normal;
+  padding: var(--space-4);
+  border: 1px dashed var(--rule);
+  border-radius: var(--radius-lg);
+}
+.contact-nap__label {
+  font-family: var(--font-label);
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--eyebrow);
+  margin: 0 0 var(--space-2-5);
+}
+.contact-nap__name {
+  font-family: var(--font-display);
+  font-weight: 600; font-size: 15px;
+  color: var(--ink);
+  margin: 0 0 var(--space-1);
+}
+.contact-nap__line {
+  font-family: var(--font-body);
+  font-size: 14px; line-height: 1.5;
+  color: var(--ink-quiet);
+  margin: 0 0 var(--space-1);
+}
+.contact-nap__tel { color: var(--ink-quiet); }
+.contact-nap__tel:hover { color: var(--eyebrow); }
+.contact-nap__map {
+  display: inline-flex; align-items: center; gap: var(--space-2);
+  margin-top: var(--space-2-5);
+  font-family: var(--font-body);
+  font-weight: 600; font-size: 14px;
+  color: var(--eyebrow);
+}
+.contact-nap__map:hover { color: var(--pxlc-coral); text-decoration: none; }
+[data-theme="dark"] .contact-nap__map { color: var(--cyan); }
+[data-theme="dark"] .contact-nap__map:hover { color: var(--pxlc-coral); }
 
 /* ── Mobile ──────────────────────────────────────────────────── */
 @media (max-width: 600px) {

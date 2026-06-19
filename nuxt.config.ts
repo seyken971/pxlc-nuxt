@@ -210,6 +210,9 @@ export default defineNuxtConfig({
     identity: defineLocalBusiness({
       "@type": "ProfessionalService",
       logo: "/logo.svg",
+      // Photo réelle de l'activité — recommandée par Google pour LocalBusiness
+      // (le logo seul ne suffit pas). Résolue en absolu via site.url par le module.
+      image: "/img/photos/andy-event.jpg",
       name: "PXLC",
       legalName: "Andy Zébus — Entrepreneur Individuel",
       taxID: "813 793 528 00031",
@@ -238,6 +241,8 @@ export default defineNuxtConfig({
         latitude: 16.2496,
         longitude: -61.5181,
       },
+      // Lien vers la fiche Google Business Profile (Place → carte).
+      hasMap: "https://maps.app.goo.gl/4UPhQWdzboD6HnAs8",
       // Prestataire qui se déplace : toute la Guadeloupe est desservie, avec
       // les communes de l'agglomération centrale (où se concentrent les
       // structures accueillant des familles) nommées pour le signal local.
@@ -258,6 +263,9 @@ export default defineNuxtConfig({
         "https://www.threads.net/@seyken971",
         "https://www.twitter.com/seyken971",
         "https://bsky.app/profile/seyken971.pxlc.fr",
+        // Fiche Google Business Profile vérifiée — relie l'entité du site à la
+        // fiche locale Google (signal de cohérence/prominence pour le local).
+        "https://maps.app.goo.gl/4UPhQWdzboD6HnAs8",
       ],
     }),
   },
