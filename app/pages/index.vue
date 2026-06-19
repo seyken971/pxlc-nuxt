@@ -9,7 +9,7 @@ useSeoMeta({
 if (import.meta.server) {
   useSeoMeta({
     description:
-      'Programmes parent-enfant en Guadeloupe — résoudre les tensions autour des écrans. Cadre HCSP 2019-2020 · HAS 2020.',
+      'Médiation numérique en Guadeloupe — Andy Zébus aide votre structure à accompagner les familles autour des écrans.',
     ogDescription:
       'Andy Zébus, créateur de PXLC, intervient dans les structures de Guadeloupe — ateliers parent-enfant, avec votre équipe.',
   })
