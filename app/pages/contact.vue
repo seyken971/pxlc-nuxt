@@ -140,7 +140,7 @@ const contactCards = [
                Business Profile et au nœud schema.org #identity (signal local). -->
           <address class="contact-nap">
             <p class="contact-nap__label">Coordonnées</p>
-            <p class="contact-nap__name">PXLC</p>
+            <p class="contact-nap__name">PXLC - Médiation numérique</p>
             <p class="contact-nap__line">8 Résidence la familiale, rue Man Manigard Alfred, Dugazon</p>
             <p class="contact-nap__line">97139 Les Abymes, Guadeloupe</p>
             <p class="contact-nap__line">

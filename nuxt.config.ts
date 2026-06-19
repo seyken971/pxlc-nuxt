@@ -213,7 +213,9 @@ export default defineNuxtConfig({
       // Photo réelle de l'activité — recommandée par Google pour LocalBusiness
       // (le logo seul ne suffit pas). Résolue en absolu via site.url par le module.
       image: "/img/photos/andy-event.jpg",
-      name: "PXLC",
+      // Nom = libellé exact de la fiche Google Business Profile (cohérence NAP).
+      // Distinct de site.name ("PXLC"), qui reste court pour le suffixe de titre.
+      name: "PXLC - Médiation numérique",
       legalName: "Andy Zébus — Entrepreneur Individuel",
       taxID: "813 793 528 00031",
       description:
