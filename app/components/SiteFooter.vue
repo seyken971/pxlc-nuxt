@@ -4,7 +4,11 @@ const year = new Date().getFullYear()
 
 <template>
   <footer class="site-footer">
-    <div class="container">
+    <!-- data-nosnippet : le footer est du boilerplate sitewide ; sans cet
+         attribut Google composait le snippet de l'accueil à partir de la
+         mission + CTA + titres de colonnes d'ici (extrait haché). div/section/
+         span sont les seuls éléments où Google honore data-nosnippet. -->
+    <div class="container" data-nosnippet>
       <div class="site-footer__top">
         <PxlcPixelStrip :count="7" :accent-at="2" />
         <p class="site-footer__mission">

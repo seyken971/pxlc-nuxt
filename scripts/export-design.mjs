@@ -382,7 +382,7 @@ const main = async () => {
       "- Chiffres en numéraux sauf en début de phrase",
       "- `Parent-Écran-Enfant` avec majuscules",
       "- Ne jamais écrire « fondateur » — écrire « créateur de PXLC »",
-      "- Nommer les clients : terme générique « les lieux d'accueil des familles » (court « les lieux ») ; en adresse directe, nommer le lieu (« votre médiathèque ») ou « votre structure » ; « structures » seul = sous-ensemble médico-social et associatif, jamais le parapluie",
+      "- Nommer les clients : terme générique « les lieux d'accueil des familles » (court « les lieux ») ; en adresse directe, nommer le lieu (« votre médiathèque ») ou « votre structure »",
       "- Mission en une phrase : « PXLC accompagne les familles dans l'éducation numérique des enfants. »",
       "- Cadre réglementaire : toujours citer HCSP 2019-2020 · HAS 2020 ensemble",
       "- Toute affirmation santé/usage des écrans doit être sourcée depuis docs/references/ (document + section) — ne jamais inventer un chiffre ou une recommandation",
