@@ -86,14 +86,6 @@ const indicators = [
 ]
 
 const { themes } = useProjectThemes()
-
-const team = [
-  { role: 'Psychologue', detail: 'porteur du projet, cadrage clinique, entretien initial, bilan' },
-  { role: 'Psychomotricienne', detail: 'auto-régulation des affects et des pulsions motrices' },
-  { role: 'Intervenants culturels', detail: 'jeux traditionnels' },
-  { role: 'Médiateur numérique', detail: "usages numériques (jeu vidéo, réseaux, temps d'écran), choix des jeux, accompagnement en situation, démystification" },
-]
-
 </script>
 
 <template>
@@ -149,7 +141,6 @@ const team = [
         <li><a class="onpage-nav__link" href="#cadre">Cadre</a></li>
         <li><a class="onpage-nav__link" href="#indicateurs">Indicateurs</a></li>
         <li><a class="onpage-nav__link" href="#lekoklaya">Projet pilote</a></li>
-        <li><a class="onpage-nav__link" href="#equipe">Équipe</a></li>
         <li><a class="onpage-nav__link" href="#faq">FAQ</a></li>
       </ul>
     </div>
@@ -258,26 +249,9 @@ const team = [
         <div>
           <p class="lekoklaya-desc">Le point de départ&nbsp;: le jeu vidéo revenait systématiquement dans les entretiens familiaux comme source de conflit. Le dispositif a transformé ces tensions en matériau de travail pour l'équipe pluridisciplinaire.</p>
           <p class="lekoklaya-desc mt-3">Les parents qui ne comprenaient pas pourquoi leur enfant jouait ont pu rejouer avec lui. Les profils ludiques ont été transmis à l'équipe dans le bilan final.</p>
+          <NuxtLink to="/blog/jouons-ensemble-sessad-lekoklaya" class="leko-link mt-3">Lire le projet en détail</NuxtLink>
         </div>
       </div>
-    </div>
-  </section>
-
-  <section id="equipe" class="section section--soft" aria-labelledby="equipe-title">
-    <div class="container">
-      <header class="section__head">
-        <span class="eyebrow">Exemple de composition — SESSAD Lékoklaya 2026</span>
-        <h2 id="equipe-title">Le médiateur numérique ne remplace personne — il complète<span class="coral-dot" aria-hidden="true">.</span></h2>
-        <p class="lead">
-          Le projet est porté par la psychologue de votre structure.
-        </p>
-      </header>
-      <dl class="team-list">
-        <div v-for="m in team" :key="m.role" class="team-item">
-          <dt class="team-role">{{ m.role }}</dt>
-          <dd class="team-detail">{{ m.detail }}</dd>
-        </div>
-      </dl>
     </div>
   </section>
 
@@ -359,8 +333,7 @@ const team = [
 /* .pxlc-body-sm (global) — 15px / 1.6 avec font-body et ink-quiet. */
 .framework-desc,
 .indicator-detail,
-.theme-desc,
-.team-detail { font-size: 15px; line-height: 1.6; }
+.theme-desc { font-size: 15px; line-height: 1.6; }
 
 .framework-meta { display: block; }
 .framework-meta--link { color: var(--teal-deep); transition: color var(--dur-fast); }
@@ -370,22 +343,6 @@ const team = [
 .indicator-title { font-size: 18px; }
 
 .theme-title { font-size: 20px; }
-
-.team-list {
-  display: grid; grid-template-columns: 1fr; gap: 0; margin: 0;
-  max-width: 820px;
-}
-@media (min-width: 768px) { .team-list { grid-template-columns: repeat(2, 1fr); } }
-.team-item {
-  padding: var(--space-4); border-bottom: 1px solid var(--rule);
-}
-.team-item:last-child { border-bottom: 0; }
-@media (min-width: 768px) {
-  .team-item:nth-child(odd) { border-right: 1px solid var(--rule); }
-  .team-item:nth-last-child(-n+2) { border-bottom: 0; }
-}
-.team-role { font-family: var(--font-display); font-weight: 600; font-size: 17px; color: var(--ink); margin: 0 0 var(--space-1); }
-.team-detail { margin: 0; color: var(--ink-quiet); }
 
 .faq { display: grid; gap: var(--space-2-5); max-width: 820px; margin: 0 auto; }
 .faq__item {
@@ -443,4 +400,15 @@ const team = [
 .leko-val { font-family: var(--font-display); font-weight: 700; font-size: 28px; color: var(--pxlc-coral); }
 .leko-label { font-size: 14px; line-height: 1.4; color: var(--pxlc-text-on-dark-soft); }
 .lekoklaya-desc { font-size: 15px; line-height: 1.6; color: var(--pxlc-text-on-dark-soft); }
+/* Lien vers l'étude de cas — section toujours sombre, couleur cyan forcée
+   (le teal-deep par défaut manquerait de contraste sur ce fond). */
+.leko-link {
+  display: inline-flex; align-items: center; gap: var(--space-2);
+  min-height: 44px;
+  font-family: var(--font-label); font-size: 13px; font-weight: 600;
+  letter-spacing: 0.04em; color: var(--pxlc-cyan);
+}
+.leko-link::after { content: "→"; }
+.leko-link:hover { color: var(--pxlc-ivory); text-decoration: none; }
+.leko-link:focus-visible { outline: none; box-shadow: var(--ring-cyan); border-radius: var(--radius-xs); }
 </style>
