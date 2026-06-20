@@ -38,7 +38,7 @@ withDefaults(defineProps<Props>(), {
               rel="noopener noreferrer"
               class="btn btn--ghost btn--lg btn--no-arrow"
               aria-label="Plaquette PDF, 6 pages (nouvel onglet)"
-            >Plaquette PDF</a>
+            >Plaquette PDF · 6 pages</a>
           </div>
         </div>
 

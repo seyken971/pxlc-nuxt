@@ -94,33 +94,6 @@ const team = [
   { role: 'Médiateur numérique', detail: "usages numériques (jeu vidéo, réseaux, temps d'écran), choix des jeux, accompagnement en situation, démystification" },
 ]
 
-// TODO Andy : valider / corriger les workflows par audience. Ce sont des
-// hypothèses raisonnables à partir des pratiques courantes du secteur ;
-// le porteur, le financement et le public peuvent varier.
-const audiences = [
-  {
-    id: 'sessad-ime',
-    label: 'SESSAD · IME',
-    porteur: 'Le psychologue de la structure',
-    financement: 'Médico-social (ARS, CD)',
-    public: 'Jeunes accompagnés par la structure et leurs parents',
-  },
-  {
-    id: 'associations',
-    label: 'Associations',
-    porteur: 'La personne en charge de la coordination ou de la direction de l’association',
-    financement: 'Subvention projet (CAF, ARS, mécénat, fonds européens)',
-    public: 'Familles adhérentes ou bénéficiaires d’un programme parentalité',
-  },
-  {
-    id: 'collectivites',
-    label: 'Collectivités',
-    porteur: 'Le service jeunesse, éducation ou cohésion sociale',
-    financement: 'Budget de la collectivité, dispositifs REAAP / parentalité',
-    public: 'Familles du territoire dans le cadre d’actions de soutien à la parentalité',
-  },
-]
-
 </script>
 
 <template>
@@ -164,6 +137,23 @@ const audiences = [
   </section>
 
   <PartnerStrip />
+
+  <!-- Sommaire de page (non collant) — repères sur une page longue. Le saut
+       d'ancre respecte le header collant via html{scroll-padding-top} global. -->
+  <nav class="onpage-nav" aria-label="Sur cette page">
+    <div class="container onpage-nav__inner">
+      <span class="onpage-nav__label">Sur cette page</span>
+      <ul class="onpage-nav__list" role="list">
+        <li><a class="onpage-nav__link" href="#processus">Processus</a></li>
+        <li><a class="onpage-nav__link" href="#themes">Ateliers</a></li>
+        <li><a class="onpage-nav__link" href="#cadre">Cadre</a></li>
+        <li><a class="onpage-nav__link" href="#indicateurs">Indicateurs</a></li>
+        <li><a class="onpage-nav__link" href="#lekoklaya">Projet pilote</a></li>
+        <li><a class="onpage-nav__link" href="#equipe">Équipe</a></li>
+        <li><a class="onpage-nav__link" href="#faq">FAQ</a></li>
+      </ul>
+    </div>
+  </nav>
 
   <section id="processus" class="section" aria-labelledby="processus-title">
     <div class="container">
@@ -291,28 +281,6 @@ const audiences = [
     </div>
   </section>
 
-  <section id="audiences" class="section" aria-labelledby="audiences-title">
-    <div class="container">
-      <header class="section__head">
-        <span class="eyebrow">Adapté à votre structure</span>
-        <h2 id="audiences-title">Trois types de portage, un même protocole<span class="coral-dot" aria-hidden="true">.</span></h2>
-        <p class="lead">
-          La méthode reste la même&nbsp;; le portage et le financement s’adaptent à votre cadre institutionnel.
-        </p>
-      </header>
-      <div class="grid grid--3">
-        <article v-for="a in audiences" :id="a.id" :key="a.id" class="card audience-card">
-          <span class="kicker">{{ a.label }}</span>
-          <dl class="audience-list mt-3">
-            <dt>Porteur</dt><dd>{{ a.porteur }}</dd>
-            <dt>Financement</dt><dd>{{ a.financement }}</dd>
-            <dt>Public</dt><dd>{{ a.public }}</dd>
-          </dl>
-        </article>
-      </div>
-    </div>
-  </section>
-
   <section id="faq" class="section section--soft" aria-labelledby="faq-title">
     <div class="container">
       <header class="section__head">
@@ -353,6 +321,28 @@ const audiences = [
   font-family: var(--font-body); font-weight: 500; font-size: 14px;
   color: var(--ink); text-align: right;
 }
+
+/* ── Sommaire de page (inline, non collant) ──────────────────── */
+.onpage-nav { border-bottom: 1px solid var(--bg-rule); background: var(--bg); }
+.onpage-nav__inner {
+  display: flex; flex-wrap: wrap; align-items: center;
+  gap: var(--space-2) var(--space-4); padding-block: var(--space-2);
+}
+.onpage-nav__label {
+  font-family: var(--font-label); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.18em; text-transform: uppercase; color: var(--quiet);
+}
+.onpage-nav__list {
+  display: flex; flex-wrap: wrap; gap: var(--space-1) var(--space-4);
+  list-style: none; padding: 0; margin: 0;
+}
+.onpage-nav__link {
+  font-family: var(--font-label); font-size: 13px; font-weight: 600;
+  color: var(--teal-deep);
+  display: inline-flex; align-items: center; min-height: 44px;
+}
+.onpage-nav__link:hover { color: var(--pxlc-coral); text-decoration: none; }
+[data-theme="dark"] .onpage-nav__link { color: var(--cyan); }
 
 .hero__title { font-size: clamp(36px, 5.4vw, 64px); }
 
@@ -396,16 +386,6 @@ const audiences = [
 }
 .team-role { font-family: var(--font-display); font-weight: 600; font-size: 17px; color: var(--ink); margin: 0 0 var(--space-1); }
 .team-detail { margin: 0; color: var(--ink-quiet); }
-
-.audience-card { scroll-margin-top: 0; }
-.audience-list { display: grid; gap: var(--space-2) var(--space-3); grid-template-columns: 1fr; margin: 0; }
-@media (min-width: 480px) { .audience-list { grid-template-columns: max-content 1fr; } }
-.audience-list dt {
-  font-family: var(--font-label); font-size: 11px; font-weight: 600;
-  letter-spacing: 0.18em; text-transform: uppercase; color: var(--quiet);
-  padding-top: 2px;
-}
-.audience-list dd { margin: 0; font-size: 15px; color: var(--ink); line-height: 1.5; }
 
 .faq { display: grid; gap: var(--space-2-5); max-width: 820px; margin: 0 auto; }
 .faq__item {

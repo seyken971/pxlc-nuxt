@@ -24,9 +24,16 @@ useSchemaOrg([
 const form = reactive({ name: '', structure: '', email: '', message: '' })
 const sent = ref(false)
 const sentCard = ref<HTMLDivElement | null>(null)
+// Le mailto: construit au submit — réutilisé comme lien de repli si le client
+// mail ne s'ouvre pas. Valeur initiale : un mailto nu (avant tout envoi).
+const mailtoHref = ref('mailto:contact@pxlc.fr')
+const copied = ref(false)
+let copyTimer: ReturnType<typeof setTimeout> | undefined
 
 // GitHub Pages ne traite pas de POST — on construit un mailto: avec les
-// champs du formulaire et on ouvre le client mail de l'utilisateur.
+// champs du formulaire et on ouvre le client mail de l'utilisateur. Le
+// formulaire reste affiché et rempli : pas de perte de saisie si rien ne
+// s'ouvre, et l'utilisateur peut réessayer ou utiliser le repli.
 const submit = () => {
   const lines = [
     `Nom\u00A0: ${form.name}`,
@@ -40,11 +47,29 @@ const submit = () => {
   const subject = `Contact PXLC — ${form.name}${form.structure ? ` (${form.structure})` : ''}`
   const body = lines.join('\n')
   const href = `mailto:contact@pxlc.fr?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+  mailtoHref.value = href
 
   if (import.meta.client) window.location.href = href
   sent.value = true
   nextTick(() => sentCard.value?.focus())
 }
+
+// Repli : copier l'adresse dans le presse-papiers. Silencieux si l'API n'est
+// pas disponible — le lien mailto reste la voie de secours visible.
+const copyEmail = async () => {
+  if (!import.meta.client) return
+  try {
+    await navigator.clipboard.writeText('contact@pxlc.fr')
+    copied.value = true
+    clearTimeout(copyTimer)
+    copyTimer = setTimeout(() => { copied.value = false }, 2000)
+  }
+  catch {
+    // Presse-papiers indisponible — l'utilisateur garde le lien mailto.
+  }
+}
+
+onBeforeUnmount(() => clearTimeout(copyTimer))
 
 const contactCards = [
   {
@@ -95,11 +120,22 @@ const contactCards = [
             aria-live="polite"
             class="contact-sent"
           >
-            <div class="contact-sent__eyebrow">Message envoyé</div>
-            <p class="contact-sent__text">Je reviens sous 2&nbsp;jours ouvrés avec une réponse personnalisée.</p>
+            <div class="contact-sent__eyebrow">Message préparé</div>
+            <p class="contact-sent__text">
+              Votre logiciel de messagerie devrait s’ouvrir avec le message pré-rempli. Si rien ne s’ouvre, écrivez-moi directement&nbsp;:
+            </p>
+            <div class="contact-sent__fallback">
+              <a :href="mailtoHref" class="contact-sent__link">contact@pxlc.fr</a>
+              <button type="button" class="contact-sent__copy" @click="copyEmail">
+                {{ copied ? 'Copié' : 'Copier l’adresse' }}
+              </button>
+            </div>
           </div>
 
-          <form v-else class="contact-form" @submit.prevent="submit">
+          <form class="contact-form" @submit.prevent="submit">
+            <p class="form-legend">
+              <span class="form-legend__req" aria-hidden="true">*</span> Champs requis
+            </p>
             <div class="form-row">
               <PxlcInput id="c-nom" v-model="form.name" label="Prénom et Nom" placeholder="Prénom Nom" required autocomplete="name" />
               <PxlcInput id="c-structure" v-model="form.structure" label="Structure" placeholder="Association, école, collectivité…" autocomplete="organization" />
@@ -199,13 +235,13 @@ const contactCards = [
 
 .contact-submit { width: fit-content; }
 
-/* ── Success card ────────────────────────────────────────────── */
+/* ── Status card (au-dessus du formulaire, qui reste affiché) ──── */
 .contact-sent {
   background: var(--bg-soft);
   border: 1px solid var(--bg-rule);
   border-radius: var(--radius-lg);
-  padding: var(--space-5);
-  text-align: center;
+  padding: var(--space-4);
+  margin-bottom: var(--space-4);
 }
 .contact-sent:focus-visible { outline: none; box-shadow: var(--ring-coral); }
 /* forced-colors (Windows HCM) supprime box-shadow — on restitue un outline système. */
@@ -220,6 +256,32 @@ const contactCards = [
   margin-bottom: var(--space-2-5);
 }
 .contact-sent__text { font-size: 15px; color: var(--ink-quiet); margin: 0; }
+.contact-sent__fallback {
+  display: flex; flex-wrap: wrap; align-items: center;
+  gap: var(--space-2-5); margin-top: var(--space-3);
+}
+.contact-sent__link {
+  font-family: var(--font-body); font-weight: 600; font-size: 15px;
+  color: var(--eyebrow);
+}
+.contact-sent__copy {
+  font-family: var(--font-label); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.04em; color: var(--ink-quiet);
+  background: var(--bg-elev);
+  border: 1px solid var(--rule); border-radius: var(--radius-pill);
+  padding: 0 var(--space-3); min-height: 44px; cursor: pointer;
+  transition: color var(--dur-fast), border-color var(--dur-fast);
+}
+.contact-sent__copy:hover { color: var(--eyebrow); border-color: var(--eyebrow); }
+.contact-sent__copy:focus-visible { outline: none; box-shadow: var(--ring-teal); }
+[data-theme="dark"] .contact-sent__copy:focus-visible { box-shadow: var(--ring-cyan); }
+
+/* ── Required-fields legend ──────────────────────────────────── */
+.form-legend {
+  font-family: var(--font-label); font-size: 12px;
+  color: var(--quiet); margin: 0;
+}
+.form-legend__req { color: var(--pxlc-coral); font-weight: 700; }
 
 /* ── Contact cards ───────────────────────────────────────────── */
 .contact-cards { display: grid; gap: var(--space-3); }

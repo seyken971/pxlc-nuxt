@@ -309,6 +309,7 @@ Classes issues de `styles.css`. Les styles scoped des composants Vue ne sont pas
 ### Form fields
 
 - `.form-label`
+- `.form-label__req`
 - `.form-input`
 - `.form-textarea`
 

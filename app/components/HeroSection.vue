@@ -71,14 +71,14 @@ const props = withDefaults(defineProps<Props>(), {
             <NuxtLink
               v-if="props.ctaSecondary && !props.ctaSecondary.external"
               :to="props.ctaSecondary.href"
-              class="btn btn--secondary btn--lg btn--no-arrow"
+              class="btn btn--ghost btn--lg btn--no-arrow"
             >{{ props.ctaSecondary.label }}</NuxtLink>
             <a
               v-else-if="props.ctaSecondary"
               :href="props.ctaSecondary.href"
               target="_blank"
               rel="noopener noreferrer"
-              class="btn btn--secondary btn--lg btn--no-arrow"
+              class="btn btn--ghost btn--lg btn--no-arrow"
               :aria-label="`${props.ctaSecondary.label} (nouvel onglet)`"
             >{{ props.ctaSecondary.label }}</a>
 

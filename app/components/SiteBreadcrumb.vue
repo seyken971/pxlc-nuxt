@@ -37,9 +37,9 @@ const crumbs = useBreadcrumbItems({ overrides })
 </template>
 
 <style scoped>
-.breadcrumb { margin-bottom: var(--space-4); }
+.breadcrumb { margin-bottom: var(--space-3); }
 .breadcrumb__list {
-  display: flex; flex-wrap: wrap; gap: var(--space-2);
+  display: flex; flex-wrap: wrap; gap: var(--space-2); align-items: center;
   list-style: none; padding: 0; margin: 0;
   font-family: var(--font-label); font-size: 11px;
   letter-spacing: 0.18em; text-transform: uppercase;
@@ -47,6 +47,10 @@ const crumbs = useBreadcrumbItems({ overrides })
 }
 .breadcrumb__item:not(:last-child)::after {
   content: "/"; margin-left: var(--space-2); color: var(--quiet);
+}
+/* Zone de tap ≥ 44 px sans grossir le libellé de 11 px. */
+.breadcrumb__link, .breadcrumb__current {
+  display: inline-flex; align-items: center; min-height: 44px;
 }
 .breadcrumb__link { color: var(--teal-deep); transition: color var(--dur-fast); }
 .breadcrumb__link:hover { color: var(--pxlc-coral); text-decoration: none; }
