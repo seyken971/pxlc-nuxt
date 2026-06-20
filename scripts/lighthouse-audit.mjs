@@ -8,72 +8,12 @@
  *   node scripts/lighthouse-audit.mjs
  *   node scripts/lighthouse-audit.mjs --json   # raw JSON aggregate
  */
-import http from 'node:http'
-import { appendFile, readFile, stat } from 'node:fs/promises'
-import { join, extname } from 'node:path'
+import { appendFile } from 'node:fs/promises'
 import lighthouse from 'lighthouse'
 import * as chromeLauncher from 'chrome-launcher'
+import { startServer, discoverRoutes } from './static-server.mjs'
 
-const PUBLIC_DIR = '.output/public'
 const JSON_MODE = process.argv.includes('--json')
-
-const MIME = {
-  '.html': 'text/html; charset=utf-8',
-  '.css': 'text/css; charset=utf-8',
-  '.js': 'application/javascript; charset=utf-8',
-  '.mjs': 'application/javascript; charset=utf-8',
-  '.json': 'application/json; charset=utf-8',
-  '.svg': 'image/svg+xml',
-  '.png': 'image/png',
-  '.jpg': 'image/jpeg',
-  '.jpeg': 'image/jpeg',
-  '.webp': 'image/webp',
-  '.ico': 'image/x-icon',
-  '.woff': 'font/woff',
-  '.woff2': 'font/woff2',
-  '.ttf': 'font/ttf',
-  '.txt': 'text/plain; charset=utf-8',
-  '.xml': 'application/xml; charset=utf-8',
-  '.webmanifest': 'application/manifest+json',
-  '.pdf': 'application/pdf',
-  '.wasm': 'application/wasm',
-}
-
-const startServer = () => new Promise((resolve) => {
-  const server = http.createServer(async (req, res) => {
-    let path = decodeURIComponent((req.url || '/').split('?')[0])
-    if (path.endsWith('/')) path += 'index.html'
-    let abs = join(PUBLIC_DIR, path)
-    try {
-      const s = await stat(abs).catch(() => null)
-      if (s?.isDirectory()) abs = join(abs, 'index.html')
-      const file = await readFile(abs)
-      res.writeHead(200, { 'content-type': MIME[extname(abs)] || 'application/octet-stream' })
-      res.end(file)
-    } catch {
-      res.writeHead(404, { 'content-type': 'text/plain' })
-      res.end('404')
-    }
-  })
-  server.listen(0, '127.0.0.1', () => {
-    resolve({ server, port: server.address().port })
-  })
-})
-
-const ROUTES = [
-  '/',
-  '/a-propos',
-  '/blog',
-  '/blog/enfant-rejoue-toujours-meme-jeu',
-  '/blog/jouons-ensemble-sessad-lekoklaya',
-  '/blog/mediation-numerique-parent-enfant-sessad-ime',
-  '/blog/quand-votre-enfant-joue-a-fortnite',
-  '/contact',
-  // /mentions-legales intentionally has robots: noindex — Lighthouse SEO
-  // audit penalises it (-40pts) even though blocking it is correct.
-  // No point tracking a page that is not meant to rank.
-  '/structures',
-]
 
 const FLAGS = {
   output: 'json',
@@ -126,11 +66,15 @@ const auditRoute = async (port, route, port_chrome) => {
 
 const main = async () => {
   const { server, port } = await startServer()
+  // /mentions-legales a robots: noindex — l'audit SEO Lighthouse le pénalise
+  // (-40pts) alors que le bloquer est correct. Inutile de suivre une page qui
+  // n'a pas vocation à ranker → on l'exclut de la liste découverte.
+  const routes = (await discoverRoutes()).filter((r) => r !== '/mentions-legales')
   const chrome = await chromeLauncher.launch({ chromeFlags: ['--headless=new', '--no-sandbox'] })
   const all = []
 
   try {
-    for (const route of ROUTES) {
+    for (const route of routes) {
       process.stderr.write(`auditing ${route} ... `)
       try {
         const r = await auditRoute(port, route, chrome.port)

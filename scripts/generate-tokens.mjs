@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 /**
  * Regenerates the BRAND HEX block in app/assets/css/tokens.css from the
- * canonical TS source app/utils/brand-colors.ts. Runs on prebuild via
- * the npm lifecycle (`pretokens` and `prebuild`/`pregenerate`).
+ * canonical TS source app/utils/brand-colors.ts. Runs via `npm run
+ * gen:tokens`, chained by the predev/prebuild/pregenerate npm hooks.
  *
  * Two files, one source of truth:
  *  - brand-colors.ts  →  consumed by build-time renderers (takumi OG)
@@ -52,11 +52,17 @@ const NAME_MAP = {
 const main = async () => {
   const ts = await readFile(TS_SOURCE, 'utf8')
 
-  // Parse `tealDeep: '#036E73',` lines inside the BRAND_HEX const.
-  // The grammar is tight (literal hex + single-quoted), so a regex is
-  // safer than rolling a TS parser for 20 lines of data.
+  // Scope to the `BRAND_HEX = { … } as const` block so a stray `key: '#hex'`
+  // elsewhere in the file can't leak in. The grammar inside is tight (literal
+  // hex + single-quoted), so a regex is safer than rolling a TS parser.
+  const blockMatch = ts.match(/BRAND_HEX\s*=\s*\{([\s\S]*?)\}\s*as const/)
+  if (!blockMatch) {
+    console.error(`gen-tokens: BRAND_HEX block not found in ${TS_SOURCE}`)
+    process.exit(1)
+  }
+
   const colors = []
-  for (const match of ts.matchAll(/(\w+):\s*'(#[0-9A-Fa-f]+)'/g)) {
+  for (const match of blockMatch[1].matchAll(/(\w+):\s*'(#[0-9A-Fa-f]+)'/g)) {
     const [, key, hex] = match
     const cssName = NAME_MAP[key]
     if (!cssName) {

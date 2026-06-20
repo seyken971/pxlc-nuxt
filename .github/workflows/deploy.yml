@@ -85,11 +85,31 @@ jobs:
         # past review.
         run: npm run typecheck
 
+      - name: Design-system lint (ds-lint)
+        # Gate marque « non négociable » : couleurs/rgba/ease bruts, gradients,
+        # vocabulaire interdit, emoji, longueurs SEO, nommage des composants,
+        # insécables. Normalement chaîné par prebuild/pregenerate, mais la CI
+        # build via `npx nuxt build` (ci-dessous), ce qui NE déclenche PAS les
+        # hooks npm pre*/post* — d'où ces étapes explicites.
+        run: npm run ds-lint
+
+      - name: Validate content frontmatter
+        # Gate contenu : champs requis + longueurs SEO effectives des articles
+        # @nuxt/content. Même raison que ds-lint — explicite car les hooks npm
+        # ne tournent pas sur un appel direct au binaire nuxt.
+        run: npm run validate-content
+
       - name: Generate static site (SSG)
         # --preset github_pages = preset officiel Nitro pour GitHub Pages
         # (génère .nojekyll, gère le 404 fallback, prerender toutes les routes
         # via crawlLinks: true défini dans nuxt.config.ts).
         run: npx nuxt build --preset github_pages
+
+      - name: Prune unused public assets
+        # postbuild/postgenerate ne se déclenche pas sur `npx nuxt build` — on
+        # élague explicitement les polices _og-static-fonts/ (~460 KB) inutiles
+        # en prod (ogImage.zeroRuntime) AVANT l'upload de l'artefact Pages.
+        run: node scripts/prune-public.mjs
 
       - name: Verify build output
         # Cheap guardrail — if prerender produced an empty .output/public/

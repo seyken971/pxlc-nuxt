@@ -10,7 +10,7 @@
  *   node scripts/a11y-audit.mjs --json   # raw JSON for diffing in CI
  */
 import { readFile, readdir } from 'node:fs/promises'
-import { join } from 'node:path'
+import { join, relative, sep } from 'node:path'
 import { JSDOM } from 'jsdom'
 import axe from 'axe-core'
 
@@ -60,9 +60,12 @@ const main = async () => {
   const pages = await findHtml(PUBLIC_DIR)
   const all = []
   for (const path of pages) {
-    const route = '/' + path.replace(PUBLIC_DIR + '/', '').replace(/\/?index\.html$/, '')
+    // relative() + split(sep) → libellé correct sous Windows (path.join produit
+    // des antislash) comme sous Linux.
+    const rel = relative(PUBLIC_DIR, path).split(sep).join('/')
+    const route = ('/' + rel.replace(/index\.html$/, '')).replace(/\/$/, '') || '/'
     const violations = await auditFile(path)
-    all.push({ route: route === '/' ? '/' : route, file: path, violations })
+    all.push({ route, file: path, violations })
   }
 
   if (JSON_MODE) {

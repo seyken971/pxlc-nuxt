@@ -85,4 +85,4 @@ if (errors > 0) {
   process.exit(1)
 }
 
-console.log(`✓ validate-content — ${errors === 0 ? 'tous les articles sont valides' : ''}`)
+console.log('✓ validate-content — tous les articles sont valides')
