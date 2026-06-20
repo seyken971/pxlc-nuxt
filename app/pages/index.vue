@@ -36,7 +36,7 @@ const methodSteps: MethodStep[] = [
 // terminateur de string dans les expressions ":prop="{...}"".
 // En <script setup>, c'est du JS standard — U+2019 dans le contenu est valide.
 const heroCta = { label: 'Voir mes programmes', href: '/structures' }
-const heroCtaSecondary = { label: 'Télécharger la plaquette', href: '/files/plaquette-pxlc.pdf', external: true }
+const heroCtaSecondary = { label: 'Plaquette PDF · 6 pages', href: '/files/plaquette-pxlc.pdf', external: true }
 
 const stats = [
   { value: '8',          label: 'familles accompagnées en 2026' },
@@ -53,7 +53,6 @@ const stats = [
     lead="J’aide les structures de Guadeloupe — SESSAD, IME, associations — à accompagner les familles autour des écrans. Concrètement&nbsp;: résoudre les conflits autour du temps d’écran, adopter les bonnes pratiques du numérique."
     :cta-primary="heroCta"
     :cta-secondary="heroCtaSecondary"
-    hint="← programmes pour les structures"
     photo-src="/img/photos/andy-event.jpg"
     photo-alt="Andy Zébus en animation lors d’un événement gaming en Guadeloupe"
     :photo-width="740"

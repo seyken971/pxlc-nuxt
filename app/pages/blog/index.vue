@@ -45,7 +45,21 @@ const categories = computed(() => {
   return Array.from(set).sort()
 })
 
-const activeCategory = ref<string | null>(null)
+// Catégorie active pilotée par l'URL (?cat=slug) : partage, retour arrière et
+// rechargement conservent le filtre. Slug inconnu ⇒ aucun filtre.
+const route = useRoute()
+const router = useRouter()
+const activeCategory = computed<string | null>(() => {
+  const raw = route.query.cat
+  const cat = Array.isArray(raw) ? raw[0] : raw
+  return cat && categories.value.includes(cat) ? cat : null
+})
+const setCategory = (cat: string | null) => {
+  const query = { ...route.query }
+  if (cat) query.cat = cat
+  else delete query.cat
+  router.push({ query })
+}
 const filteredPosts = computed(() => {
   const all = posts.value || []
   if (!activeCategory.value) return all
@@ -83,7 +97,7 @@ const categoryLabel = (slug?: string): string =>
           class="blog-filters__chip"
           :class="{ 'is-active': activeCategory === null }"
           :aria-pressed="activeCategory === null"
-          @click="activeCategory = null"
+          @click="setCategory(null)"
         >Tous</button>
         <button
           v-for="c in categories"
@@ -92,7 +106,7 @@ const categoryLabel = (slug?: string): string =>
           class="blog-filters__chip"
           :class="{ 'is-active': activeCategory === c }"
           :aria-pressed="activeCategory === c"
-          @click="activeCategory = c"
+          @click="setCategory(c)"
         >{{ categoryLabel(c) }}</button>
       </div>
     </div>
@@ -101,6 +115,9 @@ const categoryLabel = (slug?: string): string =>
   <!-- Cards grid -->
   <section class="section">
     <div class="container">
+      <p v-if="filteredPosts.length" class="blog-count" aria-live="polite">
+        {{ filteredPosts.length }} article<span v-if="filteredPosts.length > 1">s</span>
+      </p>
       <div v-if="filteredPosts.length" class="grid grid--3">
         <NuxtLink
           v-for="(p, idx) in filteredPosts"
@@ -157,7 +174,8 @@ const categoryLabel = (slug?: string): string =>
 .blog-filters { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-bottom: var(--space-4); }
 .blog-filters__chip {
   font-family: var(--font-body); font-size: 13px; font-weight: 500;
-  padding: 8px 14px; border-radius: var(--radius-pill);
+  display: inline-flex; align-items: center;
+  min-height: 44px; padding: 0 16px; border-radius: var(--radius-pill);
   background: transparent; color: var(--ink-quiet);
   border: 1px solid var(--rule); cursor: pointer;
   transition: color var(--dur-fast), border-color var(--dur-fast), background var(--dur-fast);
@@ -173,6 +191,12 @@ const categoryLabel = (slug?: string): string =>
 }
 .blog-filters__chip:focus-visible {
   outline: 3px solid var(--pxlc-coral); outline-offset: 2px;
+}
+
+.blog-count {
+  font-family: var(--font-label); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.18em; text-transform: uppercase; color: var(--quiet);
+  margin: 0 0 var(--space-4);
 }
 
 .blog-card {

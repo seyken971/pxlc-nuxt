@@ -4,6 +4,7 @@ const route = useRoute()
 const menuOpen = useState<boolean>('pxlc-menu-open', () => false)
 
 const closeBtn = ref<HTMLButtonElement | null>(null)
+const menuRoot = ref<HTMLElement | null>(null)
 
 const close = () => { menuOpen.value = false }
 
@@ -18,8 +19,38 @@ const closeAndRestore = () => {
   })
 }
 
+// Sélecteur des éléments focusables du menu — base du piège de focus.
+const FOCUSABLE = 'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+
+// Tant que le menu (role="dialog" aria-modal) est ouvert, on confine le focus :
+// Échap ferme ; Tab / Maj+Tab bouclent entre le premier et le dernier élément
+// focusable ; tout focus égaré hors du menu est ramené dedans. Sans ce piège,
+// Tab atteignait les liens situés derrière l'overlay.
 const onKeydown = (e: KeyboardEvent) => {
-  if (e.key === 'Escape' && menuOpen.value) closeAndRestore()
+  if (!menuOpen.value) return
+  if (e.key === 'Escape') { closeAndRestore(); return }
+  if (e.key !== 'Tab') return
+
+  const root = menuRoot.value
+  if (!root) return
+  const nodes = Array.from(root.querySelectorAll<HTMLElement>(FOCUSABLE))
+  const first = nodes[0]
+  const last = nodes[nodes.length - 1]
+  if (!first || !last) return
+
+  const active = document.activeElement
+  if (!root.contains(active)) {
+    e.preventDefault()
+    first.focus()
+  }
+  else if (e.shiftKey && active === first) {
+    e.preventDefault()
+    last.focus()
+  }
+  else if (!e.shiftKey && active === last) {
+    e.preventDefault()
+    first.focus()
+  }
 }
 
 watch(menuOpen, async (open) => {
@@ -47,6 +78,7 @@ watch(() => route.fullPath, () => { menuOpen.value = false })
 <template>
   <div
     id="mobile-menu"
+    ref="menuRoot"
     class="mobile-menu"
     :class="{ 'is-open': menuOpen }"
     :inert="!menuOpen"

@@ -86,41 +86,6 @@ const indicators = [
 ]
 
 const { themes } = useProjectThemes()
-
-const team = [
-  { role: 'Psychologue', detail: 'porteur du projet, cadrage clinique, entretien initial, bilan' },
-  { role: 'Psychomotricienne', detail: 'auto-régulation des affects et des pulsions motrices' },
-  { role: 'Intervenants culturels', detail: 'jeux traditionnels' },
-  { role: 'Médiateur numérique', detail: "usages numériques (jeu vidéo, réseaux, temps d'écran), choix des jeux, accompagnement en situation, démystification" },
-]
-
-// TODO Andy : valider / corriger les workflows par audience. Ce sont des
-// hypothèses raisonnables à partir des pratiques courantes du secteur ;
-// le porteur, le financement et le public peuvent varier.
-const audiences = [
-  {
-    id: 'sessad-ime',
-    label: 'SESSAD · IME',
-    porteur: 'Le psychologue de la structure',
-    financement: 'Médico-social (ARS, CD)',
-    public: 'Jeunes accompagnés par la structure et leurs parents',
-  },
-  {
-    id: 'associations',
-    label: 'Associations',
-    porteur: 'La personne en charge de la coordination ou de la direction de l’association',
-    financement: 'Subvention projet (CAF, ARS, mécénat, fonds européens)',
-    public: 'Familles adhérentes ou bénéficiaires d’un programme parentalité',
-  },
-  {
-    id: 'collectivites',
-    label: 'Collectivités',
-    porteur: 'Le service jeunesse, éducation ou cohésion sociale',
-    financement: 'Budget de la collectivité, dispositifs REAAP / parentalité',
-    public: 'Familles du territoire dans le cadre d’actions de soutien à la parentalité',
-  },
-]
-
 </script>
 
 <template>
@@ -141,7 +106,7 @@ const audiences = [
             Programme phare&nbsp;: Parents-Écran-Enfant, ancré dans les recommandations HCSP&nbsp;2019-2020 · HAS&nbsp;2020 — indicateurs qualitatifs, bilan transmis à vos tutelles en fin de dispositif.
           </p>
           <div class="hero__actions">
-            <NuxtLink to="/contact" class="btn btn--primary btn--lg">Demander un devis</NuxtLink>
+            <a href="https://cal.eu/pxlc-gp" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--lg" aria-label="Prendre rendez-vous (nouvel onglet)">Prendre rendez-vous</a>
             <a href="/files/plaquette-pxlc.pdf" target="_blank" rel="noopener noreferrer" class="btn btn--ghost btn--lg" aria-label="Plaquette PDF, 6 pages (nouvel onglet)">Plaquette PDF · 6 pages</a>
           </div>
         </div>
@@ -164,6 +129,22 @@ const audiences = [
   </section>
 
   <PartnerStrip />
+
+  <!-- Sommaire de page (non collant) — repères sur une page longue. Le saut
+       d'ancre respecte le header collant via html{scroll-padding-top} global. -->
+  <nav class="onpage-nav" aria-label="Sur cette page">
+    <div class="container onpage-nav__inner">
+      <span class="onpage-nav__label">Sur cette page</span>
+      <ul class="onpage-nav__list" role="list">
+        <li><a class="onpage-nav__link" href="#processus">Processus</a></li>
+        <li><a class="onpage-nav__link" href="#themes">Ateliers</a></li>
+        <li><a class="onpage-nav__link" href="#cadre">Cadre</a></li>
+        <li><a class="onpage-nav__link" href="#indicateurs">Indicateurs</a></li>
+        <li><a class="onpage-nav__link" href="#lekoklaya">Projet pilote</a></li>
+        <li><a class="onpage-nav__link" href="#faq">FAQ</a></li>
+      </ul>
+    </div>
+  </nav>
 
   <section id="processus" class="section" aria-labelledby="processus-title">
     <div class="container">
@@ -268,47 +249,8 @@ const audiences = [
         <div>
           <p class="lekoklaya-desc">Le point de départ&nbsp;: le jeu vidéo revenait systématiquement dans les entretiens familiaux comme source de conflit. Le dispositif a transformé ces tensions en matériau de travail pour l'équipe pluridisciplinaire.</p>
           <p class="lekoklaya-desc mt-3">Les parents qui ne comprenaient pas pourquoi leur enfant jouait ont pu rejouer avec lui. Les profils ludiques ont été transmis à l'équipe dans le bilan final.</p>
+          <NuxtLink to="/blog/jouons-ensemble-sessad-lekoklaya" class="leko-link mt-3">Lire le projet en détail</NuxtLink>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="equipe" class="section section--soft" aria-labelledby="equipe-title">
-    <div class="container">
-      <header class="section__head">
-        <span class="eyebrow">Exemple de composition — SESSAD Lékoklaya 2026</span>
-        <h2 id="equipe-title">Le médiateur numérique ne remplace personne — il complète<span class="coral-dot" aria-hidden="true">.</span></h2>
-        <p class="lead">
-          Le projet est porté par la psychologue de votre structure.
-        </p>
-      </header>
-      <dl class="team-list">
-        <div v-for="m in team" :key="m.role" class="team-item">
-          <dt class="team-role">{{ m.role }}</dt>
-          <dd class="team-detail">{{ m.detail }}</dd>
-        </div>
-      </dl>
-    </div>
-  </section>
-
-  <section id="audiences" class="section" aria-labelledby="audiences-title">
-    <div class="container">
-      <header class="section__head">
-        <span class="eyebrow">Adapté à votre structure</span>
-        <h2 id="audiences-title">Trois types de portage, un même protocole<span class="coral-dot" aria-hidden="true">.</span></h2>
-        <p class="lead">
-          La méthode reste la même&nbsp;; le portage et le financement s’adaptent à votre cadre institutionnel.
-        </p>
-      </header>
-      <div class="grid grid--3">
-        <article v-for="a in audiences" :id="a.id" :key="a.id" class="card audience-card">
-          <span class="kicker">{{ a.label }}</span>
-          <dl class="audience-list mt-3">
-            <dt>Porteur</dt><dd>{{ a.porteur }}</dd>
-            <dt>Financement</dt><dd>{{ a.financement }}</dd>
-            <dt>Public</dt><dd>{{ a.public }}</dd>
-          </dl>
-        </article>
       </div>
     </div>
   </section>
@@ -354,6 +296,28 @@ const audiences = [
   color: var(--ink); text-align: right;
 }
 
+/* ── Sommaire de page (inline, non collant) ──────────────────── */
+.onpage-nav { border-bottom: 1px solid var(--bg-rule); background: var(--bg); }
+.onpage-nav__inner {
+  display: flex; flex-wrap: wrap; align-items: center;
+  gap: var(--space-2) var(--space-4); padding-block: var(--space-2);
+}
+.onpage-nav__label {
+  font-family: var(--font-label); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.18em; text-transform: uppercase; color: var(--quiet);
+}
+.onpage-nav__list {
+  display: flex; flex-wrap: wrap; gap: var(--space-1) var(--space-4);
+  list-style: none; padding: 0; margin: 0;
+}
+.onpage-nav__link {
+  font-family: var(--font-label); font-size: 13px; font-weight: 600;
+  color: var(--teal-deep);
+  display: inline-flex; align-items: center; min-height: 44px;
+}
+.onpage-nav__link:hover { color: var(--pxlc-coral); text-decoration: none; }
+[data-theme="dark"] .onpage-nav__link { color: var(--cyan); }
+
 .hero__title { font-size: clamp(36px, 5.4vw, 64px); }
 
 .process-grid { align-items: stretch; }
@@ -369,8 +333,7 @@ const audiences = [
 /* .pxlc-body-sm (global) — 15px / 1.6 avec font-body et ink-quiet. */
 .framework-desc,
 .indicator-detail,
-.theme-desc,
-.team-detail { font-size: 15px; line-height: 1.6; }
+.theme-desc { font-size: 15px; line-height: 1.6; }
 
 .framework-meta { display: block; }
 .framework-meta--link { color: var(--teal-deep); transition: color var(--dur-fast); }
@@ -380,32 +343,6 @@ const audiences = [
 .indicator-title { font-size: 18px; }
 
 .theme-title { font-size: 20px; }
-
-.team-list {
-  display: grid; grid-template-columns: 1fr; gap: 0; margin: 0;
-  max-width: 820px;
-}
-@media (min-width: 768px) { .team-list { grid-template-columns: repeat(2, 1fr); } }
-.team-item {
-  padding: var(--space-4); border-bottom: 1px solid var(--rule);
-}
-.team-item:last-child { border-bottom: 0; }
-@media (min-width: 768px) {
-  .team-item:nth-child(odd) { border-right: 1px solid var(--rule); }
-  .team-item:nth-last-child(-n+2) { border-bottom: 0; }
-}
-.team-role { font-family: var(--font-display); font-weight: 600; font-size: 17px; color: var(--ink); margin: 0 0 var(--space-1); }
-.team-detail { margin: 0; color: var(--ink-quiet); }
-
-.audience-card { scroll-margin-top: 0; }
-.audience-list { display: grid; gap: var(--space-2) var(--space-3); grid-template-columns: 1fr; margin: 0; }
-@media (min-width: 480px) { .audience-list { grid-template-columns: max-content 1fr; } }
-.audience-list dt {
-  font-family: var(--font-label); font-size: 11px; font-weight: 600;
-  letter-spacing: 0.18em; text-transform: uppercase; color: var(--quiet);
-  padding-top: 2px;
-}
-.audience-list dd { margin: 0; font-size: 15px; color: var(--ink); line-height: 1.5; }
 
 .faq { display: grid; gap: var(--space-2-5); max-width: 820px; margin: 0 auto; }
 .faq__item {
@@ -463,4 +400,15 @@ const audiences = [
 .leko-val { font-family: var(--font-display); font-weight: 700; font-size: 28px; color: var(--pxlc-coral); }
 .leko-label { font-size: 14px; line-height: 1.4; color: var(--pxlc-text-on-dark-soft); }
 .lekoklaya-desc { font-size: 15px; line-height: 1.6; color: var(--pxlc-text-on-dark-soft); }
+/* Lien vers l'étude de cas — section toujours sombre, couleur cyan forcée
+   (le teal-deep par défaut manquerait de contraste sur ce fond). */
+.leko-link {
+  display: inline-flex; align-items: center; gap: var(--space-2);
+  min-height: 44px;
+  font-family: var(--font-label); font-size: 13px; font-weight: 600;
+  letter-spacing: 0.04em; color: var(--pxlc-cyan);
+}
+.leko-link::after { content: "→"; }
+.leko-link:hover { color: var(--pxlc-ivory); text-decoration: none; }
+.leko-link:focus-visible { outline: none; box-shadow: var(--ring-cyan); border-radius: var(--radius-xs); }
 </style>

@@ -152,6 +152,7 @@ main[tabindex="-1"]:focus { outline: none; }
   cursor: pointer;
   white-space: nowrap;
   line-height: 1.2;
+  min-height: 44px;
   text-decoration: none;
   transition: background var(--dur-base) var(--ease-step), color var(--dur-base), transform var(--dur-base), box-shadow var(--dur-base);
 }
@@ -224,6 +225,9 @@ main[tabindex="-1"]:focus { outline: none; }
   color: var(--eyebrow);
   margin-bottom: var(--space-2);
 }
+/* Marqueur visuel de champ requis — aria-hidden côté markup, l'info
+   accessible passe par aria-required sur l'input. */
+.form-label__req { color: var(--pxlc-coral); margin-left: 2px; }
 .form-input, .form-textarea {
   width: 100%; padding: var(--space-2-5) var(--space-3); border-radius: var(--radius-md);
   border: 1px solid var(--rule); background: var(--bg-elev); color: var(--ink);
@@ -300,7 +304,7 @@ main[tabindex="-1"]:focus { outline: none; }
 [data-theme="dark"] .site-nav__link.is-active { color: var(--cyan); }
 
 .theme-toggle {
-  width: 36px; height: 36px; border-radius: var(--radius-md);
+  width: 44px; height: 44px; border-radius: var(--radius-md);
   border: 1px solid var(--rule); background: transparent;
   color: var(--ink); display: inline-flex; align-items: center; justify-content: center;
   cursor: pointer; transition: background var(--dur-fast), border-color var(--dur-fast); flex: none;
@@ -655,6 +659,8 @@ main[tabindex="-1"]:focus { outline: none; }
   color: var(--pxlc-text-on-dark-soft);
   letter-spacing: 0.12em; text-transform: uppercase;
 }
+/* Zone de tap ≥ 44 px sans grossir le texte légal de 11 px. */
+.site-footer__legal a { display: inline-flex; align-items: center; min-height: 44px; }
 .site-footer__legal a:hover { color: var(--pxlc-cyan); }
 .site-footer__legal-links { display: flex; gap: var(--space-3); list-style: none; padding: 0; margin: 0; }
 

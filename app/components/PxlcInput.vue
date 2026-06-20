@@ -14,7 +14,7 @@ defineEmits(['update:modelValue'])
 
 <template>
   <div>
-    <label :for="id" class="form-label">{{ label }}</label>
+    <label :for="id" class="form-label">{{ label }}<span v-if="required" class="form-label__req" aria-hidden="true">*</span></label>
     <textarea
       v-if="rows"
       :id="id"
