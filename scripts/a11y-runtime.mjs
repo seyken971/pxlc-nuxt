@@ -16,70 +16,9 @@
  * Run after `npm run build`:
  *   node scripts/a11y-runtime.mjs
  */
-import http from 'node:http'
-import { readFile, stat } from 'node:fs/promises'
-import { join, extname } from 'node:path'
 import { chromium } from 'playwright'
 import AxeBuilder from '@axe-core/playwright'
-
-const PUBLIC_DIR = '.output/public'
-
-const MIME = {
-  '.html': 'text/html; charset=utf-8',
-  '.css': 'text/css; charset=utf-8',
-  '.js': 'application/javascript; charset=utf-8',
-  '.mjs': 'application/javascript; charset=utf-8',
-  '.json': 'application/json; charset=utf-8',
-  '.svg': 'image/svg+xml',
-  '.png': 'image/png',
-  '.jpg': 'image/jpeg',
-  '.jpeg': 'image/jpeg',
-  '.webp': 'image/webp',
-  '.ico': 'image/x-icon',
-  '.woff': 'font/woff',
-  '.woff2': 'font/woff2',
-  '.ttf': 'font/ttf',
-  '.txt': 'text/plain; charset=utf-8',
-  '.xml': 'application/xml; charset=utf-8',
-  '.webmanifest': 'application/manifest+json',
-  '.pdf': 'application/pdf',
-  '.wasm': 'application/wasm',
-}
-
-const startServer = () => new Promise((resolve) => {
-  const server = http.createServer(async (req, res) => {
-    let path = decodeURIComponent((req.url || '/').split('?')[0])
-    if (path.endsWith('/')) path += 'index.html'
-    let abs = join(PUBLIC_DIR, path)
-    try {
-      const s = await stat(abs).catch(() => null)
-      if (s?.isDirectory()) abs = join(abs, 'index.html')
-      const file = await readFile(abs)
-      res.writeHead(200, { 'content-type': MIME[extname(abs)] || 'application/octet-stream' })
-      res.end(file)
-    } catch {
-      res.writeHead(404, { 'content-type': 'text/plain' })
-      res.end('404')
-    }
-  })
-  server.listen(0, '127.0.0.1', () => {
-    const port = /** @type {{ port: number }} */ (server.address()).port
-    resolve({ server, port })
-  })
-})
-
-const ROUTES = [
-  '/',
-  '/a-propos',
-  '/blog',
-  '/blog/enfant-rejoue-toujours-meme-jeu',
-  '/blog/jouons-ensemble-sessad-lekoklaya',
-  '/blog/mediation-numerique-parent-enfant-sessad-ime',
-  '/blog/quand-votre-enfant-joue-a-fortnite',
-  '/contact',
-  '/mentions-legales',
-  '/structures',
-]
+import { startServer, discoverRoutes } from './static-server.mjs'
 
 const runAxe = async (page, label) => {
   const results = await new AxeBuilder({ page })
@@ -117,6 +56,7 @@ const reportPage = (label, violations) => {
 
 const main = async () => {
   const { server, port } = await startServer()
+  const routes = await discoverRoutes()
   const browser = await chromium.launch()
   const all = []
   let exitCode = 0
@@ -125,7 +65,7 @@ const main = async () => {
     // Static pages on desktop viewport
     const desktop = await browser.newContext({ viewport: { width: 1280, height: 800 } })
     const desktopPage = await desktop.newPage()
-    for (const route of ROUTES) {
+    for (const route of routes) {
       await desktopPage.goto(`http://127.0.0.1:${port}${route}`, { waitUntil: 'networkidle' })
       all.push(await runAxe(desktopPage, route))
     }
