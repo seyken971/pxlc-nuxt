@@ -12,7 +12,7 @@
         Vous êtes une structure&nbsp;? On en parle<span class="coral-dot" aria-hidden="true">.</span>
       </h2>
       <p class="blog-cta__lead">
-        Votre structure accueille des familles en Guadeloupe — 20 minutes pour cadrer le périmètre, voir si la médiation s’inscrit dans vos objectifs.
+        Votre structure accueille des familles en Guadeloupe — 20&nbsp;minutes pour cadrer le périmètre, voir si la médiation s’inscrit dans vos objectifs.
       </p>
     </div>
     <div class="blog-cta__actions">
