@@ -51,9 +51,13 @@ body {
    color alone. Underline every class-less inline link (HCSP refs in
    /a-propos, mailto/cal.eu in mentions-legales, etc.); buttons, nav
    links and other typed links carry their own classes so they're
-   exempt. */
+   exempt. @nuxt/content (MDC) émet les liens inline du corps des articles
+   avec un attribut class="" vide que :not([class]) ne capture pas — d'où
+   les sélecteurs [class=""] explicites. */
 p a:not([class]),
-li a:not([class]) { text-decoration: underline; text-underline-offset: 3px; }
+p a[class=""],
+li a:not([class]),
+li a[class=""] { text-decoration: underline; text-underline-offset: 3px; }
 button { font-family: inherit; }
 h1,h2,h3,h4 { margin: 0; color: var(--ink); font-family: var(--font-display); font-weight: 600; }
 p { margin: 0; color: var(--ink-quiet); }
