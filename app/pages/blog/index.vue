@@ -27,7 +27,7 @@ useSchemaOrg([
   defineWebPage({
     '@type': ['WebPage', 'CollectionPage'],
     name: 'Le journal PXLC',
-    description: 'Décryptages, repères et retours de terrain sur la médiation numérique Parents-Écran-Enfant en Guadeloupe.',
+    description: 'Décryptages, repères et retours de terrain sur la médiation numérique Parent-Écran-Enfant en Guadeloupe.',
     hasPart: (posts.value || []).map(p => ({
       '@type': 'BlogPosting',
       '@id': `https://pxlc.fr${p.path}#article`,

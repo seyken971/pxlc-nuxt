@@ -103,7 +103,7 @@ const { themes } = useProjectThemes()
             Médiation numérique pour votre structure<span class="coral-dot" aria-hidden="true">.</span>
           </h1>
           <p class="hero__lead">
-            Programme phare&nbsp;: Parents-Écran-Enfant, ancré dans les recommandations HCSP&nbsp;2019-2020 · HAS&nbsp;2020 — indicateurs qualitatifs, bilan transmis à vos tutelles en fin de dispositif.
+            Programme phare&nbsp;: Parent-Écran-Enfant, une démarche de parentalité numérique ancrée dans les recommandations HCSP&nbsp;2019-2020 · HAS&nbsp;2020 — indicateurs qualitatifs, bilan transmis à vos tutelles en fin de dispositif.
           </p>
           <div class="hero__actions">
             <a href="https://cal.eu/pxlc-gp" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--lg" aria-label="Prendre rendez-vous (nouvel onglet)">Prendre rendez-vous</a>
