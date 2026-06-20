@@ -106,7 +106,7 @@ const { themes } = useProjectThemes()
             Programme phare&nbsp;: Parents-Écran-Enfant, ancré dans les recommandations HCSP&nbsp;2019-2020 · HAS&nbsp;2020 — indicateurs qualitatifs, bilan transmis à vos tutelles en fin de dispositif.
           </p>
           <div class="hero__actions">
-            <NuxtLink to="/contact" class="btn btn--primary btn--lg">Demander un devis</NuxtLink>
+            <a href="https://cal.eu/pxlc-gp" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--lg" aria-label="Prendre rendez-vous (nouvel onglet)">Prendre rendez-vous</a>
             <a href="/files/plaquette-pxlc.pdf" target="_blank" rel="noopener noreferrer" class="btn btn--ghost btn--lg" aria-label="Plaquette PDF, 6 pages (nouvel onglet)">Plaquette PDF · 6 pages</a>
           </div>
         </div>

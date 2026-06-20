@@ -171,29 +171,6 @@ const timeline = [
       '/blog/methode-mediation-jeu-video-parent-enfant',
     ]"
   />
-
-  <!-- ── CTA ───────────────────────────────────────────────────── -->
-  <section class="section section--soft about-cta" aria-labelledby="cta-about-title">
-    <div class="container about-cta-section">
-      <PxlcPixelStrip class="about-cta__strip" :count="9" :accent-at="8" />
-      <span class="eyebrow">Prochaine étape</span>
-      <h2 id="cta-about-title">Travailler avec PXLC<span class="coral-dot" aria-hidden="true">.</span></h2>
-      <p class="lead">
-        Pour les structures de Guadeloupe —
-        devis sur mesure, plaquette PDF disponible.
-      </p>
-      <div class="about-cta-actions">
-        <NuxtLink to="/structures" class="btn btn--primary btn--lg">Voir mes programmes</NuxtLink>
-        <a
-          href="/files/plaquette-pxlc.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="btn btn--ghost btn--lg"
-          aria-label="Plaquette PDF, 6 pages (nouvel onglet)"
-        >Plaquette PDF · 6 pages</a>
-      </div>
-    </div>
-  </section>
 </template>
 
 <style scoped>
@@ -355,34 +332,6 @@ const timeline = [
      la main au décalage de l'escalier via la transition existante. */
   .casquette-card:nth-child(2):not(.is-visible) { transform: translateY(42px); }
   .casquette-card:nth-child(3):not(.is-visible) { transform: translateY(66px); }
-}
-
-/* ── CTA ─────────────────────────────────────────────────────── */
-/* Texture dot-grid en miroir du hero — la page se referme sur la trame. */
-.about-cta::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: radial-gradient(var(--dot-grid) 1.5px, transparent 1.5px);
-  background-size: 22px 22px;
-  mask-image: radial-gradient(ellipse 150% 90% at 50% 100%, black 30%, transparent 75%);
-  -webkit-mask-image: radial-gradient(ellipse 150% 90% at 50% 100%, black 30%, transparent 75%);
-  pointer-events: none;
-}
-.about-cta-section {
-  max-width: 720px;
-  margin: 0 auto;
-  text-align: center;
-  position: relative;
-  z-index: 1;
-}
-.about-cta__strip { margin-bottom: var(--space-4); }
-.about-cta-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-3);
-  margin-top: var(--space-5);
-  justify-content: center;
 }
 
 /* ── Timeline — le rail se résout en un point coral ──────────── */
