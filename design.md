@@ -446,7 +446,7 @@ Classes issues de `styles.css`. Les styles scoped des composants Vue ne sont pas
 - **Termes naked** (sans guillemets ni traduction) : HCSP, SESSAD, TCND, TND, hyperfocus
 - Espaces insécables avant `!`, `?`, `:`, `;`, `»` et entre nombre + unité (`48 h`, `20 min`, `100 €`)
 - Chiffres en numéraux sauf en début de phrase
-- `Parent-Écran-Enfant` avec majuscules
+- `Parent-Écran-Enfant` au singulier, avec majuscules et traits d'union — jamais « Parents-Écran-Enfant »
 - Ne jamais écrire « fondateur » — écrire « créateur de PXLC »
 - Nommer les clients : terme générique « les lieux d'accueil des familles » (court « les lieux ») ; en adresse directe, nommer le lieu (« votre médiathèque ») ou « votre structure »
 - Mission en une phrase : « PXLC accompagne les familles dans l'éducation numérique des enfants. »
