@@ -11,7 +11,7 @@ if (import.meta.server) {
     description:
       'Médiation numérique en Guadeloupe — Andy Zébus aide votre structure à accompagner les familles autour des écrans.',
     ogDescription:
-      'Andy Zébus, créateur de PXLC, intervient dans les structures de Guadeloupe — ateliers parent-enfant, avec votre équipe.',
+      'Andy Zébus, créateur de PXLC, intervient dans les structures en Guadeloupe — ateliers parent-enfant, avec votre équipe.',
   })
 }
 
@@ -50,7 +50,7 @@ const stats = [
   <HeroSection
     title="Médiation numérique en Guadeloupe"
     :title-dot="true"
-    lead="J’aide les structures de Guadeloupe — SESSAD, IME, associations — à accompagner les familles autour des écrans. Concrètement&nbsp;: résoudre les conflits autour du temps d’écran, adopter les bonnes pratiques du numérique."
+    lead="J’aide les lieux d’accueil des familles en Guadeloupe à les accompagner autour des écrans. Concrètement&nbsp;: résoudre les conflits autour du temps d’écran, adopter les bonnes pratiques du numérique."
     :cta-primary="heroCta"
     :cta-secondary="heroCtaSecondary"
     photo-src="/img/photos/andy-event.jpg"

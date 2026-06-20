@@ -1,5 +1,5 @@
 <script setup lang="ts">
-useSeoMeta({ title: 'Programmes parent-enfant — structures de Guadeloupe' })
+useSeoMeta({ title: 'Programmes parent-enfant — structures en Guadeloupe' })
 if (import.meta.server) {
   useSeoMeta({
     description:
