@@ -1,5 +1,6 @@
 ---
 title: "Enfants et écrans : ce que dit vraiment le cadre HCSP"
+seoTitle: "Enfants et écrans : ce que dit le cadre HCSP"
 description: Les recommandations du HCSP ne disent pas seulement de compter les heures d'écran. Elles invitent surtout à accompagner, cadrer et comprendre les usages des enfants.
 seoDescription: "Les recommandations HCSP ne se limitent pas à compter les heures — accompagner, cadrer et comprendre les usages."
 date: 2026-06-03

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-useSeoMeta({ title: 'Andy Zébus, médiateur numérique — Guadeloupe · 971' })
+useSeoMeta({ title: 'Andy Zébus, médiateur numérique en Guadeloupe' })
 if (import.meta.server) {
   useSeoMeta({
     description:
