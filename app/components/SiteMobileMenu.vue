@@ -165,8 +165,13 @@ watch(() => route.fullPath, () => { menuOpen.value = false })
 </template>
 
 <style scoped>
+/* Le container global est flex-row — on bascule en colonne pour empiler
+   le bouton primaire et le lien plaquette. */
+.mobile-menu__bottom {
+  flex-direction: column;
+  align-items: stretch;
+}
 .mobile-menu__plaquette {
-  display: block;
   text-align: center;
   font-family: var(--font-label);
   font-size: 13px;
