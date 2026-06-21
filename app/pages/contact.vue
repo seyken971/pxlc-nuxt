@@ -149,6 +149,9 @@ const contactCards = [
               Envoyer
             </button>
           </form>
+          <p class="contact-plaquette">
+            Ou <a href="/files/plaquette-pxlc.pdf" target="_blank" rel="noopener noreferrer" class="contact-plaquette__link" aria-label="Télécharger la plaquette PDF, 6 pages (nouvel onglet)">télécharger la plaquette (PDF · 6 pages)</a> pour prendre connaissance du dispositif.
+          </p>
         </div>
 
         <!-- ── Colonne droite — cartes de contact ───────────── -->
@@ -371,6 +374,20 @@ const contactCards = [
 .contact-nap__map:hover { color: var(--pxlc-coral); text-decoration: none; }
 [data-theme="dark"] .contact-nap__map { color: var(--cyan); }
 [data-theme="dark"] .contact-nap__map:hover { color: var(--pxlc-coral); }
+
+/* ── Plaquette fallback link ─────────────────────────────────── */
+.contact-plaquette {
+  font-size: 13px;
+  color: var(--quiet);
+  margin: var(--space-3) 0 0;
+  line-height: 1.5;
+}
+.contact-plaquette__link {
+  color: var(--ink-quiet);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.contact-plaquette__link:hover { color: var(--eyebrow); }
 
 /* ── Mobile ──────────────────────────────────────────────────── */
 @media (max-width: 600px) {

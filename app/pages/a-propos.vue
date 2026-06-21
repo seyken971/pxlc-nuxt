@@ -75,6 +75,10 @@ const timeline = [
           <p class="about-lead">
             Dans les familles que reçoivent vos équipes, les écrans sont souvent devenus un point de friction. Médiateur numérique basé aux Abymes (Guadeloupe), j'ai créé PXLC pour y répondre autrement&nbsp;: faire du jeu vidéo un terrain de rencontre entre l'enfant, son parent et votre équipe — jamais un problème à résoudre.
           </p>
+          <div class="hero__actions">
+            <a href="https://cal.eu/pxlc-gp" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--lg" aria-label="Prendre rendez-vous (nouvel onglet)">Prendre rendez-vous</a>
+            <a href="/files/plaquette-pxlc.pdf" target="_blank" rel="noopener noreferrer" class="btn btn--ghost btn--lg btn--no-arrow" aria-label="Plaquette PDF, 6 pages (nouvel onglet)">Plaquette PDF · 6 pages</a>
+          </div>
         </div>
 
         <div class="about-portrait">

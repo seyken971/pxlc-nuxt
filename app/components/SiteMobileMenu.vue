@@ -139,7 +139,7 @@ watch(() => route.fullPath, () => { menuOpen.value = false })
       </NuxtLink>
     </nav>
 
-    <!-- Bottom bar: primary CTA only — ThemeToggle is already in the header -->
+    <!-- Bottom bar: primary CTA + plaquette PDF secondary -->
     <div class="mobile-menu__bottom">
       <a
         href="https://cal.eu/pxlc-gp"
@@ -150,6 +150,31 @@ watch(() => route.fullPath, () => { menuOpen.value = false })
       >
         Prendre rendez-vous
       </a>
+      <a
+        href="/files/plaquette-pxlc.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="mobile-menu__plaquette"
+        aria-label="Télécharger la plaquette (PDF, 6 pages, nouvel onglet)"
+        @click="close"
+      >
+        Télécharger la plaquette
+      </a>
     </div>
   </div>
 </template>
+
+<style scoped>
+.mobile-menu__plaquette {
+  display: block;
+  text-align: center;
+  font-family: var(--font-label);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--pxlc-text-on-dark-soft);
+  padding-block: var(--space-2-5);
+  transition: color var(--dur-fast);
+}
+.mobile-menu__plaquette:hover { color: var(--pxlc-ivory); text-decoration: none; }
+</style>
