@@ -733,5 +733,6 @@ main[tabindex="-1"]:focus { outline: none; }
   border-color: var(--pxlc-border-dark);
   color: var(--pxlc-ivory);
 }
+.prose p a { text-decoration: underline; text-underline-offset: 3px; }
 .prose ul, .prose ol { padding-left: var(--space-4); margin-bottom: var(--space-3); }
 .prose li { margin-bottom: 6px; }
