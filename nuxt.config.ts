@@ -240,8 +240,8 @@ export default defineNuxtConfig({
       },
       geo: {
         "@type": "GeoCoordinates",
-        latitude: 16.2496,
-        longitude: -61.5181,
+        latitude: 16.1496296,
+        longitude: -61.39705,
       },
       // Lien vers la fiche Google Business Profile (Place → carte).
       hasMap: "https://maps.app.goo.gl/4UPhQWdzboD6HnAs8",
