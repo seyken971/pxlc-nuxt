@@ -42,7 +42,7 @@ const stats = [
   <HeroSection
     title="Médiation numérique en Guadeloupe"
     :title-dot="true"
-    lead="J’aide les structures en Guadeloupe à accompagner les familles autour des écrans. Concrètement&nbsp;: désamorcer les conflits autour du temps d’écran, adopter les bonnes pratiques du numérique."
+    lead="J’aide les structures en Guadeloupe à accompagner les familles autour des écrans. Concrètement&nbsp;: résolution des conflits autour du temps d’écran, bonnes pratiques du numérique."
     :cta-primary="heroCta"
     :cta-secondary="heroCtaSecondary"
     photo-src="/img/photos/andy-event.jpg"
