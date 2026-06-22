@@ -31,9 +31,6 @@ useSchemaOrg([
       'Médiation par le jeu vidéo',
       'Parentalité numérique',
       'esport',
-      'Troubles du neurodéveloppement',
-      'SESSAD',
-      'IME',
       'Guadeloupe',
     ],
     alumniOf: [
@@ -103,7 +100,7 @@ if (import.meta.client) {
     (entries) => {
       entries.forEach(e => {
         if (e.isIntersecting) {
-          ;(e.target as HTMLElement).classList.add('is-visible')
+          ; (e.target as HTMLElement).classList.add('is-visible')
           scrollIO.unobserve(e.target)
         }
       })

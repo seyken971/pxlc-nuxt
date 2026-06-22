@@ -6,14 +6,6 @@ import type { MethodStep } from '~/components/MethodGrid.vue'
 useSeoMeta({
   title: 'Médiation numérique en Guadeloupe',
 })
-if (import.meta.server) {
-  useSeoMeta({
-    description:
-      'Médiation numérique en Guadeloupe — Andy Zébus aide votre structure à accompagner les familles autour des écrans.',
-    ogDescription:
-      'Andy Zébus, créateur de PXLC, aide les structures en Guadeloupe à accompagner les familles autour des écrans.',
-  })
-}
 
 defineOgImage('PxlcOg')
 
@@ -50,7 +42,7 @@ const stats = [
   <HeroSection
     title="Médiation numérique en Guadeloupe"
     :title-dot="true"
-    lead="J’aide les lieux d’accueil des familles en Guadeloupe à accompagner parents et enfants autour des écrans. Concrètement&nbsp;: désamorcer les conflits autour du temps d’écran, adopter les bonnes pratiques du numérique."
+    lead="J’aide les structures en Guadeloupe à accompagner les familles autour des écrans. Concrètement&nbsp;: désamorcer les conflits autour du temps d’écran, adopter les bonnes pratiques du numérique."
     :cta-primary="heroCta"
     :cta-secondary="heroCtaSecondary"
     photo-src="/img/photos/andy-event.jpg"
