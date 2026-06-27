@@ -7,7 +7,7 @@ interface Props {
 withDefaults(defineProps<Props>(), {
   eyebrow: 'Prochain pas',
   title: '20 minutes pour échanger, sans engagement',
-  lead: 'Vous m’expliquez le périmètre, le public visé et le portage envisagé, je vous dis honnêtement si la médiation s’inscrit dans vos objectifs — et comment.',
+  lead: 'Vous m’expliquez le périmètre, le public visé et le portage envisagé. On voit ensemble si la médiation s’inscrit dans vos objectifs — et comment.',
 })
 </script>
 
