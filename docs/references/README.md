@@ -10,15 +10,15 @@ Règle de citation — les recommandations se citent depuis les **avis**
 parents/encadrants) ; les données chiffrées et l'analyse de la littérature
 se vérifient dans les **rapports**.
 
-| Fichier | Document | Source officielle |
-| --- | --- | --- |
-| `hcspa20191212.md` | Avis HCSP du 12 décembre 2019 — effets de l'exposition des enfants et des jeunes aux écrans | <https://www.hcsp.fr/explore.cgi/avisrapportsdomaine?clefr=759> |
-| `hcspr20191212.md` | Rapport HCSP « Analyse des données scientifiques » (janvier 2020) — base de preuves de l'avis | <https://www.hcsp.fr/explore.cgi/avisrapportsdomaine?clefr=759> |
-| `hcspa20210308.md` | Avis HCSP du 8 mars 2021 (seconde partie) — de l'usage excessif à la dépendance ; fondement du terme « usage problématique des écrans » | <https://www.hcsp.fr/explore.cgi/avisrapportsdomaine?clefr=1074> |
-| `rapport-promouvoir-bon-usage-ecrans-2022.md` | Rapport final DITP/MILDECA « Les enfants et les écrans » (2022) — sciences comportementales, bonnes pratiques Faminum | <https://www.modernisation.gouv.fr/publications/promouvoir-une-utilisation-raisonnee-des-ecrans-par-les-enfants> |
-| `dossier_enfantsecransnumerique.md` | Dossier HCFEA « Les enfants, les écrans et le numérique », Conseil de l'enfance et de l'adolescence, adopté le 6 mars 2020 | <https://hcfea.gouv.fr/sites/hcfea/files/files-spip/pdf/dossier_enfantsecransnumerique.pdf> |
-| `rapport-commission-enfants-ecrans-2024.md` | Rapport de la commission Enfants et écrans « À la recherche du temps perdu », remis au Président de la République le 30 avril 2024 — 29 propositions | <https://www.vie-publique.fr/rapport/293978-exposition-des-enfants-aux-ecrans-rapport-au-president-de-la-republique> |
-| `guide_guidance_parentale_2025.md` | Guide « Guidance parentale dans les troubles du neurodéveloppement — Pourquoi, comment, pour qui ? » (délégation interministérielle TND, septembre 2025) | <https://handicap.gouv.fr/sites/handicap/files/2025-12/Guide-Guidance-parentale-2025.pdf> |
+| Fichier .md | PDF local | Document | Source officielle |
+| --- | --- | --- | --- |
+| `hcspa20191212.md` | `hcspa20191212_effedelexpodesenfaetdesjeunauxcr.pdf` | Avis HCSP du 12 décembre 2019 — effets de l'exposition des enfants et des jeunes aux écrans | <https://www.hcsp.fr/explore.cgi/avisrapportsdomaine?clefr=759> |
+| `hcspr20191212.md` | `hcspr20191212_effedelexpodesenfaetdesjeunauxcr.pdf` | Rapport HCSP « Analyse des données scientifiques » (janvier 2020) — base de preuves de l'avis | <https://www.hcsp.fr/explore.cgi/avisrapportsdomaine?clefr=759> |
+| `hcspa20210308.md` | `hcspa20210308_usaexcdelexpdesenfetdesjeuauxcra.pdf` | Avis HCSP du 8 mars 2021 (seconde partie) — de l'usage excessif à la dépendance ; fondement du terme « usage problématique des écrans » | <https://www.hcsp.fr/explore.cgi/avisrapportsdomaine?clefr=1074> |
+| `rapport-promouvoir-bon-usage-ecrans-2022.md` | `rapport-promouvoir-bon-usage-ecrans-2022.pdf` | Rapport final DITP/MILDECA « Les enfants et les écrans » (2022) — sciences comportementales, bonnes pratiques Faminum | <https://www.modernisation.gouv.fr/publications/promouvoir-une-utilisation-raisonnee-des-ecrans-par-les-enfants> |
+| `dossier_enfantsecransnumerique.md` | `dossier_enfantsecransnumerique.pdf` | Dossier HCFEA « Les enfants, les écrans et le numérique », Conseil de l'enfance et de l'adolescence, adopté le 6 mars 2020 | <https://hcfea.gouv.fr/sites/hcfea/files/files-spip/pdf/dossier_enfantsecransnumerique.pdf> |
+| `rapport-commission-enfants-ecrans-2024.md` | `rapport-commission-enfants-ecrans-2024.pdf` | Rapport de la commission Enfants et écrans « À la recherche du temps perdu », remis au Président de la République le 30 avril 2024 — 29 propositions | <https://www.vie-publique.fr/rapport/293978-exposition-des-enfants-aux-ecrans-rapport-au-president-de-la-republique> |
+| `guide_guidance_parentale_2025.md` | en ligne | Guide « Guidance parentale dans les troubles du neurodéveloppement — Pourquoi, comment, pour qui ? » (délégation interministérielle TND, septembre 2025) | <https://handicap.gouv.fr/sites/handicap/files/2025-12/Guide-Guidance-parentale-2025.pdf> |
 
 Les noms `hcspa*`/`hcspr*` reprennent la nomenclature officielle des PDF du
 HCSP (a = avis, r = rapport). Le communiqué de presse HCSP (`hcspc*`) a été

@@ -54,14 +54,13 @@ Aussi dans design.md, mais bloquants — vérifier chaque texte généré ou mod
 - Cadre réglementaire : toujours citer « HCSP 2019-2020 · HAS 2020 » ensemble.
 - Termes naked (sans guillemets ni traduction) : HCSP, SESSAD, TCND, TND,
   hyperfocus.
-- Corpus de référence dans `docs/references/` (avis HCSP 12/12/2019 — section
-  VII pour les recommandations parents/encadrants —, avis HCSP 08/03/2021,
-  rapport HCSP, rapport DITP 2022, dossier HCFEA 2020, rapport de la
-  commission Enfants et écrans 04/2024 « À la recherche du temps perdu »,
-  29 propositions). Ne pas l'importer
-  ici (trop volumineux) : le consulter à la demande pour sourcer toute
-  affirmation santé/usage des écrans. Ne jamais inventer de chiffre ou de
-  recommandation — citer le document et la section.
+- Corpus de référence dans `docs/references/` (avis HCSP 12/12/2019, avis HCSP
+  08/03/2021, rapport HCSP, rapport DITP 2022, dossier HCFEA 2020, rapport de
+  la commission Enfants et écrans 04/2024 « À la recherche du temps perdu »,
+  29 propositions). Ne pas l'importer ici (trop volumineux) : lire d'abord
+  `docs/references/CITATIONS.md` (carte claim → section + page PDF) pour
+  identifier le bon document, puis ouvrir le .md ou le PDF pour vérifier la
+  citation exacte. Ne jamais inventer de chiffre ou de recommandation.
 - Le jeu vidéo est un outil de médiation légitime — jamais un problème à résoudre.
 
 ## Garde-fous non négociables (visuel)
