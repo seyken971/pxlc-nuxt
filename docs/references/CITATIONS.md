@@ -81,10 +81,13 @@ ceux de la table des matières des PDFs originaux.
 → `hcspa20210308` § 7 « Mesures de prévention », p. 25–28
 
 ### Données chiffrées — équipement / usages foyers
-→ `hcspr20191212` § III « Surexposition — surconsommation », p. 17–20
-  (données CREDOC, Médiamétrie ; ex. 6,4 écrans/foyer en 2016)
+→ `hcspr20191212` § I.1 « Un sujet d'actualité », p. 2
+  (ex. 6,4 écrans/foyer en 2016, Médiamétrie)
 → `rapport-commission-enfants-ecrans-2024` Partie 1 § 1.1–1.2
   (données récentes d'équipement et d'usage des jeunes)
+
+Note : § III de hcspr20191212 porte sur les relations dose-effet (seuils,
+effets délétères), pas sur les statistiques d'équipement.
 
 ### Droits de l'enfant / cyberviolence / fake news / risques sexuels
 → `dossier_enfantsecransnumerique` Partie I § III
@@ -139,7 +142,7 @@ ceux de la table des matières des PDFs originaux.
 | Pas d'écran avant 3 ans sans accompagnement adulte | hcspa20191212 | § VII.1, p. 14 |
 | Pas d'écran dans la chambre | hcspa20191212 | § VII.1, p. 14 |
 | Pas d'écran dans l'heure avant le coucher | hcspa20191212 | § VII.1, p. 14 |
-| 6,4 écrans par foyer (Médiamétrie, 2016) | hcspr20191212 | § III, p. 17 |
+| 6,4 écrans par foyer (Médiamétrie, 2016) | hcspr20191212 | § I.1, p. 2 |
 | Terme « usage problématique des écrans » préféré à « addiction » | hcspa20210308 | § 4.2, p. 13 |
 
 ---
