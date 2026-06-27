@@ -7,7 +7,7 @@
 <template>
   <aside class="blog-cta" aria-label="Pour les structures">
     <div class="blog-cta__head">
-      <span class="eyebrow">PXLC · POUR LES STRUCTURES</span>
+      <span class="eyebrow">PXLC | POUR LES STRUCTURES</span>
       <h2 class="blog-cta__title">
         Vous êtes une structure&nbsp;? On en parle<span class="coral-dot" aria-hidden="true">.</span>
       </h2>

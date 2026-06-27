@@ -67,7 +67,7 @@ const facts: [string, string][] = [
 // Mode opératoire en 4 étapes — source : _plaquette/PROJET PARENTS – ECRAN – ENFANT.md
 const steps = [
   { num: '01', title: 'Préparation', detail: 'Entretiens familiaux avec votre équipe et le médiateur numérique. Identification du profil de chaque enfant, construction des binômes parent-enfant.' },
-  { num: '02', title: 'Ateliers thématiques parent-enfant', detail: 'Coopération · Émotions & récits · Différence & complémentarité.' },
+  { num: '02', title: 'Ateliers thématiques parent-enfant', detail: 'Coopération | Émotions & récits | Différence & complémentarité.' },
   { num: '03', title: 'Groupe de parole familiale', detail: 'Espace d’échange entre familles : régulation, limites, signes d’alerte, posture parentale.' },
   { num: '04', title: 'Bilan', detail: 'Synthèse des acquis parent/enfant, élaboration de pistes de continuité à la maison, transmission écrite à l’équipe pluridisciplinaire.' },
 ]
@@ -97,7 +97,7 @@ const { themes } = useProjectThemes()
           <SiteBreadcrumb />
           <div class="structures-badges">
             <span class="badge badge--audience">Pour les structures</span>
-            <span class="badge badge--soft">SESSAD · IME · associations · collectivités</span>
+            <span class="badge badge--soft">SESSAD | IME | associations | collectivités</span>
           </div>
           <h1 id="hero-title" class="hero__title">
             Médiation numérique pour votre structure<span class="coral-dot" aria-hidden="true">.</span>
@@ -107,7 +107,7 @@ const { themes } = useProjectThemes()
           </p>
           <div class="hero__actions">
             <a href="https://cal.eu/pxlc-gp" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--lg" aria-label="Prendre rendez-vous (nouvel onglet)">Prendre rendez-vous</a>
-            <a href="/files/plaquette-pxlc.pdf" target="_blank" rel="noopener noreferrer" class="btn btn--ghost btn--lg btn--no-arrow" aria-label="Plaquette PDF, 6 pages (nouvel onglet)">Plaquette PDF · 6 pages</a>
+            <a href="/files/plaquette-pxlc.pdf" target="_blank" rel="noopener noreferrer" class="btn btn--ghost btn--lg btn--no-arrow" aria-label="Plaquette PDF, 6 pages (nouvel onglet)">Plaquette PDF | 6 pages</a>
           </div>
         </div>
 
@@ -193,7 +193,7 @@ const { themes } = useProjectThemes()
         <article v-for="c in frameworks" :key="c.key + c.year" class="card">
           <div class="framework-tag">
             <span class="framework-tag__dot" />
-            <span class="kicker framework-tag__label">{{ c.key }} · {{ c.year }}</span>
+            <span class="kicker framework-tag__label">{{ c.key }} | {{ c.year }}</span>
           </div>
           <h3 class="framework-title">{{ c.title }}</h3>
           <p class="framework-desc">{{ c.desc }}</p>
@@ -233,7 +233,7 @@ const { themes } = useProjectThemes()
     <PxlcPixelStrip class="leko-section__strip" :count="7" :accent-at="5" />
     <div class="container">
       <header class="section__head">
-        <span class="eyebrow leko-eyebrow">Projet pilote — SESSAD Lékoklaya · 2026</span>
+        <span class="eyebrow leko-eyebrow">Projet pilote — SESSAD Lékoklaya | 2026</span>
         <h2 id="lekoklaya-title" class="leko-title">Ce qu'un dispositif produit concrètement<span class="coral-dot" aria-hidden="true">.</span></h2>
         <p class="lead leko-lead">Programme «&nbsp;Jouons Ensemble&nbsp;!&nbsp;» — porté par le psychologue du SESSAD, co-construit avec PXLC.</p>
       </header>
@@ -241,9 +241,9 @@ const { themes } = useProjectThemes()
         <div>
           <ul class="leko-list">
             <li><span class="leko-val">8</span><span class="leko-label">enfants accompagnés en binôme avec un parent</span></li>
-            <li><span class="leko-val">12–17</span><span class="leko-label">ans · TSA, TDAH, TND, dystrophie musculaire</span></li>
-            <li><span class="leko-val">3</span><span class="leko-label">thèmes · coopération, émotions, différence</span></li>
-            <li><span class="leko-val">4</span><span class="leko-label">intervenants · psychologue, psychomotricienne, médiateur culturel, médiateur numérique</span></li>
+            <li><span class="leko-val">12–17</span><span class="leko-label">ans | TSA, TDAH, TND, dystrophie musculaire</span></li>
+            <li><span class="leko-val">3</span><span class="leko-label">thèmes | coopération, émotions, différence</span></li>
+            <li><span class="leko-val">4</span><span class="leko-label">intervenants | psychologue, psychomotricienne, médiateur culturel, médiateur numérique</span></li>
           </ul>
         </div>
         <div>

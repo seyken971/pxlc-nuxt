@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { MethodStep } from '~/components/MethodGrid.vue'
 
-// title must run on both sides so the titleTemplate (%s · %siteName) is
+// title must run on both sides so the titleTemplate (%s | %siteName) is
 // applied during client-side navigation; description is server-only (SEO only).
 useSeoMeta({
   title: 'Médiation numérique en Guadeloupe',
@@ -31,7 +31,7 @@ const methodSteps: MethodStep[] = [
 // terminateur de string dans les expressions ":prop="{...}"".
 // En <script setup>, c'est du JS standard — U+2019 dans le contenu est valide.
 const heroCta = { label: 'Voir mes programmes', href: '/structures' }
-const heroCtaSecondary = { label: 'Plaquette PDF · 6 pages', href: '/files/plaquette-pxlc.pdf', external: true }
+const heroCtaSecondary = { label: 'Plaquette PDF | 6 pages', href: '/files/plaquette-pxlc.pdf', external: true }
 
 const stats = [
   { value: '8',          label: 'familles accompagnées en 2026' },
@@ -71,9 +71,9 @@ const stats = [
   <LazyPxlcMarkSeparator hydrate-on-visible />
   <LazySessadCase hydrate-on-visible />
   <LazyCitationBlock
-    source="«&nbsp;Jouons Ensemble&nbsp;!&nbsp;» · projet 2026"
+    source="«&nbsp;Jouons Ensemble&nbsp;!&nbsp;» | projet 2026"
     quote="Jouer ensemble, c’est mieux comprendre, mieux se parler, et mieux grandir."
-    attribution="Tagline du projet · SESSAD Lékoklaya × PXLC"
+    attribution="Tagline du projet | SESSAD Lékoklaya × PXLC"
     hydrate-on-visible
   />
 </template>

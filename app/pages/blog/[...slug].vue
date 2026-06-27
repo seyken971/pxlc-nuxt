@@ -18,7 +18,7 @@ useSeoMeta({
   title: post.value.seoTitle || post.value.title,
   description: post.value.seoDescription || post.value.description,
   ogType: 'article',
-  // Strip the "· PXLC" titleTemplate suffix from OG cards — og:site_name already
+  // Strip the "| PXLC" titleTemplate suffix from OG cards — og:site_name already
   // carries the brand; the full title alone can exceed the ~60-char social limit.
   ogTitle: post.value.title,
 })
@@ -103,9 +103,9 @@ onBeforeUnmount(() => {
           <p class="lead post-lead">{{ post.description }}</p>
           <div class="post-meta">
             <time :datetime="post.date">{{ fmtDate(post.date) }}</time>
-            <span v-if="readingTime">· {{ readingTime }} de lecture</span>
+            <span v-if="readingTime">| {{ readingTime }} de lecture</span>
             <span v-if="post.updated && post.updated !== post.date">
-              · mis à jour le <time :datetime="post.updated">{{ fmtDate(post.updated) }}</time>
+              | mis à jour le <time :datetime="post.updated">{{ fmtDate(post.updated) }}</time>
             </span>
           </div>
           <!-- Author card — per DS BlogArticle -->
@@ -121,7 +121,7 @@ onBeforeUnmount(() => {
             </div>
             <div>
               <div class="post-author__name">Andy Zébus</div>
-              <div class="post-author__role">Médiateur numérique · PXLC · Guadeloupe</div>
+              <div class="post-author__role">Médiateur numérique | PXLC | Guadeloupe</div>
             </div>
           </div>
         </header>

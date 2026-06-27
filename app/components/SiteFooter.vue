@@ -15,7 +15,7 @@ const year = new Date().getFullYear()
           PXLC accompagne les familles dans l’éducation numérique des enfants.
         </p>
         <a class="site-footer__mission-link" href="https://cal.eu/pxlc-gp" target="_blank" rel="noopener noreferrer">
-          Prendre rendez-vous · 20&nbsp;min
+          Prendre rendez-vous | 20&nbsp;min
         </a>
       </div>
 
@@ -73,7 +73,7 @@ const year = new Date().getFullYear()
             <li>
               <NuxtLink class="site-footer__col-link site-footer__col-link--icon" to="/contact">
                 <Icon name="lucide:message-square" aria-hidden="true" class="site-footer__contact-icon" />
-                Formulaire · 5&nbsp;min
+                Formulaire | 5&nbsp;min
               </NuxtLink>
             </li>
           </ul>
@@ -81,7 +81,7 @@ const year = new Date().getFullYear()
       </div>
 
       <div class="site-footer__legal">
-        <p>© 2015–{{ year }} · Andy Zébus EI · PXLC · Guadeloupe</p>
+        <p>© 2015–{{ year }} | Andy Zébus EI | PXLC | Guadeloupe</p>
         <ul class="site-footer__legal-links" role="list">
           <li>
             <NuxtLink to="/mentions-legales">Mentions légales</NuxtLink>
