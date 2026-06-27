@@ -81,7 +81,7 @@ const year = new Date().getFullYear()
       </div>
 
       <div class="site-footer__legal">
-        <p>© 2015–{{ year }} · Andy Zébus EI · PXLC · Guadeloupe</p>
+        <p>© 2015–{{ year }} · PXLC</p>
         <ul class="site-footer__legal-links" role="list">
           <li>
             <NuxtLink to="/mentions-legales">Mentions légales</NuxtLink>
