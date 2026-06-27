@@ -67,6 +67,7 @@ ceux de la table des matières des PDFs originaux.
    de moins de 6 ans », p. 21–23
 → `dossier_enfantsecransnumerique` Partie I § VII
    « Focus sur la petite enfance », p. 38–45
+   (dans le body du .md : section « 5. Focus sur la petite enfance »)
 
 ### Usage problématique des écrans (terme MILDECA — pas « addiction »)
 → `hcspa20210308` § 4, p. 12–14 (entrée dans la catégorie addiction comportementale)
@@ -92,12 +93,15 @@ effets délétères), pas sur les statistiques d'équipement.
 ### Droits de l'enfant / cyberviolence / fake news / risques sexuels
 → `dossier_enfantsecransnumerique` Partie I § III
    « Risques de violence d'ordre social », p. 18–25
+   (dans le body du .md : section « 1. Risques de violence d'ordre social »)
 
 ### Risques développementaux (cognition, identité, symbolisation)
 → `dossier_enfantsecransnumerique` Partie I § IV, p. 26–32
+   (dans le body du .md : section « 2. Risques sur les sphères développementales »)
 
 ### Accompagnement parents / éducateurs (angle HCFEA)
 → `dossier_enfantsecransnumerique` Partie I § VI, p. 33–37
+   (dans le body du .md : section « 4. Accompagnement des parents »)
 
 ### Leviers comportementaux / charte familiale / Faminum
 → `rapport-promouvoir-bon-usage-ecrans-2022` § 5
