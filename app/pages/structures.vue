@@ -135,7 +135,7 @@ const { themes } = useProjectThemes()
     <div class="container onpage-nav__inner">
       <span class="onpage-nav__label">Sur cette page</span>
       <ul class="onpage-nav__list" role="list">
-        <li><a class="onpage-nav__link" href="#processus">Processus</a></li>
+        <li><a class="onpage-nav__link" href="#methode">Méthode</a></li>
         <li><a class="onpage-nav__link" href="#themes">Ateliers</a></li>
         <li><a class="onpage-nav__link" href="#cadre">Cadre</a></li>
         <li><a class="onpage-nav__link" href="#indicateurs">Indicateurs</a></li>
@@ -145,11 +145,11 @@ const { themes } = useProjectThemes()
     </div>
   </nav>
 
-  <section id="processus" class="section" aria-labelledby="processus-title">
+  <section id="methode" class="section" aria-labelledby="methode-title">
     <div class="container">
       <header class="section__head">
         <span class="eyebrow">Méthode</span>
-        <h2 id="processus-title">Quatre étapes, de la préparation au bilan<span class="coral-dot" aria-hidden="true">.</span></h2>
+        <h2 id="methode-title">Quatre étapes, de la préparation au bilan<span class="coral-dot" aria-hidden="true">.</span></h2>
         <p class="lead">Une démarche ancrée dans le cadre HCSP&nbsp;2019-2020 · HAS&nbsp;2020&nbsp;: partir des usages réels de la famille, travailler par le jeu, outiller les parents, transmettre un bilan écrit à votre équipe.</p>
       </header>
       <div class="grid grid--2 process-grid">
