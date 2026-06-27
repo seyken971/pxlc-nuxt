@@ -112,6 +112,14 @@ effets délétères), pas sur les statistiques d'équipement.
   - Enseignement 4 : effet rassurant pour les parents
   - Enseignement 5 : facilitation du dialogue parent-enfant
 
+### Méthode PXLC « trois temps » (page d'accueil — `MethodGrid`)
+→ `rapport-promouvoir-bon-usage-ecrans-2022` — démarche comportementale DITP
+  - Spine « diagnostic → conception de solutions → évaluation » → Présentation de la DITP, p. 1
+  - 01 Faire le point : l'auto-réflexion parentale est « une intervention en soi » → § 5 Enseignement 3, p. 40
+  - 02 Choisir une stratégie : impliquer l'enfant dans le choix des règles permet de « réduire la probabilité de conflits » → § 3.3 « Création de stratégie », p. 26
+  - 03 Dialogue continu : l'outil comme « clé d'explication impartiale » qui facilite la discussion parent-enfant → § 5 Enseignement 5, p. 43
+  - Ton « bienveillant et sans jugement » → § 5 Enseignement 4, p. 41
+
 ### Recommandations de politique publique — 29 propositions (2024)
 → `rapport-commission-enfants-ecrans-2024` Partie 4 (6 axes)
   - Axe 1 : interdire les conceptions addictogènes
