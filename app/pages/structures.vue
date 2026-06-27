@@ -96,7 +96,6 @@ const { themes } = useProjectThemes()
         <div>
           <SiteBreadcrumb />
           <div class="structures-badges">
-            <span class="badge badge--audience">Pour les structures</span>
             <span class="badge badge--soft">SESSAD · IME · associations · collectivités</span>
           </div>
           <h1 id="hero-title" class="hero__title">
