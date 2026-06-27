@@ -15,13 +15,16 @@ defineOgImage('PxlcOg')
 // le preload manuel (les descripteurs 1x/2x sans imagesizes étaient ignorés
 // par certains navigateurs mobiles).
 
-// Trois temps de la médiation, alignés sur les 4 étapes opérationnelles du
-// projet « Jouons Ensemble! » (préparation, ateliers thématiques, groupe de
-// parole + bilan) — résumés ici en 3 mouvements pour la page d'accueil.
+// Méthode PXLC en trois temps — démarche comportementale alignée sur le rapport
+// DITP/MILDECA 2022 (diagnostic → stratégie partagée → dialogue) et sur la
+// méthode de médiation canonique (« comprendre l’usage pour mieux accompagner
+// la limite », cf. blog methode-mediation-jeu-video-parent-enfant). Générique à
+// tout lieu d’accueil — le programme opérationnel détaillé (4 étapes
+// Parent-Écran-Enfant) vit sur /structures.
 const methodSteps: MethodStep[] = [
-  { num: '01', title: 'Comprendre l’enfant', desc: 'Entretien initial avec l’équipe pluridisciplinaire, identification du profil ludique de chaque enfant, construction des binômes parent-enfant.', tag: 'préparation' },
-  { num: '02', title: 'Jouer ensemble',     desc: 'Ateliers thématiques parent-enfant — coopération, émotions, différence — co-encadrés par psychologue, psychomotricienne, intervenants culturels et médiateur numérique.', tag: 'ateliers' },
-  { num: '03', title: 'Restaurer le lien',  desc: 'Groupe de parole familiale puis bilan : synthèse des acquis et pistes de continuité à la maison, transmises à l’équipe et aux parents.', tag: 'bilan' },
+  { num: '01', title: 'Faire le point',        desc: 'Je pars des usages réels de la famille — à quoi l’enfant joue, ce que l’écran représente. Observer avant de cadrer : la prise de conscience est déjà un levier.', tag: 'diagnostic' },
+  { num: '02', title: 'Choisir une stratégie', desc: 'La famille co-construit ses repères d’usage. L’enfant participe au choix des règles, ce qui désamorce les conflits plutôt que de les déplacer.', tag: 'stratégie' },
+  { num: '03', title: 'Dialogue continu',      desc: 'Le cadre devient une clé d’explication impartiale : il ouvre la discussion parent-enfant au lieu de la fermer, et tient dans la durée.', tag: 'suivi' },
 ]
 
 // Props du Hero extraits du template : le macro-parser Vue traite U+2019 comme

@@ -11,7 +11,7 @@ defineProps<Props>()
         <span class="eyebrow">Méthode</span>
         <h2 id="methode-title">Ma méthode en trois temps<span class="coral-dot" aria-hidden="true">.</span></h2>
         <p class="lead">
-          Un protocole en trois temps, conçu pour s’intégrer dans le projet thérapeutique de la structure. Pas de discours moral, pas d’écrans diabolisés — un cadre que l’équipe pluridisciplinaire peut s’approprier.
+          Une démarche en trois temps, pensée pour s’intégrer dans le projet d’un lieu qui accueille déjà des familles. Pas de discours moral, pas d’écran diabolisé — un cadre que votre équipe peut s’approprier.
         </p>
       </header>
       <div class="grid grid--3">
