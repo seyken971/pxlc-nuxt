@@ -258,15 +258,7 @@ export default defineNuxtConfig({
       foundingDate: "2015",
       founder: "Andy Zébus",
       sameAs: [
-        "https://www.linkedin.com/in/azebus",
-        "https://www.github.com/seyken971",
-        "https://www.instagram.com/seyken971",
-        "https://www.youtube.com/@seyken971",
-        "https://www.threads.net/@seyken971",
-        "https://www.twitter.com/seyken971",
-        "https://bsky.app/profile/seyken971.pxlc.fr",
-        // Fiche Google Business Profile vérifiée — relie l'entité du site à la
-        // fiche locale Google (signal de cohérence/prominence pour le local).
+        // Seul profil propre à PXLC-entité (fiche Google Business Profile vérifiée).
         "https://maps.app.goo.gl/4UPhQWdzboD6HnAs8",
       ],
     }),
