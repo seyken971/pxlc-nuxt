@@ -64,12 +64,12 @@ const facts: [string, string][] = [
   ['Tarif', 'Sur devis'],
 ]
 
-// Mode opératoire en 4 étapes — source : _plaquette/PROJET PARENTS – ECRAN – ENFANT.md
+// Méthode en 4 étapes (déroulé opérationnel) — activités : plaquette ; ancrage HCSP/HAS éditorial, cf. docs/references/CITATIONS.md
 const steps = [
-  { num: '01', title: 'Préparation', detail: 'Entretiens familiaux avec votre équipe et le médiateur numérique. Identification du profil de chaque enfant, construction des binômes parent-enfant.' },
-  { num: '02', title: 'Ateliers thématiques parent-enfant', detail: 'Coopération · Émotions & récits · Différence & complémentarité.' },
-  { num: '03', title: 'Groupe de parole familiale', detail: 'Espace d’échange entre familles : régulation, limites, signes d’alerte, posture parentale.' },
-  { num: '04', title: 'Bilan', detail: 'Synthèse des acquis parent/enfant, élaboration de pistes de continuité à la maison, transmission écrite à l’équipe pluridisciplinaire.' },
+  { num: '01', title: 'Préparation', detail: 'Entretiens familiaux avec votre équipe et le médiateur numérique : profil ludique de chaque enfant, usages et attentes des parents, construction des binômes parent-enfant. Le diagnostic partagé qui conditionne la suite.' },
+  { num: '02', title: 'Ateliers thématiques parent-enfant', detail: 'Coopération · Émotions & récits · Différence & complémentarité — travaillés par le jeu vidéo comme support de médiation, jamais comme problème.' },
+  { num: '03', title: 'Groupe de parole familiale', detail: 'Régulation, limites pour un usage régulé, repères d’usage problématique, posture parentale : l’accompagnement parental que le cadre HCSP désigne comme le facteur clé.' },
+  { num: '04', title: 'Bilan', detail: 'Synthèse des acquis parent/enfant, pistes de continuité à la maison, transmission écrite à votre équipe — avec les recommandations HCSP mobilisées, utile pour vos rapports d’activité.' },
 ]
 
 const frameworks = [
@@ -148,8 +148,9 @@ const { themes } = useProjectThemes()
   <section id="processus" class="section" aria-labelledby="processus-title">
     <div class="container">
       <header class="section__head">
-        <span class="eyebrow">Mode opératoire</span>
+        <span class="eyebrow">Méthode</span>
         <h2 id="processus-title">Quatre étapes, de la préparation au bilan<span class="coral-dot" aria-hidden="true">.</span></h2>
+        <p class="lead">Une démarche ancrée dans le cadre HCSP&nbsp;2019-2020 · HAS&nbsp;2020&nbsp;: partir des usages réels de la famille, travailler par le jeu, outiller les parents, transmettre un bilan écrit à votre équipe.</p>
       </header>
       <div class="grid grid--2 process-grid">
         <article v-for="s in steps" :key="s.num" class="card card--method">
