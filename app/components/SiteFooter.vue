@@ -23,7 +23,7 @@ const year = new Date().getFullYear()
         <div>
           <PxlcLockup />
           <p class="site-footer__brand-text">
-            Médiation numérique<br />en Guadeloupe.
+            Médiation numérique en Guadeloupe.
           </p>
           <ul class="site-footer__social" role="list">
             <li>
