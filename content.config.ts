@@ -16,7 +16,7 @@ export default defineContentConfig({
         description: z.string(),
         // Variantes SEO optionnelles : <title> et meta description courts,
         // limites partagées dans scripts/seo-limits.mjs (le titleTemplate
-        // ajoute « | PXLC »). Le title/description éditorial reste le H1 et
+        // ajoute « · PXLC »). Le title/description éditorial reste le H1 et
         // le lead de la page ; la règle de fallback (title trop long sans
         // seoTitle) est vérifiée par scripts/validate-content.mjs.
         seoTitle: z.string().max(SEO_TITLE_MAX).optional(),

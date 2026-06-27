@@ -22,7 +22,7 @@ useSchemaOrg([
 
 const facts = [
   { label: 'Entreprise', value: 'PXLC — Entrepreneur Individuel' },
-  { label: 'Territoire', value: 'Guadeloupe | 971' },
+  { label: 'Territoire', value: 'Guadeloupe · 971' },
   { label: 'SIRET',      value: '813 793 528 00031' },
   { label: 'Cadre',      value: 'HCSP 2019-2020 · HAS 2020' },
 ]
@@ -52,7 +52,7 @@ const casqAccents = ['var(--teal-deep)', 'var(--teal-mid)', 'var(--cyan)']
 const timeline = [
   { year: '2005',      title: 'Premières compétitions de jeux vidéo',           desc: "Organisation d'événements JV chez Kayanim' (Pointe-à-Pitre)." },
   { year: '2010',      title: 'Community Manager — 100 000 inscrits',       desc: "Lancement du serveur EU-FR d'Atlantica Online (Ndoors Europe)." },
-  { year: '2013–2014', title: 'Région Guadeloupe — Affaires Européennes',        desc: "Suivi fonds FEDER | FSE | FEADER | FEAMP et déploiement du Très Haut Débit." },
+  { year: '2013–2014', title: 'Région Guadeloupe — Affaires Européennes',        desc: "Suivi fonds FEDER · FSE · FEADER · FEAMP et déploiement du Très Haut Débit." },
   { year: '2015–2018', title: 'Activité numérique indépendante',                 desc: "Stratégie digitale Région Guadeloupe Route du Rhum 2018, formation d'élus en anglais." },
   { year: '2019–2025', title: 'Esports Guadeloupe — 6 ans',                 desc: "Scène esport guadeloupéenne — Destreland Gaming Cup, Game Over Challenge. 1 mois de CA en 4 jours pour un partenaire commercial." },
   { year: '2021–2022', title: 'Simplon Outre-Mer — formateur principal',         desc: "Formation de futurs responsables d'espaces de médiation numérique." },
@@ -77,7 +77,7 @@ const timeline = [
           </p>
           <div class="hero__actions">
             <a href="https://cal.eu/pxlc-gp" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--lg" aria-label="Prendre rendez-vous (nouvel onglet)">Prendre rendez-vous</a>
-            <a href="/files/plaquette-pxlc.pdf" target="_blank" rel="noopener noreferrer" class="btn btn--ghost btn--lg btn--no-arrow" aria-label="Plaquette PDF, 6 pages (nouvel onglet)">Plaquette PDF | 6 pages</a>
+            <a href="/files/plaquette-pxlc.pdf" target="_blank" rel="noopener noreferrer" class="btn btn--ghost btn--lg btn--no-arrow" aria-label="Plaquette PDF, 6 pages (nouvel onglet)">Plaquette PDF · 6 pages</a>
           </div>
         </div>
 
@@ -160,9 +160,9 @@ const timeline = [
   </section>
 
   <CitationBlock
-    source="Andy Zébus | médiateur numérique"
+    source="Andy Zébus · médiateur numérique"
     quote="Mon travail, ce n'est pas de juger l'usage des écrans. C'est de créer un espace de rencontre — autour du jeu vidéo, des réseaux, du temps d'écran — entre un enfant et son parent, entre une famille et votre équipe."
-    attribution="Andy Zébus | médiateur numérique"
+    attribution="Andy Zébus · médiateur numérique"
     :soft="false"
   />
 

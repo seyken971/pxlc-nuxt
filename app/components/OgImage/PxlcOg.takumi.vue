@@ -108,7 +108,7 @@ const coral = BRAND_HEX.coral
           marginTop: '28px',
         }"
       >
-        Médiation numérique | Guadeloupe
+        Médiation numérique · Guadeloupe
       </span>
     </div>
   </div>

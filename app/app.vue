@@ -67,7 +67,7 @@ useSchemaOrg([
 useHead({
   // %s = page title, %siteName resolved from site.name in nuxt.config.ts.
   // Budget: keep per-page titles ≤53 chars so the full <title> stays ≤60.
-  titleTemplate: '%s | %siteName',
+  titleTemplate: '%s · %siteName',
   link: [
     { rel: "shortcut icon", href: "/favicon.ico" },
     { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },

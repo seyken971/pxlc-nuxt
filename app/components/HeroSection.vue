@@ -22,7 +22,7 @@ interface Props {
   showBgMark?: boolean
 }
 const props = withDefaults(defineProps<Props>(), {
-  eyebrow: 'PXLC | Guadeloupe',
+  eyebrow: 'PXLC · Guadeloupe',
   lead: '',
   ctaPrimary: null,
   titleDot: false,

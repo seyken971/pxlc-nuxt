@@ -38,7 +38,7 @@ withDefaults(defineProps<Props>(), {
               rel="noopener noreferrer"
               class="btn btn--ghost btn--lg btn--no-arrow"
               aria-label="Plaquette PDF, 6 pages (nouvel onglet)"
-            >Plaquette PDF | 6 pages</a>
+            >Plaquette PDF · 6 pages</a>
           </div>
         </div>
 
@@ -52,7 +52,7 @@ withDefaults(defineProps<Props>(), {
             Agenda mis à jour en temps réel sur <a href="https://cal.eu/pxlc-gp" target="_blank" rel="noopener noreferrer" class="cta-block__sidecard-link">cal.eu/pxlc-gp</a>. Les créneaux libres sont visibles immédiatement.
           </p>
           <ul role="list">
-            <li><span>Premier échange</span><span class="meta">20&nbsp;min | gratuit</span></li>
+            <li><span>Premier échange</span><span class="meta">20&nbsp;min · gratuit</span></li>
             <li><span>WhatsApp ou visio</span><span class="meta">au choix</span></li>
             <li><span>Réponse directe</span><span class="meta">sous 2&nbsp;jours ouvrés</span></li>
           </ul>

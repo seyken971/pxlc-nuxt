@@ -76,7 +76,7 @@ const contactCards = [
     key: 'calendar',
     icon: 'lucide:calendar',
     label: 'Prendre rendez-vous',
-    desc: '20 min | visio | gratuit',
+    desc: '20 min · visio · gratuit',
     cta: 'Ouvrir cal.eu/pxlc-gp',
     href: 'https://cal.eu/pxlc-gp',
     external: true,
@@ -150,7 +150,7 @@ const contactCards = [
             </button>
           </form>
           <p class="contact-plaquette">
-            Ou <a href="/files/plaquette-pxlc.pdf" target="_blank" rel="noopener noreferrer" class="contact-plaquette__link" aria-label="Télécharger la plaquette PDF, 6 pages (nouvel onglet)">télécharger la plaquette (PDF | 6 pages)</a> pour prendre connaissance du dispositif.
+            Ou <a href="/files/plaquette-pxlc.pdf" target="_blank" rel="noopener noreferrer" class="contact-plaquette__link" aria-label="Télécharger la plaquette PDF, 6 pages (nouvel onglet)">télécharger la plaquette (PDF · 6 pages)</a> pour prendre connaissance du dispositif.
           </p>
         </div>
 

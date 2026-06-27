@@ -12,13 +12,13 @@ const props = defineProps<{ error?: NuxtError }>()
 const statusCode = computed(() => props.error?.statusCode ?? 500)
 const isNotFound = computed(() => statusCode.value === 404)
 
-// Titre complet (suffixe « | PXLC » écrit en dur — le titleTemplate d'app.vue ne
+// Titre complet (suffixe « · PXLC » écrit en dur — le titleTemplate d'app.vue ne
 // s'applique pas ici). Surtout : plus jamais le titre par défaut Nuxt
 // « 500 - Failed to fetch dynamically imported module… » indexé par Google.
 const pageTitle = computed(() =>
   isNotFound.value
-    ? 'Page introuvable | PXLC'
-    : 'Page momentanément indisponible | PXLC',
+    ? 'Page introuvable · PXLC'
+    : 'Page momentanément indisponible · PXLC',
 )
 const heading = computed(() =>
   isNotFound.value ? 'Page introuvable' : 'Page momentanément indisponible',
