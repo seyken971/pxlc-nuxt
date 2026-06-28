@@ -73,8 +73,8 @@ const steps = [
 ]
 
 const frameworks = [
-  { key: 'HCSP', year: '2019', title: 'Effets de l’exposition aux écrans', desc: 'L’accompagnement parental actif est le facteur clé pour limiter les effets négatifs. Cadre familial, pratiques partagées, qualité du contenu.', url: 'https://www.hcsp.fr/Explore.cgi/AvisRapportsDomaine?clefr=759' },
-  { key: 'HCSP', year: '2020', title: 'De l’usage excessif à la dépendance', desc: 'Seconde partie du rapport — repères pour identifier et prévenir le basculement vers un usage problématique. Calibration des indicateurs PXLC.', url: 'https://www.hcsp.fr/Explore.cgi/AvisRapportsDomaine?clefr=1074' },
+  { key: 'HCSP', year: '2019', title: 'Effets de l’exposition aux écrans', desc: 'L’accompagnement parental actif, facteur clé pour limiter les effets négatifs.', url: 'https://www.hcsp.fr/Explore.cgi/AvisRapportsDomaine?clefr=759' },
+  { key: 'HCSP', year: '2020', title: 'De l’usage excessif à la dépendance', desc: 'Repères pour prévenir le basculement vers un usage problématique — calibration des indicateurs PXLC.', url: 'https://www.hcsp.fr/Explore.cgi/AvisRapportsDomaine?clefr=1074' },
 ]
 
 // Indicateurs d'évaluation — source : plaquette §"Indicateurs d'évaluation".
@@ -129,22 +129,6 @@ const { themes } = useProjectThemes()
 
   <PartnerStrip />
 
-  <!-- Sommaire de page (non collant) — repères sur une page longue. Le saut
-       d'ancre respecte le header collant via html{scroll-padding-top} global. -->
-  <nav class="onpage-nav" aria-label="Sur cette page">
-    <div class="container onpage-nav__inner">
-      <span class="onpage-nav__label">Sur cette page</span>
-      <ul class="onpage-nav__list" role="list">
-        <li><a class="onpage-nav__link" href="#deroule">Déroulé</a></li>
-        <li><a class="onpage-nav__link" href="#themes">Ateliers</a></li>
-        <li><a class="onpage-nav__link" href="#cadre">Cadre</a></li>
-        <li><a class="onpage-nav__link" href="#indicateurs">Indicateurs</a></li>
-        <li><a class="onpage-nav__link" href="#lekoklaya">Projet pilote</a></li>
-        <li><a class="onpage-nav__link" href="#faq">FAQ</a></li>
-      </ul>
-    </div>
-  </nav>
-
   <section id="deroule" class="section" aria-labelledby="deroule-title">
     <div class="container">
       <header class="section__head">
@@ -159,6 +143,16 @@ const { themes } = useProjectThemes()
           <h3>{{ s.title }}</h3>
           <p>{{ s.detail }}</p>
         </article>
+      </div>
+      <div class="deroule-eval">
+        <h3 class="deroule-eval__title">Évaluation &amp; restitution</h3>
+        <p class="lead">À la fin, un bilan écrit transmis à vos tutelles (ARS, CAF, financeurs), appuyé sur quatre indicateurs qualitatifs.</p>
+        <div class="grid grid--2">
+          <article v-for="i in indicators" :key="i.title" class="card">
+            <h4 class="indicator-title">{{ i.title }}</h4>
+            <p class="indicator-detail mt-3">{{ i.detail }}</p>
+          </article>
+        </div>
       </div>
     </div>
   </section>
@@ -187,7 +181,7 @@ const { themes } = useProjectThemes()
       <header class="section__head">
         <span class="eyebrow">Cadre théorique</span>
         <h2 id="cadre-title">Deux rapports qui structurent la démarche<span class="coral-dot" aria-hidden="true">.</span></h2>
-        <p class="lead">Pas un avis personnel sur les écrans&nbsp;: un cadre construit à partir des rapports du Haut Conseil de la Santé Publique. Chaque rapport est cité explicitement dans les bilans transmis aux équipes.</p>
+        <p class="lead">Pas un avis personnel&nbsp;: un cadre bâti sur les rapports du Haut Conseil de la Santé Publique, cités explicitement dans chaque bilan.</p>
       </header>
       <div class="grid grid--2">
         <article v-for="c in frameworks" :key="c.key + c.year" class="card">
@@ -206,24 +200,6 @@ const { themes } = useProjectThemes()
             :aria-label="`${c.key} ${c.year}, rapport officiel (nouvel onglet)`"
           >↳ rapport officiel ↗</a>
           <span v-else class="kicker mt-3 framework-meta">↳ référence officielle</span>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section id="indicateurs" class="section section--soft" aria-labelledby="indicateurs-title">
-    <div class="container">
-      <header class="section__head">
-        <span class="eyebrow">Évaluation</span>
-        <h2 id="indicateurs-title">Indicateurs qualitatifs, restitution écrite<span class="coral-dot" aria-hidden="true">.</span></h2>
-        <p class="lead">
-          Quatre indicateurs simples mais structurants pour les bilans à transmettre à vos tutelles (ARS, CAF, financeurs).
-        </p>
-      </header>
-      <div class="grid grid--2">
-        <article v-for="i in indicators" :key="i.title" class="card">
-          <h3 class="indicator-title">{{ i.title }}</h3>
-          <p class="indicator-detail mt-3">{{ i.detail }}</p>
         </article>
       </div>
     </div>
@@ -296,27 +272,9 @@ const { themes } = useProjectThemes()
   color: var(--ink); text-align: right;
 }
 
-/* ── Sommaire de page (inline, non collant) ──────────────────── */
-.onpage-nav { border-bottom: 1px solid var(--bg-rule); background: var(--bg); }
-.onpage-nav__inner {
-  display: flex; flex-wrap: wrap; align-items: center;
-  gap: var(--space-2) var(--space-4); padding-block: var(--space-2);
-}
-.onpage-nav__label {
-  font-family: var(--font-label); font-size: 11px; font-weight: 600;
-  letter-spacing: 0.18em; text-transform: uppercase; color: var(--quiet);
-}
-.onpage-nav__list {
-  display: flex; flex-wrap: wrap; gap: var(--space-1) var(--space-4);
-  list-style: none; padding: 0; margin: 0;
-}
-.onpage-nav__link {
-  font-family: var(--font-label); font-size: 13px; font-weight: 600;
-  color: var(--teal-deep);
-  display: inline-flex; align-items: center; min-height: 44px;
-}
-.onpage-nav__link:hover { color: var(--pxlc-coral); text-decoration: none; }
-[data-theme="dark"] .onpage-nav__link { color: var(--cyan); }
+/* ── Déroulé : bloc évaluation & restitution (sous les 4 étapes) ── */
+.deroule-eval { margin-top: var(--space-6); }
+.deroule-eval__title { font-size: 20px; margin-bottom: var(--space-2); }
 
 .hero__title { font-size: clamp(36px, 5.4vw, 64px); }
 
