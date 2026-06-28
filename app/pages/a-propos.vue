@@ -21,22 +21,22 @@ useSchemaOrg([
 ])
 
 const facts = [
-  { label: 'Entreprise', value: 'PXLC — Entrepreneur Individuel' },
-  { label: 'Territoire', value: 'Guadeloupe · 971' },
-  { label: 'SIRET',      value: '813 793 528 00031' },
-  { label: 'Cadre',      value: 'HCSP 2019-2020 · HAS 2020' },
+  { label: 'Statut', value: 'Entreprise individuelle (EI)' },
+  { label: 'Territoire', value: 'Guadeloupe' },
+  { label: 'SIRET', value: '813 793 528 00031' },
+  { label: 'Cadre', value: 'HCSP 2019-2020 · HAS 2020' },
 ]
 
 const casquettes = [
   {
     num: '01',
     titre: 'Organisateur esport',
-    desc: "Plus de six ans sur la scène esport guadeloupéenne — tournois, partenariats grands comptes, 1 mois de CA en 4 jours (Destreland Gaming Cup). Connaît la communauté joueurs de l'intérieur.",
+    desc: "Plus de six ans sur la scène esport guadeloupéenne — tournois, partenariats grands comptes, Destreland Gaming Cup. Connaît la communauté de joueurs de l'intérieur.",
   },
   {
     num: '02',
     titre: 'Médiateur formé',
-    desc: "Formateur principal en médiation numérique chez Simplon Outre-Mer (2021–2022). Pratique alignée sur les recommandations HCSP 2019-2020 · HAS 2020.",
+    desc: "Formateur principal en médiation numérique chez Simplon Outre-Mer (2021–2022).",
   },
   {
     num: '03',
@@ -50,13 +50,13 @@ const casquettes = [
 const casqAccents = ['var(--teal-deep)', 'var(--teal-mid)', 'var(--cyan)']
 
 const timeline = [
-  { year: '2005',      title: 'Premières compétitions de jeux vidéo',           desc: "Organisation d'événements JV chez Kayanim' (Pointe-à-Pitre)." },
-  { year: '2010',      title: 'Community Manager — 100 000 inscrits',       desc: "Lancement du serveur EU-FR d'Atlantica Online (Ndoors Europe)." },
-  { year: '2013–2014', title: 'Région Guadeloupe — Affaires Européennes',        desc: "Suivi fonds FEDER · FSE · FEADER · FEAMP et déploiement du Très Haut Débit." },
-  { year: '2015–2018', title: 'Activité numérique indépendante',                 desc: "Stratégie digitale Région Guadeloupe Route du Rhum 2018, formation d'élus en anglais." },
-  { year: '2019–2025', title: 'Esports Guadeloupe — 6 ans',                 desc: "Scène esport guadeloupéenne — Destreland Gaming Cup, Game Over Challenge. 1 mois de CA en 4 jours pour un partenaire commercial." },
-  { year: '2021–2022', title: 'Simplon Outre-Mer — formateur principal',         desc: "Formation de futurs responsables d'espaces de médiation numérique." },
-  { year: '2026',      title: 'PXLC — médiateur numérique familial',             desc: "Programme Jouons Ensemble au SESSAD Lékoklaya — 8 familles, 12–17 ans, TSA/TDAH/TND, co-encadrement avec psychologue et psychomotricienne." },
+  { year: '2005', title: 'Premières compétitions de jeux vidéo', desc: "Organisation d'événements JV chez Kayanim' (Pointe-à-Pitre)." },
+  { year: '2010', title: 'Community Manager — 100 000 inscrits', desc: "Lancement du serveur France d'Atlantica Online (Ndoors Europe)." },
+  { year: '2013–2014', title: 'Région Guadeloupe — Affaires Européennes', desc: "Suivi fonds FEDER · FSE · FEADER · FEAMP et déploiement du Très Haut Débit." },
+  { year: '2015–2018', title: 'Entreprise individuelle', desc: "Stratégie digitale Région Guadeloupe Route du Rhum 2018, formation d'élus en anglais." },
+  { year: '2019–2025', title: 'Esports Guadeloupe — 6 ans', desc: "Scène esport guadeloupéenne — Destreland Gaming Cup, Game Over Challenge. 1 mois de CA en 4 jours pour un partenaire commercial." },
+  { year: '2021–2022', title: 'Simplon Outre-Mer — formateur principal', desc: "Formation de futurs responsables d'espaces de médiation numérique." },
+  { year: '2026', title: 'PXLC — médiateur numérique familial', desc: "Programme Jouons Ensemble au SESSAD Lékoklaya — 8 familles, 12–17 ans, TSA/TDAH/TND, co-encadrement avec psychologue et psychomotricienne." },
 ]
 </script>
 
@@ -70,30 +70,29 @@ const timeline = [
           <SiteBreadcrumb />
           <span class="eyebrow eyebrow--lg">À propos</span>
           <h1 class="about-title">
-            Andy Zébus, médiateur numérique<span class="coral-dot" aria-hidden="true">.</span>
+            Andy Zébus, médiateur&nbsp;numérique<span class="coral-dot" aria-hidden="true">.</span>
           </h1>
           <p class="about-lead">
-            Dans les familles que reçoivent vos équipes, les écrans sont souvent devenus un point de friction. Médiateur numérique basé aux Abymes (Guadeloupe), j'ai créé PXLC pour y répondre autrement&nbsp;: faire du jeu vidéo un terrain de rencontre entre l'enfant, son parent et votre équipe — jamais un problème à résoudre.
+            Vos équipes reçoivent des familles où les écrans sont souvent devenus un point de friction. Médiateur
+            numérique basé aux Abymes (Guadeloupe), j'ai créé PXLC pour y répondre autrement&nbsp;: faire du jeu vidéo
+            un terrain de rencontre entre l'enfant, son parent et votre équipe — jamais un problème à résoudre.
           </p>
           <div class="hero__actions">
-            <a href="https://cal.eu/pxlc-gp" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--lg" aria-label="Prendre rendez-vous (nouvel onglet)">Prendre rendez-vous</a>
-            <a href="/files/plaquette-pxlc.pdf" target="_blank" rel="noopener noreferrer" class="btn btn--ghost btn--lg btn--no-arrow" aria-label="Plaquette PDF, 6 pages (nouvel onglet)">Plaquette PDF · 6 pages</a>
+            <a
+href="https://cal.eu/pxlc-gp" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--lg"
+              aria-label="Prendre rendez-vous (nouvel onglet)">Prendre rendez-vous</a>
+            <a
+href="/files/plaquette-pxlc.pdf" target="_blank" rel="noopener noreferrer"
+              class="btn btn--ghost btn--lg btn--no-arrow" aria-label="Plaquette PDF, 6 pages (nouvel onglet)">Plaquette
+              PDF · 6 pages</a>
           </div>
         </div>
 
         <div class="about-portrait">
           <div class="about-portrait__img">
             <NuxtImg
-              src="/img/photos/andy-portrait.jpg"
-              alt="Portrait d'Andy Zébus, médiateur numérique"
-              width="480"
-              height="600"
-              format="webp"
-              loading="eager"
-              fetchpriority="high"
-              preload
-              sizes="sm:100vw md:480px"
-            />
+src="/img/photos/andy-portrait.jpg" alt="Portrait d'Andy Zébus, médiateur numérique" width="480"
+              height="600" format="webp" loading="eager" fetchpriority="high" preload sizes="sm:100vw md:480px" />
           </div>
           <PxlcPixelCorner class="about-portrait__corner" />
         </div>
@@ -116,16 +115,14 @@ const timeline = [
         <span class="eyebrow">Parcours</span>
         <h2 id="parcours-title">Trois casquettes, une cohérence<span class="coral-dot" aria-hidden="true">.</span></h2>
         <p class="lead">
-          Trois expériences professionnelles distinctes — et une seule cohérence&nbsp;: mettre le jeu au service du lien.
+          Trois expériences professionnelles distinctes — et une seule cohérence&nbsp;: mettre le jeu au service du
+          lien.
         </p>
       </header>
       <div class="grid grid--3 casquettes">
         <article
-          v-for="(c, i) in casquettes"
-          :key="c.num"
-          class="card casquette-card animate-in"
-          :style="`--anim-delay: ${i * 0.09}s; --casq-accent: ${casqAccents[i]}`"
-        >
+v-for="(c, i) in casquettes" :key="c.num" class="card casquette-card animate-in"
+          :style="`--anim-delay: ${i * 0.09}s; --casq-accent: ${casqAccents[i]}`">
           <span class="casquette-num" aria-hidden="true">{{ c.num }}</span>
           <span class="kicker">Casquette {{ c.num }}</span>
           <h3 class="casquette-title">{{ c.titre }}</h3>
@@ -139,17 +136,18 @@ const timeline = [
     <div class="container">
       <header class="section__head">
         <span class="eyebrow">Chronologie</span>
-        <h2 id="timeline-title">De la compétition JV à la médiation familiale<span class="coral-dot" aria-hidden="true">.</span></h2>
+        <h2 id="timeline-title">De la compétition JV à la médiation familiale<span
+class="coral-dot"
+            aria-hidden="true">.</span></h2>
       </header>
       <ul class="timeline">
         <li
-          v-for="(step, i) in timeline"
-          :key="step.year"
-          class="timeline__item animate-in"
-          :style="`--anim-delay: ${i * 0.07}s`"
-        >
+v-for="(step, i) in timeline" :key="step.year" class="timeline__item animate-in"
+          :style="`--anim-delay: ${i * 0.07}s`">
           <span class="timeline__year" :class="{ 'timeline__year--range': step.year.length > 4 }">{{ step.year }}</span>
-          <span class="timeline__node" :class="{ 'timeline__node--last': i === timeline.length - 1 }" aria-hidden="true" />
+          <span
+class="timeline__node" :class="{ 'timeline__node--last': i === timeline.length - 1 }"
+            aria-hidden="true" />
           <div class="timeline__body">
             <strong class="timeline__title">{{ step.title }}</strong>
             <p class="timeline__desc">{{ step.desc }}</p>
@@ -160,21 +158,16 @@ const timeline = [
   </section>
 
   <CitationBlock
-    source="Andy Zébus · médiateur numérique"
+source="Andy Zébus · médiateur numérique"
     quote="Mon travail, ce n'est pas de juger l'usage des écrans. C'est de créer un espace de rencontre — autour du jeu vidéo, des réseaux, du temps d'écran — entre un enfant et son parent, entre une famille et votre équipe."
-    attribution="Andy Zébus · médiateur numérique"
-    :soft="false"
-  />
+    attribution="Andy Zébus · médiateur numérique" :soft="false" />
 
   <RelatedReading
-    eyebrow="À lire"
-    title="Ma démarche, en détail"
-    :paths="[
-      '/blog/esport-guadeloupe-mediation-numerique-familles',
-      '/blog/cadre-hcsp-enfants-ecrans',
-      '/blog/methode-mediation-jeu-video-parent-enfant',
-    ]"
-  />
+eyebrow="À lire" title="Ma démarche, en détail" :paths="[
+    '/blog/esport-guadeloupe-mediation-numerique-familles',
+    '/blog/cadre-hcsp-enfants-ecrans',
+    '/blog/methode-mediation-jeu-video-parent-enfant',
+  ]" />
 </template>
 
 <style scoped>
@@ -186,6 +179,7 @@ const timeline = [
   padding: clamp(40px, 5vw, 64px) 0;
   transition: background var(--dur-base);
 }
+
 /* Texture dot-grid — la trame pixel de la marque, fondue vers le bas. */
 .about-hero::before {
   content: '';
@@ -197,6 +191,7 @@ const timeline = [
   -webkit-mask-image: radial-gradient(ellipse 150% 90% at 50% 0%, black 30%, transparent 75%);
   pointer-events: none;
 }
+
 .about-hero__strip {
   position: absolute;
   top: 24px;
@@ -210,8 +205,11 @@ const timeline = [
   align-items: start;
   position: relative;
 }
+
 @media (max-width: 900px) {
-  .about-grid { grid-template-columns: 1fr; }
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .about-title {
@@ -221,6 +219,7 @@ const timeline = [
   margin: 0 0 20px;
   text-wrap: balance;
 }
+
 .about-lead {
   font-size: 17px;
   line-height: 1.55;
@@ -229,7 +228,10 @@ const timeline = [
 }
 
 /* ── Portrait — la photo se résout elle aussi en point coral ──── */
-.about-portrait { position: relative; }
+.about-portrait {
+  position: relative;
+}
+
 /* Cadre décalé — écho géométrique du pixel, derrière la photo. */
 .about-portrait::before {
   content: '';
@@ -240,21 +242,27 @@ const timeline = [
   border-radius: var(--radius-lg);
   pointer-events: none;
 }
+
 .about-portrait__img {
   position: relative;
   aspect-ratio: 4 / 5;
   border-radius: var(--radius-lg);
   overflow: hidden;
 }
+
 @media (max-width: 900px) {
-  .about-portrait__img { max-height: 50vh; }
+  .about-portrait__img {
+    max-height: 50vh;
+  }
 }
+
 .about-portrait__img :deep(img) {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
 }
+
 .about-portrait__corner {
   position: absolute;
   right: -6px;
@@ -269,17 +277,35 @@ const timeline = [
   margin: var(--space-6) 0 0;
   position: relative;
 }
+
 .about-fact {
   padding: var(--space-3) var(--space-4);
   margin: 0;
 }
-.about-fact + .about-fact { border-left: 1px solid var(--rule); }
-.about-fact:first-child { padding-left: 0; }
-@media (max-width: 899px) {
-  .about-facts { grid-template-columns: 1fr 1fr; }
-  .about-fact:nth-child(odd) { border-left: 0; padding-left: 0; }
-  .about-fact:nth-child(n + 3) { border-top: 1px solid var(--rule); }
+
+.about-fact+.about-fact {
+  border-left: 1px solid var(--rule);
 }
+
+.about-fact:first-child {
+  padding-left: 0;
+}
+
+@media (max-width: 899px) {
+  .about-facts {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .about-fact:nth-child(odd) {
+    border-left: 0;
+    padding-left: 0;
+  }
+
+  .about-fact:nth-child(n + 3) {
+    border-top: 1px solid var(--rule);
+  }
+}
+
 .about-fact__label {
   font-family: var(--font-label);
   font-size: 11px;
@@ -288,6 +314,7 @@ const timeline = [
   color: var(--quiet);
   margin-bottom: var(--space-2);
 }
+
 .about-fact__value {
   font-family: var(--font-display);
   font-weight: 600;
@@ -298,16 +325,22 @@ const timeline = [
 }
 
 /* ── Casquettes — numéros fantômes, escalier du parcours ─────── */
-.casquette-card { overflow: hidden; }
+.casquette-card {
+  overflow: hidden;
+}
+
 /* Filet supérieur — progression teal-deep → teal-mid → cyan. */
 .casquette-card::before {
   content: '';
   position: absolute;
-  top: 0; left: 0; right: 0;
+  top: 0;
+  left: 0;
+  right: 0;
   height: 3px;
   background: var(--casq-accent, var(--teal-mid));
   border-radius: var(--radius-lg) var(--radius-lg) 0 0;
 }
+
 .casquette-num {
   position: absolute;
   top: -14px;
@@ -322,20 +355,46 @@ const timeline = [
   user-select: none;
   transition: color var(--dur-base) var(--ease-step);
 }
+
 .casquette-card:hover .casquette-num {
   color: color-mix(in srgb, var(--teal-mid) 22%, transparent);
 }
-.casquette-title { font-size: 18px; margin: var(--space-2) 0; position: relative; }
-.casquette-desc  { font-size: 15px; line-height: 1.6; position: relative; }
+
+.casquette-title {
+  font-size: 18px;
+  margin: var(--space-2) 0;
+  position: relative;
+}
+
+.casquette-desc {
+  font-size: 15px;
+  line-height: 1.6;
+  position: relative;
+}
+
 /* Escalier — le décalage évoque la progression du parcours. */
 @media (min-width: 1024px) {
-  .casquettes { padding-bottom: 48px; }
-  .casquette-card:nth-child(2) { transform: translateY(24px); }
-  .casquette-card:nth-child(3) { transform: translateY(48px); }
+  .casquettes {
+    padding-bottom: 48px;
+  }
+
+  .casquette-card:nth-child(2) {
+    transform: translateY(24px);
+  }
+
+  .casquette-card:nth-child(3) {
+    transform: translateY(48px);
+  }
+
   /* Le reveal .animate-in anime transform — une fois visible, on rend
      la main au décalage de l'escalier via la transition existante. */
-  .casquette-card:nth-child(2):not(.is-visible) { transform: translateY(42px); }
-  .casquette-card:nth-child(3):not(.is-visible) { transform: translateY(66px); }
+  .casquette-card:nth-child(2):not(.is-visible) {
+    transform: translateY(42px);
+  }
+
+  .casquette-card:nth-child(3):not(.is-visible) {
+    transform: translateY(66px);
+  }
 }
 
 /* ── Timeline — le rail se résout en un point coral ──────────── */
@@ -348,13 +407,17 @@ const timeline = [
   margin: 0;
   max-width: 860px;
 }
+
 .timeline__item {
   display: grid;
   grid-template-columns: var(--year-col) var(--node-col) 1fr;
   column-gap: var(--space-4);
   padding-bottom: var(--space-6);
 }
-.timeline__item:last-child { padding-bottom: 0; }
+
+.timeline__item:last-child {
+  padding-bottom: 0;
+}
 
 .timeline__year {
   font-family: var(--font-display);
@@ -367,6 +430,7 @@ const timeline = [
   text-align: right;
   white-space: nowrap;
 }
+
 /* Les plages (« 2019–2025 ») descendent d'un cran pour tenir la colonne. */
 .timeline__year--range {
   font-size: clamp(17px, 2vw, 21px);
@@ -381,6 +445,7 @@ const timeline = [
   justify-self: center;
   width: 16px;
 }
+
 .timeline__node::before {
   content: '';
   position: absolute;
@@ -394,6 +459,7 @@ const timeline = [
   box-shadow: 0 0 0 4px var(--bg-soft);
   z-index: 1;
 }
+
 .timeline__node::after {
   content: '';
   position: absolute;
@@ -404,13 +470,17 @@ const timeline = [
   width: 2px;
   background: var(--rule);
 }
+
 /* 2026 — la grille se résout : nœud coral, fin du rail. */
 .timeline__node--last::before {
   width: 16px;
   height: 16px;
   background: var(--pxlc-coral);
 }
-.timeline__node--last::after { content: none; }
+
+.timeline__node--last::after {
+  content: none;
+}
 
 /* Le rail se dessine au scroll — progressive enhancement CSS-only. */
 @supports (animation-timeline: view()) {
@@ -421,9 +491,15 @@ const timeline = [
       animation-timeline: view();
       animation-range: entry 0% entry 80%;
     }
+
     @keyframes rail-grow {
-      from { transform: translateX(-50%) scaleY(0); }
-      to   { transform: translateX(-50%) scaleY(1); }
+      from {
+        transform: translateX(-50%) scaleY(0);
+      }
+
+      to {
+        transform: translateX(-50%) scaleY(1);
+      }
     }
   }
 }
@@ -436,6 +512,7 @@ const timeline = [
   display: block;
   padding-top: 6px;
 }
+
 .timeline__desc {
   font-size: 15px;
   line-height: 1.6;
@@ -444,25 +521,53 @@ const timeline = [
 }
 
 @media (max-width: 900px) {
-  .timeline { --year-col: 96px; }
-  .timeline__year { font-size: 22px; }
-  .timeline__year--range { font-size: 15px; padding-top: 6px; }
+  .timeline {
+    --year-col: 96px;
+  }
+
+  .timeline__year {
+    font-size: 22px;
+  }
+
+  .timeline__year--range {
+    font-size: 15px;
+    padding-top: 6px;
+  }
 }
+
 @media (max-width: 600px) {
-  .timeline { --node-top: 6px; }
+  .timeline {
+    --node-top: 6px;
+  }
+
   .timeline__item {
     grid-template-columns: var(--node-col) 1fr;
     column-gap: var(--space-3);
   }
+
   /* Le rail survit au mobile : nœud à gauche, année au-dessus du corps. */
-  .timeline__node { grid-row: 1 / span 2; grid-column: 1; }
+  .timeline__node {
+    grid-row: 1 / span 2;
+    grid-column: 1;
+  }
+
   .timeline__year {
     grid-column: 2;
     text-align: left;
     font-size: 20px;
   }
-  .timeline__year--range { font-size: 16px; padding-top: 2px; }
-  .timeline__body { grid-column: 2; }
-  .timeline__title { padding-top: var(--space-1); }
+
+  .timeline__year--range {
+    font-size: 16px;
+    padding-top: 2px;
+  }
+
+  .timeline__body {
+    grid-column: 2;
+  }
+
+  .timeline__title {
+    padding-top: var(--space-1);
+  }
 }
 </style>
