@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "@iconify-json/lucide": "^1.2.114",
-    "@iconify-json/simple-icons": "^1.2.86",
+    "@iconify-json/simple-icons": "^1.2.87",
     "@nuxt/content": "^3.14.0",
     "@nuxt/fonts": "^0.14.0",
     "@nuxt/icon": "^2.2.4",
@@ -38,7 +38,7 @@
     "better-sqlite3": "^12.11.1",
     "nuxt": "^4.4.8",
     "puppeteer": "^25.1.0",
-    "vue": "^3.5.38",
+    "vue": "^3.5.39",
     "vue-router": "^5.1.0"
   },
   "devDependencies": {
@@ -50,7 +50,7 @@
     "eslint": "^10.6.0",
     "jsdom": "^29.1.1",
     "lighthouse": "^13.4.0",
-    "nuxt-link-checker": "^5.1.1",
+    "nuxt-link-checker": "^5.1.2",
     "playwright": "^1.61.1",
     "typescript": "^6.0.3",
     "unplugin-auto-import": "^21.0.0",
