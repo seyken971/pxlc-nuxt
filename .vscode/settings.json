@@ -1,0 +1,24 @@
+{
+  // Ce projet se formate via ESLint (eslint.config.mjs / @nuxt/eslint),
+  // PAS via Prettier ni le formateur de Volar. Les deux divergent des
+  // règles Vue du repo (ex. vue/first-attribute-linebreak) et provoquent
+  // du reformatage parasite (attributs recompactés, indentation cassée).
+  //
+  // Pré-requis : installer l'extension "dbaeumer.vscode-eslint".
+  // Sans elle, ces réglages désactivent au moins le reformatage Prettier/
+  // Volar ; avec elle, ESLint corrige tout seul à la sauvegarde.
+
+  // Pas de reformatage automatique divergent.
+  "editor.formatOnSave": false,
+  "editor.formatOnPaste": false,
+
+  // ESLint (flat config) applique ses corrections à la sauvegarde.
+  "eslint.useFlatConfig": true,
+  "eslint.validate": ["javascript", "typescript", "vue"],
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+
+  // Le repo est en LF (cf. files.eol global + .gitattributes éventuel).
+  "files.eol": "\n"
+}
