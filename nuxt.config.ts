@@ -68,10 +68,13 @@ export default defineNuxtConfig({
   // `zeroRuntime: true` makes the og-image module prerender every OG PNG
   // at build time and ship them as static files — required for GitHub
   // Pages (no Node runtime to generate images on demand).
-  // Bundle only the 3 share icons at build time — no CDN call needed in SSG.
-  // localApiEndpoint avoids the createRequire(import.meta.url) server-bundle
-  // crash seen with older versions when the API endpoint ran server-side.
+  // GitHub Pages = aucun runtime serveur. On désactive donc le serverBundle :
+  // par défaut il vaut `local` et embarque TOUTES les collections @iconify-json
+  // installées (lucide + simple-icons, ~5000 icônes) — visible en dev. Toutes
+  // les icônes réellement utilisées sont listées ici et inlinées au build.
+  // Toute nouvelle icône doit être ajoutée à cette liste (scan: false).
   icon: {
+    serverBundle: false,
     clientBundle: {
       icons: [
         "simple-icons:linkedin",
@@ -82,6 +85,7 @@ export default defineNuxtConfig({
         "lucide:calendar",
         "lucide:moon",
         "lucide:sun",
+        "lucide:clock",
       ],
       scan: false,
     },
