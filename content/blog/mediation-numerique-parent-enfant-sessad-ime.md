@@ -131,7 +131,7 @@ Les intervenants culturels du SESSAD proposent en parallèle un jeu traditionnel
 
 ### Temps 3 — Groupe de parole familiale
 
-Espace d'échange entre familles : régulation des tensions autour des écrans, partage des stratégies, identification des signes d'alerte, soutien à la posture parentale. Animé par la psychologue, avec le gamer médiateur disponible pour les questions sur les jeux spécifiques.
+Espace d'échange entre familles : régulation des tensions autour des écrans, partage des stratégies, identification des signes d'alerte, soutien à la posture parentale. Animé par le psychologue, avec le gamer médiateur disponible pour les questions sur les jeux spécifiques.
 
 ### Temps 4 — Bilan
 
@@ -152,7 +152,7 @@ Pour les structures qui doivent rendre des comptes à leurs tutelles, voici quat
 ## Questions que les équipes posent souvent
 
 **Est-ce que le gamer médiateur remplace un intervenant de l'équipe ?**
-Non. Le dispositif est porté par la psychologue de la structure. Le gamer médiateur intervient en partenariat, sur le terrain spécifique de la culture jeu vidéo : choix des jeux adaptés aux objectifs cliniques, accompagnement en situation, explication des mécaniques aux parents. Il ne fait pas de thérapie — il ouvre un terrain où la thérapie peut travailler.
+Non. Le dispositif est porté par le psychologue de la structure. Le gamer médiateur intervient en partenariat, sur le terrain spécifique de la culture jeu vidéo : choix des jeux adaptés aux objectifs cliniques, accompagnement en situation, explication des mécaniques aux parents. Il ne fait pas de thérapie — il ouvre un terrain où la thérapie peut travailler.
 
 **Quels profils d'enfants sont concernés ?**
 Le dispositif a été conçu pour les enfants accompagnés pour TSA, TDAH, TCND, dystrophie musculaire, neuropathie — et plus largement pour tout enfant suivi pour des troubles du neurodéveloppement, du comportement ou du lien social où la question des écrans est un point de friction récurrent. L'adaptation se fait en concertation avec l'équipe pluri.

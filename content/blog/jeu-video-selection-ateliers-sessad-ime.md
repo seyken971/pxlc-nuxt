@@ -97,7 +97,7 @@ Le jeu est le support — l'espace de relation qu'il ouvre est le matériau.
 
 **Jeu** : *Overcooked 2*, niveaux 1 à 3, difficulté normale.
 
-**Disposition** : parent et enfant sur la même console. Médiateur en retrait, avec la psychologue.
+**Disposition** : parent et enfant sur la même console. Médiateur en retrait, avec le psychologue.
 
 **Ce qu'on observe** : comment s'organisent-ils spontanément ? L'enfant s'octroie-t-il un rôle directif ? Le parent suit-il ou résiste-t-il ? Comment gèrent-ils le premier échec collectif ?
 
