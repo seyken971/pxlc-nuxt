@@ -245,6 +245,10 @@ const timeline = [
   aspect-ratio: 4 / 5;
   border-radius: var(--radius-lg);
   overflow: hidden;
+  /* Isole le contexte d'empilement pour confiner le mix-blend du voile
+     à la photo seule (sinon il déborderait sur le fond de section). */
+  isolation: isolate;
+  --portrait-tint: 0.38; /* intensité du voile teal — réglable à l'œil */
 }
 @media (max-width: 900px) {
   .about-portrait__img { max-height: 50vh; }
@@ -254,6 +258,19 @@ const timeline = [
   height: 100%;
   object-fit: cover;
   display: block;
+  filter: saturate(0.92); /* calme légèrement l'orange du plateau */
+}
+/* Voile de teinte de marque : harmonise le fond orange avec la palette.
+   mix-blend-mode: color reprend la teinte teal en gardant la luminance
+   (duotone partiel). Fallback gracieux = simple voile translucide. */
+.about-portrait__img::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--teal-deep);
+  mix-blend-mode: color;
+  opacity: var(--portrait-tint);
+  pointer-events: none;
 }
 .about-portrait__corner {
   position: absolute;
