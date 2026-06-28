@@ -112,7 +112,7 @@ Le programme déployé au SESSAD Lékoklaya en 2026 articule quatre temps, pens�
 
 ### Temps 1 — Préparation (avant les ateliers)
 
-**Entretien pluridisciplinaire initial** avec psychologue, psychomotricienne, gamer médiateur-numérique et intervenants culturels. Trois questions structurantes :
+**Entretien pluridisciplinaire initial** avec psychologue, psychomotricienne, gamer médiateur-numérique et intervenant culturel. Trois questions structurantes :
 - Quels enfants pour ce dispositif, et avec quelle problématique principale ?
 - Quel est le profil ludique de chaque enfant (ce qu'il joue, comment, avec qui, ce qu'il y investit) ?
 - Quels binômes parent-enfant, et pourquoi ?
@@ -127,7 +127,7 @@ Trois thèmes, chacun articulant **un temps de jeu partagé (30 à 45 min)** et
 - **Émotions et récits** : jeux à fort contenu narratif ou émotionnel. Travail sur le nommage des états internes, la compréhension des motivations des personnages, le transfert vers la vie réelle.
 - **Différence et complémentarité** : jeux où les rôles sont asymétriques (un personnage fort/lent, un personnage agile/faible). Travail sur la complémentarité, l'acceptation de l'autre tel qu'il est, la valorisation des forces différentes.
 
-Les intervenants culturels du SESSAD proposent en parallèle un jeu traditionnel et un conte en miroir du thème numérique — ce croisement élargit le registre et sort du seul champ de l'écran.
+L'intervenant culturel du SESSAD propose en parallèle un jeu traditionnel et un conte en miroir du thème numérique — ce croisement élargit le registre et sort du seul champ de l'écran.
 
 ### Temps 3 — Groupe de parole familiale
 
