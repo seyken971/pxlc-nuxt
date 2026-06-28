@@ -64,7 +64,7 @@ const facts: [string, string][] = [
   ['Tarif', 'Sur devis'],
 ]
 
-// Méthode en 4 étapes (déroulé opérationnel) — activités : plaquette ; ancrage HCSP/HAS éditorial, cf. docs/references/CITATIONS.md
+// Déroulé en 4 étapes — activités : plaquette ; ancrage HCSP/HAS éditorial, cf. docs/references/CITATIONS.md
 const steps = [
   { num: '01', title: 'Préparation', detail: 'Entretiens familiaux avec votre équipe et le médiateur numérique : profil ludique de chaque enfant, usages et attentes des parents, construction des binômes parent-enfant. Le diagnostic partagé qui conditionne la suite.' },
   { num: '02', title: 'Ateliers thématiques parent-enfant', detail: 'Coopération · Émotions & récits · Différence & complémentarité — travaillés par le jeu vidéo comme support de médiation, jamais comme problème.' },
@@ -135,7 +135,7 @@ const { themes } = useProjectThemes()
     <div class="container onpage-nav__inner">
       <span class="onpage-nav__label">Sur cette page</span>
       <ul class="onpage-nav__list" role="list">
-        <li><a class="onpage-nav__link" href="#methode">Méthode</a></li>
+        <li><a class="onpage-nav__link" href="#deroule">Déroulé</a></li>
         <li><a class="onpage-nav__link" href="#themes">Ateliers</a></li>
         <li><a class="onpage-nav__link" href="#cadre">Cadre</a></li>
         <li><a class="onpage-nav__link" href="#indicateurs">Indicateurs</a></li>
@@ -145,12 +145,12 @@ const { themes } = useProjectThemes()
     </div>
   </nav>
 
-  <section id="methode" class="section" aria-labelledby="methode-title">
+  <section id="deroule" class="section" aria-labelledby="deroule-title">
     <div class="container">
       <header class="section__head">
-        <span class="eyebrow">Méthode</span>
-        <h2 id="methode-title">Quatre étapes, de la préparation au bilan<span class="coral-dot" aria-hidden="true">.</span></h2>
-        <p class="lead">Une démarche ancrée dans le cadre HCSP&nbsp;2019-2020 · HAS&nbsp;2020&nbsp;: partir des usages réels de la famille, travailler par le jeu, outiller les parents, transmettre un bilan écrit à votre équipe.</p>
+        <span class="eyebrow">Déroulé</span>
+        <h2 id="deroule-title">Quatre étapes, de la préparation au bilan<span class="coral-dot" aria-hidden="true">.</span></h2>
+        <p class="lead">Le déroulé d’un dispositif, ancré dans le cadre HCSP&nbsp;2019-2020 · HAS&nbsp;2020&nbsp;: partir des usages réels de la famille, travailler par le jeu, outiller les parents, transmettre un bilan écrit à votre équipe.</p>
       </header>
       <div class="grid grid--2 process-grid">
         <article v-for="s in steps" :key="s.num" class="card card--method">
