@@ -32,6 +32,9 @@
  *                       mots minimum (style guide Vue)
  *   R11 nbsp-manquante— espace ASCII avant ? ! : ; » / après « / nombre +
  *                       unité-symbole (h, min, €, %) → insécable manquante
+ *   R12 phrase-interdite— garde-fous factuels (ex. « intervenants culturels »
+ *                       au pluriel) balayés sur .vue/.ts (app/), .md (content/)
+ *                       et la plaquette (_plaquette template + data.json)
  *
  * Corrections v2 :
  *   - parseSfc : tous les blocs <style> sont capturés (matchAll, pas match)
@@ -64,7 +67,7 @@ const FORBIDDEN = [
 ]
 
 // ── File walker ───────────────────────────────────────────────────────────────
-async function walk(dir) {
+async function walk(dir, exts = ['.vue']) {
   const files = []
   let entries
   try { entries = await readdir(dir, { withFileTypes: true }) }
@@ -77,8 +80,8 @@ async function walk(dir) {
   }
   for (const e of entries) {
     const full = join(dir, e.name)
-    if (e.isDirectory())              files.push(...await walk(full))
-    else if (e.name.endsWith('.vue')) files.push(full)
+    if (e.isDirectory())                       files.push(...await walk(full, exts))
+    else if (exts.some(x => e.name.endsWith(x))) files.push(full)
   }
   return files
 }
@@ -313,6 +316,40 @@ function lintNbsp(src, file) {
   return vs
 }
 
+// ── R12 — Phrases interdites (garde-fous factuels) ─────────────────────────────
+// Faits PXLC qui ont une seule formulation correcte et tendent à dériver. À la
+// différence de R5 (vocab-interdit, scopé aux <template> .vue), ces phrases
+// peuvent réapparaître dans n'importe quelle source de copy — d'où un balayage
+// élargi : .vue/.ts sous app/, .md sous content/, et le couple template + data
+// de la plaquette (où le pluriel avait justement dérapé).
+// L'espace entre les deux mots peut être ASCII, insécable (\s couvre U+00A0) ou
+// l'entité HTML &nbsp; — d'où (?:&nbsp;|\s)+.
+const FORBIDDEN_PHRASES = [
+  {
+    re: /intervenants(?:&nbsp;|\s)+culturels/gi,
+    msg: '« intervenants culturels » → un seul intervenant culturel (Lékoklaya) : toujours au singulier',
+  },
+]
+
+async function lintForbiddenPhrases() {
+  const vs = []
+  const sources = [
+    ...await walk(join(ROOT, 'app'), ['.vue', '.ts']),
+    ...await walk(join(ROOT, 'content'), ['.md']),
+    join(ROOT, '_plaquette/plaquette.template.html'),
+    join(ROOT, '_plaquette/data.json'),
+  ]
+  for (const file of sources) {
+    let src
+    try { src = await readFile(file, 'utf8') }
+    catch (err) { if (err.code !== 'ENOENT') throw err; continue }
+    for (const { re, msg } of FORBIDDEN_PHRASES)
+      for (const m of src.matchAll(re))
+        vs.push({ file, rule: 'phrase-interdite', line: lineAt(src, m.index), detail: msg })
+  }
+  return vs
+}
+
 /** Vérifie site.description de nuxt.config.ts (meta description par défaut). */
 async function lintNuxtConfig() {
   const file = join(ROOT, 'nuxt.config.ts')
@@ -350,6 +387,7 @@ const main = async () => {
     all.push(...lintStyle(await readFile(file, 'utf8'), file, CSS_RULES))
   }))
   all.push(...await lintNuxtConfig())
+  all.push(...await lintForbiddenPhrases())
 
   if (!all.length) {
     console.log('ds-lint: ✓ aucune violation DS')
