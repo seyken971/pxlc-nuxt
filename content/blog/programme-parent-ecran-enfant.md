@@ -42,7 +42,7 @@ Le programme ne dit pas aux parents : « laissez faire ». Il ne dit pas non 
 
 Il aide à construire un cadre plus lisible.
 
-Les sources institutionnelles vont dans ce sens. Le HCSP recommande d'accompagner les enfants dans leurs usages, de protéger certains moments comme les repas et le sommeil, de veiller aux contenus, et d'aider les adultes à repérer les signes d'usage problématique (avis du 12 décembre 2019, section VII).
+Les sources institutionnelles vont dans ce sens. Le Haut Conseil de la Santé Publique (HCSP) recommande d'accompagner les enfants dans leurs usages, de protéger certains moments comme les repas et le sommeil, de veiller aux contenus, et d'aider les adultes à repérer les signes d'usage problématique (avis du 12 décembre 2019, section VII).
 
 Le rapport DITP/MILDECA sur Faminum montre aussi que les parents ont besoin de règles concrètes, mais surtout de règles expliquées et applicables. Les familles adhèrent mieux quand elles peuvent discuter des écrans, choisir des pratiques réalistes et ajuster progressivement.
 

@@ -16,7 +16,7 @@ Après plusieurs années d'entretiens familiaux en Guadeloupe, j'ai identifié c
 
 C'est souvent la première phrase. Le mot « trop » est vague mais chargé. Il signifie rarement une durée précise — il signifie plutôt : *ça me dépasse, je n'arrive plus à réguler, et j'ai peur que ça soit le signe de quelque chose de grave*.
 
-L'avis HCSP 2021 *« De l'usage excessif des écrans à la dépendance »* est clair sur ce point : **l'usage intensif n'est pas synonyme d'usage problématique** (avis du 8 mars 2021, section 4.1). Un enfant qui joue beaucoup peut simplement trouver dans le jeu un espace de compétence, de maîtrise et de socialisation — particulièrement précieux pour les enfants TSA ou TDAH dont les autres espaces de réussite sont réduits.
+L'avis du Haut Conseil de la Santé Publique (HCSP) de 2021 *« De l'usage excessif des écrans à la dépendance »* est clair sur ce point : **l'usage intensif n'est pas synonyme d'usage problématique** (avis du 8 mars 2021, section 4.1). Un enfant qui joue beaucoup peut simplement trouver dans le jeu un espace de compétence, de maîtrise et de socialisation — particulièrement précieux pour les enfants TSA ou TDAH dont les autres espaces de réussite sont réduits.
 
 Les critères à surveiller, selon le HCSP, ne sont pas quantitatifs (combien d'heures) mais qualitatifs : l'incapacité à interrompre malgré une demande claire, la désorganisation durable du sommeil et des repas, le retrait de toutes les activités préalablement investies, et l'aggravation des troubles comportementaux lors de l'interruption (avis du 8 mars 2021, section 4.2).
 

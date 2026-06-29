@@ -23,7 +23,7 @@
             «&nbsp;Jouons Ensemble&nbsp;!&nbsp;» accompagne 8 enfants âgés de 12 à 17 ans (TSA, TDAH, TND, dystrophie musculaire) en binômes parent-enfant, sur des ateliers thématiques co-encadrés par le psychologue du SESSAD, la psychomotricienne, les intervenants culturels — et moi en médiateur numérique.
           </p>
           <p class="mt-4">
-            Le projet s’inscrit dans la continuité du Café-Parents du 14 décembre 2023 «&nbsp;Enfants Écrans&nbsp;» et dans le cadre HCSP 2019-2020 · HAS 2020. L’objectif&nbsp;: faire du jeu vidéo un outil d’alliance entre parents et enfants, pas un terrain de conflit.
+            Le projet s’inscrit dans la continuité du Café-Parents du 14 décembre 2023 «&nbsp;Enfants Écrans&nbsp;» et dans le cadre du Haut Conseil de la Santé Publique (HCSP, 2019-2020) et de la Haute Autorité de Santé (HAS, 2020). L’objectif&nbsp;: faire du jeu vidéo un outil d’alliance entre parents et enfants, pas un terrain de conflit.
           </p>
           <div class="mt-5">
             <PxlcLinkout to="/structures">Voir le programme</PxlcLinkout>

@@ -181,7 +181,7 @@ const { themes } = useProjectThemes()
       <header class="section__head">
         <span class="eyebrow">Cadre théorique</span>
         <h2 id="cadre-title">Deux rapports qui structurent la démarche<span class="coral-dot" aria-hidden="true">.</span></h2>
-        <p class="lead">Pas un avis personnel&nbsp;: un cadre bâti sur les rapports du Haut Conseil de la Santé Publique, cités explicitement dans chaque bilan.</p>
+        <p class="lead">Pas un avis personnel&nbsp;: un cadre bâti sur les rapports du Haut Conseil de la Santé Publique (HCSP) et de la Haute Autorité de Santé (HAS), cités explicitement dans chaque bilan.</p>
       </header>
       <div class="grid grid--2">
         <article v-for="c in frameworks" :key="c.key + c.year" class="card">

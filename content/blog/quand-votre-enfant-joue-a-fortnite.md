@@ -31,7 +31,7 @@ Quand votre enfant explose après une partie perdue, ce n'est pas « à cause d
 
 C'est exactement la frustration d'un sportif qui sort d'un match perdu. La seule différence, c'est que vous ne reconnaissez pas le match.
 
-Le HCSP le formule clairement dans son avis du 12 décembre 2019 (section V.7) : *« Les écrans pourraient être des révélateurs de la vulnérabilité des enfants. »* Ce que vous voyez après une partie perdue n'est pas créé par Fortnite — c'est quelque chose qui existait déjà, que le jeu a simplement rendu visible.
+Le Haut Conseil de la Santé Publique (HCSP) le formule clairement dans son avis du 12 décembre 2019 (section V.7) : *« Les écrans pourraient être des révélateurs de la vulnérabilité des enfants. »* Ce que vous voyez après une partie perdue n'est pas créé par Fortnite — c'est quelque chose qui existait déjà, que le jeu a simplement rendu visible.
 
 ## Ce qu'on fait en atelier
 

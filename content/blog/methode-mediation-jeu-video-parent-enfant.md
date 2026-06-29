@@ -190,4 +190,4 @@ Pour situer cette méthode dans une démarche plus large, lisez le [cadre HCSP](
 
 *Les écrans sont devenus un point de friction dans les familles. Andy Zébus, médiateur numérique et créateur de PXLC, aide les structures en Guadeloupe à accompagner les familles — avec le jeu vidéo comme outil de médiation, jamais comme problème.*
 
-*Sources mobilisées : cadre HCSP 2019-2020 · HAS 2020, avis HCSP du 8 mars 2021 ; HCFEA 2020 ; dossier PXLC de médiation numérique parent-enfant par le jeu vidéo.*
+*Sources mobilisées : cadre du Haut Conseil de la Santé Publique (HCSP, 2019-2020) et de la Haute Autorité de Santé (HAS, 2020), avis HCSP du 8 mars 2021 ; HCFEA 2020 ; dossier PXLC de médiation numérique parent-enfant par le jeu vidéo.*
