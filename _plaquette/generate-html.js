@@ -154,16 +154,21 @@ function parseNuxtConfig() {
   }
 
   const source = fs.readFileSync(NUXT, 'utf8')
-  const runnable = source.replace(
-    /export\s+default\s+defineNuxtConfig\s*\(/,
-    'module.exports = defineNuxtConfig(',
-  )
+  const runnable = source
+    // Les `import` top-level cassent le contexte vm (non-module) ; on les retire
+    // et on stube les helpers importés (defineLocalBusiness…) dans le sandbox.
+    .replace(/^\s*import\s+[^\n]*$/gm, '')
+    .replace(
+      /export\s+default\s+defineNuxtConfig\s*\(/,
+      'module.exports = defineNuxtConfig(',
+    )
 
   const sandbox = {
     module: { exports: {} },
     exports: {},
     process: { env: { NODE_ENV: 'production' } },
     defineNuxtConfig: config => config,
+    defineLocalBusiness: config => config,
   }
 
   try {
