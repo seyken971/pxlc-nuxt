@@ -62,6 +62,11 @@ Aussi dans design.md, mais bloquants — vérifier chaque texte généré ou mod
   identifier le bon document, puis ouvrir le .md ou le PDF pour vérifier la
   citation exacte. Ne jamais inventer de chiffre ou de recommandation.
 - Le jeu vidéo est un outil de médiation légitime — jamais un problème à résoudre.
+- « intervenant culturel » toujours au singulier (un seul, à Lékoklaya) — jamais
+  « intervenants culturels ». Outillé par `ds-lint` R12 (`phrase-interdite`), qui
+  balaie `.vue`/`.ts` (`app/`), `.md` (`content/`) et la plaquette : tout pluriel
+  casse le build. Ajouter un fait à garder dans `FORBIDDEN_PHRASES`
+  (`scripts/ds-lint.mjs`).
 
 ## Garde-fous non négociables (visuel)
 
