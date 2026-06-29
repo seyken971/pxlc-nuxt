@@ -14,7 +14,7 @@ const THEMES: ProjectTheme[] = [
     num: '01',
     title: 'Coopération',
     short: 'Jeux choisis pour valoriser l’entraide et la stratégie partagée. Pont avec un jeu traditionnel + un conte sur le même thème.',
-    long: 'Jeux choisis avec le médiateur numérique pour valoriser l’entraide et la stratégie partagée. Les intervenants culturels proposent en parallèle un jeu traditionnel et un conte sur la coopération.',
+    long: 'Jeux choisis avec le médiateur numérique pour valoriser l’entraide et la stratégie partagée. L’intervenant culturel propose en parallèle un jeu traditionnel et un conte sur la coopération.',
   },
   {
     num: '02',
