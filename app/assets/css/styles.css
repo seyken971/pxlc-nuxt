@@ -643,11 +643,13 @@ main[tabindex="-1"]:focus { outline: none; }
   width: 44px; height: 44px; border-radius: var(--radius-md);
   background: var(--pxlc-bg-dark-soft); border: 1px solid var(--pxlc-border-dark);
   display: inline-flex; align-items: center; justify-content: center;
-  color: var(--pxlc-cyan); transition: background var(--dur-fast), color var(--dur-fast), border-color var(--dur-fast);
+  color: var(--pxlc-white); transition: background var(--dur-fast), color var(--dur-fast), border-color var(--dur-fast);
   font-family: var(--font-label); font-size: 14px;
 }
-.site-footer__social-btn:hover { background: var(--pxlc-bg-dark-deep); color: var(--pxlc-coral); border-color: var(--pxlc-coral); }
-.site-footer__social-btn svg { width: 18px; height: 18px; }
+/* Glyphes en blanc (permis LinkedIn/X) au repos ; au hover, le coral porte sur
+   le fond + la bordure, jamais sur le glyphe de marque. */
+.site-footer__social-btn:hover { background: var(--pxlc-bg-dark-deep); border-color: var(--pxlc-coral); }
+.site-footer__social-btn svg { width: 21px; height: 21px; }
 .site-footer__legal {
   border-top: 1px solid var(--pxlc-border-dark); padding-top: var(--space-3);
   display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: var(--space-3);

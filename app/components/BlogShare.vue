@@ -74,7 +74,10 @@ const shares = computed(() => {
   border-color: var(--pxlc-cyan);
   box-shadow: var(--ring-cyan);
 }
-.blog-share__icon { width: 15px; height: 15px; flex-shrink: 0; }
+/* Glyphe de marque : couleur épinglée (--ink = noir en light, ivoire ≈ blanc
+   en dark) — permis LinkedIn/X, monochrome toléré WhatsApp. N'hérite pas du
+   coral du hover parent. 21px = plancher LinkedIn pour le [in]. */
+.blog-share__icon { width: 21px; height: 21px; flex-shrink: 0; color: var(--ink); }
 .blog-share__link:hover {
   color: var(--pxlc-coral); border-color: var(--pxlc-coral);
   background: var(--bg-soft); text-decoration: none;

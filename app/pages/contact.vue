@@ -70,28 +70,6 @@ const copyEmail = async () => {
 }
 
 onBeforeUnmount(() => clearTimeout(copyTimer))
-
-const contactCards = [
-  {
-    key: 'calendar',
-    icon: 'lucide:calendar',
-    label: 'Prendre rendez-vous',
-    desc: '20 min · visio · gratuit',
-    cta: 'Ouvrir cal.eu/pxlc-gp',
-    href: 'https://cal.eu/pxlc-gp',
-    external: true,
-    featured: true,
-  },
-  {
-    key: 'whatsapp',
-    icon: 'simple-icons:whatsapp',
-    label: 'WhatsApp',
-    desc: '+590 690 717 618',
-    cta: 'Envoyer un message',
-    href: 'https://wa.me/590690717618',
-    external: true,
-  },
-]
 </script>
 
 <template>
@@ -154,26 +132,24 @@ const contactCards = [
           </p>
         </div>
 
-        <!-- ── Colonne droite — cartes de contact ───────────── -->
+        <!-- ── Colonne droite — actions rapides + coordonnées ─── -->
         <div class="contact-cards">
-          <div v-for="c in contactCards" :key="c.key" class="contact-card" :class="{ 'contact-card--featured': c.featured }">
-            <div class="contact-card__head">
-              <div class="contact-card__icon" aria-hidden="true">
-                <Icon :name="c.icon" aria-hidden="true" style="width:18px;height:18px" />
-              </div>
-              <div>
-                <div class="contact-card__label">{{ c.label }}</div>
-                <div class="contact-card__desc">{{ c.desc }}</div>
-              </div>
-            </div>
-            <a
-              :href="c.href"
-              :target="c.external ? '_blank' : undefined"
-              :rel="c.external ? 'noopener noreferrer' : undefined"
-              :aria-label="c.external ? `${c.cta} (nouvel onglet)` : c.cta"
-              class="contact-card__cta"
-            >{{ c.cta }} →</a>
-          </div>
+          <a
+            class="btn btn--secondary btn--block"
+            href="https://cal.eu/pxlc-gp" target="_blank" rel="noopener noreferrer"
+            aria-label="Prendre rendez-vous (nouvel onglet)"
+          >
+            <Icon name="lucide:calendar" aria-hidden="true" style="width:18px;height:18px" />
+            Prendre rendez-vous
+          </a>
+          <a
+            class="btn btn--ghost btn--block"
+            href="https://wa.me/590690717618" target="_blank" rel="noopener noreferrer"
+            aria-label="Envoyer un message WhatsApp (nouvel onglet)"
+          >
+            <Icon name="simple-icons:whatsapp" aria-hidden="true" class="contact-wa-icon" style="width:18px;height:18px" />
+            Envoyer un message WhatsApp
+          </a>
 
           <!-- NAP visible et indexable — doit correspondre à la fiche Google
                Business Profile et au nœud schema.org #identity (signal local). -->
@@ -286,55 +262,13 @@ const contactCards = [
 }
 .form-legend__req { color: var(--pxlc-coral); font-weight: 700; }
 
-/* ── Contact cards ───────────────────────────────────────────── */
+/* ── Actions rapides + coordonnées ───────────────────────────── */
 .contact-cards { display: grid; gap: var(--space-3); }
 
-.contact-card {
-  background: var(--bg-elev);
-  border: 1px solid var(--rule);
-  border-radius: var(--radius-lg);
-  padding: var(--space-4);
-  transition: background var(--dur-base), border-color var(--dur-base);
-}
-.contact-card--featured {
-  border-color: var(--pxlc-teal-deep);
-  box-shadow: var(--ring-teal-soft);
-}
-[data-theme="dark"] .contact-card--featured {
-  border-color: var(--pxlc-cyan);
-  box-shadow: var(--ring-cyan);
-}
-.contact-card__head {
-  display: flex; align-items: center; gap: var(--space-2-5);
-  margin-bottom: var(--space-2-5);
-}
-.contact-card__icon {
-  width: 36px; height: 36px; flex-shrink: 0;
-  border-radius: var(--radius-md);
-  background: var(--bg-soft);
-  color: var(--eyebrow);
-  display: flex; align-items: center; justify-content: center;
-}
-.contact-card__label {
-  font-family: var(--font-display);
-  font-weight: 600; font-size: 15px;
-  color: var(--ink);
-}
-.contact-card__desc {
-  font-family: var(--font-label);
-  font-size: 11px; letter-spacing: 0.1em;
-  color: var(--quiet);
-  margin-top: var(--space-1);
-}
-.contact-card__cta {
-  font-family: var(--font-body);
-  font-weight: 600; font-size: 14px;
-  color: var(--eyebrow);
-  display: inline-flex; align-items: center; gap: var(--space-2);
-}
-.contact-card__cta:hover { color: var(--pxlc-coral); text-decoration: none; }
-[data-theme="dark"] .contact-card__cta { color: var(--cyan); }
-[data-theme="dark"] .contact-card__cta:hover { color: var(--pxlc-coral); }
+/* Glyphe de marque WhatsApp : monochrome (--ink = noir en light, ivoire ≈ blanc
+   en dark) — la charte interdit de recolorer le logo ; ne suit pas la couleur
+   teal du bouton ghost. */
+.contact-wa-icon { color: var(--ink); }
 
 /* ── NAP (adresse visible + lien Maps) ───────────────────────── */
 .contact-nap {
