@@ -11,12 +11,15 @@ on:
 permissions:
   contents: read
 
-# Une seule exécution par branche à la fois — un nouveau push annule un build
-# en cours sur la même branche. Le groupe est scopé par ref pour que les PRs
-# Dependabot ne s'annulent pas mutuellement et ne cancellent pas le run main.
+# Groupe scopé par ref pour que les PRs Dependabot ne s'annulent pas mutuellement
+# ni le run main. cancel-in-progress conditionnel à la ref :
+#   - main = déploiement de production : on NE coupe JAMAIS un run en cours,
+#     sinon actions/deploy-pages émet « Deployment cancelled ». Les pushes main
+#     successifs se mettent en file au lieu de s'annuler — le dernier gagne.
+#   - PR / branches : on garde l'annulation des runs redondants (économie CI).
 concurrency:
   group: pages-${{ github.ref }}
-  cancel-in-progress: true
+  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
 
 env:
   # Opt into Node.js 24 action runtimes before GitHub forces the migration
