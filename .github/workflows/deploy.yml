@@ -165,8 +165,21 @@ jobs:
       id-token: write
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: ${{ steps.deployment.outputs.page_url || steps.deployment-retry.outputs.page_url }}
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
+        uses: actions/deploy-pages@v5
+        # continue-on-error : un échec transitoire de Pages (statut `error`
+        # immédiat ou `deployment_queued` jusqu'au timeout) ne fait pas tomber
+        # le job — l'étape de retry ci-dessous relance un déploiement propre.
+        continue-on-error: true
+
+      # Retry unique. `steps.deployment.outcome` reflète le résultat réel de
+      # l'étape (`failure`) même quand `continue-on-error` masque son
+      # `conclusion` en `success`. Pas de continue-on-error ici : un second
+      # échec fait tomber le job, on ne masque donc pas une vraie panne Pages.
+      - name: Deploy to GitHub Pages (retry)
+        id: deployment-retry
+        if: steps.deployment.outcome == 'failure'
         uses: actions/deploy-pages@v5
