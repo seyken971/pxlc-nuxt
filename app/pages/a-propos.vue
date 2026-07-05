@@ -70,7 +70,7 @@ const timeline = [
           <SiteBreadcrumb />
           <span class="eyebrow eyebrow--lg">À propos</span>
           <h1 class="about-title">
-            Andy Zébus, médiateur&nbsp;numérique<span class="coral-dot" aria-hidden="true">.</span>
+            Andy Zébus, médiateur numérique<span class="coral-dot" aria-hidden="true">.</span>
           </h1>
           <p class="about-lead">
             Vos équipes reçoivent des familles où les écrans sont souvent devenus un point de friction. Médiateur
