@@ -128,7 +128,7 @@ onBeforeUnmount(() => clearTimeout(copyTimer))
             </button>
           </form>
           <p class="contact-plaquette">
-            Ou <a href="/files/plaquette-pxlc.pdf" target="_blank" rel="noopener noreferrer" class="contact-plaquette__link" aria-label="Télécharger la plaquette PDF, 6 pages (nouvel onglet)">télécharger la plaquette (PDF · 6 pages)</a> pour prendre connaissance du dispositif.
+            Ou <a href="/files/plaquette-pxlc.pdf" target="_blank" rel="noopener noreferrer" class="contact-plaquette__link" aria-label="Télécharger la plaquette (PDF · 6 pages) (nouvel onglet)">télécharger la plaquette (PDF · 6 pages)</a> pour prendre connaissance du dispositif.
           </p>
         </div>
 
@@ -169,7 +169,7 @@ onBeforeUnmount(() => clearTimeout(copyTimer))
               href="https://maps.app.goo.gl/4UPhQWdzboD6HnAs8"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Voir PXLC sur Google Maps (nouvel onglet)"
+              aria-label="Voir sur Google Maps (nouvel onglet)"
             >Voir sur Google Maps →</a>
           </address>
         </div>
