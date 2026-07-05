@@ -148,7 +148,7 @@ onBeforeUnmount(() => clearTimeout(copyTimer))
             aria-label="Envoyer un message WhatsApp (nouvel onglet)"
           >
             <Icon name="simple-icons:whatsapp" aria-hidden="true" class="contact-wa-icon" style="width:18px;height:18px" />
-            Envoyer un message WhatsApp
+            WhatsApp
           </a>
 
           <!-- NAP visible et indexable — doit correspondre à la fiche Google
