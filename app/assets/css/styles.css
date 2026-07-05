@@ -164,7 +164,11 @@ main[tabindex="-1"]:focus { outline: none; }
 .btn::after { content: "→"; font-size: 13px; transform: translateY(-1px); }
 .btn--no-arrow::after { content: none; }
 .btn--lg { padding: 16px 28px; font-size: 16px; }
-.btn--block { width: 100%; justify-content: center; }
+/* Un bouton pleine largeur peut renvoyer un libellé long à la ligne plutôt
+   que forcer un débordement horizontal (ex. « Envoyer un message WhatsApp »
+   sur mobile étroit). Les boutons en ligne gardent le white-space: nowrap
+   hérité de .btn. */
+.btn--block { width: 100%; justify-content: center; white-space: normal; }
 
 .btn--primary { background: var(--pxlc-coral); color: var(--pxlc-text-ink); box-shadow: var(--shadow-btn-rest); }
 .btn--primary:hover { background: var(--pxlc-coral-deep); transform: translateY(-1px); box-shadow: var(--shadow-btn-coral); }
@@ -736,5 +740,8 @@ main[tabindex="-1"]:focus { outline: none; }
   color: var(--pxlc-ivory);
 }
 .prose p a { text-decoration: underline; text-underline-offset: 3px; }
+/* Les URL citées en toutes lettres (avis HCSP, etc.) peuvent casser pour ne
+   pas déborder sur mobile étroit. */
+.prose a { overflow-wrap: anywhere; }
 .prose ul, .prose ol { padding-left: var(--space-4); margin-bottom: var(--space-3); }
 .prose li { margin-bottom: 6px; }
