@@ -7,6 +7,16 @@ useSeoMeta({
   title: 'Médiation numérique en Guadeloupe',
 })
 
+// WebPage d'accueil rattachée au nœud #website — alignée sur les autres pages
+// (a-propos, structures, contact, blog) qui appellent toutes defineWebPage.
+useSchemaOrg([
+  defineWebPage({
+    '@type': 'WebPage',
+    name: 'Médiation numérique en Guadeloupe',
+    isPartOf: { '@id': 'https://pxlc.fr/#website' },
+  }),
+])
+
 defineOgImage('PxlcOg')
 
 // Le preload du hero est géré nativement par :preload="{ fetchPriority: 'high' }"
