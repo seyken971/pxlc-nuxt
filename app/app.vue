@@ -8,6 +8,18 @@
 //     WebPage dans a-propos.vue
 //   - #service : offre principale, about de la WebPage dans structures.vue
 useSchemaOrg([
+  // Nœud WebSite explicite — signal principal du « nom de site » affiché par
+  // Google (mécanisme « Site names in Google Search »). Sans lui, Google
+  // dérive le nom du domaine et affiche « pxlc » (minuscules) sur la home.
+  // name impose la marque « PXLC » ; alternateName donne la forme longue.
+  defineWebSite({
+    '@id': 'https://pxlc.fr/#website',
+    name: 'PXLC',
+    alternateName: 'PXLC — Médiation numérique',
+    url: 'https://pxlc.fr',
+    publisher: { '@id': 'https://pxlc.fr/#identity' },
+    inLanguage: 'fr-FR',
+  }),
   definePerson({
     '@id': 'https://pxlc.fr/#andy',
     name: 'Andy Zébus',
