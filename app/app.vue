@@ -15,7 +15,7 @@ useSchemaOrg([
   defineWebSite({
     '@id': 'https://pxlc.fr/#website',
     name: 'PXLC',
-    alternateName: 'PXLC — Médiation numérique',
+    alternateName: 'PXLC - Médiation numérique',
     url: 'https://pxlc.fr',
     publisher: { '@id': 'https://pxlc.fr/#identity' },
     inLanguage: 'fr-FR',

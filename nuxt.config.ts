@@ -220,7 +220,7 @@ export default defineNuxtConfig({
       // Nom = libellé exact de la fiche Google Business Profile (cohérence NAP).
       // Distinct de site.name ("PXLC"), qui reste court pour le suffixe de titre.
       name: "PXLC - Médiation numérique",
-      legalName: "Andy Zébus — Entrepreneur Individuel",
+      legalName: "Andy Zébus - Entrepreneur Individuel",
       taxID: "813 793 528 00031",
       description:
         "PXLC accompagne les familles dans l’éducation numérique des enfants. Médiation numérique en Guadeloupe, portée par Andy Zébus, auprès des structures qui accompagnent des familles.",
