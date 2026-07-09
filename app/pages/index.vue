@@ -6,6 +6,14 @@ import type { MethodStep } from '~/components/MethodGrid.vue'
 useSeoMeta({
   title: 'Médiation numérique en Guadeloupe',
 })
+if (import.meta.server) {
+  useSeoMeta({
+    description:
+      'Médiation numérique en Guadeloupe : Andy Zébus outille les structures pour apaiser les conflits autour des écrans.',
+    ogDescription:
+      'Andy Zébus, créateur de PXLC, aide les structures en Guadeloupe à apaiser les conflits familiaux autour des écrans.',
+  })
+}
 
 // WebPage d'accueil rattachée au nœud #website — alignée sur les autres pages
 // (a-propos, structures, contact, blog) qui appellent toutes defineWebPage.
