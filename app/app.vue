@@ -57,7 +57,7 @@ useSchemaOrg([
   {
     '@id': 'https://pxlc.fr/#service',
     '@type': 'Service',
-    name: 'Médiation numérique — Programmes PXLC',
+    name: 'Médiation numérique - Programmes PXLC',
     description:
       'Médiation numérique pour les structures qui accompagnent des familles en Guadeloupe. Résolution des conflits autour du temps d’écran, ateliers de bonnes pratiques, vulgarisation numérique.',
     serviceType: 'Médiation numérique',
