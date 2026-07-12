@@ -23,7 +23,12 @@ useSeoMeta({
   ogTitle: post.value.title,
 })
 
-defineOgImage('PxlcOg')
+// Carte OG spécifique à l'article (titre + catégorie) plutôt que la carte de
+// marque générique — chaque partage/entrée Discover montre son propre titre.
+defineOgImage('PxlcOgArticle', {
+  title: post.value.title,
+  category: post.value.category,
+})
 
 const articleUrl = `https://pxlc.fr${route.path}`
 const dateModified = post.value.updated || post.value.date
@@ -46,9 +51,13 @@ useSchemaOrg([
     publisher: { '@id': 'https://pxlc.fr/#identity' },
     inLanguage: 'fr-FR',
     url: articleUrl,
+    // Le chemin `__og-image__/og.png` n'est pas émis dans la sortie statique
+    // (les cartes OG vivent sous /_og/s/…, chemins hachés non référençables
+    // ici) → l'ancien repli pointait vers un 404 dans les données structurées.
+    // Repli sur une photo réelle et valide pour les rich results Article.
     image: post.value.cover
       ? `https://pxlc.fr${post.value.cover}`
-      : `https://pxlc.fr${route.path}/__og-image__/og.png`,
+      : 'https://pxlc.fr/img/photos/andy-event.jpg',
   }),
 ])
 
