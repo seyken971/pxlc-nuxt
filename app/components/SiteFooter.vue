@@ -28,8 +28,8 @@ const year = new Date().getFullYear()
           <ul class="site-footer__social" role="list">
             <li>
               <a
-                class="site-footer__social-btn" href="https://www.linkedin.com/in/azebus" target="_blank"
-                rel="noopener noreferrer" aria-label="LinkedIn d’Andy Zébus">
+                class="site-footer__social-btn" href="https://www.linkedin.com/company/pxlc-mediation-numerique/"
+                target="_blank" rel="noopener noreferrer" aria-label="Page LinkedIn de PXLC">
                 <Icon name="simple-icons:linkedin" aria-hidden="true" />
               </a>
             </li>

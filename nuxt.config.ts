@@ -357,8 +357,10 @@ export default defineNuxtConfig({
       foundingDate: "2015",
       founder: "Andy Zébus",
       sameAs: [
-        // Seul profil propre à PXLC-entité (fiche Google Business Profile vérifiée).
+        // Profils propres à l'entité PXLC (fiche Google Business Profile vérifiée,
+        // page LinkedIn entreprise).
         "https://maps.app.goo.gl/4UPhQWdzboD6HnAs8",
+        "https://www.linkedin.com/company/pxlc-mediation-numerique/",
       ],
     }),
   },
