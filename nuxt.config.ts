@@ -23,6 +23,9 @@ export default defineNuxtConfig({
     // Détecte les liens cassés à la génération (SSG fail-fast).
     // Dev: overlay inline. Build: rapport console + exit 1 si lien mort.
     "nuxt-link-checker",
+    // En-têtes de sécurité. En SSG (voir bloc `security`), seule la CSP est
+    // injectable — via <meta http-equiv> avec hash des scripts inline.
+    "nuxt-security",
   ],
 
   // @nuxt/eslint regenerates a flat config (eslint.config.mjs) that
@@ -138,6 +141,47 @@ export default defineNuxtConfig({
   app: {
     pageTransition: false,
     layoutTransition: false,
+  },
+
+  // En-têtes de sécurité (nuxt-security).
+  // Le site est 100 % SSG sur GitHub Pages : aucun runtime serveur ne peut
+  // émettre de vrais en-têtes HTTP. On bascule donc la CSP dans une
+  // <meta http-equiv> (ssg.meta) et on hache chaque script inline au build
+  // (ssg.hashScripts) — dont le payload `window.__NUXT__`, dont le hash change
+  // à chaque build, d'où l'impossibilité d'une CSP figée écrite à la main.
+  // Limite assumée : `X-Content-Type-Options`, `X-Frame-Options` et `HSTS`
+  // exigent de vrais en-têtes HTTP (proxy type Cloudflare) — non couverts par
+  // cette voie statique ; désactivés ici pour ne pas donner un faux signal.
+  // Le site ne charge aucune ressource tierce (polices et images auto-hébergées,
+  // pas d'analytics) → CSP self-only stricte.
+  security: {
+    strict: false,
+    nonce: false,
+    ssg: {
+      meta: true,
+      hashScripts: true,
+      hashStyles: false,
+    },
+    headers: {
+      contentSecurityPolicy: {
+        "default-src": ["'self'"],
+        "base-uri": ["'self'"],
+        "object-src": ["'none'"],
+        "frame-ancestors": ["'none'"],
+        "img-src": ["'self'", "data:"],
+        "font-src": ["'self'"],
+        "style-src": ["'self'", "'unsafe-inline'"],
+        "script-src": ["'self'", "'strict-dynamic'"],
+        "connect-src": ["'self'"],
+        "manifest-src": ["'self'"],
+        "form-action": ["'self'"],
+        "frame-src": ["'none'"],
+        "upgrade-insecure-requests": true,
+      },
+      // Inopérants en statique (nécessitent un vrai serveur/proxy).
+      crossOriginEmbedderPolicy: false,
+      strictTransportSecurity: false,
+    },
   },
 
   site: {

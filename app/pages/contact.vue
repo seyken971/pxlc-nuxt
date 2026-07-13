@@ -159,7 +159,7 @@ onBeforeUnmount(() => clearTimeout(copyTimer))
             <p class="contact-nap__line">8 Résidence la familiale, rue Man Manigard Alfred, Dugazon</p>
             <p class="contact-nap__line">97139 Les Abymes, Guadeloupe</p>
             <p class="contact-nap__line">
-              <a class="contact-nap__link" href="tel:+590690717618">+590 690 717 618</a>
+              <a class="contact-nap__link" href="tel:+590690717618">+590 690 71 76 18</a>
             </p>
             <p class="contact-nap__line">
               <a class="contact-nap__link" href="mailto:contact@pxlc.fr">contact@pxlc.fr</a>
