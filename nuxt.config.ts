@@ -205,11 +205,57 @@ export default defineNuxtConfig({
   // Pas de `contentUsage` / `contentSignal` ici : ce sont des directives
   // forward-looking (proposition Anthropic et al.) que Lighthouse rejette
   // comme "Unknown directive" — -8pts SEO sitewide pour un signal que
-  // quasi aucun crawler n'honore encore. blockAiBots: true couvre le
-  // besoin réel via la liste maintenue par le module.
+  // quasi aucun crawler n'honore encore.
+  //
+  // Posture IA choisie : refuser l'ENTRAÎNEMENT des modèles sur le contenu
+  // PXLC, mais autoriser les bots de RECHERCHE / réponse (pour être cité dans
+  // ChatGPT Search, Claude, Perplexity…). `blockAiBots: true` ne sait pas faire
+  // cette distinction (liste en bloc, datée) — on gère donc les deux catégories
+  // à la main via des groupes explicites. Coût : liste à réactualiser ~1-2×/an.
   robots: {
-    blockAiBots: true,
-    groups: [{ userAgent: "*", allow: "/" }],
+    groups: [
+      {
+        userAgent: "*",
+        allow: "/",
+        // Rend le llms.txt découvrable en tête du robots.txt (cf. ipeos).
+        comment: ["llms.txt : https://pxlc.fr/llms.txt"],
+      },
+      {
+        // Crawlers d'entraînement des modèles — refusés.
+        userAgent: [
+          "GPTBot",
+          "ClaudeBot",
+          "anthropic-ai",
+          "Google-Extended",
+          "Applebot-Extended",
+          "CCBot",
+          "Bytespider",
+          "Meta-ExternalAgent",
+          "FacebookBot",
+          "Diffbot",
+          "cohere-ai",
+          "Omgilibot",
+          "Omgili",
+          "ImagesiftBot",
+          "Amazonbot",
+          "PerplexityBot",
+        ],
+        disallow: "/",
+        comment: ["Entraînement des modèles IA — refusé"],
+      },
+      {
+        // Bots de recherche / réponse — autorisés pour permettre la citation.
+        userAgent: [
+          "OAI-SearchBot",
+          "ChatGPT-User",
+          "Claude-User",
+          "Claude-SearchBot",
+          "Perplexity-User",
+        ],
+        allow: "/",
+        comment: ["Recherche / réponse IA — autorisé (citation)"],
+      },
+    ],
     sitemap: ["https://pxlc.fr/sitemap.xml"],
   },
 

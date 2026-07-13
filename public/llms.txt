@@ -1,0 +1,20 @@
+# PXLC
+
+> Andy Zébus, créateur de PXLC, aide les structures en Guadeloupe à accompagner les familles autour des écrans.
+
+## Le site
+
+- [Accueil](https://pxlc.fr/): La médiation numérique parent-enfant en Guadeloupe et la méthode PXLC en trois temps.
+- [Programmes pour les structures](https://pxlc.fr/structures): Les ateliers parent-enfant en quatre étapes pour les lieux qui accueillent les familles, des médiathèques et centres sociaux aux LAEP, SESSAD et IME.
+- [À propos d'Andy Zébus](https://pxlc.fr/a-propos): Le parcours du créateur de PXLC, entre esport, médiation numérique et conseil institutionnel en Guadeloupe.
+- [Contact](https://pxlc.fr/contact): Prendre rendez-vous, demander un devis ou échanger sur un projet.
+- [Blog](https://pxlc.fr/blog): Tous les articles sur les écrans, le jeu vidéo et la médiation parent-enfant.
+
+## Articles phares
+
+- [Jouons Ensemble, un dispositif au SESSAD](https://pxlc.fr/blog/jouons-ensemble-sessad-lekoklaya): Le programme Parent-Écran-Enfant au SESSAD Lékoklaya, du Café-Parents de 2023 aux ateliers de 2026.
+- [Écrans en famille, renouer le dialogue](https://pxlc.fr/blog/programme-parent-ecran-enfant): Le programme Parent-Écran-Enfant pour sortir du conflit et poser un cadre familial compris.
+- [Le jeu vidéo pour mieux parler avec son enfant](https://pxlc.fr/blog/methode-mediation-jeu-video-parent-enfant): La méthode PXLC fait du jeu vidéo un terrain d'observation, de dialogue et de cadre partagé.
+- [Ce que dit vraiment le cadre HCSP](https://pxlc.fr/blog/cadre-hcsp-enfants-ecrans): Les recommandations du HCSP invitent à accompagner, cadrer et comprendre les usages, pas seulement à compter les heures.
+- [Médiation numérique, repères pour les équipes](https://pxlc.fr/blog/mediation-numerique-parent-enfant-sessad-ime): Traduire les avis HCSP en gestes concrets pour les équipes SESSAD, IME et associations.
+- [L'esport au service des familles en Guadeloupe](https://pxlc.fr/blog/esport-guadeloupe-mediation-numerique-familles): Six ans de tournois sur la scène esport guadeloupéenne, et comment ce parcours informe chaque atelier parent-enfant.
