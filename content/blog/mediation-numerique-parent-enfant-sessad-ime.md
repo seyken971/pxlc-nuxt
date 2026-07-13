@@ -165,7 +165,7 @@ Le dispositif s'inscrit naturellement dans les lignes de financement des program
 
 ---
 
-*Ce guide a été rédigé à partir des avis HCSP 2019 (impératif d'accompagnement section IV) et 2021 (usage problématique sections 4.1 et 4.2, contexte familial section 6.2), du rapport DITP/MILDECA 2022 sur les usages familiaux des écrans, du retour d'expérience du projet « Jouons Ensemble ! » au SESSAD Lékoklaya (2026), et de trois ans d'interventions de médiation numérique en Guadeloupe. Pour cadrer un dispositif adapté à votre structure, [contactez PXLC](/contact).*
+*Ce guide a été rédigé à partir des avis HCSP 2019 (impératif d'accompagnement section IV) et 2021 (usage problématique sections 4.1 et 4.2, contexte familial section 6.2), du rapport DITP/MILDECA 2022 sur les usages familiaux des écrans, du retour d'expérience du projet « Jouons Ensemble ! » au SESSAD Lékoklaya (2026), et de trois ans d'interventions de médiation numérique en Guadeloupe. Pour cadrer un dispositif adapté à votre structure, [contactez PXLC](/contact/).*
 
 ---
 

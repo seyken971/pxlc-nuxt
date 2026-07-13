@@ -36,7 +36,7 @@ onBeforeUnmount(() => {
         <NuxtLink
           v-for="n in items"
           :key="n.url"
-          :to="n.url"
+          :to="n.url === '/' ? '/' : n.url + '/'"
           class="site-nav__link"
           :class="{ 'is-active': isActive(n.url) }"
           :aria-current="isActive(n.url) ? 'page' : undefined"

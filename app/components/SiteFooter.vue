@@ -52,17 +52,17 @@ const year = new Date().getFullYear()
           <p class="site-footer__col-title">Le dispositif</p>
           <ul class="site-footer__col-list" role="list">
             <li>
-              <NuxtLink class="site-footer__col-link" to="/structures">Pour les structures</NuxtLink>
+              <NuxtLink class="site-footer__col-link" to="/structures/">Pour les structures</NuxtLink>
             </li>
             <li><a
                 class="site-footer__col-link" href="/files/plaquette-pxlc.pdf" target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Télécharger la plaquette (PDF, 6 pages, nouvel onglet)">Télécharger la plaquette</a></li>
             <li>
-              <NuxtLink class="site-footer__col-link" to="/a-propos">À propos d’Andy Zébus</NuxtLink>
+              <NuxtLink class="site-footer__col-link" to="/a-propos/">À propos d’Andy Zébus</NuxtLink>
             </li>
             <li>
-              <NuxtLink class="site-footer__col-link" to="/blog">Blog</NuxtLink>
+              <NuxtLink class="site-footer__col-link" to="/blog/">Blog</NuxtLink>
             </li>
           </ul>
         </div>
@@ -71,7 +71,7 @@ const year = new Date().getFullYear()
           <p class="site-footer__col-title">Contact</p>
           <ul class="site-footer__col-list site-footer__col-list--icons" role="list">
             <li>
-              <NuxtLink class="site-footer__col-link site-footer__col-link--icon" to="/contact">
+              <NuxtLink class="site-footer__col-link site-footer__col-link--icon" to="/contact/">
                 <Icon name="lucide:message-square" aria-hidden="true" class="site-footer__contact-icon" />
                 Formulaire · 5&nbsp;min
               </NuxtLink>
@@ -84,10 +84,10 @@ const year = new Date().getFullYear()
         <p>© 2015–{{ year }} · PXLC · Réalisé par <a href="https://www.linkedin.com/in/azebus" target="_blank" rel="noopener noreferrer" aria-label="Profil LinkedIn d’Andy Zébus (nouvel onglet)">Andy Zébus</a></p>
         <ul class="site-footer__legal-links" role="list">
           <li>
-            <NuxtLink to="/mentions-legales">Mentions légales</NuxtLink>
+            <NuxtLink to="/mentions-legales/">Mentions légales</NuxtLink>
           </li>
           <li>
-            <NuxtLink to="/mentions-legales#rgpd">Confidentialité</NuxtLink>
+            <NuxtLink to="/mentions-legales/#rgpd">Confidentialité</NuxtLink>
           </li>
         </ul>
         <PxlcPixelStrip :count="7" :accent-at="4" />

@@ -117,7 +117,7 @@ L'objectif n'est pas de transformer chaque famille en tribunal du temps d'écran
 
 Un bon cadre familial ne se mesure pas seulement au nombre de minutes autorisées. Il se voit dans la qualité des échanges, dans la possibilité de parler des écrans sans conflit permanent, et dans la capacité de l'enfant à garder une vie plus large que ses usages numériques.
 
-Pour continuer la série, vous pouvez lire la présentation du [programme Parent-Écran-Enfant](/blog/programme-parent-ecran-enfant), la [méthode de médiation par le jeu vidéo](/blog/methode-mediation-jeu-video-parent-enfant), puis les [bonnes pratiques écrans en famille](/blog/bonnes-pratiques-ecrans-famille).
+Pour continuer la série, vous pouvez lire la présentation du [programme Parent-Écran-Enfant](/blog/programme-parent-ecran-enfant/), la [méthode de médiation par le jeu vidéo](/blog/methode-mediation-jeu-video-parent-enfant/), puis les [bonnes pratiques écrans en famille](/blog/bonnes-pratiques-ecrans-famille/).
 
 ---
 

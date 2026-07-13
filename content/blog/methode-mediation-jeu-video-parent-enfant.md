@@ -184,7 +184,7 @@ Un cadre posé sans compréhension devient vite une bataille. Une compréhension
 
 Le parent n'a pas besoin d'aimer les jeux vidéo. Il a besoin de pouvoir en parler, de savoir ce qui s'y joue, et de poser des règles qui protègent l'enfant sans couper toute possibilité de dialogue.
 
-Pour situer cette méthode dans une démarche plus large, lisez le [cadre HCSP](/blog/cadre-hcsp-enfants-ecrans), la présentation du [programme Parent-Écran-Enfant](/blog/programme-parent-ecran-enfant), puis les [bonnes pratiques écrans en famille](/blog/bonnes-pratiques-ecrans-famille).
+Pour situer cette méthode dans une démarche plus large, lisez le [cadre HCSP](/blog/cadre-hcsp-enfants-ecrans/), la présentation du [programme Parent-Écran-Enfant](/blog/programme-parent-ecran-enfant/), puis les [bonnes pratiques écrans en famille](/blog/bonnes-pratiques-ecrans-famille/).
 
 ---
 

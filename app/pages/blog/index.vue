@@ -30,9 +30,9 @@ useSchemaOrg([
     description: 'Décryptages, repères et retours de terrain sur la médiation numérique Parent-Écran-Enfant en Guadeloupe.',
     hasPart: (posts.value || []).map(p => ({
       '@type': 'BlogPosting',
-      '@id': `https://pxlc.fr${p.path}#article`,
+      '@id': `https://pxlc.fr${p.path}/#article`,
       headline: p.title,
-      url: `https://pxlc.fr${p.path}`,
+      url: `https://pxlc.fr${p.path}/`,
     })),
   }),
 ])
@@ -122,7 +122,7 @@ const categoryLabel = (slug?: string): string =>
         <NuxtLink
           v-for="(p, idx) in filteredPosts"
           :key="p.path"
-          :to="p.path"
+          :to="p.path + '/'"
           class="card card--hover blog-card"
           :style="`--anim-delay: ${Math.min(idx % 3, 2) * 0.08}s`"
         >

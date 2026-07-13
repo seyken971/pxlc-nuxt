@@ -192,7 +192,12 @@ export default defineNuxtConfig({
     description:
       "Andy Zébus, créateur de PXLC, aide les structures en Guadeloupe à accompagner les familles autour des écrans.",
     defaultLocale: "fr_FR",
-    trailingSlash: false,
+    // GitHub Pages sert chaque page en `/chemin/index.html` : l'URL avec slash
+    // final répond 200, la version sans slash 301-redirige vers elle. On aligne
+    // donc canonical + sitemap + OG sur la forme avec slash (sinon Google classe
+    // les URL du sitemap en « Page avec redirection » et reçoit un canonical qui
+    // se contredit). Les liens internes rendus portent aussi le slash final.
+    trailingSlash: true,
     currency: "EUR",
   },
 
