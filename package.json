@@ -51,6 +51,7 @@
     "jsdom": "^29.1.1",
     "lighthouse": "^13.4.0",
     "nuxt-link-checker": "^5.1.2",
+    "nuxt-security": "^2.5.1",
     "playwright": "^1.61.1",
     "typescript": "^6.0.3",
     "unplugin-auto-import": "^21.0.0",
