@@ -30,7 +30,7 @@ defineOgImage('PxlcOgArticle', {
   category: post.value.category,
 })
 
-const articleUrl = `https://pxlc.fr${route.path}`
+const articleUrl = `https://pxlc.fr${route.path}/`
 const dateModified = post.value.updated || post.value.date
 
 // BlogPosting structured data so Google can surface the article in Discover,

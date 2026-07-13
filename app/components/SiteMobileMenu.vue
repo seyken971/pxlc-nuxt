@@ -127,7 +127,7 @@ watch(() => route.fullPath, () => { menuOpen.value = false })
       <NuxtLink
         v-for="(n, i) in items"
         :key="n.url"
-        :to="n.url"
+        :to="n.url === '/' ? '/' : n.url + '/'"
         class="mobile-menu__link"
         :class="{ 'is-active': isActive(n.url) }"
         :aria-current="isActive(n.url) ? 'page' : undefined"

@@ -48,7 +48,7 @@ const related = computed<Post[]>(() => {
       <span id="related-title" class="eyebrow">Articles connexes</span>
       <ul class="blog-related__list" role="list">
         <li v-for="p in related" :key="p.path" class="blog-related__item">
-          <NuxtLink :to="p.path" class="blog-related__link">
+          <NuxtLink :to="p.path + '/'" class="blog-related__link">
             <span v-if="p.category" class="badge">{{ p.category }}</span>
             <h3 class="blog-related__post-title">{{ p.title }}</h3>
             <p v-if="p.description" class="blog-related__excerpt">{{ p.description }}</p>

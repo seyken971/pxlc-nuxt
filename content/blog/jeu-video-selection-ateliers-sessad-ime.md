@@ -117,7 +117,7 @@ Le jeu est le support — l'espace de relation qu'il ouvre est le matériau.
 
 La sélection des jeux n'est pas accessoire dans un dispositif de médiation numérique — elle est au cœur de la démarche. Un jeu mal choisi peut refermer des portes que la séance était censée ouvrir. Un jeu bien choisi transforme une heure d'écran en matériau de travail pour toute l'équipe.
 
-Si vous construisez un dispositif pour votre structure et voulez travailler la sélection des jeux adaptés à votre public, [prenez contact avec moi](/contact) — c'est précisément ce que je fais avec les équipes en amont des ateliers.
+Si vous construisez un dispositif pour votre structure et voulez travailler la sélection des jeux adaptés à votre public, [prenez contact avec moi](/contact/) — c'est précisément ce que je fais avec les équipes en amont des ateliers.
 
 ---
 

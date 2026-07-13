@@ -48,7 +48,7 @@ const methodSteps: MethodStep[] = [
 // Props du Hero extraits du template : le macro-parser Vue traite U+2019 comme
 // terminateur de string dans les expressions ":prop="{...}"".
 // En <script setup>, c'est du JS standard — U+2019 dans le contenu est valide.
-const heroCta = { label: 'Voir mes programmes', href: '/structures' }
+const heroCta = { label: 'Voir mes programmes', href: '/structures/' }
 const heroCtaSecondary = { label: 'Plaquette PDF · 6 pages', href: '/files/plaquette-pxlc.pdf', external: true }
 
 const stats = [

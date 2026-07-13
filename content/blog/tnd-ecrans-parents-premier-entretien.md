@@ -84,7 +84,7 @@ Si l'un de ces signaux est présent, le dispositif de médiation numérique n'es
 
 Ces cinq inquiétudes ne sont pas des paniques infondées. Ce sont des signaux que les familles envoient quand elles ne savent plus comment nommer ce qu'elles vivent. Mon travail, dans les premiers entretiens, est de les aider à distinguer ce qui mérite une attention clinique de ce qui mérite simplement un espace de compréhension partagée.
 
-Si vous accompagnez une famille dont les préoccupations autour des écrans semblent difficiles à traiter dans le cadre habituel, [prenez contact](/contact) — c'est exactement le type de situation pour lequel le dispositif PXLC a été conçu.
+Si vous accompagnez une famille dont les préoccupations autour des écrans semblent difficiles à traiter dans le cadre habituel, [prenez contact](/contact/) — c'est exactement le type de situation pour lequel le dispositif PXLC a été conçu.
 
 ---
 

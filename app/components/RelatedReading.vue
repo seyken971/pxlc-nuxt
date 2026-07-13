@@ -51,7 +51,7 @@ const items = computed<Post[]>(() => {
       </header>
       <ul class="related-reading__list" role="list">
         <li v-for="p in items" :key="p.path" class="related-reading__item">
-          <NuxtLink :to="p.path" class="related-reading__link">
+          <NuxtLink :to="p.path + '/'" class="related-reading__link">
             <span v-if="p.category" class="badge">{{ p.category }}</span>
             <h3 class="related-reading__post-title">{{ p.title }}</h3>
             <p v-if="p.description" class="related-reading__excerpt">{{ p.description }}</p>

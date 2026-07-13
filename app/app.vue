@@ -27,7 +27,7 @@ useSchemaOrg([
     description:
       'Médiateur numérique basé aux Abymes (Guadeloupe). Aide les structures — SESSAD, IME, associations, collectivités — à accompagner les familles autour des écrans : conflits autour du temps d’écran, bonnes pratiques numériques.',
     image: 'https://pxlc.fr/img/photos/andy-portrait.jpg',
-    url: 'https://pxlc.fr/a-propos',
+    url: 'https://pxlc.fr/a-propos/',
     worksFor: { '@id': 'https://pxlc.fr/#identity' },
     sameAs: [
       'https://www.linkedin.com/in/azebus',

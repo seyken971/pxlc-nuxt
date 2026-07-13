@@ -26,7 +26,7 @@
             Le projet s’inscrit dans la continuité du Café-Parents du 14 décembre 2023 «&nbsp;Enfants Écrans&nbsp;» et dans le cadre du Haut Conseil de la Santé Publique (HCSP, 2019-2020) et de la Haute Autorité de Santé (HAS, 2020). L’objectif&nbsp;: faire du jeu vidéo un outil d’alliance entre parents et enfants, pas un terrain de conflit.
           </p>
           <div class="mt-5">
-            <PxlcLinkout to="/structures">Voir le programme</PxlcLinkout>
+            <PxlcLinkout to="/structures/">Voir le programme</PxlcLinkout>
           </div>
         </div>
       </div>

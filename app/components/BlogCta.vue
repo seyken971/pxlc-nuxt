@@ -16,7 +16,7 @@
       </p>
     </div>
     <div class="blog-cta__actions">
-      <NuxtLink to="/structures" class="btn btn--primary">Voir le dispositif</NuxtLink>
+      <NuxtLink to="/structures/" class="btn btn--primary">Voir le dispositif</NuxtLink>
       <a href="https://cal.eu/pxlc-gp" target="_blank" rel="noopener noreferrer" class="btn btn--ghost" aria-label="Prendre rendez-vous (nouvel onglet)">Prendre rendez-vous</a>
     </div>
   </aside>

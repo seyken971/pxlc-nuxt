@@ -158,7 +158,7 @@ Le programme propose un chemin plus praticable : observer, jouer ou regarder en
 
 Ce n'est pas spectaculaire. Mais c'est souvent comme ça qu'un cadre familial redevient possible.
 
-Pour comprendre le socle institutionnel de cette approche, lisez l'article sur le [cadre HCSP](/blog/cadre-hcsp-enfants-ecrans). Pour entrer dans le détail de l'intervention PXLC, continuez avec la [méthode de médiation par le jeu vidéo](/blog/methode-mediation-jeu-video-parent-enfant), puis les [bonnes pratiques écrans en famille](/blog/bonnes-pratiques-ecrans-famille).
+Pour comprendre le socle institutionnel de cette approche, lisez l'article sur le [cadre HCSP](/blog/cadre-hcsp-enfants-ecrans/). Pour entrer dans le détail de l'intervention PXLC, continuez avec la [méthode de médiation par le jeu vidéo](/blog/methode-mediation-jeu-video-parent-enfant/), puis les [bonnes pratiques écrans en famille](/blog/bonnes-pratiques-ecrans-famille/).
 
 ---
 

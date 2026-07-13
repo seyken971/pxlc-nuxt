@@ -266,7 +266,7 @@ Un cadre efficace n'humilie pas l'enfant. Il ne culpabilise pas le parent. Il re
 
 Commencez petit. Soyez clair. Expliquez. Répétez. Et gardez un espace pour parler de ce que votre enfant fait réellement avec les écrans.
 
-Pour replacer ces conseils dans leur cadre, lisez l'article sur le [cadre HCSP](/blog/cadre-hcsp-enfants-ecrans), la présentation du [programme Parent-Écran-Enfant](/blog/programme-parent-ecran-enfant), puis la [méthode de médiation par le jeu vidéo](/blog/methode-mediation-jeu-video-parent-enfant).
+Pour replacer ces conseils dans leur cadre, lisez l'article sur le [cadre HCSP](/blog/cadre-hcsp-enfants-ecrans/), la présentation du [programme Parent-Écran-Enfant](/blog/programme-parent-ecran-enfant/), puis la [méthode de médiation par le jeu vidéo](/blog/methode-mediation-jeu-video-parent-enfant/).
 
 ---
 
