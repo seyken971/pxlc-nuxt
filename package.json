@@ -44,7 +44,7 @@
   "devDependencies": {
     "@axe-core/playwright": "^4.12.1",
     "@nuxt/eslint": "^1.16.0",
-    "@vitejs/plugin-vue": "^6.0.7",
+    "@vitejs/plugin-vue": "^6.0.8",
     "axe-core": "^4.12.1",
     "chrome-launcher": "^1.2.1",
     "eslint": "^10.7.0",
