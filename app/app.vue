@@ -46,7 +46,13 @@ useSchemaOrg([
       'Guadeloupe',
     ],
     alumniOf: [
+      { '@type': 'EducationalOrganization', name: 'Talis Business School (Paris)' },
       { '@type': 'EducationalOrganization', name: 'Université des Antilles' },
+      { '@type': 'EducationalOrganization', name: 'Institut Supérieur Caraïbe (ISCA)' },
+    ],
+    // Seul diplôme obtenu (confirmé Andy) — les autres cursus restent en alumniOf sans credential.
+    hasCredential: [
+      { '@type': 'EducationalOccupationalCredential', credentialCategory: 'Licence', name: 'Licence d’anglais, spécialité médiation interculturelle euro-caribéenne — Université des Antilles' },
     ],
     hasOccupation: {
       '@type': 'Occupation',

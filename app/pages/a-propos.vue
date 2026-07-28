@@ -54,7 +54,7 @@ const timeline = [
   { year: '2010', title: 'Community Manager — 100 000 inscrits', desc: "Lancement du serveur France d'Atlantica Online (Ndoors Europe)." },
   { year: '2013–2014', title: 'Région Guadeloupe — Affaires Européennes', desc: "Suivi fonds FEDER · FSE · FEADER · FEAMP et déploiement du Très Haut Débit." },
   { year: '2015–2018', title: 'Entreprise individuelle', desc: "Stratégie digitale Région Guadeloupe Route du Rhum 2018, formation d'élus en anglais." },
-  { year: '2019–2025', title: 'Esports Guadeloupe — 6 ans', desc: "Scène esport guadeloupéenne — Destreland Gaming Cup, Game Over Challenge. 1 mois de CA en 4 jours pour un partenaire commercial." },
+  { year: '2019–2021', title: 'Esports Guadeloupe — chef de projet', desc: "Scène esport guadeloupéenne — Destreland Gaming Cup, Game Over Challenge. 1 mois de CA en 4 jours pour un partenaire commercial." },
   { year: '2021–2022', title: 'Simplon Outre-Mer — formateur principal', desc: "Formation de futurs responsables d'espaces de médiation numérique." },
   { year: '2026', title: 'PXLC — médiateur numérique familial', desc: "Programme Jouons Ensemble au SESSAD Lékoklaya — 8 familles, 12–17 ans, TSA/TDAH/TND, co-encadrement avec psychologue et psychomotricienne." },
 ]
