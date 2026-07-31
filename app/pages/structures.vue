@@ -223,8 +223,8 @@ const { themes } = useProjectThemes()
           </ul>
         </div>
         <div>
-          <p class="lekoklaya-desc">Le point de départ&nbsp;: le jeu vidéo revenait systématiquement dans les entretiens familiaux comme source de conflit. Le dispositif a transformé ces tensions en matériau de travail pour l'équipe pluridisciplinaire.</p>
-          <p class="lekoklaya-desc mt-3">Les parents qui ne comprenaient pas pourquoi leur enfant jouait ont pu rejouer avec lui. Les profils ludiques ont été transmis à l'équipe dans le bilan final.</p>
+          <p class="lekoklaya-desc">Le point de départ&nbsp;: le jeu vidéo revenait systématiquement dans les entretiens familiaux comme source de conflit. Le dispositif transforme ces tensions en matériau de travail pour l'équipe pluridisciplinaire.</p>
+          <p class="lekoklaya-desc mt-3">Les parents qui ne comprennent pas pourquoi leur enfant joue rejouent avec lui. Les profils ludiques sont transmis à l'équipe dans le bilan.</p>
           <NuxtLink to="/blog/jouons-ensemble-sessad-lekoklaya/" class="leko-link mt-3">Lire le projet en détail</NuxtLink>
         </div>
       </div>

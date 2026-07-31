@@ -62,19 +62,19 @@ Pour les enfants TSA : l'investissement intense dans un univers numérique pré
 
 Pour les enfants TDAH : le jeu vidéo offre un environnement attentionnel particulièrement adapté — feedback rapide, objectifs clairs, stimulation constante. Ce n'est pas un contournement de la difficulté attentionnelle : c'est une réponse adaptative à un besoin réel. Retirer le jeu sans proposer un équivalent, c'est retirer un outil de régulation sans fournir de remplacement.
 
-Dans les deux cas, l'avis HCSP 2021 rappelle que **le contexte familial amplifie ou atténue tout** (avis du 8 mars 2021, section 6.2). La question des écrans chez un enfant TND est inséparable de la dynamique familiale globale. C'est pourquoi une réponse isolée (« réduire le temps d'écran ») échoue presque toujours — et pourquoi un dispositif qui travaille sur la relation parent-enfant autour du jeu est plus efficace qu'une restriction unilatérale.
+Dans les deux cas, l'avis HCSP 2021 rappelle que **le contexte familial amplifie ou atténue tout** (avis du 8 mars 2021, section 6.2). La question des écrans chez un enfant TND est inséparable de la dynamique familiale globale. C'est pourquoi une réponse isolée (« réduire le temps d'écran ») échoue presque toujours — et pourquoi je travaille la relation parent-enfant autour du jeu plutôt que la restriction seule.
 
 ## Quand s'inquiéter vraiment
 
 Ces cinq inquiétudes sont les plus fréquentes — et elles ne signalent généralement pas une situation préoccupante. Voilà les signaux qui méritent une attention clinique rapprochée.
 
-**Désorganisation durable du sommeil** liée directement au jeu : coucher régulièrement après minuit pour des enfants de moins de 16 ans, fatigue chronique en journée.
+**Désorganisation durable du sommeil** liée directement au jeu : horaires de coucher qui dérivent nuit après nuit, fatigue chronique en journée.
 
 **Retrait complet de toutes les activités** préalablement investies — pas seulement les sorties, mais aussi les activités de la structure.
 
 **Aggravation significative des troubles comportementaux** lors de l'interruption du jeu, au-delà de ce que l'équipe considère habituel pour cet enfant.
 
-**Achats intégrés non contrôlés** : certains jeux exploitent des mécaniques de récompense aléatoire (*loot boxes*, *battle pass*) qui peuvent entraîner des comportements compulsifs, y compris chez des enfants jeunes.
+**Achats intégrés non contrôlés** : certains jeux exploitent des mécaniques de récompense aléatoire (*loot boxes*, *battle pass*) dont la conception pousse à l'achat répété, y compris chez des enfants jeunes — la commission Enfants et écrans recommande d'en encadrer la conception (rapport d'avril 2024, partie 4).
 
 **Contenu préoccupant** consommé en dehors du cadre de la structure : forums, vidéos, communautés en ligne non régulées. Ce n'est pas le jeu lui-même qui pose problème — c'est l'environnement en ligne non accompagné.
 

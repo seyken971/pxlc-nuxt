@@ -127,11 +127,11 @@ Trois thèmes, chacun articulant **un temps de jeu partagé (30 à 45 min)** et
 - **Émotions et récits** : jeux à fort contenu narratif ou émotionnel. Travail sur le nommage des états internes, la compréhension des motivations des personnages, le transfert vers la vie réelle.
 - **Différence et complémentarité** : jeux où les rôles sont asymétriques (un personnage fort/lent, un personnage agile/faible). Travail sur la complémentarité, l'acceptation de l'autre tel qu'il est, la valorisation des forces différentes.
 
-L'intervenant culturel du SESSAD propose en parallèle un jeu traditionnel et un conte en miroir du thème numérique — ce croisement élargit le registre et sort du seul champ de l'écran.
+L'intervenant culturel partenaire propose en parallèle un jeu traditionnel et un conte en miroir du thème numérique — ce croisement élargit le registre et sort du seul champ de l'écran.
 
 ### Temps 3 — Groupe de parole familiale
 
-Espace d'échange entre familles : régulation des tensions autour des écrans, partage des stratégies, identification des signes d'alerte, soutien à la posture parentale. Animé par le psychologue, avec le gamer médiateur disponible pour les questions sur les jeux spécifiques.
+Espace d'échange entre familles : régulation des tensions autour des écrans, partage des stratégies, identification des signes d'alerte, soutien à la posture parentale. Animé par le psychologue — je reste disponible pour les questions sur les jeux spécifiques.
 
 ### Temps 4 — Bilan
 
@@ -152,17 +152,17 @@ Pour les structures qui doivent rendre des comptes à leurs tutelles, voici quat
 ## Questions que les équipes posent souvent
 
 **Est-ce que le gamer médiateur remplace un intervenant de l'équipe ?**
-Non. Le dispositif est porté par le psychologue de la structure. Le gamer médiateur intervient en partenariat, sur le terrain spécifique de la culture jeu vidéo : choix des jeux adaptés aux objectifs cliniques, accompagnement en situation, explication des mécaniques aux parents. Il ne fait pas de thérapie — il ouvre un terrain où la thérapie peut travailler.
+Non. Le dispositif est porté par le psychologue de la structure. J'interviens en partenariat, sur le terrain spécifique de la culture jeu vidéo : choix des jeux adaptés aux objectifs cliniques, accompagnement en situation, explication des mécaniques aux parents. Je ne fais pas de thérapie — j'ouvre un terrain où la thérapie peut travailler.
 
 **Quels profils d'enfants sont concernés ?**
 Le dispositif a été conçu pour les enfants accompagnés pour TSA, TDAH, TCND, dystrophie musculaire, neuropathie — et plus largement pour tout enfant suivi pour des troubles du neurodéveloppement, du comportement ou du lien social où la question des écrans est un point de friction récurrent. L'adaptation se fait en concertation avec l'équipe pluri.
 
 **Faut-il que les parents « s'y connaissent » en jeux vidéo ?**
-Non — c'est même l'inverse qui est souhaitable. Le parent qui ne connaît pas les jeux est dans une position d'apprenti authentique, ce qui est précieux pour le travail relationnel. Le gamer médiateur est là pour rendre les jeux lisibles.
+Non — c'est même l'inverse qui est souhaitable. Le parent qui ne connaît pas les jeux est dans une position d'apprenti authentique, ce qui est précieux pour le travail relationnel. Je suis là pour rendre les jeux lisibles.
 
 ---
 
-*Ce guide a été rédigé à partir des avis HCSP 2019 (impératif d'accompagnement section IV) et 2021 (usage problématique sections 4.1 et 4.2, contexte familial section 6.2), du rapport DITP/MILDECA 2022 sur les usages familiaux des écrans, du retour d'expérience du projet « Jouons Ensemble ! » au SESSAD Lékoklaya (2026), et de trois ans d'interventions de médiation numérique en Guadeloupe. Pour cadrer un dispositif adapté à votre structure, [contactez PXLC](/contact/).*
+*Ce guide a été rédigé à partir des avis HCSP 2019 (impératif d'accompagnement section IV) et 2021 (usage problématique sections 4.1 et 4.2, contexte familial section 6.2), du rapport DITP/MILDECA 2022 sur les usages familiaux des écrans, du retour d'expérience du projet « Jouons Ensemble ! » au SESSAD Lékoklaya (2026), et de trois ans d'interventions de médiation numérique en Guadeloupe — le tout dans le cadre de référence HCSP 2019-2020 · HAS 2020. Pour cadrer un dispositif adapté à votre structure, [contactez PXLC](/contact/).*
 
 ---
 

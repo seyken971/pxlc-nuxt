@@ -10,7 +10,7 @@ readingTime: 8 min
 
 ## Le constat qui revient
 
-Dans neuf entretiens familiaux sur dix, en Guadeloupe, le mot « Fortnite » arrive avant la fin de la première phrase. Souvent dit avec un soupir. Parfois avec une pointe de panique. Rarement avec curiosité.
+Dans presque tous les entretiens familiaux que je mène en Guadeloupe, le mot « Fortnite » arrive avant la fin de la première phrase. Souvent dit avec un soupir. Parfois avec une pointe de panique. Rarement avec curiosité.
 
 Pourtant Fortnite, comme tous les jeux *battle royale* compétitifs, est un **artefact culturel** que votre enfant maîtrise déjà mieux que vous. Ce n'est pas un problème à éradiquer ; c'est une **grille de lecture à apprendre**.
 

@@ -12,7 +12,7 @@ Pour beaucoup de parents, le jeu vidéo est le problème.
 
 Il prend du temps. Il déclenche des disputes. Il semble absorber l'enfant. Il donne parfois l'impression que tout le reste passe après : devoirs, repas, sommeil, sorties, conversations.
 
-La méthode PXLC ne nie pas ces difficultés. Mais elle propose de commencer autrement.
+Je ne nie pas ces difficultés. Mais je propose de commencer autrement.
 
 Avant de chercher à supprimer le jeu, on cherche à comprendre ce qu'il représente pour l'enfant. Puis on utilise ce terrain pour recréer du dialogue, observer les difficultés, et poser un cadre plus juste.
 
@@ -36,7 +36,7 @@ Minecraft, Fortnite, Roblox, FIFA, Mario Kart, Zelda, un jeu mobile, un jeu narr
 
 La première erreur serait de tout résumer à « il joue ».
 
-La méthode PXLC commence par des questions simples :
+Je commence par des questions simples :
 
 - à quoi joue l'enfant ?
 - joue-t-il seul, avec des amis, avec des inconnus, avec sa fratrie ?
@@ -105,7 +105,7 @@ Pour un adulte, arrêter peut sembler simple : on appuie sur pause, on éteint,
 
 Pour l'enfant, surtout s'il a des difficultés d'attention, d'anxiété, de régulation émotionnelle ou de flexibilité, l'arrêt peut être une vraie bascule. Il faut quitter un univers intense, abandonner une action en cours, perdre un lien avec des amis, revenir à une demande moins plaisante.
 
-La méthode PXLC travaille donc les transitions.
+Je travaille donc les transitions.
 
 Quelques outils simples :
 
@@ -125,7 +125,7 @@ Le jeu vidéo permet souvent de parler d'autre chose que du jeu.
 
 Dans un jeu coopératif, on parle d'entraide, de confiance, de rôles. Dans un jeu compétitif, on parle de frustration, de défaite, de respect. Dans un jeu narratif, on parle d'émotions, de choix, de conséquences. Dans un jeu de construction, on parle de projet, de patience, de créativité.
 
-La méthode PXLC cherche ces ponts.
+Je cherche ces ponts.
 
 L'objectif n'est pas que la famille joue tout le temps ensemble. L'objectif est que le jeu cesse d'être un territoire totalement séparé.
 
