@@ -146,7 +146,7 @@ const { themes } = useProjectThemes()
       </div>
       <div class="deroule-eval">
         <h3 class="deroule-eval__title">Évaluation &amp; restitution</h3>
-        <p class="lead">À la fin, un bilan écrit transmis à vos tutelles (ARS, CAF, financeurs), appuyé sur quatre indicateurs qualitatifs.</p>
+        <p class="lead">À la fin, un bilan écrit transmis à vos tutelles (ARS, CAF), appuyé sur quatre indicateurs qualitatifs.</p>
         <div class="grid grid--2">
           <article v-for="i in indicators" :key="i.title" class="card">
             <h4 class="indicator-title">{{ i.title }}</h4>
