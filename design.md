@@ -440,7 +440,7 @@ Classes issues de `styles.css`. Les styles scoped des composants Vue ne sont pas
 ### Copy
 
 - Voix 1ère personne « je » — « je » porte les verbes d'action (j'anime, j'accompagne) ; « PXLC » est un nom de marque, jamais sujet d'un verbe d'action dans le copy page (exception : la mission verbatim)
-- 3e personne (« Andy Zébus, créateur de PXLC, accompagne… ») réservée aux meta/OG, mentions légales et documents qui engagent l'entité (devis, conventions, factures, dossiers de subvention)
+- 3e personne (« Andy Zébus, créateur de PXLC, accompagne… ») réservée aux meta/OG, mentions légales et documents qui engagent l'entité (devis, conventions, factures)
 - Pas d'emoji, nulle part
 - **Vocabulaire interdit** : addiction, désintoxication, détox numérique, coach, expert, innovant, révolutionnaire — fondement : avis HCSP du 08/03/2021, la MILDECA préfère « usage problématique des écrans » ; utiliser ce terme
 - **Termes naked** (sans guillemets ni traduction) : HCSP, SESSAD, TCND, TND, hyperfocus
@@ -457,7 +457,6 @@ Classes issues de `styles.css`. Les styles scoped des composants Vue ne sont pas
 
 - **Principe** : intervenir dans les lieux qui accueillent déjà des familles — le lieu apporte le public, j'apporte l'atelier et le cadre
 - **Clients** = les lieux d'accueil des familles : médiathèques et collectivités, centres sociaux et espaces de vie sociale, LAEP, structures médico-sociales (SESSAD, IME, CMPP, CAMSP), dispositifs CLAS — les familles sont bénéficiaires, pas clients directs
-- **Levier de financement** : appels à projets parentalité de la CAF (FNP, ex-REAAP) — le lieu porte le dossier, PXLC intervient comme prestataire externe
 - **Posture** : partenaire institutionnel — jamais coach, expert ou gadget
 - **Jeu vidéo** = outil de médiation légitime — jamais un problème à résoudre
 - **Différenciateur** : seul pont entre 3 mondes — culture joueur / cadre du soin / langage institutionnel
@@ -466,7 +465,7 @@ Classes issues de `styles.css`. Les styles scoped des composants Vue ne sont pas
 
 1. **Organisateur esport** — Plus de 6 ans sur la scène esport guadeloupéenne, Destreland Gaming Cup. Connaissance de la communauté joueurs de l'intérieur.
 2. **Médiateur formé** — Formateur Simplon Outre-Mer 2021-2022. Travail dans le cadre HCSP · HAS.
-3. **Conseil institutionnel** — Affaires européennes et numérique THD, Région Guadeloupe. Parle le langage des projets de service et des financements publics.
+3. **Conseil institutionnel** — Affaires européennes et numérique THD, Région Guadeloupe. Parle le langage des projets de service.
 
 ### Nommage des composants Vue
 

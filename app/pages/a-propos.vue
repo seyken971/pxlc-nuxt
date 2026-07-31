@@ -41,7 +41,7 @@ const casquettes = [
   {
     num: '03',
     titre: 'Conseil institutionnel',
-    desc: "Affaires européennes et numérique THD à la Région Guadeloupe. Parle le langage des projets de service et des financements publics.",
+    desc: "Affaires européennes et numérique THD à la Région Guadeloupe. Parle le langage des projets de service.",
   },
 ]
 

@@ -135,7 +135,7 @@ Espace d'échange entre familles : régulation des tensions autour des écrans,
 
 ### Temps 4 — Bilan
 
-Synthèse écrite des acquis par enfant et par binôme, transmise à l'équipe pluridisciplinaire. Restitution orale aux familles avec trois à cinq pistes concrètes de continuité à la maison. Chaque bilan cite explicitement les recommandations HCSP mobilisées — traçabilité utile pour les rapports d'activité transmis aux financeurs (ARS, CAF, REAAP).
+Synthèse écrite des acquis par enfant et par binôme, transmise à l'équipe pluridisciplinaire. Restitution orale aux familles avec trois à cinq pistes concrètes de continuité à la maison. Chaque bilan cite explicitement les recommandations HCSP mobilisées — traçabilité utile pour les rapports d'activité.
 
 ## Les indicateurs d'évaluation : ce que vous pouvez mesurer et restituer
 
@@ -159,9 +159,6 @@ Le dispositif a été conçu pour les enfants accompagnés pour TSA, TDAH, TCND,
 
 **Faut-il que les parents « s'y connaissent » en jeux vidéo ?**
 Non — c'est même l'inverse qui est souhaitable. Le parent qui ne connaît pas les jeux est dans une position d'apprenti authentique, ce qui est précieux pour le travail relationnel. Le gamer médiateur est là pour rendre les jeux lisibles.
-
-**Comment obtenir un financement ?**
-Le dispositif s'inscrit naturellement dans les lignes de financement des programmes de soutien à la parentalité (REAAP, CAF), dans les crédits médico-sociaux des structures (ARS) ou dans les budgets de projet des collectivités et associations. Le devis est calibré au périmètre (nombre d'ateliers, de familles, durée) et peut être inclus dans un dossier de subvention.
 
 ---
 
