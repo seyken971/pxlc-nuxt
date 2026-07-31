@@ -42,7 +42,7 @@ Le programme ne dit pas aux parents : « laissez faire ». Il ne dit pas non 
 
 Il aide à construire un cadre plus lisible.
 
-Les sources institutionnelles vont dans ce sens. Le Haut Conseil de la Santé Publique (HCSP) recommande d'accompagner les enfants dans leurs usages, de protéger certains moments comme les repas et le sommeil, de veiller aux contenus, et d'aider les adultes à repérer les signes d'usage problématique (avis du 12 décembre 2019, section VII).
+Les sources institutionnelles vont dans ce sens. Le Haut Conseil de la Santé Publique (HCSP) recommande d'accompagner les enfants dans leurs usages, de protéger certains moments comme les repas et le sommeil, de veiller aux contenus, et d'aider les adultes à repérer les signes d'usage problématique (avis du 12 décembre 2019, section VII). Ce cadre s'inscrit dans le référentiel HCSP 2019-2020 · HAS 2020.
 
 Le rapport DITP/MILDECA sur Faminum montre aussi que les parents ont besoin de règles concrètes, mais surtout de règles expliquées et applicables. Les familles adhèrent mieux quand elles peuvent discuter des écrans, choisir des pratiques réalistes et ajuster progressivement.
 
@@ -146,7 +146,7 @@ La structure apporte un cadre neutre. Elle permet de ne pas laisser le parent se
 
 Dans un SESSAD, un IME ou une association, le programme peut aussi s'appuyer sur l'équipe : psychologue, éducateur, psychomotricien, référent famille, intervenant culturel, médiateur numérique. Chacun apporte un regard différent.
 
-Le médiateur numérique ne remplace pas l'équipe. Il apporte une connaissance des jeux, des plateformes et des usages. Il aide à traduire ce que l'enfant fait, et à rendre cet univers lisible pour l'adulte.
+Je ne remplace pas l'équipe. J'apporte une connaissance des jeux, des plateformes et des usages. J'aide à traduire ce que l'enfant fait, et à rendre cet univers lisible pour l'adulte.
 
 ## Le fil rouge : comprendre pour mieux cadrer
 
@@ -164,4 +164,4 @@ Pour comprendre le socle institutionnel de cette approche, lisez l'article sur l
 
 *Les écrans sont devenus un point de friction dans les familles. Andy Zébus, médiateur numérique et créateur de PXLC, aide les structures en Guadeloupe à accompagner les familles — avec le jeu vidéo comme outil de médiation, jamais comme problème.*
 
-*Sources mobilisées : HCSP 2019 (recommandations parents et encadrants section VII) et 2021 ; DITP/MILDECA, rapport final 2022 ; dossier PXLC de médiation numérique parent-enfant par le jeu vidéo.*
+*Sources mobilisées : HCSP 2019 (recommandations parents et encadrants section VII) et 2021 ; DITP/MILDECA, rapport final 2022 ; dossier PXLC de médiation numérique parent-enfant par le jeu vidéo. L'ensemble s'inscrit dans le cadre de référence HCSP 2019-2020 · HAS 2020.*

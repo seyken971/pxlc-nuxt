@@ -18,7 +18,7 @@ Deux ans plus tard, le projet « Jouons Ensemble ! » naît de ce constat.
 
 ## Le cadrage initial
 
-Première étape : un entretien à quatre — psychologue (porteur du projet), psychomotricienne, gamer médiateur-numérique (moi), intervenant culturel du SESSAD. Trois questions :
+Première étape : un entretien à quatre — psychologue (porteur du projet), psychomotricienne, gamer médiateur-numérique (moi), intervenant culturel partenaire. Trois questions :
 
 1. **Qui sont les enfants pour qui ce dispositif fait sens ?** On identifie une cohorte de huit enfants âgés de 12 à 17 ans, avec des profils variés : TSA majoritaire, plus TDAH, TCND, dystrophie musculaire, neuropathie.
 2. **Quelles problématiques sont vraiment en jeu ?** On en sort quatre : usage problématique des écrans, socialisation, attention, anxiété. Pas une seule, pas la même chez tous.

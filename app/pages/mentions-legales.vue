@@ -102,7 +102,7 @@ const lastUpdated = new Intl.DateTimeFormat('fr-FR', { day: 'numeric', month: 'l
           autorisation écrite préalable.
         </p>
         <p>
-          Les recommandations institutionnelles citées (HCSP, CNAF) demeurent la propriété de leurs
+          Les recommandations institutionnelles citées (HCSP, HAS) demeurent la propriété de leurs
           auteurs respectifs&nbsp;; PXLC se contente de les commenter et d'y faire référence dans le cadre de son
           activité de médiation.
         </p>

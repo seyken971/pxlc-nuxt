@@ -31,7 +31,7 @@ const casquettes = [
   {
     num: '01',
     titre: 'Organisateur esport',
-    desc: "Plus de six ans sur la scène esport guadeloupéenne — tournois, partenariats grands comptes, Destreland Gaming Cup. Connaît la communauté de joueurs de l'intérieur.",
+    desc: "Plus de six ans sur la scène esport guadeloupéenne — tournois, partenariats grands comptes, Destreland Gaming Cup. Je connais la communauté de joueurs de l'intérieur.",
   },
   {
     num: '02',
@@ -41,7 +41,7 @@ const casquettes = [
   {
     num: '03',
     titre: 'Conseil institutionnel',
-    desc: "Affaires européennes et numérique THD à la Région Guadeloupe. Parle le langage des projets de service.",
+    desc: "Affaires européennes et numérique THD à la Région Guadeloupe. Je parle le langage des projets de service.",
   },
 ]
 
