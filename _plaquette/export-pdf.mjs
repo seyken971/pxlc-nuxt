@@ -6,7 +6,8 @@
  *   node _plaquette/export-pdf.mjs
  *   node _plaquette/export-pdf.mjs --fiche "_plaquette/Fiche Projet Jouons Ensemble - 2026.md"
  *
- * Enchaîne : generate-html.js → Puppeteer PDF → public/files/plaquette-pxlc.pdf
+ * Enchaîne : generate-html.js → Puppeteer PDF → métadonnées (pdf-lib)
+ *            → public/files/plaquette-pxlc.pdf
  */
 
 import { execFileSync } from 'node:child_process'
@@ -62,5 +63,27 @@ try {
 } finally {
   await browser.close()
 }
+
+// ── 3. Métadonnées PDF ────────────────────────────────────────────────────────
+// Chromium ne reporte que le <title> et expose son user-agent en Creator ;
+// on réécrit le dictionnaire Info pour un document propre.
+
+const { PDFDocument } = require('pdf-lib')
+
+console.log('→ Métadonnées…')
+const titleMatch = fs.readFileSync(HTML_PATH, 'utf8').match(/<title>([^<]+)<\/title>/)
+const title = titleMatch ? titleMatch[1] : 'PXLC — Plaquette de présentation · Médiation numérique'
+
+const doc = await PDFDocument.load(fs.readFileSync(PDF_TMP), { updateMetadata: false })
+doc.setTitle(title)
+doc.setAuthor('Andy Zébus — PXLC')
+doc.setSubject('Andy Zébus aide les structures en Guadeloupe à accompagner les familles autour des écrans.')
+doc.setKeywords(['médiation numérique', 'écrans', 'famille', 'parent-enfant', 'jeu vidéo', 'Guadeloupe', 'SESSAD', 'IME'])
+doc.setCreator('PXLC — pxlc.fr')
+doc.setProducer('PXLC — pxlc.fr')
+doc.setLanguage('fr-FR')
+doc.setModificationDate(new Date())
+fs.writeFileSync(PDF_TMP, await doc.save())
+
 fs.renameSync(PDF_TMP, PDF_OUT)
 console.log(`✓ PDF exporté → ${PDF_OUT}`)
