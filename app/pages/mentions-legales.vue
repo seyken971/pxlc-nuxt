@@ -15,7 +15,7 @@ if (import.meta.server) {
 // si les mentions sont modifiées. new Date() était utilisé avant mais donnait
 // la date du build SSG, pas celle de la mise à jour réelle du contenu.
 const lastUpdated = new Intl.DateTimeFormat('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })
-  .format(new Date('2026-05-29T12:00:00'))
+  .format(new Date('2026-07-31T12:00:00'))
 </script>
 
 <template>
@@ -62,6 +62,10 @@ const lastUpdated = new Intl.DateTimeFormat('fr-FR', { day: 'numeric', month: 'l
             <dd><code>70.21Z</code> — Conseil en relations publiques et communication</dd>
           </div>
           <div class="legal-dl__row">
+            <dt>Responsable de la publication</dt>
+            <dd>Andy Zébus</dd>
+          </div>
+          <div class="legal-dl__row">
             <dt>Email</dt>
             <dd><a href="mailto:contact@pxlc.fr">contact@pxlc.fr</a></dd>
           </div>
@@ -79,78 +83,35 @@ const lastUpdated = new Intl.DateTimeFormat('fr-FR', { day: 'numeric', month: 'l
       <PxlcMarkSeparator />
 
       <article class="prose">
-        <h2>Responsable de la publication</h2>
-        <p>Andy Zébus, en sa qualité d'entrepreneur individuel.</p>
-
         <h2>Hébergement</h2>
         <p>
-          Le site est hébergé par <strong>GitHub, Inc.</strong><br>
-          88 Colin P. Kelly Jr. Street<br>
-          San Francisco, CA 94107<br>
-          États-Unis<br>
-          <a href="https://github.com" target="_blank" rel="noopener noreferrer">github.com</a>
-        </p>
-        <p>
-          Le site est servi via le service <em>GitHub Pages</em>, gratuit, sans publicité ni traceurs additionnels.
+          Le site est hébergé par <strong>GitHub, Inc.</strong> (88 Colin P. Kelly Jr. Street,
+          San Francisco, CA 94107, États-Unis —
+          <a href="https://github.com" target="_blank" rel="noopener noreferrer">github.com</a>)
+          et servi via <em>GitHub Pages</em>, sans publicité ni traceurs additionnels.
         </p>
 
         <h2>Propriété intellectuelle</h2>
         <p>
-          L'ensemble des contenus présents sur ce site (textes, marques, logos, photographies, illustrations,
-          design) est la propriété exclusive d'Andy Zébus, sauf mention contraire. Toute reproduction,
-          représentation, adaptation, traduction ou diffusion, intégrale ou partielle, est interdite sans
-          autorisation écrite préalable.
-        </p>
-        <p>
-          Les recommandations institutionnelles citées (HCSP, HAS) demeurent la propriété de leurs
-          auteurs respectifs&nbsp;; PXLC se contente de les commenter et d'y faire référence dans le cadre de son
-          activité de médiation.
+          L'ensemble des contenus de ce site (textes, marques, logos, photographies, illustrations, design)
+          est la propriété exclusive d'Andy Zébus, sauf mention contraire&nbsp;: toute reproduction ou diffusion,
+          intégrale ou partielle, est interdite sans autorisation écrite préalable. Les recommandations
+          institutionnelles citées (HCSP, HAS) demeurent la propriété de leurs auteurs respectifs.
         </p>
 
-        <h2 id="rgpd">Protection des données personnelles (RGPD)</h2>
+        <h2 id="rgpd">Données personnelles et cookies</h2>
         <p>
-          Le site pxlc.fr ne dépose aucun cookie de traçage publicitaire ni d'analytics tiers. Le formulaire
-          de contact envoie votre message via la boîte mail <a href="mailto:contact@pxlc.fr">contact@pxlc.fr</a>&nbsp;;
+          Le site pxlc.fr ne dépose aucun cookie de traçage publicitaire ni d'analytics tiers. Seul un
+          élément de stockage local (<code>localStorage</code>, clé <code>pxlc-theme</code>) mémorise votre
+          préférence de thème&nbsp;; il ne quitte jamais votre navigateur. Le formulaire de contact envoie
+          votre message via la boîte mail <a href="mailto:contact@pxlc.fr">contact@pxlc.fr</a>&nbsp;;
           aucune donnée n'est stockée sur un serveur tiers à cette occasion.
         </p>
         <p>
           Lorsque vous me contactez par email ou via <a href="https://cal.eu/pxlc-gp" target="_blank" rel="noopener noreferrer">cal.eu/pxlc-gp</a>,
-          je conserve vos coordonnées uniquement pour la durée de notre relation, et au plus pendant 3 ans à compter
-          du dernier échange. Vous pouvez à tout moment demander la suppression de vos données en écrivant à
-          <a href="mailto:contact@pxlc.fr">contact@pxlc.fr</a>.
-        </p>
-        <p>
-          Conformément au règlement européen 2016/679 (RGPD) et à la loi française «&nbsp;Informatique et libertés&nbsp;»,
-          vous disposez des droits d'accès, de rectification, d'effacement, de portabilité et d'opposition sur
-          vos données personnelles.
-        </p>
-
-        <h2>Cookies</h2>
-        <p>
-          Ce site utilise un seul élément de stockage local (<code>localStorage</code>, clé
-          <code>pxlc-theme</code>), uniquement pour mémoriser votre préférence de thème (clair ou sombre).
-          Cette information ne quitte jamais votre navigateur, n'est partagée avec aucun tiers, et peut être
-          supprimée à tout moment via les paramètres de votre navigateur.
-        </p>
-
-        <h2>Liens externes</h2>
-        <p>
-          Le site peut contenir des liens vers des ressources externes (HCSP, LinkedIn, cal.eu, etc.).
-          PXLC n'exerce aucun contrôle sur le contenu de ces sites tiers et décline toute responsabilité quant
-          à leur disponibilité, leurs pratiques ou leurs contenus.
-        </p>
-
-        <h2>Médiation et règlement des litiges</h2>
-        <p>
-          En cas de litige, conformément à l'article L.612-1 du Code de la consommation, vous pouvez recourir
-          gratuitement au service de médiation que je vous indiquerai sur demande. Vous pouvez également saisir
-          la plateforme européenne de règlement en ligne des litiges&nbsp;:
-          <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener noreferrer">ec.europa.eu/consumers/odr</a>.
-        </p>
-
-        <h2>Contact</h2>
-        <p>
-          Pour toute question relative aux présentes mentions ou au traitement de vos données&nbsp;:
+          je conserve vos coordonnées au plus pendant 3 ans à compter du dernier échange. Conformément au
+          règlement européen 2016/679 (RGPD), vous disposez des droits d'accès, de rectification, d'effacement,
+          de portabilité et d'opposition sur vos données&nbsp;: écrivez à
           <a href="mailto:contact@pxlc.fr">contact@pxlc.fr</a>.
         </p>
 
