@@ -48,7 +48,7 @@
     "axe-core": "^4.12.1",
     "chrome-launcher": "^1.2.1",
     "eslint": "^10.8.0",
-    "jsdom": "^29.1.1",
+    "jsdom": "^30.0.1",
     "lighthouse": "^13.4.0",
     "nuxt-link-checker": "^5.1.2",
     "nuxt-security": "^2.6.0",
