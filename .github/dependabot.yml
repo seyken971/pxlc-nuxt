@@ -15,6 +15,11 @@ updates:
       day: monday
       time: "03:00"
     open-pull-requests-limit: 5
+    ignore:
+      # @nuxt/content 3.15.2 exige better-sqlite3 ^12.5.0 — retirer cette
+      # règle quand le peer acceptera la v13
+      - dependency-name: "better-sqlite3"
+        update-types: ["version-update:semver-major"]
     groups:
       nuxt-ecosystem:
         patterns:
