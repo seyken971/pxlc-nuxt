@@ -33,10 +33,10 @@
     "@nuxt/fonts": "^0.14.0",
     "@nuxt/icon": "^2.4.1",
     "@nuxt/image": "^2.1.0",
-    "@nuxtjs/seo": "^5.3.6",
+    "@nuxtjs/seo": "^5.3.10",
     "@takumi-rs/core": "^2.4.0",
     "better-sqlite3": "^12.11.1",
-    "nuxt": "^4.5.1",
+    "nuxt": "^4.5.2",
     "puppeteer": "^25.3.0",
     "vue": "^3.5.39",
     "vue-router": "^5.1.0"
