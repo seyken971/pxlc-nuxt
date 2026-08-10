@@ -15,7 +15,7 @@ Déployé sur **https://pxlc.fr**.
 | Fonts         | [@nuxt/fonts](https://fonts.nuxt.com) (auto-hébergé, pas de Google CDN)                |
 | Hosting       | GitHub Pages — SSG via `actions/deploy-pages`                                          |
 | CI            | GitHub Actions — lint + typecheck + a11y + deploy (bloquant) · Lighthouse hebdo (info) |
-| Environnement | Node 22 LTS                                                                            |
+| Environnement | Node 24 LTS                                                                            |
 
 ## Démarrage rapide
 
@@ -76,7 +76,7 @@ Pour modifier une couleur : éditer `brand-colors.ts` — `prebuild` synchronise
 Le pipeline `deploy.yml` tourne sur `push main` et sur chaque **pull request** :
 
 ```
-checkout → node 22 → npm install → lint → typecheck
+checkout → node 24 → npm install → lint → typecheck
 → nuxt generate → verify output → a11y static → a11y runtime
 → upload artifact → deploy (main uniquement)
 ```
