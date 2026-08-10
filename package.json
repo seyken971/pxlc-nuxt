@@ -34,7 +34,7 @@
     "@nuxt/icon": "^2.4.1",
     "@nuxt/image": "^2.1.0",
     "@nuxtjs/seo": "^5.3.10",
-    "@takumi-rs/core": "^2.4.0",
+    "@takumi-rs/core": "^2.5.10",
     "better-sqlite3": "^12.11.1",
     "nuxt": "^4.5.2",
     "puppeteer": "^25.3.0",
