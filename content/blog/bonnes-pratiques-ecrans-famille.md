@@ -34,7 +34,7 @@ Si l'enfant utilise son téléphone comme réveil, achetez un réveil simple. C'
 
 ## 2. Protéger l'heure avant le coucher
 
-Le sommeil est l'un des premiers points à protéger. Les écrans avant de dormir stimulent, retardent l'endormissement et entretiennent l'envie de continuer.
+Le sommeil est l'un des premiers points à protéger. Les écrans avant de dormir stimulent, retardent l'endormissement et entretiennent l'envie de continuer. Je détaille ces mécanismes — lumière, stimulation, coucher repoussé — dans [écrans et sommeil de l'enfant](/blog/ecrans-et-sommeil-enfant/).
 
 La règle :
 

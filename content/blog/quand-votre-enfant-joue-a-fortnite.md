@@ -23,7 +23,7 @@ Une partie de Fortnite dure environ 20 minutes. Pendant ces 20 minutes, votre 
 - arbitre entre des **objectifs court terme** (survivre à la prochaine rencontre) et des **objectifs long terme** (être dans le top 10 final)
 - intègre en temps réel une **carte mentale** d'un terrain qui rétrécit progressivement
 
-Tout ça, pendant 20 minutes. Puis ça recommence.
+Tout ça, pendant 20 minutes. Puis ça recommence. C'est aussi pour ça que l'arrêt du soir se négocie mieux en fin de partie qu'en plein milieu — j'y reviens dans [écrans et sommeil de l'enfant](/blog/ecrans-et-sommeil-enfant/).
 
 ## La frustration que vous voyez
 
