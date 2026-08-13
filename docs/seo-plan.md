@@ -35,7 +35,7 @@
 
 ## 3. État des lieux contenu (12 août 2026)
 
-12 articles publiés, répartis sur 3 catégories.
+14 articles publiés, répartis sur 3 catégories.
 
 | Slug | Catégorie | Date |
 |------|-----------|------|
@@ -51,10 +51,12 @@
 | `jeu-video-selection-ateliers-sessad-ime` | cas-pratique | 2026-06-08 |
 | `tnd-ecrans-parents-premier-entretien` | parents | 2026-06-08 |
 | `ecrans-et-sommeil-enfant` | parents | 2026-08-12 |
+| `ecrans-et-vision-enfant` | parents | 2026-08-12 |
+| `a-quel-age-quel-ecran` | parents | 2026-08-12 |
 
 Constat qui fonde la roadmap : le corpus `docs/references/` est sous-utilisé.
 Le rapport HCSP contient des sections « effets santé » entières sans article
-(vision/myopie, surpoids/sédentarité), et le volet risques socio-numériques
+(surpoids/sédentarité restant à couvrir), et le volet risques socio-numériques
 (rapport commission Enfants et écrans 2024) est absent du blog.
 
 ## 4. Roadmap contenu en 3 vagues (reconstruction — à valider)
@@ -66,8 +68,8 @@ Exploiter les sections V du rapport HCSP, une requête parentale par article.
 | Sujet | Requête type | Source principale | Statut |
 |-------|--------------|-------------------|--------|
 | Écrans et sommeil | « écran avant de dormir enfant » | `hcspr20191212` §V.5 | Publié (2026-08-12) |
-| Écrans et vision | « écran yeux enfant », « lumière bleue enfant » | `hcspr20191212` §V.1 | Brief perdu — à recréer |
-| À quel âge quel écran | « écran quel âge », « téléphone quel âge » | `hcspa20191212` §VII | Brief perdu — à recréer |
+| Écrans et vision | « écran yeux enfant », « lumière bleue enfant » | `hcspr20191212` §V.1 | Publié (2026-08-12) |
+| À quel âge quel écran | « écran quel âge », « téléphone quel âge » | `hcspa20191212` §VII | Publié (2026-08-12) |
 
 ### Vague 2 — Risques socio-numériques (rapport commission 2024)
 
