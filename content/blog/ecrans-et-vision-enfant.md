@@ -48,7 +48,7 @@ Le cadre de référence (HCSP 2019-2020 · HAS 2020) se traduit, pour les yeux, 
 - **Limiter la lumière bleue le soir**, et la supprimer dans la chambre.
 - **Passer du temps dehors** — le geste qui protège le plus, et le plus facile à aimer.
 
-Deux de ces repères recoupent le reste du cadre : la chambre et le soir. Ce n'est pas un hasard — j'ai détaillé l'ensemble dans [ce que dit vraiment le cadre HCSP](/blog/cadre-hcsp-enfants-ecrans/).
+Deux de ces repères recoupent le reste du cadre : la chambre et le soir. Ce n'est pas un hasard — j'ai détaillé l'ensemble dans [ce que dit vraiment le cadre HCSP](/blog/cadre-hcsp-enfants-ecrans/), et les seuils par âge dans [à quel âge quel écran ?](/blog/a-quel-age-quel-ecran/).
 
 ## La médiation parentale, le levier qui marche
 

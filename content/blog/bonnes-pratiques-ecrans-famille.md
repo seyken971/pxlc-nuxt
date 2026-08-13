@@ -118,7 +118,7 @@ Le cadre reste adulte. Mais l'arrêt devient préparé.
 
 Un enfant ne peut pas être seul responsable du choix de tous ses contenus.
 
-Les signalétiques existent pour aider : PEGI pour les jeux vidéo, âges conseillés pour les films et séries, conditions d'âge pour les réseaux sociaux. Elles ne remplacent pas le jugement parental, mais elles donnent un point de départ.
+Les signalétiques existent pour aider : PEGI pour les jeux vidéo, âges conseillés pour les films et séries, conditions d'âge pour les réseaux sociaux. Elles ne remplacent pas le jugement parental, mais elles donnent un point de départ. Je les replace parmi les repères d'âge du HCSP dans [à quel âge quel écran ?](/blog/a-quel-age-quel-ecran/).
 
 La règle :
 
