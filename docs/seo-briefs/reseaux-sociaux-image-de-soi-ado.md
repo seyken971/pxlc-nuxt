@@ -146,8 +146,9 @@ Chaque affirmation doit pointer une source — rien d'inventé.
   existe (vulnérabilités) — à vérifier à la rédaction.
 
 ## Statut
-- [ ] Validation du sujet par Andy (vague 2 : décision avant rédaction)
-- [ ] Rédaction (ghostwriter, voix PXLC, sourcé selon ce plan)
-- [ ] Audit conformité (claims ↔ corpus)
-- [ ] Maillage interne posé
-- [ ] Gate (lint · typecheck · ds-lint · validate-content) + déploiement
+- [x] Validation du sujet par Andy (12/08/2026, rédaction demandée)
+- [x] Rédaction (ghostwriter, voix PXLC, sourcé selon ce plan)
+- [x] Audit conformité (claims ↔ corpus — lien entrant depuis l'article TND
+      écarté : pas d'accroche naturelle, l'article est centré jeu)
+- [x] Maillage interne posé
+- [x] Gate (lint · typecheck · ds-lint · validate-content) + déploiement

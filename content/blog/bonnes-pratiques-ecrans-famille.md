@@ -190,7 +190,7 @@ Pour les préados et ados, la question devient moins « autorisé ou interdit 
 
 Et une conversation à avoir : que faire si quelqu'un est méchant en ligne ? L'enfant doit savoir qu'il peut en parler sans risquer de perdre l'accès.
 
-Un réseau social n'est pas seulement une application. C'est un espace relationnel.
+Un réseau social n'est pas seulement une application. C'est un espace relationnel. Ce qu'il fait — et ne fait pas — à l'image de soi des ados, je l'ai détaillé dans [réseaux sociaux et image de soi à l'adolescence](/blog/reseaux-sociaux-image-de-soi-ado/).
 
 ## 10. Prévoir des temps sans écran qui donnent envie
 
