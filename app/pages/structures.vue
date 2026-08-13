@@ -3,7 +3,7 @@ useSeoMeta({ title: 'Programmes parent-enfant — structures en Guadeloupe' })
 if (import.meta.server) {
   useSeoMeta({
     description:
-      'Programmes parent-enfant — HCSP 2019-2020 · HAS 2020, indicateurs qualitatifs, bilan transmis à vos tutelles.',
+      'Programmes parent-enfant — HCSP 2019-2020 · HAS 2020, indicateurs qualitatifs, bilan écrit en fin de dispositif.',
     ogDescription:
       'Andy Zébus, créateur de PXLC, intervient avec votre équipe — ateliers parent-enfant, cadre HCSP 2019-2020 · HAS 2020.',
   })
@@ -102,7 +102,7 @@ const { themes } = useProjectThemes()
             Médiation numérique pour votre structure<span class="coral-dot" aria-hidden="true">.</span>
           </h1>
           <p class="hero__lead">
-            Programme phare&nbsp;: Parent-Écran-Enfant, une démarche de parentalité numérique ancrée dans les recommandations HCSP&nbsp;2019-2020 · HAS&nbsp;2020 — indicateurs qualitatifs, bilan transmis à vos tutelles en fin de dispositif.
+            Programme phare&nbsp;: Parent-Écran-Enfant, une démarche de parentalité numérique ancrée dans les recommandations HCSP&nbsp;2019-2020 · HAS&nbsp;2020 — indicateurs qualitatifs, bilan écrit transmis à votre équipe en fin de dispositif.
           </p>
           <div class="hero__actions">
             <a href="https://cal.eu/pxlc-gp" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--lg" aria-label="Prendre rendez-vous (nouvel onglet)">Prendre rendez-vous</a>
@@ -146,7 +146,7 @@ const { themes } = useProjectThemes()
       </div>
       <div class="deroule-eval">
         <h3 class="deroule-eval__title">Évaluation &amp; restitution</h3>
-        <p class="lead">À la fin, un bilan écrit transmis à vos tutelles (ARS, CAF), appuyé sur quatre indicateurs qualitatifs.</p>
+        <p class="lead">À la fin, un bilan écrit transmis à votre équipe, appuyé sur quatre indicateurs qualitatifs.</p>
         <div class="grid grid--2">
           <article v-for="i in indicators" :key="i.title" class="card">
             <h4 class="indicator-title">{{ i.title }}</h4>

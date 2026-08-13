@@ -139,7 +139,7 @@ Synthèse écrite des acquis par enfant et par binôme, transmise à l'équipe p
 
 ## Les indicateurs d'évaluation : ce que vous pouvez mesurer et restituer
 
-Pour les structures qui doivent rendre des comptes à leurs tutelles, voici quatre indicateurs simples et actionnables :
+Pour alimenter vos rapports d’activité, voici quatre indicateurs simples et actionnables :
 
 **1. Questionnaires de satisfaction** — recueillis en fin de cycle auprès des parents et des enfants. Items standardisés (sentiment de mieux se comprendre, évolution de la fréquence des conflits liés aux écrans) + champ libre.
 
