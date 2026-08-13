@@ -122,6 +122,12 @@ effets délétères), pas sur les statistiques d'équipement.
 
 ### Recommandations de politique publique — 29 propositions (2024)
 → `rapport-commission-enfants-ecrans-2024` Partie 4 (6 axes)
+  - Accès progressif petite enfance (renforcer pas d'écran < 3 ans ;
+    déconseillé jusqu'à 6 ans sauf usage limité, accompagné, contenus de
+    qualité ; modéré et contrôlé après 6 ans) → § 4.3.1, p. 93-94
+  - Proposition n°13 — jalons téléphone (pas de téléphone avant 11 ans ;
+    sans Internet à 11 ans ; connecté sans réseaux sociaux à 13 ans ;
+    réseaux sociaux « éthiques » à 15 ans) → § 4.3.1, p. 99-100
   - Axe 1 : interdire les conceptions addictogènes
   - Axe 2 : protéger les enfants (acteurs économiques)
   - Axe 3 : progressivité des usages par âge

@@ -41,7 +41,7 @@ Sans dramatiser : ces effets décrivent un usage au mauvais moment, pas une fat
 
 Le cadre de référence (HCSP 2019-2020 · HAS 2020) tient, pour le soir, en deux repères simples (avis du 12 décembre 2019, section VII.1).
 
-**Pas d'écran dans la chambre.** Quel que soit l'âge de l'enfant ou de l'adolescent. Un écran dans la chambre, c'est un usage invisible pour les adultes et une tentation à portée de main au moment précis où le corps a besoin de décrocher.
+**Pas d'écran dans la chambre.** Quel que soit l'âge de l'enfant ou de l'adolescent. Un écran dans la chambre, c'est un usage invisible pour les adultes et une tentation à portée de main au moment précis où le corps a besoin de décrocher. C'est l'un des repères valables à tout âge que j'ai rassemblés dans [à quel âge quel écran ?](/blog/a-quel-age-quel-ecran/).
 
 **Pas d'écran dans l'heure qui précède l'endormissement.** Le HCSP la recommande pour faciliter l'endormissement et améliorer la qualité du sommeil. La couper d'écran, ce n'est pas une punition : c'est laisser la nuit s'installer.
 

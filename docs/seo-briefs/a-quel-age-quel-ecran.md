@@ -129,7 +129,9 @@ Chaque affirmation doit pointer une source — rien d'inventé.
   depuis `ecrans-et-sommeil-enfant`. L'ajouter dans un `RelatedReading`.
 
 ## Statut
-- [ ] Rédaction (ghostwriter, voix PXLC, sourcé selon ce plan)
-- [ ] Audit conformité (claims ↔ corpus)
-- [ ] Maillage interne posé
-- [ ] Gate (lint · typecheck · ds-lint · validate-content) + déploiement
+- [x] Rédaction (ghostwriter, voix PXLC, sourcé selon ce plan)
+- [x] Audit conformité (claims ↔ corpus — jalons commission 2024 vérifiés,
+      proposition n°13, Partie 4 § 4.3.1, p. 99-100 ; entrée ajoutée à
+      CITATIONS.md)
+- [x] Maillage interne posé
+- [x] Gate (lint · typecheck · ds-lint · validate-content) + déploiement
