@@ -120,6 +120,37 @@ effets délétères), pas sur les statistiques d'équipement.
   - 03 Dialogue continu : l'outil comme « clé d'explication impartiale » qui facilite la discussion parent-enfant → § 5 Enseignement 5, p. 43
   - Ton « bienveillant et sans jugement » → § 5 Enseignement 4, p. 41
 
+### Usages jeunes — réseaux sociaux / jeu vidéo (données 2021-2023)
+→ `rapport-commission-enfants-ecrans-2024` Partie 1 § 1.2-2, p. 20-21
+  - 86 % des 8-18 ans inscrits sur les réseaux sociaux (e-Enfance, 2023) ;
+    45 % des 11-12 ans sur TikTok (Arcom) → p. 20-21
+  - 93 % des 10-17 ans jouent ; 81 % à plusieurs ; 48 % sentiment
+    d'appartenance à une communauté ; 69 % des parents jouent avec leurs
+    enfants (Médiamétrie/SELL, 2023) → p. 21
+
+### Réseaux sociaux et santé mentale des adolescents
+→ `rapport-commission-enfants-ecrans-2024` § 2.3, p. 43-47
+  - Pas de causalité établie ; « facteur aggravant de risque pour les jeunes
+    présentant des vulnérabilités » → p. 44
+  - Designs captant l'attention, bulles de filtre ; étude Amnesty TikTok
+    (fil « Pour toi ») → p. 45
+  - Adolescence : identité et estime de soi en formation ; risques accrus
+    jeunes filles → p. 46-47
+
+### Exposition aux contenus inappropriés (chiffres 2023)
+→ `rapport-commission-enfants-ecrans-2024` § 2.4.1, p. 47-48
+  - 7 jeunes sur 10 (11-18 ans) exposés à des contenus choquants ; violence,
+    haine, pornographie (36 %, premier contact 10-11 ans) → p. 47-48
+→ `rapport-commission-enfants-ecrans-2024` § 2.4.2, p. 49 (cyberharcèlement,
+  sextorsion, grooming, pédocriminalité via espaces de jeu en ligne)
+
+### Jeux vidéo et violence (pas de lien avéré)
+→ `rapport-commission-enfants-ecrans-2024` § 2.5.4, p. 53-54
+  (« il n'y a clairement pas de lien avéré entre les jeux vidéo et la
+  violence dans la vie réelle »)
+→ `hcspr20191212` § V.7.3, p. 55-56 (compétition > violence comme prédicteur
+  d'agressivité ; « jouer aux jeux en apprenant à perdre » p. 56)
+
 ### Recommandations de politique publique — 29 propositions (2024)
 → `rapport-commission-enfants-ecrans-2024` Partie 4 (6 axes)
   - Accès progressif petite enfance (renforcer pas d'écran < 3 ans ;

@@ -73,11 +73,18 @@ Exploiter les sections V du rapport HCSP, une requête parentale par article.
 
 ### Vague 2 — Risques socio-numériques (rapport commission 2024)
 
-Sujets candidats (brief à rédiger avant toute décision) : exposition aux
+Sujets candidats — briefs rédigés le 12/08/2026, décision de rédaction à
+prendre par Andy, sujet par sujet : exposition aux
 contenus inadaptés, réseaux sociaux et image de soi, jeu en ligne et
 sociabilité. Source : `rapport-commission-enfants-ecrans-2024` +
 `dossier_enfantsecransnumerique`. Garde-fou : le jeu vidéo reste un outil de
 médiation, jamais un problème à résoudre — l'angle est l'accompagnement.
+
+| Sujet | Brief | Statut |
+|-------|-------|--------|
+| Contenus choquants | `contenus-choquants-enfant` | Brief prêt — à valider |
+| Réseaux sociaux et image de soi | `reseaux-sociaux-image-de-soi-ado` | Brief prêt — à valider |
+| Jeu en ligne et sociabilité | `jeu-en-ligne-amis-enfant` | Brief prêt — à valider |
 
 ### Vague 3 — Ancrage B2B et local
 
