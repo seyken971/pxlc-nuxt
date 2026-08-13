@@ -204,6 +204,8 @@ La règle :
 
 Ce temps doit être réaliste. Une journée entière sans écran peut être trop difficile pour commencer. Un repas, une promenade, une soirée jeux, un dimanche matin, c'est déjà une base.
 
+Le temps dehors a un bénéfice de plus, moins connu : c'est ce qui protège le mieux les yeux des enfants — j'explique pourquoi dans [écrans et vision de l'enfant](/blog/ecrans-et-vision-enfant/).
+
 Le rapport DITP/MILDECA rappelle que les pratiques trop ambitieuses sont souvent moins adoptées que les règles simples et progressives. Mieux vaut commencer petit et tenir.
 
 ## 11. Faire une règle pour les adultes aussi
