@@ -35,7 +35,7 @@
 
 ## 3. État des lieux contenu (12 août 2026)
 
-14 articles publiés, répartis sur 3 catégories.
+15 articles publiés, répartis sur 3 catégories.
 
 | Slug | Catégorie | Date |
 |------|-----------|------|
@@ -53,6 +53,7 @@
 | `ecrans-et-sommeil-enfant` | parents | 2026-08-12 |
 | `ecrans-et-vision-enfant` | parents | 2026-08-12 |
 | `a-quel-age-quel-ecran` | parents | 2026-08-12 |
+| `jeu-en-ligne-amis-enfant` | decryptage | 2026-08-12 |
 
 Constat qui fonde la roadmap : le corpus `docs/references/` est sous-utilisé.
 Le rapport HCSP contient des sections « effets santé » entières sans article
@@ -84,7 +85,7 @@ médiation, jamais un problème à résoudre — l'angle est l'accompagnement.
 |-------|-------|--------|
 | Contenus choquants | `contenus-choquants-enfant` | Brief prêt — à valider |
 | Réseaux sociaux et image de soi | `reseaux-sociaux-image-de-soi-ado` | Brief prêt — à valider |
-| Jeu en ligne et sociabilité | `jeu-en-ligne-amis-enfant` | Brief prêt — à valider |
+| Jeu en ligne et sociabilité | `jeu-en-ligne-amis-enfant` | Publié (2026-08-12) |
 
 ### Vague 3 — Ancrage B2B et local
 

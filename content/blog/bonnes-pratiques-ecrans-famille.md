@@ -133,7 +133,7 @@ Cela peut passer par :
 - demander à l'enfant pourquoi il veut ce jeu ;
 - paramétrer les téléchargements avec mot de passe parental.
 
-Ce moment n'est pas seulement technique. C'est une occasion de discussion.
+Ce moment n'est pas seulement technique. C'est une occasion de discussion. Et pour le cas particulier du jeu en ligne — le vocal, les coéquipiers, les achats — j'ai rassemblé les repères dans [jeu en ligne : ce que votre enfant y vit vraiment](/blog/jeu-en-ligne-amis-enfant/).
 
 ## 7. Parler des contenus choquants avant qu'ils arrivent
 

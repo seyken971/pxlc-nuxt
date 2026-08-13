@@ -48,7 +48,7 @@ Je commence par des questions simples :
 
 Ces détails changent tout.
 
-On n'accompagne pas de la même façon un enfant qui construit calmement un monde, un adolescent qui joue en équipe sous pression, ou un enfant qui enchaîne des vidéos courtes sans but précis.
+On n'accompagne pas de la même façon un enfant qui construit calmement un monde, un adolescent qui joue en équipe sous pression, ou un enfant qui enchaîne des vidéos courtes sans but précis. La dimension en ligne — l'équipe, les inconnus, le vocal — a ses propres repères : je les détaille dans [jeu en ligne : ce que votre enfant y vit vraiment](/blog/jeu-en-ligne-amis-enfant/).
 
 ## Deuxième étape : inverser les rôles
 
