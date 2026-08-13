@@ -16,7 +16,7 @@ Cette scène, je l'entends dans presque tous les ateliers que j'anime. Elle mér
 
 Trois mécanismes se superposent, et le Haut Conseil de la Santé Publique les documente précisément (rapport du 12 décembre 2019, sections V.1.3 et V.5).
 
-**La lumière, d'abord.** Le soir, le cerveau prépare l'endormissement en sécrétant la mélatonine. La lumière des écrans en fin de journée retarde cette sécrétion et dérègle l'horloge biologique : le corps reçoit un signal de jour au moment où il devrait recevoir un signal de nuit.
+**La lumière, d'abord.** Le soir, le cerveau prépare l'endormissement en sécrétant la mélatonine. La lumière des écrans en fin de journée retarde cette sécrétion et peut perturber l'horloge biologique : le corps reçoit un signal de jour au moment où il devrait recevoir un signal de nuit.
 
 **La stimulation, ensuite.** Le HCSP relève un point que beaucoup de parents sentent déjà : ce n'est pas tant la lumière bleue que le contenu qui tient éveillé. Une partie engageante, une vidéo qui enchaîne sur la suivante — c'est conçu pour capter l'attention, et ça la capte. Cette vigilance est le deuxième facteur, avec la mélatonine retardée, qui allonge le temps d'endormissement. Filtrer la lumière bleue réduit l'effet sur la mélatonine, mais ne fait rien contre la vigilance : le mode nuit n'éteint pas l'envie de finir le niveau.
 
@@ -43,7 +43,7 @@ Le cadre de référence (HCSP 2019-2020 · HAS 2020) tient, pour le soir, en deu
 
 **Pas d'écran dans la chambre.** Quel que soit l'âge de l'enfant ou de l'adolescent. Un écran dans la chambre, c'est un usage invisible pour les adultes et une tentation à portée de main au moment précis où le corps a besoin de décrocher.
 
-**Pas d'écran dans l'heure qui précède l'endormissement.** Cette heure-là, c'est le temps que la mélatonine met à reprendre son travail. La couper d'écran, ce n'est pas une punition : c'est laisser la nuit s'installer.
+**Pas d'écran dans l'heure qui précède l'endormissement.** Le HCSP la recommande pour faciliter l'endormissement et améliorer la qualité du sommeil. La couper d'écran, ce n'est pas une punition : c'est laisser la nuit s'installer.
 
 Deux règles, pas dix. Elles protègent le moment où tout se joue, et elles ont un autre mérite : elles se vérifient facilement, par l'enfant comme par l'adulte. J'ai détaillé le reste du cadre dans [ce que dit vraiment le cadre HCSP](/blog/cadre-hcsp-enfants-ecrans/).
 
