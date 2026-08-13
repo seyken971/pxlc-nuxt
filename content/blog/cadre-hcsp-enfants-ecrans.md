@@ -10,7 +10,7 @@ readingTime: 8 min
 
 Quand un parent cherche des repères sur les écrans, il tombe vite sur des chiffres, des interdictions, des alertes. Pas d'écran avant tel âge. Pas plus de tant d'heures. Pas de téléphone dans la chambre.
 
-Ces repères existent et ils sont utiles — je les ai rassemblés, âge par âge, dans [à quel âge quel écran ?](/blog/a-quel-age-quel-ecran/). Mais ils ne résument pas le cadre de référence — celui du Haut Conseil de la Santé Publique (HCSP, 2019-2020) et de la Haute Autorité de Santé (HAS, 2020).
+Ces repères existent et ils sont utiles — je les ai rassemblés, âge par âge, dans [à quel âge quel écran ?](/blog/a-quel-age-quel-ecran/). Mais ils ne résument pas le cadre de référence — celui du Haut Conseil de la santé publique (HCSP, 2019-2020) et de la Haute Autorité de santé (HAS, 2020).
 
 Le cadre HCSP est plus fin que ça : il ne dit pas seulement « réduisez les écrans ». Il dit surtout : **regardez l'âge de l'enfant, le contexte familial, le contenu, le moment, le lieu, et la présence adulte autour de l'écran**.
 

@@ -329,6 +329,16 @@ const FORBIDDEN_PHRASES = [
     re: /intervenants(?:&nbsp;|\s)+culturels/gi,
     msg: '« intervenants culturels » → un seul intervenant culturel (Lékoklaya) : toujours au singulier',
   },
+  // Graphies officielles des instances de santé — sensibles à la casse (pas de
+  // flag i) : c'est la majuscule fautive qu'on chasse, la forme correcte passe.
+  {
+    re: /Santé(?:&nbsp;|\s)+Publique/g,
+    msg: '« Santé Publique » → graphie officielle « Haut Conseil de la santé publique » (minuscules)',
+  },
+  {
+    re: /Haute(?:&nbsp;|\s)+Autorité(?:&nbsp;|\s)+de(?:&nbsp;|\s)+Santé/g,
+    msg: '« Haute Autorité de Santé » → graphie officielle « Haute Autorité de santé » (minuscule)',
+  },
 ]
 
 async function lintForbiddenPhrases() {

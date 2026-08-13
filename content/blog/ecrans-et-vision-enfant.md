@@ -22,7 +22,7 @@ Le point rassurant est tout aussi documenté : ces symptômes ne s'installent p
 
 ## Myopie : ce qu'on sait, ce qu'on ne sait pas
 
-Sur la myopie, je préfère citer le HCSP tel quel : il n'existe « ni consensus, ni preuve d'effets de l'exposition aux écrans sur la vision des enfants et des adolescents, ce qui ne signifie pas qu'ils n'existent pas » (rapport du 12 décembre 2019, section V.1.5). Pas de preuve, pas de blanc-seing non plus : l'état réel de la science, tel que le rapport le décrit.
+Sur la myopie, je préfère citer le Haut Conseil de la santé publique (HCSP) tel quel : il n'existe « ni consensus, ni preuve d'effets de l'exposition aux écrans sur la vision des enfants et des adolescents, ce qui ne signifie pas qu'ils n'existent pas » (rapport du 12 décembre 2019, section V.1.5). Pas de preuve, pas de blanc-seing non plus : l'état réel de la science, tel que le rapport le décrit.
 
 Ce que les études montrent est plus précis, et plus utile. Chez des enfants déjà myopes, l'aggravation est associée au temps passé à lire ou écrire sur écran, et aux heures d'ordinateur ou de jeux vidéo au-delà de 7 h par semaine — mais pas au temps passé devant la télévision, regardée de loin (section V.1.2). Tout se passe comme si la vision de près prolongée comptait plus que l'écran lui-même.
 

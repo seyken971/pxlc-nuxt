@@ -18,7 +18,7 @@ Partons du fait qui inquiète. La santé mentale des jeunes se dégrade nettemen
 
 Face à ça, les réseaux sociaux font un coupable idéal. La commission est pourtant précise : les études manquent aujourd'hui pour établir un lien de causalité entre réseaux sociaux et bien-être mental — le débat traverse la communauté scientifique elle-même. Mais elle juge les éléments suffisants pour affirmer qu'une consommation excessive constitue un « facteur aggravant de risque pour les jeunes présentant des vulnérabilités » (section 2.3).
 
-Le HCSP disait déjà la même chose autrement : la relation est bi-directionnelle — les écrans révèlent la vulnérabilité des enfants autant qu'ils la créent — et les adolescentes sont la population la plus vulnérable aux contenus des réseaux (rapport du 12 décembre 2019, section V.7).
+Le Haut Conseil de la santé publique (HCSP) disait déjà la même chose autrement : la relation est bi-directionnelle — les écrans révèlent la vulnérabilité des enfants autant qu'ils la créent — et les adolescentes sont la population la plus vulnérable aux contenus des réseaux (rapport du 12 décembre 2019, section V.7).
 
 Retenez la nuance, elle change tout en pratique : les réseaux sociaux ne fabriquent pas la fragilité de votre ado. Ils appuient dessus.
 
