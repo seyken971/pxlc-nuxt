@@ -40,7 +40,7 @@ Accompagner ne veut pas dire surveiller chaque seconde. C'est être présent dan
 - poser des questions sans ironie ;
 - connaître les amis ou les personnes avec qui il échange ;
 - respecter les âges conseillés pour les jeux, films et plateformes ;
-- parler des images choquantes avant qu'elles ne deviennent un secret ;
+- parler des images choquantes avant qu'elles ne deviennent un secret — j'y consacre [contenus choquants en ligne](/blog/contenus-choquants-enfant/) ;
 - aider l'enfant à arrêter, à passer à autre chose, à revenir au calme.
 
 Un enfant apprend rarement à s'autoréguler tout seul. Il a besoin d'adultes qui posent des limites, mais aussi qui expliquent, répètent et ajustent.
