@@ -149,7 +149,7 @@ Vous pouvez dire :
 
 « Si quelque chose te met mal à l'aise, même si tu penses que tu n'aurais pas dû être là, tu viens me voir. Mon premier rôle sera de t'aider. »
 
-Ce n'est pas du laxisme. C'est de la protection.
+Ce n'est pas du laxisme. C'est de la protection. Ce pacte — et les chiffres qui le justifient, et quoi faire le jour où il sert — je le développe dans [contenus choquants en ligne](/blog/contenus-choquants-enfant/).
 
 ## 8. Interdire les dépenses sans accord
 
