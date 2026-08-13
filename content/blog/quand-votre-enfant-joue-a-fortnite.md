@@ -29,7 +29,7 @@ Tout ça, pendant 20 minutes. Puis ça recommence. C'est aussi pour ça que l'a
 
 Quand votre enfant explose après une partie perdue, ce n'est pas « à cause des écrans ». C'est qu'il vient de vivre, en condensé, vingt minutes de coordination d'équipe sous pression, qui se sont terminées par un échec qu'il n'a pas pu rattraper.
 
-C'est exactement la frustration d'un sportif qui sort d'un match perdu. La seule différence, c'est que vous ne reconnaissez pas le match.
+C'est exactement la frustration d'un sportif qui sort d'un match perdu. La seule différence, c'est que vous ne reconnaissez pas le match. L'équipe, le vocal, la défaite à digérer — ce que le jeu en ligne fait vivre, je le décrypte plus largement dans [jeu en ligne : ce que votre enfant y vit vraiment](/blog/jeu-en-ligne-amis-enfant/).
 
 Le Haut Conseil de la Santé Publique (HCSP) le formule clairement dans son avis du 12 décembre 2019 (section V.7) : *« Les écrans pourraient être des révélateurs de la vulnérabilité des enfants. »* Ce que vous voyez après une partie perdue n'est pas créé par Fortnite — c'est quelque chose qui existait déjà, que le jeu a simplement rendu visible.
 
