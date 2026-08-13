@@ -86,7 +86,7 @@ Chaque affirmation doit pointer une source — rien d'inventé.
   `RelatedReading`.
 
 ## Statut
-- [ ] Rédaction (ghostwriter, voix PXLC, sourcé selon ce plan)
-- [ ] Audit conformité (claims ↔ corpus)
-- [ ] Maillage interne posé
-- [ ] Gate (lint · typecheck · ds-lint · validate-content) + déploiement
+- [x] Rédaction (ghostwriter, voix PXLC, sourcé selon ce plan)
+- [x] Audit conformité (claims ↔ corpus)
+- [x] Maillage interne posé
+- [x] Gate (lint · typecheck · ds-lint · validate-content) + déploiement

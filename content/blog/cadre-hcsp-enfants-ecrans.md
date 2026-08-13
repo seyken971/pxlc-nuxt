@@ -53,7 +53,7 @@ Dans les recommandations HCSP (avis du 12 décembre 2019, section VII), certains
 
 **La chambre.** Un écran dans la chambre rend le sommeil plus fragile et rend l'usage moins visible pour les adultes. Le repère le plus simple reste : les écrans dorment hors de la chambre.
 
-**Le coucher.** Le HCSP recommande d'éviter les écrans dans l'heure qui précède l'endormissement. Ce n'est pas une punition : c'est une mesure de récupération. Un enfant qui dort mieux gère mieux la frustration le lendemain.
+**Le coucher.** Le HCSP recommande d'éviter les écrans dans l'heure qui précède l'endormissement. Ce n'est pas une punition : c'est une mesure de récupération. Un enfant qui dort mieux gère mieux la frustration le lendemain. J'explique ce qui se joue à ce moment-là dans [écrans et sommeil de l'enfant](/blog/ecrans-et-sommeil-enfant/).
 
 **Les repas.** Un écran allumé à table réduit les échanges et perturbe l'attention portée au repas. La table est un bon endroit pour installer une règle familiale simple : on mange ensemble, sans écran.
 
