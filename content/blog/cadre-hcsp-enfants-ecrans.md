@@ -24,7 +24,7 @@ Le HCSP rappelle qu'il existe un effet dose (avis du 12 décembre 2019, section 
 
 Mais le HCSP insiste aussi sur une limite importante : les études ne permettent pas toujours de dire que l'écran est la cause unique d'une difficulté. Les écrans peuvent être liés à un problème de sommeil, d'attention ou d'isolement, sans être toujours l'origine du problème.
 
-C'est une nuance essentielle pour les parents.
+C'est une nuance essentielle pour les parents. La vision en est un bon exemple : tous les effets qu'on prête aux écrans ne sont pas démontrés — j'y consacre [écrans et vision de l'enfant](/blog/ecrans-et-vision-enfant/).
 
 Un enfant qui joue beaucoup peut être en difficulté parce qu'il dort mal. Mais il peut aussi jouer beaucoup parce qu'il est anxieux, parce qu'il n'a pas d'autre espace de réussite, parce qu'il se sent seul, ou parce que le jeu est le seul lieu où il se sent compétent.
 
