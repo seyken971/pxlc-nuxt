@@ -34,7 +34,7 @@ Sur la violence, autant citer la commission Enfants et écrans telle quelle : �
 
 Ce que la recherche identifie, c'est autre chose — et c'est plus utile pour un parent. C'est l'aspect compétitif d'un jeu, davantage que la violence de ses images, qui pèse sur l'agressivité à court terme. Perdre une partie très compétitive augmente l'humeur agressive ; et à jeu égal, les versions coopératives la réduisent (rapport HCSP du 12 décembre 2019, section V.7.3).
 
-Traduction : la rage qui suit une défaite n'est pas un symptôme d'intoxication au jeu. C'est la frustration d'un compétiteur — la même que celle d'un sportif qui sort d'un match perdu, je l'ai [décrite à propos de Fortnite](/blog/quand-votre-enfant-joue-a-fortnite/). Le HCSP en tire une recommandation que je fais mienne dans chaque atelier : « jouer aux jeux en apprenant à perdre » (rapport, section V.7.3).
+Traduction : la rage qui suit une défaite n'est pas un symptôme d'intoxication au jeu. C'est la frustration d'un compétiteur — la même que celle d'un sportif qui sort d'un match perdu, je l'ai [décrite à propos de Fortnite](/blog/quand-votre-enfant-joue-a-fortnite/). Le Haut Conseil de la santé publique (HCSP) en tire une recommandation que je fais mienne dans chaque atelier : « jouer aux jeux en apprenant à perdre » (rapport, section V.7.3).
 
 Plus de 6 ans sur la [scène esport guadeloupéenne](/blog/esport-guadeloupe-mediation-numerique-familles/), avec la Destreland Gaming Cup, m'ont appris une chose : apprendre à perdre, ça s'apprend vraiment — et un adulte présent au bon moment change tout.
 

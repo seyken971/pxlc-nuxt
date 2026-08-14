@@ -34,7 +34,7 @@ Aucun de ces chiffres n'est là pour faire peur. Ils disent une chose simple : 
 
 ## Pourquoi le tout-technique ne suffit pas
 
-Face à ça, le premier réflexe est technique : filtres, contrôle parental, interdictions d'applications. Ces outils sont utiles — et le cadre de référence (HCSP 2019-2020 · HAS 2020) invite à s'en servir. Mais il faut entendre ce que le HCSP écrit sans détour : « il n'existe pas de solution technique permettant d'interdire l'accès » aux sites qui devraient l'être (avis du 12 décembre 2019, section VI.5).
+Face à ça, le premier réflexe est technique : filtres, contrôle parental, interdictions d'applications. Ces outils sont utiles — et le cadre de référence (HCSP 2019-2020 · HAS 2020) invite à s'en servir. Mais il faut entendre ce que le Haut Conseil de la santé publique (HCSP) écrit sans détour : « il n'existe pas de solution technique permettant d'interdire l'accès » aux sites qui devraient l'être (avis du 12 décembre 2019, section VI.5).
 
 La commission Enfants et écrans dresse le même constat côté terrain : les filtres des sites pour adultes se contournent facilement, le contrôle parental est insuffisamment activé, et la modération des plateformes laisse circuler des contenus inappropriés pendant des heures (rapport d'avril 2024, section 2.4.1).
 

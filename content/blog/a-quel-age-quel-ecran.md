@@ -10,7 +10,7 @@ readingTime: 8 min
 
 « Et vous, vous lui donneriez une tablette à quel âge ? » La question de l'âge est la première que les parents me posent — souvent avec l'espoir d'un chiffre simple qui réglerait tout.
 
-La réponse honnête : ce chiffre unique n'existe pas. Le HCSP fixe quelques seuils clairs — moins qu'on ne l'imagine — et surtout beaucoup de conditions d'usage. Les voici, âge par âge, sans en inventer.
+La réponse honnête : ce chiffre unique n'existe pas. Le Haut Conseil de la santé publique (HCSP) fixe quelques seuils clairs — moins qu'on ne l'imagine — et surtout beaucoup de conditions d'usage. Les voici, âge par âge, sans en inventer.
 
 ## Pourquoi l'âge compte : deux fenêtres sensibles
 

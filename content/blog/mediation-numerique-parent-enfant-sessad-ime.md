@@ -10,7 +10,7 @@ readingTime: 14 min
 
 Dans les équipes de SESSAD et d'IME — notamment en Guadeloupe —, la question revient presque à chaque réunion de synthèse : *comment aborder les écrans avec les familles sans tomber dans le discours moral, sans minimiser les vraies difficultés, et sans improviser ?*
 
-Ce guide ne prétend pas trancher le débat « pour ou contre les écrans ». Il s'appuie sur les deux avis de référence du Haut Conseil de la Santé Publique — l'[avis de 2019](https://www.hcsp.fr/Explore.cgi/AvisRapportsDomaine?clefr=759) sur les effets de l'exposition aux écrans, et celui de [2021](https://www.hcsp.fr/Explore.cgi/AvisRapportsDomaine?clefr=1074) sur les usages excessifs — pour donner aux équipes pluridisciplinaires des repères concrets, mobilisables en pratique.
+Ce guide ne prétend pas trancher le débat « pour ou contre les écrans ». Il s'appuie sur les deux avis de référence du Haut Conseil de la santé publique — l'[avis de 2019](https://www.hcsp.fr/Explore.cgi/AvisRapportsDomaine?clefr=759) sur les effets de l'exposition aux écrans, et celui de [2021](https://www.hcsp.fr/Explore.cgi/AvisRapportsDomaine?clefr=1074) sur les usages excessifs — pour donner aux équipes pluridisciplinaires des repères concrets, mobilisables en pratique.
 
 ## Ce que « médiation numérique parent-enfant » veut vraiment dire
 
