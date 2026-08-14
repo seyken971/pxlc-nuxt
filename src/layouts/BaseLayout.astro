@@ -14,6 +14,9 @@ interface Props {
   description: string
   /** og:description si différente de description (ex : accueil). */
   ogDescription?: string
+  /** og:title si différent du titre complet — les articles retirent le
+      suffixe « · PXLC » (og:site_name porte déjà la marque). */
+  ogTitle?: string
   ogType?: 'website' | 'article'
   robots?: string
   /** URL absolue de l'image OG (1200×600). */
@@ -36,6 +39,7 @@ const {
 } = Astro.props
 
 const fullTitle = `${title}${SITE.titleSuffix}`
+const { ogTitle = fullTitle } = Astro.props
 const canonical = new URL(Astro.url.pathname, SITE.url).href
 
 // CSP en <meta http-equiv> (GitHub Pages ne permet pas de vrais en-têtes HTTP).
@@ -76,7 +80,7 @@ const csp = [
     <meta name="color-scheme" content="light dark" />
     <meta name="theme-color" content="#082B36" media="(prefers-color-scheme: dark)" />
     <meta name="theme-color" content="#EAF6F4" media="(prefers-color-scheme: light)" />
-    <meta property="og:title" content={fullTitle} />
+    <meta property="og:title" content={ogTitle} />
     <meta property="og:description" content={ogDescription} />
     <meta property="og:url" content={canonical} />
     <meta property="og:type" content={ogType} />

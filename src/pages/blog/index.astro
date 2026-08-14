@@ -1,0 +1,251 @@
+---
+import { getCollection } from 'astro:content'
+import { Icon } from 'astro-icon/components'
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import SiteBreadcrumb from '../../components/SiteBreadcrumb.astro'
+import PxlcMark from '../../components/vue/PxlcMark.vue'
+import PxlcPixelCorner from '../../components/vue/PxlcPixelCorner.vue'
+import { BLOG_CATEGORIES, BLOG_CATEGORY_LABELS } from '../../config/blog-categories'
+import { fmtDate } from '../../lib/date-format'
+
+// Tri descendant par date, brouillons exclus — même sélection que l'ancienne
+// queryCollection Nuxt Content.
+const posts = (await getCollection('blog', p => !p.data.draft))
+  .sort((a, b) => b.data.date.localeCompare(a.data.date))
+
+// Categories distillées depuis les articles existants — pas de filtre si
+// un seul est présent (anti-clutter).
+const categories = Array.from(new Set(posts.map(p => p.data.category))).sort()
+
+// Map a category to a thumbnail pattern modifier so cards aren't visually
+// identical. Falls back to "default" if a new unknown category appears.
+const thumbModifier = (category?: string): string => {
+  if (!category) return 'default'
+  const slug = category.toLowerCase().replace(/[^a-z0-9]+/g, '-')
+  return (BLOG_CATEGORIES as readonly string[]).includes(slug) ? slug : 'default'
+}
+
+const categoryLabel = (slug?: string): string =>
+  slug ? (BLOG_CATEGORY_LABELS[slug] ?? slug) : ''
+
+const seo = {
+  title: 'Médiation numérique — ressources pour les structures',
+  description: 'Articles sur la médiation numérique pour les structures en Guadeloupe. Ressources HCSP 2019-2020 · HAS 2020.',
+  ogDescription: 'Décryptages sur les tensions autour des écrans — jeu vidéo comme levier, cadre HCSP 2019-2020 · HAS 2020.',
+}
+---
+
+<BaseLayout {...seo}>
+  <!-- Page header — bg-soft + border-bottom per DS BlogPage -->
+  <section class="section section--page blog-page-header">
+    <div class="container">
+      <SiteBreadcrumb />
+      <span class="eyebrow eyebrow--lg">Le journal</span>
+      <h1 class="blog-title">
+        Décryptages, repères, retours de terrain<span class="coral-dot" aria-hidden="true">.</span>
+      </h1>
+      <p class="lead blog-lead">
+        Décryptages et retours de terrain de PXLC, pour les familles et les équipes.
+      </p>
+
+      {categories.length > 1 && (
+        <div class="blog-filters" role="group" aria-label="Filtrer par catégorie">
+          <button
+            type="button"
+            class="blog-filters__chip is-active"
+            aria-pressed="true"
+            data-cat=""
+          >Tous</button>
+          {categories.map(c => (
+            <button
+              type="button"
+              class="blog-filters__chip"
+              aria-pressed="false"
+              data-cat={c}
+            >{categoryLabel(c)}</button>
+          ))}
+        </div>
+      )}
+    </div>
+  </section>
+
+  <!-- Cards grid -->
+  <section class="section">
+    <div class="container">
+      <p class="blog-count" aria-live="polite" data-count-template>
+        {posts.length} article{posts.length > 1 ? 's' : ''}
+      </p>
+      <div class="grid grid--3" id="blog-grid">
+        {posts.map((p, idx) => (
+          <a
+            href={`/blog/${p.id}/`}
+            class="card card--hover blog-card"
+            data-category={p.data.category}
+            style={`--anim-delay: ${Math.min(idx % 3, 2) * 0.08}s`}
+          >
+            <div
+              class:list={['blog-card__thumb', `blog-card__thumb--${thumbModifier(p.data.category)}`]}
+              aria-hidden="true"
+            >
+              <PxlcPixelCorner />
+              <div class="blog-card__thumb-mark">
+                <PxlcMark size={56} decorative />
+              </div>
+            </div>
+            <div class="blog-card__body">
+              <div class="blog-card__badges">
+                {idx === 0 && <span class="badge badge--new" data-badge-new>Nouveau</span>}
+                <span class="badge">{categoryLabel(p.data.category)}</span>
+              </div>
+              <h2 class="blog-card__title">{p.data.title}</h2>
+              {p.data.description && <p class="blog-card__excerpt">{p.data.description}</p>}
+              <div class="blog-card__meta">
+                <time datetime={p.data.date}>{fmtDate(p.data.date)}</time>
+                {p.data.readingTime && (
+                  <span class="blog-card__rt">
+                    <Icon name="lucide:clock" aria-hidden="true" />{p.data.readingTime}
+                  </span>
+                )}
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  // Catégorie active pilotée par l'URL (?cat=slug) : partage, retour arrière et
+  // rechargement conservent le filtre. Slug inconnu ⇒ aucun filtre. Port MPA du
+  // filtre client Vue : le HTML contient toutes les cartes, on masque.
+  const chips = Array.from(document.querySelectorAll<HTMLButtonElement>('.blog-filters__chip'))
+  const cards = Array.from(document.querySelectorAll<HTMLElement>('.blog-card'))
+  const count = document.querySelector<HTMLElement>('[data-count-template]')
+  const badgeNew = document.querySelector<HTMLElement>('[data-badge-new]')
+  const known = new Set(chips.map(c => c.dataset.cat).filter(Boolean))
+
+  const apply = (cat: string | null) => {
+    const active = cat && known.has(cat) ? cat : null
+    chips.forEach((chip) => {
+      const isActive = (chip.dataset.cat || null) === active
+      chip.classList.toggle('is-active', isActive)
+      chip.setAttribute('aria-pressed', String(isActive))
+    })
+    let visible = 0
+    cards.forEach((card) => {
+      const show = !active || card.dataset.category === active
+      card.style.display = show ? '' : 'none'
+      if (show) visible++
+    })
+    if (count) count.textContent = `${visible} article${visible > 1 ? 's' : ''}`
+    // « Nouveau » ne s'affiche que sur la vue non filtrée (parité Vue).
+    if (badgeNew) badgeNew.style.display = active ? 'none' : ''
+  }
+
+  const current = () => new URLSearchParams(location.search).get('cat')
+
+  chips.forEach((chip) => {
+    chip.addEventListener('click', () => {
+      const cat = chip.dataset.cat || null
+      const url = new URL(location.href)
+      if (cat) url.searchParams.set('cat', cat)
+      else url.searchParams.delete('cat')
+      history.pushState({}, '', url)
+      apply(cat)
+    })
+  })
+
+  window.addEventListener('popstate', () => apply(current()))
+  apply(current())
+</script>
+
+<style>
+  /* Page header section — bg-soft + border-bottom per DS */
+  .blog-page-header {
+    background: var(--bg-soft);
+    border-bottom: 1px solid var(--bg-rule);
+    transition: background var(--dur-base);
+  }
+
+  .blog-title { font-size: clamp(36px, 5.4vw, 64px); letter-spacing: -0.025em; line-height: 1.05; margin-bottom: var(--space-4); }
+  .blog-lead { max-width: 640px; margin-bottom: var(--space-5); }
+
+  .blog-filters { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-bottom: var(--space-4); }
+  .blog-filters__chip {
+    font-family: var(--font-body); font-size: 13px; font-weight: 500;
+    display: inline-flex; align-items: center;
+    min-height: 44px; padding: 0 16px; border-radius: var(--radius-pill);
+    background: transparent; color: var(--ink-quiet);
+    border: 1px solid var(--rule); cursor: pointer;
+    transition: color var(--dur-fast), border-color var(--dur-fast), background var(--dur-fast);
+  }
+  .blog-filters__chip:hover {
+    color: var(--ink); border-color: var(--ink); background: var(--bg-soft);
+  }
+  .blog-filters__chip.is-active {
+    color: var(--pxlc-white); background: var(--pxlc-teal-deep); border-color: var(--pxlc-teal-deep);
+  }
+  :global([data-theme="dark"]) .blog-filters__chip.is-active {
+    color: var(--pxlc-bg-dark); background: var(--pxlc-cyan); border-color: var(--pxlc-cyan);
+  }
+  .blog-filters__chip:focus-visible {
+    outline: 3px solid var(--pxlc-coral); outline-offset: 2px;
+  }
+
+  .blog-count {
+    font-family: var(--font-label); font-size: 11px; font-weight: 600;
+    letter-spacing: 0.18em; text-transform: uppercase; color: var(--quiet);
+    margin: 0 0 var(--space-4);
+  }
+
+  .blog-card {
+    padding: 0; overflow: hidden; display: flex; flex-direction: column;
+    min-height: 360px; text-decoration: none; color: inherit;
+  }
+  .blog-card:hover { text-decoration: none; }
+  /* Each category gets its own thumbnail colour + a subtle dot-grid texture. */
+  .blog-card__thumb {
+    aspect-ratio: 16 / 9;
+    position: relative;
+    background-color: var(--pxlc-pattern-warm-deep);
+    background-image: radial-gradient(circle, var(--dot-grid) 1px, transparent 1px);
+    background-size: 18px 18px;
+    background-position: 8px 8px;
+  }
+  /* Category colours — differentiated: warm ivory / teal-tinted / deeper warm */
+  .blog-card__thumb--parents      { background-color: var(--pxlc-ivory-soft); }
+  .blog-card__thumb--cas-pratique { background-color: var(--pxlc-bg-light); }
+  .blog-card__thumb--decryptage   { background-color: var(--pxlc-pattern-warm); }
+  .blog-card__thumb :global(.pixel-corner) { position: absolute; bottom: 0; left: 0; }
+
+  /* PxlcMark watermark inside thumbnail — brand presence on every card */
+  .blog-card__thumb-mark {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    opacity: 0.1;
+    pointer-events: none;
+  }
+
+  /* --dot-grid bascule seul en dark — teintes mixees pour garder la
+     differenciation par categorie visible sur fond sombre. */
+  :global([data-theme="dark"]) .blog-card__thumb {
+    background-color: var(--pxlc-border-dark-2);
+  }
+  :global([data-theme="dark"]) .blog-card__thumb--parents { background-color: color-mix(in srgb, var(--pxlc-ivory) 8%, var(--pxlc-bg-dark)); }
+  :global([data-theme="dark"]) .blog-card__thumb--cas-pratique { background-color: color-mix(in srgb, var(--pxlc-teal-mid) 10%, var(--pxlc-bg-dark)); }
+  :global([data-theme="dark"]) .blog-card__thumb--decryptage { background-color: color-mix(in srgb, var(--pxlc-coral) 6%, var(--pxlc-bg-dark)); }
+  .blog-card__body { padding: var(--space-4) var(--space-4) var(--space-5); display: flex; flex-direction: column; gap: var(--space-2-5); flex: 1; }
+  .blog-card__badges { display: flex; flex-wrap: wrap; gap: var(--space-1-5); align-items: center; }
+  .badge--new { background: var(--pxlc-coral); color: var(--pxlc-text-ink); border-color: var(--pxlc-coral); }
+  .blog-card__title { font-size: 18px; line-height: 1.25; letter-spacing: -0.01em; color: var(--ink); }
+  .blog-card__excerpt { font-size: 15px; line-height: 1.5; color: var(--ink-quiet); flex: 1; }
+  .blog-card__meta {
+    margin-top: auto; display: flex; gap: var(--space-2);
+    font-family: var(--font-label); font-size: 11px; letter-spacing: 0.1em;
+    color: var(--quiet); text-transform: uppercase;
+  }
+  .blog-card__rt { display: inline-flex; align-items: center; gap: var(--space-1); }
+  .blog-card__rt svg { width: 11px; height: 11px; flex-shrink: 0; }
+</style>
