@@ -34,92 +34,45 @@ jobs:
           node-version: 24
           cache: npm
 
-      # Cache Nuxt's build cache (fonts, @nuxt/image transforms, nitro
-      # chunks). The nuxt-og-image / og-image dirs are explicitly EXCLUDED
-      # because the OG PNG filename is hashed on the input props
-      # (eyebrow/title/description), not on the rendered output — so a
-      # template change with the same props re-uses the stale PNG from
-      # the cache and ships dark/old visuals despite a fresh build.
-      # Regenerating the 9 OGs is ~5s on Ubuntu; not worth the cache risk.
-      #
-      # The `v3-` prefix in the key is a manual bust — restore-keys would
-      # otherwise pull older saves that still contain the OG dirs.
-      # Bust v2 -> v3 le 12/08/2026 : les saves v2 portaient des métadonnées
-      # @nuxt/fonts dont l'URL fonts.gstatic.com avait été rotée par Google.
-      # Toute PR touchant package-lock.json retombait via restore-keys sur un
-      # de ces saves et le build mourait en `FetchError: [GET] ... 404` au
-      # téléchargement de Lora.
-      - name: Cache Nuxt build artefacts
+      # Cache du build Astro (transforms astro:assets notamment — les webp
+      # regénérés sinon à chaque run). Le préfixe astro-v1- est un bust manuel.
+      - name: Cache Astro build artefacts
         uses: actions/cache@v6
         with:
           path: |
             node_modules/.cache
-            .nuxt/cache
-            !.nuxt/cache/nuxt-og-image
-            !.nuxt/cache/og-image
-          key: nuxt-v3-${{ runner.os }}-${{ hashFiles('package-lock.json', 'nuxt.config.ts', 'content.config.ts') }}
+            .astro
+          key: astro-v1-${{ runner.os }}-${{ hashFiles('package-lock.json', 'astro.config.mjs') }}
           restore-keys: |
-            nuxt-v3-${{ runner.os }}-
+            astro-v1-${{ runner.os }}-
 
       - name: Install dependencies
-        # `npm install` (not `npm ci`) — a transitive commander@^11 / @^13
-        # mismatch between @nuxt/content (lunr) and @bomb.sh/tab still
-        # trips npm ci's strict resolver even after the unused module
-        # deps were dropped. `npm install` resolves it on the fly.
         run: npm install --no-audit --no-fund
 
-      - name: Nuxt prepare
-        # Generates .nuxt/eslint.config.mjs (and other .nuxt/* artefacts)
-        # needed by the ESLint step below. Normally run by the postinstall
-        # lifecycle but made explicit here for reliability.
-        run: npx nuxt prepare
-
       - name: Lint (ESLint)
-        # @nuxt/eslint flat config: catches Vue 3 / TS / Nuxt rule
-        # violations before they ship. Fast (~3 s) — runs before the
-        # heavier build / a11y / lighthouse steps so a syntax issue
-        # fails fast.
+        # Flat config autonome (astro + vue + typescript-eslint). Rapide —
+        # tourne avant les étapes lourdes pour échouer vite.
         run: npm run lint
 
-      - name: Typecheck (vue-tsc)
-        # `nuxt typecheck` wraps vue-tsc with the right project refs.
-        # Fails the build on TS errors so type regressions can't slip
-        # past review.
+      - name: Typecheck (astro check)
         run: npm run typecheck
 
-      - name: Design-system lint (ds-lint)
-        # Gate marque « non négociable » : couleurs/rgba/ease bruts, gradients,
-        # vocabulaire interdit, emoji, longueurs SEO, nommage des composants,
-        # insécables. Normalement chaîné par prebuild/pregenerate, mais la CI
-        # build via `npx nuxt build` (ci-dessous), ce qui NE déclenche PAS les
-        # hooks npm pre*/post* — d'où ces étapes explicites.
-        run: npm run ds-lint
-
-      - name: Validate content frontmatter
-        # Gate contenu : champs requis + longueurs SEO effectives des articles
-        # @nuxt/content. Même raison que ds-lint — explicite car les hooks npm
-        # ne tournent pas sur un appel direct au binaire nuxt.
-        run: npm run validate-content
-
-      - name: Generate static site (SSG)
-        # --preset github_pages = preset officiel Nitro pour GitHub Pages
-        # (génère .nojekyll, gère le 404 fallback, prerender toutes les routes
-        # via crawlLinks: true défini dans nuxt.config.ts).
-        run: npx nuxt build --preset github_pages
-
-      - name: Prune unused public assets
-        # postbuild/postgenerate ne se déclenche pas sur `npx nuxt build` — on
-        # élague explicitement les polices _og-static-fonts/ (~460 KB) inutiles
-        # en prod (ogImage.zeroRuntime) AVANT l'upload de l'artefact Pages.
-        run: node scripts/prune-public.mjs
+      - name: Build static site (gates + Astro + post-build SEO)
+        # `npm run build` déclenche les hooks npm :
+        #   prebuild  = gen:tokens → design → ds-lint → validate-content
+        #   build     = astro build (24 pages statiques dans dist/)
+        #   postbuild = sitemap → OG (satori) → CSP hashes → prune → check-links
+        run: npm run build
 
       - name: Verify build output
-        # Cheap guardrail — if prerender produced an empty .output/public/
-        # or the home page is missing, fail loud instead of uploading a
-        # broken artefact to Pages.
+        # Cheap guardrail — if the build produced an empty dist/ or the home
+        # page is missing, fail loud instead of uploading a broken artefact.
         run: |
-          test -f .output/public/index.html || { echo "::error::Missing .output/public/index.html"; exit 1; }
-          test -f .output/public/sitemap.xml || { echo "::error::Missing sitemap.xml"; exit 1; }
+          test -f dist/index.html || { echo "::error::Missing dist/index.html"; exit 1; }
+          test -f dist/sitemap.xml || { echo "::error::Missing sitemap.xml"; exit 1; }
+          test -f dist/robots.txt || { echo "::error::Missing robots.txt"; exit 1; }
+          test -f dist/.nojekyll || { echo "::error::Missing .nojekyll"; exit 1; }
+          test -f dist/CNAME || { echo "::error::Missing CNAME"; exit 1; }
 
       - name: A11y audit — static (axe-core + jsdom)
         # Fast check on the prerendered HTML. Catches semantic regressions
@@ -153,7 +106,7 @@ jobs:
         if: github.ref == 'refs/heads/main'
         uses: actions/upload-pages-artifact@v5
         with:
-          path: .output/public
+          path: dist
 
   deploy:
     needs: build

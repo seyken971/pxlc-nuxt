@@ -1,0 +1,61 @@
+---
+import PxlcLockup from './PxlcLockup.astro'
+import ThemeToggle from './ThemeToggle.astro'
+import { NAV_ITEMS, isActive, navHref } from '../config/nav'
+
+const pathname = Astro.url.pathname
+---
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <PxlcLockup />
+
+    <nav class="site-nav" aria-label="Navigation principale">
+      {NAV_ITEMS.map(n => (
+        <a
+          href={navHref(n.url)}
+          class:list={['site-nav__link', { 'is-active': isActive(pathname, n.url) }]}
+          aria-current={isActive(pathname, n.url) ? 'page' : undefined}
+        >{n.label}</a>
+      ))}
+    </nav>
+
+    <div class="site-header__right">
+      <ThemeToggle />
+
+      <a
+        href="https://cal.eu/pxlc-gp"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn btn--primary site-header__cta"
+        aria-label="Prendre rendez-vous (nouvel onglet)"
+      >Prendre RDV</a>
+
+      <button
+        type="button"
+        class="burger"
+        aria-label="Ouvrir le menu"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<script>
+  // État « scrolled » : resserre le padding et ajoute une ombre douce dès que
+  // l'utilisateur a quitté le tout début de page. Throttle via rAF.
+  const header = document.querySelector<HTMLElement>('.site-header')
+  let scrollRaf = 0
+  const onScroll = () => {
+    if (scrollRaf) return
+    scrollRaf = requestAnimationFrame(() => {
+      header?.classList.toggle('is-scrolled', window.scrollY > 8)
+      scrollRaf = 0
+    })
+  }
+  onScroll()
+  window.addEventListener('scroll', onScroll, { passive: true })
+</script>

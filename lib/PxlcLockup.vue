@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import PxlcMark from '../app/components/PxlcMark.vue'
+import PxlcMark from '../src/components/vue/PxlcMark.vue'
 
 interface Props {
   size?: 'sm' | 'md' | 'lg'

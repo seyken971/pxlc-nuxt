@@ -1,0 +1,79 @@
+---
+// Page 404 de marque, servie par GitHub Pages (dist/404.html). Volontairement
+// AUTONOME (pas de BaseLayout : ni header, ni footer, ni CTA), comme l'ancienne
+// error.vue Nuxt. En statique, seul le cas 404 existe — la branche 5xx de
+// l'ancienne page (reload) n'a plus d'objet.
+import '../styles/fonts.css'
+import '../styles/styles.css'
+import { SITE } from '../config/site'
+import PxlcLockup from '../components/PxlcLockup.astro'
+import PxlcPixelStrip from '../components/vue/PxlcPixelStrip.vue'
+---
+
+<html lang={SITE.lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Anti-flash thème (pas d'héritage du layout ici). -->
+    <script is:inline>(function(){try{const s=localStorage.getItem('pxlc-theme');const t=s||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);}catch{}})();</script>
+    <title>Page introuvable · PXLC</title>
+    <!-- 404 → noindex (hygiène SEO standard pour les vraies pages absentes). -->
+    <meta name="robots" content="noindex, follow" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body>
+    <main id="main" class="errpage">
+      <div class="container errpage__inner">
+        <PxlcLockup size="md" href="/" class="errpage__brand" />
+        <PxlcPixelStrip class="errpage__strip" />
+        <span class="eyebrow eyebrow--lg">Erreur 404</span>
+        <h1 class="errpage__title">
+          Page introuvable<span class="coral-dot" aria-hidden="true">.</span>
+        </h1>
+        <p class="lead errpage__lead">Cette page n'existe pas ou a été déplacée. Le reste du site est bien là.</p>
+        <div class="errpage__actions">
+          <a class="btn btn--primary btn--no-arrow" href="/">
+            Retour à l'accueil
+          </a>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
+
+<style>
+  .errpage {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    background: var(--bg);
+    padding: clamp(48px, 8vw, 96px) 0;
+    transition: background var(--dur-base);
+  }
+
+  .errpage__inner { max-width: 560px; }
+
+  .errpage :global(.errpage__brand) { margin-bottom: var(--space-6); }
+  .errpage :global(.errpage__strip) { margin-bottom: var(--space-4); }
+
+  .errpage__title {
+    font-family: var(--font-display);
+    font-size: clamp(34px, 5vw, 52px);
+    letter-spacing: -0.025em;
+    line-height: 1.05;
+    margin: var(--space-2) 0 var(--space-4);
+    color: var(--ink);
+  }
+
+  .errpage__lead {
+    max-width: 480px;
+    margin-bottom: var(--space-6);
+  }
+
+  .errpage__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+  }
+</style>

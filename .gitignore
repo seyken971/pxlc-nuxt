@@ -6,6 +6,9 @@
 .cache
 dist
 
+# Astro
+.astro
+
 # Component library build output
 dist-lib
 dist-ce
@@ -47,3 +50,6 @@ CLAUDE.local.md
 _plaquette/node_modules
 _plaquette/.previews
 _plaquette/*.log
+
+# Snapshot SEO de travail (compare a docs/seo-baseline, regenere a chaque build)
+docs/seo-current

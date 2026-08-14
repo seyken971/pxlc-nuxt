@@ -1,0 +1,65 @@
+---
+import { Icon } from 'astro-icon/components'
+
+interface Props {
+  variant?: 'default' | 'on-dark'
+}
+const { variant = 'default' } = Astro.props
+---
+
+<!-- État initial rendu pour le thème clair ; le script ci-dessous resynchronise
+     aria-pressed / aria-label dès le chargement à partir du data-theme posé par
+     l'anti-flash du layout. -->
+<button
+  type="button"
+  class:list={['theme-toggle', { 'theme-toggle--on-dark': variant === 'on-dark' }]}
+  aria-label="Passer en thème sombre"
+  aria-pressed="false"
+>
+  <Icon name="lucide:moon" class="icon--moon" aria-hidden="true" />
+  <Icon name="lucide:sun" class="icon--sun" aria-hidden="true" />
+</button>
+
+<script>
+  // Port vanilla de l'ancien composable useTheme : localStorage 'pxlc-theme',
+  // suivi du thème système tant que l'utilisateur n'a pas explicitement basculé.
+  const STORAGE_KEY = 'pxlc-theme'
+  const MEDIA_QUERY = '(prefers-color-scheme: dark)'
+  const root = document.documentElement
+
+  let stored: string | null = null
+  try { stored = localStorage.getItem(STORAGE_KEY) } catch {}
+  let userOverride = stored === 'light' || stored === 'dark'
+
+  const buttons = document.querySelectorAll<HTMLButtonElement>('.theme-toggle')
+
+  const sync = () => {
+    const dark = root.getAttribute('data-theme') === 'dark'
+    buttons.forEach((btn) => {
+      btn.setAttribute('aria-pressed', String(dark))
+      btn.setAttribute('aria-label', dark ? 'Passer en thème clair' : 'Passer en thème sombre')
+    })
+  }
+
+  const apply = (theme: string) => {
+    root.setAttribute('data-theme', theme)
+    sync()
+  }
+
+  buttons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'
+      userOverride = true
+      try { localStorage.setItem(STORAGE_KEY, next) } catch {}
+      apply(next)
+    })
+  })
+
+  // Suivi live du thème système jusqu'au premier basculement explicite.
+  window.matchMedia(MEDIA_QUERY).addEventListener('change', (e) => {
+    if (userOverride) return
+    apply(e.matches ? 'dark' : 'light')
+  })
+
+  sync()
+</script>

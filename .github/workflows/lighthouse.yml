@@ -36,24 +36,21 @@ jobs:
           node-version: 24
           cache: npm
 
-      - name: Cache Nuxt build artefacts
+      - name: Cache Astro build artefacts
         uses: actions/cache@v6
         with:
           path: |
             node_modules/.cache
-            .nuxt/cache
-          key: nuxt-v3-${{ runner.os }}-${{ hashFiles('package-lock.json', 'nuxt.config.ts', 'content.config.ts') }}
+            .astro
+          key: astro-v1-${{ runner.os }}-${{ hashFiles('package-lock.json', 'astro.config.mjs') }}
           restore-keys: |
-            nuxt-v3-${{ runner.os }}-
+            astro-v1-${{ runner.os }}-
 
       - name: Install dependencies
         run: npm install --no-audit --no-fund
 
-      - name: Nuxt prepare
-        run: npx nuxt prepare
-
-      - name: Generate static site
-        run: npx nuxt build --preset github_pages
+      - name: Build static site
+        run: npm run build
 
       - name: Run Lighthouse
         # ubuntu-latest ships Google Chrome stable at /usr/bin/google-chrome,

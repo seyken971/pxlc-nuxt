@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * scripts/validate-content.mjs
- * Valide le frontmatter YAML de tous les articles @nuxt/content.
+ * Valide le frontmatter YAML de tous les articles de la collection blog.
  *
  * Vérifie que chaque .md dans content/ possède les champs requis.
  * Quitte avec code 1 si un champ est manquant (bloque le build).
