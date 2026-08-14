@@ -1,3 +1,7 @@
+<script setup lang="ts">
+import PxlcMark from './PxlcMark.vue'
+</script>
+
 <template>
   <div class="mark-separator" aria-hidden="true">
     <span class="mark-separator__line" />

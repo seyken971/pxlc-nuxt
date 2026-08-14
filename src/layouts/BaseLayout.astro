@@ -1,0 +1,140 @@
+---
+import '../styles/fonts.css'
+import '../styles/styles.css'
+import { SITE } from '../config/site'
+import SiteHeader from '../components/SiteHeader.astro'
+import SiteMobileMenu from '../components/SiteMobileMenu.astro'
+import SiteFooter from '../components/SiteFooter.astro'
+import CtaBlock from '../components/CtaBlock.astro'
+
+interface Props {
+  /** Titre de page sans suffixe — le layout applique « %s · PXLC ». ≤ 53 caractères. */
+  title: string
+  /** Meta description. ≤ 120 caractères. */
+  description: string
+  /** og:description si différente de description (ex : accueil). */
+  ogDescription?: string
+  ogType?: 'website' | 'article'
+  robots?: string
+  /** URL absolue de l'image OG (1200×600). */
+  ogImage?: string
+  /** Pages sans CTA global : contact (déjà saturée de CTA) et mentions légales. */
+  hideGlobalCta?: boolean
+  /** Graphe schema.org complet de la page (nœuds du @graph). */
+  schemaGraph?: Record<string, unknown>[]
+}
+
+const {
+  title,
+  description,
+  ogDescription = description,
+  ogType = 'website',
+  robots = 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
+  ogImage = `${SITE.url}/_og/site.png`,
+  hideGlobalCta = false,
+  schemaGraph,
+} = Astro.props
+
+const fullTitle = `${title}${SITE.titleSuffix}`
+const canonical = new URL(Astro.url.pathname, SITE.url).href
+
+// CSP en <meta http-equiv> (GitHub Pages ne permet pas de vrais en-têtes HTTP).
+// __CSP_SCRIPT_HASHES__ est substitué par scripts/csp-hash.mjs en post-build
+// avec les sha256 des scripts inline de chaque page. Contrairement à la CSP
+// Nuxt, pas de 'strict-dynamic' : les scripts Astro sont des modules externes
+// classiques couverts par 'self' ('strict-dynamic' les bloquerait).
+const csp = [
+  "base-uri 'self'",
+  "font-src 'self'",
+  "form-action 'self'",
+  "img-src 'self' data:",
+  "object-src 'none'",
+  "script-src-attr 'none'",
+  "style-src 'self' 'unsafe-inline'",
+  "script-src 'self' __CSP_SCRIPT_HASHES__",
+  'upgrade-insecure-requests',
+  "default-src 'self'",
+  "connect-src 'self'",
+  "manifest-src 'self'",
+  "frame-src 'none'",
+].join('; ') + ';'
+---
+
+<html lang={SITE.lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Anti-flash : pose data-theme avant le premier paint pour que le rendu
+         initial respecte la préférence stockée / système. Inline synchrone. -->
+    <script is:inline>(function(){try{var s=localStorage.getItem('pxlc-theme');var t=s||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+    <meta http-equiv="Content-Security-Policy" content={csp} />
+    <title>{fullTitle}</title>
+    <link rel="canonical" href={canonical} />
+    <meta name="description" content={description} />
+    <meta name="robots" content={robots} />
+    <meta name="author" content={SITE.author} />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#082B36" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#EAF6F4" media="(prefers-color-scheme: light)" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={ogDescription} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:site_name" content={SITE.name} />
+    <meta property="og:locale" content={SITE.locale} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="600" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content={SITE.twitter} />
+    <meta name="twitter:creator" content={SITE.twitter} />
+    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image:src" content={ogImage} />
+    <meta name="twitter:image:width" content="1200" />
+    <meta name="twitter:image:height" content="600" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="manifest" href="/site.webmanifest" />
+    {schemaGraph && (
+      <script type="application/ld+json" set:html={JSON.stringify({ '@context': 'https://schema.org', '@graph': schemaGraph })} />
+    )}
+    <slot name="head" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Aller au contenu</a>
+    <SiteHeader />
+    <SiteMobileMenu />
+    <!-- tabindex="-1" makes <main> a valid focus target so the skip link
+         actually moves focus (and screen-reader virtual cursor) into the
+         page content instead of just scrolling past the header. -->
+    <main id="main" tabindex="-1">
+      <slot />
+    </main>
+    {!hideGlobalCta && <CtaBlock />}
+    <SiteFooter />
+
+    <script>
+      // Scroll reveal — ajoute .is-visible aux éléments animés quand ils
+      // entrent dans le viewport. MPA : s'exécute à chaque chargement de page.
+      // Ignoré si prefers-reduced-motion (le CSS rend alors tout visible).
+      const TARGETS
+        = '.animate-in:not(.is-visible), .card--method:not(.is-visible), .blog-card:not(.is-visible)'
+
+      if (window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+        const scrollIO = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((e) => {
+              if (e.isIntersecting) {
+                e.target.classList.add('is-visible')
+                scrollIO.unobserve(e.target)
+              }
+            })
+          },
+          { threshold: 0.08 },
+        )
+        document.querySelectorAll(TARGETS).forEach(el => scrollIO.observe(el))
+      }
+    </script>
+  </body>
+</html>

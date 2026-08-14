@@ -27,6 +27,8 @@
     "build:ce": "vite build --config vite.ce.config.ts"
   },
   "dependencies": {
+    "@astrojs/sitemap": "^3.7.3",
+    "@astrojs/vue": "^7.0.2",
     "@iconify-json/lucide": "^1.2.123",
     "@iconify-json/simple-icons": "^1.2.93",
     "@nuxt/content": "^3.15.2",
@@ -34,10 +36,14 @@
     "@nuxt/icon": "^2.5.0",
     "@nuxt/image": "^2.1.0",
     "@nuxtjs/seo": "^5.3.12",
+    "@resvg/resvg-js": "^2.6.2",
     "@takumi-rs/core": "^2.7.2",
+    "astro": "^7.2.2",
+    "astro-icon": "^1.1.5",
     "better-sqlite3": "^12.11.1",
     "nuxt": "^4.5.2",
     "puppeteer": "^25.6.0",
+    "satori": "^0.29.0",
     "vue": "^3.5.41",
     "vue-router": "^5.1.0"
   },

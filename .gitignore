@@ -6,6 +6,9 @@
 .cache
 dist
 
+# Astro
+.astro
+
 # Component library build output
 dist-lib
 dist-ce

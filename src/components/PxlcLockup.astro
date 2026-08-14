@@ -1,0 +1,18 @@
+---
+import PxlcMark from './vue/PxlcMark.vue'
+
+interface Props {
+  size?: 'sm' | 'md' | 'lg'
+  href?: string
+  class?: string
+}
+const { size = 'sm', href = '/', class: className } = Astro.props
+const markSize = size === 'lg' ? 56 : size === 'md' ? 40 : 36
+const nameSize = size === 'lg' ? 28 : 18
+---
+
+<a class:list={['lockup', className]} href={href} aria-label="PXLC — accueil">
+  <PxlcMark size={markSize} />
+  <span class="lockup__name" style={`font-size: ${nameSize}px`}
+    >PXLC<span class="coral-dot" aria-hidden="true">.</span></span>
+</a>

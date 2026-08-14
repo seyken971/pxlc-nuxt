@@ -5,7 +5,7 @@ export interface NavItem {
 
 // Single-funnel since the offer flows exclusively through structures
 // (SESSAD, IME, associations, collectivités) — /ateliers was removed accordingly.
-const NAV_ITEMS: NavItem[] = [
+export const NAV_ITEMS: NavItem[] = [
   { label: 'Accueil', url: '/' },
   { label: 'Pour les structures', url: '/structures' },
   { label: 'À propos', url: '/a-propos' },
@@ -13,13 +13,11 @@ const NAV_ITEMS: NavItem[] = [
   { label: 'Contact', url: '/contact' },
 ]
 
-export const useNav = () => {
-  const route = useRoute()
-
-  const isActive = (url: string) => {
-    if (url === '/') return route.path === '/'
-    return route.path === url || route.path.startsWith(url + '/')
-  }
-
-  return { items: NAV_ITEMS, isActive }
+// pathname porte le slash final (trailingSlash: 'always').
+export const isActive = (pathname: string, url: string) => {
+  if (url === '/') return pathname === '/'
+  return pathname === url + '/' || pathname.startsWith(url + '/')
 }
+
+// Forme canonique avec slash final des URL de nav.
+export const navHref = (url: string) => (url === '/' ? '/' : url + '/')
