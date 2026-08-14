@@ -5,6 +5,7 @@ import BaseLayout from '../layouts/BaseLayout.astro'
 import PxlcPixelStrip from '../components/vue/PxlcPixelStrip.vue'
 import PxlcPixelCorner from '../components/vue/PxlcPixelCorner.vue'
 import PxlcMarkSeparator from '../components/vue/PxlcMarkSeparator.vue'
+import { pageGraph } from '../lib/schema'
 
 // Date de dernière mise à jour du contenu légal — à mettre à jour manuellement
 // si les mentions sont modifiées. new Date() était utilisé avant mais donnait
@@ -18,9 +19,15 @@ const seo = {
   robots: 'noindex, follow',
   hideGlobalCta: true,
 }
+
+const schemaGraph = pageGraph({
+  path: '/mentions-legales/',
+  name: seo.title,
+  description: seo.description,
+})
 ---
 
-<BaseLayout {...seo}>
+<BaseLayout {...seo} schemaGraph={schemaGraph}>
   <!-- ── Hero ──────────────────────────────────────────────── -->
   <section class="legal-hero">
     <div class="container">

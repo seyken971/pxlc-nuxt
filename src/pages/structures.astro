@@ -6,6 +6,8 @@ import RelatedReading from '../components/RelatedReading.astro'
 import PxlcPixelCorner from '../components/vue/PxlcPixelCorner.vue'
 import PxlcPixelStrip from '../components/vue/PxlcPixelStrip.vue'
 import { PROJECT_THEMES as themes } from '../config/project-themes'
+import { pageGraph } from '../lib/schema'
+import { breadcrumbItems } from '../lib/breadcrumb'
 
 // FAQ — answers grounded in the plaquette + existing copy. Doubles as the
 // FAQPage rich-result source (nœuds Question du @graph, Phase schema).
@@ -67,9 +69,21 @@ const seo = {
   description: 'Programmes parent-enfant — HCSP 2019-2020 · HAS 2020, indicateurs qualitatifs, bilan écrit en fin de dispositif.',
   ogDescription: 'Andy Zébus, créateur de PXLC, intervient avec votre équipe — ateliers parent-enfant, cadre HCSP 2019-2020 · HAS 2020.',
 }
+
+// WebPage typée FAQPage + nœuds Question — le Service #service global est
+// référencé via `about` pour rattacher la page au graphe.
+const schemaGraph = pageGraph({
+  path: '/structures/',
+  type: ['WebPage', 'FAQPage'],
+  name: 'Programmes de médiation numérique pour SESSAD, IME, associations et collectivités',
+  description: seo.description,
+  aboutId: 'https://pxlc.fr/#service',
+  crumbs: breadcrumbItems('/structures/'),
+  questions: faqs,
+})
 ---
 
-<BaseLayout {...seo}>
+<BaseLayout {...seo} schemaGraph={schemaGraph}>
   <section class="hero hero--soft" aria-labelledby="hero-title">
     <div class="hero__strip"><PxlcPixelCorner /></div>
     <div class="container">

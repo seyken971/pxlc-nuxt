@@ -3,6 +3,8 @@ import { Icon } from 'astro-icon/components'
 import BaseLayout from '../layouts/BaseLayout.astro'
 import SiteBreadcrumb from '../components/SiteBreadcrumb.astro'
 import PxlcInput from '../components/vue/PxlcInput.vue'
+import { pageGraph } from '../lib/schema'
+import { breadcrumbItems } from '../lib/breadcrumb'
 
 const seo = {
   title: 'Contacter Andy Zébus — devis ou premier échange',
@@ -10,9 +12,17 @@ const seo = {
   ogDescription: 'Réponse sous 2 jours ouvrés — formulaire, WhatsApp ou visio. Premier échange de 20 min gratuit pour cadrer votre projet.',
   hideGlobalCta: true,
 }
+
+const schemaGraph = pageGraph({
+  path: '/contact/',
+  type: ['WebPage', 'ContactPage'],
+  name: 'Contact PXLC',
+  description: 'Page de prise de contact avec PXLC — Andy Zébus, médiateur numérique en Guadeloupe.',
+  crumbs: breadcrumbItems('/contact/'),
+})
 ---
 
-<BaseLayout {...seo}>
+<BaseLayout {...seo} schemaGraph={schemaGraph}>
   <section class="section section--page">
     <div class="container">
 

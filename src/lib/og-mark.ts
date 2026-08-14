@@ -5,7 +5,7 @@
  * to carry a renderer suffix, so the 3×3 brand-mark data can't live in a
  * sub-component — the renderer imports it from here instead.
  */
-import { BRAND_HEX } from '~/utils/brand-colors'
+import { BRAND_HEX } from './brand-colors'
 
 export const OG_F_SANS = 'Plus Jakarta Sans, system-ui, sans-serif'
 

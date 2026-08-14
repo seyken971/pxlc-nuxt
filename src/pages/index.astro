@@ -7,6 +7,7 @@ import type { MethodStep } from '../components/MethodGrid.astro'
 import SessadCase from '../components/SessadCase.astro'
 import CitationBlock from '../components/CitationBlock.astro'
 import PxlcMarkSeparator from '../components/vue/PxlcMarkSeparator.vue'
+import { pageGraph } from '../lib/schema'
 import andyEvent from '../assets/photos/andy-event.jpg'
 
 // Méthode PXLC en trois temps — démarche comportementale alignée sur le rapport
@@ -33,9 +34,16 @@ const seo = {
   description: 'Médiation numérique en Guadeloupe : Andy Zébus outille les structures pour apaiser les conflits autour des écrans.',
   ogDescription: 'Andy Zébus, créateur de PXLC, aide les structures en Guadeloupe à apaiser les conflits familiaux autour des écrans.',
 }
+
+// WebPage d'accueil rattachée au nœud #website — alignée sur les autres pages.
+const schemaGraph = pageGraph({
+  path: '/',
+  name: seo.title,
+  description: seo.description,
+})
 ---
 
-<BaseLayout {...seo}>
+<BaseLayout {...seo} schemaGraph={schemaGraph}>
   <HeroSection
     title="Médiation numérique en Guadeloupe"
     titleDot={true}

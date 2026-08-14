@@ -9,6 +9,8 @@ import BlogShare from '../../components/BlogShare.astro'
 import BlogCta from '../../components/BlogCta.astro'
 import BlogRelated from '../../components/BlogRelated.astro'
 import { fmtDate } from '../../lib/date-format'
+import { articleGraph } from '../../lib/schema'
+import { breadcrumbItems } from '../../lib/breadcrumb'
 import andyPortrait from '../../assets/photos/andy-portrait.jpg'
 
 export async function getStaticPaths() {
@@ -48,9 +50,27 @@ const seo = {
   ogTitle: data.title,
   ogImage: `https://pxlc.fr/_og/blog/${post.id}.png`,
 }
+
+// BlogPosting structured data so Google can surface the article in Discover,
+// rich results, and the Top Stories carousel. Author references the Person
+// node #andy; publisher references #identity.
+const schemaGraph = articleGraph({
+  path: `${articlePath}/`,
+  title: data.title,
+  pageName: data.seoTitle || data.title,
+  pageDescription: data.seoDescription || data.description,
+  description: data.description,
+  category: data.category,
+  datePublished: data.date,
+  dateModified: data.updated || data.date,
+  // Les cartes OG vivent sous /_og/ ; repli sur une photo réelle et valide
+  // pour les rich results Article.
+  image: data.cover ? `https://pxlc.fr${data.cover}` : 'https://pxlc.fr/img/photos/andy-event.jpg',
+  crumbs: breadcrumbItems(`${articlePath}/`, data.title),
+})
 ---
 
-<BaseLayout {...seo}>
+<BaseLayout {...seo} schemaGraph={schemaGraph}>
   <article>
 
     <!-- Reading progress bar — coral line fixed at viewport top -->

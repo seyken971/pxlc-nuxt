@@ -68,10 +68,12 @@ const csp = [
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- La CSP en <meta> ne couvre que les éléments qui la suivent — elle
+         précède donc le script anti-flash pour l'encadrer aussi. -->
+    <meta http-equiv="Content-Security-Policy" content={csp} />
     <!-- Anti-flash : pose data-theme avant le premier paint pour que le rendu
          initial respecte la préférence stockée / système. Inline synchrone. -->
     <script is:inline>(function(){try{var s=localStorage.getItem('pxlc-theme');var t=s||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
-    <meta http-equiv="Content-Security-Policy" content={csp} />
     <title>{fullTitle}</title>
     <link rel="canonical" href={canonical} />
     <meta name="description" content={description} />

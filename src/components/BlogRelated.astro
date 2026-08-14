@@ -16,7 +16,7 @@ const { currentPath, currentCategory, limit = 3 } = Astro.props
 // fallback to most recent — so the block is never empty (assuming at least
 // one other post exists).
 const all = (await getCollection('blog', p => !p.data.draft))
-  .sort((a, b) => b.data.date.localeCompare(a.data.date))
+  .sort((a, b) => b.data.date.localeCompare(a.data.date) || a.id.localeCompare(b.id))
   .map(p => ({ path: `/blog/${p.id}`, ...p.data }))
 
 const others = all.filter(p => p.path !== currentPath)
