@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * Static a11y audit — runs axe-core (jsdom) on every prerendered HTML
- * page under .output/public/. Color-contrast and focus/visibility checks
+ * page under dist/. Color-contrast and focus/visibility checks
  * are skipped because jsdom doesn't lay out CSS; everything else (ARIA,
  * landmarks, headings, names/roles, semantics) is in scope.
  *
@@ -14,7 +14,7 @@ import { join, relative, sep } from 'node:path'
 import { JSDOM } from 'jsdom'
 import axe from 'axe-core'
 
-const PUBLIC_DIR = '.output/public'
+const PUBLIC_DIR = 'dist'
 const JSON_MODE = process.argv.includes('--json')
 
 // Skip the rules jsdom can't evaluate fairly — they're noise, not findings.

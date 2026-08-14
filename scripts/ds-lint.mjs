@@ -3,11 +3,12 @@
  * scripts/ds-lint.mjs
  * Design-system compliance linter.
  *
- * Scanne app/components, app/pages, app/layouts (.vue) ainsi que
- * app/assets/css/styles.css (règles <style> uniquement) à la recherche
+ * Scanne src/components, src/pages, src/layouts (.astro et .vue) ainsi que
+ * src/styles/styles.css (règles <style> uniquement) à la recherche
  * de violations du design system PXLC et quitte avec code 1
  * (build annulé) si au moins une violation est trouvée.
  * tokens.css est exempté — c'est la source des valeurs littérales.
+ * fonts.css est exempté — @font-face extraites verbatim, sans couleur.
  *
  * Usage :
  *   node scripts/ds-lint.mjs
@@ -20,8 +21,9 @@
  *   R4 radius-brut    — border-radius > 2 px sans var(--radius-*)
  *   R5 vocab-interdit — termes bannis dans <template>
  *   R6 emoji          — emoji interdits dans <template>
- *   R7 seo-longueur   — title/description useSeoMeta trop longs (pages)
- *                       et site.description de nuxt.config.ts
+ *   R7 seo-longueur   — title/description des objets `const seo = {…}` des
+ *                       pages trop longs, et SITE.description de
+ *                       src/config/site.ts
  *   R8 rgba-brut      — rgba()/rgb() dans <style> → utiliser un token
  *                       (radial-gradient reste autorisé, mais sa couleur
  *                       doit être un token, ex. var(--dot-grid))
@@ -33,8 +35,8 @@
  *   R11 nbsp-manquante— espace ASCII avant ? ! : ; » / après « / nombre +
  *                       unité-symbole (h, min, €, %) → insécable manquante
  *   R12 phrase-interdite— garde-fous factuels (ex. « intervenants culturels »
- *                       au pluriel) balayés sur .vue/.ts (app/), .md (content/)
- *                       et la plaquette (_plaquette template + data.json)
+ *                       au pluriel) balayés sur .astro/.vue/.ts (src/),
+ *                       .md (content/) et la plaquette (template + data.json)
  *
  * Corrections v2 :
  *   - parseSfc : tous les blocs <style> sont capturés (matchAll, pas match)
@@ -48,14 +50,15 @@ import { join, relative }   from 'node:path'
 import { SEO_TITLE_MAX, SEO_DESC_MAX } from './seo-limits.mjs'
 
 const ROOT      = process.cwd()
-const SCAN_DIRS = ['app/components', 'app/pages', 'app/layouts']
+const SCAN_DIRS = ['src/components', 'src/pages', 'src/layouts']
+const SCAN_EXTS = ['.vue', '.astro']
 // Feuilles CSS globales soumises aux règles couleurs brutes (R1 hex, R8 rgba).
 // tokens.css est exempté : c'est la source des valeurs hex/rgba — les
 // littéraux y sont légitimes, c'est partout ailleurs qu'ils sont interdits.
 // R2 (gradient) ne s'applique pas ici : le fade de .section--soft::before est
 // un linear-gradient volontaire (surface → transparent, pas un gradient de
-// marque) ; R3/R4 restent scoppés aux .vue.
-const CSS_FILES = ['app/assets/css/styles.css']
+// marque) ; R3/R4 restent scoppés aux composants.
+const CSS_FILES = ['src/styles/styles.css']
 const CSS_RULES = new Set(['hex-brut', 'rgba-brut', 'ease-brut'])
 
 // ── Vocabulaire interdit ───────────────────────────────────────────────────────
@@ -86,7 +89,7 @@ async function walk(dir, exts = ['.vue']) {
   return files
 }
 
-// ── SFC parser ────────────────────────────────────────────────────────────────
+// ── SFC / Astro parser ────────────────────────────────────────────────────────
 function parseSfc(src) {
   // matchAll (avec g) capture TOUS les blocs <style> et <style scoped>.
   // Les blocs sont concaténés : les numéros de ligne restent cohérents
@@ -96,6 +99,23 @@ function parseSfc(src) {
   return {
     template: src.match(/<template[^>]*>([\s\S]*?)<\/template>/)?.[1] ?? '',
     style:    styleBlocks.join('\n'),
+  }
+}
+
+function parseAstro(src) {
+  // Frontmatter = premier bloc --- … --- ; le « template » est le balisage qui
+  // suit, blocs <style> et <script> neutralisés (longueur préservée pour que
+  // les numéros de ligne restent exacts).
+  const blank = s => s.replace(/[^\n]/g, ' ')
+  const fm = src.match(/^---\r?\n[\s\S]*?\r?\n---/)
+  const markup = fm ? blank(fm[0]) + src.slice(fm[0].length) : src
+  const styleBlocks = [...markup.matchAll(/<style[^>]*>([\s\S]*?)<\/style>/g)]
+    .map(m => m[1])
+  return {
+    template: markup
+      .replace(/<style[^>]*>[\s\S]*?<\/style>/g, blank)
+      .replace(/<script[^>]*>[\s\S]*?<\/script>/g, blank),
+    style: styleBlocks.join('\n'),
   }
 }
 
@@ -230,7 +250,7 @@ function lintTemplate(raw, file) {
 const COMPONENT_NAME_RE = /^[A-Z][a-z0-9]*([A-Z][a-z0-9]*)+$/
 
 function lintComponentName(file) {
-  const base = file.split(/[\\/]/).pop().replace(/(\.takumi)?\.vue$/, '')
+  const base = file.split(/[\\/]/).pop().replace(/(\.takumi)?\.(vue|astro)$/, '')
   if (COMPONENT_NAME_RE.test(base)) return []
   return [{ file, rule: 'nommage-composant', line: 1,
     detail: `"${base}" → PascalCase, deux mots minimum (ex. PxlcMark, SiteHeader)` }]
@@ -245,7 +265,9 @@ function lintSeoMeta(src, file) {
   const vs = []
   const limits = { title: SEO_TITLE_MAX, description: SEO_DESC_MAX, ogDescription: SEO_DESC_MAX }
 
-  for (const block of src.matchAll(/useSeoMeta\(\s*\{([\s\S]*?)\}\s*\)/g)) {
+  // Deux formes : l'ancien useSeoMeta({…}) (.vue) et l'objet plat
+  // `const seo = {…}` des pages .astro (cible du spread <BaseLayout {...seo}>).
+  for (const block of src.matchAll(/(?:useSeoMeta\(\s*|const seo\s*=\s*)\{([\s\S]*?)\}/g)) {
     const body = block[1]
     const bodyOffset = block.index + block[0].indexOf(body)
     for (const m of body.matchAll(/\b(title|description|ogDescription)\s*:\s*(['"])((?:\\.|(?!\2)[\s\S])*?)\2/g)) {
@@ -278,7 +300,11 @@ function lintSeoMeta(src, file) {
 function lintNbsp(src, file) {
   const vs = []
   const blank = s => ' '.repeat(s.length)
-  const RE = / ([?!:;»])|(«) |\d (?:h|min)\b|\d ([€%])/g
+  // La ponctuation doit suivre un mot (lettre/chiffre/parenthèse fermante/»)
+  // et ne pas être un opérateur JS (` !== `, ` ?. `) pour être de la copy —
+  // écarte la ponctuation JS des templates .astro (négation ` !x`, ternaires
+  // `? <a` / `: <span`, comparaisons `a !== b`).
+  const RE = /[\p{L}\d)»] ([?!:;»])(?![=.])|(«) |\d (?:h|min)\b|\d ([€%])/gu
   const hits = (text, base) => {
     for (const m of text.matchAll(RE)) {
       const what = m[1] ? `espace avant « ${m[1]} »`
@@ -290,16 +316,34 @@ function lintNbsp(src, file) {
     }
   }
 
-  const t = src.match(/<template[^>]*>([\s\S]*?)<\/template>/)
-  if (t) {
-    const body = t[1]
-    const base = t.index + t[0].indexOf(body)
-    // 1) Texte rendu : on blanchit commentaires <!-- -->, balises et mustaches
-    //    (longueur préservée → lineAt reste exact).
+  // .vue : bloc <template> ; .astro : balisage après le frontmatter
+  // (parseAstro l'a déjà neutralisé, on le re-dérive ici pour garder des
+  // index absolus dans src).
+  const isAstro = file.endsWith('.astro')
+  let body = ''
+  let base = 0
+  if (isAstro) {
+    const fm = src.match(/^---\r?\n[\s\S]*?\r?\n---/)
+    base = fm ? fm[0].length : 0
+    body = src.slice(base)
+      .replace(/<style[^>]*>[\s\S]*?<\/style>/g, blank)
+      .replace(/<script[^>]*>[\s\S]*?<\/script>/g, blank)
+  }
+  else {
+    const t = src.match(/<template[^>]*>([\s\S]*?)<\/template>/)
+    if (t) {
+      body = t[1]
+      base = t.index + t[0].indexOf(body)
+    }
+  }
+  if (body) {
+    // 1) Texte rendu : on blanchit commentaires <!-- -->, balises, mustaches
+    //    Vue {{…}} et expressions Astro {…} (longueur préservée → lineAt exact).
     hits(body
       .replace(/<!--[\s\S]*?-->/g, blank)
       .replace(/<[^>]*>/g, blank)
-      .replace(/\{\{[\s\S]*?\}\}/g, blank), base)
+      .replace(/\{\{[\s\S]*?\}\}/g, blank)
+      .replace(/\{[^{}]*\}/g, blank), base)
     // 2) Attributs statiques (nom sans préfixe : @ v-). m[2] = valeur.
     for (const m of body.matchAll(/(?<![\w:@-])([a-zA-Z][\w-]*)="([^"]*)"/g)) {
       if (m[1].startsWith('v-')) continue
@@ -344,7 +388,7 @@ const FORBIDDEN_PHRASES = [
 async function lintForbiddenPhrases() {
   const vs = []
   const sources = [
-    ...await walk(join(ROOT, 'app'), ['.vue', '.ts']),
+    ...await walk(join(ROOT, 'src'), ['.vue', '.ts', '.astro']),
     ...await walk(join(ROOT, 'content'), ['.md']),
     join(ROOT, '_plaquette/plaquette.template.html'),
     join(ROOT, '_plaquette/data.json'),
@@ -360,19 +404,19 @@ async function lintForbiddenPhrases() {
   return vs
 }
 
-/** Vérifie site.description de nuxt.config.ts (meta description par défaut). */
-async function lintNuxtConfig() {
-  const file = join(ROOT, 'nuxt.config.ts')
+/** Vérifie SITE.description de src/config/site.ts (meta description par défaut). */
+async function lintSiteConfig() {
+  const file = join(ROOT, 'src/config/site.ts')
   let src
   try { src = await readFile(file, 'utf8') }
   catch (err) {
     if (err.code !== 'ENOENT') throw err
     return []
   }
-  const m = src.match(/site:\s*\{[\s\S]*?description:\s*(['"])((?:\\.|(?!\1)[\s\S])*?)\1/)
+  const m = src.match(/description:\s*\r?\n?\s*(['"])((?:\\.|(?!\1)[\s\S])*?)\1/)
   if (m && m[2].length > SEO_DESC_MAX) {
     return [{ file, rule: 'seo-longueur', line: lineAt(src, m.index),
-      detail: `site.description de ${m[2].length} caractères — limite mobile/cartes sociales ≤ ${SEO_DESC_MAX}` }]
+      detail: `SITE.description de ${m[2].length} caractères — limite mobile/cartes sociales ≤ ${SEO_DESC_MAX}` }]
   }
   return []
 }
@@ -380,14 +424,14 @@ async function lintNuxtConfig() {
 // ── Main ──────────────────────────────────────────────────────────────────────
 const main = async () => {
   const allFiles = (
-    await Promise.all(SCAN_DIRS.map(d => walk(join(ROOT, d))))
+    await Promise.all(SCAN_DIRS.map(d => walk(join(ROOT, d), SCAN_EXTS)))
   ).flat()
 
   const all = []
-  const componentsRoot = join(ROOT, 'app/components')
+  const componentsRoot = join(ROOT, 'src/components')
   await Promise.all(allFiles.map(async file => {
     const src = await readFile(file, 'utf8')
-    const { template, style } = parseSfc(src)
+    const { template, style } = file.endsWith('.astro') ? parseAstro(src) : parseSfc(src)
     all.push(...lintStyle(style, file), ...lintTemplate(template, file), ...lintSeoMeta(src, file), ...lintNbsp(src, file))
     if (file.startsWith(componentsRoot)) all.push(...lintComponentName(file))
   }))
@@ -396,7 +440,7 @@ const main = async () => {
     const file = join(ROOT, rel)
     all.push(...lintStyle(await readFile(file, 'utf8'), file, CSS_RULES))
   }))
-  all.push(...await lintNuxtConfig())
+  all.push(...await lintSiteConfig())
   all.push(...await lintForbiddenPhrases())
 
   if (!all.length) {

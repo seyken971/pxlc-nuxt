@@ -7,14 +7,14 @@
  * contre elle avec `git diff --no-index`.
  *
  *   node scripts/seo-snapshot.mjs [buildDir] [outDir]
- *   node scripts/seo-snapshot.mjs .output/public docs/seo-baseline
+ *   node scripts/seo-snapshot.mjs dist docs/seo-current
  */
 import { readFile, readdir, writeFile, mkdir, rm } from 'node:fs/promises'
 import { existsSync } from 'node:fs'
 import { join, relative, sep } from 'node:path'
 import { JSDOM } from 'jsdom'
 
-const BUILD_DIR = process.argv[2] || '.output/public'
+const BUILD_DIR = process.argv[2] || 'dist'
 const OUT_DIR = process.argv[3] || 'docs/seo-baseline'
 
 // Tri récursif des clés d'objet pour des diffs stables.

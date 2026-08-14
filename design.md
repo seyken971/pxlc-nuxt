@@ -125,7 +125,7 @@ layout:
 # PXLC — Design System
 
 > Généré automatiquement par `scripts/export-design.mjs`.
-> Source : `app/assets/css/tokens.css` + `styles.css`.
+> Source : `src/styles/tokens.css` + `styles.css`.
 > Relancer `npm run design` après toute modification des sources CSS.
 
 ## Palette
@@ -467,9 +467,9 @@ Classes issues de `styles.css`. Les styles scoped des composants Vue ne sont pas
 2. **Médiateur formé** — Formateur Simplon Outre-Mer 2021-2022. Travail dans le cadre HCSP · HAS.
 3. **Conseil institutionnel** — Affaires européennes et numérique THD, Région Guadeloupe. Parle le langage des projets de service.
 
-### Nommage des composants Vue
+### Nommage des composants
 
-- **`Pxlc*`** — primitives de marque réutilisables partout : `PxlcInput`, `PxlcLinkout`, `PxlcLockup`, `PxlcMark`, `PxlcMarkSeparator`, `PxlcOg`, `PxlcOgArticle`, `PxlcPixelCorner`, `PxlcPixelStrip`
+- **`Pxlc*`** — primitives de marque réutilisables partout : `PxlcInput`, `PxlcLinkout`, `PxlcLockup`, `PxlcMark`, `PxlcMarkSeparator`, `PxlcPixelCorner`, `PxlcPixelStrip`
 - **`Site*`** — chrome du site (présent sur toutes les pages) : `SiteBreadcrumb`, `SiteFooter`, `SiteHeader`, `SiteMobileMenu`
 - **`Blog*`** — composants propres au contexte blog : `BlogCta`, `BlogRelated`, `BlogShare`, `BlogToc`
 - **Sans préfixe** — sections de page, blocs de contenu et utilitaires autonomes : `CitationBlock`, `CtaBlock`, `HeroSection`, `MethodGrid`, `PartnerStrip`, `RelatedReading`, `SessadCase`, `ThemeToggle`
@@ -484,7 +484,7 @@ Classes issues de `styles.css`. Les styles scoped des composants Vue ne sont pas
 
 ### OG Images
 
-- Composant : `app/components/OgImage/PxlcOg.takumi.vue`
-- Générées au build (`ogImage.zeroRuntime: true`) — non disponibles en dev
-- Carte de marque statique (logo + tagline), identique sur toutes les pages
-- Chaque page l'active via `defineOgImage('PxlcOg')` (le composant n'accepte pas de props)
+- Générateur : `scripts/generate-og.mjs` (satori + resvg, post-build) — non disponibles en dev
+- Carte de marque `/_og/site.png` (logo + tagline), identique sur toutes les pages statiques
+- Carte par article `/_og/blog/<slug>.png` (titre + catégorie, paliers de taille 68/56/46/40)
+- Couleurs depuis `src/lib/brand-colors.ts`, polices TTF vendorées dans `src/assets/og-fonts/`

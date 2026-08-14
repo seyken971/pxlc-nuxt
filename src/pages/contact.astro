@@ -8,8 +8,8 @@ import { breadcrumbItems } from '../lib/breadcrumb'
 
 const seo = {
   title: 'Contacter Andy Zébus — devis ou premier échange',
-  description: 'Devis ou premier échange de 20 min — gratuit, sans engagement. Pour les structures qui accompagnent des familles.',
-  ogDescription: 'Réponse sous 2 jours ouvrés — formulaire, WhatsApp ou visio. Premier échange de 20 min gratuit pour cadrer votre projet.',
+  description: 'Devis ou premier échange de 20 min — gratuit, sans engagement. Pour les structures qui accompagnent des familles.',
+  ogDescription: 'Réponse sous 2 jours ouvrés — formulaire, WhatsApp ou visio. Premier échange de 20 min gratuit pour cadrer votre projet.',
   hideGlobalCta: true,
 }
 
@@ -152,11 +152,11 @@ const schemaGraph = pageGraph({
     const message = fieldValue('c-msg')
 
     const lines = [
-      `Nom : ${name}`,
-      structure ? `Structure : ${structure}` : null,
-      `Email : ${email}`,
+      `Nom\u00A0: ${name}`,
+      structure ? `Structure\u00A0: ${structure}` : null,
+      `Email\u00A0: ${email}`,
       '',
-      'Message :',
+      'Message\u00A0:',
       message || '(vide)',
     ].filter((l): l is string => l !== null)
 

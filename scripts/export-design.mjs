@@ -13,8 +13,8 @@ import { readFile, readdir } from "node:fs/promises";
 import { join } from "node:path";
 import { writeFilePreservingEol } from "./write-file-eol.mjs";
 
-const TOKENS = "app/assets/css/tokens.css";
-const STYLES = "app/assets/css/styles.css";
+const TOKENS = "src/styles/tokens.css";
+const STYLES = "src/styles/styles.css";
 const OUTPUT = "design.md";
 
 // ── Parsers ────────────────────────────────────────────────────────────────
@@ -75,17 +75,17 @@ function parseSections(css) {
 }
 
 /**
- * Liste les noms de composants Vue depuis app/components/ (récursif),
- * suffixes .takumi/.vue retirés — la doc de nommage est dérivée du
+ * Liste les noms de composants depuis src/components/ (récursif, .astro
+ * et .vue), suffixes retirés — la doc de nommage est dérivée du
  * filesystem pour ne jamais dériver de la réalité.
  */
-async function listComponents(dir = "app/components") {
+async function listComponents(dir = "src/components") {
   const names = [];
   for (const e of await readdir(dir, { withFileTypes: true })) {
     if (e.isDirectory())
       names.push(...(await listComponents(join(dir, e.name))));
-    else if (e.name.endsWith(".vue"))
-      names.push(e.name.replace(/(\.takumi)?\.vue$/, ""));
+    else if (e.name.endsWith(".vue") || e.name.endsWith(".astro"))
+      names.push(e.name.replace(/(\.takumi)?\.(vue|astro)$/, ""));
   }
   return names.sort();
 }
@@ -222,7 +222,7 @@ const main = async () => {
   // ── En-tête ──────────────────────────────────────────────────────────────
   md.push("# PXLC — Design System\n");
   md.push("> Généré automatiquement par `scripts/export-design.mjs`.");
-  md.push("> Source : `app/assets/css/tokens.css` + `styles.css`.");
+  md.push("> Source : `src/styles/tokens.css` + `styles.css`.");
   md.push(
     "> Relancer `npm run design` après toute modification des sources CSS.\n",
   );
@@ -409,8 +409,8 @@ const main = async () => {
     ].join("\n"),
   );
 
-  md.push("\n### Nommage des composants Vue\n");
-  // Les listes d'exemples sont dérivées de app/components/ — seule la règle
+  md.push("\n### Nommage des composants\n");
+  // Les listes d'exemples sont dérivées de src/components/ — seule la règle
   // (l'attribution d'un préfixe) est de la prose.
   const ticks = (arr) => arr.map((n) => `\`${n}\``).join(", ");
   const pxlcNames = components.filter((n) => n.startsWith("Pxlc"));
@@ -445,10 +445,10 @@ const main = async () => {
   md.push("\n### OG Images\n");
   md.push(
     [
-      "- Composant : `app/components/OgImage/PxlcOg.takumi.vue`",
-      "- Générées au build (`ogImage.zeroRuntime: true`) — non disponibles en dev",
-      "- Carte de marque statique (logo + tagline), identique sur toutes les pages",
-      "- Chaque page l'active via `defineOgImage('PxlcOg')` (le composant n'accepte pas de props)",
+      "- Générateur : `scripts/generate-og.mjs` (satori + resvg, post-build) — non disponibles en dev",
+      "- Carte de marque `/_og/site.png` (logo + tagline), identique sur toutes les pages statiques",
+      "- Carte par article `/_og/blog/<slug>.png` (titre + catégorie, paliers de taille 68/56/46/40)",
+      "- Couleurs depuis `src/lib/brand-colors.ts`, polices TTF vendorées dans `src/assets/og-fonts/`",
     ].join("\n"),
   );
 

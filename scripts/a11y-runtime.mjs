@@ -8,7 +8,7 @@
  *  - focus visibility (needs interaction)
  *  - dynamic states (mobile menu open, FAQ details expanded)
  *
- * Spins up a tiny static server on an ephemeral port for .output/public/,
+ * Spins up a tiny static server on an ephemeral port for dist/,
  * then a headless Chromium walks each prerendered route. The browser is
  * also scripted to open the mobile menu and one FAQ entry so axe can
  * inspect those expanded UIs.
