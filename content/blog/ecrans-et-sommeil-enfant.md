@@ -14,7 +14,7 @@ Cette scène, je l'entends dans presque tous les ateliers que j'anime. Elle mér
 
 ## Pourquoi le soir, les écrans abîment le sommeil
 
-Trois mécanismes se superposent, et le Haut Conseil de la Santé Publique les documente précisément (rapport du 12 décembre 2019, sections V.1.3 et V.5).
+Trois mécanismes se superposent, et le Haut Conseil de la santé publique les documente précisément (rapport du 12 décembre 2019, sections V.1.3 et V.5).
 
 **La lumière, d'abord.** Le soir, le cerveau prépare l'endormissement en sécrétant la mélatonine. La lumière des écrans en fin de journée retarde cette sécrétion et peut perturber l'horloge biologique : le corps reçoit un signal de jour au moment où il devrait recevoir un signal de nuit.
 

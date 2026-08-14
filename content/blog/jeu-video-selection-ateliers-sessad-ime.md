@@ -121,7 +121,7 @@ Si vous construisez un dispositif pour votre structure et voulez travailler la s
 
 ---
 
-*Ce guide s'appuie sur les recommandations du Haut Conseil de la Santé Publique (HCSP, 2019-2020) et de la Haute Autorité de Santé (HAS, 2020) et sur les retours d'expérience du projet mené avec le SESSAD Lékoklaya (2026), dans la filiation du Café-Parents de décembre 2023. Les noms de jeux cités sont des exemples — tout choix est à adapter selon le public et les objectifs spécifiques de la structure.*
+*Ce guide s'appuie sur les recommandations du Haut Conseil de la santé publique (HCSP, 2019-2020) et de la Haute Autorité de santé (HAS, 2020) et sur les retours d'expérience du projet mené avec le SESSAD Lékoklaya (2026), dans la filiation du Café-Parents de décembre 2023. Les noms de jeux cités sont des exemples — tout choix est à adapter selon le public et les objectifs spécifiques de la structure.*
 
 ---
 
