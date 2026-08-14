@@ -51,7 +51,7 @@ import { SEO_TITLE_MAX, SEO_DESC_MAX } from './seo-limits.mjs'
 
 const ROOT      = process.cwd()
 const SCAN_DIRS = ['src/components', 'src/pages', 'src/layouts']
-const SCAN_EXTS = ['.vue', '.astro']
+const SCAN_EXTS = ['.astro']
 // Feuilles CSS globales soumises aux règles couleurs brutes (R1 hex, R8 rgba).
 // tokens.css est exempté : c'est la source des valeurs hex/rgba — les
 // littéraux y sont légitimes, c'est partout ailleurs qu'ils sont interdits.
@@ -388,7 +388,7 @@ const FORBIDDEN_PHRASES = [
 async function lintForbiddenPhrases() {
   const vs = []
   const sources = [
-    ...await walk(join(ROOT, 'src'), ['.vue', '.ts', '.astro']),
+    ...await walk(join(ROOT, 'src'), ['.ts', '.astro']),
     ...await walk(join(ROOT, 'content'), ['.md']),
     join(ROOT, '_plaquette/plaquette.template.html'),
     join(ROOT, '_plaquette/data.json'),
