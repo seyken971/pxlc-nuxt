@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
- * Vérifie les liens internes du build statique — remplace nuxt-link-checker
- * (le build échoue sur lien mort). Pour chaque page de dist :
+ * Vérifie les liens internes du build statique — le build échoue sur lien
+ * mort. Pour chaque page de dist :
  *
  *  - tout href interne doit résoudre vers un fichier émis (page/, asset) ;
  *  - toute page interne doit porter le slash final (parité canonical

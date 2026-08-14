@@ -250,7 +250,7 @@ function lintTemplate(raw, file) {
 const COMPONENT_NAME_RE = /^[A-Z][a-z0-9]*([A-Z][a-z0-9]*)+$/
 
 function lintComponentName(file) {
-  const base = file.split(/[\\/]/).pop().replace(/(\.takumi)?\.(vue|astro)$/, '')
+  const base = file.split(/[\\/]/).pop().replace(/\.(vue|astro)$/, '')
   if (COMPONENT_NAME_RE.test(base)) return []
   return [{ file, rule: 'nommage-composant', line: 1,
     detail: `"${base}" → PascalCase, deux mots minimum (ex. PxlcMark, SiteHeader)` }]

@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
- * Génère dist/sitemap.xml après le build Astro — reproduit la sémantique du
- * sitemap @nuxtjs/seo : URLs prérendues avec slash final, pages noindex
- * exclues, <lastmod> tamponné à la date du build (signal de fraîcheur pour le
- * recrawl), <image:image> découvertes depuis les <img> du HTML de chaque page.
+ * Génère dist/sitemap.xml après le build Astro : URLs prérendues avec slash
+ * final, pages noindex exclues, <lastmod> tamponné à la date du build (signal
+ * de fraîcheur pour le recrawl), <image:image> découvertes depuis les <img>
+ * du HTML de chaque page.
  *
  *   node scripts/generate-sitemap.mjs [buildDir]
  */

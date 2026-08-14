@@ -85,7 +85,7 @@ async function listComponents(dir = "src/components") {
     if (e.isDirectory())
       names.push(...(await listComponents(join(dir, e.name))));
     else if (e.name.endsWith(".vue") || e.name.endsWith(".astro"))
-      names.push(e.name.replace(/(\.takumi)?\.(vue|astro)$/, ""));
+      names.push(e.name.replace(/\.(vue|astro)$/, ""));
   }
   return names.sort();
 }

@@ -1,8 +1,7 @@
 #!/usr/bin/env node
 /**
- * Génère les cartes OG (1200×600 PNG) en post-build via satori + resvg —
- * remplace nuxt-og-image/takumi. Deux gabarits, traduits des anciens
- * PxlcOg.takumi.vue / PxlcOgArticle.takumi.vue (mêmes styles inline flex) :
+ * Génère les cartes OG (1200×600 PNG) en post-build via satori + resvg.
+ * Deux gabarits :
  *
  *   dist/_og/site.png          carte de marque (toutes les pages)
  *   dist/_og/blog/<slug>.png   carte par article (titre + catégorie)
