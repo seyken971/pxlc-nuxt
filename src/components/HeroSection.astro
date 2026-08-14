@@ -1,0 +1,119 @@
+---
+import type { ImageMetadata } from 'astro'
+import { Image } from 'astro:assets'
+import PxlcMark from './vue/PxlcMark.vue'
+import PxlcPixelStrip from './vue/PxlcPixelStrip.vue'
+
+interface Cta { label: string, href: string, external?: boolean }
+interface Pill { eyebrow: string, text: string }
+
+interface Props {
+  eyebrow?: string
+  title: string
+  /** Ajoute un point final stylé (coral-dot) après le titre. */
+  titleDot?: boolean
+  lead?: string
+  ctaPrimary?: Cta | null
+  ctaSecondary?: Cta | null
+  hint?: string | null
+  /** Photo importée depuis src/assets (astro:assets génère les variantes webp). */
+  photo?: ImageMetadata | null
+  photoAlt?: string
+  pill?: Pill | null
+  showBgMark?: boolean
+}
+const {
+  eyebrow = 'PXLC · Guadeloupe',
+  title,
+  titleDot = false,
+  lead = '',
+  ctaPrimary = null,
+  ctaSecondary = null,
+  hint = null,
+  photo = null,
+  photoAlt = '',
+  pill = null,
+  showBgMark = true,
+} = Astro.props
+---
+
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero__strip"><PxlcPixelStrip count={8} accentAt={5} /></div>
+  {showBgMark && (
+    <div class="hero__bg-mark" aria-hidden="true">
+      <PxlcMark size={420} decorative />
+    </div>
+  )}
+  <div class="container">
+    <div class="hero__inner">
+      <div>
+        <span class="eyebrow">{eyebrow}</span>
+        <h1
+          id="hero-title"
+          class:list={['hero__title', { 'hero__title--dot': titleDot }]}
+        >{title}</h1>
+        {lead && <p class="hero__lead">{lead}</p>}
+        <div class="hero__actions">
+          {ctaPrimary && !ctaPrimary.external && (
+            <a href={ctaPrimary.href} class="btn btn--primary btn--lg">{ctaPrimary.label}</a>
+          )}
+          {ctaPrimary && ctaPrimary.external && (
+            <a
+              href={ctaPrimary.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn--primary btn--lg"
+              aria-label={`${ctaPrimary.label} (nouvel onglet)`}
+            >{ctaPrimary.label}</a>
+          )}
+
+          {ctaSecondary && !ctaSecondary.external && (
+            <a href={ctaSecondary.href} class="btn btn--ghost btn--lg btn--no-arrow">{ctaSecondary.label}</a>
+          )}
+          {ctaSecondary && ctaSecondary.external && (
+            <a
+              href={ctaSecondary.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn--ghost btn--lg btn--no-arrow"
+              aria-label={`${ctaSecondary.label} (nouvel onglet)`}
+            >{ctaSecondary.label}</a>
+          )}
+
+          {hint && <span class="hero__hint">{hint}</span>}
+        </div>
+      </div>
+
+      {photo && (
+        <div class="hero__media">
+          <div class="hero__media-img">
+            <Image
+              src={photo}
+              alt={photoAlt}
+              widths={[740, 1480]}
+              sizes="(max-width: 767px) 100vw, 740px"
+              format="webp"
+              loading="eager"
+              fetchpriority="high"
+            />
+          </div>
+          {pill && (
+            <div class="hero__pill">
+              <div class="hero__pill-eyebrow">{pill.eyebrow}</div>
+              <div class="hero__pill-text">{pill.text}</div>
+            </div>
+          )}
+        </div>
+      )}
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Let the browser balance line breaks responsively instead of relying on
+     hard <br/>s in the title prop. balance is the right call for short
+     marketing headings; pretty would be for paragraphs. */
+  .hero__title { text-wrap: balance; }
+  /* Coral-dot period rendered via CSS — immune to source-whitespace sensitivity. */
+  .hero__title--dot::after { content: '.'; color: var(--pxlc-coral); }
+</style>
