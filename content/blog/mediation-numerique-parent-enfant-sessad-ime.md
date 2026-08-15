@@ -137,6 +137,8 @@ Espace d'échange entre familles : régulation des tensions autour des écrans,
 
 Synthèse écrite des acquis par enfant et par binôme, transmise à l'équipe pluridisciplinaire. Restitution orale aux familles avec trois à cinq pistes concrètes de continuité à la maison. Chaque bilan cite explicitement les recommandations HCSP mobilisées — traçabilité utile pour les rapports d'activité.
 
+La même ossature se transpose hors du médico-social — médiathèques, centres sociaux, dispositifs d'accompagnement à la scolarité : [un atelier jeu vidéo parent-enfant dans votre médiathèque](/blog/atelier-jeu-video-mediatheque/) en décrit le déroulé.
+
 ## Les indicateurs d'évaluation : ce que vous pouvez mesurer et restituer
 
 Pour alimenter vos rapports d’activité, voici quatre indicateurs simples et actionnables :
