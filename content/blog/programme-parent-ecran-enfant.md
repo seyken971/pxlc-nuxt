@@ -81,6 +81,8 @@ Cela peut passer par un jeu vidéo, une vidéo commentée, une discussion autour
 
 Le but n'est pas que le parent maîtrise les jeux. Le but est qu'il puisse dire à son enfant : « montre-moi ce que tu fais », et que l'enfant puisse répondre sans se sentir immédiatement jugé.
 
+Pourquoi cette présence du parent est la condition du travail — et non un bonus — je le développe dans [la place du parent dans l'atelier de médiation](/blog/place-du-parent-atelier-mediation/).
+
 Quand un enfant explique son jeu à son parent, quelque chose change. Il n'est plus seulement celui qui « abuse des écrans ». Il devient quelqu'un qui sait, qui raconte, qui transmet. Et le parent peut observer autrement : ce qui le passionne, ce qui le frustre, ce qui le sécurise, ce qui le déborde.
 
 ## Poser des règles praticables

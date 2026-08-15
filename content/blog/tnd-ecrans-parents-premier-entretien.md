@@ -50,7 +50,7 @@ Ce n'est pas une question de compétence parentale. Les jeux vidéo sont des obj
 
 Ce que j'entends sous cette phrase : *je voudrais comprendre, mais je ne sais pas par où commencer*.
 
-C'est exactement le rôle que je joue dans les ateliers : rendre le jeu lisible pour le parent, pas le rendre joueur, mais lui donner assez de contexte pour qu'il puisse regarder jouer son enfant avec curiosité plutôt qu'avec inquiétude. Ce sont souvent les ateliers les plus riches — quand le parent découvre en direct ce que son enfant investit, et que l'enfant voit son parent faire l'effort de comprendre.
+C'est exactement le rôle que je joue dans les ateliers : rendre le jeu lisible pour le parent, pas le rendre joueur, mais lui donner assez de contexte pour qu'il puisse regarder jouer son enfant avec curiosité plutôt qu'avec inquiétude. Ce sont souvent les ateliers les plus riches — quand le parent découvre en direct ce que son enfant investit, et que l'enfant voit son parent faire l'effort de comprendre. Cette place du parent — pourquoi il joue au lieu de regarder — est [un sujet à part entière](/blog/place-du-parent-atelier-mediation/).
 
 ## « C'est à cause de son TSA / TDAH ? »
 

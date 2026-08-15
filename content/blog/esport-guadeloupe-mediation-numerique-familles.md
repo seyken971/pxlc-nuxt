@@ -68,7 +68,7 @@ Concrètement, ce parcours se manifeste dans trois dimensions du travail avec le
 
 Ce parcours n'est pas une supériorité sur d'autres formes de formation. C'est simplement une origine différente — un point d'entrée dans la médiation par le jeu plutôt que par la psychologie ou l'éducation populaire. Ce qui compte, c'est ce que ce point d'entrée rend possible : parler aux enfants dans leur langue, lire les parties en temps réel, choisir des jeux pour des objectifs précis.
 
-C'est ce que j'apporte aux équipes des structures avec lesquelles je travaille. Pas à la place du psychologue ou de la psychomotricienne — à leur côté, sur le terrain où je suis compétent.
+C'est ce que j'apporte aux équipes des structures avec lesquelles je travaille. Pas à la place du psychologue ou de la psychomotricienne — à leur côté, sur le terrain où je suis compétent. Et ce format se transpose au-delà du médico-social — je le décris dans [un atelier jeu vidéo parent-enfant dans votre médiathèque](/blog/atelier-jeu-video-mediatheque/).
 
 ---
 
