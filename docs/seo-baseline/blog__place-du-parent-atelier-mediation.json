@@ -1,29 +1,29 @@
 {
-  "route": "/blog/",
-  "title": "Médiation numérique — ressources pour les structures · PXLC",
+  "route": "/blog/place-du-parent-atelier-mediation/",
+  "title": "La place du parent dans l'atelier de médiation · PXLC",
   "lang": "fr-FR",
   "links": {
     "canonical": [
       {
-        "href": "https://pxlc.fr/blog/"
+        "href": "https://pxlc.fr/blog/place-du-parent-atelier-mediation/"
       }
     ]
   },
   "metas": {
     "author": "Andy Zébus",
     "color-scheme": "light dark",
-    "description": "Articles sur la médiation numérique pour les structures en Guadeloupe. Ressources HCSP 2019-2020 · HAS 2020.",
-    "http-equiv:Content-Security-Policy": "base-uri 'self'; font-src 'self'; form-action 'self'; img-src 'self' data:; object-src 'none'; script-src-attr 'none'; style-src 'self' 'unsafe-inline'; script-src 'self' 'sha256-5lhUuYNfBPn+bV3+quIJVaw0IyDdBOgqjLHpJq65btg=' 'sha256-btsJw6r9odW6YcKn1GAxfTDzU5uJh/yRZO919Ua35yg=' 'sha256-91WpORq2/EkU3kMarSktLIzd1uuLLiclJwR2rmabg70=' 'sha256-QZD9rNiYABPnYrKPs+1pgNiDU+OunEeqrRM2UijFdtQ=' 'sha256-baLciPUPbbmPhtrvbyVuWnZOI2jFh7aS+k6NHdkumuU=' 'sha256-hloOOpChaoX99IAqmMxmfSKtJ2D/f2Cb8Yf0/B/760c=' 'sha256-bomlnha4jW8jeKTbcCedG33DXshu1kJLMx0hpA7aT24='; upgrade-insecure-requests; default-src 'self'; connect-src 'self'; manifest-src 'self'; frame-src 'none';",
-    "og:description": "Décryptages sur les tensions autour des écrans — jeu vidéo comme levier, cadre HCSP 2019-2020 · HAS 2020.",
-    "og:image": "https://pxlc.fr/_og/site.png",
+    "description": "Le parent n'est pas spectateur de l'atelier : c'est lui, le levier. Ce que dit le cadre HCSP, ce qu'on y fait.",
+    "http-equiv:Content-Security-Policy": "base-uri 'self'; font-src 'self'; form-action 'self'; img-src 'self' data:; object-src 'none'; script-src-attr 'none'; style-src 'self' 'unsafe-inline'; script-src 'self' 'sha256-5lhUuYNfBPn+bV3+quIJVaw0IyDdBOgqjLHpJq65btg=' 'sha256-R8kuH5n2fN4LHJ1kK7Z8Ts61S3i6kpqcuGKTCzsIIuU=' 'sha256-91WpORq2/EkU3kMarSktLIzd1uuLLiclJwR2rmabg70=' 'sha256-QZD9rNiYABPnYrKPs+1pgNiDU+OunEeqrRM2UijFdtQ=' 'sha256-baLciPUPbbmPhtrvbyVuWnZOI2jFh7aS+k6NHdkumuU=' 'sha256-hloOOpChaoX99IAqmMxmfSKtJ2D/f2Cb8Yf0/B/760c=' 'sha256-RIakfu+JUvT+1MPxcvMY+MAS0FqZVNgsUoCgPan+5XY='; upgrade-insecure-requests; default-src 'self'; connect-src 'self'; manifest-src 'self'; frame-src 'none';",
+    "og:description": "Le parent n'est pas spectateur de l'atelier : c'est lui, le levier. Ce que dit le cadre HCSP, ce qu'on y fait.",
+    "og:image": "https://pxlc.fr/_og/blog/place-du-parent-atelier-mediation.png",
     "og:image:height": "600",
     "og:image:type": "image/png",
     "og:image:width": "1200",
     "og:locale": "fr_FR",
     "og:site_name": "PXLC",
-    "og:title": "Médiation numérique — ressources pour les structures · PXLC",
-    "og:type": "website",
-    "og:url": "https://pxlc.fr/blog/",
+    "og:title": "La place du parent dans un atelier de médiation numérique",
+    "og:type": "article",
+    "og:url": "https://pxlc.fr/blog/place-du-parent-atelier-mediation/",
     "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
     "theme-color": [
       "#082B36",
@@ -31,9 +31,9 @@
     ],
     "twitter:card": "summary_large_image",
     "twitter:creator": "@seyken971",
-    "twitter:image": "https://pxlc.fr/_og/site.png",
+    "twitter:image": "https://pxlc.fr/_og/blog/place-du-parent-atelier-mediation.png",
     "twitter:image:height": "600",
-    "twitter:image:src": "https://pxlc.fr/_og/site.png",
+    "twitter:image:src": "https://pxlc.fr/_og/blog/place-du-parent-atelier-mediation.png",
     "twitter:image:width": "1200",
     "twitter:site": "@seyken971",
     "viewport": "width=device-width, initial-scale=1"
@@ -55,150 +55,33 @@
           "url": "https://pxlc.fr"
         },
         {
-          "@id": "https://pxlc.fr/blog/#webpage",
-          "@type": [
-            "WebPage",
-            "CollectionPage"
-          ],
+          "@id": "https://pxlc.fr/blog/place-du-parent-atelier-mediation/#webpage",
+          "@type": "WebPage",
           "about": {
             "@id": "https://pxlc.fr/#identity"
           },
           "breadcrumb": {
-            "@id": "https://pxlc.fr/blog/#/schema/breadcrumb-list/#breadcrumb"
+            "@id": "https://pxlc.fr/blog/place-du-parent-atelier-mediation/#/schema/breadcrumb-list/#breadcrumb"
           },
-          "description": "Décryptages, repères et retours de terrain sur la médiation numérique Parent-Écran-Enfant en Guadeloupe.",
-          "hasPart": [
-            {
-              "@id": "https://pxlc.fr/blog/atelier-jeu-video-mediatheque/#article",
-              "@type": "BlogPosting",
-              "headline": "Un atelier jeu vidéo parent-enfant dans votre médiathèque",
-              "url": "https://pxlc.fr/blog/atelier-jeu-video-mediatheque/"
-            },
-            {
-              "@id": "https://pxlc.fr/blog/place-du-parent-atelier-mediation/#article",
-              "@type": "BlogPosting",
-              "headline": "La place du parent dans un atelier de médiation numérique",
-              "url": "https://pxlc.fr/blog/place-du-parent-atelier-mediation/"
-            },
-            {
-              "@id": "https://pxlc.fr/blog/a-quel-age-quel-ecran/#article",
-              "@type": "BlogPosting",
-              "headline": "À quel âge quel écran ? Les repères du HCSP, âge par âge",
-              "url": "https://pxlc.fr/blog/a-quel-age-quel-ecran/"
-            },
-            {
-              "@id": "https://pxlc.fr/blog/contenus-choquants-enfant/#article",
-              "@type": "BlogPosting",
-              "headline": "Contenus choquants en ligne : préparer son enfant, réagir sans punir",
-              "url": "https://pxlc.fr/blog/contenus-choquants-enfant/"
-            },
-            {
-              "@id": "https://pxlc.fr/blog/ecrans-et-sommeil-enfant/#article",
-              "@type": "BlogPosting",
-              "headline": "Écrans et sommeil de l'enfant : ce qui se joue le soir",
-              "url": "https://pxlc.fr/blog/ecrans-et-sommeil-enfant/"
-            },
-            {
-              "@id": "https://pxlc.fr/blog/ecrans-et-vision-enfant/#article",
-              "@type": "BlogPosting",
-              "headline": "Écrans et vision de l'enfant : ce qui fatigue les yeux, ce qui les protège",
-              "url": "https://pxlc.fr/blog/ecrans-et-vision-enfant/"
-            },
-            {
-              "@id": "https://pxlc.fr/blog/jeu-en-ligne-amis-enfant/#article",
-              "@type": "BlogPosting",
-              "headline": "Jeu en ligne : ce que votre enfant y vit vraiment avec ses amis",
-              "url": "https://pxlc.fr/blog/jeu-en-ligne-amis-enfant/"
-            },
-            {
-              "@id": "https://pxlc.fr/blog/reseaux-sociaux-image-de-soi-ado/#article",
-              "@type": "BlogPosting",
-              "headline": "Réseaux sociaux et image de soi : ce qui se joue à l'adolescence",
-              "url": "https://pxlc.fr/blog/reseaux-sociaux-image-de-soi-ado/"
-            },
-            {
-              "@id": "https://pxlc.fr/blog/esport-guadeloupe-mediation-numerique-familles/#article",
-              "@type": "BlogPosting",
-              "headline": "Pourquoi j'utilise l'esport pour aider les familles en Guadeloupe",
-              "url": "https://pxlc.fr/blog/esport-guadeloupe-mediation-numerique-familles/"
-            },
-            {
-              "@id": "https://pxlc.fr/blog/jeu-video-selection-ateliers-sessad-ime/#article",
-              "@type": "BlogPosting",
-              "headline": "Quel jeu vidéo choisir pour un atelier de médiation parent-enfant ?",
-              "url": "https://pxlc.fr/blog/jeu-video-selection-ateliers-sessad-ime/"
-            },
-            {
-              "@id": "https://pxlc.fr/blog/tnd-ecrans-parents-premier-entretien/#article",
-              "@type": "BlogPosting",
-              "headline": "TND et écrans : ce que les parents nous disent en premier entretien",
-              "url": "https://pxlc.fr/blog/tnd-ecrans-parents-premier-entretien/"
-            },
-            {
-              "@id": "https://pxlc.fr/blog/bonnes-pratiques-ecrans-famille/#article",
-              "@type": "BlogPosting",
-              "headline": "Écrans en famille : les bonnes pratiques qui tiennent vraiment",
-              "url": "https://pxlc.fr/blog/bonnes-pratiques-ecrans-famille/"
-            },
-            {
-              "@id": "https://pxlc.fr/blog/cadre-hcsp-enfants-ecrans/#article",
-              "@type": "BlogPosting",
-              "headline": "Enfants et écrans : ce que dit vraiment le cadre HCSP",
-              "url": "https://pxlc.fr/blog/cadre-hcsp-enfants-ecrans/"
-            },
-            {
-              "@id": "https://pxlc.fr/blog/methode-mediation-jeu-video-parent-enfant/#article",
-              "@type": "BlogPosting",
-              "headline": "Le jeu vidéo pour mieux parler avec son enfant",
-              "url": "https://pxlc.fr/blog/methode-mediation-jeu-video-parent-enfant/"
-            },
-            {
-              "@id": "https://pxlc.fr/blog/programme-parent-ecran-enfant/#article",
-              "@type": "BlogPosting",
-              "headline": "Écrans en famille : sortir du conflit, renouer le dialogue",
-              "url": "https://pxlc.fr/blog/programme-parent-ecran-enfant/"
-            },
-            {
-              "@id": "https://pxlc.fr/blog/mediation-numerique-parent-enfant-sessad-ime/#article",
-              "@type": "BlogPosting",
-              "headline": "Médiation numérique parent-enfant : repères pour les équipes SESSAD, IME et associations",
-              "url": "https://pxlc.fr/blog/mediation-numerique-parent-enfant-sessad-ime/"
-            },
-            {
-              "@id": "https://pxlc.fr/blog/quand-votre-enfant-joue-a-fortnite/#article",
-              "@type": "BlogPosting",
-              "headline": "Quand votre enfant joue à Fortnite, qu'est-ce qu'il vous dit ?",
-              "url": "https://pxlc.fr/blog/quand-votre-enfant-joue-a-fortnite/"
-            },
-            {
-              "@id": "https://pxlc.fr/blog/jouons-ensemble-sessad-lekoklaya/#article",
-              "@type": "BlogPosting",
-              "headline": "« Jouons Ensemble ! » — comment se monte un dispositif au SESSAD",
-              "url": "https://pxlc.fr/blog/jouons-ensemble-sessad-lekoklaya/"
-            },
-            {
-              "@id": "https://pxlc.fr/blog/enfant-rejoue-toujours-meme-jeu/#article",
-              "@type": "BlogPosting",
-              "headline": "Pourquoi mon enfant rejoue toujours au même jeu ?",
-              "url": "https://pxlc.fr/blog/enfant-rejoue-toujours-meme-jeu/"
-            }
-          ],
+          "dateModified": "2026-08-15",
+          "datePublished": "2026-08-15",
+          "description": "Le parent n'est pas spectateur de l'atelier : c'est lui, le levier. Ce que dit le cadre HCSP, ce qu'on y fait.",
           "isPartOf": {
             "@id": "https://pxlc.fr/#website"
           },
-          "name": "Le journal PXLC",
+          "name": "La place du parent dans l'atelier de médiation",
           "potentialAction": [
             {
               "@type": "ReadAction",
               "target": [
-                "https://pxlc.fr/blog/"
+                "https://pxlc.fr/blog/place-du-parent-atelier-mediation/"
               ]
             }
           ],
           "primaryImageOfPage": {
             "@id": "https://pxlc.fr/#logo"
           },
-          "url": "https://pxlc.fr/blog/"
+          "url": "https://pxlc.fr/blog/place-du-parent-atelier-mediation/"
         },
         {
           "@id": "https://pxlc.fr/#identity",
@@ -343,7 +226,39 @@
           "serviceType": "Médiation numérique"
         },
         {
-          "@id": "https://pxlc.fr/blog/#/schema/breadcrumb-list/#breadcrumb",
+          "@id": "https://pxlc.fr/blog/place-du-parent-atelier-mediation/#article",
+          "@type": [
+            "Article",
+            "BlogPosting"
+          ],
+          "articleSection": [
+            "decryptage"
+          ],
+          "author": {
+            "@id": "https://pxlc.fr/#andy"
+          },
+          "dateModified": "2026-08-15",
+          "datePublished": "2026-08-15",
+          "description": "Le parent n'est pas spectateur de l'atelier : c'est lui, le levier. Ce que dit le cadre HCSP, et ce qu'un parent y fait concrètement.",
+          "headline": "La place du parent dans un atelier de médiation numérique",
+          "image": {
+            "@id": "https://pxlc.fr/#/schema/image/3"
+          },
+          "inLanguage": "fr-FR",
+          "isPartOf": {
+            "@id": "https://pxlc.fr/blog/place-du-parent-atelier-mediation/#webpage"
+          },
+          "mainEntityOfPage": {
+            "@id": "https://pxlc.fr/blog/place-du-parent-atelier-mediation/#webpage"
+          },
+          "publisher": {
+            "@id": "https://pxlc.fr/#identity"
+          },
+          "thumbnailUrl": "https://pxlc.fr/img/photos/andy-event.jpg",
+          "url": "https://pxlc.fr/blog/place-du-parent-atelier-mediation/"
+        },
+        {
+          "@id": "https://pxlc.fr/blog/place-du-parent-atelier-mediation/#/schema/breadcrumb-list/#breadcrumb",
           "@type": "BreadcrumbList",
           "itemListElement": [
             {
@@ -357,6 +272,12 @@
               "item": "https://pxlc.fr/blog/",
               "name": "Blog",
               "position": 2
+            },
+            {
+              "@type": "ListItem",
+              "item": "https://pxlc.fr/blog/place-du-parent-atelier-mediation/",
+              "name": "La place du parent dans un atelier de médiation numérique",
+              "position": 3
             }
           ]
         },
@@ -400,6 +321,13 @@
           "contentUrl": "https://pxlc.fr/img/photos/andy-portrait.jpg",
           "inLanguage": "fr-FR",
           "url": "https://pxlc.fr/img/photos/andy-portrait.jpg"
+        },
+        {
+          "@id": "https://pxlc.fr/#/schema/image/3",
+          "@type": "ImageObject",
+          "contentUrl": "https://pxlc.fr/img/photos/andy-event.jpg",
+          "inLanguage": "fr-FR",
+          "url": "https://pxlc.fr/img/photos/andy-event.jpg"
         }
       ]
     }
