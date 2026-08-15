@@ -8,7 +8,7 @@ import BlogToc from '../../components/BlogToc.astro'
 import BlogShare from '../../components/BlogShare.astro'
 import BlogCta from '../../components/BlogCta.astro'
 import BlogRelated from '../../components/BlogRelated.astro'
-import { fmtDate } from '../../lib/date-format'
+import { fmtDate, isoDate } from '../../lib/date-format'
 import { articleGraph } from '../../lib/schema'
 import { breadcrumbItems } from '../../lib/breadcrumb'
 import andyPortrait from '../../assets/photos/andy-portrait.jpg'
@@ -61,8 +61,8 @@ const schemaGraph = articleGraph({
   pageDescription: data.seoDescription || data.description,
   description: data.description,
   category: data.category,
-  datePublished: data.date,
-  dateModified: data.updated || data.date,
+  datePublished: isoDate(data.date),
+  dateModified: isoDate(data.updated || data.date),
   // Les cartes OG vivent sous /_og/ ; repli sur une photo réelle et valide
   // pour les rich results Article.
   image: data.cover ? `https://pxlc.fr${data.cover}` : 'https://pxlc.fr/img/photos/andy-event.jpg',
@@ -90,10 +90,10 @@ const schemaGraph = articleGraph({
           </h1>
           <p class="lead post-lead">{data.description}</p>
           <div class="post-meta">
-            <time datetime={data.date}>{fmtDate(data.date)}</time>
+            <time datetime={isoDate(data.date)}>{fmtDate(data.date)}</time>
             {readingTime && <span>· {readingTime} de lecture</span>}
-            {data.updated && data.updated !== data.date && (
-              <span>· mis à jour le <time datetime={data.updated}>{fmtDate(data.updated)}</time></span>
+            {data.updated && data.updated.getTime() !== data.date.getTime() && (
+              <span>· mis à jour le <time datetime={isoDate(data.updated)}>{fmtDate(data.updated)}</time></span>
             )}
           </div>
           <!-- Author card — per DS BlogArticle -->

@@ -3,18 +3,16 @@ import { getCollection } from 'astro:content'
 import { Icon } from 'astro-icon/components'
 import BaseLayout from '../../layouts/BaseLayout.astro'
 import SiteBreadcrumb from '../../components/SiteBreadcrumb.astro'
-import PxlcMark from '../../components/vue/PxlcMark.vue'
-import PxlcPixelCorner from '../../components/vue/PxlcPixelCorner.vue'
+import PxlcMark from '../../components/PxlcMark.astro'
+import PxlcPixelCorner from '../../components/PxlcPixelCorner.astro'
 import { BLOG_CATEGORIES, BLOG_CATEGORY_LABELS } from '../../config/blog-categories'
-import { fmtDate } from '../../lib/date-format'
+import { fmtDate, isoDate } from '../../lib/date-format'
 import { pageGraph, blogPostPartRef } from '../../lib/schema'
 import { breadcrumbItems } from '../../lib/breadcrumb'
 
-// Tri (date DESC, id ASC) — même ordre que l'ancienne queryCollection Nuxt
-// Content (vérifié contre la baseline : les articles de même date sortent
-// par slug croissant).
+// Tri (date DESC, slug ASC pour les dates identiques — ordre stable).
 const posts = (await getCollection('blog', p => !p.data.draft))
-  .sort((a, b) => b.data.date.localeCompare(a.data.date) || a.id.localeCompare(b.id))
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime() || a.id.localeCompare(b.id))
 
 // Categories distillées depuis les articles existants — pas de filtre si
 // un seul est présent (anti-clutter).
@@ -114,7 +112,7 @@ const schemaGraph = pageGraph({
               <h2 class="blog-card__title">{p.data.title}</h2>
               {p.data.description && <p class="blog-card__excerpt">{p.data.description}</p>}
               <div class="blog-card__meta">
-                <time datetime={p.data.date}>{fmtDate(p.data.date)}</time>
+                <time datetime={isoDate(p.data.date)}>{fmtDate(p.data.date)}</time>
                 {p.data.readingTime && (
                   <span class="blog-card__rt">
                     <Icon name="lucide:clock" aria-hidden="true" />{p.data.readingTime}

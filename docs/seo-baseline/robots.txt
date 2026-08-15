@@ -1,4 +1,4 @@
-# START nuxt-robots (indexable)
+# robots.txt — maintenu à la main (posture IA : entraînement refusé, recherche autorisée)
 # llms.txt : https://pxlc.fr/llms.txt
 User-agent: *
 Allow: /
@@ -31,4 +31,3 @@ User-agent: Perplexity-User
 Allow: /
 
 Sitemap: https://pxlc.fr/sitemap.xml
-# END nuxt-robots

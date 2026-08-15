@@ -2,7 +2,7 @@
 import { Icon } from 'astro-icon/components'
 import BaseLayout from '../layouts/BaseLayout.astro'
 import SiteBreadcrumb from '../components/SiteBreadcrumb.astro'
-import PxlcInput from '../components/vue/PxlcInput.vue'
+import PxlcInput from '../components/PxlcInput.astro'
 import { pageGraph } from '../lib/schema'
 import { breadcrumbItems } from '../lib/breadcrumb'
 
@@ -68,13 +68,13 @@ const schemaGraph = pageGraph({
               <span class="form-legend__req" aria-hidden="true">*</span> Champs requis
             </p>
             <div class="form-row">
-              <PxlcInput id="c-nom" modelValue="" label="Prénom et Nom" placeholder="Prénom Nom" required autocomplete="name" />
-              <PxlcInput id="c-structure" modelValue="" label="Structure" placeholder="Association, école, collectivité…" autocomplete="organization" />
+              <PxlcInput id="c-nom" label="Prénom et Nom" placeholder="Prénom Nom" required autocomplete="name" />
+              <PxlcInput id="c-structure" label="Structure" placeholder="Association, école, collectivité…" autocomplete="organization" />
             </div>
 
-            <PxlcInput id="c-email" modelValue="" label="Adresse e-mail" type="email" placeholder="contact@structure.fr" required autocomplete="email" />
+            <PxlcInput id="c-email" label="Adresse e-mail" type="email" placeholder="contact@structure.fr" required autocomplete="email" />
 
-            <PxlcInput id="c-msg" modelValue="" label="Message" rows={5} placeholder="Décrivez votre projet…" required />
+            <PxlcInput id="c-msg" label="Message" rows={5} placeholder="Décrivez votre projet…" required />
 
             <button type="submit" class="btn btn--primary contact-submit">
               Envoyer

@@ -1,6 +1,6 @@
 ---
 import { getCollection } from 'astro:content'
-import { fmtDate } from '../lib/date-format'
+import { fmtDate, isoDate } from '../lib/date-format'
 
 interface Props {
   /** Path of the post currently being viewed — excluded from the list. */
@@ -16,7 +16,7 @@ const { currentPath, currentCategory, limit = 3 } = Astro.props
 // fallback to most recent — so the block is never empty (assuming at least
 // one other post exists).
 const all = (await getCollection('blog', p => !p.data.draft))
-  .sort((a, b) => b.data.date.localeCompare(a.data.date) || a.id.localeCompare(b.id))
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime() || a.id.localeCompare(b.id))
   .map(p => ({ path: `/blog/${p.id}`, ...p.data }))
 
 const others = all.filter(p => p.path !== currentPath)
@@ -42,7 +42,7 @@ for (const p of [...sameCat, ...others]) {
               {p.category && <span class="badge">{p.category}</span>}
               <h3 class="blog-related__post-title">{p.title}</h3>
               {p.description && <p class="blog-related__excerpt">{p.description}</p>}
-              <time datetime={p.date} class="blog-related__date">{fmtDate(p.date)}</time>
+              <time datetime={isoDate(p.date)} class="blog-related__date">{fmtDate(p.date)}</time>
             </a>
           </li>
         ))}

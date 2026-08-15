@@ -1,9 +1,10 @@
 #!/usr/bin/env node
 /**
- * Génère dist/sitemap.xml après le build Astro — reproduit la sémantique du
- * sitemap @nuxtjs/seo : URLs prérendues avec slash final, pages noindex
- * exclues, <lastmod> tamponné à la date du build (signal de fraîcheur pour le
- * recrawl), <image:image> découvertes depuis les <img> du HTML de chaque page.
+ * Génère dist/sitemap.xml après le build Astro : URLs prérendues avec slash
+ * final, pages noindex exclues, <image:image> découvertes depuis les <img>
+ * du HTML de chaque page. <lastmod> : date réelle du contenu pour les
+ * articles (frontmatter updated ?? date), date du build pour les pages
+ * statiques (signal de fraîcheur pour le recrawl).
  *
  *   node scripts/generate-sitemap.mjs [buildDir]
  */
@@ -13,6 +14,21 @@ import { JSDOM } from 'jsdom'
 
 const BUILD_DIR = process.argv[2] || 'dist'
 const SITE_URL = 'https://pxlc.fr'
+const CONTENT_DIR = 'content/blog'
+
+// slug -> lastmod (YYYY-MM-DD) depuis le frontmatter des articles.
+const articleLastmod = async () => {
+  const map = new Map()
+  for (const file of await readdir(CONTENT_DIR)) {
+    if (!file.endsWith('.md')) continue
+    const raw = await readFile(join(CONTENT_DIR, file), 'utf8')
+    const fm = raw.match(/^---\r?\n([\s\S]*?)\r?\n---/)?.[1] ?? ''
+    const pick = key => fm.match(new RegExp(`^${key}:\\s*"?(\\d{4}-\\d{2}-\\d{2})`, 'm'))?.[1]
+    const lastmod = pick('updated') ?? pick('date')
+    if (lastmod) map.set(file.replace(/\.md$/, ''), lastmod)
+  }
+  return map
+}
 
 const findHtml = async (dir) => {
   const out = []
@@ -30,8 +46,9 @@ const escapeXml = s => s
   .replaceAll('>', '&gt;')
 
 const main = async () => {
-  // Précision à la seconde, format « 2026-08-13T18:21:46Z » comme l'ancien module.
-  const lastmod = new Date().toISOString().replace(/\.\d{3}Z$/, 'Z')
+  // Précision à la seconde, format « 2026-08-13T18:21:46Z ».
+  const buildStamp = new Date().toISOString().replace(/\.\d{3}Z$/, 'Z')
+  const byslug = await articleLastmod()
 
   const entries = []
   for (const path of await findHtml(BUILD_DIR)) {
@@ -52,12 +69,14 @@ const main = async () => {
     )]
     dom.window.close()
 
-    entries.push({ loc: `${SITE_URL}${route}`, images })
+    const slug = route.match(/^\/blog\/([^/]+)\/$/)?.[1]
+    const lastmod = (slug && byslug.get(slug)) || buildStamp
+    entries.push({ loc: `${SITE_URL}${route}`, lastmod, images })
   }
 
   entries.sort((a, b) => a.loc.localeCompare(b.loc))
 
-  const urls = entries.map(({ loc, images }) => {
+  const urls = entries.map(({ loc, lastmod, images }) => {
     const imageXml = images.map(img =>
       `        <image:image>\n            <image:loc>${escapeXml(img)}</image:loc>\n        </image:image>`,
     ).join('\n')
@@ -70,7 +89,7 @@ const main = async () => {
     + '\n</urlset>\n'
 
   await writeFile(join(BUILD_DIR, 'sitemap.xml'), xml)
-  console.log(`sitemap.xml : ${entries.length} URLs (lastmod ${lastmod})`)
+  console.log(`sitemap.xml : ${entries.length} URLs (${byslug.size} lastmod de contenu, build ${buildStamp})`)
 }
 
 main().catch((err) => { console.error(err); process.exit(2) })

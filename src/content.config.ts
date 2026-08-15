@@ -19,15 +19,12 @@ const blog = defineCollection({
     // vérifiée par scripts/validate-content.mjs.
     seoTitle: z.string().max(SEO_TITLE_MAX).optional(),
     seoDescription: z.string().max(SEO_DESC_MAX).optional(),
-    // Format YYYY-MM-DD. Le YAML d'Astro parse les dates non quotées en objets
-    // Date — on normalise vers la chaîne YYYY-MM-DD que tout le code consomme.
-    date: z.union([z.string(), z.date()]).transform(v =>
-      typeof v === 'string' ? v : v.toISOString().slice(0, 10)),
+    // Frontmatter YYYY-MM-DD (quoté ou non) → Date UTC minuit.
+    date: z.coerce.date(),
     // Optional last-modified date — when set, drives the article's
     // dateModified in the BlogPosting schema (vs date which stays
-    // datePublished). Format YYYY-MM-DD.
-    updated: z.union([z.string(), z.date()]).transform(v =>
-      typeof v === 'string' ? v : v.toISOString().slice(0, 10)).optional(),
+    // datePublished) and the sitemap <lastmod>.
+    updated: z.coerce.date().optional(),
     category: z.enum(BLOG_CATEGORIES),
     // Optional manual override; if absent, the page computes one from
     // the body text (200 mots/min).

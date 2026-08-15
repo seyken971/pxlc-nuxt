@@ -1,7 +1,8 @@
-# PXLC — pxl-nuxt
+# PXLC — pxlc-site
 
-Site vitrine de PXLC (médiation numérique, Guadeloupe). Nuxt 4, site statique
-déployé sur GitHub Pages via `nuxt generate`.
+Site vitrine de PXLC (médiation numérique, Guadeloupe). Astro, site 100 %
+statique déployé sur GitHub Pages (`dist/`), zéro JavaScript expédié hors
+quelques scripts vanilla inline (thème, menu mobile, formulaire, filtres).
 
 Mission en une phrase (à reprendre verbatim, seule phrase où PXLC est sujet) :
 « PXLC accompagne les familles dans l'éducation numérique des enfants. »
@@ -30,9 +31,9 @@ Le contexte de positionnement et de stratégie vit dans `CLAUDE.local.md`
 @design.md
 
 - `design.md` est **généré** par `scripts/export-design.mjs` — ne jamais
-  l'éditer à la main. Sources : `app/assets/css/tokens.css` +
-  `app/assets/css/styles.css`. Régénéré automatiquement par `predev`,
-  `prebuild` et `pregenerate` ; committer la version à jour.
+  l'éditer à la main. Sources : `src/styles/tokens.css` +
+  `src/styles/styles.css`. Régénéré automatiquement par `predev` et
+  `prebuild` ; committer la version à jour.
 - Toujours utiliser les custom properties (`--pxlc-*`, tokens sémantiques) —
   jamais de couleurs ou d'espacements en dur dans les composants.
 - Dark mode via `[data-theme="dark"]` — toute nouvelle couleur sémantique doit
@@ -50,7 +51,9 @@ Aussi dans design.md, mais bloquants — vérifier chaque texte généré ou mod
   MILDECA préfère « usage problématique des écrans » — utiliser ce terme.
 - Pas d'emoji, nulle part (copy, code, commits, iconographie).
 - Typographie française : espace insécable avant `!` `?` `:` `;` `»` et entre
-  nombre + unité (`48 h`, `20 min`, `100 €`).
+  nombre + unité (`48 h`, `20 min`, `100 €`). Dans les sources : `&nbsp;` dans
+  le balisage, `\u00A0` dans les template literals, U+00A0 littéral toléré
+  dans les chaînes simples — garde-fou `ds-lint` R11.
 - Cadre réglementaire : toujours citer « HCSP 2019-2020 · HAS 2020 » ensemble.
 - Termes naked (sans guillemets ni traduction) : HCSP, SESSAD, TCND, TND,
   hyperfocus.
@@ -64,9 +67,9 @@ Aussi dans design.md, mais bloquants — vérifier chaque texte généré ou mod
 - Le jeu vidéo est un outil de médiation légitime — jamais un problème à résoudre.
 - « intervenant culturel » toujours au singulier (un seul, à Lékoklaya) — jamais
   « intervenants culturels ». Outillé par `ds-lint` R12 (`phrase-interdite`), qui
-  balaie `.vue`/`.ts` (`app/`), `.md` (`content/`) et la plaquette : tout pluriel
-  casse le build. Ajouter un fait à garder dans `FORBIDDEN_PHRASES`
-  (`scripts/ds-lint.mjs`).
+  balaie `.astro`/`.vue`/`.ts` (`src/`), `.md` (`content/`) et la plaquette :
+  tout pluriel casse le build. Ajouter un fait à garder dans
+  `FORBIDDEN_PHRASES` (`scripts/ds-lint.mjs`).
 
 ## Garde-fous non négociables (visuel)
 
@@ -76,37 +79,72 @@ Aussi dans design.md, mais bloquants — vérifier chaque texte généré ou mod
 
 ## Commandes (npm)
 
-- `npm run dev` — serveur de dev (predev : gen:tokens + design)
-- `npm run generate` — build statique pour GitHub Pages (pipeline complet)
-- `npm run lint` / `npm run lint:fix` — ESLint
-- `npm run typecheck` — vérification TypeScript Nuxt
-- `npm run ds-lint` — lint du design system (tokens, règles brand)
-- `npm run validate-content` — validation du contenu
+- `npm run dev` — serveur de dev Astro (predev : gen:tokens + design)
+- `npm run build` — build statique complet pour GitHub Pages :
+  - prebuild : gen:tokens → design → ds-lint → validate-content
+  - build : `astro build` (~24 pages dans `dist/`)
+  - postbuild : generate-sitemap → generate-og → csp-hash → check-links
+- `npm run preview` — sert `dist/` en local
+- `npm run lint` / `npm run lint:fix` — ESLint (flat config : astro + TS)
+- `npm run typecheck` — `astro check`
+- `npm run ds-lint` — lint du design system (tokens, règles brand, R1-R12)
+- `npm run validate-content` — frontmatter + longueurs SEO des articles
+- `npm run seo:snapshot` — capture la surface SEO d'un build (voir ci-dessous)
+- `npm run check-links` — liens internes du build (slash final, ancres)
 - `npm run a11y` / `npm run a11y:runtime` — audits accessibilité
 - `npm run lighthouse` — audit performance
-- `npm run gen:tokens` — génère les tokens (source amont de tokens.css)
+- `npm run gen:tokens` — régénère tokens.css depuis `src/lib/brand-colors.ts`
 - `npm run design` — régénère design.md
 
-Note : `prebuild`/`pregenerate` enchaînent gen:tokens → design → ds-lint →
-validate-content. Un build qui casse sur ces étapes = règle brand ou contenu
+Un build qui casse sur les gates pre/post = règle brand, contenu ou lien
 violé, pas un bug à contourner.
 
-## Stack & modules
+## Non-régression SEO (mécanisme central)
 
-- Nuxt 4 (structure `app/`), modules : @nuxt/content, @nuxt/eslint,
-  @nuxt/fonts, @nuxt/icon, @nuxt/image, @nuxtjs/seo, nuxt-link-checker.
-- Contenu éditorial via @nuxt/content — toute modification de contenu doit
+`docs/seo-baseline/` contient la référence de la surface SEO (canonical,
+title, metas, og/twitter, JSON-LD trié, sitemap, robots.txt), capturée par
+`scripts/seo-snapshot.mjs`. Toute modification SEO-sensible se vérifie ainsi :
+
+1. `npm run build`
+2. `node scripts/seo-snapshot.mjs dist docs/seo-current`
+3. `git diff --no-index docs/seo-baseline docs/seo-current` — doit être vide
+   hors deltas volontaires, déclarés dans la PR.
+
+Jamais de comparaison `-eq` PowerShell pour vérifier du texte : elle assimile
+l'espace insécable à l'espace simple. `git diff` ou comparaison ordinale.
+Après un changement SEO volontaire mergé, re-capturer la baseline.
+
+## Stack & architecture
+
+- Astro (`src/`), zéro île hydratée : toute l'interactivité est en `<script>`
+  vanilla dans les composants `.astro`.
+- `src/layouts/BaseLayout.astro` — head complet (titre `%s · PXLC`, canonical
+  avec slash final, og/twitter, CSP en meta avec placeholder
+  `__CSP_SCRIPT_HASHES__`, anti-flash thème, JSON-LD), chrome du site.
+- `src/config/site.ts` — identité du site (source unique, lue aussi par
+  ds-lint R7). `src/config/nav.ts`, `blog-categories.ts`, `project-themes.ts`.
+- Contenu éditorial : collection Astro `blog` (`src/content.config.ts`,
+  schéma zod, `content/blog/*.md`) — toute modification de contenu doit
   passer `npm run validate-content`.
-- OG images : composant `app/components/OgImage/PxlcOg.takumi.vue`, générées
-  au build (`ogImage.zeroRuntime: true`), non visibles en dev. Carte de marque
-  statique (logo + tagline), identique sur toutes les pages — chaque page
-  l'active via `defineOgImage('PxlcOg')` (le composant n'accepte pas de props).
-- Hébergement GitHub Pages : pas de runtime serveur — aucune API route,
-  aucune fonctionnalité SSR dynamique. Tout doit fonctionner en statique.
+- SEO : graphe schema.org construit à la main dans `src/lib/schema.ts`
+  (@id croisés `#identity`/`#andy`/`#service`…) ; sitemap, OG et CSP générés
+  en post-build par `scripts/generate-sitemap.mjs`, `generate-og.mjs`
+  (satori + resvg, gabarits JS, TTF vendorées `src/assets/og-fonts/`) et
+  `csp-hash.mjs`.
+- `public/robots.txt` est statique (3 groupes : tous, bots d'entraînement IA
+  refusés, bots de recherche IA autorisés) — le maintenir à la main.
+- Images : `astro:assets` (sources `src/assets/photos/`) ; les originaux de
+  `public/img/photos/` restent en place, référencés par le JSON-LD et la
+  fiche Google Business Profile — ne pas les supprimer.
+- GitHub Pages : pas de runtime serveur — aucune API route, tout doit
+  fonctionner en statique. Trailing slash partout (canonical = forme avec
+  slash, GitHub Pages 301-redirige la forme sans slash).
 
 ## Workflow attendu
 
-- Toute nouvelle page doit définir : meta SEO, OG image, un seul CTA primaire.
+- Toute nouvelle page doit définir : `const seo = { title ≤ 53, description
+  ≤ 120, … }` passé à BaseLayout, un `schemaGraph` (via `pageGraph`), un seul
+  CTA primaire.
 - Avant de considérer une tâche terminée, exécuter :
   `npm run lint && npm run typecheck && npm run ds-lint && npm run validate-content`.
 - Petits commits ciblés ; messages en français, sans emoji.

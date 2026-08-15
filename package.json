@@ -1,5 +1,5 @@
 {
-  "name": "pxlc-nuxt",
+  "name": "pxlc-site",
   "type": "module",
   "private": true,
   "scripts": {
@@ -13,7 +13,7 @@
     "validate-content": "node scripts/validate-content.mjs",
     "prebuild": "npm run gen:tokens && npm run design && npm run ds-lint && npm run validate-content",
     "predev": "npm run gen:tokens && npm run design",
-    "postbuild": "node scripts/generate-sitemap.mjs && node scripts/generate-og.mjs && node scripts/csp-hash.mjs && node scripts/prune-dist.mjs && node scripts/check-links.mjs",
+    "postbuild": "node scripts/generate-sitemap.mjs && node scripts/generate-og.mjs && node scripts/csp-hash.mjs && node scripts/check-links.mjs",
     "seo:snapshot": "node scripts/seo-snapshot.mjs",
     "check-links": "node scripts/check-links.mjs",
     "a11y": "node scripts/a11y-audit.mjs",
@@ -21,37 +21,29 @@
     "lighthouse": "node scripts/lighthouse-audit.mjs",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "typecheck": "astro check",
-    "build:lib": "vite build --config vite.lib.config.ts",
-    "build:ce": "vite build --config vite.ce.config.ts"
+    "typecheck": "astro check"
   },
   "dependencies": {
-    "@astrojs/vue": "^7.0.2",
     "@iconify-json/lucide": "^1.2.123",
     "@iconify-json/simple-icons": "^1.2.93",
     "@resvg/resvg-js": "^2.6.2",
     "astro": "^7.2.2",
     "astro-icon": "^1.1.5",
-    "satori": "^0.29.0",
-    "vue": "^3.5.41"
+    "satori": "^0.29.0"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.10",
     "@axe-core/playwright": "^4.13.0",
     "@eslint/js": "^10.0.1",
-    "@vitejs/plugin-vue": "^6.0.8",
     "axe-core": "^4.13.0",
     "chrome-launcher": "^1.2.1",
     "eslint": "^10.8.1",
     "eslint-plugin-astro": "^3.1.0",
-    "eslint-plugin-vue": "^10.10.0",
     "globals": "^17.11.0",
     "jsdom": "^30.0.1",
     "lighthouse": "^13.4.0",
     "playwright": "^1.62.1",
     "typescript": "^6.0.3",
-    "typescript-eslint": "^8.67.0",
-    "unplugin-auto-import": "^21.1.0",
-    "vite": "^8.2.1"
+    "typescript-eslint": "^8.67.0"
   }
 }

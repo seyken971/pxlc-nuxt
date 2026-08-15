@@ -1,9 +1,8 @@
 #!/usr/bin/env node
 /**
  * Substitue le placeholder __CSP_SCRIPT_HASHES__ de la meta
- * Content-Security-Policy par les sha256 des scripts inline de chaque page —
- * remplace nuxt-security (ssg.hashScripts). À lancer en post-build, après
- * generate-og (dernier réécrivain du HTML).
+ * Content-Security-Policy par les sha256 des scripts inline de chaque page.
+ * À lancer en dernier réécrivain du HTML dans la chaîne post-build.
  *
  *   node scripts/csp-hash.mjs [buildDir]
  */
