@@ -96,6 +96,18 @@ atelier, place du parent dans le dispositif, retours du terrain SESSAD
 (témoignage Lékoklaya en cours de formalisation). Objectif : nourrir le
 funnel RDV-first depuis `/structures/`.
 
+Briefs rédigés le 15/08/2026 — décision de rédaction à prendre par Andy,
+sujet par sujet. Choix de cadrage : le déroulé du dispositif médico-social
+étant déjà couvert (pilier B2B, article Lékoklaya), le brief « atelier »
+prend l'angle des segments sans contenu à ce jour — lecture publique,
+centres sociaux/EVS, CLAS.
+
+| Sujet | Brief | Statut |
+|-------|-------|--------|
+| Atelier en médiathèque / lieu social | `atelier-jeu-video-mediatheque` | Brief prêt — à valider |
+| Place du parent dans le dispositif | `place-du-parent-atelier-mediation` | Brief prêt — à valider |
+| Retours du terrain « Jouons Ensemble ! » | `jouons-ensemble-retours-terrain` | Brief prêt — **bloqué** (témoignage + bilan à valider par l'équipe Lékoklaya) |
+
 ## 5. Pipeline de production (rodé sur l'article sommeil)
 
 1. **Brief** dans `docs/seo-briefs/` — format du brief
