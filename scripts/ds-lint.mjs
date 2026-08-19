@@ -257,10 +257,10 @@ function lintComponentName(file) {
 }
 
 // ── R7 — Longueurs SEO ────────────────────────────────────────────────────────
-// Limites partagées avec content.config.ts et validate-content.mjs
-// (scripts/seo-limits.mjs). Seules les valeurs LITTÉRALES sont vérifiées —
-// les expressions dynamiques (ex. post.value.seoTitle || …) sont couvertes
-// par validate-content côté contenu.
+// Limites partagées avec content.config.ts (scripts/seo-limits.mjs).
+// Seules les valeurs LITTÉRALES sont vérifiées — les expressions dynamiques
+// (ex. post.value.seoTitle || …) sont couvertes côté contenu par le schéma
+// zod de la collection blog.
 function lintSeoMeta(src, file) {
   const vs = []
   const limits = { title: SEO_TITLE_MAX, description: SEO_DESC_MAX, ogDescription: SEO_DESC_MAX }

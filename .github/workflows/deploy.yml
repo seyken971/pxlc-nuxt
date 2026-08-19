@@ -59,7 +59,7 @@ jobs:
 
       - name: Build static site (gates + Astro + post-build SEO)
         # `npm run build` déclenche les hooks npm :
-        #   prebuild  = gen:tokens → design → ds-lint → validate-content
+        #   prebuild  = gen:tokens → design → ds-lint
         #   build     = astro build (24 pages statiques dans dist/)
         #   postbuild = sitemap → OG (satori) → CSP hashes → prune → check-links
         run: npm run build

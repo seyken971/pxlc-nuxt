@@ -28,7 +28,7 @@ npm run dev       # http://localhost:4321
 
 `npm run build` enchaîne automatiquement les hooks npm :
 
-- **prebuild** : `gen:tokens` → `design` → `ds-lint` → `validate-content`
+- **prebuild** : `gen:tokens` → `design` → `ds-lint`
 - **build** : `astro build` (~24 pages statiques dans `dist/`)
 - **postbuild** : `generate-sitemap` → `generate-og` (satori + resvg) → `csp-hash` → `check-links`
 
@@ -42,7 +42,6 @@ Un build qui casse sur ces gates signale une règle brand, contenu ou lien viol�
 | `npm run gen:tokens`       | Régénère le bloc `--pxlc-*` dans `tokens.css` depuis `brand-colors.ts`                                                          |
 | `npm run design`           | Génère `design.md` depuis `tokens.css` + `styles.css`                                                                           |
 | `npm run ds-lint`          | Lint du design system (tokens, règles brand R1-R12)                                                                             |
-| `npm run validate-content` | Valide le contenu éditorial (frontmatter, longueurs SEO)                                                                        |
 | `npm run seo:snapshot`     | Capture la surface SEO d'un build (voir non-régression SEO)                                                                     |
 | `npm run check-links`      | Vérifie les liens internes du build (slash final, ancres)                                                                       |
 | `npm run lint`             | ESLint flat config (astro + TS)                                                                                                 |

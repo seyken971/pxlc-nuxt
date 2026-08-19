@@ -81,14 +81,13 @@ Aussi dans design.md, mais bloquants — vérifier chaque texte généré ou mod
 
 - `npm run dev` — serveur de dev Astro (predev : gen:tokens + design)
 - `npm run build` — build statique complet pour GitHub Pages :
-  - prebuild : gen:tokens → design → ds-lint → validate-content
+  - prebuild : gen:tokens → design → ds-lint
   - build : `astro build` (~24 pages dans `dist/`)
   - postbuild : generate-sitemap → generate-og → csp-hash → check-links
 - `npm run preview` — sert `dist/` en local
 - `npm run lint` / `npm run lint:fix` — ESLint (flat config : astro + TS)
 - `npm run typecheck` — `astro check`
 - `npm run ds-lint` — lint du design system (tokens, règles brand, R1-R12)
-- `npm run validate-content` — frontmatter + longueurs SEO des articles
 - `npm run seo:snapshot` — capture la surface SEO d'un build (voir ci-dessous)
 - `npm run check-links` — liens internes du build (slash final, ancres)
 - `npm run a11y` / `npm run a11y:runtime` — audits accessibilité
@@ -125,7 +124,8 @@ Après un changement SEO volontaire mergé, re-capturer la baseline.
   ds-lint R7). `src/config/nav.ts`, `blog-categories.ts`, `project-themes.ts`.
 - Contenu éditorial : collection Astro `blog` (`src/content.config.ts`,
   schéma zod, `content/blog/*.md`) — toute modification de contenu doit
-  passer `npm run validate-content`.
+  validé à l’ingestion par le schéma zod (champs requis + longueurs SEO
+  effectives) — `astro sync` ou le build échoue sur un article invalide.
 - SEO : graphe schema.org construit à la main dans `src/lib/schema.ts`
   (@id croisés `#identity`/`#andy`/`#service`…) ; sitemap, OG et CSP générés
   en post-build par `scripts/generate-sitemap.mjs`, `generate-og.mjs`
@@ -146,7 +146,7 @@ Après un changement SEO volontaire mergé, re-capturer la baseline.
   ≤ 120, … }` passé à BaseLayout, un `schemaGraph` (via `pageGraph`), un seul
   CTA primaire.
 - Avant de considérer une tâche terminée, exécuter :
-  `npm run lint && npm run typecheck && npm run ds-lint && npm run validate-content`.
+  `npm run lint && npm run typecheck && npm run ds-lint`.
 - Petits commits ciblés ; messages en français, sans emoji.
 - En cas de doute sur le ton, le positionnement ou la cible d'un texte :
   proposer, ne pas publier — Andy valide tout le copy final.

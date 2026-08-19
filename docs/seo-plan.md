@@ -29,7 +29,7 @@
   action de conversion primaire ; devis et plaquette en secondaire.
 - **Local** : fiche Google Business Profile vérifiée, liée au schema
   `#identity`. Entité GBP = « PXLC - Médiation numérique », site.name = « PXLC ».
-- **Limites meta** (gate `validate-content`) : title effectif ≤ 53 caractères
+- **Limites meta** (schéma zod de la collection `blog`) : title effectif ≤ 53 caractères
   (avant suffixe « · PXLC »), description effective ≤ 120 caractères.
 - **Trailing slash** : activé (alignement canonical/sitemap avec GitHub Pages).
 
@@ -120,7 +120,7 @@ centres sociaux/EVS, CLAS.
    interdit balayé.
 4. **Maillage** — liens sortants ET entrants posés le même jour que la
    publication.
-5. **Gates** — `lint · typecheck · ds-lint · validate-content`, puis PR.
+5. **Gates** — `lint · typecheck · ds-lint · build`, puis PR.
    Andy valide tout le copy final avant merge.
 
 ## 6. Piliers de maillage interne

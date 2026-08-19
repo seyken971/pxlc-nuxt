@@ -4,10 +4,10 @@ PostToolUse hook — vérifications après chaque Edit/Write.
 Deux branches selon le fichier édité :
 
   content/**/*.md
-    → node scripts/validate-content.mjs (frontmatter requis + limites SEO
-      partagées dans scripts/seo-limits.mjs). Échec = exit 2 : le détail
-      est renvoyé à Claude pour correction immédiate, au lieu d'attendre
-      le prebuild.
+    → astro sync : ré-ingère la collection blog et applique son schéma zod
+      (champs requis + limites SEO effectives, cf. src/content.config.ts).
+      Échec = exit 2 : le détail est renvoyé à Claude pour correction
+      immédiate, au lieu d'attendre le build.
 
   *.vue / *.ts / *.js / *.mjs
     → 1. fix-curly-quotes.py (même payload stdin) — séquencé ici plutôt
@@ -53,21 +53,21 @@ def run(cmd, **kwargs):
 
 
 # ---------------------------------------------------------------------------
-# Articles @nuxt/content — frontmatter + limites SEO
+# Articles de la collection blog — schéma zod (astro sync)
 # ---------------------------------------------------------------------------
 if norm.endswith(".md") and "/content/" in norm:
-    script = os.path.join(ROOT, "scripts", "validate-content.mjs")
-    if not os.path.exists(script):
+    astro_bin = os.path.join(ROOT, "node_modules", "astro", "bin", "astro.mjs")
+    if not os.path.exists(astro_bin):
         sys.exit(0)
-    r = run(["node", script])
+    r = run(["node", astro_bin, "sync"])
     if r.returncode != 0:
         print(
-            "[hook] validate-content a échoué après édition de "
-            f"{file_path} :\n{r.stdout}{r.stderr}",
+            "[hook] astro sync a échoué après édition de "
+            f"{file_path} (schéma de collection) :\n{r.stdout}{r.stderr}",
             file=sys.stderr,
         )
         sys.exit(2)
-    print(f"[hook] validate-content OK ({file_path})")
+    print(f"[hook] astro sync OK ({file_path})")
     sys.exit(0)
 
 # ---------------------------------------------------------------------------
