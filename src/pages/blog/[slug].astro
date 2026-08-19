@@ -48,7 +48,7 @@ const seo = {
   // Strip the "· PXLC" titleTemplate suffix from OG cards — og:site_name already
   // carries the brand; the full title alone can exceed the ~60-char social limit.
   ogTitle: data.title,
-  ogImage: `https://pxlc.fr/_og/blog/${post.id}.png`,
+  ogImage: `https://pxlc.fr/og/blog/${post.id}.png`,
 }
 
 // BlogPosting structured data so Google can surface the article in Discover,
@@ -63,7 +63,7 @@ const schemaGraph = articleGraph({
   category: data.category,
   datePublished: isoDate(data.date),
   dateModified: isoDate(data.updated || data.date),
-  // Les cartes OG vivent sous /_og/ ; repli sur une photo réelle et valide
+  // Les cartes OG vivent sous /og/ ; repli sur une photo réelle et valide
   // pour les rich results Article.
   image: data.cover ? `https://pxlc.fr${data.cover}` : 'https://pxlc.fr/img/photos/andy-event.jpg',
   crumbs: breadcrumbItems(`${articlePath}/`, data.title),

@@ -9,7 +9,7 @@ Déployé sur **https://pxlc.fr**.
 | ------------- | --------------------------------------------------------------------------------------- |
 | Framework     | [Astro](https://astro.build) 7 — 100 % statique, zéro JS hydraté (scripts vanilla inline) |
 | Contenu       | Collection Astro `blog` (`src/content.config.ts`, schéma zod, `content/blog/*.md`)      |
-| SEO           | Graphe schema.org à la main (`src/lib/schema.ts`) · sitemap `@astrojs/sitemap` · flux RSS `@astrojs/rss` · CSP native (`security.csp`) · OG images et liens en post-build (`scripts/`) |
+| SEO           | Graphe schema.org à la main (`src/lib/schema.ts`) · sitemap `@astrojs/sitemap` · flux RSS `@astrojs/rss` · CSP native (`security.csp`) · cartes OG en endpoints (`src/pages/og/`) · liens vérifiés en post-build |
 | Images        | `astro:assets` (sources `src/assets/photos/`, WebP auto)                                |
 | Icônes        | SVG vendorées dans `src/icons/` (imports natifs Astro — Lucide, Simple Icons)            |
 | Fonts         | woff2 auto-hébergées (`fonts.css` écrit à la main, pas de Google CDN)                   |
@@ -30,7 +30,7 @@ npm run dev       # http://localhost:4321
 
 - **prebuild** : `gen:tokens` → `design` → `ds-lint`
 - **build** : `astro build` (~24 pages statiques dans `dist/`)
-- **postbuild** : `generate-og` (satori + resvg) → `check-links`
+- **postbuild** : `check-links`
 
 Un build qui casse sur ces gates signale une règle brand, contenu ou lien violée — pas un bug à contourner.
 
@@ -56,7 +56,7 @@ Un build qui casse sur ces gates signale une règle brand, contenu ou lien viol�
 ```
 src/lib/brand-colors.ts            ← source canonique (TypeScript)
     │
-    ├── consommé par scripts/generate-og.mjs  (rendu OG post-build, hex direct)
+    ├── consommé par src/lib/og-templates.ts (rendu OG, hex direct)
     │
     └── scripts/generate-tokens.mjs  → régénère le bloc BRAND HEX dans
            src/styles/tokens.css  (--pxlc-*)
@@ -110,7 +110,7 @@ Les mises à jour de dépendances npm sont gérées via **Dependabot** (`.github
 
 - **Commits** : petits commits ciblés, messages en français, sans emoji (ex. `docs : aligne le README sur la stack Astro`)
 - **Design tokens** : ne jamais éditer `tokens.css` ni `design.md` manuellement — passer par `brand-colors.ts` et les scripts de génération
-- **OG images** : générées en post-build par `scripts/generate-og.mjs` (satori + resvg) — carte de marque unique + carte par article
+- **OG images** : rendues par les endpoints `src/pages/og/` (satori + resvg, gabarits dans `src/lib/og-templates.ts`) — carte de marque unique + carte par article
 - **Funnel** : offre B2B exclusivement via structures porteuses — pas de direct-to-parent dans le wording
 
 ## Licence

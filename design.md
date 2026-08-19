@@ -484,7 +484,7 @@ Classes issues de `styles.css`. Les styles scoped des composants Vue ne sont pas
 
 ### OG Images
 
-- Générateur : `scripts/generate-og.mjs` (satori + resvg, post-build) — non disponibles en dev
-- Carte de marque `/_og/site.png` (logo + tagline), identique sur toutes les pages statiques
-- Carte par article `/_og/blog/<slug>.png` (titre + catégorie, paliers de taille 68/56/46/40)
+- Générateur : endpoints `src/pages/og/*.png.ts` (satori + resvg via `src/lib/og-templates.ts`) — disponibles aussi en dev
+- Carte de marque `/og/site.png` (logo + tagline), identique sur toutes les pages statiques
+- Carte par article `/og/blog/<slug>.png` (titre + catégorie, paliers de taille 68/56/46/40)
 - Couleurs depuis `src/lib/brand-colors.ts`, polices TTF vendorées dans `src/assets/og-fonts/`

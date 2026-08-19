@@ -1,0 +1,179 @@
+/**
+ * Gabarits des cartes Open Graph (1200×600) et rendu PNG.
+ *
+ * Deux cartes : marque (toutes les pages) et article (titre + catégorie).
+ * Consommés par les endpoints `src/pages/og/site.png.ts` et
+ * `src/pages/og/blog/[slug].png.ts` — donc rendues par Astro, disponibles
+ * en dev comme au build.
+ *
+ * Couleurs : `BRAND_HEX` (source canonique) ; géométrie de la marque 3×3 :
+ * `og-mark.ts`. Polices : TTF vendorées dans `src/assets/og-fonts/`
+ * (satori ne lit pas le woff2).
+ */
+import { readFile } from 'node:fs/promises'
+import { join } from 'node:path'
+import satori from 'satori'
+import { Resvg } from '@resvg/resvg-js'
+import { BRAND_HEX } from './brand-colors'
+import { MARK_RECTS } from './og-mark'
+
+const F_SANS = 'Plus Jakarta Sans'
+const TAGLINE = 'Médiation numérique · Guadeloupe'
+
+const palette = {
+  bg: BRAND_HEX.bgLight,
+  ink: BRAND_HEX.textInk,
+  accent: BRAND_HEX.tealDeep,
+  muted: BRAND_HEX.textOnLight,
+  coral: BRAND_HEX.coral,
+}
+
+type OgNode = { type: string, props: Record<string, unknown> }
+
+const h = (
+  type: string,
+  style: Record<string, unknown>,
+  children: unknown,
+  extra: Record<string, unknown> = {},
+): OgNode => ({ type, props: { style, children, ...extra } })
+
+const markSvg = (size: number): OgNode => ({
+  type: 'svg',
+  props: {
+    width: size,
+    height: size,
+    viewBox: '0 0 100 100',
+    children: MARK_RECTS.map(r => ({
+      type: 'rect',
+      props: { x: r.x, y: r.y, width: 29.33, height: 29.33, rx: 3.5, fill: r.fill },
+    })),
+  },
+})
+
+// Lockup « PXLC. » — point final coral.
+const lockup = (fontSize: string) => h('span', {
+  fontFamily: F_SANS,
+  fontWeight: 700,
+  fontSize,
+  letterSpacing: '-0.03em',
+  color: palette.ink,
+  lineHeight: 1,
+}, ['PXLC', h('span', { color: palette.coral }, '.')])
+
+// Filigrane : marque pixel en bas à droite, faible opacité, inclinée -8°.
+const watermark = (size: number, offset: number) => h('div', {
+  position: 'absolute',
+  right: `${offset}px`,
+  bottom: `${offset}px`,
+  display: 'flex',
+  transform: 'rotate(-8deg)',
+  opacity: 0.1,
+}, [markSvg(size)])
+
+// ── Gabarit 1 : carte de marque ─────────────────────────────────────────────
+export const siteCard = () => h('div', {
+  width: '100%',
+  height: '100%',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'center',
+  position: 'relative',
+  overflow: 'hidden',
+  backgroundColor: palette.bg,
+  fontFamily: F_SANS,
+  padding: '64px',
+}, [
+  watermark(520, -80),
+  h('div', { display: 'flex', flexDirection: 'column', alignItems: 'center' }, [
+    markSvg(172),
+    h('div', { display: 'flex', marginTop: '24px' }, [lockup('88px')]),
+    h('span', {
+      fontFamily: F_SANS,
+      fontSize: '26px',
+      fontWeight: 600,
+      letterSpacing: '0.18em',
+      textTransform: 'uppercase',
+      color: palette.accent,
+      marginTop: '28px',
+    }, TAGLINE),
+  ]),
+])
+
+// ── Gabarit 2 : carte article ───────────────────────────────────────────────
+// Taille du titre par paliers de longueur — pas de mesure runtime.
+export const articleCard = (title: string, category: string) => {
+  const len = title.length
+  const titleFontSize = len <= 38 ? '68px' : len <= 66 ? '56px' : len <= 96 ? '46px' : '40px'
+  return h('div', {
+    width: '100%',
+    height: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    position: 'relative',
+    overflow: 'hidden',
+    backgroundColor: palette.bg,
+    fontFamily: F_SANS,
+    padding: '72px',
+  }, [
+    watermark(460, -90),
+    h('div', { display: 'flex', alignItems: 'center' }, [
+      markSvg(60),
+      h('div', { display: 'flex', marginLeft: '16px' }, [lockup('34px')]),
+    ]),
+    h('div', { display: 'flex', flexDirection: 'column', maxWidth: '1000px' }, [
+      h('span', {
+        fontFamily: F_SANS,
+        fontSize: '24px',
+        fontWeight: 600,
+        letterSpacing: '0.18em',
+        textTransform: 'uppercase',
+        color: palette.accent,
+        marginBottom: '24px',
+      }, category),
+      h('div', {
+        display: 'flex',
+        fontFamily: F_SANS,
+        fontWeight: 700,
+        fontSize: titleFontSize,
+        letterSpacing: '-0.02em',
+        color: palette.ink,
+        lineHeight: 1.12,
+      }, title),
+    ]),
+    h('div', { display: 'flex', alignItems: 'center' }, [
+      h('span', {
+        fontFamily: F_SANS,
+        fontSize: '22px',
+        fontWeight: 600,
+        letterSpacing: '0.14em',
+        textTransform: 'uppercase',
+        color: palette.muted,
+      }, TAGLINE),
+    ]),
+  ])
+}
+
+// Polices chargées une fois par process de build.
+let fontsPromise: Promise<{ name: string, weight: 600 | 700, style: 'normal', data: Buffer }[]> | null = null
+const fonts = () => {
+  fontsPromise ??= (async () => {
+    const dir = join(process.cwd(), 'src', 'assets', 'og-fonts')
+    return [
+      { name: F_SANS, weight: 600 as const, style: 'normal' as const, data: await readFile(join(dir, 'PlusJakartaSans-SemiBold.ttf')) },
+      { name: F_SANS, weight: 700 as const, style: 'normal' as const, data: await readFile(join(dir, 'PlusJakartaSans-Bold.ttf')) },
+    ]
+  })()
+  return fontsPromise
+}
+
+/** Rend un gabarit en PNG 1200×600. */
+export const renderOgPng = async (tree: OgNode): Promise<Buffer> => {
+  const svg = await satori(tree as unknown as Parameters<typeof satori>[0], {
+    width: 1200,
+    height: 600,
+    fonts: await fonts(),
+  })
+  return Buffer.from(new Resvg(svg, { fitTo: { mode: 'width', value: 1200 } }).render().asPng())
+}

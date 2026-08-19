@@ -83,7 +83,7 @@ Aussi dans design.md, mais bloquants — vérifier chaque texte généré ou mod
 - `npm run build` — build statique complet pour GitHub Pages :
   - prebuild : gen:tokens → design → ds-lint
   - build : `astro build` (~24 pages dans `dist/`)
-  - postbuild : generate-og → check-links
+  - postbuild : check-links
 - `npm run preview` — sert `dist/` en local
 - `npm run lint` / `npm run lint:fix` — ESLint (flat config : astro + TS)
 - `npm run typecheck` — `astro check`
@@ -134,8 +134,10 @@ Après un changement SEO volontaire mergé, re-capturer la baseline.
   l'intégration `@astrojs/sitemap` (`dist/sitemap-index.xml`, `lastmod` des
   articles injectés par `serialize` depuis `scripts/blog-lastmod.mjs`) ;
   flux RSS du blog par l'endpoint `src/pages/rss.xml.ts` (`@astrojs/rss`) ;
-  OG générées en post-build par `scripts/generate-og.mjs`
-  (satori + resvg, gabarits JS, TTF vendorées `src/assets/og-fonts/`).
+  cartes OG rendues par les endpoints `src/pages/og/site.png.ts` et
+  `og/blog/[slug].png.ts` (satori + resvg, gabarits dans
+  `src/lib/og-templates.ts`, TTF vendorées `src/assets/og-fonts/`) —
+  visibles en dev, contrairement à l’ancien script post-build.
 - `public/robots.txt` est statique (3 groupes : tous, bots d'entraînement IA
   refusés, bots de recherche IA autorisés) — le maintenir à la main.
 - Images : `astro:assets` (sources `src/assets/photos/`) ; les originaux de
