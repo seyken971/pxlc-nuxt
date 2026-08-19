@@ -30,4 +30,4 @@ User-agent: Claude-SearchBot
 User-agent: Perplexity-User
 Allow: /
 
-Sitemap: https://pxlc.fr/sitemap.xml
+Sitemap: https://pxlc.fr/sitemap-index.xml
