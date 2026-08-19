@@ -11,7 +11,7 @@ Déployé sur **https://pxlc.fr**.
 | Contenu       | Collection Astro `blog` (`src/content.config.ts`, schéma zod, `content/blog/*.md`)      |
 | SEO           | Graphe schema.org à la main (`src/lib/schema.ts`) · sitemap `@astrojs/sitemap` · flux RSS `@astrojs/rss` · OG images, CSP et liens en post-build (`scripts/`) |
 | Images        | `astro:assets` (sources `src/assets/photos/`, WebP auto)                                |
-| Icônes        | [astro-icon](https://www.astroicon.dev) + @iconify-json (lucide, simple-icons)          |
+| Icônes        | SVG vendorées dans `src/icons/` (imports natifs Astro — Lucide, Simple Icons)            |
 | Fonts         | woff2 auto-hébergées (`fonts.css` écrit à la main, pas de Google CDN)                   |
 | Hosting       | GitHub Pages — build statique dans `dist/`, déployé via `actions/deploy-pages`          |
 | CI            | GitHub Actions — lint + typecheck + build (gates) + a11y + deploy (bloquant) · Lighthouse hebdo (info) |

@@ -1,5 +1,4 @@
 import { defineConfig } from 'astro/config'
-import icon from 'astro-icon'
 import sitemap from '@astrojs/sitemap'
 import { blogLastmod } from './scripts/blog-lastmod.mjs'
 
@@ -19,7 +18,6 @@ export default defineConfig({
   trailingSlash: 'always',
   build: { format: 'directory' },
   integrations: [
-    icon(),
     // Sitemap officiel : `dist/sitemap-index.xml` + `dist/sitemap-0.xml`.
     // Les pages 404/500 sont exclues par l'intégration ; on retire en plus
     // les pages noindex du site.
