@@ -6,6 +6,7 @@
 import '../styles/fonts.css'
 import '../styles/styles.css'
 import { SITE } from '../config/site'
+import { THEME_SCRIPT } from '../lib/theme-script'
 import PxlcLockup from '../components/PxlcLockup.astro'
 import PxlcPixelStrip from '../components/PxlcPixelStrip.astro'
 ---
@@ -15,7 +16,7 @@ import PxlcPixelStrip from '../components/PxlcPixelStrip.astro'
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- Anti-flash thème (pas d'héritage du layout ici). -->
-    <script is:inline>(function(){try{const s=localStorage.getItem('pxlc-theme');const t=s||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);}catch{}})();</script>
+    <script is:inline set:html={THEME_SCRIPT} />
     <title>Page introuvable · PXLC</title>
     <!-- 404 → noindex (hygiène SEO standard pour les vraies pages absentes). -->
     <meta name="robots" content="noindex, follow" />

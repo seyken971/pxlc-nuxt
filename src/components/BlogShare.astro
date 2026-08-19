@@ -1,5 +1,7 @@
 ---
-import { Icon } from 'astro-icon/components'
+import Linkedin from '../icons/linkedin.svg'
+import Whatsapp from '../icons/whatsapp.svg'
+import X from '../icons/x.svg'
 
 interface Props {
   url: string
@@ -14,19 +16,19 @@ const shares = [
   {
     key: 'linkedin',
     label: 'LinkedIn',
-    icon: 'simple-icons:linkedin',
+    icon: Linkedin,
     href: `https://www.linkedin.com/sharing/share-offsite/?url=${u}`,
   },
   {
     key: 'twitter',
     label: 'X / Twitter',
-    icon: 'simple-icons:x',
+    icon: X,
     href: `https://x.com/intent/tweet?url=${u}&text=${t}`,
   },
   {
     key: 'whatsapp',
     label: 'WhatsApp',
-    icon: 'simple-icons:whatsapp',
+    icon: Whatsapp,
     href: `https://wa.me/?text=${t}%20${u}`,
   },
 ]
@@ -35,20 +37,23 @@ const shares = [
 <div class:list={['blog-share', className]} role="group" aria-label="Partager cet article">
   <span class="blog-share__label">Partager</span>
   <ul class="blog-share__list" role="list">
-    {shares.map(s => (
-      <li>
-        <a
-          href={s.href}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="blog-share__link"
-          aria-label={`Partager sur ${s.label} (nouvel onglet)`}
-        >
-          <Icon name={s.icon} class="blog-share__icon" aria-hidden="true" />
-          <span>{s.label}</span>
-        </a>
-      </li>
-    ))}
+    {shares.map((s) => {
+      const Glyph = s.icon
+      return (
+        <li>
+          <a
+            href={s.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="blog-share__link"
+            aria-label={`Partager sur ${s.label} (nouvel onglet)`}
+          >
+            <Glyph class="blog-share__icon" aria-hidden="true" />
+            <span>{s.label}</span>
+          </a>
+        </li>
+      )
+    })}
   </ul>
 </div>
 

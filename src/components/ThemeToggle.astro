@@ -1,5 +1,6 @@
 ---
-import { Icon } from 'astro-icon/components'
+import Moon from '../icons/moon.svg'
+import Sun from '../icons/sun.svg'
 
 interface Props {
   variant?: 'default' | 'on-dark'
@@ -16,8 +17,8 @@ const { variant = 'default' } = Astro.props
   aria-label="Passer en thème sombre"
   aria-pressed="false"
 >
-  <Icon name="lucide:moon" class="icon--moon" aria-hidden="true" />
-  <Icon name="lucide:sun" class="icon--sun" aria-hidden="true" />
+  <Moon class="icon--moon" aria-hidden="true" />
+  <Sun class="icon--sun" aria-hidden="true" />
 </button>
 
 <script>

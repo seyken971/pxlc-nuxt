@@ -1,5 +1,6 @@
 ---
-import { Icon } from 'astro-icon/components'
+import Calendar from '../icons/calendar.svg'
+import Whatsapp from '../icons/whatsapp.svg'
 import BaseLayout from '../layouts/BaseLayout.astro'
 import SiteBreadcrumb from '../components/SiteBreadcrumb.astro'
 import PxlcInput from '../components/PxlcInput.astro'
@@ -92,7 +93,7 @@ const schemaGraph = pageGraph({
             href="https://cal.eu/pxlc-gp" target="_blank" rel="noopener noreferrer"
             aria-label="Prendre rendez-vous (nouvel onglet)"
           >
-            <Icon name="lucide:calendar" aria-hidden="true" style="width:18px;height:18px" />
+            <Calendar aria-hidden="true" class="contact-cards__icon" />
             Prendre rendez-vous
           </a>
           <a
@@ -100,7 +101,7 @@ const schemaGraph = pageGraph({
             href="https://wa.me/590690717618" target="_blank" rel="noopener noreferrer"
             aria-label="Envoyer un message WhatsApp (nouvel onglet)"
           >
-            <Icon name="simple-icons:whatsapp" aria-hidden="true" class="contact-wa-icon" style="width:18px;height:18px" />
+            <Whatsapp aria-hidden="true" class="contact-wa-icon contact-cards__icon" />
             WhatsApp
           </a>
 
@@ -272,6 +273,9 @@ const schemaGraph = pageGraph({
 
   /* ── Actions rapides + coordonnées ───────────────────────────── */
   .contact-cards { display: grid; gap: var(--space-3); }
+
+  /* Glyphes des boutons d’action : taille fixe, hors flux typographique. */
+  .contact-cards :global(.contact-cards__icon) { width: 18px; height: 18px; }
 
   /* Glyphe de marque WhatsApp : monochrome (--ink = noir en light, ivoire ≈ blanc
      en dark) — la charte interdit de recolorer le logo ; ne suit pas la couleur

@@ -1,5 +1,8 @@
 ---
-import { Icon } from 'astro-icon/components'
+import Calendar from '../icons/calendar.svg'
+import Linkedin from '../icons/linkedin.svg'
+import Mail from '../icons/mail.svg'
+import MessageSquare from '../icons/message-square.svg'
 import PxlcLockup from './PxlcLockup.astro'
 import PxlcPixelStrip from './PxlcPixelStrip.astro'
 
@@ -33,19 +36,19 @@ const year = new Date().getFullYear()
             <a
               class="site-footer__social-btn" href="https://www.linkedin.com/company/pxlc-mediation-numerique/"
               target="_blank" rel="noopener noreferrer" aria-label="Page LinkedIn de PXLC">
-              <Icon name="simple-icons:linkedin" aria-hidden="true" />
+              <Linkedin aria-hidden="true" />
             </a>
           </li>
           <li>
             <a class="site-footer__social-btn" href="mailto:contact@pxlc.fr" aria-label="Écrire à contact@pxlc.fr">
-              <Icon name="lucide:mail" aria-hidden="true" />
+              <Mail aria-hidden="true" />
             </a>
           </li>
           <li>
             <a
               class="site-footer__social-btn" href="https://cal.eu/pxlc-gp" target="_blank" rel="noopener noreferrer"
               aria-label="Prendre rendez-vous de 20 minutes">
-              <Icon name="lucide:calendar" aria-hidden="true" />
+              <Calendar aria-hidden="true" />
             </a>
           </li>
         </ul>
@@ -67,6 +70,9 @@ const year = new Date().getFullYear()
           <li>
             <a class="site-footer__col-link" href="/blog/">Blog</a>
           </li>
+          <li>
+            <a class="site-footer__col-link" href="/rss.xml" type="application/rss+xml">Flux RSS du blog</a>
+          </li>
         </ul>
       </div>
 
@@ -75,7 +81,7 @@ const year = new Date().getFullYear()
         <ul class="site-footer__col-list site-footer__col-list--icons" role="list">
           <li>
             <a class="site-footer__col-link site-footer__col-link--icon" href="/contact/">
-              <Icon name="lucide:message-square" aria-hidden="true" class="site-footer__contact-icon" />
+              <MessageSquare aria-hidden="true" class="site-footer__contact-icon" />
               Formulaire · 5&nbsp;min
             </a>
           </li>

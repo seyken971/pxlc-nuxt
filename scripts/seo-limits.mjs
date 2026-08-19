@@ -8,8 +8,8 @@
  * - SEO_DESC_MAX : longueur max des meta/og descriptions — limite de
  *   troncature mobile Google et des cartes sociales.
  *
- * Consommé par : src/content.config.ts (schéma zod),
- * scripts/validate-content.mjs (articles blog) et scripts/ds-lint.mjs
+ * Consommé par : src/content.config.ts (schéma zod de la collection blog,
+ * qui valide aussi les longueurs effectives) et scripts/ds-lint.mjs
  * (objets seo des pages et src/config/site.ts).
  */
 export const SEO_TITLE_MAX = 53

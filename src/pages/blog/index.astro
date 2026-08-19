@@ -1,6 +1,6 @@
 ---
 import { getCollection } from 'astro:content'
-import { Icon } from 'astro-icon/components'
+import Clock from '../../icons/clock.svg'
 import BaseLayout from '../../layouts/BaseLayout.astro'
 import SiteBreadcrumb from '../../components/SiteBreadcrumb.astro'
 import PxlcMark from '../../components/PxlcMark.astro'
@@ -115,7 +115,7 @@ const schemaGraph = pageGraph({
                 <time datetime={isoDate(p.data.date)}>{fmtDate(p.data.date)}</time>
                 {p.data.readingTime && (
                   <span class="blog-card__rt">
-                    <Icon name="lucide:clock" aria-hidden="true" />{p.data.readingTime}
+                    <Clock aria-hidden="true" />{p.data.readingTime}
                   </span>
                 )}
               </div>
