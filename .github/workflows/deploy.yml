@@ -27,6 +27,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v7
+        with:
+          # Historique complet : les <lastmod> des pages statiques du sitemap
+          # viennent de la date du dernier commit touchant chaque page
+          # (scripts/sitemap-lastmod.mjs). Sur le clone superficiel par défaut,
+          # cette date est introuvable et tout retombe sur l'horodatage du
+          # build — le signal qu'on cherche justement à ne plus envoyer.
+          fetch-depth: 0
 
       - name: Setup Node.js 24 LTS
         uses: actions/setup-node@v7
