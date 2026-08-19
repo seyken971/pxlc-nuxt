@@ -90,6 +90,17 @@ jobs:
       - name: Install Playwright Chromium
         # --with-deps adds the OS-level libs Chromium needs on Ubuntu;
         # the binary itself comes from cache on hit. ~150 MB cold, ~5 s warm.
+        #
+        # Le 19/08/2026, cette étape s'est figée sans fin sur 2 runs sur 3
+        # (plus de 35 min, jusqu'à bloquer le déploiement de main). En cause :
+        # l'apt-get lancé par --with-deps, qui attend une réponse interactive.
+        # D'où les deux variables ci-dessous. Le timeout est le filet de
+        # sécurité — un blocage doit échouer vite, pas geler le job pendant
+        # les 6 h du timeout par défaut d'Actions.
+        timeout-minutes: 10
+        env:
+          DEBIAN_FRONTEND: noninteractive
+          NEEDRESTART_MODE: a
         run: npx playwright install chromium --with-deps
 
       - name: A11y audit — runtime (axe-core + headless Chromium)
