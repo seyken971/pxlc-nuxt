@@ -83,7 +83,7 @@ Aussi dans design.md, mais bloquants — vérifier chaque texte généré ou mod
 - `npm run build` — build statique complet pour GitHub Pages :
   - prebuild : gen:tokens → design → ds-lint
   - build : `astro build` (~24 pages dans `dist/`)
-  - postbuild : generate-og → csp-hash → check-links
+  - postbuild : generate-og → check-links
 - `npm run preview` — sert `dist/` en local
 - `npm run lint` / `npm run lint:fix` — ESLint (flat config : astro + TS)
 - `npm run typecheck` — `astro check`
@@ -118,8 +118,11 @@ Après un changement SEO volontaire mergé, re-capturer la baseline.
 - Astro (`src/`), zéro île hydratée : toute l'interactivité est en `<script>`
   vanilla dans les composants `.astro`.
 - `src/layouts/BaseLayout.astro` — head complet (titre `%s · PXLC`, canonical
-  avec slash final, og/twitter, CSP en meta avec placeholder
-  `__CSP_SCRIPT_HASHES__`, anti-flash thème, JSON-LD), chrome du site.
+  avec slash final, og/twitter, anti-flash thème, JSON-LD), chrome du site.
+  La CSP est émise par Astro (`security.csp`) : il hache ses propres scripts
+  et styles, le layout déclare en plus le hash du JSON-LD de la page via
+  `Astro.csp.insertScriptHash` et la config celui du script anti-flash
+  (`src/lib/theme-script.ts`, seul `is:inline` du site avec la 404).
 - `src/config/site.ts` — identité du site (source unique, lue aussi par
   ds-lint R7). `src/config/nav.ts`, `blog-categories.ts`, `project-themes.ts`.
 - Contenu éditorial : collection Astro `blog` (`src/content.config.ts`,
@@ -131,9 +134,8 @@ Après un changement SEO volontaire mergé, re-capturer la baseline.
   l'intégration `@astrojs/sitemap` (`dist/sitemap-index.xml`, `lastmod` des
   articles injectés par `serialize` depuis `scripts/blog-lastmod.mjs`) ;
   flux RSS du blog par l'endpoint `src/pages/rss.xml.ts` (`@astrojs/rss`) ;
-  OG et CSP générés en post-build par `scripts/generate-og.mjs`
-  (satori + resvg, gabarits JS, TTF vendorées `src/assets/og-fonts/`) et
-  `csp-hash.mjs`.
+  OG générées en post-build par `scripts/generate-og.mjs`
+  (satori + resvg, gabarits JS, TTF vendorées `src/assets/og-fonts/`).
 - `public/robots.txt` est statique (3 groupes : tous, bots d'entraînement IA
   refusés, bots de recherche IA autorisés) — le maintenir à la main.
 - Images : `astro:assets` (sources `src/assets/photos/`) ; les originaux de

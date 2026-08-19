@@ -12,7 +12,7 @@
     "ds-lint": "node scripts/ds-lint.mjs",
     "prebuild": "npm run gen:tokens && npm run design && npm run ds-lint",
     "predev": "npm run gen:tokens && npm run design",
-    "postbuild": "node scripts/generate-og.mjs && node scripts/csp-hash.mjs && node scripts/check-links.mjs",
+    "postbuild": "node scripts/generate-og.mjs && node scripts/check-links.mjs",
     "seo:snapshot": "node scripts/seo-snapshot.mjs",
     "check-links": "node scripts/check-links.mjs",
     "a11y": "node scripts/a11y-audit.mjs",

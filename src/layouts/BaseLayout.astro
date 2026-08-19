@@ -1,7 +1,9 @@
 ---
+import { createHash } from 'node:crypto'
 import '../styles/fonts.css'
 import '../styles/styles.css'
 import { SITE } from '../config/site'
+import { THEME_SCRIPT } from '../lib/theme-script'
 import SiteHeader from '../components/SiteHeader.astro'
 import SiteMobileMenu from '../components/SiteMobileMenu.astro'
 import SiteFooter from '../components/SiteFooter.astro'
@@ -42,38 +44,25 @@ const fullTitle = `${title}${SITE.titleSuffix}`
 const { ogTitle = fullTitle } = Astro.props
 const canonical = new URL(Astro.url.pathname, SITE.url).href
 
-// CSP en <meta http-equiv> (GitHub Pages ne permet pas de vrais en-têtes HTTP).
-// __CSP_SCRIPT_HASHES__ est substitué par scripts/csp-hash.mjs en post-build
-// avec les sha256 des scripts inline de chaque page. Contrairement à la CSP
-// Nuxt, pas de 'strict-dynamic' : les scripts Astro sont des modules externes
-// classiques couverts par 'self' ('strict-dynamic' les bloquerait).
-const csp = [
-  "base-uri 'self'",
-  "font-src 'self'",
-  "form-action 'self'",
-  "img-src 'self' data:",
-  "object-src 'none'",
-  "script-src-attr 'none'",
-  "style-src 'self' 'unsafe-inline'",
-  "script-src 'self' __CSP_SCRIPT_HASHES__",
-  'upgrade-insecure-requests',
-  "default-src 'self'",
-  "connect-src 'self'",
-  "manifest-src 'self'",
-  "frame-src 'none'",
-].join('; ') + ';'
+// La CSP est émise par Astro (security.csp dans astro.config.mjs), qui hache
+// lui-même les scripts et styles qu'il traite. Le JSON-LD est un script inline
+// propre à chaque page : on le sérialise une fois, on déclare son hash, puis on
+// rend cette même chaîne — hash et contenu servi restent identiques.
+const jsonLd = schemaGraph
+  ? JSON.stringify({ '@context': 'https://schema.org', '@graph': schemaGraph })
+  : null
+if (jsonLd) {
+  Astro.csp?.insertScriptHash(`sha256-${createHash('sha256').update(jsonLd, 'utf8').digest('base64')}`)
+}
 ---
 
 <html lang={SITE.lang}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- La CSP en <meta> ne couvre que les éléments qui la suivent — elle
-         précède donc le script anti-flash pour l'encadrer aussi. -->
-    <meta http-equiv="Content-Security-Policy" content={csp} />
     <!-- Anti-flash : pose data-theme avant le premier paint pour que le rendu
          initial respecte la préférence stockée / système. Inline synchrone. -->
-    <script is:inline>(function(){try{const s=localStorage.getItem('pxlc-theme');const t=s||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);}catch{}})();</script>
+    <script is:inline set:html={THEME_SCRIPT} />
     <title>{fullTitle}</title>
     <link rel="canonical" href={canonical} />
     <meta name="description" content={description} />
@@ -103,9 +92,7 @@ const csp = [
     <link rel="shortcut icon" href="/favicon.ico" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="manifest" href="/site.webmanifest" />
-    {schemaGraph && (
-      <script type="application/ld+json" set:html={JSON.stringify({ '@context': 'https://schema.org', '@graph': schemaGraph })} />
-    )}
+    {jsonLd && <script type="application/ld+json" set:html={jsonLd} />}
     <slot name="head" />
   </head>
   <body>
