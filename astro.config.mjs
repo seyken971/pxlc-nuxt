@@ -43,6 +43,12 @@ export default defineConfig({
         'upgrade-insecure-requests',
       ],
       scriptDirective: { hashes: [themeScriptHash] },
+      // Quelques scripts vanilla écrivent des styles inline à l'exécution
+      // (filtre du blog, barre de progression d'article, verrou de scroll du
+      // menu mobile) : les attributs `style` doivent rester autorisés. Portée
+      // limitée à `style-src-attr` — les feuilles et balises <style>, elles,
+      // restent couvertes par les hashes générés par Astro.
+      styleDirective: { resources: [{ resource: "'unsafe-inline'", kind: 'attribute' }] },
     },
   },
   integrations: [
