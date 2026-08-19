@@ -113,6 +113,11 @@ Jamais de comparaison `-eq` PowerShell pour vérifier du texte : elle assimile
 l'espace insécable à l'espace simple. `git diff` ou comparaison ordinale.
 Après un changement SEO volontaire mergé, re-capturer la baseline.
 
+Le diff est réellement vide quand rien ne change : les `lastmod` du sitemap
+sont dérivés du contenu et de l'historique git, pas de l'heure du build. Un
+`lastmod` de page statique ne bouge donc que lorsque le fichier de la page est
+commité — recapture attendue dans la PR qui la modifie.
+
 ## Stack & architecture
 
 - Astro (`src/`), zéro île hydratée : toute l'interactivité est en `<script>`
@@ -131,8 +136,10 @@ Après un changement SEO volontaire mergé, re-capturer la baseline.
   échouent sur un article invalide.
 - SEO : graphe schema.org construit à la main dans `src/lib/schema.ts`
   (@id croisés `#identity`/`#andy`/`#service`…) ; sitemap via
-  l'intégration `@astrojs/sitemap` (`dist/sitemap-index.xml`, `lastmod` des
-  articles injectés par `serialize` depuis `scripts/blog-lastmod.mjs`) ;
+  l'intégration `@astrojs/sitemap` (`dist/sitemap-index.xml`, `lastmod`
+  injectés par `serialize` depuis `scripts/sitemap-lastmod.mjs` : date
+  éditoriale pour les articles, date du dernier commit touchant la page pour
+  les statiques — d'où le `fetch-depth: 0` du workflow) ;
   flux RSS du blog par l'endpoint `src/pages/rss.xml.ts` (`@astrojs/rss`) ;
   cartes OG rendues par les endpoints `src/pages/og/site.png.ts` et
   `og/blog/[slug].png.ts` (satori + resvg, gabarits dans

@@ -1,7 +1,7 @@
 import { createHash } from 'node:crypto'
 import { defineConfig } from 'astro/config'
 import sitemap from '@astrojs/sitemap'
-import { blogLastmod } from './scripts/blog-lastmod.mjs'
+import { createLastmod } from './scripts/sitemap-lastmod.mjs'
 import { THEME_SCRIPT } from './src/lib/theme-script.ts'
 
 // GitHub Pages sert chaque page en `/chemin/index.html` : l'URL avec slash
@@ -9,11 +9,11 @@ import { THEME_SCRIPT } from './src/lib/theme-script.ts'
 // donc canonical + sitemap + liens internes sur la forme avec slash
 // (trailingSlash + format directory), comme le faisait la config Nuxt.
 
-// <lastmod> : date réelle du contenu pour les articles (frontmatter
-// `updated` ?? `date`), date du build pour les pages statiques (signal de
-// fraîcheur pour le recrawl).
-const lastmodBySlug = blogLastmod()
+// <lastmod> : date éditoriale pour les articles, date du dernier commit
+// touchant la page pour les statiques — politique détaillée dans
+// scripts/sitemap-lastmod.mjs. L'horodatage du build ne sert que de repli.
 const buildStamp = new Date().toISOString().replace(/\.\d{3}Z$/, 'Z')
+const lastmodFor = createLastmod(buildStamp)
 
 // GitHub Pages ne permet pas d'en-tête HTTP : Astro émet la CSP en <meta> sur
 // chaque page, avec les hashes des scripts et styles qu'il traite. Restent à
@@ -57,10 +57,7 @@ export default defineConfig({
     // les pages noindex du site.
     sitemap({
       filter: page => !page.includes('/mentions-legales/'),
-      serialize: (item) => {
-        const slug = item.url.match(/\/blog\/([^/]+)\/$/)?.[1]
-        return { ...item, lastmod: (slug && lastmodBySlug.get(slug)) || buildStamp }
-      },
+      serialize: item => ({ ...item, lastmod: lastmodFor(item.url) }),
     }),
   ],
 })
