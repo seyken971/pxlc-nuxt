@@ -43,6 +43,9 @@ const {
 const fullTitle = `${title}${SITE.titleSuffix}`
 const { ogTitle = fullTitle } = Astro.props
 const canonical = new URL(Astro.url.pathname, SITE.url).href
+// URL absolue du flux, comme le recommande la doc @astrojs/rss — un lecteur
+// qui récupère la page depuis un miroir ou un cache résout ainsi le bon flux.
+const rssUrl = new URL('rss.xml', SITE.url).href
 
 // La CSP est émise par Astro (security.csp dans astro.config.mjs), qui hache
 // lui-même les scripts et styles qu'il traite. Le JSON-LD est un script inline
@@ -88,7 +91,10 @@ if (jsonLd) {
     <meta name="twitter:image:src" content={ogImage} />
     <meta name="twitter:image:width" content="1200" />
     <meta name="twitter:image:height" content="600" />
-    <link rel="alternate" type="application/rss+xml" title={`Blog ${SITE.name}`} href="/rss.xml" />
+    <link rel="alternate" type="application/rss+xml" title={`Blog ${SITE.name}`} href={rssUrl} />
+    <!-- Signal secondaire : les moteurs s'appuient sur la directive Sitemap de
+         robots.txt, mais la doc de @astrojs/sitemap recommande aussi ce lien. -->
+    <link rel="sitemap" href="/sitemap-index.xml" />
     <link rel="shortcut icon" href="/favicon.ico" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="manifest" href="/site.webmanifest" />

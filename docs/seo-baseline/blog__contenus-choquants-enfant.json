@@ -10,7 +10,7 @@
     ],
     "alternate": [
       {
-        "href": "/rss.xml",
+        "href": "https://pxlc.fr/rss.xml",
         "type": "application/rss+xml"
       }
     ]
