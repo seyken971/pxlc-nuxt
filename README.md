@@ -9,7 +9,7 @@ Déployé sur **https://pxlc.fr**.
 | ------------- | --------------------------------------------------------------------------------------- |
 | Framework     | [Astro](https://astro.build) 7 — 100 % statique, zéro JS hydraté (scripts vanilla inline) |
 | Contenu       | Collection Astro `blog` (`src/content.config.ts`, schéma zod, `content/blog/*.md`)      |
-| SEO           | Graphe schema.org à la main (`src/lib/schema.ts`) · sitemap, OG images, CSP et liens générés en post-build (`scripts/`) |
+| SEO           | Graphe schema.org à la main (`src/lib/schema.ts`) · sitemap `@astrojs/sitemap` · flux RSS `@astrojs/rss` · OG images, CSP et liens en post-build (`scripts/`) |
 | Images        | `astro:assets` (sources `src/assets/photos/`, WebP auto)                                |
 | Icônes        | [astro-icon](https://www.astroicon.dev) + @iconify-json (lucide, simple-icons)          |
 | Fonts         | woff2 auto-hébergées (`fonts.css` écrit à la main, pas de Google CDN)                   |
@@ -30,7 +30,7 @@ npm run dev       # http://localhost:4321
 
 - **prebuild** : `gen:tokens` → `design` → `ds-lint`
 - **build** : `astro build` (~24 pages statiques dans `dist/`)
-- **postbuild** : `generate-sitemap` → `generate-og` (satori + resvg) → `csp-hash` → `check-links`
+- **postbuild** : `generate-og` (satori + resvg) → `csp-hash` → `check-links`
 
 Un build qui casse sur ces gates signale une règle brand, contenu ou lien violée — pas un bug à contourner.
 

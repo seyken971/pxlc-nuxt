@@ -12,7 +12,7 @@
     "ds-lint": "node scripts/ds-lint.mjs",
     "prebuild": "npm run gen:tokens && npm run design && npm run ds-lint",
     "predev": "npm run gen:tokens && npm run design",
-    "postbuild": "node scripts/generate-sitemap.mjs && node scripts/generate-og.mjs && node scripts/csp-hash.mjs && node scripts/check-links.mjs",
+    "postbuild": "node scripts/generate-og.mjs && node scripts/csp-hash.mjs && node scripts/check-links.mjs",
     "seo:snapshot": "node scripts/seo-snapshot.mjs",
     "check-links": "node scripts/check-links.mjs",
     "a11y": "node scripts/a11y-audit.mjs",
@@ -23,6 +23,8 @@
     "typecheck": "astro check"
   },
   "dependencies": {
+    "@astrojs/rss": "^4.0.19",
+    "@astrojs/sitemap": "^3.7.3",
     "@iconify-json/lucide": "^1.2.123",
     "@iconify-json/simple-icons": "^1.2.93",
     "@resvg/resvg-js": "^2.6.2",

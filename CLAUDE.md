@@ -83,7 +83,7 @@ Aussi dans design.md, mais bloquants — vérifier chaque texte généré ou mod
 - `npm run build` — build statique complet pour GitHub Pages :
   - prebuild : gen:tokens → design → ds-lint
   - build : `astro build` (~24 pages dans `dist/`)
-  - postbuild : generate-sitemap → generate-og → csp-hash → check-links
+  - postbuild : generate-og → csp-hash → check-links
 - `npm run preview` — sert `dist/` en local
 - `npm run lint` / `npm run lint:fix` — ESLint (flat config : astro + TS)
 - `npm run typecheck` — `astro check`
@@ -123,12 +123,15 @@ Après un changement SEO volontaire mergé, re-capturer la baseline.
 - `src/config/site.ts` — identité du site (source unique, lue aussi par
   ds-lint R7). `src/config/nav.ts`, `blog-categories.ts`, `project-themes.ts`.
 - Contenu éditorial : collection Astro `blog` (`src/content.config.ts`,
-  schéma zod, `content/blog/*.md`) — toute modification de contenu doit
-  validé à l’ingestion par le schéma zod (champs requis + longueurs SEO
-  effectives) — `astro sync` ou le build échoue sur un article invalide.
+  schéma zod, `content/blog/*.md`) — le frontmatter est validé à l'ingestion
+  (champs requis + longueurs SEO effectives) : `astro sync` et le build
+  échouent sur un article invalide.
 - SEO : graphe schema.org construit à la main dans `src/lib/schema.ts`
-  (@id croisés `#identity`/`#andy`/`#service`…) ; sitemap, OG et CSP générés
-  en post-build par `scripts/generate-sitemap.mjs`, `generate-og.mjs`
+  (@id croisés `#identity`/`#andy`/`#service`…) ; sitemap via
+  l'intégration `@astrojs/sitemap` (`dist/sitemap-index.xml`, `lastmod` des
+  articles injectés par `serialize` depuis `scripts/blog-lastmod.mjs`) ;
+  flux RSS du blog par l'endpoint `src/pages/rss.xml.ts` (`@astrojs/rss`) ;
+  OG et CSP générés en post-build par `scripts/generate-og.mjs`
   (satori + resvg, gabarits JS, TTF vendorées `src/assets/og-fonts/`) et
   `csp-hash.mjs`.
 - `public/robots.txt` est statique (3 groupes : tous, bots d'entraînement IA

@@ -89,23 +89,29 @@ const snapshotPage = async (path) => {
   }
 }
 
+// @astrojs/sitemap émet un index (sitemap-index.xml) qui pointe vers un ou
+// plusieurs fichiers d'URLs (sitemap-0.xml…) — on agrège tous les segments.
 const snapshotSitemap = async (buildDir) => {
-  const path = join(buildDir, 'sitemap.xml')
-  if (!existsSync(path)) return null
-  const xml = await readFile(path, 'utf8')
-  const dom = new JSDOM(xml, { contentType: 'text/xml' })
-  const doc = dom.window.document
-  const urls = [...doc.getElementsByTagName('url')].map((url) => {
-    const get = tag => url.getElementsByTagName(tag)[0]?.textContent ?? null
-    const images = [...url.getElementsByTagName('image:loc')].map(n => n.textContent)
-    return {
-      loc: get('loc'),
-      ...(get('lastmod') ? { lastmod: get('lastmod') } : {}),
-      ...(images.length ? { images } : {}),
+  const segments = (await readdir(buildDir))
+    .filter(name => /^sitemap-\d+\.xml$/.test(name))
+    .sort()
+  if (!segments.length) return null
+
+  const urls = []
+  for (const name of segments) {
+    const xml = await readFile(join(buildDir, name), 'utf8')
+    const dom = new JSDOM(xml, { contentType: 'text/xml' })
+    const doc = dom.window.document
+    for (const url of doc.getElementsByTagName('url')) {
+      const get = tag => url.getElementsByTagName(tag)[0]?.textContent ?? null
+      urls.push({
+        loc: get('loc'),
+        ...(get('lastmod') ? { lastmod: get('lastmod') } : {}),
+      })
     }
-  }).sort((a, b) => a.loc.localeCompare(b.loc))
-  dom.window.close()
-  return urls
+    dom.window.close()
+  }
+  return urls.sort((a, b) => a.loc.localeCompare(b.loc))
 }
 
 const routeToFilename = (route) => {
@@ -136,10 +142,10 @@ const main = async () => {
   const sitemap = await snapshotSitemap(BUILD_DIR)
   if (sitemap) {
     await writeFile(join(OUT_DIR, 'sitemap.json'), JSON.stringify(sitemap, null, 2) + '\n')
-    console.log(`✓ sitemap.xml (${sitemap.length} URLs)`)
+    console.log(`✓ sitemap-index.xml (${sitemap.length} URLs)`)
   }
   else {
-    console.warn('⚠ sitemap.xml absent du build')
+    console.warn('⚠ sitemap absent du build')
   }
 
   const robotsPath = join(BUILD_DIR, 'robots.txt')

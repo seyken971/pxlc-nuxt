@@ -69,7 +69,7 @@ jobs:
         # page is missing, fail loud instead of uploading a broken artefact.
         run: |
           test -f dist/index.html || { echo "::error::Missing dist/index.html"; exit 1; }
-          test -f dist/sitemap.xml || { echo "::error::Missing sitemap.xml"; exit 1; }
+          test -f dist/sitemap-index.xml || { echo "::error::Missing sitemap-index.xml"; exit 1; }
           test -f dist/robots.txt || { echo "::error::Missing robots.txt"; exit 1; }
           test -f dist/.nojekyll || { echo "::error::Missing .nojekyll"; exit 1; }
           test -f dist/CNAME || { echo "::error::Missing CNAME"; exit 1; }
