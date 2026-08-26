@@ -52,10 +52,9 @@ export default defineConfig({
   },
   integrations: [
     // Sitemap officiel : `dist/sitemap-index.xml` + `dist/sitemap-0.xml`.
-    // Les pages 404/500 sont exclues par l'intégration ; on retire en plus
-    // les pages noindex du site.
+    // Les pages 404/500 sont exclues par l'intégration ; plus aucune page du
+    // site n'est en noindex, donc pas de filtre supplémentaire.
     sitemap({
-      filter: page => !page.includes('/mentions-legales/'),
       serialize: item => ({ ...item, lastmod: lastmodFor(item.url) }),
     }),
   ],
