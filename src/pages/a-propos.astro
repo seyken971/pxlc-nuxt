@@ -3,7 +3,6 @@ import { Image } from 'astro:assets'
 import BaseLayout from '../layouts/BaseLayout.astro'
 import SiteBreadcrumb from '../components/SiteBreadcrumb.astro'
 import CitationBlock from '../components/CitationBlock.astro'
-import RelatedReading from '../components/RelatedReading.astro'
 import PxlcPixelStrip from '../components/PxlcPixelStrip.astro'
 import PxlcPixelCorner from '../components/PxlcPixelCorner.astro'
 import { pageGraph } from '../lib/schema'
@@ -182,13 +181,6 @@ const schemaGraph = pageGraph({
     source="Andy Zébus · médiateur numérique"
     quote="Mon travail, ce n'est pas de juger l'usage des écrans. C'est de créer un espace de rencontre — autour du jeu vidéo, des réseaux, du temps d'écran — entre un enfant et son parent, entre une famille et votre équipe."
     attribution="Andy Zébus · médiateur numérique" soft={false} />
-
-  <RelatedReading
-    eyebrow="À lire" title="Ma démarche, en détail" paths={[
-      '/blog/esport-guadeloupe-mediation-numerique-familles',
-      '/blog/cadre-hcsp-enfants-ecrans',
-      '/blog/methode-mediation-jeu-video-parent-enfant',
-    ]} />
 </BaseLayout>
 
 <style>

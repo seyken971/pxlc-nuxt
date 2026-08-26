@@ -23,7 +23,6 @@
     "typecheck": "astro check"
   },
   "dependencies": {
-    "@astrojs/rss": "^4.0.19",
     "@astrojs/sitemap": "^3.7.3",
     "@resvg/resvg-js": "^2.6.2",
     "astro": "^7.2.4",
@@ -41,6 +40,7 @@
     "jsdom": "^30.0.1",
     "lighthouse": "^13.4.0",
     "playwright": "^1.62.1",
+    "schema-dts": "^2.0.0",
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.67.0"
   }

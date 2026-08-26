@@ -415,18 +415,13 @@ const main = async () => {
   const ticks = (arr) => arr.map((n) => `\`${n}\``).join(", ");
   const pxlcNames = components.filter((n) => n.startsWith("Pxlc"));
   const siteNames = components.filter((n) => n.startsWith("Site"));
-  const blogNames = components.filter((n) => n.startsWith("Blog"));
   const plainNames = components.filter(
-    (n) =>
-      !pxlcNames.includes(n) &&
-      !siteNames.includes(n) &&
-      !blogNames.includes(n),
+    (n) => !pxlcNames.includes(n) && !siteNames.includes(n),
   );
   md.push(
     [
       `- **\`Pxlc*\`** — primitives de marque réutilisables partout : ${ticks(pxlcNames)}`,
       `- **\`Site*\`** — chrome du site (présent sur toutes les pages) : ${ticks(siteNames)}`,
-      `- **\`Blog*\`** — composants propres au contexte blog : ${ticks(blogNames)}`,
       `- **Sans préfixe** — sections de page, blocs de contenu et utilitaires autonomes : ${ticks(plainNames)}`,
       "- Deux mots minimum par nom (style guide Vue — évite les collisions avec de futurs éléments HTML natifs)",
     ].join("\n"),
@@ -446,8 +441,7 @@ const main = async () => {
   md.push(
     [
       "- Générateur : endpoints `src/pages/og/*.png.ts` (satori + resvg via `src/lib/og-templates.ts`) — disponibles aussi en dev",
-      "- Carte de marque `/og/site.png` (logo + tagline), identique sur toutes les pages statiques",
-      "- Carte par article `/og/blog/<slug>.png` (titre + catégorie, paliers de taille 68/56/46/40)",
+      "- Carte de marque `/og/site.png` (logo + tagline), identique sur toutes les pages",
       "- Couleurs depuis `src/lib/brand-colors.ts`, polices TTF vendorées dans `src/assets/og-fonts/`",
     ].join("\n"),
   );

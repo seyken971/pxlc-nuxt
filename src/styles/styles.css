@@ -9,8 +9,7 @@
    user prefers reduced motion. */
 @media (prefers-reduced-motion: no-preference) {
   .animate-in,
-  .card--method,
-  .blog-card {
+  .card--method {
     opacity: 0;
     transform: translateY(18px);
     transition:
@@ -19,8 +18,7 @@
     transition-delay: var(--anim-delay, 0s);
   }
   .animate-in.is-visible,
-  .card--method.is-visible,
-  .blog-card.is-visible { opacity: 1; transform: translateY(0); }
+  .card--method.is-visible { opacity: 1; transform: translateY(0); }
 }
 
 /* ── Reset & globals ─────────────────────────────────────── */
@@ -701,7 +699,7 @@ main[tabindex="-1"]:focus { outline: none; }
   letter-spacing: 0.20em;
 }
 
-/* ── Long-form prose (mentions légales, blog post body, etc.) ─────────── */
+/* ── Long-form prose (mentions légales, etc.) ─────────────────────────── */
 .prose { font-size: 16px; line-height: 1.65; color: var(--ink-quiet); max-width: 72ch; }
 .prose h2 {
   font-family: var(--font-display);

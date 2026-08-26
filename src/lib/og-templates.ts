@@ -1,9 +1,8 @@
 /**
  * Gabarits des cartes Open Graph (1200×600) et rendu PNG.
  *
- * Deux cartes : marque (toutes les pages) et article (titre + catégorie).
- * Consommés par les endpoints `src/pages/og/site.png.ts` et
- * `src/pages/og/blog/[slug].png.ts` — donc rendues par Astro, disponibles
+ * Une seule carte : la carte de marque, servie sur toutes les pages par
+ * l'endpoint `src/pages/og/site.png.ts` — donc rendue par Astro, disponible
  * en dev comme au build.
  *
  * Couleurs : `BRAND_HEX` (source canonique) ; géométrie de la marque 3×3 :
@@ -70,7 +69,7 @@ const watermark = (size: number, offset: number) => h('div', {
   opacity: 0.1,
 }, [markSvg(size)])
 
-// ── Gabarit 1 : carte de marque ─────────────────────────────────────────────
+// ── Carte de marque ─────────────────────────────────────────────
 export const siteCard = () => h('div', {
   width: '100%',
   height: '100%',
@@ -99,61 +98,6 @@ export const siteCard = () => h('div', {
     }, TAGLINE),
   ]),
 ])
-
-// ── Gabarit 2 : carte article ───────────────────────────────────────────────
-// Taille du titre par paliers de longueur — pas de mesure runtime.
-export const articleCard = (title: string, category: string) => {
-  const len = title.length
-  const titleFontSize = len <= 38 ? '68px' : len <= 66 ? '56px' : len <= 96 ? '46px' : '40px'
-  return h('div', {
-    width: '100%',
-    height: '100%',
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'space-between',
-    position: 'relative',
-    overflow: 'hidden',
-    backgroundColor: palette.bg,
-    fontFamily: F_SANS,
-    padding: '72px',
-  }, [
-    watermark(460, -90),
-    h('div', { display: 'flex', alignItems: 'center' }, [
-      markSvg(60),
-      h('div', { display: 'flex', marginLeft: '16px' }, [lockup('34px')]),
-    ]),
-    h('div', { display: 'flex', flexDirection: 'column', maxWidth: '1000px' }, [
-      h('span', {
-        fontFamily: F_SANS,
-        fontSize: '24px',
-        fontWeight: 600,
-        letterSpacing: '0.18em',
-        textTransform: 'uppercase',
-        color: palette.accent,
-        marginBottom: '24px',
-      }, category),
-      h('div', {
-        display: 'flex',
-        fontFamily: F_SANS,
-        fontWeight: 700,
-        fontSize: titleFontSize,
-        letterSpacing: '-0.02em',
-        color: palette.ink,
-        lineHeight: 1.12,
-      }, title),
-    ]),
-    h('div', { display: 'flex', alignItems: 'center' }, [
-      h('span', {
-        fontFamily: F_SANS,
-        fontSize: '22px',
-        fontWeight: 600,
-        letterSpacing: '0.14em',
-        textTransform: 'uppercase',
-        color: palette.muted,
-      }, TAGLINE),
-    ]),
-  ])
-}
 
 // Polices chargées une fois par process de build.
 let fontsPromise: Promise<{ name: string, weight: 600 | 700, style: 'normal', data: Buffer }[]> | null = null

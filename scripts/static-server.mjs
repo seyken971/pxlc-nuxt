@@ -9,7 +9,7 @@
  * Évite la duplication du serveur + de la table MIME entre les deux scripts
  * (même précédent que seo-limits.mjs et write-file-eol.mjs), et garde la liste
  * de routes auditées en phase avec dist — plus de tableau ROUTES codé
- * en dur qui rate silencieusement les nouveaux articles de blog.
+ * en dur qui rate silencieusement les nouvelles pages.
  */
 import http from 'node:http'
 import { readFile, readdir, stat } from 'node:fs/promises'
