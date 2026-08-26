@@ -13,7 +13,7 @@
     "author": "Andy Zébus",
     "color-scheme": "light dark",
     "description": "Programmes parent-enfant — HCSP 2019-2020 · HAS 2020, indicateurs qualitatifs, bilan écrit en fin de dispositif.",
-    "http-equiv:content-security-policy": "default-src 'self';base-uri 'self';connect-src 'self';font-src 'self';form-action 'self';frame-src 'none';img-src 'self' data:;manifest-src 'self';object-src 'none';upgrade-insecure-requests; script-src 'self' 'sha256-5lhUuYNfBPn+bV3+quIJVaw0IyDdBOgqjLHpJq65btg=' 'sha256-hloOOpChaoX99IAqmMxmfSKtJ2D/f2Cb8Yf0/B/760c=' 'sha256-QZD9rNiYABPnYrKPs+1pgNiDU+OunEeqrRM2UijFdtQ=' 'sha256-baLciPUPbbmPhtrvbyVuWnZOI2jFh7aS+k6NHdkumuU=' 'sha256-91WpORq2/EkU3kMarSktLIzd1uuLLiclJwR2rmabg70=' 'sha256-2c5+YIuP6oJ0LEX4b0ukZxqw5wZmcPwDjatToFYCskI=' 'sha256-BF0290pkb3jxQsE7z00xR8Imp8X34FLC88L0lkMnrGw=' 'sha256-QzWFZi+FLIx23tnm9SBU4aEgx4x8DsuASP07mfqol/c=' 'sha256-0chmwFk0zaA528yFfGV7J9ppIpdfTPPULncDF3WG7Zs=' 'sha256-eIXWvAmxkr251LJZkjniEK5LcPF3NkapbJepohwYRIc=' 'sha256-Q2BPg90ZMplYY+FSdApNErhpWafg2hcRRbndmvxuL/Q=' 'sha256-4I+zAoIPfyDdbLHIMnG2z2xQtAnhINu3S6lxiqq+gE0='; style-src 'self' 'sha256-jPcRDfHBPhI5P8CnpRwDPyTyonNziWJMQGMFroC6vDw=' 'sha256-ajMDs9JEGUg5iqsv+6lE1opGXdwh+XtfSxdIPKntYJo=' 'sha256-8guMOm+wZebbZYuc5cyd9tPU6ZUTGTTX6edbottZHLM=' 'sha256-reZEuwFcJ3v0J5y+b/gx7uZ+/TCevAKXn2gDscigKyA=' 'sha256-H5x4LmP8OigD8kHsEnJf48KMCs+MGlOFNjFrsxnPWJE=' 'sha256-7TLMa3ZevKo7YWx16o7QIBw+QU1E0D8AWogzf5Roerg=' 'sha256-3ARZjq3oxh5pPJa2rxKu9cOHa42dja/QbWkI416e3GQ=' 'sha256-jMG012X7m/HVmXrcQcusxp2S7N5TcJ02xswa1F/qQv8=' 'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=' 'sha256-r0sfEyevO+N0r1NjSeaF/P5z9R2VOMZXp9XEOqv7lqY='; style-src-attr 'unsafe-inline';",
+    "http-equiv:content-security-policy": "default-src 'self';base-uri 'self';connect-src 'self';font-src 'self';form-action 'self';frame-src 'none';img-src 'self' data:;manifest-src 'self';object-src 'none';upgrade-insecure-requests; script-src 'self' 'sha256-5lhUuYNfBPn+bV3+quIJVaw0IyDdBOgqjLHpJq65btg=' 'sha256-hloOOpChaoX99IAqmMxmfSKtJ2D/f2Cb8Yf0/B/760c=' 'sha256-QZD9rNiYABPnYrKPs+1pgNiDU+OunEeqrRM2UijFdtQ=' 'sha256-baLciPUPbbmPhtrvbyVuWnZOI2jFh7aS+k6NHdkumuU=' 'sha256-91WpORq2/EkU3kMarSktLIzd1uuLLiclJwR2rmabg70=' 'sha256-2c5+YIuP6oJ0LEX4b0ukZxqw5wZmcPwDjatToFYCskI=' 'sha256-BF0290pkb3jxQsE7z00xR8Imp8X34FLC88L0lkMnrGw=' 'sha256-QzWFZi+FLIx23tnm9SBU4aEgx4x8DsuASP07mfqol/c=' 'sha256-0chmwFk0zaA528yFfGV7J9ppIpdfTPPULncDF3WG7Zs=' 'sha256-eIXWvAmxkr251LJZkjniEK5LcPF3NkapbJepohwYRIc=' 'sha256-Q2BPg90ZMplYY+FSdApNErhpWafg2hcRRbndmvxuL/Q=' 'sha256-PUQcg5+3z0avqsrT2KJP8NWJJlVw5YUCfA0nHsjsH90='; style-src 'self' 'sha256-jPcRDfHBPhI5P8CnpRwDPyTyonNziWJMQGMFroC6vDw=' 'sha256-ajMDs9JEGUg5iqsv+6lE1opGXdwh+XtfSxdIPKntYJo=' 'sha256-8guMOm+wZebbZYuc5cyd9tPU6ZUTGTTX6edbottZHLM=' 'sha256-reZEuwFcJ3v0J5y+b/gx7uZ+/TCevAKXn2gDscigKyA=' 'sha256-H5x4LmP8OigD8kHsEnJf48KMCs+MGlOFNjFrsxnPWJE=' 'sha256-7TLMa3ZevKo7YWx16o7QIBw+QU1E0D8AWogzf5Roerg=' 'sha256-3ARZjq3oxh5pPJa2rxKu9cOHa42dja/QbWkI416e3GQ=' 'sha256-jMG012X7m/HVmXrcQcusxp2S7N5TcJ02xswa1F/qQv8=' 'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=' 'sha256-r0sfEyevO+N0r1NjSeaF/P5z9R2VOMZXp9XEOqv7lqY='; style-src-attr 'unsafe-inline';",
     "og:description": "Andy Zébus, créateur de PXLC, intervient avec votre équipe — ateliers parent-enfant, cadre HCSP 2019-2020 · HAS 2020.",
     "og:image": "https://pxlc.fr/og/site.png",
     "og:image:height": "600",
@@ -66,22 +66,24 @@
           "breadcrumb": {
             "@id": "https://pxlc.fr/structures/#breadcrumb"
           },
+          "dateModified": "2026-08-26T18:26:32-04:00",
           "description": "Programmes parent-enfant — HCSP 2019-2020 · HAS 2020, indicateurs qualitatifs, bilan écrit en fin de dispositif.",
+          "inLanguage": "fr-FR",
           "isPartOf": {
             "@id": "https://pxlc.fr/#website"
           },
           "mainEntity": [
             {
-              "@id": "https://pxlc.fr/structures/#faq-1"
+              "@id": "https://pxlc.fr/structures/#faq-duree"
             },
             {
-              "@id": "https://pxlc.fr/structures/#faq-2"
+              "@id": "https://pxlc.fr/structures/#faq-tarif"
             },
             {
-              "@id": "https://pxlc.fr/structures/#faq-3"
+              "@id": "https://pxlc.fr/structures/#faq-nombre-enfants"
             },
             {
-              "@id": "https://pxlc.fr/structures/#faq-4"
+              "@id": "https://pxlc.fr/structures/#faq-profils"
             }
           ],
           "name": "Programmes de médiation numérique pour SESSAD, IME, associations et collectivités",
@@ -151,7 +153,7 @@
             {
               "@type": "PropertyValue",
               "propertyID": "SIREN",
-              "value": "813 793 528"
+              "value": "813793528"
             },
             {
               "@type": "PropertyValue",
@@ -166,12 +168,18 @@
           "logo": {
             "@id": "https://pxlc.fr/#logo"
           },
+          "makesOffer": {
+            "@type": "Offer",
+            "itemOffered": {
+              "@id": "https://pxlc.fr/#service"
+            }
+          },
           "name": "PXLC - Médiation numérique",
           "sameAs": [
             "https://maps.app.goo.gl/4UPhQWdzboD6HnAs8",
             "https://www.linkedin.com/company/pxlc-mediation-numerique/"
           ],
-          "taxID": "813 793 528 00031",
+          "taxID": "81379352800031",
           "telephone": "+590690717618",
           "url": "https://pxlc.fr"
         },
@@ -226,11 +234,11 @@
           "name": "Andy Zébus",
           "sameAs": [
             "https://www.linkedin.com/in/azebus",
-            "https://www.github.com/seyken971",
+            "https://github.com/seyken971",
             "https://www.instagram.com/seyken971",
             "https://www.youtube.com/@seyken971",
-            "https://www.threads.net/@seyken971",
-            "https://www.twitter.com/seyken971",
+            "https://www.threads.com/@seyken971",
+            "https://x.com/seyken971",
             "https://bsky.app/profile/seyken971.pxlc.fr"
           ],
           "url": "https://pxlc.fr/a-propos/",
@@ -247,7 +255,12 @@
           },
           "audience": {
             "@type": "BusinessAudience",
-            "audienceType": "SESSAD, IME, associations, collectivités"
+            "audienceType": [
+              "SESSAD",
+              "IME",
+              "associations",
+              "collectivités"
+            ]
           },
           "description": "Médiation numérique pour les structures qui accompagnent des familles en Guadeloupe. Résolution des conflits autour du temps d’écran, ateliers de bonnes pratiques, vulgarisation numérique.",
           "name": "Médiation numérique - Programmes PXLC",
@@ -258,7 +271,7 @@
           "url": "https://pxlc.fr/structures/"
         },
         {
-          "@id": "https://pxlc.fr/structures/#faq-1",
+          "@id": "https://pxlc.fr/structures/#faq-duree",
           "@type": "Question",
           "acceptedAnswer": {
             "@type": "Answer",
@@ -268,7 +281,7 @@
           "name": "Quelle est la durée typique d’un dispositif ?"
         },
         {
-          "@id": "https://pxlc.fr/structures/#faq-2",
+          "@id": "https://pxlc.fr/structures/#faq-tarif",
           "@type": "Question",
           "acceptedAnswer": {
             "@type": "Answer",
@@ -278,7 +291,7 @@
           "name": "Quel est le tarif ?"
         },
         {
-          "@id": "https://pxlc.fr/structures/#faq-3",
+          "@id": "https://pxlc.fr/structures/#faq-nombre-enfants",
           "@type": "Question",
           "acceptedAnswer": {
             "@type": "Answer",
@@ -288,7 +301,7 @@
           "name": "Combien d’enfants par dispositif ?"
         },
         {
-          "@id": "https://pxlc.fr/structures/#faq-4",
+          "@id": "https://pxlc.fr/structures/#faq-profils",
           "@type": "Question",
           "acceptedAnswer": {
             "@type": "Answer",
@@ -319,23 +332,53 @@
           "@id": "https://pxlc.fr/#photo-event",
           "@type": "ImageObject",
           "contentUrl": "https://pxlc.fr/img/photos/andy-event.jpg",
+          "height": {
+            "@type": "QuantitativeValue",
+            "unitCode": "E37",
+            "value": 1331
+          },
           "inLanguage": "fr-FR",
-          "url": "https://pxlc.fr/img/photos/andy-event.jpg"
+          "url": "https://pxlc.fr/img/photos/andy-event.jpg",
+          "width": {
+            "@type": "QuantitativeValue",
+            "unitCode": "E37",
+            "value": 2000
+          }
         },
         {
           "@id": "https://pxlc.fr/#logo",
           "@type": "ImageObject",
           "caption": "PXLC - Médiation numérique",
           "contentUrl": "https://pxlc.fr/logo.svg",
+          "height": {
+            "@type": "QuantitativeValue",
+            "unitCode": "E37",
+            "value": 512
+          },
           "inLanguage": "fr-FR",
-          "url": "https://pxlc.fr/logo.svg"
+          "url": "https://pxlc.fr/logo.svg",
+          "width": {
+            "@type": "QuantitativeValue",
+            "unitCode": "E37",
+            "value": 512
+          }
         },
         {
           "@id": "https://pxlc.fr/#photo-andy",
           "@type": "ImageObject",
           "contentUrl": "https://pxlc.fr/img/photos/andy-portrait.jpg",
+          "height": {
+            "@type": "QuantitativeValue",
+            "unitCode": "E37",
+            "value": 738
+          },
           "inLanguage": "fr-FR",
-          "url": "https://pxlc.fr/img/photos/andy-portrait.jpg"
+          "url": "https://pxlc.fr/img/photos/andy-portrait.jpg",
+          "width": {
+            "@type": "QuantitativeValue",
+            "unitCode": "E37",
+            "value": 738
+          }
         }
       ]
     }
