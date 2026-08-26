@@ -5,6 +5,6 @@
 ## Le site
 
 - [Accueil](https://pxlc.fr/): La médiation numérique parent-enfant en Guadeloupe et la méthode PXLC en trois temps.
-- [Programmes pour les structures](https://pxlc.fr/structures/): Les ateliers parent-enfant en quatre étapes pour les lieux qui accueillent les familles, des médiathèques et centres sociaux aux LAEP, SESSAD et IME.
+- [Projets](https://pxlc.fr/projets/): Le projet Parent-Écran-Enfant conduit au SESSAD Lékoklaya en 2026 — déroulé en quatre étapes, thèmes d'atelier, indicateurs suivis.
 - [À propos d'Andy Zébus](https://pxlc.fr/a-propos/): Le parcours du créateur de PXLC, entre esport, médiation numérique et conseil institutionnel en Guadeloupe.
 - [Contact](https://pxlc.fr/contact/): Prendre rendez-vous, demander un devis ou échanger sur un projet.

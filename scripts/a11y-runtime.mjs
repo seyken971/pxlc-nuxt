@@ -80,13 +80,13 @@ const main = async () => {
     all.push(await runAxe(mobilePage, '/ (mobile menu open)'))
     await mobile.close()
 
-    // FAQ expanded state on /structures
+    // FAQ expanded state on /projets
     const faq = await browser.newContext({ viewport: { width: 1280, height: 800 } })
     const faqPage = await faq.newPage()
-    await faqPage.goto(`http://127.0.0.1:${port}/structures`, { waitUntil: 'networkidle' })
+    await faqPage.goto(`http://127.0.0.1:${port}/projets`, { waitUntil: 'networkidle' })
     await faqPage.locator('.faq__item summary').first().click()
     await faqPage.waitForSelector('.faq__item[open]')
-    all.push(await runAxe(faqPage, '/structures (FAQ open)'))
+    all.push(await runAxe(faqPage, '/projets (FAQ open)'))
     await faq.close()
   } finally {
     await browser.close()

@@ -3,11 +3,11 @@ export interface NavItem {
   url: string
 }
 
-// Single-funnel since the offer flows exclusively through structures
+// Single-funnel since the offer flows exclusively through the /projets rubric
 // (SESSAD, IME, associations, collectivités) — /ateliers was removed accordingly.
 export const NAV_ITEMS: NavItem[] = [
   { label: 'Accueil', url: '/' },
-  { label: 'Pour les structures', url: '/structures' },
+  { label: 'Projets', url: '/projets' },
   { label: 'À propos', url: '/a-propos' },
   { label: 'Contact', url: '/contact' },
 ]
