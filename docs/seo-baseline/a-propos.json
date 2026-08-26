@@ -13,8 +13,8 @@
     "author": "Andy Zébus",
     "color-scheme": "light dark",
     "description": "Médiateur numérique en Guadeloupe — 6 ans de scène esport, formation Simplon, conseil institutionnel.",
-    "http-equiv:content-security-policy": "default-src 'self';base-uri 'self';connect-src 'self';font-src 'self';form-action 'self';frame-src 'none';img-src 'self' data:;manifest-src 'self';object-src 'none';upgrade-insecure-requests; script-src 'self' 'sha256-5lhUuYNfBPn+bV3+quIJVaw0IyDdBOgqjLHpJq65btg=' 'sha256-hloOOpChaoX99IAqmMxmfSKtJ2D/f2Cb8Yf0/B/760c=' 'sha256-QZD9rNiYABPnYrKPs+1pgNiDU+OunEeqrRM2UijFdtQ=' 'sha256-baLciPUPbbmPhtrvbyVuWnZOI2jFh7aS+k6NHdkumuU=' 'sha256-91WpORq2/EkU3kMarSktLIzd1uuLLiclJwR2rmabg70=' 'sha256-2c5+YIuP6oJ0LEX4b0ukZxqw5wZmcPwDjatToFYCskI=' 'sha256-BF0290pkb3jxQsE7z00xR8Imp8X34FLC88L0lkMnrGw=' 'sha256-QzWFZi+FLIx23tnm9SBU4aEgx4x8DsuASP07mfqol/c=' 'sha256-0chmwFk0zaA528yFfGV7J9ppIpdfTPPULncDF3WG7Zs=' 'sha256-eIXWvAmxkr251LJZkjniEK5LcPF3NkapbJepohwYRIc=' 'sha256-Q2BPg90ZMplYY+FSdApNErhpWafg2hcRRbndmvxuL/Q=' 'sha256-oE0TPNG5/5ZL4B6UOMZsHRbfVcbiGq7HfnMbmA/a3A4='; style-src 'self' 'sha256-jPcRDfHBPhI5P8CnpRwDPyTyonNziWJMQGMFroC6vDw=' 'sha256-ajMDs9JEGUg5iqsv+6lE1opGXdwh+XtfSxdIPKntYJo=' 'sha256-8guMOm+wZebbZYuc5cyd9tPU6ZUTGTTX6edbottZHLM=' 'sha256-reZEuwFcJ3v0J5y+b/gx7uZ+/TCevAKXn2gDscigKyA=' 'sha256-H5x4LmP8OigD8kHsEnJf48KMCs+MGlOFNjFrsxnPWJE=' 'sha256-7TLMa3ZevKo7YWx16o7QIBw+QU1E0D8AWogzf5Roerg=' 'sha256-3ARZjq3oxh5pPJa2rxKu9cOHa42dja/QbWkI416e3GQ=' 'sha256-jMG012X7m/HVmXrcQcusxp2S7N5TcJ02xswa1F/qQv8=' 'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=' 'sha256-RYq9Yt2kPNiB3dUwSOLmZ522yMKaVORC1K/QFDWVw7s='; style-src-attr 'unsafe-inline';",
-    "og:description": "Andy Zébus aide les structures à accompagner les familles autour des écrans — binômes parent-enfant, avec votre équipe.",
+    "http-equiv:content-security-policy": "default-src 'self';base-uri 'self';connect-src 'self';font-src 'self';form-action 'self';frame-src 'none';img-src 'self' data:;manifest-src 'self';object-src 'none';upgrade-insecure-requests; script-src 'self' 'sha256-5lhUuYNfBPn+bV3+quIJVaw0IyDdBOgqjLHpJq65btg=' 'sha256-hloOOpChaoX99IAqmMxmfSKtJ2D/f2Cb8Yf0/B/760c=' 'sha256-QZD9rNiYABPnYrKPs+1pgNiDU+OunEeqrRM2UijFdtQ=' 'sha256-baLciPUPbbmPhtrvbyVuWnZOI2jFh7aS+k6NHdkumuU=' 'sha256-91WpORq2/EkU3kMarSktLIzd1uuLLiclJwR2rmabg70=' 'sha256-2c5+YIuP6oJ0LEX4b0ukZxqw5wZmcPwDjatToFYCskI=' 'sha256-BF0290pkb3jxQsE7z00xR8Imp8X34FLC88L0lkMnrGw=' 'sha256-QzWFZi+FLIx23tnm9SBU4aEgx4x8DsuASP07mfqol/c=' 'sha256-0chmwFk0zaA528yFfGV7J9ppIpdfTPPULncDF3WG7Zs=' 'sha256-eIXWvAmxkr251LJZkjniEK5LcPF3NkapbJepohwYRIc=' 'sha256-Q2BPg90ZMplYY+FSdApNErhpWafg2hcRRbndmvxuL/Q=' 'sha256-6LNVSGCQmsbsX34/9S0LyWzuRtTmMsYbqTGuQ2uB9CA='; style-src 'self' 'sha256-jPcRDfHBPhI5P8CnpRwDPyTyonNziWJMQGMFroC6vDw=' 'sha256-ajMDs9JEGUg5iqsv+6lE1opGXdwh+XtfSxdIPKntYJo=' 'sha256-8guMOm+wZebbZYuc5cyd9tPU6ZUTGTTX6edbottZHLM=' 'sha256-reZEuwFcJ3v0J5y+b/gx7uZ+/TCevAKXn2gDscigKyA=' 'sha256-H5x4LmP8OigD8kHsEnJf48KMCs+MGlOFNjFrsxnPWJE=' 'sha256-7TLMa3ZevKo7YWx16o7QIBw+QU1E0D8AWogzf5Roerg=' 'sha256-nlbM9UzgggxuUXzP2ijoJeNUtda4wL7sqxqbF6KgN+8=' 'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=' 'sha256-RYq9Yt2kPNiB3dUwSOLmZ522yMKaVORC1K/QFDWVw7s='; style-src-attr 'unsafe-inline';",
+    "og:description": "Andy Zébus aide les lieux d’accueil des familles autour des écrans — binômes parent-enfant, avec votre équipe.",
     "og:image": "https://pxlc.fr/og/site.png",
     "og:image:height": "600",
     "og:image:type": "image/png",
@@ -46,7 +46,7 @@
           "@id": "https://pxlc.fr/#website",
           "@type": "WebSite",
           "alternateName": "PXLC - Médiation numérique",
-          "description": "Andy Zébus, créateur de PXLC, aide les structures en Guadeloupe à accompagner les familles autour des écrans.",
+          "description": "Andy Zébus, créateur de PXLC, aide les lieux d’accueil des familles en Guadeloupe autour des écrans.",
           "inLanguage": "fr-FR",
           "name": "PXLC",
           "publisher": {
@@ -66,7 +66,7 @@
           "breadcrumb": {
             "@id": "https://pxlc.fr/a-propos/#breadcrumb"
           },
-          "dateModified": "2026-08-26T18:26:32-04:00",
+          "dateModified": "2026-08-26T19:57:36-04:00",
           "description": "Médiateur numérique en Guadeloupe — 6 ans de scène esport, formation Simplon, conseil institutionnel.",
           "inLanguage": "fr-FR",
           "isPartOf": {
@@ -118,7 +118,7 @@
             "email": "contact@pxlc.fr",
             "telephone": "+590690717618"
           },
-          "description": "PXLC accompagne les familles dans l’éducation numérique des enfants. Médiation numérique en Guadeloupe, portée par Andy Zébus, auprès des structures qui accompagnent des familles.",
+          "description": "PXLC accompagne les familles dans l’éducation numérique des enfants. Médiation numérique en Guadeloupe, portée par Andy Zébus, auprès des lieux d’accueil des familles.",
           "email": "contact@pxlc.fr",
           "founder": {
             "@id": "https://pxlc.fr/#andy"
@@ -186,7 +186,7 @@
               "name": "Institut Supérieur Caraïbe (ISCA)"
             }
           ],
-          "description": "Médiateur numérique basé à Les Abymes (Guadeloupe). Aide les structures — SESSAD, IME, associations, collectivités — à accompagner les familles autour des écrans : conflits autour du temps d’écran, bonnes pratiques numériques.",
+          "description": "Médiateur numérique basé à Les Abymes (Guadeloupe). Aide les lieux d’accueil des familles — SESSAD, IME, associations, collectivités — à accompagner les familles autour des écrans : conflits autour du temps d’écran, bonnes pratiques numériques.",
           "hasCredential": [
             {
               "@type": "EducationalOccupationalCredential",
@@ -248,13 +248,13 @@
               "collectivités"
             ]
           },
-          "description": "Médiation numérique pour les structures qui accompagnent des familles en Guadeloupe. Résolution des conflits autour du temps d’écran, ateliers de bonnes pratiques, vulgarisation numérique.",
+          "description": "Médiation numérique pour les lieux d’accueil des familles en Guadeloupe. Résolution des conflits autour du temps d’écran, ateliers de bonnes pratiques, vulgarisation numérique.",
           "name": "Médiation numérique - Programmes PXLC",
           "provider": {
             "@id": "https://pxlc.fr/#identity"
           },
           "serviceType": "Médiation numérique",
-          "url": "https://pxlc.fr/structures/"
+          "url": "https://pxlc.fr/projets/"
         },
         {
           "@id": "https://pxlc.fr/a-propos/#breadcrumb",
