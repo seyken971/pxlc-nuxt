@@ -13,14 +13,43 @@
 import { SITE } from '../config/site'
 import { IDENTITY, RCS_MENTION } from '../config/identity'
 import type { Crumb } from './breadcrumb'
+import type {
+  BreadcrumbList,
+  ImageObject,
+  Person,
+  PostalAddress,
+  ProfessionalService,
+  Question,
+  Service,
+  WebPage,
+  WebSite,
+} from 'schema-dts'
 
 const URL_BASE = SITE.url
 
-type Node = Record<string, unknown>
+// Les nœuds sont typés un par un avec schema-dts (paquet Google) : une
+// propriété mal orthographiée ou absente du type casse le `typecheck`, plus
+// la relecture. Le @graph lui-même reste un tableau d'objets — mélanger des
+// types schema-dts hétérogènes dans un même tableau ne tient pas.
+type GraphNode = object
+
+/** schema-dts autorise `string` partout où un type est attendu — pas ici. */
+type Entity<T> = Exclude<T, string>
+
+/** Nœud du @graph : un type schema-dts + le @id que schema-dts n'impose pas. */
+type Node<T, E = Entity<T>> = E extends unknown ? E & { '@id': string } : never
+
+/**
+ * schema.org autorise un nœud à cumuler plusieurs @type, pas schema-dts.
+ * On garde le contrôle des propriétés de T et on rouvre le seul @type.
+ */
+type MultiType<T, U, E = Entity<T>> = E extends unknown
+  ? Omit<E, '@type'> & { '@id': string, '@type': U }
+  : never
 
 // ── Nœuds globaux (identiques sur toutes les pages) ─────────────────────────
 
-const websiteNode: Node = {
+const websiteNode: Node<WebSite> = {
   '@id': `${URL_BASE}/#website`,
   '@type': 'WebSite',
   'alternateName': IDENTITY.brandName,
@@ -31,7 +60,7 @@ const websiteNode: Node = {
   'url': URL_BASE,
 }
 
-const postalAddress: Node = {
+const postalAddress: PostalAddress = {
   '@type': 'PostalAddress',
   'addressCountry': IDENTITY.address.country,
   'addressLocality': IDENTITY.address.locality,
@@ -44,7 +73,7 @@ const postalAddress: Node = {
 // prestation de médiation sans point de vente. Données reprises verbatim de
 // l'ancien defineLocalBusiness (nuxt.config.ts) — cohérence NAP avec la fiche
 // Google Business Profile.
-const identityNode: Node = {
+const identityNode: MultiType<ProfessionalService, ['Organization', 'ProfessionalService']> = {
   '@id': `${URL_BASE}/#identity`,
   '@type': ['Organization', 'ProfessionalService'],
   'address': postalAddress,
@@ -55,9 +84,9 @@ const identityNode: Node = {
     { '@type': 'City', 'name': 'Baie-Mahault' },
     { '@type': 'City', 'name': 'Le Gosier' },
   ],
-  'availableLanguage': 'fr',
   'contactPoint': {
     '@type': 'ContactPoint',
+    'availableLanguage': 'fr',
     'contactType': 'customer service',
     'email': IDENTITY.email,
     'telephone': IDENTITY.telephone,
@@ -88,7 +117,7 @@ const identityNode: Node = {
   'url': URL_BASE,
 }
 
-const andyNode: Node = {
+const andyNode: Node<Person> = {
   '@id': `${URL_BASE}/#andy`,
   '@type': 'Person',
   'alumniOf': [
@@ -129,7 +158,7 @@ const andyNode: Node = {
   'worksFor': { '@id': `${URL_BASE}/#identity` },
 }
 
-const serviceNode: Node = {
+const serviceNode: Node<Service> = {
   '@id': `${URL_BASE}/#service`,
   '@type': 'Service',
   'areaServed': { '@type': 'AdministrativeArea', 'name': 'Guadeloupe' },
@@ -144,7 +173,7 @@ const serviceNode: Node = {
   'url': `${URL_BASE}/structures/`,
 }
 
-const imageNode = (id: string, url: string): Node => ({
+const imageNode = (id: string, url: string): Node<ImageObject> => ({
   '@id': id,
   '@type': 'ImageObject',
   'contentUrl': url,
@@ -152,7 +181,7 @@ const imageNode = (id: string, url: string): Node => ({
   'url': url,
 })
 
-const logoNode: Node = {
+const logoNode: Node<ImageObject> = {
   '@id': `${URL_BASE}/#logo`,
   '@type': 'ImageObject',
   'caption': IDENTITY.brandName,
@@ -179,7 +208,7 @@ export interface WebPageOptions {
 
 const breadcrumbId = (pageUrl: string) => `${pageUrl}#breadcrumb`
 
-const breadcrumbNode = (pageUrl: string, crumbs: Crumb[]): Node => ({
+const breadcrumbNode = (pageUrl: string, crumbs: Crumb[]): Node<BreadcrumbList> => ({
   '@id': breadcrumbId(pageUrl),
   '@type': 'BreadcrumbList',
   'itemListElement': crumbs.map((c, i) => ({
@@ -191,9 +220,9 @@ const breadcrumbNode = (pageUrl: string, crumbs: Crumb[]): Node => ({
 })
 
 /** Graphe complet d'une page. */
-export const pageGraph = (opts: WebPageOptions): Node[] => {
+export const pageGraph = (opts: WebPageOptions): GraphNode[] => {
   const pageUrl = `${URL_BASE}${opts.path}`
-  const questionNodes = (opts.questions ?? []).map((f, i) => ({
+  const questionNodes = (opts.questions ?? []).map((f, i): Node<Question> => ({
     '@id': `${pageUrl}#faq-${i + 1}`,
     '@type': 'Question',
     'acceptedAnswer': { '@type': 'Answer', 'text': f.a },
@@ -201,7 +230,7 @@ export const pageGraph = (opts: WebPageOptions): Node[] => {
     'name': f.q,
   }))
 
-  const webpage: Node = {
+  const webpage: MultiType<WebPage, string | string[]> = {
     '@id': `${pageUrl}#webpage`,
     '@type': opts.type ?? 'WebPage',
     'about': { '@id': opts.aboutId ?? `${URL_BASE}/#identity` },
