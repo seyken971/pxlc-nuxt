@@ -67,6 +67,13 @@ const identityNode: Node = {
   'foundingDate': '2015',
   'geo': { '@type': 'GeoCoordinates', 'latitude': 16.1496296, 'longitude': -61.39705 },
   'hasMap': 'https://maps.app.goo.gl/4UPhQWdzboD6HnAs8',
+  // Immatriculation au RCS. PropertyValue plutôt que taxID, déjà pris par le
+  // SIRET. propertyID porte le référentiel, value la mention légale publiée.
+  'identifier': {
+    '@type': 'PropertyValue',
+    'propertyID': 'RCS',
+    'value': 'Pointe-à-Pitre 813 793 528',
+  },
   'image': { '@id': `${URL_BASE}/#/schema/image/1` },
   'legalName': 'Andy Zébus - Entrepreneur Individuel',
   'name': 'PXLC - Médiation numérique',
