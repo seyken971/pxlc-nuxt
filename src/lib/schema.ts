@@ -1,15 +1,15 @@
 /**
- * Graphe schema.org — reproduit à l'identique la sortie de nuxt-schema-org
- * (nœuds, @id croisés, ordre dans le @graph), vérifiée contre les fixtures
- * docs/seo-baseline/. Un seul bloc JSON-LD par page, émis par BaseLayout.
+ * Graphe schema.org du site. Un seul bloc JSON-LD par page, émis par
+ * BaseLayout, vérifié contre les fixtures docs/seo-baseline/.
  *
- * Ordre canonique du @graph (observé sur chaque page de la baseline) :
+ * Ordre du @graph :
  *   #website · #webpage · #identity · #andy · #service · [nœuds de page :
- *   Question / #article] · [BreadcrumbList] · image/1 · #logo ·
- *   #organization · image/2 · [image/3 pour les articles]
+ *   Question / #article] · [BreadcrumbList] · #photo-event · #logo ·
+ *   #photo-andy · [#primaryimage pour les articles]
  *
- * Delta assumé vs baseline : l'URL du nœud #article perd son double slash
- * (« …/slug// » était un bug de l'ancien montage url + '/').
+ * Le graphe a d'abord été transcrit de nuxt-schema-org ; ses scories
+ * (#organization dupliqué, ReadAction, primaryImageOfPage, @id machine)
+ * ont été retirées depuis.
  */
 import { SITE } from '../config/site'
 import { IDENTITY, RCS_MENTION } from '../config/identity'
@@ -76,7 +76,7 @@ const identityNode: Node = {
     { '@type': 'PropertyValue', 'propertyID': 'SIREN', 'value': IDENTITY.siren },
     { '@type': 'PropertyValue', 'propertyID': 'NAF', 'value': IDENTITY.ape },
   ],
-  'image': { '@id': `${URL_BASE}/#/schema/image/1` },
+  'image': { '@id': `${URL_BASE}/#photo-event` },
   'legalName': IDENTITY.legalName,
   'logo': { '@id': `${URL_BASE}/#logo` },
   'name': IDENTITY.brandName,
@@ -106,7 +106,7 @@ const andyNode: Node = {
     'name': 'Médiateur numérique',
     'occupationLocation': { '@type': 'AdministrativeArea', 'name': 'Guadeloupe' },
   },
-  'image': { '@id': `${URL_BASE}/#/schema/image/2` },
+  'image': { '@id': `${URL_BASE}/#photo-andy` },
   'jobTitle': 'Médiateur numérique',
   'knowsAbout': [
     'Médiation numérique',
@@ -145,8 +145,8 @@ const serviceNode: Node = {
   'url': `${URL_BASE}/structures/`,
 }
 
-const imageNode = (n: number, url: string): Node => ({
-  '@id': `${URL_BASE}/#/schema/image/${n}`,
+const imageNode = (id: string, url: string): Node => ({
+  '@id': id,
   '@type': 'ImageObject',
   'contentUrl': url,
   'inLanguage': 'fr-FR',
@@ -160,22 +160,6 @@ const logoNode: Node = {
   'contentUrl': `${URL_BASE}/logo.svg`,
   'inLanguage': 'fr-FR',
   'url': `${URL_BASE}/logo.svg`,
-}
-
-// Nœud #organization généré par nuxt-schema-org à partir de identity.logo
-// (comportement interne non suppressible à l'époque) — conservé pour la
-// parité du graphe.
-const organizationNode: Node = {
-  '@id': `${URL_BASE}/#organization`,
-  '@type': 'Organization',
-  'address': postalAddress,
-  'logo': `${URL_BASE}/logo.svg`,
-  'name': IDENTITY.brandName,
-  'sameAs': [
-    'https://maps.app.goo.gl/4UPhQWdzboD6HnAs8',
-    'https://www.linkedin.com/company/pxlc-mediation-numerique/',
-  ],
-  'url': URL_BASE,
 }
 
 // ── Builders de page ────────────────────────────────────────────────────────
@@ -199,7 +183,7 @@ export interface WebPageOptions {
   hasPart?: Node[]
 }
 
-const breadcrumbId = (pageUrl: string) => `${pageUrl}#/schema/breadcrumb-list/#breadcrumb`
+const breadcrumbId = (pageUrl: string) => `${pageUrl}#breadcrumb`
 
 const breadcrumbNode = (pageUrl: string, crumbs: Crumb[]): Node => ({
   '@id': breadcrumbId(pageUrl),
@@ -216,7 +200,7 @@ const breadcrumbNode = (pageUrl: string, crumbs: Crumb[]): Node => ({
 export const pageGraph = (opts: WebPageOptions & { extraNodes?: Node[], extraImages?: Node[] }): Node[] => {
   const pageUrl = `${URL_BASE}${opts.path}`
   const questionNodes = (opts.questions ?? []).map((f, i) => ({
-    '@id': `${pageUrl}#/schema/question/${i + 1}`,
+    '@id': `${pageUrl}#faq-${i + 1}`,
     '@type': 'Question',
     'acceptedAnswer': { '@type': 'Answer', 'text': f.a },
     'inLanguage': 'fr-FR',
@@ -237,8 +221,6 @@ export const pageGraph = (opts: WebPageOptions & { extraNodes?: Node[], extraIma
       ? { mainEntity: questionNodes.map(q => ({ '@id': q['@id'] })) }
       : {}),
     'name': opts.name,
-    'potentialAction': [{ '@type': 'ReadAction', 'target': [pageUrl] }],
-    'primaryImageOfPage': { '@id': `${URL_BASE}/#logo` },
     'url': pageUrl,
   }
 
@@ -251,10 +233,9 @@ export const pageGraph = (opts: WebPageOptions & { extraNodes?: Node[], extraIma
     ...questionNodes,
     ...(opts.extraNodes ?? []),
     ...(opts.crumbs ? [breadcrumbNode(pageUrl, opts.crumbs)] : []),
-    imageNode(1, `${URL_BASE}/img/photos/andy-event.jpg`),
+    imageNode(`${URL_BASE}/#photo-event`, `${URL_BASE}/img/photos/andy-event.jpg`),
     logoNode,
-    organizationNode,
-    imageNode(2, `${URL_BASE}/img/photos/andy-portrait.jpg`),
+    imageNode(`${URL_BASE}/#photo-andy`, `${URL_BASE}/img/photos/andy-portrait.jpg`),
     ...(opts.extraImages ?? []),
   ]
 }
@@ -290,7 +271,7 @@ export const articleGraph = (opts: ArticleOptions): Node[] => {
     'datePublished': opts.datePublished,
     'description': opts.description,
     'headline': opts.title,
-    'image': { '@id': `${URL_BASE}/#/schema/image/3` },
+    'image': { '@id': `${pageUrl}#primaryimage` },
     'inLanguage': 'fr-FR',
     'isPartOf': { '@id': `${pageUrl}#webpage` },
     'mainEntityOfPage': { '@id': `${pageUrl}#webpage` },
@@ -308,7 +289,7 @@ export const articleGraph = (opts: ArticleOptions): Node[] => {
     datePublished: opts.datePublished,
     dateModified: opts.dateModified,
     extraNodes: [articleNode],
-    extraImages: [imageNode(3, opts.image)],
+    extraImages: [imageNode(`${URL_BASE}${opts.path}#primaryimage`, opts.image)],
   })
 }
 
