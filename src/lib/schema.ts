@@ -12,6 +12,7 @@
  * (« …/slug// » était un bug de l'ancien montage url + '/').
  */
 import { SITE } from '../config/site'
+import { IDENTITY, RCS_MENTION } from '../config/identity'
 import type { Crumb } from './breadcrumb'
 
 const URL_BASE = SITE.url
@@ -23,7 +24,7 @@ type Node = Record<string, unknown>
 const websiteNode: Node = {
   '@id': `${URL_BASE}/#website`,
   '@type': 'WebSite',
-  'alternateName': 'PXLC - Médiation numérique',
+  'alternateName': IDENTITY.brandName,
   'description': SITE.description,
   'inLanguage': 'fr-FR',
   'name': 'PXLC',
@@ -33,11 +34,11 @@ const websiteNode: Node = {
 
 const postalAddress: Node = {
   '@type': 'PostalAddress',
-  'addressCountry': 'FR',
-  'addressLocality': 'Les Abymes',
-  'addressRegion': 'Guadeloupe',
-  'postalCode': '97139',
-  'streetAddress': '8 Résidence la familiale, rue Man Manigard Alfred, Dugazon',
+  'addressCountry': IDENTITY.address.country,
+  'addressLocality': IDENTITY.address.locality,
+  'addressRegion': IDENTITY.address.region,
+  'postalCode': IDENTITY.address.postalCode,
+  'streetAddress': IDENTITY.address.street,
 }
 
 // ProfessionalService = sous-type LocalBusiness le plus précis pour une
@@ -58,11 +59,11 @@ const identityNode: Node = {
   'availableLanguage': 'fr',
   'contactPoint': {
     contactType: 'customer service',
-    email: 'contact@pxlc.fr',
-    telephone: '+590690717618',
+    email: IDENTITY.email,
+    telephone: IDENTITY.telephone,
   },
   'description': 'PXLC accompagne les familles dans l’éducation numérique des enfants. Médiation numérique en Guadeloupe, portée par Andy Zébus, auprès des structures qui accompagnent des familles.',
-  'email': 'contact@pxlc.fr',
+  'email': IDENTITY.email,
   'founder': 'Andy Zébus',
   'foundingDate': '2015',
   'geo': { '@type': 'GeoCoordinates', 'latitude': 16.1496296, 'longitude': -61.39705 },
@@ -72,17 +73,17 @@ const identityNode: Node = {
   'identifier': {
     '@type': 'PropertyValue',
     'propertyID': 'RCS',
-    'value': 'Pointe-à-Pitre 813 793 528',
+    'value': RCS_MENTION,
   },
   'image': { '@id': `${URL_BASE}/#/schema/image/1` },
-  'legalName': 'Andy Zébus - Entrepreneur Individuel',
-  'name': 'PXLC - Médiation numérique',
+  'legalName': IDENTITY.legalName,
+  'name': IDENTITY.brandName,
   'sameAs': [
     'https://maps.app.goo.gl/4UPhQWdzboD6HnAs8',
     'https://www.linkedin.com/company/pxlc-mediation-numerique/',
   ],
-  'taxID': '813 793 528 00031',
-  'telephone': '+590690717618',
+  'taxID': IDENTITY.siret,
+  'telephone': IDENTITY.telephone,
   'url': URL_BASE,
 }
 
@@ -151,7 +152,7 @@ const imageNode = (n: number, url: string): Node => ({
 const logoNode: Node = {
   '@id': `${URL_BASE}/#logo`,
   '@type': 'ImageObject',
-  'caption': 'PXLC - Médiation numérique',
+  'caption': IDENTITY.brandName,
   'contentUrl': `${URL_BASE}/logo.svg`,
   'inLanguage': 'fr-FR',
   'url': `${URL_BASE}/logo.svg`,
@@ -165,7 +166,7 @@ const organizationNode: Node = {
   '@type': 'Organization',
   'address': postalAddress,
   'logo': `${URL_BASE}/logo.svg`,
-  'name': 'PXLC - Médiation numérique',
+  'name': IDENTITY.brandName,
   'sameAs': [
     'https://maps.app.goo.gl/4UPhQWdzboD6HnAs8',
     'https://www.linkedin.com/company/pxlc-mediation-numerique/',

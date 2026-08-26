@@ -6,6 +6,7 @@ import PxlcPixelStrip from '../components/PxlcPixelStrip.astro'
 import PxlcPixelCorner from '../components/PxlcPixelCorner.astro'
 import PxlcMarkSeparator from '../components/PxlcMarkSeparator.astro'
 import { pageGraph } from '../lib/schema'
+import { IDENTITY } from '../config/identity'
 
 // Date de dernière mise à jour du contenu légal — à mettre à jour manuellement
 // si les mentions sont modifiées. new Date() était utilisé avant mais donnait
@@ -60,19 +61,19 @@ const schemaGraph = pageGraph({
           </div>
           <div class="legal-dl__row">
             <dt>Adresse</dt>
-            <dd>8 Résidence la familiale, rue Man Manigard Alfred, Dugazon — 97139 Les Abymes, Guadeloupe (FR)</dd>
+            <dd>{IDENTITY.address.street} — {IDENTITY.address.postalCode} {IDENTITY.address.locality}, {IDENTITY.address.region} ({IDENTITY.address.country})</dd>
           </div>
           <div class="legal-dl__row">
             <dt>SIRET</dt>
-            <dd><code>813 793 528 00031</code></dd>
+            <dd><code>{IDENTITY.siret}</code></dd>
           </div>
           <div class="legal-dl__row">
             <dt>RCS</dt>
-            <dd>Pointe-à-Pitre — <code>813 793 528</code></dd>
+            <dd>{IDENTITY.rcsCity} — <code>{IDENTITY.siren}</code></dd>
           </div>
           <div class="legal-dl__row">
             <dt>Code APE</dt>
-            <dd><code>70.21Z</code> — Conseil en relations publiques et communication</dd>
+            <dd><code>{IDENTITY.ape}</code> — {IDENTITY.apeLabel}</dd>
           </div>
           <div class="legal-dl__row">
             <dt>Responsable de la publication</dt>
@@ -80,11 +81,11 @@ const schemaGraph = pageGraph({
           </div>
           <div class="legal-dl__row">
             <dt>Téléphone</dt>
-            <dd><a href="tel:+590690717618">0690 71 76 18</a></dd>
+            <dd><a href={`tel:${IDENTITY.telephone}`}>{IDENTITY.telephoneDisplay}</a></dd>
           </div>
           <div class="legal-dl__row">
             <dt>Email</dt>
-            <dd><a href="mailto:contact@pxlc.fr">contact@pxlc.fr</a></dd>
+            <dd><a href={`mailto:${IDENTITY.email}`}>{IDENTITY.email}</a></dd>
           </div>
           <div class="legal-dl__row">
             <dt>LinkedIn</dt>
