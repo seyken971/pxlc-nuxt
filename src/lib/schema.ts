@@ -1,6 +1,7 @@
 /**
  * Graphe schema.org du site. Un seul bloc JSON-LD par page, émis par
- * BaseLayout, vérifié contre les fixtures docs/seo-baseline/.
+ * BaseLayout, vérifié contre les fixtures docs/seo-baseline/ et contre les
+ * invariants de scripts/schema-check.mjs (postbuild).
  *
  * Ordre du @graph :
  *   #website · #webpage · #identity · #andy · #service · [nœuds Question] ·
@@ -10,8 +11,9 @@
  * (#organization dupliqué, ReadAction, primaryImageOfPage, @id machine)
  * ont été retirées depuis.
  */
+import { createLastmod } from '../../scripts/sitemap-lastmod.mjs'
 import { SITE } from '../config/site'
-import { IDENTITY, RCS_MENTION } from '../config/identity'
+import { IDENTITY, RCS_MENTION, SIREN_COMPACT, SIRET_COMPACT } from '../config/identity'
 import type { Crumb } from './breadcrumb'
 import type {
   BreadcrumbList,
@@ -26,6 +28,30 @@ import type {
 } from 'schema-dts'
 
 const URL_BASE = SITE.url
+const LANG = SITE.lang
+
+/**
+ * `dateModified` des WebPage : date du dernier commit touchant le fichier de
+ * la page — même source que le <lastmod> du sitemap, donc mêmes limites (sur
+ * un clone superficiel, tout retombe sur l'horodatage du build). Une seule
+ * instance au niveau module : createLastmod sonde git une fois puis met en
+ * cache, l'appeler par page relancerait le sondage.
+ */
+const lastModified = createLastmod(new Date().toISOString())
+
+/**
+ * @id des nœuds globaux. Les pages s'y réfèrent plutôt que de réécrire une
+ * URL absolue : c'était le seul endroit où SITE.url était dupliqué hors config.
+ */
+export const ID = {
+  andy: `${URL_BASE}/#andy`,
+  identity: `${URL_BASE}/#identity`,
+  logo: `${URL_BASE}/#logo`,
+  photoAndy: `${URL_BASE}/#photo-andy`,
+  photoEvent: `${URL_BASE}/#photo-event`,
+  service: `${URL_BASE}/#service`,
+  website: `${URL_BASE}/#website`,
+} as const
 
 // Les nœuds sont typés un par un avec schema-dts (paquet Google) : une
 // propriété mal orthographiée ou absente du type casse le `typecheck`, plus
@@ -47,16 +73,23 @@ type MultiType<T, U, E = Entity<T>> = E extends unknown
   ? Omit<E, '@type'> & { '@id': string, '@type': U }
   : never
 
+/**
+ * Types de page réellement émis. L'union est fermée volontairement : quand
+ * `type` valait `string`, une faute de frappe ('AboutPge') passait le
+ * typecheck alors que tout le reste du fichier est contraint par schema-dts.
+ */
+export type PageType = 'WebPage' | 'AboutPage' | 'ContactPage' | 'FAQPage'
+
 // ── Nœuds globaux (identiques sur toutes les pages) ─────────────────────────
 
 const websiteNode: Node<WebSite> = {
-  '@id': `${URL_BASE}/#website`,
+  '@id': ID.website,
   '@type': 'WebSite',
   'alternateName': IDENTITY.brandName,
   'description': SITE.description,
-  'inLanguage': 'fr-FR',
+  'inLanguage': LANG,
   'name': 'PXLC',
-  'publisher': { '@id': `${URL_BASE}/#identity` },
+  'publisher': { '@id': ID.identity },
   'url': URL_BASE,
 }
 
@@ -73,8 +106,12 @@ const postalAddress: PostalAddress = {
 // prestation de médiation sans point de vente. Données reprises verbatim de
 // l'ancien defineLocalBusiness (nuxt.config.ts) — cohérence NAP avec la fiche
 // Google Business Profile.
+//
+// Le double @type est redondant sur le papier (ProfessionalService hérite déjà
+// d'Organization via LocalBusiness) : il est gardé pour les consommateurs qui
+// ne connaissent que les types de premier niveau. Ne pas le « simplifier ».
 const identityNode: MultiType<ProfessionalService, ['Organization', 'ProfessionalService']> = {
-  '@id': `${URL_BASE}/#identity`,
+  '@id': ID.identity,
   '@type': ['Organization', 'ProfessionalService'],
   'address': postalAddress,
   'areaServed': [
@@ -93,32 +130,38 @@ const identityNode: MultiType<ProfessionalService, ['Organization', 'Professiona
   },
   'description': 'PXLC accompagne les familles dans l’éducation numérique des enfants. Médiation numérique en Guadeloupe, portée par Andy Zébus, auprès des structures qui accompagnent des familles.',
   'email': IDENTITY.email,
-  'founder': { '@id': `${URL_BASE}/#andy` },
+  'founder': { '@id': ID.andy },
   'foundingDate': '2015',
   'geo': { '@type': 'GeoCoordinates', 'latitude': 16.1496296, 'longitude': -61.39705 },
   'hasMap': 'https://maps.app.goo.gl/4UPhQWdzboD6HnAs8',
   // Immatriculations. PropertyValue plutôt que taxID, déjà pris par le SIRET.
-  // propertyID porte le référentiel, value la mention légale publiée.
+  // propertyID porte le référentiel, value la valeur du référentiel — donc la
+  // forme compacte pour le SIREN, sauf pour le RCS dont la mention publiée
+  // associe la ville au numéro.
   'identifier': [
     { '@type': 'PropertyValue', 'propertyID': 'RCS', 'value': RCS_MENTION },
-    { '@type': 'PropertyValue', 'propertyID': 'SIREN', 'value': IDENTITY.siren },
+    { '@type': 'PropertyValue', 'propertyID': 'SIREN', 'value': SIREN_COMPACT },
     { '@type': 'PropertyValue', 'propertyID': 'NAF', 'value': IDENTITY.ape },
   ],
-  'image': { '@id': `${URL_BASE}/#photo-event` },
+  'image': { '@id': ID.photoEvent },
   'legalName': IDENTITY.legalName,
-  'logo': { '@id': `${URL_BASE}/#logo` },
+  'logo': { '@id': ID.logo },
+  // Rattache #service à l'entité. Sans cette arête, le nœud Service ne serait
+  // référencé que par le `about` de /structures/ et flotterait sur les autres
+  // pages.
+  'makesOffer': { '@type': 'Offer', 'itemOffered': { '@id': ID.service } },
   'name': IDENTITY.brandName,
   'sameAs': [
     'https://maps.app.goo.gl/4UPhQWdzboD6HnAs8',
     'https://www.linkedin.com/company/pxlc-mediation-numerique/',
   ],
-  'taxID': IDENTITY.siret,
+  'taxID': SIRET_COMPACT,
   'telephone': IDENTITY.telephone,
   'url': URL_BASE,
 }
 
 const andyNode: Node<Person> = {
-  '@id': `${URL_BASE}/#andy`,
+  '@id': ID.andy,
   '@type': 'Person',
   'alumniOf': [
     { '@type': 'EducationalOrganization', 'name': 'Talis Business School (Paris)' },
@@ -134,7 +177,7 @@ const andyNode: Node<Person> = {
     'name': 'Médiateur numérique',
     'occupationLocation': { '@type': 'AdministrativeArea', 'name': 'Guadeloupe' },
   },
-  'image': { '@id': `${URL_BASE}/#photo-andy` },
+  'image': { '@id': ID.photoAndy },
   'jobTitle': 'Médiateur numérique',
   'knowsAbout': [
     'Médiation numérique',
@@ -145,49 +188,68 @@ const andyNode: Node<Person> = {
   ],
   'knowsLanguage': ['fr', 'en'],
   'name': 'Andy Zébus',
+  // URL finales des profils, vérifiées au curl : sameAs ne doit pas désigner
+  // une redirection. www.github.com, www.twitter.com et www.threads.net en
+  // renvoyaient toutes une.
   'sameAs': [
     'https://www.linkedin.com/in/azebus',
-    'https://www.github.com/seyken971',
+    'https://github.com/seyken971',
     'https://www.instagram.com/seyken971',
     'https://www.youtube.com/@seyken971',
-    'https://www.threads.net/@seyken971',
-    'https://www.twitter.com/seyken971',
+    'https://www.threads.com/@seyken971',
+    'https://x.com/seyken971',
     'https://bsky.app/profile/seyken971.pxlc.fr',
   ],
   'url': `${URL_BASE}/a-propos/`,
-  'worksFor': { '@id': `${URL_BASE}/#identity` },
+  'worksFor': { '@id': ID.identity },
 }
 
 const serviceNode: Node<Service> = {
-  '@id': `${URL_BASE}/#service`,
+  '@id': ID.service,
   '@type': 'Service',
   'areaServed': { '@type': 'AdministrativeArea', 'name': 'Guadeloupe' },
   'audience': {
     '@type': 'BusinessAudience',
-    'audienceType': 'SESSAD, IME, associations, collectivités',
+    'audienceType': ['SESSAD', 'IME', 'associations', 'collectivités'],
   },
   'description': 'Médiation numérique pour les structures qui accompagnent des familles en Guadeloupe. Résolution des conflits autour du temps d’écran, ateliers de bonnes pratiques, vulgarisation numérique.',
   'name': 'Médiation numérique - Programmes PXLC',
-  'provider': { '@id': `${URL_BASE}/#identity` },
+  'provider': { '@id': ID.identity },
   'serviceType': 'Médiation numérique',
   'url': `${URL_BASE}/structures/`,
 }
 
-const imageNode = (id: string, url: string): Node<ImageObject> => ({
+// Dimensions déclarées d'après les fichiers de public/img/photos/, qui ne
+// servent qu'au JSON-LD et à la fiche Google Business Profile — le site, lui,
+// rend depuis src/assets/photos/. #photo-event a donc pu repasser à son
+// original 2000x1331 sans toucher au rendu. #photo-andy reste à 738 px : sa
+// source est une capture de plateau télé en 1600x738, c'est son plafond, et il
+// reste sous les 1200 px que Google recommande. Mieux vaut la valeur juste
+// qu'une promesse.
+// schema.org type width/height en Distance | QuantitativeValue : un nombre nu
+// n'est pas valide, d'où le QuantitativeValue en pixels (unitCode UN/CEFACT
+// E37).
+const px = (value: number) => ({ '@type': 'QuantitativeValue' as const, 'unitCode': 'E37', value })
+
+const imageNode = (id: string, url: string, width: number, height: number): Node<ImageObject> => ({
   '@id': id,
   '@type': 'ImageObject',
   'contentUrl': url,
-  'inLanguage': 'fr-FR',
+  'height': px(height),
+  'inLanguage': LANG,
   'url': url,
+  'width': px(width),
 })
 
 const logoNode: Node<ImageObject> = {
-  '@id': `${URL_BASE}/#logo`,
+  '@id': ID.logo,
   '@type': 'ImageObject',
   'caption': IDENTITY.brandName,
   'contentUrl': `${URL_BASE}/logo.svg`,
-  'inLanguage': 'fr-FR',
+  'height': px(512),
+  'inLanguage': LANG,
   'url': `${URL_BASE}/logo.svg`,
+  'width': px(512),
 }
 
 // ── Builders de page ────────────────────────────────────────────────────────
@@ -195,15 +257,19 @@ const logoNode: Node<ImageObject> = {
 export interface WebPageOptions {
   /** Chemin avec slash final, ex. '/a-propos/'. */
   path: string
-  type?: string | string[]
+  type?: PageType | PageType[]
   name: string
   description: string
   /** @id du nœud visé par `about` (défaut : #identity). */
   aboutId?: string
   /** Fil d'Ariane de la page (breadcrumbItems) — ajoute le nœud + la réf. */
   crumbs?: Crumb[]
-  /** Nœuds Question (structures) — référencés via mainEntity. */
-  questions?: { q: string, a: string }[]
+  /**
+   * Nœuds Question (structures) — référencés via mainEntity. `id` porte le
+   * fragment du @id : réordonner la FAQ ne doit pas réaffecter les @id à
+   * d'autres questions, ce que faisait la numérotation par index.
+   */
+  questions?: { id: string, q: string, a: string }[]
 }
 
 const breadcrumbId = (pageUrl: string) => `${pageUrl}#breadcrumb`
@@ -222,21 +288,23 @@ const breadcrumbNode = (pageUrl: string, crumbs: Crumb[]): Node<BreadcrumbList> 
 /** Graphe complet d'une page. */
 export const pageGraph = (opts: WebPageOptions): GraphNode[] => {
   const pageUrl = `${URL_BASE}${opts.path}`
-  const questionNodes = (opts.questions ?? []).map((f, i): Node<Question> => ({
-    '@id': `${pageUrl}#faq-${i + 1}`,
+  const questionNodes = (opts.questions ?? []).map((f): Node<Question> => ({
+    '@id': `${pageUrl}#faq-${f.id}`,
     '@type': 'Question',
     'acceptedAnswer': { '@type': 'Answer', 'text': f.a },
-    'inLanguage': 'fr-FR',
+    'inLanguage': LANG,
     'name': f.q,
   }))
 
-  const webpage: MultiType<WebPage, string | string[]> = {
+  const webpage: MultiType<WebPage, PageType | PageType[]> = {
     '@id': `${pageUrl}#webpage`,
     '@type': opts.type ?? 'WebPage',
-    'about': { '@id': opts.aboutId ?? `${URL_BASE}/#identity` },
+    'about': { '@id': opts.aboutId ?? ID.identity },
     ...(opts.crumbs ? { breadcrumb: { '@id': breadcrumbId(pageUrl) } } : {}),
+    'dateModified': lastModified(pageUrl),
     'description': opts.description,
-    'isPartOf': { '@id': `${URL_BASE}/#website` },
+    'inLanguage': LANG,
+    'isPartOf': { '@id': ID.website },
     ...(questionNodes.length
       ? { mainEntity: questionNodes.map(q => ({ '@id': q['@id'] })) }
       : {}),
@@ -252,8 +320,8 @@ export const pageGraph = (opts: WebPageOptions): GraphNode[] => {
     serviceNode,
     ...questionNodes,
     ...(opts.crumbs ? [breadcrumbNode(pageUrl, opts.crumbs)] : []),
-    imageNode(`${URL_BASE}/#photo-event`, `${URL_BASE}/img/photos/andy-event.jpg`),
+    imageNode(ID.photoEvent, `${URL_BASE}/img/photos/andy-event.jpg`, 2000, 1331),
     logoNode,
-    imageNode(`${URL_BASE}/#photo-andy`, `${URL_BASE}/img/photos/andy-portrait.jpg`),
+    imageNode(ID.photoAndy, `${URL_BASE}/img/photos/andy-portrait.jpg`, 738, 738),
   ]
 }

@@ -5,11 +5,13 @@ import PartnerStrip from '../components/PartnerStrip.astro'
 import PxlcPixelCorner from '../components/PxlcPixelCorner.astro'
 import PxlcPixelStrip from '../components/PxlcPixelStrip.astro'
 import { PROJECT_THEMES as themes } from '../config/project-themes'
-import { pageGraph } from '../lib/schema'
+import { ID, pageGraph } from '../lib/schema'
 import { breadcrumbItems } from '../lib/breadcrumb'
 
 // FAQ — answers grounded in the plaquette + existing copy. Doubles as the
-// FAQPage rich-result source (nœuds Question du @graph, Phase schema).
+// FAQPage rich-result source (nœuds Question du @graph). `id` porte le
+// fragment du @id de la Question : le réordonnancement de la liste ne
+// réaffecte donc pas les @id à d’autres questions.
 const faqs = [
   {
     id: 'duree',
@@ -76,7 +78,7 @@ const schemaGraph = pageGraph({
   type: ['WebPage', 'FAQPage'],
   name: 'Programmes de médiation numérique pour SESSAD, IME, associations et collectivités',
   description: seo.description,
-  aboutId: 'https://pxlc.fr/#service',
+  aboutId: ID.service,
   crumbs: breadcrumbItems('/structures/'),
   questions: faqs,
 })
