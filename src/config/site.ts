@@ -5,7 +5,7 @@ export const SITE = {
   url: 'https://pxlc.fr',
   name: 'PXLC',
   description:
-    'Andy Zébus, créateur de PXLC, aide les structures en Guadeloupe à accompagner les familles autour des écrans.',
+    'Andy Zébus, créateur de PXLC, aide les lieux d’accueil des familles en Guadeloupe autour des écrans.',
   lang: 'fr-FR',
   locale: 'fr_FR',
   author: 'Andy Zébus',
