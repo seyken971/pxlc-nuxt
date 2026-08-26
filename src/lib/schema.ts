@@ -90,7 +90,7 @@ const websiteNode: Node<WebSite> = {
   'inLanguage': LANG,
   'name': 'PXLC',
   'publisher': { '@id': ID.identity },
-  'url': URL_BASE,
+  'url': `${URL_BASE}/`,
 }
 
 const postalAddress: PostalAddress = {
@@ -157,7 +157,7 @@ const identityNode: MultiType<ProfessionalService, ['Organization', 'Professiona
   ],
   'taxID': SIRET_COMPACT,
   'telephone': IDENTITY.telephone,
-  'url': URL_BASE,
+  'url': `${URL_BASE}/`,
 }
 
 const andyNode: Node<Person> = {
