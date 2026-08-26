@@ -11,7 +11,7 @@ import { pageGraph } from '../lib/schema'
 // si les mentions sont modifiées. new Date() était utilisé avant mais donnait
 // la date du build SSG, pas celle de la mise à jour réelle du contenu.
 const lastUpdated = new Intl.DateTimeFormat('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })
-  .format(new Date('2026-07-31T12:00:00'))
+  .format(new Date('2026-08-26T12:00:00'))
 
 const seo = {
   title: 'Mentions légales',
@@ -67,12 +67,20 @@ const schemaGraph = pageGraph({
             <dd><code>813 793 528 00031</code></dd>
           </div>
           <div class="legal-dl__row">
+            <dt>RCS</dt>
+            <dd>Pointe-à-Pitre — <code>813 793 528</code></dd>
+          </div>
+          <div class="legal-dl__row">
             <dt>Code APE</dt>
             <dd><code>70.21Z</code> — Conseil en relations publiques et communication</dd>
           </div>
           <div class="legal-dl__row">
             <dt>Responsable de la publication</dt>
             <dd>Andy Zébus</dd>
+          </div>
+          <div class="legal-dl__row">
+            <dt>Téléphone</dt>
+            <dd><a href="tel:+590690717618">0690 71 76 18</a></dd>
           </div>
           <div class="legal-dl__row">
             <dt>Email</dt>
