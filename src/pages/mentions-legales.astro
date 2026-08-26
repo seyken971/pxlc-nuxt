@@ -1,6 +1,8 @@
 ---
-// Legal / informational page — robots: noindex and no place for a
-// marketing CTA. Hide the global <CtaBlock> rendered by the layout.
+// Legal / informational page — indexable : elle porte le NAP et engage
+// l’entité, donc elle a sa place dans l’index et dans le sitemap. En
+// revanche aucune place pour un CTA marketing : on masque le <CtaBlock>
+// global rendu par le layout.
 import BaseLayout from '../layouts/BaseLayout.astro'
 import PxlcPixelStrip from '../components/PxlcPixelStrip.astro'
 import PxlcPixelCorner from '../components/PxlcPixelCorner.astro'
@@ -17,7 +19,6 @@ const lastUpdated = new Intl.DateTimeFormat('fr-FR', { day: 'numeric', month: 'l
 const seo = {
   title: 'Mentions légales',
   description: 'Mentions légales et coordonnées de PXLC — Andy Zébus, Entrepreneur Individuel.',
-  robots: 'noindex, follow',
   hideGlobalCta: true,
 }
 

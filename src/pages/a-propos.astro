@@ -5,7 +5,7 @@ import SiteBreadcrumb from '../components/SiteBreadcrumb.astro'
 import CitationBlock from '../components/CitationBlock.astro'
 import PxlcPixelStrip from '../components/PxlcPixelStrip.astro'
 import PxlcPixelCorner from '../components/PxlcPixelCorner.astro'
-import { pageGraph } from '../lib/schema'
+import { ID, pageGraph } from '../lib/schema'
 import { breadcrumbItems } from '../lib/breadcrumb'
 import andyPortrait from '../assets/photos/andy-portrait.jpg'
 
@@ -61,7 +61,7 @@ const schemaGraph = pageGraph({
   type: ['WebPage', 'AboutPage'],
   name: 'À propos d\'Andy Zébus',
   description: seo.description,
-  aboutId: 'https://pxlc.fr/#andy',
+  aboutId: ID.andy,
   crumbs: breadcrumbItems('/a-propos/'),
 })
 ---

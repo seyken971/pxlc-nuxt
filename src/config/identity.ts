@@ -27,3 +27,11 @@ export const IDENTITY = {
 
 /** Mention RCS publiée, ex. « Pointe-à-Pitre 813 793 528 ». */
 export const RCS_MENTION = `${IDENTITY.rcsCity} ${IDENTITY.siren}`
+
+/**
+ * Formes compactes des immatriculations, pour le JSON-LD : les référentiels
+ * attendent une chaîne sans séparateur. Les mentions légales gardent la forme
+ * espacée d’IDENTITY — même source, deux rendus.
+ */
+export const SIRET_COMPACT = IDENTITY.siret.replace(/ /g, '')
+export const SIREN_COMPACT = IDENTITY.siren.replace(/ /g, '')
