@@ -58,25 +58,27 @@ const identityNode: Node = {
   ],
   'availableLanguage': 'fr',
   'contactPoint': {
-    contactType: 'customer service',
-    email: IDENTITY.email,
-    telephone: IDENTITY.telephone,
+    '@type': 'ContactPoint',
+    'contactType': 'customer service',
+    'email': IDENTITY.email,
+    'telephone': IDENTITY.telephone,
   },
   'description': 'PXLC accompagne les familles dans l’éducation numérique des enfants. Médiation numérique en Guadeloupe, portée par Andy Zébus, auprès des structures qui accompagnent des familles.',
   'email': IDENTITY.email,
-  'founder': 'Andy Zébus',
+  'founder': { '@id': `${URL_BASE}/#andy` },
   'foundingDate': '2015',
   'geo': { '@type': 'GeoCoordinates', 'latitude': 16.1496296, 'longitude': -61.39705 },
   'hasMap': 'https://maps.app.goo.gl/4UPhQWdzboD6HnAs8',
-  // Immatriculation au RCS. PropertyValue plutôt que taxID, déjà pris par le
-  // SIRET. propertyID porte le référentiel, value la mention légale publiée.
-  'identifier': {
-    '@type': 'PropertyValue',
-    'propertyID': 'RCS',
-    'value': RCS_MENTION,
-  },
+  // Immatriculations. PropertyValue plutôt que taxID, déjà pris par le SIRET.
+  // propertyID porte le référentiel, value la mention légale publiée.
+  'identifier': [
+    { '@type': 'PropertyValue', 'propertyID': 'RCS', 'value': RCS_MENTION },
+    { '@type': 'PropertyValue', 'propertyID': 'SIREN', 'value': IDENTITY.siren },
+    { '@type': 'PropertyValue', 'propertyID': 'NAF', 'value': IDENTITY.ape },
+  ],
   'image': { '@id': `${URL_BASE}/#/schema/image/1` },
   'legalName': IDENTITY.legalName,
+  'logo': { '@id': `${URL_BASE}/#logo` },
   'name': IDENTITY.brandName,
   'sameAs': [
     'https://maps.app.goo.gl/4UPhQWdzboD6HnAs8',
@@ -113,6 +115,7 @@ const andyNode: Node = {
     'esport',
     'Guadeloupe',
   ],
+  'knowsLanguage': ['fr', 'en'],
   'name': 'Andy Zébus',
   'sameAs': [
     'https://www.linkedin.com/in/azebus',
@@ -139,6 +142,7 @@ const serviceNode: Node = {
   'name': 'Médiation numérique - Programmes PXLC',
   'provider': { '@id': `${URL_BASE}/#identity` },
   'serviceType': 'Médiation numérique',
+  'url': `${URL_BASE}/structures/`,
 }
 
 const imageNode = (n: number, url: string): Node => ({
