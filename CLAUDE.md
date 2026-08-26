@@ -129,22 +129,17 @@ commité — recapture attendue dans la PR qui la modifie.
   `Astro.csp.insertScriptHash` et la config celui du script anti-flash
   (`src/lib/theme-script.ts`, seul `is:inline` du site avec la 404).
 - `src/config/site.ts` — identité du site (source unique, lue aussi par
-  ds-lint R7). `src/config/nav.ts`, `blog-categories.ts`, `project-themes.ts`.
-- Contenu éditorial : collection Astro `blog` (`src/content.config.ts`,
-  schéma zod, `content/blog/*.md`) — le frontmatter est validé à l'ingestion
-  (champs requis + longueurs SEO effectives) : `astro sync` et le build
-  échouent sur un article invalide.
+  ds-lint R7). `src/config/identity.ts` (NAP + immatriculations, lue aussi
+  par les mentions légales), `src/config/nav.ts`, `project-themes.ts`.
 - SEO : graphe schema.org construit à la main dans `src/lib/schema.ts`
   (@id croisés `#identity`/`#andy`/`#service`…) ; sitemap via
   l'intégration `@astrojs/sitemap` (`dist/sitemap-index.xml`, `lastmod`
-  injectés par `serialize` depuis `scripts/sitemap-lastmod.mjs` : date
-  éditoriale pour les articles, date du dernier commit touchant la page pour
-  les statiques — d'où le `fetch-depth: 0` du workflow) ;
-  flux RSS du blog par l'endpoint `src/pages/rss.xml.ts` (`@astrojs/rss`) ;
-  cartes OG rendues par les endpoints `src/pages/og/site.png.ts` et
-  `og/blog/[slug].png.ts` (satori + resvg, gabarits dans
-  `src/lib/og-templates.ts`, TTF vendorées `src/assets/og-fonts/`) —
-  visibles en dev, contrairement à l’ancien script post-build.
+  injectés par `serialize` depuis `scripts/sitemap-lastmod.mjs` : date du
+  dernier commit touchant la page — d'où le `fetch-depth: 0` du workflow) ;
+  carte OG rendue par l'endpoint `src/pages/og/site.png.ts` (satori + resvg,
+  gabarit dans `src/lib/og-templates.ts`, TTF vendorées
+  `src/assets/og-fonts/`) — visible en dev, contrairement à l’ancien
+  script post-build.
 - `public/robots.txt` est statique (3 groupes : tous, bots d'entraînement IA
   refusés, bots de recherche IA autorisés) — le maintenir à la main.
 - Images : `astro:assets` (sources `src/assets/photos/`) ; les originaux de

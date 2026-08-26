@@ -2,7 +2,6 @@
 import BaseLayout from '../layouts/BaseLayout.astro'
 import SiteBreadcrumb from '../components/SiteBreadcrumb.astro'
 import PartnerStrip from '../components/PartnerStrip.astro'
-import RelatedReading from '../components/RelatedReading.astro'
 import PxlcPixelCorner from '../components/PxlcPixelCorner.astro'
 import PxlcPixelStrip from '../components/PxlcPixelStrip.astro'
 import { PROJECT_THEMES as themes } from '../config/project-themes'
@@ -230,7 +229,6 @@ const schemaGraph = pageGraph({
         <div>
           <p class="lekoklaya-desc">Le point de départ&nbsp;: le jeu vidéo revenait systématiquement dans les entretiens familiaux comme source de conflit. Le dispositif transforme ces tensions en matériau de travail pour l'équipe pluridisciplinaire.</p>
           <p class="lekoklaya-desc mt-3">Les parents qui ne comprennent pas pourquoi leur enfant joue rejouent avec lui. Les profils ludiques sont transmis à l'équipe dans le bilan.</p>
-          <a href="/blog/jouons-ensemble-sessad-lekoklaya/" class="leko-link mt-3">Lire le projet en détail</a>
         </div>
       </div>
     </div>
@@ -252,16 +250,6 @@ const schemaGraph = pageGraph({
       </div>
     </div>
   </section>
-
-  <RelatedReading
-    eyebrow="À lire"
-    title="Pour approfondir le dispositif"
-    paths={[
-      '/blog/mediation-numerique-parent-enfant-sessad-ime',
-      '/blog/jouons-ensemble-sessad-lekoklaya',
-      '/blog/programme-parent-ecran-enfant',
-    ]}
-  />
 </BaseLayout>
 
 <style>
@@ -364,15 +352,4 @@ const schemaGraph = pageGraph({
   .leko-val { font-family: var(--font-display); font-weight: 700; font-size: 28px; color: var(--pxlc-coral); }
   .leko-label { font-size: 14px; line-height: 1.4; color: var(--pxlc-text-on-dark-soft); }
   .lekoklaya-desc { font-size: 15px; line-height: 1.6; color: var(--pxlc-text-on-dark-soft); }
-  /* Lien vers l'étude de cas — section toujours sombre, couleur cyan forcée
-     (le teal-deep par défaut manquerait de contraste sur ce fond). */
-  .leko-link {
-    display: inline-flex; align-items: center; gap: var(--space-2);
-    min-height: 44px;
-    font-family: var(--font-label); font-size: 13px; font-weight: 600;
-    letter-spacing: 0.04em; color: var(--pxlc-cyan);
-  }
-  .leko-link::after { content: "→"; }
-  .leko-link:hover { color: var(--pxlc-ivory); text-decoration: none; }
-  .leko-link:focus-visible { outline: none; box-shadow: var(--ring-cyan); border-radius: var(--radius-xs); }
 </style>

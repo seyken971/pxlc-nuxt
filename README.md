@@ -8,8 +8,7 @@ Déployé sur **https://pxlc.fr**.
 | Couche        | Tech                                                                                    |
 | ------------- | --------------------------------------------------------------------------------------- |
 | Framework     | [Astro](https://astro.build) 7 — 100 % statique, zéro JS hydraté (scripts vanilla inline) |
-| Contenu       | Collection Astro `blog` (`src/content.config.ts`, schéma zod, `content/blog/*.md`)      |
-| SEO           | Graphe schema.org à la main (`src/lib/schema.ts`) · sitemap `@astrojs/sitemap` · flux RSS `@astrojs/rss` · CSP native (`security.csp`) · cartes OG en endpoints (`src/pages/og/`) · liens vérifiés en post-build |
+| SEO           | Graphe schema.org à la main (`src/lib/schema.ts`) · sitemap `@astrojs/sitemap` · CSP native (`security.csp`) · cartes OG en endpoints (`src/pages/og/`) · liens vérifiés en post-build |
 | Images        | `astro:assets` (sources `src/assets/photos/`, WebP auto)                                |
 | Icônes        | SVG vendorées dans `src/icons/` (imports natifs Astro — Lucide, Simple Icons)            |
 | Fonts         | woff2 auto-hébergées (`fonts.css` écrit à la main, pas de Google CDN)                   |
@@ -85,8 +84,6 @@ Le diff doit être vide hors deltas volontaires, déclarés dans la PR. Après u
 | `/`                 | Accueil                                              |
 | `/a-propos`         | Présentation d'Andy Zébus                            |
 | `/structures`       | Offre B2B (SESSAD, IME, associations, collectivités) |
-| `/blog`             | Index des articles                                   |
-| `/blog/[slug]`      | Article Markdown                                     |
 | `/contact`          | Formulaire + WhatsApp                                |
 | `/mentions-legales` | Mentions légales (`noindex`)                         |
 | `/404`              | Page introuvable                                     |
@@ -110,7 +107,7 @@ Les mises à jour de dépendances npm sont gérées via **Dependabot** (`.github
 
 - **Commits** : petits commits ciblés, messages en français, sans emoji (ex. `docs : aligne le README sur la stack Astro`)
 - **Design tokens** : ne jamais éditer `tokens.css` ni `design.md` manuellement — passer par `brand-colors.ts` et les scripts de génération
-- **OG images** : rendues par les endpoints `src/pages/og/` (satori + resvg, gabarits dans `src/lib/og-templates.ts`) — carte de marque unique + carte par article
+- **OG images** : rendues par les endpoints `src/pages/og/` (satori + resvg, gabarits dans `src/lib/og-templates.ts`) — carte de marque unique, servie sur toutes les pages
 - **Funnel** : offre B2B exclusivement via structures porteuses — pas de direct-to-parent dans le wording
 
 ## Licence

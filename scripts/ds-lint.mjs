@@ -35,8 +35,8 @@
  *   R11 nbsp-manquante— espace ASCII avant ? ! : ; » / après « / nombre +
  *                       unité-symbole (h, min, €, %) → insécable manquante
  *   R12 phrase-interdite— garde-fous factuels (ex. « intervenants culturels »
- *                       au pluriel) balayés sur .astro/.vue/.ts (src/),
- *                       .md (content/) et la plaquette (template + data.json)
+ *                       au pluriel) balayés sur .astro/.vue/.ts (src/) et la
+ *                       plaquette (template + data.json)
  *
  * Corrections v2 :
  *   - parseSfc : tous les blocs <style> sont capturés (matchAll, pas match)
@@ -257,7 +257,7 @@ function lintComponentName(file) {
 }
 
 // ── R7 — Longueurs SEO ────────────────────────────────────────────────────────
-// Limites partagées avec content.config.ts (scripts/seo-limits.mjs).
+// Limites partagées via scripts/seo-limits.mjs.
 // Seules les valeurs LITTÉRALES sont vérifiées — les expressions dynamiques
 // (ex. post.value.seoTitle || …) sont couvertes côté contenu par le schéma
 // zod de la collection blog.
@@ -364,8 +364,8 @@ function lintNbsp(src, file) {
 // Faits PXLC qui ont une seule formulation correcte et tendent à dériver. À la
 // différence de R5 (vocab-interdit, scopé aux <template> .vue), ces phrases
 // peuvent réapparaître dans n'importe quelle source de copy — d'où un balayage
-// élargi : .vue/.ts sous app/, .md sous content/, et le couple template + data
-// de la plaquette (où le pluriel avait justement dérapé).
+// élargi : .astro/.ts sous src/ et le couple template + data de la plaquette
+// (où le pluriel avait justement dérapé).
 // L'espace entre les deux mots peut être ASCII, insécable (\s couvre U+00A0) ou
 // l'entité HTML &nbsp; — d'où (?:&nbsp;|\s)+.
 const FORBIDDEN_PHRASES = [
@@ -389,7 +389,6 @@ async function lintForbiddenPhrases() {
   const vs = []
   const sources = [
     ...await walk(join(ROOT, 'src'), ['.ts', '.astro']),
-    ...await walk(join(ROOT, 'content'), ['.md']),
     join(ROOT, '_plaquette/plaquette.template.html'),
     join(ROOT, '_plaquette/data.json'),
   ]

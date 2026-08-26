@@ -3,9 +3,8 @@
  * BaseLayout, vérifié contre les fixtures docs/seo-baseline/.
  *
  * Ordre du @graph :
- *   #website · #webpage · #identity · #andy · #service · [nœuds de page :
- *   Question / #article] · [BreadcrumbList] · #photo-event · #logo ·
- *   #photo-andy · [#primaryimage pour les articles]
+ *   #website · #webpage · #identity · #andy · #service · [nœuds Question] ·
+ *   [BreadcrumbList] · #photo-event · #logo · #photo-andy
  *
  * Le graphe a d'abord été transcrit de nuxt-schema-org ; ses scories
  * (#organization dupliqué, ReadAction, primaryImageOfPage, @id machine)
@@ -174,13 +173,8 @@ export interface WebPageOptions {
   aboutId?: string
   /** Fil d'Ariane de la page (breadcrumbItems) — ajoute le nœud + la réf. */
   crumbs?: Crumb[]
-  /** Dates (articles) — reportées sur le nœud WebPage. */
-  datePublished?: string
-  dateModified?: string
   /** Nœuds Question (structures) — référencés via mainEntity. */
   questions?: { q: string, a: string }[]
-  /** Références hasPart (index du blog). */
-  hasPart?: Node[]
 }
 
 const breadcrumbId = (pageUrl: string) => `${pageUrl}#breadcrumb`
@@ -196,8 +190,8 @@ const breadcrumbNode = (pageUrl: string, crumbs: Crumb[]): Node => ({
   })),
 })
 
-/** Graphe complet d'une page standard (toutes les pages sauf articles). */
-export const pageGraph = (opts: WebPageOptions & { extraNodes?: Node[], extraImages?: Node[] }): Node[] => {
+/** Graphe complet d'une page. */
+export const pageGraph = (opts: WebPageOptions): Node[] => {
   const pageUrl = `${URL_BASE}${opts.path}`
   const questionNodes = (opts.questions ?? []).map((f, i) => ({
     '@id': `${pageUrl}#faq-${i + 1}`,
@@ -212,10 +206,7 @@ export const pageGraph = (opts: WebPageOptions & { extraNodes?: Node[], extraIma
     '@type': opts.type ?? 'WebPage',
     'about': { '@id': opts.aboutId ?? `${URL_BASE}/#identity` },
     ...(opts.crumbs ? { breadcrumb: { '@id': breadcrumbId(pageUrl) } } : {}),
-    ...(opts.dateModified ? { dateModified: opts.dateModified } : {}),
-    ...(opts.datePublished ? { datePublished: opts.datePublished } : {}),
     'description': opts.description,
-    ...(opts.hasPart ? { hasPart: opts.hasPart } : {}),
     'isPartOf': { '@id': `${URL_BASE}/#website` },
     ...(questionNodes.length
       ? { mainEntity: questionNodes.map(q => ({ '@id': q['@id'] })) }
@@ -231,72 +222,9 @@ export const pageGraph = (opts: WebPageOptions & { extraNodes?: Node[], extraIma
     andyNode,
     serviceNode,
     ...questionNodes,
-    ...(opts.extraNodes ?? []),
     ...(opts.crumbs ? [breadcrumbNode(pageUrl, opts.crumbs)] : []),
     imageNode(`${URL_BASE}/#photo-event`, `${URL_BASE}/img/photos/andy-event.jpg`),
     logoNode,
     imageNode(`${URL_BASE}/#photo-andy`, `${URL_BASE}/img/photos/andy-portrait.jpg`),
-    ...(opts.extraImages ?? []),
   ]
 }
-
-export interface ArticleOptions {
-  /** Chemin avec slash final, ex. '/blog/slug/'. */
-  path: string
-  /** Titre éditorial complet (headline). */
-  title: string
-  /** name du WebPage — seoTitle court s'il existe. */
-  pageName: string
-  /** description du WebPage / meta — seoDescription si elle existe. */
-  pageDescription: string
-  /** description éditoriale complète (nœud Article). */
-  description: string
-  category: string
-  datePublished: string
-  dateModified: string
-  /** Image absolue de repli pour les rich results Article. */
-  image: string
-  crumbs: Crumb[]
-}
-
-/** Graphe complet d'un article de blog (WebPage + Article/BlogPosting). */
-export const articleGraph = (opts: ArticleOptions): Node[] => {
-  const pageUrl = `${URL_BASE}${opts.path}`
-  const articleNode: Node = {
-    '@id': `${pageUrl}#article`,
-    '@type': ['Article', 'BlogPosting'],
-    'articleSection': [opts.category],
-    'author': { '@id': `${URL_BASE}/#andy` },
-    'dateModified': opts.dateModified,
-    'datePublished': opts.datePublished,
-    'description': opts.description,
-    'headline': opts.title,
-    'image': { '@id': `${pageUrl}#primaryimage` },
-    'inLanguage': 'fr-FR',
-    'isPartOf': { '@id': `${pageUrl}#webpage` },
-    'mainEntityOfPage': { '@id': `${pageUrl}#webpage` },
-    'publisher': { '@id': `${URL_BASE}/#identity` },
-    'thumbnailUrl': opts.image,
-    'url': pageUrl,
-  }
-
-  return pageGraph({
-    path: opts.path,
-    type: 'WebPage',
-    name: opts.pageName,
-    description: opts.pageDescription,
-    crumbs: opts.crumbs,
-    datePublished: opts.datePublished,
-    dateModified: opts.dateModified,
-    extraNodes: [articleNode],
-    extraImages: [imageNode(`${URL_BASE}${opts.path}#primaryimage`, opts.image)],
-  })
-}
-
-/** Référence hasPart d'un article depuis l'index du blog. */
-export const blogPostPartRef = (slug: string, headline: string): Node => ({
-  '@id': `${URL_BASE}/blog/${slug}/#article`,
-  '@type': 'BlogPosting',
-  'headline': headline,
-  'url': `${URL_BASE}/blog/${slug}/`,
-})

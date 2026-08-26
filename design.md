@@ -431,7 +431,7 @@ Classes issues de `styles.css`. Les styles scoped des composants Vue ne sont pas
 - `.prose`
 - `.eyebrow--lg`
 
-### Long-form prose (mentions légales, blog post body, etc.)
+### Long-form prose (mentions légales, etc.)
 
 - `.prose`
 
@@ -471,8 +471,7 @@ Classes issues de `styles.css`. Les styles scoped des composants Vue ne sont pas
 
 - **`Pxlc*`** — primitives de marque réutilisables partout : `PxlcInput`, `PxlcLinkout`, `PxlcLockup`, `PxlcMark`, `PxlcMarkSeparator`, `PxlcPixelCorner`, `PxlcPixelStrip`
 - **`Site*`** — chrome du site (présent sur toutes les pages) : `SiteBreadcrumb`, `SiteFooter`, `SiteHeader`, `SiteMobileMenu`
-- **`Blog*`** — composants propres au contexte blog : `BlogCta`, `BlogRelated`, `BlogShare`, `BlogToc`
-- **Sans préfixe** — sections de page, blocs de contenu et utilitaires autonomes : `CitationBlock`, `CtaBlock`, `HeroSection`, `MethodGrid`, `PartnerStrip`, `RelatedReading`, `SessadCase`, `ThemeToggle`
+- **Sans préfixe** — sections de page, blocs de contenu et utilitaires autonomes : `CitationBlock`, `CtaBlock`, `HeroSection`, `MethodGrid`, `PartnerStrip`, `SessadCase`, `ThemeToggle`
 - Deux mots minimum par nom (style guide Vue — évite les collisions avec de futurs éléments HTML natifs)
 
 ### Visuel
@@ -485,6 +484,5 @@ Classes issues de `styles.css`. Les styles scoped des composants Vue ne sont pas
 ### OG Images
 
 - Générateur : endpoints `src/pages/og/*.png.ts` (satori + resvg via `src/lib/og-templates.ts`) — disponibles aussi en dev
-- Carte de marque `/og/site.png` (logo + tagline), identique sur toutes les pages statiques
-- Carte par article `/og/blog/<slug>.png` (titre + catégorie, paliers de taille 68/56/46/40)
+- Carte de marque `/og/site.png` (logo + tagline), identique sur toutes les pages
 - Couleurs depuis `src/lib/brand-colors.ts`, polices TTF vendorées dans `src/assets/og-fonts/`

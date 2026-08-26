@@ -9,7 +9,6 @@ export const NAV_ITEMS: NavItem[] = [
   { label: 'Accueil', url: '/' },
   { label: 'Pour les structures', url: '/structures' },
   { label: 'À propos', url: '/a-propos' },
-  { label: 'Blog', url: '/blog' },
   { label: 'Contact', url: '/contact' },
 ]
 
