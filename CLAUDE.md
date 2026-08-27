@@ -8,8 +8,8 @@ Mission en une phrase (à reprendre verbatim, seule phrase où PXLC est sujet) :
 « PXLC accompagne les familles dans l'éducation numérique des enfants. »
 
 Formule des descriptions (meta, OG, bios auteur) — ≤ 20 mots, cible puis
-bénéfice : « Andy Zébus aide les lieux d’accueil des familles (en
-Guadeloupe) autour des écrans. »
+bénéfice : « Andy Zébus aide les structures (en Guadeloupe) à accompagner
+les familles autour des écrans. »
 
 Le contexte de positionnement et de stratégie vit dans `CLAUDE.local.md`
 (non versionné) — le consulter quand il est présent.
@@ -54,10 +54,6 @@ Aussi dans design.md, mais bloquants — vérifier chaque texte généré ou mod
   nombre + unité (`48 h`, `20 min`, `100 €`). Dans les sources : `&nbsp;` dans
   le balisage, `\u00A0` dans les template literals, U+00A0 littéral toléré
   dans les chaînes simples — garde-fou `ds-lint` R11.
-- « structures » n’est jamais l’ombrelle : c’est le sous-ensemble
-  médico-social et associatif. Le terme générique est « les lieux d’accueil
-  des familles » (court « les lieux »). En adresse directe, nommer le lieu
-  (« votre médiathèque ») ou « votre structure ».
 - Cadre réglementaire : toujours citer « HCSP 2019-2020 · HAS 2020 » ensemble.
 - Termes naked (sans guillemets ni traduction) : HCSP, SESSAD, TCND, TND,
   hyperfocus.
