@@ -13,7 +13,7 @@
     "author": "Andy Zébus",
     "color-scheme": "light dark",
     "description": "Mentions légales et coordonnées de PXLC — Andy Zébus, Entrepreneur Individuel.",
-    "http-equiv:content-security-policy": "default-src 'self';base-uri 'self';connect-src 'self';font-src 'self';form-action 'self';frame-src 'none';img-src 'self' data:;manifest-src 'self';object-src 'none';upgrade-insecure-requests; script-src 'self' 'sha256-5lhUuYNfBPn+bV3+quIJVaw0IyDdBOgqjLHpJq65btg=' 'sha256-hloOOpChaoX99IAqmMxmfSKtJ2D/f2Cb8Yf0/B/760c=' 'sha256-QZD9rNiYABPnYrKPs+1pgNiDU+OunEeqrRM2UijFdtQ=' 'sha256-baLciPUPbbmPhtrvbyVuWnZOI2jFh7aS+k6NHdkumuU=' 'sha256-91WpORq2/EkU3kMarSktLIzd1uuLLiclJwR2rmabg70=' 'sha256-2c5+YIuP6oJ0LEX4b0ukZxqw5wZmcPwDjatToFYCskI=' 'sha256-BF0290pkb3jxQsE7z00xR8Imp8X34FLC88L0lkMnrGw=' 'sha256-QzWFZi+FLIx23tnm9SBU4aEgx4x8DsuASP07mfqol/c=' 'sha256-0chmwFk0zaA528yFfGV7J9ppIpdfTPPULncDF3WG7Zs=' 'sha256-eIXWvAmxkr251LJZkjniEK5LcPF3NkapbJepohwYRIc=' 'sha256-Q2BPg90ZMplYY+FSdApNErhpWafg2hcRRbndmvxuL/Q=' 'sha256-Y4mRZWjJXckC9XuAg9X5AHTVF39J7r8p0U7W5k/xKw4='; style-src 'self' 'sha256-jPcRDfHBPhI5P8CnpRwDPyTyonNziWJMQGMFroC6vDw=' 'sha256-ajMDs9JEGUg5iqsv+6lE1opGXdwh+XtfSxdIPKntYJo=' 'sha256-8guMOm+wZebbZYuc5cyd9tPU6ZUTGTTX6edbottZHLM=' 'sha256-reZEuwFcJ3v0J5y+b/gx7uZ+/TCevAKXn2gDscigKyA=' 'sha256-H5x4LmP8OigD8kHsEnJf48KMCs+MGlOFNjFrsxnPWJE=' 'sha256-7TLMa3ZevKo7YWx16o7QIBw+QU1E0D8AWogzf5Roerg=' 'sha256-nlbM9UzgggxuUXzP2ijoJeNUtda4wL7sqxqbF6KgN+8=' 'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=' 'sha256-n5jy0MCrf78vz1wMYoNrxeqWNhF767+Ikeii81Hlm3o='; style-src-attr 'unsafe-inline';",
+    "http-equiv:content-security-policy": "default-src 'self';base-uri 'self';connect-src 'self';font-src 'self';form-action 'self';frame-src 'none';img-src 'self' data:;manifest-src 'self';object-src 'none';upgrade-insecure-requests; script-src 'self' 'sha256-5lhUuYNfBPn+bV3+quIJVaw0IyDdBOgqjLHpJq65btg=' 'sha256-hloOOpChaoX99IAqmMxmfSKtJ2D/f2Cb8Yf0/B/760c=' 'sha256-QZD9rNiYABPnYrKPs+1pgNiDU+OunEeqrRM2UijFdtQ=' 'sha256-baLciPUPbbmPhtrvbyVuWnZOI2jFh7aS+k6NHdkumuU=' 'sha256-91WpORq2/EkU3kMarSktLIzd1uuLLiclJwR2rmabg70=' 'sha256-2c5+YIuP6oJ0LEX4b0ukZxqw5wZmcPwDjatToFYCskI=' 'sha256-BF0290pkb3jxQsE7z00xR8Imp8X34FLC88L0lkMnrGw=' 'sha256-QzWFZi+FLIx23tnm9SBU4aEgx4x8DsuASP07mfqol/c=' 'sha256-0chmwFk0zaA528yFfGV7J9ppIpdfTPPULncDF3WG7Zs=' 'sha256-eIXWvAmxkr251LJZkjniEK5LcPF3NkapbJepohwYRIc=' 'sha256-Q2BPg90ZMplYY+FSdApNErhpWafg2hcRRbndmvxuL/Q=' 'sha256-TwKv0S2ye2HaI08bo70F08v0wogmhBTuioNmnd8Eawo='; style-src 'self' 'sha256-jPcRDfHBPhI5P8CnpRwDPyTyonNziWJMQGMFroC6vDw=' 'sha256-ajMDs9JEGUg5iqsv+6lE1opGXdwh+XtfSxdIPKntYJo=' 'sha256-8guMOm+wZebbZYuc5cyd9tPU6ZUTGTTX6edbottZHLM=' 'sha256-reZEuwFcJ3v0J5y+b/gx7uZ+/TCevAKXn2gDscigKyA=' 'sha256-H5x4LmP8OigD8kHsEnJf48KMCs+MGlOFNjFrsxnPWJE=' 'sha256-7TLMa3ZevKo7YWx16o7QIBw+QU1E0D8AWogzf5Roerg=' 'sha256-nlbM9UzgggxuUXzP2ijoJeNUtda4wL7sqxqbF6KgN+8=' 'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=' 'sha256-n5jy0MCrf78vz1wMYoNrxeqWNhF767+Ikeii81Hlm3o='; style-src-attr 'unsafe-inline';",
     "og:description": "Mentions légales et coordonnées de PXLC — Andy Zébus, Entrepreneur Individuel.",
     "og:image": "https://pxlc.fr/og/site.png",
     "og:image:height": "600",
@@ -46,7 +46,7 @@
           "@id": "https://pxlc.fr/#website",
           "@type": "WebSite",
           "alternateName": "PXLC - Médiation numérique",
-          "description": "Andy Zébus, créateur de PXLC, aide les lieux d’accueil des familles en Guadeloupe autour des écrans.",
+          "description": "Andy Zébus, créateur de PXLC, aide les structures en Guadeloupe à accompagner les familles autour des écrans.",
           "inLanguage": "fr-FR",
           "name": "PXLC",
           "publisher": {
@@ -112,7 +112,7 @@
             "email": "contact@pxlc.fr",
             "telephone": "+590690717618"
           },
-          "description": "PXLC accompagne les familles dans l’éducation numérique des enfants. Médiation numérique en Guadeloupe, portée par Andy Zébus, auprès des lieux d’accueil des familles.",
+          "description": "PXLC accompagne les familles dans l’éducation numérique des enfants. Médiation numérique en Guadeloupe, portée par Andy Zébus, auprès des structures qui accompagnent des familles.",
           "email": "contact@pxlc.fr",
           "founder": {
             "@id": "https://pxlc.fr/#andy"
@@ -180,7 +180,7 @@
               "name": "Institut Supérieur Caraïbe (ISCA)"
             }
           ],
-          "description": "Médiateur numérique basé à Les Abymes (Guadeloupe). Aide les lieux d’accueil des familles — SESSAD, IME, associations, collectivités — à accompagner les familles autour des écrans : conflits autour du temps d’écran, bonnes pratiques numériques.",
+          "description": "Médiateur numérique basé à Les Abymes (Guadeloupe). Aide les structures — SESSAD, IME, associations, collectivités — à accompagner les familles autour des écrans : conflits autour du temps d’écran, bonnes pratiques numériques.",
           "hasCredential": [
             {
               "@type": "EducationalOccupationalCredential",
@@ -242,7 +242,7 @@
               "collectivités"
             ]
           },
-          "description": "Médiation numérique pour les lieux d’accueil des familles en Guadeloupe. Résolution des conflits autour du temps d’écran, ateliers de bonnes pratiques, vulgarisation numérique.",
+          "description": "Médiation numérique pour les structures qui accompagnent des familles en Guadeloupe. Résolution des conflits autour du temps d’écran, ateliers de bonnes pratiques, vulgarisation numérique.",
           "name": "Médiation numérique - Programmes PXLC",
           "provider": {
             "@id": "https://pxlc.fr/#identity"
