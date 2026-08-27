@@ -7,8 +7,8 @@
 
 ## 1. Stratégie
 
-Conversion B2B locale : capter les lieux d'accueil des familles (structures =
-clientes, familles = bénéficiaires) sur les pages `/projets/` et
+Conversion B2B locale : capter les structures qui accueillent des familles
+(structures = clientes, familles = bénéficiaires) sur les pages `/projets/` et
 `/contact/`, avec la preuve par les cas pratiques SESSAD.
 
 Le volet « autorité parentale », qui reposait sur un blog d'articles sourcés
