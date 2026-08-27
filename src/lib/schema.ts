@@ -199,6 +199,7 @@ const andyNode: Node<Person> = {
     'https://www.threads.com/@seyken971',
     'https://x.com/seyken971',
     'https://bsky.app/profile/seyken971.pxlc.fr',
+    'https://www.facebook.com/seyken971',
   ],
   'url': `${URL_BASE}/a-propos/`,
   'worksFor': { '@id': ID.identity },
