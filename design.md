@@ -448,7 +448,7 @@ Classes issues de `styles.css`. Les styles scoped des composants Vue ne sont pas
 - Chiffres en numéraux sauf en début de phrase
 - `Parent-Écran-Enfant` au singulier, avec majuscules et traits d'union — jamais « Parents-Écran-Enfant »
 - Ne jamais écrire « fondateur » — écrire « créateur de PXLC »
-- Nommer les clients : terme générique « les lieux d'accueil des familles » (court « les lieux ») ; en adresse directe, nommer le lieu (« votre médiathèque ») ou « votre structure »
+- Nommer les clients : terme générique « les structures » — le mot que les acheteurs publics emploient pour eux-mêmes, écoles et centres socioculturels compris (consultation CCAS de Pointe-à-Pitre, 2026). « les lieux qui accueillent des familles » sert de périphrase de variation, jamais de terme canonique : « lieu d'accueil » renvoie au LAEP. En adresse directe, nommer le lieu (« votre médiathèque ») ou « votre structure »
 - Mission en une phrase : « PXLC accompagne les familles dans l'éducation numérique des enfants. »
 - Cadre réglementaire : toujours citer HCSP 2019-2020 · HAS 2020 ensemble
 - Toute affirmation santé/usage des écrans doit être sourcée depuis docs/references/ (document + section) — ne jamais inventer un chiffre ou une recommandation
@@ -456,7 +456,7 @@ Classes issues de `styles.css`. Les styles scoped des composants Vue ne sont pas
 ### Positionnement B2B
 
 - **Principe** : intervenir dans les lieux qui accueillent déjà des familles — le lieu apporte le public, j'apporte l'atelier et le cadre
-- **Clients** = les lieux d'accueil des familles : médiathèques et collectivités, centres sociaux et espaces de vie sociale, LAEP, structures médico-sociales (SESSAD, IME, CMPP, CAMSP), dispositifs CLAS — les familles sont bénéficiaires, pas clients directs
+- **Clients** = les structures qui accueillent déjà des familles : médiathèques et collectivités, centres sociaux et espaces de vie sociale, écoles et centres socioculturels, CCAS et dispositifs de réussite éducative, LAEP, SESSAD, IME, CMPP, CAMSP, dispositifs CLAS — les familles sont bénéficiaires, pas clients directs
 - **Posture** : partenaire institutionnel — jamais coach, expert ou gadget
 - **Jeu vidéo** = outil de médiation légitime — jamais un problème à résoudre
 - **Différenciateur** : seul pont entre 3 mondes — culture joueur / cadre du soin / langage institutionnel
