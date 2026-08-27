@@ -25,6 +25,9 @@ export default defineConfig({
   site: 'https://pxlc.fr',
   trailingSlash: 'always',
   build: { format: 'directory' },
+  // /structures/ a été indexée : GitHub Pages ne sert pas de 301, Astro émet
+  // donc une page de redirection (meta refresh + canonical) vers la rubrique.
+  redirects: { '/structures': '/projets/' },
   security: {
     csp: {
       directives: [

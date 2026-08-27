@@ -20,6 +20,12 @@ const JSON_MODE = process.argv.includes('--json')
 // Skip the rules jsdom can't evaluate fairly — they're noise, not findings.
 const DISABLED_RULES = ['color-contrast', 'target-size', 'meta-viewport']
 
+// Les pages de redirection émises par `redirects` (meta refresh, noindex) ne
+// sont pas des pages : ni <html lang>, ni landmark, juste un lien de repli
+// qu'aucun humain ne voit. Les auditer ne mesure rien — on les compte à part
+// plutôt que de les taire.
+const isRedirectStub = html => /http-equiv="refresh"/i.test(html)
+
 const findHtml = async (dir) => {
   const out = []
   for (const entry of await readdir(dir, { withFileTypes: true })) {
@@ -59,11 +65,16 @@ const auditFile = async (path) => {
 const main = async () => {
   const pages = await findHtml(PUBLIC_DIR)
   const all = []
+  const redirects = []
   for (const path of pages) {
     // relative() + split(sep) → libellé correct sous Windows (path.join produit
     // des antislash) comme sous Linux.
     const rel = relative(PUBLIC_DIR, path).split(sep).join('/')
     const route = ('/' + rel.replace(/index\.html$/, '')).replace(/\/$/, '') || '/'
+    if (isRedirectStub(await readFile(path, 'utf8'))) {
+      redirects.push(route)
+      continue
+    }
     const violations = await auditFile(path)
     all.push({ route, file: path, violations })
   }
@@ -107,6 +118,7 @@ const main = async () => {
   console.log(`  Minor:    ${byImpact.minor || 0}`)
   console.log('')
   console.log(`Skipped rules (jsdom can't evaluate): ${DISABLED_RULES.join(', ')}`)
+  if (redirects.length) console.log(`Pages de redirection ignorées : ${redirects.join(', ')}`)
 
   if ((byImpact.critical || 0) + (byImpact.serious || 0) > 0) process.exit(1)
 }

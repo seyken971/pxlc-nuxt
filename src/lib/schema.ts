@@ -147,7 +147,7 @@ const identityNode: MultiType<ProfessionalService, ['Organization', 'Professiona
   'legalName': IDENTITY.legalName,
   'logo': { '@id': ID.logo },
   // Rattache #service à l'entité. Sans cette arête, le nœud Service ne serait
-  // référencé que par le `about` de /structures/ et flotterait sur les autres
+  // référencé que par le `about` de /projets/ et flotterait sur les autres
   // pages.
   'makesOffer': { '@type': 'Offer', 'itemOffered': { '@id': ID.service } },
   'name': IDENTITY.brandName,
@@ -216,7 +216,7 @@ const serviceNode: Node<Service> = {
   'name': 'Médiation numérique - Programmes PXLC',
   'provider': { '@id': ID.identity },
   'serviceType': 'Médiation numérique',
-  'url': `${URL_BASE}/structures/`,
+  'url': `${URL_BASE}/projets/`,
 }
 
 // Dimensions déclarées d'après les fichiers de public/img/photos/, qui ne

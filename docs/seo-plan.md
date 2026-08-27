@@ -7,13 +7,13 @@
 
 ## 1. Stratégie
 
-Conversion B2B locale : capter les lieux d'accueil des familles (structures =
-clientes, familles = bénéficiaires) sur les pages `/structures/` et
+Conversion B2B locale : capter les structures qui accueillent des familles
+(structures = clientes, familles = bénéficiaires) sur les pages `/projets/` et
 `/contact/`, avec la preuve par les cas pratiques SESSAD.
 
 Le volet « autorité parentale », qui reposait sur un blog d'articles sourcés
 HCSP, est abandonné avec le blog (26 août 2026). Le site tient désormais en
-5 pages : accueil, structures, à propos, contact, mentions légales.
+5 pages : accueil, projets, à propos, contact, mentions légales.
 
 ## 2. Décisions figées (ne pas re-litiguer)
 
