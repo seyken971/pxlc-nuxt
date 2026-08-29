@@ -24,6 +24,7 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - name: Checkout
         uses: actions/checkout@v7
@@ -41,20 +42,10 @@ jobs:
           node-version: 24
           cache: npm
 
-      # Cache du build Astro (transforms astro:assets notamment — les webp
-      # regénérés sinon à chaque run). Le préfixe astro-v1- est un bust manuel.
-      - name: Cache Astro build artefacts
-        uses: actions/cache@v6
-        with:
-          path: |
-            node_modules/.cache
-            .astro
-          key: astro-v1-${{ runner.os }}-${{ hashFiles('package-lock.json', 'astro.config.mjs') }}
-          restore-keys: |
-            astro-v1-${{ runner.os }}-
-
       - name: Install dependencies
-        run: npm install --no-audit --no-fund
+        # npm ci : installation depuis le lockfile, sans le résoudre à nouveau.
+        # Déclenche le postinstall `astro sync`.
+        run: npm ci --no-audit --no-fund
 
       - name: Lint (ESLint)
         # Flat config autonome (astro + vue + typescript-eslint). Rapide —
@@ -67,24 +58,18 @@ jobs:
       - name: Build static site (gates + Astro + post-build SEO)
         # `npm run build` déclenche les hooks npm :
         #   prebuild  = gen:tokens → design → ds-lint
-        #   build     = astro build (24 pages statiques dans dist/)
+        #   build     = astro build (pages statiques dans dist/)
         #   postbuild = check-links
         run: npm run build
 
       - name: Verify build output
-        # Cheap guardrail — if the build produced an empty dist/ or the home
-        # page is missing, fail loud instead of uploading a broken artefact.
+        # Cheap guardrail — .nojekyll et CNAME viennent de public/ et
+        # disparaîtraient silencieusement : sans eux, GitHub Pages casse le
+        # domaine et les chemins en _underscore.
         run: |
-          test -f dist/index.html || { echo "::error::Missing dist/index.html"; exit 1; }
-          test -f dist/sitemap-index.xml || { echo "::error::Missing sitemap-index.xml"; exit 1; }
-          test -f dist/robots.txt || { echo "::error::Missing robots.txt"; exit 1; }
-          test -f dist/.nojekyll || { echo "::error::Missing .nojekyll"; exit 1; }
-          test -f dist/CNAME || { echo "::error::Missing CNAME"; exit 1; }
-
-      - name: A11y audit — static (axe-core + jsdom)
-        # Fast check on the prerendered HTML. Catches semantic regressions
-        # (labels, landmarks, ARIA) but can't see contrast or layout.
-        run: npm run a11y
+          for f in index.html sitemap-index.xml robots.txt .nojekyll CNAME; do
+            test -f "dist/$f" || { echo "::error::Missing dist/$f"; exit 1; }
+          done
 
       - name: Cache Playwright browsers
         uses: actions/cache@v6
@@ -95,25 +80,18 @@ jobs:
             playwright-${{ runner.os }}-
 
       - name: Install Playwright Chromium
-        # --with-deps adds the OS-level libs Chromium needs on Ubuntu;
-        # the binary itself comes from cache on hit. ~150 MB cold, ~5 s warm.
-        #
-        # Le 19/08/2026, cette étape s'est figée sans fin sur 2 runs sur 3
-        # (plus de 35 min, jusqu'à bloquer le déploiement de main). En cause :
-        # l'apt-get lancé par --with-deps, qui attend une réponse interactive.
-        # D'où les deux variables ci-dessous. Le timeout est le filet de
-        # sécurité — un blocage doit échouer vite, pas geler le job pendant
-        # les 6 h du timeout par défaut d'Actions.
-        timeout-minutes: 10
-        env:
-          DEBIAN_FRONTEND: noninteractive
-          NEEDRESTART_MODE: a
-        run: npx playwright install chromium --with-deps
+        # Sans --with-deps : les libs système de Chromium sont déjà sur l'image
+        # ubuntu-latest, et l'apt-get du flag avait figé le job plus de 35 min
+        # le 19/08/2026. Si une future image perd une lib, remettre
+        # `--with-deps` avec DEBIAN_FRONTEND=noninteractive et NEEDRESTART_MODE=a.
+        timeout-minutes: 5
+        run: npx playwright install chromium
 
-      - name: A11y audit — runtime (axe-core + headless Chromium)
-        # Complements the static check with the rules that need a real
-        # browser: color-contrast, target-size, focus visibility, plus
-        # dynamic states (mobile menu open, FAQ open).
+      - name: A11y audit (axe-core + headless Chromium)
+        # Seule porte a11y : couvre les règles sémantiques ET celles qui
+        # exigent un vrai navigateur (color-contrast, target-size, focus),
+        # plus les états dynamiques (menu mobile ouvert, FAQ dépliée).
+        # `npm run a11y` (jsdom) reste dispo en local, sans navigateur.
         run: npm run a11y:runtime
 
       - name: Setup Pages
@@ -130,6 +108,7 @@ jobs:
     needs: build
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     permissions:
       pages: write
       id-token: write
