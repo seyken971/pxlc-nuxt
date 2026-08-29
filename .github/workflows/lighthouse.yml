@@ -36,18 +36,8 @@ jobs:
           node-version: 24
           cache: npm
 
-      - name: Cache Astro build artefacts
-        uses: actions/cache@v6
-        with:
-          path: |
-            node_modules/.cache
-            .astro
-          key: astro-v1-${{ runner.os }}-${{ hashFiles('package-lock.json', 'astro.config.mjs') }}
-          restore-keys: |
-            astro-v1-${{ runner.os }}-
-
       - name: Install dependencies
-        run: npm install --no-audit --no-fund
+        run: npm ci --no-audit --no-fund
 
       - name: Build static site
         run: npm run build
