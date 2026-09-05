@@ -73,6 +73,10 @@
   --badge-soft-bg: rgba(0, 210, 200, 0.12);
   /* Hover sur surface toujours sombre (menu mobile) — pas de variante. */
   --hover-on-dark: rgba(255, 255, 255, 0.06);
+  /* Carte des communes (CommuneMap) : terre, frontières, contour de la zone. */
+  --map-land:        var(--pxlc-white);
+  --map-stroke:      var(--pxlc-text-secondary);
+  --map-zone-stroke: var(--pxlc-teal-deep);
 
   --ink:          var(--pxlc-text-ink);
   --ink-quiet:    var(--pxlc-text-on-light);
@@ -171,6 +175,9 @@
   --dot-grid:     rgba(255, 255, 255, 0.06);
   --halo-cyan:    rgba(0, 210, 200, 0.08);
   --badge-soft-bg: rgba(0, 210, 200, 0.18);
+  --map-land:        var(--pxlc-bg-dark-soft);
+  --map-stroke:      var(--pxlc-text-quiet-dark);
+  --map-zone-stroke: var(--pxlc-cyan);
 
   --shadow-card-hover: 0 8px 24px -12px rgba(0,0,0,.45);
   --shadow-header:     0 2px 14px -6px rgba(0,0,0,.45);
