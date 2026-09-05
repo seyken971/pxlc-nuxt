@@ -12,25 +12,18 @@ const year = new Date().getFullYear()
 <footer class="site-footer">
   <!-- data-nosnippet : le footer est du boilerplate sitewide ; sans cet
        attribut Google composait le snippet de l'accueil à partir de la
-       mission + CTA + titres de colonnes d'ici (extrait haché). div/section/
-       span sont les seuls éléments où Google honore data-nosnippet. -->
+       mission + titres de colonnes d'ici (extrait haché). div/section/span
+       sont les seuls éléments où Google honore data-nosnippet. -->
   <div class="container" data-nosnippet>
-    <div class="site-footer__top">
-      <PxlcPixelStrip count={7} accentAt={2} />
-      <p class="site-footer__mission">
-        PXLC accompagne les familles autour des écrans.
-      </p>
-      <a class="site-footer__mission-link" href="https://cal.eu/pxlc-gp" target="_blank" rel="noopener noreferrer">
-        Prendre rendez-vous · 20&nbsp;min
-      </a>
-    </div>
-
     <div class="site-footer__inner">
       <div>
         <PxlcLockup />
-        <p class="site-footer__brand-text">
-          Médiation numérique en Guadeloupe.
+        <p class="site-footer__mission">
+          PXLC accompagne les familles autour des écrans.
         </p>
+        <a class="site-footer__mission-link" href="https://cal.eu/pxlc-gp" target="_blank" rel="noopener noreferrer">
+          Réserver un échange de 20&nbsp;min
+        </a>
         <ul class="site-footer__social" role="list">
           <li>
             <a
@@ -47,7 +40,7 @@ const year = new Date().getFullYear()
           <li>
             <a
               class="site-footer__social-btn" href="https://cal.eu/pxlc-gp" target="_blank" rel="noopener noreferrer"
-              aria-label="Prendre rendez-vous de 20 minutes">
+              aria-label="Réserver un échange de 20 minutes">
               <Calendar aria-hidden="true" />
             </a>
           </li>
