@@ -51,6 +51,15 @@ colors:
       light: "rgba(0, 210, 200, 0.12)"
       dark: "rgba(0, 210, 200, 0.18)"
     hover-on-dark: "rgba(255, 255, 255, 0.06)"
+    map-land:
+      light: "var(--pxlc-white)"
+      dark: "var(--pxlc-bg-dark-soft)"
+    map-stroke:
+      light: "var(--pxlc-text-secondary)"
+      dark: "var(--pxlc-text-quiet-dark)"
+    map-zone-stroke:
+      light: "var(--pxlc-teal-deep)"
+      dark: "var(--pxlc-cyan)"
     ink:
       light: "var(--pxlc-text-ink)"
       dark: "var(--pxlc-ivory)"

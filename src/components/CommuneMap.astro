@@ -55,14 +55,20 @@ const markers = zone.map((nom, i) => ({ nom, num: i + 1, centroid: byName.get(no
   .commune-map { margin: 0; background: var(--bg); }
   .commune-map svg { display: block; width: 100%; height: auto; }
 
-  .commune-map__commune { fill: none; stroke: var(--rule); stroke-width: 0.8; }
-  .commune-map__commune--zone { fill: var(--pxlc-teal-mid); stroke: var(--pxlc-teal-deep); }
+  /* Trait constant à l'écran quelle que soit la largeur rendue (non-scaling-stroke) :
+     la terre se détache de la mer (--bg) et les frontières restent nettes sur mobile. */
+  .commune-map__commune {
+    fill: var(--map-land); stroke: var(--map-stroke);
+    stroke-width: 1px; stroke-linejoin: round; vector-effect: non-scaling-stroke;
+  }
+  .commune-map__commune--zone { fill: var(--pxlc-teal-mid); stroke: var(--map-zone-stroke); stroke-width: 1.5px; }
 
-  .commune-map__marker circle { fill: var(--pxlc-teal-deep); stroke: var(--bg); stroke-width: 1.5; }
+  /* Marqueurs et puces de légende : même couple encre / fond, pour se lire comme un seul objet. */
+  .commune-map__marker circle { fill: var(--ink); stroke: var(--bg); stroke-width: 1.5; }
   .commune-map__marker text {
     font-family: var(--font-label);
     font-size: 10.5px; font-weight: 700;
-    fill: var(--pxlc-white);
+    fill: var(--bg);
   }
 
   .commune-map__legend {
@@ -81,7 +87,7 @@ const markers = zone.map((nom, i) => ({ nom, num: i + 1, centroid: byName.get(no
   .commune-map__keys i {
     display: grid; place-items: center;
     width: 15px; height: 15px; border-radius: var(--radius-pill);
-    background: var(--pxlc-teal-deep); color: var(--pxlc-white);
+    background: var(--ink); color: var(--bg);
     font-size: 9.5px; font-weight: 700; font-style: normal;
   }
   .commune-map__credit { font-family: var(--font-label); font-size: 11px; color: var(--quiet); }
