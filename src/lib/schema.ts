@@ -128,7 +128,7 @@ const identityNode: MultiType<ProfessionalService, ['Organization', 'Professiona
     'email': IDENTITY.email,
     'telephone': IDENTITY.telephone,
   },
-  'description': 'PXLC accompagne les familles dans l’éducation numérique des enfants. Médiation numérique en Guadeloupe, portée par Andy Zébus, auprès des structures qui accompagnent des familles.',
+  'description': 'PXLC accompagne les familles autour des écrans. Médiation numérique en Guadeloupe, portée par Andy Zébus, auprès des structures qui accompagnent des familles.',
   'email': IDENTITY.email,
   'founder': { '@id': ID.andy },
   'foundingDate': '2015',

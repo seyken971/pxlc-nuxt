@@ -69,7 +69,7 @@ ou d'espacement en dur.**
 - Pas d'emoji, nulle part.
 - Typographie française : espace insécable avant `!` `?` `:` `;` `»` et entre nombre + unité.
 - **PXLC** = nom de marque, jamais sujet d'un verbe d'action (sauf la phrase de mission).
-- Mission : « PXLC accompagne les familles dans l'éducation numérique des enfants. »
+- Mission : « PXLC accompagne les familles autour des écrans. »
 
 ## Classes CSS globales utiles
 
