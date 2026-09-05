@@ -7,8 +7,8 @@ export interface ProjectTheme {
   long: string
 }
 
-// Source of truth for the 3 « Jouons Ensemble! » themes (SESSAD Lékoklaya, 2026).
-// Source: _plaquette/PROJET PARENTS – ECRAN – ENFANT.md
+// Source of truth for the 3 « Jouons Ensemble ! » themes (SESSAD Lékoklaya, 2026).
+// Source : fiche projet interne 2026 (non versionnée).
 export const PROJECT_THEMES: ProjectTheme[] = [
   {
     num: '01',

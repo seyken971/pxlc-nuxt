@@ -6,17 +6,35 @@
   <meta name="author" content="Andy Zébus — PXLC">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>PXLC — Plaquette de présentation · Médiation numérique</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap">
   <style>
 /* =============================================================
    PXLC — Plaquette de présentation (A4, print)
    Design system : Plus Jakarta Sans / Lora
-   Tokens repris de app/assets/css/tokens.css (source de vérité).
+   Tokens repris de src/styles/tokens.css (source de vérité).
    Impression toujours en mode clair.
    ============================================================= */
+
+/* ── Polices : les mêmes fichiers auto-hébergés que le site ──
+   (public/fonts, fontes variables 400-600) — rendu identique au
+   site, aucun appel réseau au build. */
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url(../public/fonts/plus-jakarta-sans-latin.woff2) format("woff2");
+  font-weight: 400 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Lora";
+  src: url(../public/fonts/lora-latin.woff2) format("woff2");
+  font-weight: 400 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Lora";
+  src: url(../public/fonts/lora-italic-latin.woff2) format("woff2");
+  font-weight: 400 600;
+  font-style: italic;
+}
 
 :root {
   /* ── Palette — noms et hex identiques à tokens.css ───────── */
@@ -70,7 +88,7 @@ html, body {
   font-size: 10.5pt;
   line-height: 1.55;
   color: var(--ink-quiet);
-  background: #5A6B70;
+  background: var(--pxlc-text-secondary);
   -webkit-print-color-adjust: exact;
   print-color-adjust: exact;
 }
@@ -304,6 +322,17 @@ em { font-style: italic; }
 .card--dark h3, .card--dark h4 { color: var(--pxlc-ivory); }
 .card--dark p { color: var(--pxlc-text-on-dark-soft); }
 .card--dark .eyebrow { color: var(--cyan); }
+/* Sans cette règle, strong hérite de --ink : encre sombre sur fond sombre,
+   le CTA de la promesse disparaissait à l'impression. */
+.card--dark strong { color: var(--pxlc-ivory); }
+.card__contact {
+  font-family: var(--font-label);
+  font-size: 9.5pt;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--cyan);
+}
+.card--dark .card__contact { color: var(--cyan); }
 
 /* ── Citation ──────────────────────────────────────────────── */
 .quote {
@@ -589,6 +618,21 @@ em { font-style: italic; }
 </head>
 
 <body>
+  <!-- Marque 3×3, définie une fois et réutilisée par <use> sur chaque page.
+       Couleurs par tokens : le logo suit la palette, jamais un hex en dur. -->
+  <svg width="0" height="0" style="position: absolute;" aria-hidden="true">
+    <symbol id="pxlc-mark" viewBox="0 0 100 100">
+      <rect x="2" y="2" width="29.33" height="29.33" rx="3.5" fill="var(--pxlc-teal-deep)" />
+      <rect x="35.33" y="2" width="29.33" height="29.33" rx="3.5" fill="var(--pxlc-teal-mid)" />
+      <rect x="68.67" y="2" width="29.33" height="29.33" rx="3.5" fill="var(--pxlc-cyan)" />
+      <rect x="2" y="35.33" width="29.33" height="29.33" rx="3.5" fill="var(--pxlc-teal-deep)" />
+      <rect x="35.33" y="35.33" width="29.33" height="29.33" rx="3.5" fill="var(--pxlc-teal-mid)" />
+      <rect x="68.67" y="35.33" width="29.33" height="29.33" rx="3.5" fill="var(--pxlc-cyan)" />
+      <rect x="2" y="68.67" width="29.33" height="29.33" rx="3.5" fill="var(--pxlc-teal-deep)" />
+      <rect x="35.33" y="68.67" width="29.33" height="29.33" rx="3.5" fill="var(--pxlc-teal-mid)" />
+      <rect x="68.67" y="68.67" width="29.33" height="29.33" rx="3.5" fill="var(--pxlc-coral)" />
+    </symbol>
+  </svg>
   <div class="pages">
 
     <!-- ═══════════════════════ Page 1 · COUVERTURE ═══════════════════════ -->
@@ -600,17 +644,7 @@ em { font-style: italic; }
       </div>
       <div class="cover__inner">
         <div class="cover__brand">
-          <svg viewBox="0 0 100 100" aria-hidden="true">
-            <rect x="2" y="2" width="29.33" height="29.33" rx="3.5" fill="#036E73" />
-            <rect x="35.33" y="2" width="29.33" height="29.33" rx="3.5" fill="#01A09D" />
-            <rect x="68.67" y="2" width="29.33" height="29.33" rx="3.5" fill="#00D2C8" />
-            <rect x="2" y="35.33" width="29.33" height="29.33" rx="3.5" fill="#036E73" />
-            <rect x="35.33" y="35.33" width="29.33" height="29.33" rx="3.5" fill="#01A09D" />
-            <rect x="68.67" y="35.33" width="29.33" height="29.33" rx="3.5" fill="#00D2C8" />
-            <rect x="2" y="68.67" width="29.33" height="29.33" rx="3.5" fill="#036E73" />
-            <rect x="35.33" y="68.67" width="29.33" height="29.33" rx="3.5" fill="#01A09D" />
-            <rect x="68.67" y="68.67" width="29.33" height="29.33" rx="3.5" fill="#FF5E3A" />
-          </svg>
+          <svg viewBox="0 0 100 100" aria-hidden="true"><use href="#pxlc-mark" /></svg>
           <span>PXLC<span class="coral-dot" aria-hidden="true">.</span></span>
         </div>
 
@@ -634,17 +668,7 @@ em { font-style: italic; }
     <section class="page" data-screen-label="02 · Mission">
       <header class="page__head">
         <div class="page__logo">
-          <svg viewBox="0 0 100 100" aria-hidden="true">
-            <rect x="2" y="2" width="29.33" height="29.33" rx="3.5" fill="#036E73" />
-            <rect x="35.33" y="2" width="29.33" height="29.33" rx="3.5" fill="#01A09D" />
-            <rect x="68.67" y="2" width="29.33" height="29.33" rx="3.5" fill="#00D2C8" />
-            <rect x="2" y="35.33" width="29.33" height="29.33" rx="3.5" fill="#036E73" />
-            <rect x="35.33" y="35.33" width="29.33" height="29.33" rx="3.5" fill="#01A09D" />
-            <rect x="68.67" y="35.33" width="29.33" height="29.33" rx="3.5" fill="#00D2C8" />
-            <rect x="2" y="68.67" width="29.33" height="29.33" rx="3.5" fill="#036E73" />
-            <rect x="35.33" y="68.67" width="29.33" height="29.33" rx="3.5" fill="#01A09D" />
-            <rect x="68.67" y="68.67" width="29.33" height="29.33" rx="3.5" fill="#FF5E3A" />
-          </svg>
+          <svg viewBox="0 0 100 100" aria-hidden="true"><use href="#pxlc-mark" /></svg>
           <span>PXLC<span class="coral-dot" aria-hidden="true">.</span></span>
         </div>
         <div class="page__nav">01 · La mission</div>
@@ -652,7 +676,7 @@ em { font-style: italic; }
 
       <span class="eyebrow">01 · La mission</span>
       <h2>Le numérique, une histoire de lien<span class="coral-dot" aria-hidden="true">.</span></h2>
-      <p class="lead">{{mission.statement}}. Je m'appuie sur les équipes des SESSAD, IME, associations et collectivités de Guadeloupe.</p>
+      <p class="lead">{{mission.statement}}. {{mission.lead}}</p>
 
       <div class="grid--3" style="margin-bottom: 8mm;">
         <div class="card">
@@ -677,6 +701,7 @@ em { font-style: italic; }
       <div class="card card--dark">
         <span class="eyebrow">Ma promesse aux structures</span>
         <p>{{mission.promesse}}</p>
+        <p class="card__contact">{{contact.cal}} · {{contact.email}} · {{contact.phone}}</p>
       </div>
 
       <div class="page__foot">
@@ -693,20 +718,10 @@ em { font-style: italic; }
     <section class="page" data-screen-label="03 · Qui je suis">
       <header class="page__head">
         <div class="page__logo">
-          <svg viewBox="0 0 100 100" aria-hidden="true">
-            <rect x="2" y="2" width="29.33" height="29.33" rx="3.5" fill="#036E73" />
-            <rect x="35.33" y="2" width="29.33" height="29.33" rx="3.5" fill="#01A09D" />
-            <rect x="68.67" y="2" width="29.33" height="29.33" rx="3.5" fill="#00D2C8" />
-            <rect x="2" y="35.33" width="29.33" height="29.33" rx="3.5" fill="#036E73" />
-            <rect x="35.33" y="35.33" width="29.33" height="29.33" rx="3.5" fill="#01A09D" />
-            <rect x="68.67" y="35.33" width="29.33" height="29.33" rx="3.5" fill="#00D2C8" />
-            <rect x="2" y="68.67" width="29.33" height="29.33" rx="3.5" fill="#036E73" />
-            <rect x="35.33" y="68.67" width="29.33" height="29.33" rx="3.5" fill="#01A09D" />
-            <rect x="68.67" y="68.67" width="29.33" height="29.33" rx="3.5" fill="#FF5E3A" />
-          </svg>
+          <svg viewBox="0 0 100 100" aria-hidden="true"><use href="#pxlc-mark" /></svg>
           <span>PXLC<span class="coral-dot" aria-hidden="true">.</span></span>
         </div>
-        <div class="page__nav">02 · Le médiateur</div>
+        <div class="page__nav">02 · Qui je suis</div>
       </header>
 
       <span class="eyebrow">02 · Qui je suis</span>
@@ -757,81 +772,62 @@ em { font-style: italic; }
     <section class="page" data-screen-label="04 · La méthode">
       <header class="page__head">
         <div class="page__logo">
-          <svg viewBox="0 0 100 100" aria-hidden="true">
-            <rect x="2" y="2" width="29.33" height="29.33" rx="3.5" fill="#036E73" />
-            <rect x="35.33" y="2" width="29.33" height="29.33" rx="3.5" fill="#01A09D" />
-            <rect x="68.67" y="2" width="29.33" height="29.33" rx="3.5" fill="#00D2C8" />
-            <rect x="2" y="35.33" width="29.33" height="29.33" rx="3.5" fill="#036E73" />
-            <rect x="35.33" y="35.33" width="29.33" height="29.33" rx="3.5" fill="#01A09D" />
-            <rect x="68.67" y="35.33" width="29.33" height="29.33" rx="3.5" fill="#00D2C8" />
-            <rect x="2" y="68.67" width="29.33" height="29.33" rx="3.5" fill="#036E73" />
-            <rect x="35.33" y="68.67" width="29.33" height="29.33" rx="3.5" fill="#01A09D" />
-            <rect x="68.67" y="68.67" width="29.33" height="29.33" rx="3.5" fill="#FF5E3A" />
-          </svg>
+          <svg viewBox="0 0 100 100" aria-hidden="true"><use href="#pxlc-mark" /></svg>
           <span>PXLC<span class="coral-dot" aria-hidden="true">.</span></span>
         </div>
         <div class="page__nav">03 · La méthode</div>
       </header>
 
       <span class="eyebrow">03 · La méthode</span>
-      <h2 style="margin-bottom: 4mm;">Trois temps, un protocole<span class="coral-dot" aria-hidden="true">.</span></h2>
-      <p class="lead" style="margin-bottom: 4mm; font-size: 12pt;">Un protocole simple, qui transpose les repères du cadre HCSP&nbsp;2019-2020 · HAS&nbsp;2020
-        dans le quotidien d'une famille. Pas de discours moral, pas d'écrans diabolisés — un cadre, co-encadré avec votre
-        équipe pluridisciplinaire.</p>
+      <h2 style="margin-bottom: 4mm;">{{methode.titre}}<span class="coral-dot" aria-hidden="true">.</span></h2>
+      <p class="lead" style="margin-bottom: 4mm; font-size: 12pt;">{{methode.lead}}</p>
 
       <div class="step">
         <div class="step__num">01</div>
         <div>
-          <div class="step__phase">Préparation <span class="step__duration">entretiens familiaux</span></div>
-          <h3 class="step__title">Comprendre l'enfant</h3>
-          <p class="step__desc">Entretiens conjoints que je mène avec le psychologue, la psychomotricienne et l'intervenant
-            culturel. Identification du profil ludique de chaque enfant et construction
-            des binômes parent-enfant.</p>
-          <span class="step__deliv">Profils ludiques + binômes parent-enfant</span>
+          <div class="step__phase">{{methode.etape1.phase}} <span class="step__duration">{{methode.etape1.tag}}</span></div>
+          <h3 class="step__title">{{methode.etape1.titre}}</h3>
+          <p class="step__desc">{{methode.etape1.desc}}</p>
+          <span class="step__deliv">{{methode.etape1.livrable}}</span>
         </div>
       </div>
 
       <div class="step">
         <div class="step__num">02</div>
         <div>
-          <div class="step__phase">Ateliers thématiques <span class="step__duration">parent-enfant en binôme</span></div>
-          <h3 class="step__title">Jouer ensemble</h3>
-          <p class="step__desc">Ateliers sur trois thèmes — coopération, émotions &amp; récits, différence &amp;
-            complémentarité. Jeux vidéo que je choisis, jeux traditionnels portés par l'intervenant culturel.
-            Temps de jeu partagé (30 à 45&nbsp;min) suivi d'un temps d'échange verbal (45&nbsp;min à 1&nbsp;h).</p>
-          <span class="step__deliv">Observation et guidance des interactions</span>
+          <div class="step__phase">{{methode.etape2.phase}} <span class="step__duration">{{methode.etape2.tag}}</span></div>
+          <h3 class="step__title">{{methode.etape2.titre}}</h3>
+          <p class="step__desc">{{methode.etape2.desc}}</p>
+          <span class="step__deliv">{{methode.etape2.livrable}}</span>
         </div>
       </div>
 
       <div class="step">
         <div class="step__num">03</div>
         <div>
-          <div class="step__phase">Groupe de parole + bilan <span class="step__duration">restitution famille &amp;
-              équipe</span></div>
-          <h3 class="step__title">Restaurer le lien</h3>
-          <p class="step__desc">Espace d'échange entre familles (régulation, limites, signes d'alerte, posture parentale)
-            suivi d'un bilan&nbsp;: synthèse des acquis parent-enfant et pistes de continuité à la maison, transmises à
-            l'équipe.</p>
-          <span class="step__deliv">Synthèse + rituels durables à la maison</span>
+          <div class="step__phase">{{methode.etape3.phase}} <span class="step__duration">{{methode.etape3.tag}}</span></div>
+          <h3 class="step__title">{{methode.etape3.titre}}</h3>
+          <p class="step__desc">{{methode.etape3.desc}}</p>
+          <span class="step__deliv">{{methode.etape3.livrable}}</span>
         </div>
       </div>
 
       <span class="eyebrow" style="margin: 5mm 0 0 0;">Le cadre de référence</span>
       <div class="frameworks">
         <div class="framework">
-          <span class="framework__pill">HAS · 2020</span>
-          <h4>Soutien à la parentalité</h4>
-          <p>Soutenir la fonction parentale dans la médiation des écrans plutôt que prescrire des interdits.</p>
+          <span class="framework__pill">{{methode.cadre1.pill}}</span>
+          <h4>{{methode.cadre1.titre}}</h4>
+          <p>{{methode.cadre1.desc}}</p>
         </div>
         <div class="framework">
-          <span class="framework__pill">HCSP · 2019</span>
-          <h4>Exposition aux écrans</h4>
-          <p>L'accompagnement parental actif est le facteur clé pour limiter les effets négatifs.</p>
+          <span class="framework__pill">{{methode.cadre2.pill}}</span>
+          <h4>{{methode.cadre2.titre}}</h4>
+          <p>{{methode.cadre2.desc}}</p>
         </div>
         <div class="framework">
-          <span class="framework__pill">HCSP · 2020</span>
-          <h4>Usage problématique des écrans</h4>
-          <p>Des repères pour prévenir le basculement vers un usage problématique.</p>
+          <span class="framework__pill">{{methode.cadre3.pill}}</span>
+          <h4>{{methode.cadre3.titre}}</h4>
+          <p>{{methode.cadre3.desc}}</p>
         </div>
       </div>
 
@@ -849,24 +845,14 @@ em { font-style: italic; }
     <section class="page" data-screen-label="05 · Jouons Ensemble">
       <header class="page__head">
         <div class="page__logo">
-          <svg viewBox="0 0 100 100" aria-hidden="true">
-            <rect x="2" y="2" width="29.33" height="29.33" rx="3.5" fill="#036E73" />
-            <rect x="35.33" y="2" width="29.33" height="29.33" rx="3.5" fill="#01A09D" />
-            <rect x="68.67" y="2" width="29.33" height="29.33" rx="3.5" fill="#00D2C8" />
-            <rect x="2" y="35.33" width="29.33" height="29.33" rx="3.5" fill="#036E73" />
-            <rect x="35.33" y="35.33" width="29.33" height="29.33" rx="3.5" fill="#01A09D" />
-            <rect x="68.67" y="35.33" width="29.33" height="29.33" rx="3.5" fill="#00D2C8" />
-            <rect x="2" y="68.67" width="29.33" height="29.33" rx="3.5" fill="#036E73" />
-            <rect x="35.33" y="68.67" width="29.33" height="29.33" rx="3.5" fill="#01A09D" />
-            <rect x="68.67" y="68.67" width="29.33" height="29.33" rx="3.5" fill="#FF5E3A" />
-          </svg>
+          <svg viewBox="0 0 100 100" aria-hidden="true"><use href="#pxlc-mark" /></svg>
           <span>PXLC<span class="coral-dot" aria-hidden="true">.</span></span>
         </div>
-        <div class="page__nav">04 · Cas pratique</div>
+        <div class="page__nav">04 · Mon intervention</div>
       </header>
 
       <span class="eyebrow">04 · Mon intervention</span>
-      <h2>« Jouons Ensemble&nbsp;!&nbsp;»<span class="coral-dot" aria-hidden="true">.</span></h2>
+      <h2>«&nbsp;Jouons Ensemble&nbsp;!&nbsp;»<span class="coral-dot" aria-hidden="true">.</span></h2>
       <p style="margin-bottom: 5mm; max-width: 165mm;">{{cas.intro}}</p>
 
       <div class="photo" style="margin-bottom: 5mm;">
@@ -920,17 +906,7 @@ em { font-style: italic; }
     <section class="page" data-screen-label="06 · Consentement">
       <header class="page__head">
         <div class="page__logo">
-          <svg viewBox="0 0 100 100" aria-hidden="true">
-            <rect x="2" y="2" width="29.33" height="29.33" rx="3.5" fill="#036E73" />
-            <rect x="35.33" y="2" width="29.33" height="29.33" rx="3.5" fill="#01A09D" />
-            <rect x="68.67" y="2" width="29.33" height="29.33" rx="3.5" fill="#00D2C8" />
-            <rect x="2" y="35.33" width="29.33" height="29.33" rx="3.5" fill="#036E73" />
-            <rect x="35.33" y="35.33" width="29.33" height="29.33" rx="3.5" fill="#01A09D" />
-            <rect x="68.67" y="35.33" width="29.33" height="29.33" rx="3.5" fill="#00D2C8" />
-            <rect x="2" y="68.67" width="29.33" height="29.33" rx="3.5" fill="#036E73" />
-            <rect x="35.33" y="68.67" width="29.33" height="29.33" rx="3.5" fill="#01A09D" />
-            <rect x="68.67" y="68.67" width="29.33" height="29.33" rx="3.5" fill="#FF5E3A" />
-          </svg>
+          <svg viewBox="0 0 100 100" aria-hidden="true"><use href="#pxlc-mark" /></svg>
           <span>PXLC<span class="coral-dot" aria-hidden="true">.</span></span>
         </div>
         <div class="page__nav">05 · Annexe</div>
@@ -940,7 +916,7 @@ em { font-style: italic; }
       <h2>Consentement parental<span class="coral-dot" aria-hidden="true">.</span></h2>
 
       <div class="consent">
-        <p class="consent__intro">Dans le cadre du dispositif de médiation numérique « Jouons Ensemble&nbsp;!&nbsp;», je
+        <p class="consent__intro">Dans le cadre du dispositif de médiation numérique «&nbsp;Jouons Ensemble&nbsp;!&nbsp;», je
           soussigné(e), responsable légal de l'enfant, déclare avoir été informé(e) des objectifs, du déroulé et du
           cadre du projet, et autorise&nbsp;:</p>
 
@@ -1001,10 +977,8 @@ em { font-style: italic; }
           </div>
         </div>
 
-        <p class="legal-note">PXLC · Andy Zébus — Entrepreneur Individuel · SIRET {{siret}} ·
-          APE 70.21Z · Guadeloupe · {{contact.email}} · {{contact.phone}} · {{contact.website}} — Données
-          conservées le temps de la mission puis archivées conformément aux recommandations CNIL. Aucun transfert hors
-          UE, aucun sous-traitant.</p>
+        <p class="legal-note">{{legal.line}} — Données conservées le temps de la mission puis archivées
+          conformément aux recommandations CNIL. Aucun transfert hors UE, aucun sous-traitant.</p>
       </div>
 
       <div class="page__foot">

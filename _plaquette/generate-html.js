@@ -6,11 +6,15 @@
  *   node generate-html.js                        # auto-détecte le .md dans le répertoire
  *   node generate-html.js --fiche <chemin.md>    # fiche explicite
  *
- * Sources de vérité :
- *   - data.json        : données stables fallback (contact, siret, andy, version…)
- *   - Fiche *.md       : données projet-spécifiques (frontmatter JSON entre --- et ---)
- *   - ../nuxt.config.ts: identité/contact/légal/site (prioritaire sur data.json)
- *   - ../design.md     : tokens et règles brand utiles au contrôle de dérive
+ * Sources de vérité (de la moins à la plus prioritaire) :
+ *   - data.json                 : la copy de la plaquette (mission, méthode, cas…)
+ *   - Fiche *.md (optionnelle)  : données projet-spécifiques (frontmatter JSON entre --- et ---)
+ *   - ../src/config/identity.ts : NAP et immatriculations (SIRET, RCS, APE, adresse,
+ *                                 e-mail, téléphone) — la même source que le JSON-LD et
+ *                                 les mentions légales du site, pour ne jamais diverger
+ *   - ../src/config/site.ts     : URL et nom du site
+ *
+ * Node ≥ 22.12 requis : les fichiers .ts sont chargés tels quels (type stripping natif).
  *
  * Tokens dans le template : {{section.clé}} (notation pointée, profondeur arbitraire)
  *
@@ -24,14 +28,13 @@
 
 const fs = require('fs')
 const path = require('path')
-const vm = require('vm')
 
 const TEMPLATE = path.resolve(__dirname, 'plaquette.template.html')
 const DATA     = path.resolve(__dirname, 'data.json')
 const OUTPUT   = path.resolve(__dirname, 'plaquette.html')
 const ROOT     = path.resolve(__dirname, '..')
-const NUXT     = path.join(ROOT, 'nuxt.config.ts')
-const DESIGN   = path.join(ROOT, 'design.md')
+const IDENTITY_TS = path.join(ROOT, 'src', 'config', 'identity.ts')
+const SITE_TS     = path.join(ROOT, 'src', 'config', 'site.ts')
 
 // ── Utilitaires ──────────────────────────────────────────────────────────────
 
@@ -55,6 +58,7 @@ function stripProtocol(url) {
   return String(url || '').replace(/^https?:\/\//, '').replace(/\/$/, '')
 }
 
+/** +590690717618 → +590 690 71 76 18 (forme affichée sur la page contact du site). */
 function formatPhone(phone) {
   const raw = String(phone || '').trim()
   const compact = raw.replace(/\s+/g, '')
@@ -63,45 +67,9 @@ function formatPhone(phone) {
   return raw
 }
 
-function phoneToWaUrl(phone) {
-  const digits = String(phone || '').replace(/\D/g, '')
-  return digits ? `https://wa.me/${digits}` : ''
-}
-
+/** Espaces → insécables, pour garder un numéro ou un identifiant sur une seule ligne. */
 function htmlNbsp(text) {
   return String(text || '').replace(/ /g, '&nbsp;')
-}
-
-function firstSameAs(identity, needle) {
-  return (identity.sameAs || []).find(url => url.includes(needle)) || ''
-}
-
-function buildAddressInline(address) {
-  if (!address) return ''
-  const city = [address.postalCode, address.addressLocality].filter(Boolean).join(' ')
-  const region = [address.addressRegion, address.addressCountry].filter(Boolean).join(' (') + (address.addressCountry ? ')' : '')
-  return [address.streetAddress, city, region].filter(Boolean).join(' — ')
-}
-
-function parseMarkdownTableSection(markdown, heading) {
-  const start = markdown.indexOf(heading)
-  if (start === -1) return {}
-  const next = markdown.slice(start + heading.length).search(/\n## /)
-  const block = next === -1
-    ? markdown.slice(start)
-    : markdown.slice(start, start + heading.length + next)
-  const rows = [...block.matchAll(/^\|\s*`([^`]+)`\s*\|\s*`?([^`|\n]+)`?\s*(?:\|.*)?$/gm)]
-  return Object.fromEntries(rows.map(([, key, value]) => [key, value.trim()]))
-}
-
-function parseListSection(markdown, heading) {
-  const start = markdown.indexOf(heading)
-  if (start === -1) return []
-  const next = markdown.slice(start + heading.length).search(/\n###? /)
-  const block = next === -1
-    ? markdown.slice(start)
-    : markdown.slice(start, start + heading.length + next)
-  return [...block.matchAll(/^- (.+)$/gm)].map(([, item]) => item.trim())
 }
 
 // ── Détection de la fiche .md ────────────────────────────────────────────────
@@ -145,116 +113,56 @@ function parseFiche(fichePath) {
   }
 }
 
-// ── Lecture de nuxt.config.ts ────────────────────────────────────────────────
+// ── Identité : src/config/identity.ts + src/config/site.ts ───────────────────
+// Prioritaire sur data.json : une valeur NAP ne se tape jamais deux fois.
 
-function parseNuxtConfig() {
-  if (!fs.existsSync(NUXT)) {
-    console.warn(`⚠  nuxt.config.ts introuvable : ${NUXT}`)
-    return {}
-  }
-
-  const source = fs.readFileSync(NUXT, 'utf8')
-  const runnable = source
-    // Les `import` top-level cassent le contexte vm (non-module) ; on les retire
-    // et on stube les helpers importés (defineLocalBusiness…) dans le sandbox.
-    .replace(/^\s*import\s+[^\n]*$/gm, '')
-    .replace(
-      /export\s+default\s+defineNuxtConfig\s*\(/,
-      'module.exports = defineNuxtConfig(',
-    )
-
-  const sandbox = {
-    module: { exports: {} },
-    exports: {},
-    process: { env: { NODE_ENV: 'production' } },
-    defineNuxtConfig: config => config,
-    defineLocalBusiness: config => config,
-  }
-
+function loadIdentity() {
+  let IDENTITY, RCS_MENTION, SITE
   try {
-    vm.runInNewContext(runnable, sandbox, {
-      filename: NUXT,
-      timeout: 1000,
-      displayErrors: true,
-    })
+    ;({ IDENTITY, RCS_MENTION } = require(IDENTITY_TS))
+    ;({ SITE } = require(SITE_TS))
   } catch (e) {
-    console.error(`✗ Lecture nuxt.config.ts impossible : ${e.message}`)
+    console.error(`✗ Lecture de src/config/identity.ts ou site.ts impossible : ${e.message}`)
+    console.error('  (Node ≥ 22.12 requis pour charger les .ts sans transpilation)')
     process.exit(1)
   }
 
-  const config = sandbox.module.exports || {}
-  const site = config.site || {}
-  const identity = config.schemaOrg && config.schemaOrg.identity
-    ? config.schemaOrg.identity
-    : {}
-  const addressInline = buildAddressInline(identity.address)
-  const linkedin = firstSameAs(identity, 'linkedin.com')
-  const websiteUrl = identity.url || site.url || ''
-  const website = stripProtocol(websiteUrl)
-  const email = identity.email || (identity.contactPoint && identity.contactPoint.email) || ''
-  const phone = formatPhone(identity.telephone || (identity.contactPoint && identity.contactPoint.telephone) || '')
-  const siret = identity.taxID || ''
-  const areaServed = identity.areaServed && identity.areaServed.name
-    ? identity.areaServed.name
-    : 'Guadeloupe'
+  const a = IDENTITY.address
+  const addressInline = `${a.street}, ${a.postalCode} ${a.locality}`
+  const phone   = formatPhone(IDENTITY.telephone)
+  const website = stripProtocol(SITE.url)
 
   return {
     site: {
-      name: site.name || identity.name || 'PXLC',
-      url: websiteUrl,
+      name: SITE.name,
+      url: SITE.url,
       website,
-      description: String(site.description || identity.description || ''),
-      defaultLocale: site.defaultLocale || 'fr_FR',
-      currency: site.currency || 'EUR',
-    },
-    identity: {
-      ...identity,
-      addressInline,
-      legalLine: [
-        identity.name || site.name || 'PXLC',
-        identity.legalName || 'Andy Zébus — Entrepreneur Individuel',
-        `SIRET&nbsp;${htmlNbsp(siret)}`,
-        'APE&nbsp;70.21Z',
-        addressInline,
-      ].filter(Boolean).join(' · '),
-      areaServed,
-      areaServedCode: identity.address && identity.address.postalCode
-        ? identity.address.postalCode.slice(0, 3)
-        : '971',
+      description: SITE.description,
     },
     contact: {
-      email,
-      emailUrl: email ? `mailto:${email}` : '',
+      email: IDENTITY.email,
+      emailUrl: `mailto:${IDENTITY.email}`,
       phone,
-      phoneWaUrl: phoneToWaUrl(identity.telephone || (identity.contactPoint && identity.contactPoint.telephone) || phone),
-      linkedin: stripProtocol(linkedin),
-      linkedinUrl: linkedin,
-      cal: 'cal.eu/pxlc-gp',
-      calUrl: 'https://cal.eu/pxlc-gp',
+      phoneUrl: `tel:${IDENTITY.telephone}`,
       website,
-      websiteUrl,
+      websiteUrl: SITE.url,
     },
-    siret,
-  }
-}
-
-// ── Lecture de design.md ─────────────────────────────────────────────────────
-
-function parseDesignData() {
-  if (!fs.existsSync(DESIGN)) {
-    console.warn(`⚠  design.md introuvable : ${DESIGN}`)
-    return {}
-  }
-
-  const markdown = fs.readFileSync(DESIGN, 'utf8')
-  return {
-    design: {
-      palette: parseMarkdownTableSection(markdown, '## Palette'),
-      typography: parseMarkdownTableSection(markdown, '## Typographie'),
-      brandRules: {
-        copy: parseListSection(markdown, '### Copy'),
-        visual: parseListSection(markdown, '### Visuel'),
-      },
+    siret: IDENTITY.siret,
+    legal: {
+      name: IDENTITY.legalName,
+      address: addressInline,
+      // Ligne légale complète, alignée sur la page des mentions légales du site.
+      line: [
+        SITE.name,
+        IDENTITY.legalName,
+        `SIRET&nbsp;${htmlNbsp(IDENTITY.siret)}`,
+        `RCS&nbsp;${htmlNbsp(RCS_MENTION)}`,
+        `APE&nbsp;${IDENTITY.ape}`,
+        addressInline,
+        IDENTITY.email,
+        htmlNbsp(phone),
+        website,
+      ].join(' · '),
     },
   }
 }
@@ -264,17 +172,14 @@ function parseDesignData() {
 const baseData  = JSON.parse(fs.readFileSync(DATA, 'utf8'))
 const fichePath = findFiche()
 const ficheData = fichePath ? parseFiche(fichePath) : {}
-const designData = parseDesignData()
-const nuxtData = parseNuxtConfig()
+const identityData = loadIdentity()
 
 if (fichePath) {
   console.log(`↳  Fiche    : ${path.basename(fichePath)}`)
 }
+console.log('↳  Identité : src/config/identity.ts · src/config/site.ts')
 
-console.log('↳  Design   : design.md')
-console.log('↳  Config   : nuxt.config.ts')
-
-const data     = deepMerge(deepMerge(deepMerge(baseData, designData), ficheData), nuxtData)
+const data     = deepMerge(deepMerge(baseData, ficheData), identityData)
 const template = fs.readFileSync(TEMPLATE, 'utf8')
 
 const missing = []

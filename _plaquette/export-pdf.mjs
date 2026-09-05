@@ -54,6 +54,32 @@ try {
   await page.goto(`file://${HTML_PATH.replace(/\\/g, '/')}`, { waitUntil: 'networkidle0', timeout: 60000 })
   await page.evaluateHandle('document.fonts.ready')
 
+  // Garde-fou : aucun texte ne doit avoir la couleur de son fond (un <strong>
+  // hérité en encre sombre sur une carte sombre rend un CTA invisible — vécu).
+  const invisible = await page.evaluate(() => {
+    const bgOf = el => {
+      for (let e = el; e; e = e.parentElement) {
+        const c = getComputedStyle(e).backgroundColor
+        if (c && c !== 'rgba(0, 0, 0, 0)' && c !== 'transparent') return c
+      }
+      return 'rgb(255, 255, 255)'
+    }
+    const out = []
+    for (const el of document.querySelectorAll('.page *')) {
+      const ownText = [...el.childNodes].some(n => n.nodeType === 3 && n.textContent.trim())
+      if (!ownText) continue
+      if (getComputedStyle(el).color === bgOf(el))
+        out.push(`<${el.tagName.toLowerCase()}${el.className ? '.' + String(el.className).split(' ').join('.') : ''}> « ${el.textContent.trim().slice(0, 70)} »`)
+    }
+    return out
+  })
+  if (invisible.length) {
+    console.error('✗ Texte invisible (couleur identique au fond) :')
+    invisible.forEach(l => console.error(`  · ${l}`))
+    process.exitCode = 1
+    throw new Error('plaquette : texte invisible')
+  }
+
   await page.pdf({
     path: PDF_TMP,
     format: 'A4',
@@ -63,6 +89,7 @@ try {
 } finally {
   await browser.close()
 }
+if (process.exitCode) process.exit(process.exitCode)
 
 // ── 3. Métadonnées PDF ────────────────────────────────────────────────────────
 // Chromium ne reporte que le <title> et expose son user-agent en Creator ;
@@ -77,8 +104,12 @@ const title = titleMatch ? titleMatch[1] : 'PXLC — Plaquette de présentation 
 const doc = await PDFDocument.load(fs.readFileSync(PDF_TMP), { updateMetadata: false })
 doc.setTitle(title)
 doc.setAuthor('Andy Zébus — PXLC')
-doc.setSubject('Andy Zébus aide les structures en Guadeloupe à accompagner les familles autour des écrans.')
-doc.setKeywords(['médiation numérique', 'écrans', 'famille', 'parent-enfant', 'jeu vidéo', 'Guadeloupe', 'SESSAD', 'IME'])
+// Formule canonique des descriptions (CLAUDE.md) — même texte que SITE.description.
+doc.setSubject('Andy Zébus, créateur de PXLC, aide les structures en Guadeloupe à accompagner les familles autour des écrans.')
+doc.setKeywords([
+  'médiation numérique', 'écrans', 'famille', 'parent-enfant', 'jeu vidéo', 'Guadeloupe',
+  'structures', 'médiathèque', 'centre social', 'école', 'CCAS', 'SESSAD', 'IME',
+])
 doc.setCreator('PXLC — pxlc.fr')
 doc.setProducer('PXLC — pxlc.fr')
 doc.setLanguage('fr-FR')

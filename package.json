@@ -25,7 +25,8 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "typecheck": "astro check",
-    "gen:communes": "node scripts/build-communes.mjs"
+    "gen:communes": "node scripts/build-communes.mjs",
+    "plaquette": "npm --prefix _plaquette run build"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",
