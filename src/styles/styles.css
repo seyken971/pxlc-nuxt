@@ -558,48 +558,6 @@ main[tabindex="-1"]:focus { outline: none; }
 
 /* Citation — moved to <CitationBlock> scoped style */
 
-/* ── CTA block ───────────────────────────────────────────── */
-.cta-block {
-  background: var(--pxlc-bg-dark); color: var(--pxlc-ivory);
-  padding: clamp(var(--space-6), 8vw, var(--space-8)) 0; position: relative; overflow: hidden;
-}
-.cta-block h2 { color: var(--pxlc-ivory); }
-.cta-block p { color: var(--pxlc-text-on-dark-soft); }
-.cta-block .eyebrow { color: var(--pxlc-cyan); }
-.cta-block__bg-mark { position: absolute; right: -60px; bottom: -60px; opacity: 0.22; pointer-events: none; }
-.cta-block__bg-mark .mark-svg { width: 340px; height: 340px; }
-.cta-block__strip { position: absolute; top: 32px; right: clamp(20px, 4vw, 56px); }
-.cta-block__inner {
-  position: relative; z-index: 1; display: grid; grid-template-columns: 1fr; gap: var(--space-5); align-items: end;
-}
-@media (min-width: 1024px) { .cta-block__inner { grid-template-columns: 1.6fr 1fr; gap: var(--space-6); } }
-.cta-block__title {
-  font-family: var(--font-display); font-weight: 600;
-  font-size: clamp(28px, 4vw, 44px); line-height: 1.05; letter-spacing: -0.025em;
-  margin: 0 0 16px; max-width: 620px;
-}
-.cta-block__lead { font-size: 17px; line-height: 1.55; margin: 0 0 32px; max-width: 520px; }
-.cta-block__actions { display: flex; flex-wrap: wrap; gap: var(--space-3); }
-/* The cta-block section is always dark — force the ghost button into
-   its on-dark variant regardless of the active light/dark theme so the
-   teal-deep text doesn't sit on dark and tank contrast (2.47:1). */
-.cta-block .btn--ghost { color: var(--pxlc-ivory); box-shadow: inset 0 0 0 1px var(--pxlc-border-dark-2); }
-.cta-block .btn--ghost:hover { background: var(--pxlc-bg-dark-soft); color: var(--pxlc-cyan); box-shadow: inset 0 0 0 1px var(--pxlc-cyan); }
-.cta-block .btn--ghost:focus-visible { box-shadow: inset 0 0 0 1px var(--pxlc-cyan), var(--ring-cyan); }
-.cta-block__sidecard {
-  background: var(--pxlc-bg-dark-deep); border: 1px solid var(--pxlc-border-dark); border-radius: var(--radius-lg);
-  padding: var(--space-4); font-family: var(--font-label);
-}
-.cta-block__sidecard-eyebrow { font-size: 11px; letter-spacing: 0.18em; color: var(--pxlc-cyan); text-transform: uppercase; margin-bottom: var(--space-3); font-weight: 600; }
-.cta-block__sidecard-lead { font-family: var(--font-body); font-size: 13px; line-height: 1.55; color: var(--pxlc-text-on-dark-soft); margin: 0 0 16px; }
-.cta-block__sidecard-lead strong { color: var(--pxlc-ivory); font-weight: 600; }
-.cta-block__sidecard-link { color: var(--pxlc-cyan); text-decoration: underline; text-underline-offset: 2px; transition: color var(--dur-fast); }
-.cta-block__sidecard-link:hover { color: var(--pxlc-ivory); }
-.cta-block__sidecard-link:focus-visible { outline: 2px solid var(--pxlc-cyan); outline-offset: 2px; border-radius: var(--radius-xs); text-decoration: none; }
-.cta-block__sidecard ul { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--space-2); }
-.cta-block__sidecard li { display: flex; justify-content: space-between; font-size: 13px; color: var(--pxlc-ivory); }
-.cta-block__sidecard li .meta { color: var(--pxlc-cyan); }
-
 /* ── Footer ──────────────────────────────────────────────── */
 .site-footer { background: var(--pxlc-bg-dark); color: var(--pxlc-ivory); padding: clamp(48px, 8vw, 56px) 0 24px; }
 .site-footer__top {
