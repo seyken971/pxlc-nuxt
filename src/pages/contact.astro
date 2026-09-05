@@ -1,9 +1,11 @@
 ---
-import Calendar from '../icons/calendar.svg'
-import Whatsapp from '../icons/whatsapp.svg'
+import MapPin from '../icons/map-pin.svg'
+import Navigation from '../icons/navigation.svg'
 import BaseLayout from '../layouts/BaseLayout.astro'
 import SiteBreadcrumb from '../components/SiteBreadcrumb.astro'
 import PxlcInput from '../components/PxlcInput.astro'
+import CommuneMap from '../components/CommuneMap.astro'
+import { IDENTITY } from '../config/identity'
 import { pageGraph } from '../lib/schema'
 import { breadcrumbItems } from '../lib/breadcrumb'
 
@@ -11,7 +13,6 @@ const seo = {
   title: 'Contacter Andy Zébus — devis ou premier échange',
   description: 'Devis ou premier échange de 20 min — gratuit, sans engagement. Pour les structures qui accompagnent des familles.',
   ogDescription: 'Réponse sous 2 jours ouvrés — formulaire, WhatsApp ou visio. Premier échange de 20 min gratuit pour cadrer votre projet.',
-  hideGlobalCta: true,
 }
 
 const schemaGraph = pageGraph({
@@ -21,29 +22,51 @@ const schemaGraph = pageGraph({
   description: 'Page de prise de contact avec PXLC — Andy Zébus, médiateur numérique en Guadeloupe.',
   crumbs: breadcrumbItems('/contact/'),
 })
+
+// Zone d'intervention en présentiel — les mêmes 4 communes que `areaServed`
+// du nœud #identity (src/lib/schema.ts). L'ordre fixe les numéros de la légende.
+const ZONE = ['Les Abymes', 'Pointe-à-Pitre', 'Baie-Mahault', 'Le Gosier']
+
+// Types de structure proposés au formulaire — la valeur choisie est reprise
+// dans le sujet et le corps du mailto:.
+const STRUCTURE_TYPES = ['Association', 'École', 'Collectivité / CCAS', 'Médico-social', 'Autre']
+
+const { address } = IDENTITY
+const wazeQuery = encodeURIComponent(`${address.street}, ${address.postalCode} ${address.locality}`)
 ---
 
 <BaseLayout {...seo} schemaGraph={schemaGraph}>
-  <section class="section section--page">
+  <section class="section section--page" aria-labelledby="contact-title">
     <div class="container">
 
-      <!-- Heading — pleine largeur, au-dessus du grid -->
+      <!-- ── Tête de page ─────────────────────────────────────── -->
       <SiteBreadcrumb />
-      <span class="eyebrow eyebrow--lg">Contact</span>
-      <h1 class="contact-title">
-        On en parle<span class="coral-dot" aria-hidden="true">&nbsp;?</span>
-      </h1>
-      <p class="contact-lead">
-        Décrivez votre structure, le public accompagné et le projet envisagé — je reviens sous 2&nbsp;jours ouvrés.
-      </p>
+      <div class="contact-head">
+        <span class="eyebrow eyebrow--lg">Contact</span>
+        <h1 id="contact-title" class="contact-title">
+          On en parle<span class="coral-dot" aria-hidden="true">&nbsp;?</span>
+        </h1>
+        <p class="contact-lead">
+          Décrivez votre structure, le public accompagné et le projet envisagé — je reviens sous 2&nbsp;jours ouvrés.
+        </p>
+      </div>
+      <ul class="contact-assure" role="list">
+        <li>Premier échange de 20&nbsp;min, gratuit</li>
+        <li>Réponse sous 2&nbsp;jours ouvrés</li>
+        <li>Sans engagement</li>
+      </ul>
+
+      <hr class="contact-sep" />
 
       <div class="contact-grid">
 
-        <!-- ── Colonne gauche — formulaire ──────────────────── -->
+        <!-- ── Colonne gauche — formulaire ───────────────────── -->
         <div>
-          <!-- Carte de statut — cachée tant que le formulaire n'a pas été soumis.
-               Le formulaire reste affiché et rempli : pas de perte de saisie si
-               rien ne s'ouvre, et l'utilisateur peut réessayer ou utiliser le repli. -->
+          <h2 class="contact-h2">Décrire votre projet</h2>
+          <p class="contact-note">Quatre champs, deux minutes.</p>
+
+          <!-- Carte de statut — remplace le formulaire une fois soumis. Le
+               mailto: construit au submit y reste accessible en repli. -->
           <div
             id="contact-sent"
             tabindex="-1"
@@ -57,7 +80,7 @@ const schemaGraph = pageGraph({
               Votre logiciel de messagerie devrait s’ouvrir avec le message pré-rempli. Si rien ne s’ouvre, écrivez-moi directement&nbsp;:
             </p>
             <div class="contact-sent__fallback">
-              <a id="contact-sent-link" href="mailto:contact@pxlc.fr" class="contact-sent__link">contact@pxlc.fr</a>
+              <a id="contact-sent-link" href={`mailto:${IDENTITY.email}`} class="contact-sent__link">{IDENTITY.email}</a>
               <button id="contact-copy" type="button" class="contact-sent__copy">
                 Copier l’adresse
               </button>
@@ -69,66 +92,95 @@ const schemaGraph = pageGraph({
               <span class="form-legend__req" aria-hidden="true">*</span> Champs requis
             </p>
             <div class="form-row">
-              <PxlcInput id="c-nom" label="Prénom et Nom" placeholder="Prénom Nom" required autocomplete="name" />
-              <PxlcInput id="c-structure" label="Structure" placeholder="Association, école, collectivité…" autocomplete="organization" />
+              <PxlcInput id="c-nom" label="Prénom et nom" placeholder="Prénom Nom" required autocomplete="name" />
+              <PxlcInput id="c-email" label="Adresse e-mail" type="email" placeholder="contact@structure.fr" required autocomplete="email" />
             </div>
 
-            <PxlcInput id="c-email" label="Adresse e-mail" type="email" placeholder="contact@structure.fr" required autocomplete="email" />
+            <fieldset class="contact-chips">
+              <legend class="form-label">Type de structure</legend>
+              <div class="contact-chips__list">
+                {STRUCTURE_TYPES.map((type, i) => (
+                  <Fragment>
+                    <input type="radio" name="c-type" id={`c-type-${i}`} value={type} />
+                    <label for={`c-type-${i}`}>{type}</label>
+                  </Fragment>
+                ))}
+              </div>
+            </fieldset>
 
-            <PxlcInput id="c-msg" label="Message" rows={5} placeholder="Décrivez votre projet…" required />
+            <PxlcInput id="c-msg" label="Message" rows={5} placeholder="Le public accompagné, le projet envisagé, l’échéance si vous en avez une…" required />
 
-            <button type="submit" class="btn btn--primary contact-submit">
-              Envoyer
-            </button>
+            <div class="contact-submit-row">
+              <button type="submit" class="btn btn--primary contact-submit">
+                Envoyer
+              </button>
+              <span class="contact-submit-note">Réponse sous 2&nbsp;jours ouvrés.</span>
+            </div>
           </form>
-          <p class="contact-plaquette">
-            Ou <a href="/files/plaquette-pxlc.pdf" target="_blank" rel="noopener noreferrer" class="contact-plaquette__link" aria-label="Télécharger la plaquette (PDF · 6 pages) (nouvel onglet)">télécharger la plaquette (PDF · 6 pages)</a> pour prendre connaissance du dispositif.
-          </p>
         </div>
 
-        <!-- ── Colonne droite — actions rapides + coordonnées ─── -->
-        <div class="contact-cards">
-          <a
-            class="btn btn--secondary btn--block"
-            href="https://cal.eu/pxlc-gp" target="_blank" rel="noopener noreferrer"
-            aria-label="Prendre rendez-vous (nouvel onglet)"
-          >
-            <Calendar aria-hidden="true" class="contact-cards__icon" />
-            Prendre rendez-vous
-          </a>
-          <a
-            class="btn btn--ghost btn--block"
-            href="https://wa.me/590690717618" target="_blank" rel="noopener noreferrer"
-            aria-label="Envoyer un message WhatsApp (nouvel onglet)"
-          >
-            <Whatsapp aria-hidden="true" class="contact-wa-icon contact-cards__icon" />
-            WhatsApp
-          </a>
+        <!-- ── Colonne droite — territoire + coordonnées ─────── -->
+        <div class="contact-terr">
+          <CommuneMap zone={ZONE} label="Communes de Guadeloupe — zone d’intervention PXLC" />
 
-          <!-- NAP visible et indexable — doit correspondre à la fiche Google
-               Business Profile et au nœud schema.org #identity (signal local). -->
-          <address class="contact-nap">
-            <p class="contact-nap__label">Coordonnées</p>
-            <p class="contact-nap__name">PXLC - Médiation numérique</p>
-            <p class="contact-nap__line">8 Résidence la familiale, rue Man Manigard Alfred, Dugazon</p>
-            <p class="contact-nap__line">97139 Les Abymes, Guadeloupe</p>
-            <p class="contact-nap__line">
-              <a class="contact-nap__link" href="tel:+590690717618">+590 690 71 76 18</a>
-            </p>
-            <p class="contact-nap__line">
-              <a class="contact-nap__link" href="mailto:contact@pxlc.fr">contact@pxlc.fr</a>
-            </p>
-            <a
-              class="contact-nap__map"
-              href="https://maps.app.goo.gl/4UPhQWdzboD6HnAs8"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Voir sur Google Maps (nouvel onglet)"
-            >Voir sur Google Maps →</a>
-          </address>
+          <div class="contact-terr__side">
+            <span class="eyebrow">Coordonnées</span>
+            <!-- NAP visible et indexable — doit correspondre à la fiche Google
+                 Business Profile et au nœud schema.org #identity (signal local). -->
+            <address class="contact-nap">
+              <p class="contact-nap__name">{IDENTITY.brandName}</p>
+              <p class="contact-nap__line">{address.street}</p>
+              <p class="contact-nap__line">{address.postalCode} {address.locality}, {address.region}</p>
+              <p class="contact-nap__line contact-nap__line--links">
+                <a class="contact-nap__link" href={`tel:${IDENTITY.telephone}`}>+590 690 71 76 18</a><br />
+                <a class="contact-nap__link" href={`mailto:${IDENTITY.email}`}>{IDENTITY.email}</a>
+              </p>
+            </address>
+            <div class="contact-maplinks">
+              <a
+                class="contact-maplinks__pill"
+                href="https://maps.app.goo.gl/4UPhQWdzboD6HnAs8"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Itinéraire sur Google Maps (nouvel onglet)"
+              ><MapPin aria-hidden="true" class="contact-maplinks__icon" />Google Maps</a>
+              <a
+                class="contact-maplinks__pill"
+                href={`https://waze.com/ul?q=${wazeQuery}&navigate=yes`}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Itinéraire sur Waze (nouvel onglet)"
+              ><Navigation aria-hidden="true" class="contact-maplinks__icon" />Waze</a>
+            </div>
+          </div>
         </div>
 
       </div>
+    </div>
+  </section>
+
+  <!-- ── Ce qui se passe ensuite ────────────────────────────── -->
+  <section class="section contact-steps" aria-labelledby="steps-title">
+    <div class="container">
+      <h2 id="steps-title" class="contact-h2">Ce qui se passe ensuite</h2>
+      <p class="contact-note">Aucune étape n’engage à la suivante.</p>
+      <ol class="contact-steps__grid" role="list">
+        <li class="contact-step">
+          <span class="contact-step__num" aria-hidden="true">01</span>
+          <h3>Je vous réponds</h3>
+          <p>Sous 2&nbsp;jours ouvrés, avec deux ou trois questions de cadrage.</p>
+        </li>
+        <li class="contact-step">
+          <span class="contact-step__num" aria-hidden="true">02</span>
+          <h3>On échange 20&nbsp;min</h3>
+          <p>Visio ou sur site. Gratuit, sans engagement.</p>
+        </li>
+        <li class="contact-step">
+          <span class="contact-step__num" aria-hidden="true">03</span>
+          <h3>Proposition écrite</h3>
+          <p>Périmètre, calendrier et budget.</p>
+        </li>
+      </ol>
     </div>
   </section>
 </BaseLayout>
@@ -148,25 +200,28 @@ const schemaGraph = pageGraph({
   form?.addEventListener('submit', (e) => {
     e.preventDefault()
     const name = fieldValue('c-nom')
-    const structure = fieldValue('c-structure')
     const email = fieldValue('c-email')
+    const type = (form.querySelector('input[name="c-type"]:checked') as HTMLInputElement | null)?.value ?? ''
     const message = fieldValue('c-msg')
 
     const lines = [
       `Nom\u00A0: ${name}`,
-      structure ? `Structure\u00A0: ${structure}` : null,
       `Email\u00A0: ${email}`,
+      type ? `Type de structure\u00A0: ${type}` : null,
       '',
       'Message\u00A0:',
       message || '(vide)',
     ].filter((l): l is string => l !== null)
 
-    const subject = `Contact PXLC — ${name}${structure ? ` (${structure})` : ''}`
+    const subject = `Contact PXLC — ${name}${type ? ` (${type})` : ''}`
     const href = `mailto:contact@pxlc.fr?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join('\n'))}`
     // Le mailto: construit au submit — réutilisé comme lien de repli si le
     // client mail ne s'ouvre pas.
     if (sentLink) sentLink.href = href
     window.location.href = href
+    // La carte de statut remplace le formulaire (la saisie reste dans le DOM,
+    // le mailto: de repli la contient).
+    form.hidden = true
     if (sentCard) {
       sentCard.hidden = false
       sentCard.focus()
@@ -189,47 +244,123 @@ const schemaGraph = pageGraph({
 </script>
 
 <style>
-  /* ── Layout ──────────────────────────────────────────────────── */
-  .contact-grid {
-    display: grid;
-    grid-template-columns: 1.6fr 1fr;
-    gap: var(--space-6);
-    align-items: start;
-  }
-  @media (max-width: 900px) {
-    .contact-grid { grid-template-columns: 1fr; gap: var(--space-5); }
-  }
-
-  /* ── Heading ─────────────────────────────────────────────────── */
+  /* ── Tête de page ────────────────────────────────────────────── */
+  .contact-head { max-width: 640px; }
   .contact-title {
-    font-size: clamp(32px, 4.2vw, 48px);
+    font-size: clamp(34px, 4.4vw, 52px);
     line-height: 1.04;
     letter-spacing: -0.03em;
     margin: 0 0 var(--space-3);
-    max-width: 640px;
   }
   .contact-lead {
+    font-family: var(--font-body);
     font-size: 17px;
-    line-height: 1.55;
+    line-height: 1.6;
     color: var(--ink-quiet);
-    margin-bottom: var(--space-5);
-    max-width: 480px;
+    margin: 0;
+    max-width: 52ch;
+    text-wrap: pretty;
   }
 
-  /* ── Form ────────────────────────────────────────────────────── */
+  /* ── Réassurance ─────────────────────────────────────────────── */
+  .contact-assure {
+    display: flex; flex-wrap: wrap;
+    gap: var(--space-2-5) var(--space-5);
+    margin: var(--space-5) 0 0; padding: 0; list-style: none;
+    font-family: var(--font-label); font-size: 13px;
+    color: var(--ink-quiet);
+  }
+  .contact-assure li { display: flex; align-items: center; gap: 9px; }
+  .contact-assure li::before {
+    content: "";
+    width: 6px; height: 6px; flex: 0 0 auto;
+    background: var(--pxlc-teal-mid);
+    border-radius: 1px;
+  }
+
+  /* ── Séparateur & titres de bloc ─────────────────────────────── */
+  .contact-sep { border: 0; border-top: 1px solid var(--rule); margin: var(--space-5) 0; }
+  .contact-h2 {
+    font-size: 26px;
+    letter-spacing: -0.02em;
+    margin: 0 0 var(--space-1);
+  }
+  .contact-note {
+    font-family: var(--font-body);
+    font-size: 14.5px;
+    color: var(--quiet);
+    margin: 0 0 var(--space-4);
+  }
+
+  /* ── Grille formulaire / territoire ──────────────────────────── */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1.35fr 1fr;
+    gap: var(--space-6);
+    align-items: start;
+  }
+  @media (max-width: 960px) {
+    .contact-grid { grid-template-columns: 1fr; gap: var(--space-5); }
+  }
+
+  /* ── Formulaire ──────────────────────────────────────────────── */
   .contact-form { display: grid; gap: var(--space-3); }
+  /* display: grid l'emporterait sur le display: none du navigateur pour [hidden]. */
+  .contact-form[hidden] { display: none; }
   .form-row { display: grid; gap: var(--space-3); grid-template-columns: 1fr; }
-  @media (min-width: 600px) { .form-row { grid-template-columns: 1fr 1fr; } }
+  @media (min-width: 640px) { .form-row { grid-template-columns: 1fr 1fr; } }
 
-  .contact-submit { width: fit-content; }
+  .form-legend {
+    font-family: var(--font-label); font-size: 12px;
+    color: var(--quiet); margin: 0;
+  }
+  .form-legend__req { color: var(--pxlc-coral); font-weight: 700; }
 
-  /* ── Status card (au-dessus du formulaire, qui reste affiché) ──── */
+  /* Chips « type de structure » : radios masqués mais focusables (jamais
+     display: none), le label porte l'affordance. */
+  .contact-chips { position: relative; border: 0; padding: 0; margin: 0; min-width: 0; }
+  .contact-chips legend { padding: 0; }
+  .contact-chips__list { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+  .contact-chips input { position: absolute; opacity: 0; width: 1px; height: 1px; pointer-events: none; }
+  .contact-chips label {
+    display: flex; align-items: center;
+    min-height: 38px; padding: 9px 15px;
+    border: 1px solid var(--rule); border-radius: var(--radius-pill);
+    font-family: var(--font-label); font-size: 13px; font-weight: 500;
+    color: var(--ink-quiet);
+    white-space: nowrap;
+    cursor: pointer;
+    transition: color var(--dur-fast), border-color var(--dur-fast), background var(--dur-fast);
+  }
+  .contact-chips label:hover { border-color: var(--pxlc-teal-mid); }
+  .contact-chips input:checked + label {
+    border-color: var(--pxlc-teal-deep);
+    color: var(--teal-deep);
+    background: var(--badge-soft-bg);
+  }
+  .contact-chips input:focus-visible + label { box-shadow: var(--ring-teal); }
+  :global([data-theme="dark"]) .contact-chips input:checked + label {
+    border-color: var(--pxlc-cyan);
+    color: var(--cyan);
+  }
+  :global([data-theme="dark"]) .contact-chips input:focus-visible + label { box-shadow: var(--ring-cyan); }
+  @media (forced-colors: active) {
+    .contact-chips input:focus-visible + label { outline: 2px solid ButtonText; outline-offset: 2px; }
+  }
+
+  .contact-submit-row {
+    display: flex; flex-wrap: wrap; align-items: center;
+    gap: var(--space-3);
+    margin-top: var(--space-1);
+  }
+  .contact-submit-note { font-family: var(--font-label); font-size: 12.5px; color: var(--quiet); }
+
+  /* ── Carte de statut (remplace le formulaire) ────────────────── */
   .contact-sent {
     background: var(--bg-soft);
     border: 1px solid var(--bg-rule);
     border-radius: var(--radius-lg);
     padding: var(--space-4);
-    margin-bottom: var(--space-4);
   }
   .contact-sent:focus-visible { outline: none; box-shadow: var(--ring-coral); }
   /* forced-colors (Windows HCM) supprime box-shadow — on restitue un outline système. */
@@ -264,76 +395,91 @@ const schemaGraph = pageGraph({
   .contact-sent__copy:focus-visible { outline: none; box-shadow: var(--ring-teal); }
   :global([data-theme="dark"]) .contact-sent__copy:focus-visible { box-shadow: var(--ring-cyan); }
 
-  /* ── Required-fields legend ──────────────────────────────────── */
-  .form-legend {
-    font-family: var(--font-label); font-size: 12px;
-    color: var(--quiet); margin: 0;
-  }
-  .form-legend__req { color: var(--pxlc-coral); font-weight: 700; }
-
-  /* ── Actions rapides + coordonnées ───────────────────────────── */
-  .contact-cards { display: grid; gap: var(--space-3); }
-
-  /* Glyphes des boutons d’action : taille fixe, hors flux typographique. */
-  .contact-cards :global(.contact-cards__icon) { width: 18px; height: 18px; }
-
-  /* Glyphe de marque WhatsApp : monochrome (--ink = noir en light, ivoire ≈ blanc
-     en dark) — la charte interdit de recolorer le logo ; ne suit pas la couleur
-     teal du bouton ghost. */
-  .contact-cards :global(.contact-wa-icon) { color: var(--ink); }
-
-  /* ── NAP (adresse visible + lien Maps) ───────────────────────── */
-  .contact-nap {
-    font-style: normal;
-    padding: var(--space-4);
-    border: 1px dashed var(--rule);
+  /* ── Bloc territoire (carte + coordonnées) ───────────────────── */
+  .contact-terr {
+    border: 1px solid var(--rule);
     border-radius: var(--radius-lg);
+    overflow: hidden;
+    background: var(--bg-elev);
   }
-  .contact-nap__label {
-    font-family: var(--font-label);
-    font-size: 11px; font-weight: 600;
-    letter-spacing: 0.18em; text-transform: uppercase;
-    color: var(--eyebrow);
-    margin: 0 0 var(--space-2-5);
+  @media (min-width: 961px) {
+    /* Aligné sur scroll-padding-top (header sticky ≈ 81 px). */
+    .contact-terr { position: sticky; top: 96px; }
   }
+  .contact-terr__side { padding: var(--space-4); border-top: 1px solid var(--rule); }
+
+  /* ── NAP (adresse visible + itinéraires) ─────────────────────── */
+  .contact-nap { font-style: normal; }
   .contact-nap__name {
     font-family: var(--font-display);
     font-weight: 600; font-size: 15px;
     color: var(--ink);
-    margin: 0 0 var(--space-1);
+    margin: 0 0 var(--space-1-5);
   }
   .contact-nap__line {
     font-family: var(--font-body);
-    font-size: 14px; line-height: 1.5;
+    font-size: 14px; line-height: 1.55;
     color: var(--ink-quiet);
-    margin: 0 0 var(--space-1);
+    margin: 0;
   }
-  .contact-nap__link { color: var(--ink-quiet); }
-  .contact-nap__link:hover { color: var(--eyebrow); }
-  .contact-nap__map {
-    display: inline-flex; align-items: center; gap: var(--space-2);
-    margin-top: var(--space-2-5);
-    font-family: var(--font-body);
-    font-weight: 600; font-size: 14px;
-    color: var(--eyebrow);
-  }
-  .contact-nap__map:hover { color: var(--pxlc-coral); text-decoration: none; }
-  :global([data-theme="dark"]) .contact-nap__map { color: var(--cyan); }
-  :global([data-theme="dark"]) .contact-nap__map:hover { color: var(--pxlc-coral); }
+  .contact-nap__line--links { margin-top: var(--space-2-5); }
+  .contact-nap__link { color: var(--teal-deep); }
+  .contact-nap__link:hover { color: var(--pxlc-coral); }
+  :global([data-theme="dark"]) .contact-nap__link { color: var(--cyan); }
+  :global([data-theme="dark"]) .contact-nap__link:hover { color: var(--pxlc-coral); }
 
-  /* ── Plaquette fallback link ─────────────────────────────────── */
-  .contact-plaquette {
-    font-size: 13px;
-    color: var(--quiet);
-    margin: var(--space-3) 0 0;
-    line-height: 1.5;
-  }
-  .contact-plaquette__link {
+  .contact-maplinks { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-4); }
+  .contact-maplinks__pill {
+    display: inline-flex; align-items: center; gap: var(--space-2);
+    flex: 0 0 auto;
+    min-height: 40px; padding: 9px 15px;
+    border: 1px solid var(--rule); border-radius: var(--radius-pill);
+    font-family: var(--font-label); font-size: 13px; font-weight: 600;
     color: var(--ink-quiet);
-    text-decoration: underline;
-    text-underline-offset: 2px;
+    white-space: nowrap;
+    text-decoration: none;
+    transition: color var(--dur-fast), border-color var(--dur-fast);
   }
-  .contact-plaquette__link:hover { color: var(--eyebrow); }
+  .contact-maplinks__pill:hover { border-color: var(--eyebrow); color: var(--eyebrow); }
+  .contact-maplinks__pill:focus-visible { outline: none; box-shadow: var(--ring-teal); }
+  :global([data-theme="dark"]) .contact-maplinks__pill:focus-visible { box-shadow: var(--ring-cyan); }
+  .contact-maplinks :global(.contact-maplinks__icon) { width: 15px; height: 15px; flex: 0 0 auto; }
+
+  /* ── Ce qui se passe ensuite ─────────────────────────────────── */
+  .contact-steps { padding-top: 0; }
+  .contact-steps__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin: 0; padding: 0; list-style: none;
+    border-top: 1px solid var(--rule);
+  }
+  .contact-step {
+    padding: var(--space-4) var(--space-5) var(--space-4) 0;
+    border-right: 1px solid var(--rule);
+  }
+  .contact-step + .contact-step { padding-left: var(--space-5); }
+  .contact-step:last-child { border-right: 0; }
+  .contact-step__num {
+    display: block;
+    font-family: var(--font-label);
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 0.18em;
+    color: var(--eyebrow);
+    margin-bottom: var(--space-2-5);
+  }
+  .contact-step h3 { font-size: 16px; margin: 0 0 var(--space-1-5); }
+  .contact-step p {
+    font-family: var(--font-body);
+    font-size: 14px; line-height: 1.55;
+    color: var(--quiet);
+    margin: 0; max-width: 30ch;
+  }
+  @media (max-width: 760px) {
+    .contact-steps__grid { grid-template-columns: 1fr; }
+    .contact-step { padding: var(--space-4) 0; border-right: 0; border-bottom: 1px solid var(--rule); }
+    .contact-step + .contact-step { padding-left: 0; }
+    .contact-step:last-child { border-bottom: 0; }
+  }
 
   /* ── Mobile ──────────────────────────────────────────────────── */
   @media (max-width: 600px) {
