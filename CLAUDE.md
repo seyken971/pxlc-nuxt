@@ -5,7 +5,7 @@ statique déployé sur GitHub Pages (`dist/`), zéro JavaScript expédié hors
 quelques scripts vanilla inline (thème, menu mobile, formulaire, filtres).
 
 Mission en une phrase (à reprendre verbatim, seule phrase où PXLC est sujet) :
-« PXLC accompagne les familles dans l'éducation numérique des enfants. »
+« PXLC accompagne les familles autour des écrans. »
 
 Formule des descriptions (meta, OG, bios auteur) — ≤ 20 mots, cible puis
 bénéfice : « Andy Zébus aide les structures (en Guadeloupe) à accompagner

@@ -4,7 +4,7 @@
 export const Default = () => (
   <div style={{ padding: '32px 24px', background: 'var(--bg, #EAF6F4)', maxWidth: '480px' }}>
     <p style={{ fontFamily: 'serif', fontSize: '15px', marginBottom: '0', color: 'var(--ink, #082B36)' }}>
-      Accompagner les familles dans l'éducation numérique des enfants.
+      Accompagner les familles autour des écrans.
     </p>
     <pxlc-mark-separator />
     <p style={{ fontFamily: 'serif', fontSize: '15px', marginTop: '0', color: 'var(--ink, #082B36)' }}>
