@@ -47,17 +47,29 @@ jobs:
         # Déclenche le postinstall `astro sync`.
         run: npm ci --no-audit --no-fund
 
-      - name: Check (lint, typecheck, build + gates, a11y)
-        # La commande locale, rejouée telle quelle :
-        #   lint → typecheck → build → a11y (jsdom)
-        # avec les hooks npm du build :
+      - name: Lint (ESLint)
+        # Flat config autonome (astro + vue + typescript-eslint). Rapide —
+        # tourne avant les étapes lourdes pour échouer vite.
+        run: npm run lint
+
+      - name: Typecheck (astro check)
+        run: npm run typecheck
+
+      - name: Build static site (gates + Astro + post-build SEO)
+        # `npm run build` déclenche les hooks npm :
         #   prebuild  = gen:tokens → design → ds-lint
         #   build     = astro build (pages statiques dans dist/)
-        #   postbuild = check-links (dont les fichiers que Pages exige :
-        #               .nojekyll, CNAME, robots, sitemap) → schema-check →
-        #               seo-check (dist contre docs/seo-baseline : une PR qui
-        #               change le SEO sans recapturer la baseline échoue ici)
-        run: npm run check
+        #   postbuild = check-links
+        run: npm run build
+
+      - name: Verify build output
+        # Cheap guardrail — .nojekyll et CNAME viennent de public/ et
+        # disparaîtraient silencieusement : sans eux, GitHub Pages casse le
+        # domaine et les chemins en _underscore.
+        run: |
+          for f in index.html sitemap-index.xml robots.txt .nojekyll CNAME; do
+            test -f "dist/$f" || { echo "::error::Missing dist/$f"; exit 1; }
+          done
 
       - name: Cache Playwright browsers
         uses: actions/cache@v6
