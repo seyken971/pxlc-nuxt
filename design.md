@@ -375,20 +375,6 @@ Classes issues de `styles.css`. Les styles scoped des composants Vue ne sont pas
 - `.badge--audience`
 - `.badge--soft`
 
-### CTA block
-
-- `.cta-block`
-- `.cta-block__bg-mark`
-- `.cta-block__strip`
-- `.cta-block__inner`
-- `.cta-block__title`
-- `.cta-block__lead`
-- `.cta-block__actions`
-- `.cta-block__sidecard`
-- `.cta-block__sidecard-eyebrow`
-- `.cta-block__sidecard-lead`
-- `.cta-block__sidecard-link`
-
 ### Footer
 
 - `.site-footer`
@@ -471,7 +457,7 @@ Classes issues de `styles.css`. Les styles scoped des composants Vue ne sont pas
 
 - **`Pxlc*`** — primitives de marque réutilisables partout : `PxlcInput`, `PxlcLinkout`, `PxlcLockup`, `PxlcMark`, `PxlcMarkSeparator`, `PxlcPixelCorner`, `PxlcPixelStrip`
 - **`Site*`** — chrome du site (présent sur toutes les pages) : `SiteBreadcrumb`, `SiteFooter`, `SiteHeader`, `SiteMobileMenu`
-- **Sans préfixe** — sections de page, blocs de contenu et utilitaires autonomes : `CitationBlock`, `CommuneMap`, `CtaBlock`, `HeroSection`, `MethodGrid`, `PartnerStrip`, `SessadCase`, `ThemeToggle`
+- **Sans préfixe** — sections de page, blocs de contenu et utilitaires autonomes : `CitationBlock`, `CommuneMap`, `HeroSection`, `MethodGrid`, `PartnerStrip`, `SessadCase`, `ThemeToggle`
 - Deux mots minimum par nom (style guide Vue — évite les collisions avec de futurs éléments HTML natifs)
 
 ### Visuel

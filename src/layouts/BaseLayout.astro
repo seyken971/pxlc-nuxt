@@ -7,7 +7,6 @@ import { THEME_SCRIPT } from '../lib/theme-script'
 import SiteHeader from '../components/SiteHeader.astro'
 import SiteMobileMenu from '../components/SiteMobileMenu.astro'
 import SiteFooter from '../components/SiteFooter.astro'
-import CtaBlock from '../components/CtaBlock.astro'
 
 interface Props {
   /** Titre de page sans suffixe — le layout applique « %s · PXLC ». ≤ 53 caractères. */
@@ -23,8 +22,6 @@ interface Props {
   robots?: string
   /** URL absolue de l'image OG (1200×600). */
   ogImage?: string
-  /** Pages sans CTA global : contact (déjà saturée de CTA) et mentions légales. */
-  hideGlobalCta?: boolean
   /** Graphe schema.org complet de la page (nœuds du @graph). */
   schemaGraph?: object[]
 }
@@ -36,7 +33,6 @@ const {
   ogType = 'website',
   robots = 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
   ogImage = `${SITE.url}/og/site.png`,
-  hideGlobalCta = false,
   schemaGraph,
 } = Astro.props
 
@@ -107,7 +103,6 @@ if (jsonLd) {
     <main id="main" tabindex="-1">
       <slot />
     </main>
-    {!hideGlobalCta && <CtaBlock />}
     <SiteFooter />
 
     <script>
