@@ -378,7 +378,7 @@ Classes issues de `styles.css`. Les styles scoped des composants Vue ne sont pas
 ### Footer
 
 - `.site-footer`
-- `.site-footer__brand`
+- `.site-footer__top`
 - `.site-footer__mission`
 - `.site-footer__mission-link`
 - `.site-footer__inner`
@@ -388,6 +388,7 @@ Classes issues de `styles.css`. Les styles scoped des composants Vue ne sont pas
 - `.site-footer__col-list--icons`
 - `.site-footer__col-link--icon`
 - `.site-footer__contact-icon`
+- `.site-footer__brand-text`
 - `.site-footer__social`
 - `.site-footer__social-btn`
 - `.site-footer__legal`
