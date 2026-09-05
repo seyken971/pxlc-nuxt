@@ -46,10 +46,9 @@ logs
 .unlighthouse
 CLAUDE.local.md
 
-# Plaquette build artefacts (PDF lives in public/files/, previews are local)
-_plaquette/node_modules
-_plaquette/.previews
-_plaquette/*.log
+# Plaquette : aperçus PNG locaux (npm run plaquette:previews) ; le PDF vit
+# dans public/files/ et se committe
+.previews/
 
 # Snapshot SEO de travail (compare a docs/seo-baseline, regenere a chaque build)
 docs/seo-current

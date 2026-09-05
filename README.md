@@ -28,8 +28,8 @@ npm run dev       # http://localhost:4321
 `npm run build` enchaîne automatiquement les hooks npm :
 
 - **prebuild** : `gen:tokens` → `design` → `ds-lint`
-- **build** : `astro build` (~24 pages statiques dans `dist/`)
-- **postbuild** : `check-links`
+- **build** : `astro build` (pages statiques dans `dist/`)
+- **postbuild** : `check-links` → `schema-check` → `seo-lint` (h1 unique, titles et descriptions uniques, alt présents) → `seo-check` (baseline SEO)
 
 Un build qui casse sur ces gates signale une règle brand, contenu ou lien violée — pas un bug à contourner.
 
@@ -49,6 +49,7 @@ Un build qui casse sur ces gates signale une règle brand, contenu ou lien viol�
 | `npm run a11y`             | Audit axe-core statique (jsdom)                                                                                                 |
 | `npm run a11y:runtime`     | Audit axe-core Playwright (Chromium headless, couvre menu mobile + FAQ ouverts)                                                 |
 | `npm run lighthouse`       | Lighthouse mobile sur 7 routes (Chrome headless) — Markdown summary CI-aware                                                    |
+| `npm run plaquette`        | Build puis export de `/plaquette/` en PDF A4 (`public/files/plaquette-pxlc.pdf`, Chromium Playwright) — à relancer et committer avec toute modification de la page ; `plaquette:previews` ajoute un PNG par feuille dans `.previews/` |
 
 ## Architecture des couleurs (source unique)
 
@@ -83,9 +84,10 @@ Le diff doit être vide hors deltas volontaires, déclarés dans la PR. Après u
 | ------------------- | ---------------------------------------------------- |
 | `/`                 | Accueil                                              |
 | `/a-propos`         | Présentation d'Andy Zébus                            |
-| `/structures`       | Offre B2B (SESSAD, IME, associations, collectivités) |
+| `/projets`          | Projets menés avec les structures (ex-`/structures`, redirigée) |
+| `/plaquette`        | Plaquette de présentation (6 feuilles A4, source du PDF) |
 | `/contact`          | Formulaire + WhatsApp                                |
-| `/mentions-legales` | Mentions légales (`noindex`)                         |
+| `/mentions-legales` | Mentions légales                                     |
 | `/404`              | Page introuvable                                     |
 
 ## CI
