@@ -82,13 +82,17 @@ Aussi dans design.md, mais bloquants — vérifier chaque texte généré ou mod
 - `npm run dev` — serveur de dev Astro (predev : gen:tokens + design)
 - `npm run build` — build statique complet pour GitHub Pages :
   - prebuild : gen:tokens → design → ds-lint
-  - build : `astro build` (~24 pages dans `dist/`)
-  - postbuild : check-links
+  - build : `astro build` (6 pages dans `dist/`)
+  - postbuild : check-links → schema-check → seo-check
 - `npm run preview` — sert `dist/` en local
 - `npm run lint` / `npm run lint:fix` — ESLint (flat config : astro + TS)
 - `npm run typecheck` — `astro check`
 - `npm run ds-lint` — lint du design system (tokens, règles brand, R1-R12)
-- `npm run seo:snapshot` — capture la surface SEO d'un build (voir ci-dessous)
+- `npm run check` — lint → typecheck → build (gates) → a11y : la commande à
+  faire passer avant de livrer, rejouée telle quelle par la CI
+- `npm run seo:check` — compare `dist/` à `docs/seo-baseline` (aussi en postbuild)
+- `npm run seo:accept` — recapture la baseline après un écart SEO voulu
+- `npm run release -- <n>` — CI de la PR, fusion en squash, déploiement, vérif prod
 - `npm run check-links` — liens internes du build (slash final, ancres)
 - `npm run a11y` / `npm run a11y:runtime` — audits accessibilité
 - `npm run lighthouse` — audit performance
@@ -104,22 +108,19 @@ violé, pas un bug à contourner.
 ## Non-régression SEO (mécanisme central)
 
 `docs/seo-baseline/` contient la référence de la surface SEO (canonical,
-title, metas, og/twitter, JSON-LD trié, sitemap, robots.txt), capturée par
-`scripts/seo-snapshot.mjs`. Toute modification SEO-sensible se vérifie ainsi :
+title, metas, og/twitter, JSON-LD trié, sitemap, robots.txt). À chaque build,
+`seo-check` (postbuild) compare `dist/` à cette baseline et **fait échouer le
+build** sur tout écart, avec le chemin et les valeurs avant/après.
 
-1. `npm run build`
-2. `node scripts/seo-snapshot.mjs dist docs/seo-current`
-3. `git diff --no-index docs/seo-baseline docs/seo-current` — doit être vide
-   hors deltas volontaires, déclarés dans la PR.
+- Écart voulu : `npm run seo:accept` recapture la baseline ; committer
+  `docs/seo-baseline` avec le changement qui l'a motivé et déclarer le delta
+  dans la PR. Pas de commit « recapture » séparé.
+- Écart non voulu : c'est une régression, corriger le code.
 
-Jamais de comparaison `-eq` PowerShell pour vérifier du texte : elle assimile
-l'espace insécable à l'espace simple. `git diff` ou comparaison ordinale.
-Après un changement SEO volontaire mergé, re-capturer la baseline.
-
-Le diff est réellement vide quand rien ne change : les `lastmod` du sitemap
-sont dérivés du contenu et de l'historique git, pas de l'heure du build. Un
-`lastmod` de page statique ne bouge donc que lorsque le fichier de la page est
-commité — recapture attendue dans la PR qui la modifie.
+La capture ignore ce qui n'est pas du SEO (meta CSP, `dateModified`,
+`lastmod`) : la baseline ne bouge que quand le SEO bouge et ne dérive pas à
+la fusion en squash. Jamais de comparaison `-eq` PowerShell pour vérifier du
+texte : elle assimile l'espace insécable à l'espace simple.
 
 ## Stack & architecture
 
@@ -157,8 +158,10 @@ commité — recapture attendue dans la PR qui la modifie.
 - Toute nouvelle page doit définir : `const seo = { title ≤ 53, description
   ≤ 120, … }` passé à BaseLayout, un `schemaGraph` (via `pageGraph`), un seul
   CTA primaire.
-- Avant de considérer une tâche terminée, exécuter :
-  `npm run lint && npm run typecheck && npm run ds-lint`.
+- Avant de considérer une tâche terminée, exécuter `npm run check` (lint,
+  typecheck, build avec toutes ses gates, a11y).
+- Sortie d'une PR : `npm run release -- <n>` (CI, fusion en squash, attente du
+  déploiement, vérification de la prod).
 - Petits commits ciblés ; messages en français, sans emoji.
 - En cas de doute sur le ton, le positionnement ou la cible d'un texte :
   proposer, ne pas publier — Andy valide tout le copy final.
