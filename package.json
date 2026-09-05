@@ -29,9 +29,9 @@
     "plaquette": "npm --prefix _plaquette run build"
   },
   "dependencies": {
-    "@astrojs/sitemap": "^3.7.3",
+    "@astrojs/sitemap": "^3.7.4",
     "@resvg/resvg-js": "^2.6.2",
-    "astro": "^7.2.4",
+    "astro": "^7.2.10",
     "satori": "^0.33.3"
   },
   "devDependencies": {
