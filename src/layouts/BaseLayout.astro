@@ -1,55 +1,18 @@
 ---
-import { createHash } from 'node:crypto'
 import '../styles/fonts.css'
 import '../styles/styles.css'
 import { SITE } from '../config/site'
 import { THEME_SCRIPT } from '../lib/theme-script'
+import SiteHead from '../components/SiteHead.astro'
+import type { Props as HeadProps } from '../components/SiteHead.astro'
 import SiteHeader from '../components/SiteHeader.astro'
 import SiteMobileMenu from '../components/SiteMobileMenu.astro'
 import SiteFooter from '../components/SiteFooter.astro'
 
-interface Props {
-  /** Titre de page sans suffixe — le layout applique « %s · PXLC ». ≤ 53 caractères. */
-  title: string
-  /** Meta description. ≤ 120 caractères. */
-  description: string
-  /** og:description si différente de description (ex : accueil). */
-  ogDescription?: string
-  /** og:title si différent du titre complet — les articles retirent le
-      suffixe « · PXLC » (og:site_name porte déjà la marque). */
-  ogTitle?: string
-  ogType?: 'website' | 'article'
-  robots?: string
-  /** URL absolue de l'image OG (1200×600). */
-  ogImage?: string
-  /** Graphe schema.org complet de la page (nœuds du @graph). */
-  schemaGraph?: object[]
-}
-
-const {
-  title,
-  description,
-  ogDescription = description,
-  ogType = 'website',
-  robots = 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
-  ogImage = `${SITE.url}/og/site.png`,
-  schemaGraph,
-} = Astro.props
-
-const fullTitle = `${title}${SITE.titleSuffix}`
-const { ogTitle = fullTitle } = Astro.props
-const canonical = new URL(Astro.url.pathname, SITE.url).href
-
-// La CSP est émise par Astro (security.csp dans astro.config.mjs), qui hache
-// lui-même les scripts et styles qu'il traite. Le JSON-LD est un script inline
-// propre à chaque page : on le sérialise une fois, on déclare son hash, puis on
-// rend cette même chaîne — hash et contenu servi restent identiques.
-const jsonLd = schemaGraph
-  ? JSON.stringify({ '@context': 'https://schema.org', '@graph': schemaGraph })
-  : null
-if (jsonLd) {
-  Astro.csp?.insertScriptHash(`sha256-${createHash('sha256').update(jsonLd, 'utf8').digest('base64')}`)
-}
+// Toute la surface SEO (title, canonical, metas, OG, JSON-LD + hash CSP) est
+// rendue par SiteHead, partagé avec PlaquetteLayout. Le layout ne garde que
+// l'enveloppe HTML, le thème et le chrome du site.
+type Props = Omit<HeadProps, 'colorScheme'>
 ---
 
 <html lang={SITE.lang}>
@@ -59,38 +22,7 @@ if (jsonLd) {
     <!-- Anti-flash : pose data-theme avant le premier paint pour que le rendu
          initial respecte la préférence stockée / système. Inline synchrone. -->
     <script is:inline set:html={THEME_SCRIPT} />
-    <title>{fullTitle}</title>
-    <link rel="canonical" href={canonical} />
-    <meta name="description" content={description} />
-    <meta name="robots" content={robots} />
-    <meta name="author" content={SITE.author} />
-    <meta name="color-scheme" content="light dark" />
-    <meta name="theme-color" content="#082B36" media="(prefers-color-scheme: dark)" />
-    <meta name="theme-color" content="#EAF6F4" media="(prefers-color-scheme: light)" />
-    <meta property="og:title" content={ogTitle} />
-    <meta property="og:description" content={ogDescription} />
-    <meta property="og:url" content={canonical} />
-    <meta property="og:type" content={ogType} />
-    <meta property="og:site_name" content={SITE.name} />
-    <meta property="og:locale" content={SITE.locale} />
-    <meta property="og:image" content={ogImage} />
-    <meta property="og:image:type" content="image/png" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="600" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content={SITE.twitter} />
-    <meta name="twitter:creator" content={SITE.twitter} />
-    <meta name="twitter:image" content={ogImage} />
-    <meta name="twitter:image:src" content={ogImage} />
-    <meta name="twitter:image:width" content="1200" />
-    <meta name="twitter:image:height" content="600" />
-    <!-- Signal secondaire : les moteurs s'appuient sur la directive Sitemap de
-         robots.txt, mais la doc de @astrojs/sitemap recommande aussi ce lien. -->
-    <link rel="sitemap" href="/sitemap-index.xml" />
-    <link rel="shortcut icon" href="/favicon.ico" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="manifest" href="/site.webmanifest" />
-    {jsonLd && <script type="application/ld+json" set:html={jsonLd} />}
+    <SiteHead {...Astro.props} />
     <slot name="head" />
   </head>
   <body>
