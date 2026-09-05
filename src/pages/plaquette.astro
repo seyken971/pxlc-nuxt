@@ -1,0 +1,749 @@
+---
+import { Image } from 'astro:assets'
+import PlaquetteLayout from '../layouts/PlaquetteLayout.astro'
+import PlaquettePage from '../components/PlaquettePage.astro'
+import PxlcMark from '../components/PxlcMark.astro'
+import { IDENTITY, RCS_MENTION } from '../config/identity'
+import { SITE } from '../config/site'
+import { pageGraph } from '../lib/schema'
+import { breadcrumbItems } from '../lib/breadcrumb'
+import andyPortrait from '../assets/photos/andy-portrait.jpg'
+import duoArcade from '../assets/photos/duo-arcade.jpg'
+
+// Plaquette de présentation, 6 feuilles A4. Cette page EST la source du PDF
+// public/files/plaquette-pxlc.pdf : scripts/export-plaquette.mjs l'imprime
+// depuis dist/ (npm run plaquette). Toute modification ici se relance et se
+// committe avec le PDF. La copy est celle de l'édition v4 ; identité et
+// contact viennent de src/config (jamais retapés).
+const VERSION = 'v4'
+const TOTAL = '06'
+const PDF_HREF = '/files/plaquette-pxlc.pdf'
+const CAL = 'cal.eu/pxlc-gp'
+
+const website = SITE.url.replace(/^https?:\/\//, '').replace(/\/$/, '')
+const nbsp = (s: string) => s.replace(/ /g, ' ')
+/** +590690717618 → +590 690 71 76 18 (forme de la page contact). */
+const phone = IDENTITY.telephone.replace(/^(\+590)(\d{3})(\d{2})(\d{2})(\d{2})$/, '$1 $2 $3 $4 $5')
+const address = `${IDENTITY.address.street}, ${IDENTITY.address.postalCode} ${IDENTITY.address.locality}`
+
+const seo = {
+  title: 'Plaquette de présentation',
+  description: 'La plaquette PXLC en 6 pages : mission, méthode en trois temps et projet « Jouons Ensemble ! » au SESSAD Lékoklaya.',
+  ogDescription: SITE.description,
+}
+
+const schemaGraph = pageGraph({
+  path: '/plaquette/',
+  name: 'Plaquette de présentation de PXLC',
+  description: seo.description,
+  crumbs: breadcrumbItems('/plaquette/', 'Plaquette'),
+})
+---
+
+<PlaquetteLayout {...seo} schemaGraph={schemaGraph}>
+  <nav class="pq-toolbar pq-screen-only" aria-label="Navigation de la plaquette">
+    <a class="btn btn--ghost btn--no-arrow" href="/">Retour au site</a>
+    <a
+      class="btn btn--ghost btn--no-arrow" href={PDF_HREF} target="_blank" rel="noopener noreferrer"
+      aria-label="Télécharger la plaquette (PDF, 6 pages, nouvel onglet)">Télécharger le PDF</a>
+  </nav>
+
+  <div class="pq-pages">
+
+    <!-- ═══════════════════════ 01 · Couverture ═══════════════════════ -->
+    <PlaquettePage num="01" total={TOTAL} cover version={VERSION} website={website} screenLabel="01 · Couverture">
+      <div class="pq-cover__bg-mark pq-deco-mark" aria-hidden="true">
+        <span></span><span></span><span></span>
+        <span></span><span></span><span></span>
+        <span></span><span></span><span></span>
+      </div>
+      <div class="pq-cover__inner">
+        <div class="pq-cover__brand">
+          <PxlcMark size={26} decorative />
+          <span>PXLC<span class="coral-dot" aria-hidden="true">.</span></span>
+        </div>
+
+        <div class="pq-cover__strip" aria-hidden="true">
+          <span></span><span></span><span></span><span></span><span></span>
+          <span></span><span class="is-accent"></span><span></span><span></span>
+        </div>
+        <div class="pq-cover__eyebrow">Familles &amp; écrans · Guadeloupe</div>
+        <h1 class="pq-cover__title">Médiation numérique<span class="coral-dot" aria-hidden="true">.</span></h1>
+        <p class="pq-cover__lead">PXLC accompagne les familles <strong>autour des écrans</strong>.</p>
+
+        <div class="pq-cover__meta">
+          <div>Cadre<strong>HCSP&nbsp;2019-2020 · HAS&nbsp;2020</strong></div>
+          <div>Format<strong>Ateliers parent-enfant</strong></div>
+          <div>Public<strong>Médiathèques · centres sociaux · écoles · SESSAD · IME</strong></div>
+        </div>
+      </div>
+    </PlaquettePage>
+
+    <!-- ═══════════════════════ 02 · Mission ═══════════════════════ -->
+    <PlaquettePage num="02" total={TOTAL} label="01 · La mission" version={VERSION} website={website} screenLabel="02 · Mission">
+      <span class="eyebrow">01 · La mission</span>
+      <h2>Le numérique, une histoire de lien<span class="coral-dot" aria-hidden="true">.</span></h2>
+      <p class="pq-lead">PXLC accompagne les familles <strong>autour des écrans</strong>. J'interviens dans les structures de Guadeloupe qui accueillent déjà des familles&nbsp;: le lieu apporte le public, j'apporte l'atelier et le cadre.</p>
+
+      <div class="pq-grid-3 pq-mb-8">
+        <div class="pq-card">
+          <span class="eyebrow">Le constat</span>
+          <p>Votre équipe accompagne des familles où les écrans — jeux vidéo en tête — reviennent en entretien comme point de friction récurrent. Sans que vous ayez toujours les ressources spécifiques pour y répondre dans le cadre de votre accompagnement.</p>
+        </div>
+        <div class="pq-card">
+          <span class="eyebrow">Le parti-pris</span>
+          <p>Le cadre HCSP&nbsp;2019-2020 · HAS&nbsp;2020 invite à <strong>soutenir la fonction parentale</strong> dans la médiation des écrans plutôt qu'à les interdire. Je traduis ce cadre en ateliers directement intégrables dans votre projet de service ou d'établissement.</p>
+        </div>
+        <div class="pq-card">
+          <span class="eyebrow">Pour qui</span>
+          <p>Les structures qui accueillent déjà des familles — médiathèques, centres sociaux, écoles, CCAS, SESSAD, IME — et qui cherchent un <strong>intervenant spécialisé</strong>, pas un module numérique générique, pour les familles où le jeu vidéo est source de tension.</p>
+        </div>
+      </div>
+
+      <div class="pq-quote">
+        <span class="pq-quote__mark" aria-hidden="true">«&nbsp;</span>Mon travail, ce n'est pas de juger l'usage des écrans. C'est de créer un espace de rencontre — autour du jeu vidéo, des réseaux, du temps d'écran — entre un enfant et son parent, entre une famille et votre équipe.<span class="pq-quote__mark" aria-hidden="true">&nbsp;»</span>
+        <span class="pq-quote__src">Andy Zébus · médiateur numérique</span>
+      </div>
+
+      <div class="pq-card pq-card--dark">
+        <span class="eyebrow">Ma promesse aux structures</span>
+        <p>Je m'adapte à votre cadre de confidentialité, à vos bilans et à vos objectifs de service ou de soin. Je viens en appui de l'équipe — pas à sa place. Je reviens autant de fois que nécessaire, sur la durée du projet. <strong>Premier échange de 20&nbsp;min gratuit, sans engagement.</strong></p>
+        <p class="pq-card__contact">{CAL} · {IDENTITY.email} · {nbsp(phone)}</p>
+      </div>
+    </PlaquettePage>
+
+    <!-- ═══════════════════════ 03 · Qui je suis ═══════════════════════ -->
+    <PlaquettePage num="03" total={TOTAL} label="02 · Qui je suis" version={VERSION} website={website} screenLabel="03 · Qui je suis">
+      <span class="eyebrow">02 · Qui je suis</span>
+      <h2>Andy Zébus · trois casquettes<span class="coral-dot" aria-hidden="true">.</span></h2>
+
+      <div class="pq-bio">
+        <p class="pq-bio__text">Né en Guadeloupe, formé à la médiation interculturelle et au numérique, j'ai passé plus de 6&nbsp;ans à structurer la scène esport locale avant de créer <strong>PXLC</strong>. Ce qui me motive&nbsp;: les familles qui traversent en silence des conflits autour des écrans — et les équipes qui veulent des outils concrets pour les accompagner.</p>
+        <div class="pq-photo pq-bio__photo">
+          <Image
+            src={andyPortrait}
+            alt="Portrait d'Andy Zébus, créateur de PXLC"
+            width={520}
+            loading="eager"
+            class="pq-photo__img pq-photo__img--portrait"
+          />
+        </div>
+      </div>
+
+      <div class="pq-grid-3 pq-casquettes">
+        <div class="pq-card">
+          <span class="kicker">Casquette 01</span>
+          <h3 class="pq-casquette__title">Organisateur esport</h3>
+          <p class="pq-casquette__desc">Plus de 6&nbsp;ans sur la scène esport guadeloupéenne — Destreland Gaming Cup, tournois, partenariats. Je parle aux enfants dans leur registre culturel. C'est ce qui fait que les ateliers ne ressemblent pas à une leçon.</p>
+        </div>
+        <div class="pq-card">
+          <span class="kicker">Casquette 02</span>
+          <h3 class="pq-casquette__title">Médiateur formé</h3>
+          <p class="pq-casquette__desc">Formateur principal en médiation numérique chez Simplon Outre-Mer (2021–2022). Je travaille dans le cadre HCSP&nbsp;2019-2020 · HAS&nbsp;2020 — ce qui facilite directement l'articulation avec votre projet de service ou de soin et vos bilans.</p>
+        </div>
+        <div class="pq-card">
+          <span class="kicker">Casquette 03</span>
+          <h3 class="pq-casquette__title">Conseil institutionnel</h3>
+          <p class="pq-casquette__desc">Affaires européennes et numérique THD à la Région Guadeloupe. Je maîtrise le vocabulaire des commissions et des rapports d'activité — utile pour justifier et documenter le dispositif.</p>
+        </div>
+      </div>
+
+      <div class="pq-card pq-card--ivory">
+        <span class="eyebrow">Ce que ça change pour vous</span>
+        <p>Un seul interlocuteur qui fait le pont entre 3 mondes qui se parlent rarement&nbsp;: la culture joueur, le cadre du soin, le langage institutionnel. Côté enfant&nbsp;: un adulte qui joue sans juger. Côté parent&nbsp;: quelqu'un qui traduit. Côté équipe&nbsp;: un partenaire qui rend compte.</p>
+      </div>
+    </PlaquettePage>
+
+    <!-- ═══════════════════════ 04 · La méthode ═══════════════════════ -->
+    <PlaquettePage num="04" total={TOTAL} label="03 · La méthode" version={VERSION} website={website} screenLabel="04 · La méthode">
+      <span class="eyebrow">03 · La méthode</span>
+      <h2 class="pq-methode__title">Ma méthode en trois temps<span class="coral-dot" aria-hidden="true">.</span></h2>
+      <p class="pq-lead pq-methode__lead">Une démarche en trois temps, pensée pour s'intégrer dans le projet d'un lieu qui accueille déjà des familles. Pas de discours moral, pas d'écran diabolisé — un cadre que votre équipe peut s'approprier.</p>
+
+      <div class="pq-step">
+        <div class="pq-step__num">01</div>
+        <div>
+          <div class="pq-step__phase">Diagnostic <span class="pq-step__duration">usages réels de la famille</span></div>
+          <h3 class="pq-step__title">Faire le point</h3>
+          <p class="pq-step__desc">Je pars des usages réels de la famille — à quoi l'enfant joue, ce que l'écran représente. Observer avant de cadrer&nbsp;: la prise de conscience est déjà un levier.</p>
+          <span class="pq-step__deliv">Profil ludique de l'enfant, attentes des parents</span>
+        </div>
+      </div>
+
+      <div class="pq-step">
+        <div class="pq-step__num">02</div>
+        <div>
+          <div class="pq-step__phase">Stratégie <span class="pq-step__duration">ateliers parent-enfant</span></div>
+          <h3 class="pq-step__title">Choisir une stratégie</h3>
+          <p class="pq-step__desc">La famille co-construit ses repères d'usage. L'enfant participe au choix des règles, ce qui désamorce les conflits plutôt que de les déplacer. Chaque atelier articule un temps de jeu partagé (30 à 45&nbsp;min) et un temps d'échange (45&nbsp;min à 1&nbsp;h).</p>
+          <span class="pq-step__deliv">Repères d'usage co-construits, observation des interactions</span>
+        </div>
+      </div>
+
+      <div class="pq-step">
+        <div class="pq-step__num">03</div>
+        <div>
+          <div class="pq-step__phase">Suivi <span class="pq-step__duration">restitution à l'équipe</span></div>
+          <h3 class="pq-step__title">Dialogue continu</h3>
+          <p class="pq-step__desc">Le cadre devient une clé d'explication impartiale&nbsp;: il ouvre la discussion parent-enfant au lieu de la fermer, et tient dans la durée. Un bilan écrit est remis à l'équipe et discuté avec elle.</p>
+          <span class="pq-step__deliv">Bilan écrit, réutilisable dans vos rapports d'activité</span>
+        </div>
+      </div>
+
+      <span class="eyebrow pq-frameworks__eyebrow">Le cadre de référence</span>
+      <div class="pq-frameworks">
+        <div class="pq-framework">
+          <span class="pq-framework__pill">HCSP · 2019</span>
+          <h4>Effets de l'exposition aux écrans</h4>
+          <p>L'accompagnement parental actif, facteur clé pour limiter les effets négatifs.</p>
+        </div>
+        <div class="pq-framework">
+          <span class="pq-framework__pill">HCSP · 2020</span>
+          <h4>De l'usage excessif à la dépendance</h4>
+          <p>Des repères pour prévenir le basculement vers un usage problématique des écrans.</p>
+        </div>
+        <div class="pq-framework">
+          <span class="pq-framework__pill">HAS · 2020</span>
+          <h4>Soutien à la parentalité</h4>
+          <p>Cité avec les avis du HCSP dans chaque bilan remis à l'équipe.</p>
+        </div>
+      </div>
+    </PlaquettePage>
+
+    <!-- ═══════════════════════ 05 · Jouons Ensemble ═══════════════════════ -->
+    <PlaquettePage num="05" total={TOTAL} label="04 · Mon intervention" version={VERSION} website={website} screenLabel="05 · Jouons Ensemble">
+      <span class="eyebrow">04 · Mon intervention</span>
+      <h2>«&nbsp;Jouons Ensemble&nbsp;!&nbsp;»<span class="coral-dot" aria-hidden="true">.</span></h2>
+      <p class="pq-cas__intro">Un projet porté par le psychologue du <strong>SESSAD Lékoklaya</strong> (2026), en partenariat avec PXLC, auprès de 8 enfants de 12 à 17&nbsp;ans suivis pour TSA, TDAH, TND ou dystrophie musculaire. Le point de départ&nbsp;: le jeu vidéo revenait systématiquement dans les entretiens familiaux comme source de conflit. Le dispositif transforme ces conflits en matériau de travail pour les équipes.</p>
+
+      <div class="pq-photo pq-cas__photo">
+        <Image
+          src={duoArcade}
+          alt="Deux joueurs côte à côte sur une borne d'arcade, vue de dos"
+          width={1400}
+          loading="eager"
+          class="pq-photo__img pq-photo__img--arcade"
+        />
+        <span class="pq-photo__badge">Jeu partagé</span>
+      </div>
+
+      <div class="pq-facts">
+        <div class="pq-fact">
+          <div class="pq-fact__value">8</div>
+          <div class="pq-fact__label">enfants accompagnés, en binôme avec un parent</div>
+        </div>
+        <div class="pq-fact">
+          <div class="pq-fact__value">12–17</div>
+          <div class="pq-fact__label">ans · TSA, TDAH, TND, dystrophie&nbsp;musculaire</div>
+        </div>
+        <div class="pq-fact">
+          <div class="pq-fact__value">3</div>
+          <div class="pq-fact__label">thèmes · coopération, émotions, différence</div>
+        </div>
+      </div>
+
+      <div class="pq-grid-2">
+        <div class="pq-card pq-card--ivory">
+          <span class="eyebrow">Ma fonction dans le projet</span>
+          <ul class="pq-bullets">
+            <li>Je choisis les jeux selon les objectifs psycho-éducatifs de l'équipe.</li>
+            <li>J'explique les mécaniques de jeu aux parents.</li>
+            <li>J'accompagne en situation de jeu.</li>
+            <li>Je démystifie la culture numérique de l'enfant pour sa famille.</li>
+          </ul>
+        </div>
+        <div class="pq-card">
+          <span class="eyebrow">L'équipe partenaire</span>
+          <p class="pq-mt-3">Co-encadrement avec le <strong>psychologue</strong> et la <strong>psychomotricienne</strong> du SESSAD, et un <strong>intervenant culturel</strong> (jeux traditionnels). Chacun conserve son rôle&nbsp;: le soin reste piloté par la structure. J'apporte la lecture du jeu vidéo et je démystifie la culture numérique de l'enfant pour sa famille. Les parents qui ne comprenaient pas pourquoi leur enfant jouait ont pu rejouer avec lui.</p>
+        </div>
+      </div>
+    </PlaquettePage>
+
+    <!-- ═══════════════════════ 06 · Consentement ═══════════════════════ -->
+    <PlaquettePage num="06" total={TOTAL} label="05 · Annexe" version={VERSION} website={website} screenLabel="06 · Consentement">
+      <span class="eyebrow">05 · Annexe</span>
+      <h2>Consentement parental<span class="coral-dot" aria-hidden="true">.</span></h2>
+
+      <div class="pq-consent">
+        <p class="pq-consent__intro">Dans le cadre du dispositif de médiation numérique «&nbsp;Jouons Ensemble&nbsp;!&nbsp;», je
+          soussigné(e), responsable légal de l'enfant, déclare avoir été informé(e) des objectifs, du déroulé et du
+          cadre du projet, et autorise&nbsp;:</p>
+
+        <div class="pq-consent__checks">
+          <div class="pq-consent__check">
+            <div class="pq-consent__box" aria-hidden="true"></div>
+            <p><strong>La participation de mon enfant aux ateliers.</strong>Participation libre aux ateliers
+              parent-enfant, au groupe de parole et au bilan, dans le cadre de l'accompagnement de la structure.</p>
+          </div>
+          <div class="pq-consent__check">
+            <div class="pq-consent__box" aria-hidden="true"></div>
+            <p><strong>Le recueil d'observations à visée éducative.</strong>Utilisation des observations recueillies
+              pendant les ateliers, de façon anonymisée, aux seules fins du suivi et du bilan transmis à l'équipe
+              pluridisciplinaire.</p>
+          </div>
+          <div class="pq-consent__check">
+            <div class="pq-consent__box" aria-hidden="true"></div>
+            <p><strong>La captation photo / vidéo (facultatif).</strong>Prise de photographies ou de courtes vidéos
+              pendant les ateliers, à usage interne de bilan. <em>Toute diffusion externe fera l'objet d'une
+                autorisation distincte.</em></p>
+          </div>
+        </div>
+
+        <h3 class="pq-consent__h3">Mes droits</h3>
+        <p>Ce consentement est libre et peut être retiré à tout moment, sans justification ni conséquence sur
+          l'accompagnement de mon enfant par la structure. Conformément au RGPD, je dispose d'un droit d'accès, de
+          rectification et de suppression des données concernant mon enfant, en m'adressant à la structure ou à PXLC.</p>
+
+        <div class="pq-consent__fields">
+          <div class="pq-field">
+            <span class="pq-field__label">Nom de l'enfant</span>
+            <span class="pq-field__line"></span>
+          </div>
+          <div class="pq-field">
+            <span class="pq-field__label">Date de naissance</span>
+            <span class="pq-field__line"></span>
+          </div>
+          <div class="pq-field">
+            <span class="pq-field__label">Responsable légal</span>
+            <span class="pq-field__line"></span>
+          </div>
+          <div class="pq-field">
+            <span class="pq-field__label">Lien avec l'enfant</span>
+            <span class="pq-field__line"></span>
+          </div>
+        </div>
+
+        <div class="pq-consent__sigs">
+          <div class="pq-consent__sig">
+            Le responsable légal
+            <small>Fait à&nbsp;.................................... le&nbsp;....... / ....... / ...........</small>
+            <span class="pq-consent__sig-line" aria-hidden="true"></span>
+          </div>
+          <div class="pq-consent__sig">
+            La structure / PXLC
+            <small>Nom &amp; qualité du référent</small>
+            <span class="pq-consent__sig-line" aria-hidden="true"></span>
+          </div>
+        </div>
+
+        <p class="pq-legal-note">{SITE.name} · {IDENTITY.legalName} · SIRET&nbsp;{nbsp(IDENTITY.siret)} · RCS&nbsp;{nbsp(RCS_MENTION)} · APE&nbsp;{IDENTITY.ape} · {address} · {IDENTITY.email} · {nbsp(phone)} · {website} — Données conservées le temps de la mission puis archivées
+          conformément aux recommandations CNIL. Aucun transfert hors UE, aucun sous-traitant.</p>
+      </div>
+    </PlaquettePage>
+
+  </div>
+</PlaquetteLayout>
+
+<style>
+  /* ── Toolbar écran (masquée à l'impression par PlaquetteLayout) ── */
+  .pq-toolbar {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-3);
+    padding: var(--space-4) var(--container-pad) 0;
+  }
+  .pq-toolbar .btn { color: var(--pxlc-ivory); border-color: var(--pxlc-text-quiet-dark); }
+  .pq-toolbar .btn:hover { color: var(--pxlc-ivory); border-color: var(--pxlc-ivory); }
+
+  /* ── Utilitaires de feuille ─────────────────────────────── */
+  .pq-mb-8 { margin-bottom: 8mm; }
+  .pq-mt-3 { margin-top: 3mm; }
+  .pq-lead {
+    font-family: var(--font-body);
+    font-size: 13pt;
+    line-height: 1.5;
+    color: var(--ink-quiet);
+    margin-bottom: 8mm;
+    max-width: 165mm;
+  }
+  .pq-lead strong { color: var(--ink); }
+  .pq-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 6mm; }
+  .pq-grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 5mm; }
+
+  /* ── Marque décorative 3×3 ─────────────────────────────── */
+  .pq-deco-mark {
+    position: absolute;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 2mm;
+    pointer-events: none;
+  }
+  .pq-deco-mark span { border-radius: 3mm; }
+  .pq-deco-mark span:nth-child(3n+1) { background: var(--teal-deep); }
+  .pq-deco-mark span:nth-child(3n+2) { background: var(--teal-mid); }
+  .pq-deco-mark span:nth-child(3n)   { background: var(--cyan); }
+  .pq-deco-mark span:nth-child(9)    { background: var(--pxlc-coral); }
+
+  /* ── Couverture ────────────────────────────────────────── */
+  .pq-cover__inner {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 24mm 22mm 18mm 22mm;
+    position: relative;
+    z-index: 1;
+  }
+  .pq-cover__bg-mark {
+    width: 132mm; height: 132mm;
+    right: -32mm; bottom: -30mm;
+    opacity: 0.16;
+    transform: rotate(-8deg);
+  }
+  .pq-cover__brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 17pt;
+    color: var(--pxlc-ivory);
+    letter-spacing: -0.025em;
+    margin-bottom: 26mm;
+  }
+  .pq-cover__strip { display: inline-flex; gap: 5px; margin-bottom: 12mm; }
+  .pq-cover__strip span { width: 16px; height: 16px; border-radius: 2px; background: var(--teal-mid); }
+  .pq-cover__strip span.is-accent { background: var(--pxlc-coral); }
+  .pq-cover__eyebrow {
+    font-family: var(--font-label);
+    font-size: 9pt;
+    font-weight: 600;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    margin-bottom: 12mm;
+  }
+  .pq-cover__title {
+    font-family: var(--font-display);
+    font-size: 46pt;
+    font-weight: 600;
+    line-height: 1.02;
+    letter-spacing: -0.035em;
+    color: var(--pxlc-ivory);
+    margin-bottom: 9mm;
+    max-width: 168mm;
+  }
+  .pq-cover__lead {
+    font-family: var(--font-body);
+    font-size: 13pt;
+    line-height: 1.5;
+    color: var(--pxlc-text-on-dark-soft);
+    max-width: 150mm;
+    margin-bottom: auto;
+  }
+  .pq-cover__lead strong { color: var(--pxlc-ivory); font-weight: 600; }
+  .pq-cover__meta {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6mm;
+    margin-top: 20mm;
+    padding-top: 8mm;
+    border-top: 1px solid var(--pxlc-border-dark-2);
+    font-family: var(--font-label);
+    font-size: 8pt;
+    color: var(--pxlc-text-on-dark-soft);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+  .pq-cover__meta strong {
+    color: var(--pxlc-ivory);
+    display: block;
+    font-weight: 600;
+    margin-top: 2mm;
+    letter-spacing: 0.1em;
+  }
+
+  /* ── Cartes ────────────────────────────────────────────── */
+  .pq-card {
+    background: var(--pxlc-white);
+    border: 1px solid var(--rule);
+    border-radius: var(--radius-lg);
+    padding: 6mm;
+  }
+  .pq-card p { margin: 3mm 0 0 0; font-size: 10pt; line-height: 1.5; }
+  .pq-card .eyebrow { margin-bottom: 0; }
+  .pq-card--ivory { background: var(--pxlc-ivory); border-color: var(--pxlc-border-soft); }
+  .pq-card--dark {
+    background: var(--pxlc-bg-dark);
+    border-color: var(--pxlc-bg-dark-soft);
+    color: var(--pxlc-ivory);
+  }
+  .pq-card--dark h3, .pq-card--dark h4 { color: var(--pxlc-ivory); }
+  .pq-card--dark p { color: var(--pxlc-text-on-dark-soft); }
+  .pq-card--dark .eyebrow { color: var(--cyan); }
+  /* Sans cette règle, strong hérite de --ink : encre sombre sur fond sombre,
+     le CTA de la promesse disparaissait à l'impression (garde-fou dans
+     scripts/export-plaquette.mjs). */
+  .pq-card--dark strong { color: var(--pxlc-ivory); }
+  .pq-card__contact {
+    font-family: var(--font-label);
+    font-size: 9.5pt;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+  }
+  .pq-card--dark .pq-card__contact { color: var(--cyan); }
+
+  /* ── Citation ──────────────────────────────────────────── */
+  .pq-quote {
+    border-left: 3px solid var(--pxlc-coral);
+    padding: 3mm 6mm;
+    font-family: var(--font-display);
+    font-size: 14pt;
+    line-height: 1.4;
+    color: var(--ink);
+    font-weight: 500;
+    letter-spacing: -0.015em;
+    margin: 7mm 0;
+  }
+  .pq-quote__mark { color: var(--pxlc-coral); }
+  .pq-quote__src {
+    display: block;
+    margin-top: 3mm;
+    font-family: var(--font-label);
+    font-size: 8pt;
+    color: var(--quiet);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  /* ── Qui je suis ───────────────────────────────────────── */
+  .pq-bio { display: grid; grid-template-columns: 1fr 52mm; gap: 8mm; align-items: start; }
+  .pq-bio__text { font-size: 11pt; line-height: 1.55; }
+  .pq-bio__photo { margin-top: 1mm; }
+  .pq-casquettes { margin: 7mm 0; }
+  .pq-casquette__title { margin: 3mm 0 2mm 0; font-size: 11pt; }
+  .pq-casquette__desc { font-size: 9.5pt; line-height: 1.45; margin-top: 0; }
+
+  /* ── Méthode ───────────────────────────────────────────── */
+  .pq-methode__title { margin-bottom: 4mm; }
+  .pq-methode__lead { margin-bottom: 4mm; font-size: 12pt; }
+  .pq-step {
+    display: grid;
+    grid-template-columns: 20mm 1fr;
+    gap: 5mm;
+    padding: 4mm 0;
+    border-bottom: 1px dashed var(--rule);
+  }
+  .pq-step:last-of-type { border-bottom: 0; }
+  .pq-step__num {
+    font-family: var(--font-display);
+    font-size: 30pt;
+    font-weight: 600;
+    color: var(--pxlc-coral);
+    line-height: 1;
+    letter-spacing: -0.04em;
+  }
+  .pq-step__phase {
+    font-family: var(--font-label);
+    font-size: 7.5pt;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--teal-deep);
+    margin-bottom: 1.5mm;
+  }
+  .pq-step__duration {
+    font-family: var(--font-label);
+    font-size: 7.5pt;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--quiet);
+    margin-left: 3mm;
+  }
+  .pq-step__title { font-size: 13pt; }
+  .pq-step__desc { font-size: 10pt; line-height: 1.5; margin: 2mm 0; }
+  .pq-step__deliv {
+    font-family: var(--font-label);
+    font-size: 8pt;
+    color: var(--teal-deep);
+    letter-spacing: 0.08em;
+    display: inline-block;
+    padding-top: 2mm;
+    border-top: 1px dashed var(--rule);
+    margin-top: 1mm;
+  }
+  .pq-frameworks__eyebrow { margin: 5mm 0 0 0; }
+  .pq-frameworks { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4mm; margin-top: 2mm; }
+  .pq-framework {
+    background: var(--pxlc-ivory);
+    border: 1px solid var(--pxlc-border-soft);
+    border-radius: var(--radius-md);
+    padding: 4.5mm;
+  }
+  .pq-framework__pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-family: var(--font-label);
+    font-size: 7.5pt;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--teal-deep);
+    margin-bottom: 2.5mm;
+  }
+  .pq-framework__pill::before {
+    content: ""; width: 7px; height: 7px;
+    background: var(--pxlc-coral); border-radius: 1px;
+  }
+  .pq-framework h4 { font-size: 10.5pt; margin-bottom: 1.5mm; }
+  .pq-framework p { font-size: 9pt; margin: 0; line-height: 1.4; }
+
+  /* ── Photos ────────────────────────────────────────────── */
+  .pq-photo {
+    width: 100%;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    position: relative;
+  }
+  .pq-photo :global(.pq-photo__img) { width: 100%; height: auto; display: block; object-fit: cover; }
+  .pq-photo :global(.pq-photo__img--portrait) { height: 46mm; object-position: center 25%; }
+  .pq-photo :global(.pq-photo__img--arcade) { height: 58mm; object-position: center 38%; }
+  .pq-photo__badge {
+    position: absolute;
+    top: 4mm; left: 4mm;
+    font-family: var(--font-label);
+    font-size: 7.5pt;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    background: var(--pxlc-bg-dark);
+    padding: 1.5mm 3mm;
+    border-radius: var(--radius-sm);
+  }
+
+  /* ── Jouons Ensemble ───────────────────────────────────── */
+  .pq-cas__intro { margin-bottom: 5mm; max-width: 165mm; }
+  .pq-cas__photo { margin-bottom: 5mm; }
+  .pq-facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4mm; margin-bottom: 6mm; }
+  .pq-fact {
+    border: 1px solid var(--rule);
+    border-radius: var(--radius-md);
+    padding: 4.5mm;
+    background: var(--pxlc-white);
+  }
+  .pq-fact__value {
+    font-family: var(--font-display);
+    font-size: 22pt;
+    font-weight: 600;
+    color: var(--ink);
+    letter-spacing: -0.03em;
+    line-height: 1;
+    margin-bottom: 2mm;
+  }
+  .pq-fact__label {
+    font-family: var(--font-label);
+    font-size: 7.5pt;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--quiet);
+    line-height: 1.35;
+  }
+  .pq-bullets { list-style: none; padding: 0; margin: 3mm 0 0 0; }
+  .pq-bullets li {
+    padding-left: 6mm;
+    position: relative;
+    margin-bottom: 2.5mm;
+    font-size: 10pt;
+    line-height: 1.45;
+  }
+  .pq-bullets li::before {
+    content: ""; position: absolute;
+    left: 0; top: 6px;
+    width: 8px; height: 8px;
+    background: var(--pxlc-coral); border-radius: 1px;
+  }
+
+  /* ── Consentement ──────────────────────────────────────── */
+  .pq-consent { font-size: 9.5pt; line-height: 1.55; color: var(--ink-quiet); }
+  .pq-consent__intro { font-size: 10pt; margin-bottom: 5mm; }
+  .pq-consent__h3 {
+    font-family: var(--font-label);
+    font-size: 8.5pt;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin: 5mm 0 2mm 0;
+    color: var(--teal-deep);
+  }
+  .pq-consent p { margin-bottom: 2.5mm; font-size: 9.5pt; }
+  .pq-consent__checks { display: grid; gap: 2.5mm; margin: 3mm 0; }
+  .pq-consent__check {
+    display: grid;
+    grid-template-columns: 6mm 1fr;
+    gap: 3mm;
+    align-items: start;
+    border: 1px solid var(--rule);
+    border-radius: var(--radius-md);
+    padding: 3.5mm 4mm;
+    background: var(--pxlc-ivory);
+  }
+  .pq-consent__box {
+    width: 5mm; height: 5mm;
+    border: 1.5px solid var(--teal-deep);
+    border-radius: var(--radius-xs);
+    margin-top: 0.5mm;
+  }
+  .pq-consent__check p { margin: 0; font-size: 9.5pt; line-height: 1.4; }
+  .pq-consent__check strong { display: block; margin-bottom: 0.5mm; }
+  .pq-consent__fields {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4mm 6mm;
+    margin: 5mm 0;
+  }
+  .pq-field { display: flex; flex-direction: column; gap: 1.5mm; }
+  .pq-field__label {
+    font-family: var(--font-label);
+    font-size: 7.5pt;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--teal-deep);
+  }
+  .pq-field__line { height: 7mm; border-bottom: 1px solid var(--rule); }
+  .pq-consent__sigs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6mm;
+    margin-top: 6mm;
+    border-top: 1px solid var(--rule);
+    padding-top: 5mm;
+  }
+  .pq-consent__sig {
+    font-family: var(--font-label);
+    font-size: 8pt;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--quiet);
+  }
+  .pq-consent__sig small {
+    display: block;
+    text-transform: none;
+    letter-spacing: 0;
+    font-family: var(--font-body);
+    font-size: 8pt;
+    color: var(--quiet);
+    margin-top: 1mm;
+  }
+  .pq-consent__sig-line {
+    display: block;
+    width: 100%;
+    height: 18mm;
+    border: 1px dashed var(--rule);
+    border-radius: var(--radius-sm);
+    margin-top: 3mm;
+  }
+  .pq-legal-note {
+    font-family: var(--font-label);
+    font-size: 7.5pt;
+    line-height: 1.5;
+    color: var(--quiet);
+    letter-spacing: 0.02em;
+    margin-top: 5mm;
+    padding-top: 4mm;
+    border-top: 1px dashed var(--rule);
+  }
+</style>
