@@ -28,12 +28,14 @@ Le contexte de positionnement et de stratégie vit dans `CLAUDE.local.md`
 
 ## Design system & règles de marque
 
-@design.md
+@design-rules.md
 
-- `design.md` est **généré** par `scripts/export-design.mjs` — ne jamais
-  l'éditer à la main. Sources : `src/styles/tokens.css` +
-  `src/styles/styles.css`. Régénéré automatiquement par `predev` et
-  `prebuild` ; committer la version à jour.
+- `design.md` (tokens, palette, classes CSS : la référence complète) et
+  `design-rules.md` (les règles brand seules, importées ci-dessus) sont
+  **générés** par `scripts/export-design.mjs` — ne jamais les éditer à la
+  main. Sources : `src/styles/tokens.css` + `src/styles/styles.css`. Régénérés
+  par `predev` et `prebuild` ; committer les versions à jour. Les valeurs de
+  tokens se lisent dans `tokens.css` ou `design.md` quand on en a besoin.
 - Toujours utiliser les custom properties (`--pxlc-*`, tokens sémantiques) —
   jamais de couleurs ou d'espacements en dur dans les composants.
 - Dark mode via `[data-theme="dark"]` — toute nouvelle couleur sémantique doit
@@ -79,31 +81,19 @@ Aussi dans design.md, mais bloquants — vérifier chaque texte généré ou mod
 
 ## Commandes (npm)
 
-- `npm run dev` — serveur de dev Astro (predev : gen:tokens + design)
-- `npm run build` — build statique complet pour GitHub Pages :
-  - prebuild : gen:tokens → design → ds-lint
-  - build : `astro build` (6 pages dans `dist/`)
-  - postbuild : check-links → schema-check → seo-check
-- `npm run preview` — sert `dist/` en local
-- `npm run lint` / `npm run lint:fix` — ESLint (flat config : astro + TS)
-- `npm run typecheck` — `astro check`
-- `npm run ds-lint` — lint du design system (tokens, règles brand, R1-R12)
-- `npm run check` — lint → typecheck → build (gates) → a11y : la commande à
-  faire passer avant de livrer, rejouée telle quelle par la CI
-- `npm run seo:check` — compare `dist/` à `docs/seo-baseline` (aussi en postbuild)
-- `npm run seo:accept` — recapture la baseline après un écart SEO voulu
-- `npm run release -- <n>` — CI de la PR, fusion en squash, déploiement, vérif prod
-- `npm run check-links` — liens internes du build (slash final, ancres)
-- `npm run a11y` / `npm run a11y:runtime` — audits accessibilité
-- `npm run lighthouse` — audit performance
-- `npm run gen:tokens` — régénère tokens.css depuis `src/lib/brand-colors.ts`
-- `npm run design` — régénère design.md
-- `npm run gen:communes` — régénère `src/data/communes-971.json` (contours des
-  communes depuis geo.api.gouv.fr, projetés au build en SVG par `CommuneMap`) —
-  manuel, réseau requis
+Les scripts sont listés dans `package.json` ; ce qui ne s'en déduit pas :
 
-Un build qui casse sur les gates pre/post = règle brand, contenu ou lien
-violé, pas un bug à contourner.
+- `npm run check` — lint → typecheck → build (gates) → a11y : la commande à
+  faire passer avant de livrer, rejouée telle quelle par la CI.
+- `npm run build` enchaîne des gates : prebuild gen:tokens → design → ds-lint,
+  postbuild check-links → schema-check → seo-check. Un build qui casse sur une
+  gate = règle brand, contenu, lien ou SEO violé, pas un bug à contourner.
+- `npm run seo:accept` — recapture la baseline après un écart SEO voulu (voir
+  ci-dessous).
+- `npm run release -- <n>` — CI de la PR, fusion en squash, déploiement, vérif prod.
+- `npm run gen:communes` — régénère `src/data/communes-971.json` (contours des
+  communes depuis geo.api.gouv.fr, rendus au build en SVG par `CommuneMap`) —
+  manuel, réseau requis.
 
 ## Non-régression SEO (mécanisme central)
 
@@ -122,36 +112,25 @@ La capture ignore ce qui n'est pas du SEO (meta CSP, `dateModified`,
 la fusion en squash. Jamais de comparaison `-eq` PowerShell pour vérifier du
 texte : elle assimile l'espace insécable à l'espace simple.
 
-## Stack & architecture
+## Stack & architecture — pièges à connaître
 
-- Astro (`src/`), zéro île hydratée : toute l'interactivité est en `<script>`
-  vanilla dans les composants `.astro`.
-- `src/layouts/BaseLayout.astro` — head complet (titre `%s · PXLC`, canonical
-  avec slash final, og/twitter, anti-flash thème, JSON-LD), chrome du site.
-  La CSP est émise par Astro (`security.csp`) : il hache ses propres scripts
-  et styles, le layout déclare en plus le hash du JSON-LD de la page via
-  `Astro.csp.insertScriptHash` et la config celui du script anti-flash
-  (`src/lib/theme-script.ts`, seul `is:inline` du site avec la 404).
-- `src/config/site.ts` — identité du site (source unique, lue aussi par
-  ds-lint R7). `src/config/identity.ts` (NAP + immatriculations, lue aussi
-  par les mentions légales), `src/config/nav.ts`, `project-themes.ts`.
-- SEO : graphe schema.org construit à la main dans `src/lib/schema.ts`
-  (@id croisés `#identity`/`#andy`/`#service`…) ; sitemap via
-  l'intégration `@astrojs/sitemap` (`dist/sitemap-index.xml`, `lastmod`
-  injectés par `serialize` depuis `scripts/sitemap-lastmod.mjs` : date du
-  dernier commit touchant la page — d'où le `fetch-depth: 0` du workflow) ;
-  carte OG rendue par l'endpoint `src/pages/og/site.png.ts` (satori + resvg,
-  gabarit dans `src/lib/og-templates.ts`, TTF vendorées
-  `src/assets/og-fonts/`) — visible en dev, contrairement à l’ancien
-  script post-build.
+- Zéro île hydratée : toute l'interactivité est en `<script>` vanilla dans
+  les composants `.astro`. GitHub Pages n'a pas de runtime : aucune API route.
+- CSP émise par Astro (`security.csp`) : il hache ses propres scripts et
+  styles ; `BaseLayout` déclare en plus le hash du JSON-LD de la page via
+  `Astro.csp.insertScriptHash`, la config celui du script anti-flash
+  (`src/lib/theme-script.ts`, seul `is:inline` du site avec la 404). Un
+  `fetch` runtime vers un autre domaine serait bloqué (`connect-src 'self'`).
+- Trailing slash partout : canonical = forme avec slash, GitHub Pages
+  301-redirige la forme sans slash.
+- `lastmod` du sitemap = date du dernier commit touchant la page
+  (`scripts/sitemap-lastmod.mjs`) — d'où le `fetch-depth: 0` du workflow.
 - `public/robots.txt` est statique (3 groupes : tous, bots d'entraînement IA
   refusés, bots de recherche IA autorisés) — le maintenir à la main.
-- Images : `astro:assets` (sources `src/assets/photos/`) ; les originaux de
-  `public/img/photos/` restent en place, référencés par le JSON-LD et la
-  fiche Google Business Profile — ne pas les supprimer.
-- GitHub Pages : pas de runtime serveur — aucune API route, tout doit
-  fonctionner en statique. Trailing slash partout (canonical = forme avec
-  slash, GitHub Pages 301-redirige la forme sans slash).
+- Les originaux de `public/img/photos/` restent en place, référencés par le
+  JSON-LD et la fiche Google Business Profile — ne pas les supprimer.
+- `src/config/identity.ts` est la source unique du NAP (JSON-LD, mentions
+  légales, contact) — toute divergence casse la cohérence avec la fiche Google.
 
 ## Workflow attendu
 

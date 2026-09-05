@@ -1,12 +1,14 @@
 #!/usr/bin/env node
 /**
- * Génère design.md depuis app/assets/css/tokens.css + styles.css.
+ * Génère design.md (référence complète : tokens, palette, classes, règles)
+ * et design-rules.md (règles brand seules, importé par CLAUDE.md) depuis
+ * src/styles/tokens.css + styles.css.
  *
  * Usage :
  *   node scripts/export-design.mjs
  *   npm run design
  *
- * Le fichier est écrit à la racine du repo. Relancer après toute
+ * Les fichiers sont écrits à la racine du repo. Relancer après toute
  * modification de tokens.css ou styles.css.
  */
 import { readFile, readdir } from "node:fs/promises";
@@ -16,6 +18,7 @@ import { writeFilePreservingEol } from "./write-file-eol.mjs";
 const TOKENS = "src/styles/tokens.css";
 const STYLES = "src/styles/styles.css";
 const OUTPUT = "design.md";
+const RULES_OUTPUT = "design-rules.md";
 
 // ── Parsers ────────────────────────────────────────────────────────────────
 
@@ -368,6 +371,10 @@ const main = async () => {
   }
 
   // ── Règles brand ──────────────────────────────────────────────────────────
+  // À partir d'ici, tout est aussi écrit dans design-rules.md, importé par
+  // CLAUDE.md : les règles seules restent en contexte à chaque session, les
+  // tables de tokens et de classes (dérivables du CSS) ne se lisent qu'au besoin.
+  const rulesStart = md.length;
   md.push("## Règles brand\n");
 
   md.push("### Copy\n");
@@ -453,6 +460,23 @@ const main = async () => {
     wrote
       ? `export-design: ${OUTPUT} écrit (${contentLF.length} chars, ${contentLF.split("\n").length} lignes)`
       : `export-design: ${OUTPUT} déjà à jour`,
+  );
+
+  const rulesLF =
+    [
+      "# PXLC — Règles brand",
+      "",
+      "> Généré automatiquement par `scripts/export-design.mjs` — extrait de",
+      "> `design.md` (règles seules), importé par `CLAUDE.md`. Tokens, palette et",
+      "> classes CSS : voir `design.md` ou `src/styles/tokens.css`.",
+      "",
+      ...md.slice(rulesStart),
+    ].join("\n") + "\n";
+  const wroteRules = await writeFilePreservingEol(RULES_OUTPUT, rulesLF);
+  console.log(
+    wroteRules
+      ? `export-design: ${RULES_OUTPUT} écrit (${rulesLF.length} chars)`
+      : `export-design: ${RULES_OUTPUT} déjà à jour`,
   );
 };
 
