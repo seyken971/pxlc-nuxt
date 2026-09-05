@@ -1,0 +1,117 @@
+---
+import PxlcMark from './PxlcMark.astro'
+import PxlcPixelStrip from './PxlcPixelStrip.astro'
+
+interface Props {
+  /** Numéro de feuille, deux chiffres (« 02 »). */
+  num: string
+  /** Nombre total de feuilles (« 06 »). */
+  total: string
+  /** Libellé de navigation en tête de feuille (« 01 · La mission »). */
+  label?: string
+  /** Couverture : fond sombre, sans en-tête ni pied. */
+  cover?: boolean
+  /** Édition, affichée dans le pied (« v4 »). */
+  version: string
+  /** Domaine sans protocole, affiché dans le pied (« pxlc.fr »). */
+  website: string
+  /** Libellé écran de la feuille (aperçu, aria). */
+  screenLabel: string
+}
+const { num, total, label, cover = false, version, website, screenLabel } = Astro.props
+---
+
+<section class:list={['pq-page', { 'pq-page--cover': cover }]} aria-label={screenLabel}>
+  {!cover && (
+    <header class="pq-page__head">
+      <div class="pq-page__logo">
+        <PxlcMark size={22} decorative />
+        <span>PXLC<span class="coral-dot" aria-hidden="true">.</span></span>
+      </div>
+      <div class="pq-page__nav">{label}</div>
+    </header>
+  )}
+
+  <slot />
+
+  {!cover && (
+    <footer class="pq-page__foot">
+      <span>PXLC · Plaquette de présentation · {version} · {website}</span>
+      <PxlcPixelStrip count={7} accentAt={5} />
+      <span>{num} / {total}</span>
+    </footer>
+  )}
+</section>
+
+<style>
+  /* ── Feuille A4 ──────────────────────────────────────────── */
+  .pq-page {
+    width: 210mm;
+    height: 297mm;
+    padding: 17mm 18mm 20mm 18mm;
+    position: relative;
+    background: var(--pxlc-white);
+    overflow: hidden;
+    page-break-after: always;
+    break-after: page;
+  }
+  .pq-page:last-child { page-break-after: auto; break-after: auto; }
+  .pq-page--cover {
+    background: var(--pxlc-bg-dark);
+    color: var(--pxlc-ivory);
+    padding: 0;
+  }
+
+  .pq-page__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 6mm;
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 8mm;
+  }
+  .pq-page__logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 14pt;
+    color: var(--ink);
+    letter-spacing: -0.025em;
+    line-height: 1;
+  }
+  .pq-page__logo :global(svg) { display: block; flex: none; }
+  .pq-page__nav {
+    font-family: var(--font-label);
+    font-size: 8pt;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--quiet);
+  }
+
+  .pq-page__foot {
+    position: absolute;
+    bottom: 8mm;
+    left: 18mm;
+    right: 18mm;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--font-label);
+    font-size: 7.5pt;
+    color: var(--quiet);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    padding-top: 4mm;
+    border-top: 1px solid var(--rule);
+    background: var(--pxlc-white);
+  }
+
+  @media screen {
+    .pq-page { box-shadow: var(--shadow-card-hover); border-radius: 2px; }
+  }
+  @media print {
+    .pq-page { box-shadow: none; border-radius: 0; }
+  }
+</style>

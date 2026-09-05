@@ -35,13 +35,11 @@
  *   R11 nbsp-manquante— espace ASCII avant ? ! : ; » / après « / nombre +
  *                       unité-symbole (h, min, €, %) → insécable manquante
  *   R12 phrase-interdite— garde-fous factuels (ex. « intervenants culturels »
- *                       au pluriel) balayés sur .astro/.vue/.ts (src/) et la
- *                       plaquette (template + data.json)
+ *                       au pluriel) balayés sur .astro/.ts sous src/
  *
- * Plaquette (_plaquette/plaquette.template.html + data.json) : R5, R6, R11 sur
- * la copy, R1 et R2 sur le CSS du template hors palette :root, R12 — voir
- * lintPlaquette(). Le PDF committé n'étant jamais rebuild par la CI, c'est la
- * source qui est gardée.
+ * Plaquette : c'est une page du site (src/pages/plaquette.astro), couverte
+ * comme tout .astro. Le PDF committé n'étant jamais rebuild par la CI, c'est
+ * la source qui est gardée.
  *
  * Corrections v2 :
  *   - parseSfc : tous les blocs <style> sont capturés (matchAll, pas match)
@@ -305,7 +303,7 @@ function lintSeoMeta(src, file) {
 // La ponctuation doit suivre un mot (lettre/chiffre/parenthèse fermante/»)
 // et ne pas être un opérateur JS (` !== `, ` ?. `) pour être de la copy —
 // écarte la ponctuation JS des templates .astro (négation ` !x`, ternaires
-// `? <a` / `: <span`, comparaisons `a !== b`). Partagée avec lintPlaquette.
+// `? <a` / `: <span`, comparaisons `a !== b`).
 const NBSP_RE = /[\p{L}\d)»] ([?!:;»])(?![=.])|(«) |\d (?:h|min)\b|\d ([€%])/gu
 const nbspWhat = m => m[1] ? `espace avant « ${m[1]} »`
   : m[2] !== undefined ? 'espace après «'
@@ -370,8 +368,8 @@ function lintNbsp(src, file) {
 // Faits PXLC qui ont une seule formulation correcte et tendent à dériver. À la
 // différence de R5 (vocab-interdit, scopé aux <template> .vue), ces phrases
 // peuvent réapparaître dans n'importe quelle source de copy — d'où un balayage
-// élargi : .astro/.ts sous src/ et le couple template + data de la plaquette
-// (où le pluriel avait justement dérapé).
+// élargi à tout .astro/.ts sous src/ (plaquette comprise, où le pluriel avait
+// justement dérapé).
 // L'espace entre les deux mots peut être ASCII, insécable (\s couvre U+00A0) ou
 // l'entité HTML &nbsp; — d'où (?:&nbsp;|\s)+.
 const FORBIDDEN_PHRASES = [
@@ -393,11 +391,7 @@ const FORBIDDEN_PHRASES = [
 
 async function lintForbiddenPhrases() {
   const vs = []
-  const sources = [
-    ...await walk(join(ROOT, 'src'), ['.ts', '.astro']),
-    join(ROOT, '_plaquette/plaquette.template.html'),
-    join(ROOT, '_plaquette/data.json'),
-  ]
+  const sources = await walk(join(ROOT, 'src'), ['.ts', '.astro'])
   for (const file of sources) {
     let src
     try { src = await readFile(file, 'utf8') }
@@ -405,71 +399,6 @@ async function lintForbiddenPhrases() {
     for (const { re, msg } of FORBIDDEN_PHRASES)
       for (const m of src.matchAll(re))
         vs.push({ file, rule: 'phrase-interdite', line: lineAt(src, m.index), detail: msg })
-  }
-  return vs
-}
-
-// ── Plaquette — mêmes garde-fous que les .astro sur _plaquette/ ───────────────
-// La plaquette est un PDF committé que la CI ne rebuild jamais : c'est sa source
-// (template + data.json) qu'on garde. R5 vocab-interdit, R6 emoji et R11
-// insécables sur toute la copy ; R1 hex brut et R2 gradient sur le CSS du
-// template, hors bloc :root qui EST la palette de la plaquette (copie de
-// tokens.css, seul endroit où les hex sont légitimes).
-const PLAQUETTE_TEMPLATE = '_plaquette/plaquette.template.html'
-const PLAQUETTE_DATA     = '_plaquette/data.json'
-
-async function lintPlaquette() {
-  const vs = []
-  const blank = s => ' '.repeat(s.length)
-  const read = async rel => {
-    const file = join(ROOT, rel)
-    try { return [file, await readFile(file, 'utf8')] }
-    catch (err) { if (err.code !== 'ENOENT') throw err; return [file, null] }
-  }
-  const nbsp = (file, src, text, base, hint) => {
-    for (const m of text.matchAll(NBSP_RE))
-      vs.push({ file, rule: 'nbsp-manquante', line: lineAt(src, base + m.index),
-        detail: `${nbspWhat(m)} → insécable manquante (${hint})` })
-  }
-
-  // data.json : chaque valeur de chaîne est de la copy. Les balises sont
-  // neutralisées (longueur préservée), les entités laissées telles quelles :
-  // « gratuit&nbsp;: » n'a pas d'espace ASCII avant le deux-points et passe.
-  const [dataFile, dataSrc] = await read(PLAQUETTE_DATA)
-  if (dataSrc) {
-    for (const m of dataSrc.matchAll(/:\s*"((?:\\.|[^"\\])*)"/g)) {
-      const base = m.index + m[0].length - m[1].length - 1
-      const text = m[1].replace(/<[^>]*>/g, blank)
-      const line = lineAt(dataSrc, base)
-      for (const word of FORBIDDEN)
-        if (text.toLowerCase().includes(word))
-          vs.push({ file: dataFile, rule: 'vocab-interdit', line, detail: `"${word}" → vocabulaire interdit par le DS` })
-      if (/\p{Emoji_Presentation}/u.test(text))
-        vs.push({ file: dataFile, rule: 'emoji', line, detail: 'Emoji détecté → les emoji sont interdits par le DS' })
-      nbsp(dataFile, dataSrc, text, base, '&nbsp; dans data.json')
-    }
-  }
-
-  // template : balisage sans <style> ni commentaires ; texte rendu = balises et
-  // tokens {{…}} neutralisés ; attributs statiques hors style="…" (du CSS).
-  const [tplFile, tplSrc] = await read(PLAQUETTE_TEMPLATE)
-  if (tplSrc) {
-    const markup = tplSrc
-      .replace(/<style[^>]*>[\s\S]*?<\/style>/g, blank)
-      .replace(/<!--[\s\S]*?-->/g, blank)
-    vs.push(...lintTemplate(markup, tplFile))
-    nbsp(tplFile, tplSrc, markup.replace(/<[^>]*>/g, blank).replace(/\{\{[\s\S]*?\}\}/g, blank), 0, '&nbsp; en template')
-    for (const m of markup.matchAll(/\s([a-zA-Z][\w-]*)="([^"]*)"/g)) {
-      if (m[1] === 'style') continue
-      nbsp(tplFile, tplSrc, m[2], m.index + m[0].length - m[2].length - 1, '&nbsp; en template')
-    }
-    const styleMatch = tplSrc.match(/<style[^>]*>([\s\S]*?)<\/style>/)
-    if (styleMatch) {
-      const css = styleMatch[1].replace(/:root\s*\{[^}]*\}/, blank)
-      const offset = lineAt(tplSrc, styleMatch.index + styleMatch[0].indexOf(styleMatch[1])) - 1
-      for (const v of lintStyle(css, tplFile, new Set(['hex-brut', 'gradient'])))
-        vs.push({ ...v, line: v.line + offset })
-    }
   }
   return vs
 }
@@ -512,7 +441,6 @@ const main = async () => {
   }))
   all.push(...await lintSiteConfig())
   all.push(...await lintForbiddenPhrases())
-  all.push(...await lintPlaquette())
 
   if (!all.length) {
     console.log('ds-lint: ✓ aucune violation DS')

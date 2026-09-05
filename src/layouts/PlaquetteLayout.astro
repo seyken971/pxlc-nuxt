@@ -1,0 +1,91 @@
+---
+import '../styles/fonts.css'
+import '../styles/styles.css'
+import { SITE } from '../config/site'
+import SiteHead from '../components/SiteHead.astro'
+import type { Props as HeadProps } from '../components/SiteHead.astro'
+
+// Layout de la plaquette : même surface SEO que BaseLayout (SiteHead), sans
+// header, footer ni menu — la page est une suite de feuilles A4 que
+// scripts/export-plaquette.mjs imprime en PDF. Thème épinglé en clair : les
+// feuilles sont blanches, les tokens dark rendraient l'encre ivoire sur blanc.
+// Pas de script anti-flash pour la même raison.
+type Props = Omit<HeadProps, 'colorScheme'>
+---
+
+<html lang={SITE.lang} data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <SiteHead {...Astro.props} colorScheme="light" />
+  </head>
+  <body class="pq-body">
+    <main id="main" tabindex="-1">
+      <slot />
+    </main>
+  </body>
+</html>
+
+<style is:global>
+  /* ── Plaquette : mise en page A4 ─────────────────────────────
+     Échelle en pt et mm (impression), tokens du site pour tout le
+     reste. Les feuilles .pq-page sont dimensionnées par
+     PlaquettePage ; ici seulement l'enveloppe, la typographie de
+     base et la bascule écran / impression. */
+  @page { size: A4; margin: 0; }
+
+  /* styles.css réserve 96px de scroll-padding pour le header collant du
+     site ; la plaquette n'en a pas, et ce décalage tronque la capture des
+     aperçus (une feuille fait exactement la hauteur du viewport). */
+  html { scroll-padding-top: 0; }
+
+  .pq-body {
+    font-family: var(--font-body);
+    font-size: 10.5pt;
+    line-height: 1.55;
+    color: var(--ink-quiet);
+    background: var(--pxlc-text-secondary);
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    transition: none;
+  }
+  .pq-body h1, .pq-body h2, .pq-body h3, .pq-body h4 {
+    font-family: var(--font-display);
+    color: var(--ink);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    font-weight: 600;
+  }
+  .pq-body h1 { font-size: 30pt; line-height: 1; letter-spacing: -0.035em; }
+  .pq-body h2 { font-size: 21pt; margin-bottom: 5mm; letter-spacing: -0.028em; }
+  .pq-body h3 { font-size: 12pt; margin-bottom: 2mm; letter-spacing: -0.015em; }
+  .pq-body h4 { font-size: 10pt; margin-bottom: 1mm; }
+  .pq-body p { margin: 0 0 3mm 0; color: inherit; }
+  .pq-body strong { color: var(--ink); font-weight: 600; }
+  .pq-body em { font-style: italic; }
+
+  /* Les utilitaires globaux (.eyebrow, .kicker, .pixel-strip) sont en px
+     pour l'écran ; la plaquette les rejoue en pt / mm. */
+  .pq-body .eyebrow {
+    font-size: 8.5pt;
+    letter-spacing: 0.22em;
+    margin-bottom: 5mm;
+  }
+  .pq-body .kicker { font-size: 7.5pt; font-weight: 600; }
+  .pq-body .pixel-strip { gap: 4px; }
+  .pq-body .pixel-strip span { width: 6px; height: 6px; }
+
+  /* Aperçu écran : feuilles empilées sur fond neutre. */
+  .pq-pages {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    padding: 24px 0;
+  }
+  @media print {
+    .pq-body { background: var(--pxlc-white); }
+    .pq-pages { display: block; padding: 0; }
+    .pq-screen-only { display: none !important; }
+  }
+</style>

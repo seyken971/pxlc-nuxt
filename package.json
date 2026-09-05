@@ -12,7 +12,7 @@
     "ds-lint": "node scripts/ds-lint.mjs",
     "prebuild": "npm run gen:tokens && npm run design && npm run ds-lint",
     "predev": "npm run gen:tokens && npm run design",
-    "postbuild": "node scripts/check-links.mjs && node scripts/schema-check.mjs && node scripts/seo-check.mjs",
+    "postbuild": "node scripts/check-links.mjs && node scripts/schema-check.mjs && node scripts/seo-lint.mjs && node scripts/seo-check.mjs",
     "check": "npm run lint && npm run typecheck && npm run build && npm run a11y",
     "seo:check": "node scripts/seo-check.mjs",
     "seo:accept": "node scripts/seo-snapshot.mjs dist docs/seo-baseline",
@@ -26,7 +26,8 @@
     "lint:fix": "eslint . --fix",
     "typecheck": "astro check",
     "gen:communes": "node scripts/build-communes.mjs",
-    "plaquette": "npm --prefix _plaquette run build"
+    "plaquette": "npm run build && node scripts/export-plaquette.mjs",
+    "plaquette:previews": "npm run build && node scripts/export-plaquette.mjs --previews"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.4",
@@ -46,6 +47,7 @@
     "globals": "^17.11.0",
     "jsdom": "^30.0.1",
     "lighthouse": "^13.4.0",
+    "pdf-lib": "^1.17.1",
     "playwright": "^1.62.1",
     "schema-dts": "^2.0.0",
     "topojson-client": "^3.1.0",

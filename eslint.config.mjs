@@ -17,7 +17,6 @@ export default tseslint.config(
       'dist/**',
       'dist-lib/**',
       'dist-ce/**',
-      '_plaquette/**',
       'public/**',
       '.remember/**',
       '.agents/**',

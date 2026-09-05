@@ -1,19 +1,19 @@
 {
-  "route": "/",
-  "title": "Médiation numérique en Guadeloupe · PXLC",
+  "route": "/plaquette/",
+  "title": "Plaquette de présentation · PXLC",
   "lang": "fr-FR",
   "links": {
     "canonical": [
       {
-        "href": "https://pxlc.fr/"
+        "href": "https://pxlc.fr/plaquette/"
       }
     ]
   },
   "metas": {
     "author": "Andy Zébus",
-    "color-scheme": "light dark",
-    "description": "Médiation numérique en Guadeloupe : Andy Zébus outille les structures pour apaiser les conflits autour des écrans.",
-    "og:description": "Andy Zébus, créateur de PXLC, aide les structures en Guadeloupe à apaiser les conflits familiaux autour des écrans.",
+    "color-scheme": "light",
+    "description": "La plaquette PXLC en 6 pages : mission, méthode en trois temps et projet « Jouons Ensemble ! » au SESSAD Lékoklaya.",
+    "og:description": "Andy Zébus, créateur de PXLC, aide les structures en Guadeloupe à accompagner les familles autour des écrans.",
     "og:image": "https://pxlc.fr/og/site.png",
     "og:image:alt": "Logo PXLC — Médiation numérique · Guadeloupe",
     "og:image:height": "600",
@@ -21,9 +21,9 @@
     "og:image:width": "1200",
     "og:locale": "fr_FR",
     "og:site_name": "PXLC",
-    "og:title": "Médiation numérique en Guadeloupe · PXLC",
+    "og:title": "Plaquette de présentation · PXLC",
     "og:type": "website",
-    "og:url": "https://pxlc.fr/",
+    "og:url": "https://pxlc.fr/plaquette/",
     "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
     "theme-color": [
       "#082B36",
@@ -55,18 +55,21 @@
           "url": "https://pxlc.fr/"
         },
         {
-          "@id": "https://pxlc.fr/#webpage",
+          "@id": "https://pxlc.fr/plaquette/#webpage",
           "@type": "WebPage",
           "about": {
             "@id": "https://pxlc.fr/#identity"
           },
-          "description": "Médiation numérique en Guadeloupe : Andy Zébus outille les structures pour apaiser les conflits autour des écrans.",
+          "breadcrumb": {
+            "@id": "https://pxlc.fr/plaquette/#breadcrumb"
+          },
+          "description": "La plaquette PXLC en 6 pages : mission, méthode en trois temps et projet « Jouons Ensemble ! » au SESSAD Lékoklaya.",
           "inLanguage": "fr-FR",
           "isPartOf": {
             "@id": "https://pxlc.fr/#website"
           },
-          "name": "Médiation numérique en Guadeloupe",
-          "url": "https://pxlc.fr/"
+          "name": "Plaquette de présentation de PXLC",
+          "url": "https://pxlc.fr/plaquette/"
         },
         {
           "@id": "https://pxlc.fr/#identity",
@@ -249,6 +252,24 @@
           },
           "serviceType": "Médiation numérique",
           "url": "https://pxlc.fr/projets/"
+        },
+        {
+          "@id": "https://pxlc.fr/plaquette/#breadcrumb",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "item": "https://pxlc.fr/",
+              "name": "Accueil",
+              "position": 1
+            },
+            {
+              "@type": "ListItem",
+              "item": "https://pxlc.fr/plaquette/",
+              "name": "Plaquette",
+              "position": 2
+            }
+          ]
         },
         {
           "@id": "https://pxlc.fr/#photo-event",

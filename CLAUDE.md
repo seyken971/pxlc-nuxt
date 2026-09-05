@@ -69,8 +69,8 @@ Aussi dans design.md, mais bloquants — vérifier chaque texte généré ou mod
 - Le jeu vidéo est un outil de médiation légitime — jamais un problème à résoudre.
 - « intervenant culturel » toujours au singulier (un seul, à Lékoklaya) — jamais
   « intervenants culturels ». Outillé par `ds-lint` R12 (`phrase-interdite`), qui
-  balaie `.astro`/`.vue`/`.ts` (`src/`), `.md` (`content/`) et la plaquette :
-  tout pluriel casse le build. Ajouter un fait à garder dans
+  balaie tout `.astro`/`.ts` sous `src/`, plaquette comprise
+  (`src/pages/plaquette.astro`) : tout pluriel casse le build. Ajouter un fait à garder dans
   `FORBIDDEN_PHRASES` (`scripts/ds-lint.mjs`).
 
 ## Garde-fous non négociables (visuel)
@@ -86,11 +86,19 @@ Les scripts sont listés dans `package.json` ; ce qui ne s'en déduit pas :
 - `npm run check` — lint → typecheck → build (gates) → a11y : la commande à
   faire passer avant de livrer, rejouée telle quelle par la CI.
 - `npm run build` enchaîne des gates : prebuild gen:tokens → design → ds-lint,
-  postbuild check-links → schema-check → seo-check. Un build qui casse sur une
-  gate = règle brand, contenu, lien ou SEO violé, pas un bug à contourner.
+  postbuild check-links → schema-check → seo-lint (h1 unique, titles et
+  descriptions uniques, alt présents, noindex hors sitemap) → seo-check. Un
+  build qui casse sur une gate = règle brand, contenu, lien ou SEO violé, pas
+  un bug à contourner.
 - `npm run seo:accept` — recapture la baseline après un écart SEO voulu (voir
   ci-dessous).
 - `npm run release -- <n>` — CI de la PR, fusion en squash, déploiement, vérif prod.
+- `npm run plaquette` — build puis export de la page `/plaquette/`
+  (`src/pages/plaquette.astro`, layout `PlaquetteLayout`) en PDF A4 vers
+  `public/files/plaquette-pxlc.pdf` avec le Chromium Playwright. Le PDF est un
+  binaire committé que la CI ne régénère pas : toute modification de la page se
+  relance et se committe avec lui. Garde-fous du script : 6 pages exactement,
+  aucun texte de la couleur de son fond.
 - `npm run gen:communes` — régénère `src/data/communes-971.json` (contours des
   communes depuis geo.api.gouv.fr, rendus au build en SVG par `CommuneMap`) —
   manuel, réseau requis.
