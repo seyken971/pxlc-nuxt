@@ -17,8 +17,9 @@
  * Garde-fous (exit 1) :
  *  - texte de la couleur de son fond (un <strong> hérité en encre sombre sur
  *    une carte sombre a déjà rendu le CTA invisible) ;
- *  - nombre de pages différent de la valeur attendue (un débordement crée une
- *    feuille de plus, invisible à l'écran).
+ *  - contenu qui passe sous le pied de feuille (la feuille masque son
+ *    débordement : à l'écran on ne voit rien, à l'impression le texte est coupé) ;
+ *  - nombre de pages différent de la valeur attendue.
  *
  * --previews : un PNG par feuille dans .previews/ (gitignoré), en média print,
  * pour comparer visuellement deux éditions.
@@ -80,6 +81,34 @@ const main = async () => {
     if (invisible.length) {
       console.error('export-plaquette: ✗ texte invisible (couleur identique au fond) :')
       for (const l of invisible) console.error(`  · ${l}`)
+      process.exit(1)
+    }
+
+    // Garde-fou : rien ne déborde sous le pied de feuille. La feuille masque
+    // son débordement (overflow hidden), le compte de pages ne le voit donc
+    // pas — on compare la géométrie de chaque bloc au haut du pied.
+    const overflow = await page.evaluate(() => {
+      const out = []
+      document.querySelectorAll('.pq-page').forEach((sheet, i) => {
+        const sheetBox = sheet.getBoundingClientRect()
+        const foot = sheet.querySelector('.pq-page__foot')
+        const limit = foot ? foot.getBoundingClientRect().top - 1 : sheetBox.bottom - 1
+        for (const el of sheet.querySelectorAll('*')) {
+          if (foot && (el === foot || foot.contains(el))) continue
+          const ownText = [...el.childNodes].some(n => n.nodeType === 3 && n.textContent.trim())
+          if (!ownText) continue
+          const bottom = el.getBoundingClientRect().bottom
+          if (bottom > limit) {
+            out.push(`feuille ${String(i + 1).padStart(2, '0')} : <${el.tagName.toLowerCase()}> « ${el.textContent.trim().slice(0, 60)} » dépasse de ${Math.round(bottom - limit)} px`)
+            break
+          }
+        }
+      })
+      return out
+    })
+    if (overflow.length) {
+      console.error('export-plaquette: ✗ contenu sous le pied de feuille :')
+      for (const l of overflow) console.error(`  · ${l}`)
       process.exit(1)
     }
 
