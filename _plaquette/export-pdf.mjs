@@ -99,7 +99,9 @@ const { PDFDocument } = require('pdf-lib')
 
 console.log('→ Métadonnées…')
 const titleMatch = fs.readFileSync(HTML_PATH, 'utf8').match(/<title>([^<]+)<\/title>/)
-const title = titleMatch ? titleMatch[1] : 'PXLC — Plaquette de présentation · Médiation numérique'
+// Court, sur la convention des onglets du site (« Page · PXLC ») : c'est le
+// titre de l'onglet quand le PDF s'ouvre dans le navigateur.
+const title = titleMatch ? titleMatch[1] : 'Plaquette · PXLC'
 
 const doc = await PDFDocument.load(fs.readFileSync(PDF_TMP), { updateMetadata: false })
 doc.setTitle(title)
