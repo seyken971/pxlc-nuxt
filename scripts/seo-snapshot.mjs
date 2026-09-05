@@ -2,26 +2,20 @@
 /**
  * Snapshot de la surface SEO d'un build statique — un JSON par route
  * (canonical, title, metas, og/twitter, JSON-LD trié) + sitemap.json +
- * robots.txt. Référence de non-régression : docs/seo-baseline est comparée
- * au build par scripts/seo-check.mjs (postbuild).
- *
- * N'est capturé que ce qui est du SEO. Sont ignorés, parce qu'ils bougent
- * sans que le SEO change :
- *   - la meta CSP (hashes des scripts et styles inline) ;
- *   - dateModified dans le JSON-LD et lastmod du sitemap (dérivés du dernier
- *     commit, donc décalés par chaque fusion en squash).
+ * robots.txt. Sert de référence de non-régression pour la migration :
+ * on capture la sortie Nuxt (baseline), puis on diffe la sortie Astro
+ * contre elle avec `git diff --no-index`.
  *
  *   node scripts/seo-snapshot.mjs [buildDir] [outDir]
- *   npm run seo:accept   → dist vers docs/seo-baseline
+ *   node scripts/seo-snapshot.mjs dist docs/seo-current
  */
 import { readFile, readdir, writeFile, mkdir, rm } from 'node:fs/promises'
 import { existsSync } from 'node:fs'
 import { join, relative, sep } from 'node:path'
-import { pathToFileURL } from 'node:url'
 import { JSDOM } from 'jsdom'
 
-const IGNORED_METAS = new Set(['http-equiv:content-security-policy'])
-const IGNORED_JSONLD_KEYS = new Set(['dateModified'])
+const BUILD_DIR = process.argv[2] || 'dist'
+const OUT_DIR = process.argv[3] || 'docs/seo-baseline'
 
 // Tri récursif des clés d'objet pour des diffs stables.
 const sortDeep = (value) => {
@@ -29,19 +23,6 @@ const sortDeep = (value) => {
   if (value && typeof value === 'object') {
     return Object.fromEntries(
       Object.keys(value).sort().map(k => [k, sortDeep(value[k])]),
-    )
-  }
-  return value
-}
-
-// Retrait récursif des clés hors SEO du JSON-LD (dateModified…).
-const stripKeys = (value) => {
-  if (Array.isArray(value)) return value.map(stripKeys)
-  if (value && typeof value === 'object') {
-    return Object.fromEntries(
-      Object.entries(value)
-        .filter(([k]) => !IGNORED_JSONLD_KEYS.has(k))
-        .map(([k, v]) => [k, stripKeys(v)]),
     )
   }
   return value
@@ -65,7 +46,6 @@ const snapshotPage = async (path) => {
   const metas = {}
   for (const meta of doc.querySelectorAll('meta[name], meta[property], meta[http-equiv]')) {
     const key = meta.getAttribute('name') || meta.getAttribute('property') || `http-equiv:${meta.getAttribute('http-equiv')}`
-    if (IGNORED_METAS.has(key)) continue
     const content = meta.getAttribute('content') ?? ''
     // Une clé peut être répétée (ex : theme-color par media query).
     if (key in metas) {
@@ -91,7 +71,7 @@ const snapshotPage = async (path) => {
   const jsonLd = [...doc.querySelectorAll('script[type="application/ld+json"]')]
     .map((s) => {
       try {
-        return stripKeys(sortDeep(JSON.parse(s.textContent)))
+        return sortDeep(JSON.parse(s.textContent))
       }
       catch {
         return { __parseError: s.textContent.slice(0, 200) }
@@ -111,7 +91,6 @@ const snapshotPage = async (path) => {
 
 // @astrojs/sitemap émet un index (sitemap-index.xml) qui pointe vers un ou
 // plusieurs fichiers d'URLs (sitemap-0.xml…) — on agrège tous les segments.
-// Seul <loc> compte : <lastmod> suit le dernier commit de la page.
 const snapshotSitemap = async (buildDir) => {
   const segments = (await readdir(buildDir))
     .filter(name => /^sitemap-\d+\.xml$/.test(name))
@@ -124,7 +103,11 @@ const snapshotSitemap = async (buildDir) => {
     const dom = new JSDOM(xml, { contentType: 'text/xml' })
     const doc = dom.window.document
     for (const url of doc.getElementsByTagName('url')) {
-      urls.push({ loc: url.getElementsByTagName('loc')[0]?.textContent ?? null })
+      const get = tag => url.getElementsByTagName(tag)[0]?.textContent ?? null
+      urls.push({
+        loc: get('loc'),
+        ...(get('lastmod') ? { lastmod: get('lastmod') } : {}),
+      })
     }
     dom.window.close()
   }
@@ -136,55 +119,45 @@ const routeToFilename = (route) => {
   return route.replace(/^\/|\/$/g, '').replace(/\//g, '__') + '.json'
 }
 
-/**
- * Capture la surface SEO de buildDir dans outDir (vidé au préalable).
- * Réutilisée par seo-check.mjs ; `quiet` coupe le détail par route.
- */
-export const snapshot = async (buildDir, outDir, { quiet = false } = {}) => {
-  const log = quiet ? () => {} : console.log
-  if (!existsSync(buildDir)) {
-    throw new Error(`Build introuvable : ${buildDir} — lancer le build d'abord.`)
+const main = async () => {
+  if (!existsSync(BUILD_DIR)) {
+    console.error(`Build introuvable : ${BUILD_DIR} — lancer le build d'abord.`)
+    process.exit(2)
   }
-  await rm(outDir, { recursive: true, force: true })
-  await mkdir(outDir, { recursive: true })
+  await rm(OUT_DIR, { recursive: true, force: true })
+  await mkdir(OUT_DIR, { recursive: true })
 
-  const pages = await findHtml(buildDir)
+  const pages = await findHtml(BUILD_DIR)
   for (const path of pages) {
-    const rel = relative(buildDir, path).split(sep).join('/')
+    const rel = relative(BUILD_DIR, path).split(sep).join('/')
     const route = '/' + rel.replace(/index\.html$/, '')
     const snap = await snapshotPage(path)
     await writeFile(
-      join(outDir, routeToFilename(route)),
+      join(OUT_DIR, routeToFilename(route)),
       JSON.stringify({ route, ...snap }, null, 2) + '\n',
     )
-    log(`✓ ${route}`)
+    console.log(`✓ ${route}`)
   }
 
-  const sitemap = await snapshotSitemap(buildDir)
+  const sitemap = await snapshotSitemap(BUILD_DIR)
   if (sitemap) {
-    await writeFile(join(outDir, 'sitemap.json'), JSON.stringify(sitemap, null, 2) + '\n')
-    log(`✓ sitemap-index.xml (${sitemap.length} URLs)`)
+    await writeFile(join(OUT_DIR, 'sitemap.json'), JSON.stringify(sitemap, null, 2) + '\n')
+    console.log(`✓ sitemap-index.xml (${sitemap.length} URLs)`)
   }
   else {
     console.warn('⚠ sitemap absent du build')
   }
 
-  const robotsPath = join(buildDir, 'robots.txt')
+  const robotsPath = join(BUILD_DIR, 'robots.txt')
   if (existsSync(robotsPath)) {
-    await writeFile(join(outDir, 'robots.txt'), await readFile(robotsPath, 'utf8'))
-    log('✓ robots.txt')
+    await writeFile(join(OUT_DIR, 'robots.txt'), await readFile(robotsPath, 'utf8'))
+    console.log('✓ robots.txt')
   }
   else {
     console.warn('⚠ robots.txt absent du build')
   }
 
-  log(`\nSnapshot : ${pages.length} routes → ${outDir}`)
-  return pages.length
+  console.log(`\nSnapshot : ${pages.length} routes → ${OUT_DIR}`)
 }
 
-// Exécution directe (npm run seo:accept) — pas à l'import depuis seo-check.
-const isCli = process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href
-if (isCli) {
-  snapshot(process.argv[2] || 'dist', process.argv[3] || 'docs/seo-baseline')
-    .catch((err) => { console.error(err.message ?? err); process.exit(2) })
-}
+main().catch((err) => { console.error(err); process.exit(2) })

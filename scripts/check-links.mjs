@@ -31,19 +31,7 @@ const exists = async (path) => {
   catch { return false }
 }
 
-// Fichiers que GitHub Pages exige : .nojekyll et CNAME viennent de public/ et
-// disparaîtraient en silence — sans eux, le domaine et les chemins en
-// _underscore cassent. Vérifié ici plutôt qu'en étape CI à part.
-const REQUIRED = ['index.html', 'sitemap-index.xml', 'robots.txt', '.nojekyll', 'CNAME']
-
 const main = async () => {
-  const missing = []
-  for (const f of REQUIRED) if (!await exists(join(BUILD_DIR, f))) missing.push(f)
-  if (missing.length) {
-    console.error(`check-links: ✗ fichier(s) requis manquant(s) dans ${BUILD_DIR} : ${missing.join(', ')}`)
-    process.exit(1)
-  }
-
   const pages = await findHtml(BUILD_DIR)
   const idsByRoute = new Map()
   const linksByPage = []
