@@ -1,8 +1,11 @@
 {
   "name": "pxlc-plaquette-builder",
-  "version": "2.0.0",
+  "version": "4.0.0",
   "private": true,
-  "description": "Génère la plaquette PXLC en PDF A4 depuis plaquette.template.html + data.json (Chromium headless via Puppeteer)",
+  "description": "Génère la plaquette PXLC en PDF A4 depuis plaquette.template.html + data.json + src/config/identity.ts (Chromium headless via Puppeteer)",
+  "engines": {
+    "node": ">=22.12"
+  },
   "scripts": {
     "generate": "node generate-html.js",
     "build": "node export-pdf.mjs",
