@@ -94,6 +94,9 @@ Aussi dans design.md, mais bloquants — vérifier chaque texte généré ou mod
 - `npm run lighthouse` — audit performance
 - `npm run gen:tokens` — régénère tokens.css depuis `src/lib/brand-colors.ts`
 - `npm run design` — régénère design.md
+- `npm run gen:communes` — régénère `src/data/communes-971.json` (contours des
+  communes depuis geo.api.gouv.fr, projetés au build en SVG par `CommuneMap`) —
+  manuel, réseau requis
 
 Un build qui casse sur les gates pre/post = règle brand, contenu ou lien
 violé, pas un bug à contourner.

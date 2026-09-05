@@ -1,0 +1,88 @@
+---
+/**
+ * Carte des communes de Guadeloupe, rendue en SVG inline au build depuis
+ * src/data/communes-971.json (généré par scripts/build-communes.mjs — contours
+ * réels, jamais un tracé à la main). Les communes de `zone` sont remplies et
+ * numérotées ; les noms ne sont pas écrits sur la carte (communes mitoyennes,
+ * les libellés se chevauchent) mais dans la légende, reliés par les numéros.
+ */
+import data from '../data/communes-971.json'
+
+interface Props {
+  /** Communes surlignées, dans l'ordre des numéros de la légende. */
+  zone: string[]
+  /** Nom accessible de la carte (role="img"). */
+  label: string
+}
+const { zone, label } = Astro.props
+
+const [width, height] = data.viewBox
+const byName = new Map(data.communes.map(c => [c.nom, c]))
+const missing = zone.filter(nom => !byName.has(nom))
+if (missing.length) throw new Error(`CommuneMap : commune(s) inconnue(s) — ${missing.join(', ')}`)
+const markers = zone.map((nom, i) => ({ nom, num: i + 1, centroid: byName.get(nom)!.centroid }))
+---
+
+<figure class="commune-map">
+  <svg viewBox={`0 0 ${width} ${height}`} role="img" aria-label={label}>
+    <g>
+      {data.communes.map(c => (
+        <path class:list={['commune-map__commune', { 'commune-map__commune--zone': zone.includes(c.nom) }]} d={c.d}>
+          <title>{c.nom}</title>
+        </path>
+      ))}
+    </g>
+    <g aria-hidden="true">
+      {markers.map(m => (
+        <g class="commune-map__marker" transform={`translate(${m.centroid[0]} ${m.centroid[1]})`}>
+          <circle r="7.5" />
+          <text text-anchor="middle" dy="3.5">{m.num}</text>
+        </g>
+      ))}
+    </g>
+  </svg>
+  <figcaption class="commune-map__legend">
+    <ol class="commune-map__keys" role="list">
+      {markers.map(m => (
+        <li><i aria-hidden="true">{m.num}</i>{m.nom}</li>
+      ))}
+    </ol>
+    <small class="commune-map__credit">Contours&nbsp;: IGN · geo.api.gouv.fr</small>
+  </figcaption>
+</figure>
+
+<style>
+  .commune-map { margin: 0; background: var(--bg); }
+  .commune-map svg { display: block; width: 100%; height: auto; }
+
+  .commune-map__commune { fill: none; stroke: var(--rule); stroke-width: 0.8; }
+  .commune-map__commune--zone { fill: var(--pxlc-teal-mid); stroke: var(--pxlc-teal-deep); }
+
+  .commune-map__marker circle { fill: var(--pxlc-teal-deep); stroke: var(--bg); stroke-width: 1.5; }
+  .commune-map__marker text {
+    font-family: var(--font-label);
+    font-size: 10.5px; font-weight: 700;
+    fill: var(--pxlc-white);
+  }
+
+  .commune-map__legend {
+    display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between;
+    gap: var(--space-2) var(--space-3);
+    padding: var(--space-3) var(--space-4);
+    border-top: 1px solid var(--rule);
+    background: var(--bg-elev);
+  }
+  .commune-map__keys {
+    display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-3);
+    margin: 0; padding: 0; list-style: none;
+    font-family: var(--font-label); font-size: 12.5px; color: var(--ink-quiet);
+  }
+  .commune-map__keys li { display: flex; align-items: center; gap: 7px; }
+  .commune-map__keys i {
+    display: grid; place-items: center;
+    width: 15px; height: 15px; border-radius: var(--radius-pill);
+    background: var(--pxlc-teal-deep); color: var(--pxlc-white);
+    font-size: 9.5px; font-weight: 700; font-style: normal;
+  }
+  .commune-map__credit { font-family: var(--font-label); font-size: 11px; color: var(--quiet); }
+</style>

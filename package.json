@@ -21,7 +21,8 @@
     "lighthouse": "node scripts/lighthouse-audit.mjs",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "typecheck": "astro check"
+    "typecheck": "astro check",
+    "gen:communes": "node scripts/build-communes.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",
@@ -35,6 +36,7 @@
     "@eslint/js": "^10.0.1",
     "axe-core": "^4.13.0",
     "chrome-launcher": "^1.2.1",
+    "d3-geo": "^3.1.1",
     "eslint": "^10.8.1",
     "eslint-plugin-astro": "^3.1.0",
     "globals": "^17.11.0",
@@ -42,6 +44,9 @@
     "lighthouse": "^13.4.0",
     "playwright": "^1.62.1",
     "schema-dts": "^2.0.0",
+    "topojson-client": "^3.1.0",
+    "topojson-server": "^3.0.1",
+    "topojson-simplify": "^3.0.3",
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.67.0"
   }
