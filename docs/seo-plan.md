@@ -42,6 +42,12 @@ HCSP, est abandonné avec le blog (26 août 2026). Le site tient désormais en
   ne se justifie pas. URL versionnée par query (`?v=…`) pour purger les caches sociaux à
   chaque changement visuel : LinkedIn garde une image environ 7 jours sous une
   URL donnée (constaté le 6 septembre 2026, aperçu flou après le passage en 16:9).
+- **Titre de l'accueil** (6 septembre 2026) : « Écrans en famille : médiation numérique en
+  Guadeloupe » — le sujet devant, la catégorie et le territoire derrière. Seul,
+  « médiation numérique » renvoie pour le grand public à l'inclusion numérique
+  (conseillers numériques France Services, réseau ANCT), pas à l'accompagnement
+  des familles autour des écrans. Le h1 du hero reste « Médiation numérique en
+  Guadeloupe. ». À réévaluer avec les requêtes de la Search Console.
 - **IndexNow** : soumission depuis `npm run release` (`scripts/indexnow.mjs`),
   après la vérification de la prod, des seules pages dont le `lastmod` porte le
   commit de fusion — la spec demande de ne soumettre que les URL modifiées.
