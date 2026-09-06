@@ -1,6 +1,6 @@
 {
   "route": "/",
-  "title": "Médiation numérique en Guadeloupe · PXLC",
+  "title": "Écrans en famille : médiation numérique en Guadeloupe · PXLC",
   "lang": "fr-FR",
   "links": {
     "canonical": [
@@ -21,7 +21,7 @@
     "og:image:width": "1200",
     "og:locale": "fr_FR",
     "og:site_name": "PXLC",
-    "og:title": "Médiation numérique en Guadeloupe · PXLC",
+    "og:title": "Écrans en famille : médiation numérique en Guadeloupe · PXLC",
     "og:type": "website",
     "og:url": "https://pxlc.fr/",
     "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
@@ -65,7 +65,7 @@
           "isPartOf": {
             "@id": "https://pxlc.fr/#website"
           },
-          "name": "Médiation numérique en Guadeloupe",
+          "name": "Écrans en famille : médiation numérique en Guadeloupe",
           "url": "https://pxlc.fr/"
         },
         {
