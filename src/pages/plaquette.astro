@@ -5,17 +5,20 @@ import PlaquettePage from '../components/PlaquettePage.astro'
 import PxlcMark from '../components/PxlcMark.astro'
 import { IDENTITY, RCS_MENTION } from '../config/identity'
 import { SITE } from '../config/site'
+import { PROJECTS } from '../config/projects'
+import { PROJECT_THEMES } from '../config/project-themes'
 import { pageGraph } from '../lib/schema'
 import { breadcrumbItems } from '../lib/breadcrumb'
 import andyPortrait from '../assets/photos/andy-portrait.jpg'
-import duoArcade from '../assets/photos/duo-arcade.jpg'
 
 // Plaquette de présentation, 6 feuilles A4. Cette page EST la source du PDF
 // public/files/plaquette-pxlc.pdf : scripts/export-plaquette.mjs l'imprime
 // depuis dist/ (npm run plaquette). Toute modification ici se relance et se
-// committe avec le PDF. La copy est celle de l'édition v4 ; identité et
-// contact viennent de src/config (jamais retapés).
-const VERSION = 'v4'
+// committe avec le PDF. Édition v5 : la feuille 05 décrit le déroulé du
+// programme Parent-Écran-Enfant, Lékoklaya en encart. Identité, contact,
+// thèmes et données du projet viennent de src/config (jamais retapés).
+const VERSION = 'v5'
+const lekoklaya = PROJECTS[0]
 const TOTAL = '06'
 const PDF_HREF = '/files/plaquette-pxlc.pdf'
 const CAL = 'cal.eu/pxlc-gp'
@@ -210,52 +213,58 @@ const schemaGraph = pageGraph({
       </div>
     </PlaquettePage>
 
-    <!-- ═══════════════════════ 05 · Jouons Ensemble ═══════════════════════ -->
-    <PlaquettePage num="05" total={TOTAL} label="04 · Mon intervention" version={VERSION} website={website} screenLabel="05 · Jouons Ensemble">
-      <span class="eyebrow">04 · Mon intervention</span>
-      <h2>«&nbsp;Jouons Ensemble&nbsp;!&nbsp;»<span class="coral-dot" aria-hidden="true">.</span></h2>
-      <p class="pq-cas__intro">Un projet porté par le psychologue du <strong>SESSAD Lékoklaya</strong> (2026), en partenariat avec PXLC, auprès de 8 enfants de 12 à 17&nbsp;ans suivis pour TSA, TDAH, TND ou dystrophie musculaire. Le point de départ&nbsp;: le jeu vidéo revenait systématiquement dans les entretiens familiaux comme source de conflit. Le dispositif transforme ces conflits en matériau de travail pour les équipes.</p>
+    <!-- ═══════════════════════ 05 · Le déroulé ═══════════════════════ -->
+    <PlaquettePage num="05" total={TOTAL} label="04 · Le déroulé" version={VERSION} website={website} screenLabel="05 · Le déroulé">
+      <span class="eyebrow">04 · Le déroulé</span>
+      <h2 class="pq-deroule__title">Parent-Écran-Enfant, du diagnostic au bilan<span class="coral-dot" aria-hidden="true">.</span></h2>
+      <p class="pq-deroule__intro">Un cycle d'ateliers parent-enfant conduit avec l'équipe de la structure, du diagnostic familial au bilan écrit. Le jeu vidéo est le support de médiation, jamais le problème à résoudre.</p>
 
-      <div class="pq-photo pq-cas__photo">
-        <Image
-          src={duoArcade}
-          alt="Deux joueurs côte à côte sur une borne d'arcade, vue de dos"
-          width={1400}
-          loading="eager"
-          class="pq-photo__img pq-photo__img--arcade"
-        />
-        <span class="pq-photo__badge">Jeu partagé</span>
-      </div>
-
-      <div class="pq-facts">
-        <div class="pq-fact">
-          <div class="pq-fact__value">8</div>
-          <div class="pq-fact__label">enfants accompagnés, en binôme avec un parent</div>
+      <div class="pq-etapes">
+        <div class="pq-etape">
+          <span class="pq-etape__temps">Temps 1 · Diagnostic</span>
+          <h3 class="pq-etape__title">Préparation</h3>
+          <p>Entretiens familiaux avec l'équipe&nbsp;: profil ludique de chaque enfant, usages et attentes des parents, constitution des binômes parent-enfant.</p>
         </div>
-        <div class="pq-fact">
-          <div class="pq-fact__value">12–17</div>
-          <div class="pq-fact__label">ans · TSA, TDAH, TND, dystrophie&nbsp;musculaire</div>
+        <div class="pq-etape">
+          <span class="pq-etape__temps">Temps 2 · Stratégie</span>
+          <h3 class="pq-etape__title">Ateliers thématiques parent-enfant</h3>
+          <p>Un temps de jeu partagé puis un temps d'échange. Je choisis les jeux selon les objectifs de l'équipe, j'explique les mécaniques aux parents, j'accompagne en situation de jeu.</p>
         </div>
-        <div class="pq-fact">
-          <div class="pq-fact__value">3</div>
-          <div class="pq-fact__label">thèmes · coopération, émotions, différence</div>
+        <div class="pq-etape">
+          <span class="pq-etape__temps">Temps 2 · Stratégie</span>
+          <h3 class="pq-etape__title">Groupe de parole familiale</h3>
+          <p>Régulation, repères d'usage, posture parentale&nbsp;: l'accompagnement parental que le cadre HCSP désigne comme le facteur clé.</p>
+        </div>
+        <div class="pq-etape">
+          <span class="pq-etape__temps">Temps 3 · Suivi</span>
+          <h3 class="pq-etape__title">Bilan</h3>
+          <p>Synthèse des acquis parent et enfant, pistes de continuité à la maison, transmission écrite à l'équipe.</p>
         </div>
       </div>
 
-      <div class="pq-grid-2">
-        <div class="pq-card pq-card--ivory">
-          <span class="eyebrow">Ma fonction dans le projet</span>
-          <ul class="pq-bullets">
-            <li>Je choisis les jeux selon les objectifs psycho-éducatifs de l'équipe.</li>
-            <li>J'explique les mécaniques de jeu aux parents.</li>
-            <li>J'accompagne en situation de jeu.</li>
-            <li>Je démystifie la culture numérique de l'enfant pour sa famille.</li>
-          </ul>
-        </div>
-        <div class="pq-card">
-          <span class="eyebrow">L'équipe partenaire</span>
-          <p class="pq-mt-3">Co-encadrement avec le <strong>psychologue</strong> et la <strong>psychomotricienne</strong> du SESSAD, et un <strong>intervenant culturel</strong> (jeux traditionnels). Chacun conserve son rôle&nbsp;: le soin reste piloté par la structure. J'apporte la lecture du jeu vidéo et je démystifie la culture numérique de l'enfant pour sa famille. Les parents qui ne comprenaient pas pourquoi leur enfant jouait ont pu rejouer avec lui.</p>
-        </div>
+      <span class="eyebrow pq-themes__eyebrow">Trois thèmes d'atelier</span>
+      <div class="pq-themes">
+        {PROJECT_THEMES.map(t => (
+          <div class="pq-framework">
+            <span class="pq-framework__pill">{t.title}</span>
+            <p>{t.short}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="pq-indicateurs">
+        <span class="kicker pq-indicateurs__label">Indicateurs suivis</span>
+        <p>Questionnaires de satisfaction · grilles d'observation des compétences · diminution rapportée des conflits liés aux écrans · assiduité aux ateliers.</p>
+      </div>
+
+      <div class="pq-card pq-card--ivory pq-cas">
+        <span class="eyebrow">Mis en œuvre au {lekoklaya.place} · {lekoklaya.year}</span>
+        <p class="pq-cas__intro">Le programme s'y appelle «&nbsp;{lekoklaya.localName}&nbsp;». Bilan en cours&nbsp;: les résultats seront publiés quand l'équipe les aura validés.</p>
+        <dl class="pq-cas__facts">
+          <div><dt>Porteur</dt><dd>{lekoklaya.owner}</dd></div>
+          <div><dt>Public</dt><dd>{lekoklaya.audience}</dd></div>
+          <div><dt>Équipe</dt><dd>{lekoklaya.team}</dd></div>
+        </dl>
       </div>
     </PlaquettePage>
 
@@ -347,7 +356,6 @@ const schemaGraph = pageGraph({
 
   /* ── Utilitaires de feuille ─────────────────────────────── */
   .pq-mb-8 { margin-bottom: 8mm; }
-  .pq-mt-3 { margin-top: 3mm; }
   .pq-lead {
     font-family: var(--font-body);
     font-size: 13pt;
@@ -357,7 +365,6 @@ const schemaGraph = pageGraph({
     max-width: 165mm;
   }
   .pq-lead strong { color: var(--ink); }
-  .pq-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 6mm; }
   .pq-grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 5mm; }
 
   /* ── Marque décorative 3×3 ─────────────────────────────── */
@@ -599,62 +606,59 @@ const schemaGraph = pageGraph({
   }
   .pq-photo :global(.pq-photo__img) { width: 100%; height: auto; display: block; object-fit: cover; }
   .pq-photo :global(.pq-photo__img--portrait) { height: 46mm; object-position: center 25%; }
-  .pq-photo :global(.pq-photo__img--arcade) { height: 58mm; object-position: center 38%; }
-  .pq-photo__badge {
-    position: absolute;
-    top: 4mm; left: 4mm;
-    font-family: var(--font-label);
-    font-size: 7.5pt;
-    font-weight: 600;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--cyan);
-    background: var(--pxlc-bg-dark);
-    padding: 1.5mm 3mm;
-    border-radius: var(--radius-sm);
-  }
 
-  /* ── Jouons Ensemble ───────────────────────────────────── */
-  .pq-cas__intro { margin-bottom: 5mm; max-width: 165mm; }
-  .pq-cas__photo { margin-bottom: 5mm; }
-  .pq-facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4mm; margin-bottom: 6mm; }
-  .pq-fact {
+  /* ── Le déroulé (Parent-Écran-Enfant) ──────────────────── */
+  .pq-deroule__title { margin-bottom: 4mm; }
+  .pq-deroule__intro { margin-bottom: 6mm; max-width: 165mm; font-size: 10.5pt; }
+  .pq-etapes { display: grid; grid-template-columns: 1fr 1fr; gap: 3.5mm 5mm; margin-bottom: 5mm; }
+  .pq-etape {
     border: 1px solid var(--rule);
     border-radius: var(--radius-md);
-    padding: 4.5mm;
+    padding: 4mm 4.5mm;
     background: var(--pxlc-white);
   }
-  .pq-fact__value {
-    font-family: var(--font-display);
-    font-size: 22pt;
-    font-weight: 600;
-    color: var(--ink);
-    letter-spacing: -0.03em;
-    line-height: 1;
-    margin-bottom: 2mm;
-  }
-  .pq-fact__label {
+  .pq-etape__temps {
+    display: block;
     font-family: var(--font-label);
     font-size: 7.5pt;
-    letter-spacing: 0.14em;
+    font-weight: 600;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--quiet);
-    line-height: 1.35;
+    /* teal-deep, comme .pq-step__phase de la feuille 04 : le coral sur blanc
+       à cette taille tombe à 3,03:1 (WCAG AA exige 4,5:1). */
+    color: var(--teal-deep);
+    margin-bottom: 1.5mm;
   }
-  .pq-bullets { list-style: none; padding: 0; margin: 3mm 0 0 0; }
-  .pq-bullets li {
-    padding-left: 6mm;
-    position: relative;
-    margin-bottom: 2.5mm;
-    font-size: 10pt;
-    line-height: 1.45;
+  .pq-etape__title { font-size: 11pt; margin-bottom: 1.5mm; }
+  .pq-etape p { margin: 0; font-size: 9pt; line-height: 1.45; }
+  .pq-themes__eyebrow { margin: 0 0 2mm 0; }
+  .pq-themes { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4mm; margin-bottom: 4mm; }
+  .pq-themes .pq-framework__pill { margin-bottom: 1.5mm; }
+  .pq-themes p { font-size: 8.5pt; }
+  .pq-indicateurs {
+    display: grid;
+    grid-template-columns: 34mm 1fr;
+    gap: 4mm;
+    align-items: baseline;
+    padding: 3mm 0;
+    border-top: 1px dashed var(--rule);
+    border-bottom: 1px dashed var(--rule);
+    margin-bottom: 5mm;
   }
-  .pq-bullets li::before {
-    content: ""; position: absolute;
-    left: 0; top: 6px;
-    width: 8px; height: 8px;
-    background: var(--pxlc-coral); border-radius: 1px;
+  .pq-indicateurs__label { color: var(--teal-deep); }
+  .pq-indicateurs p { margin: 0; font-size: 9pt; line-height: 1.45; }
+  .pq-cas .pq-cas__intro { margin-top: 2.5mm; font-size: 9.5pt; }
+  .pq-cas__facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4mm; margin: 3mm 0 0 0; }
+  .pq-cas__facts dt {
+    font-family: var(--font-label);
+    font-size: 7.5pt;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--teal-deep);
+    margin-bottom: 1mm;
   }
+  .pq-cas__facts dd { margin: 0; font-size: 9pt; line-height: 1.4; color: var(--ink); }
 
   /* ── Consentement ──────────────────────────────────────── */
   .pq-consent { font-size: 9.5pt; line-height: 1.55; color: var(--ink-quiet); }
