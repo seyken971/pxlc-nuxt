@@ -624,7 +624,9 @@ const schemaGraph = pageGraph({
     font-weight: 600;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--pxlc-coral);
+    /* teal-deep, comme .pq-step__phase de la feuille 04 : le coral sur blanc
+       à cette taille tombe à 3,03:1 (WCAG AA exige 4,5:1). */
+    color: var(--teal-deep);
     margin-bottom: 1.5mm;
   }
   .pq-etape__title { font-size: 11pt; margin-bottom: 1.5mm; }
