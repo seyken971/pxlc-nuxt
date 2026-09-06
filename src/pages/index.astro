@@ -8,6 +8,7 @@ import SessadCase from '../components/SessadCase.astro'
 import CitationBlock from '../components/CitationBlock.astro'
 import PxlcMarkSeparator from '../components/PxlcMarkSeparator.astro'
 import { pageGraph } from '../lib/schema'
+import { SITE } from '../config/site'
 import andyEvent from '../assets/photos/andy-event.jpg'
 
 // Méthode PXLC en trois temps — démarche comportementale alignée sur le rapport
@@ -31,8 +32,8 @@ const stats = [
 
 const seo = {
   title: 'Médiation numérique en Guadeloupe',
-  description: 'Médiation numérique en Guadeloupe : Andy Zébus outille les structures pour apaiser les conflits autour des écrans.',
-  ogDescription: 'Andy Zébus, créateur de PXLC, aide les structures en Guadeloupe à apaiser les conflits familiaux autour des écrans.',
+  description: 'Médiation numérique en Guadeloupe : Andy Zébus aide les structures à accompagner les familles autour des écrans.',
+  ogDescription: SITE.description,
 }
 
 // WebPage d'accueil rattachée au nœud #website — alignée sur les autres pages.
