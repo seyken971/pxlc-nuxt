@@ -36,7 +36,9 @@ const {
   ogDescription = description,
   ogType = 'website',
   robots = 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
-  ogImage = `${SITE.url}/og/site.png`,
+  // La query versionne la carte pour les caches sociaux (LinkedIn garde une image
+  // environ 7 jours sous une URL donnée) : l'incrémenter à chaque changement visuel.
+  ogImage = `${SITE.url}/og/site.png?v=1200x675`,
   ogImageAlt = 'Logo PXLC — Médiation numérique · Guadeloupe',
   schemaGraph,
   colorScheme = 'light dark',
