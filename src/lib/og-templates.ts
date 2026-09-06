@@ -1,5 +1,5 @@
 /**
- * Gabarits des cartes Open Graph (1200×600) et rendu PNG.
+ * Gabarits des cartes Open Graph (1200×675, 16:9) et rendu PNG.
  *
  * Une seule carte : la carte de marque, servie sur toutes les pages par
  * l'endpoint `src/pages/og/site.png.ts` — donc rendue par Astro, disponible
@@ -112,11 +112,11 @@ const fonts = () => {
   return fontsPromise
 }
 
-/** Rend un gabarit en PNG 1200×600. */
+/** Rend un gabarit en PNG 1200×675 (16:9, le ratio des aperçus sociaux). */
 export const renderOgPng = async (tree: OgNode): Promise<Buffer> => {
   const svg = await satori(tree as unknown as Parameters<typeof satori>[0], {
     width: 1200,
-    height: 600,
+    height: 675,
     fonts: await fonts(),
   })
   return Buffer.from(new Resvg(svg, { fitTo: { mode: 'width', value: 1200 } }).render().asPng())

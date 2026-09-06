@@ -36,6 +36,29 @@ HCSP, est abandonné avec le blog (26 août 2026). Le site tient désormais en
   `schema-dts`. Pas de module générateur — la sortie de `nuxt-schema-org`
   avait laissé des scories (nœud dupliqué, `ReadAction`, `@id` machine)
   retirées le 26 août 2026.
+- **Carte OG** : une seule carte de marque, `/og/site.png`, rendue par satori +
+  resvg en PNG 1200×675 (16:9, depuis le 6 septembre 2026). JPEG écarté : sur un
+  aplat de couleurs, PNG est plus léger et sans artéfacts, et l'ajout de sharp
+  ne se justifie pas.
+- **IndexNow** : soumission depuis `npm run release` (`scripts/indexnow.mjs`),
+  après la vérification de la prod, des seules pages dont le `lastmod` porte le
+  commit de fusion — la spec demande de ne soumettre que les URL modifiées.
+  Clé publique servie à `/<clé>.txt`, exigée par check-links. Couvre Bing,
+  Yandex, Naver et Seznam ; Google n'y participe pas, la mesure reste la Search
+  Console. Jamais bloquant ; `npm run indexnow -- --all` resoumet tout.
+- **`@jdevalk/astro-seo-graph`** (évalué le 6 septembre 2026, v2.2.0) : non
+  adopté. Son `<Seo>` remplacerait `SiteHead` et son graphe générique
+  (WebSite, WebPage, Person, BlogPosting, BreadcrumbList) couvre moins que
+  `schema.ts` : `['Organization', 'ProfessionalService']` avec `areaServed`
+  (Guadeloupe + 4 communes), `geo`, `hasMap`, RCS/SIREN/NAF en `PropertyValue`,
+  `Service` avec `BusinessAudience`, `sameAs` scindé Organization / Person,
+  WebPage multi-typé, FAQ en nœuds `Question` à `@id` stables. Ses validations
+  de build sont déjà couvertes (h1 unique, title et description uniques, alt :
+  seo-lint ; longueurs : ds-lint R7, plus strict ; slash final et liens internes :
+  check-links). Le brancher casserait le hash CSP calculé sur la chaîne JSON-LD
+  exacte, la vérification des `@id` pendants de schema-check et la baseline.
+  Repris de son guide malgré tout : les règles de seo-lint, le canonical omis sur
+  noindex, la carte OG en 16:9 et l'idée de soumission IndexNow incrémentale.
 
 ## 3. Non-régression
 

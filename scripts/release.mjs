@@ -14,7 +14,10 @@
  *   4. run « Deploy to GitHub Pages » du commit de fusion (poll 10 s, 3 min max
  *      — un run peut mettre du temps à être planifié), puis gh run watch ;
  *   5. prod : chaque <loc> du sitemap répond 200 avec un canonical égal à
- *      l'URL, et la liste des URLs est celle du build local (dist) s'il existe.
+ *      l'URL, et la liste des URLs est celle du build local (dist) s'il existe ;
+ *   6. IndexNow : soumet les pages dont le lastmod porte le commit de fusion
+ *      (scripts/indexnow.mjs) — jamais bloquant, 
+pm run indexnow -- --all`n *      pour tout resoumettre.
  *
  * Rien de destructif : pas de force, pas de suppression locale. Exit 1 au
  * premier écart, avec la raison.
@@ -22,6 +25,7 @@
 import { execFileSync } from 'node:child_process'
 import { existsSync, readFileSync } from 'node:fs'
 import { setTimeout as sleep } from 'node:timers/promises'
+import { submitIndexNow } from './indexnow.mjs'
 
 const SITE = 'https://pxlc.fr'
 const WORKFLOW = 'Deploy to GitHub Pages'
@@ -100,6 +104,9 @@ const main = async () => {
   }
   console.log(rows.join('\n'))
   if (!ok) fail('au moins une page de prod ne répond pas comme attendu')
+
+  step('IndexNow')
+  await submitIndexNow({ since: run('git', ['log', '-1', '--format=%cI', sha]) })
 
   console.log(`\nrelease: ✓ PR #${pr} fusionnée, déployée et vérifiée (${locs.length} URLs)`)
 }

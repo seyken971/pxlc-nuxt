@@ -20,7 +20,7 @@ export interface Props {
   ogTitle?: string
   ogType?: 'website' | 'article'
   robots?: string
-  /** URL absolue de l'image OG (1200×600). */
+  /** URL absolue de l'image OG (1200×675, 16:9). */
   ogImage?: string
   /** Texte alternatif de l'image OG — la carte de marque par défaut. */
   ogImageAlt?: string
@@ -78,14 +78,14 @@ if (jsonLd) {
 <meta property="og:image:alt" content={ogImageAlt} />
 <meta property="og:image:type" content="image/png" />
 <meta property="og:image:width" content="1200" />
-<meta property="og:image:height" content="600" />
+<meta property="og:image:height" content="675" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content={SITE.twitter} />
 <meta name="twitter:creator" content={SITE.twitter} />
 <meta name="twitter:image" content={ogImage} />
 <meta name="twitter:image:src" content={ogImage} />
 <meta name="twitter:image:width" content="1200" />
-<meta name="twitter:image:height" content="600" />
+<meta name="twitter:image:height" content="675" />
 <!-- Signal secondaire : les moteurs s'appuient sur la directive Sitemap de
      robots.txt, mais la doc de @astrojs/sitemap recommande aussi ce lien. -->
 <link rel="sitemap" href="/sitemap-index.xml" />
