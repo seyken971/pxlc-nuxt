@@ -1,7 +1,8 @@
-// Source unique des données d'identité légale (NAP + immatriculations).
-// Les mêmes valeurs alimentent le JSON-LD (src/lib/schema.ts) et la page des
-// mentions légales : toute divergence casse la cohérence NAP avec la fiche
-// Google Business Profile, d'où la source unique.
+// Source unique des données d'identité légale (NAP + immatriculations) et du
+// lien de rendez-vous. Les mêmes valeurs alimentent le JSON-LD
+// (src/lib/schema.ts), la page des mentions légales, le chrome du site et la
+// plaquette : toute divergence casse la cohérence NAP avec la fiche Google
+// Business Profile, d'où la source unique.
 // Note : contact.astro et a-propos.astro affichent encore ces valeurs en dur,
 // mêlées à des libellés formatés — à câbler ici si elles bougent.
 export const IDENTITY = {
@@ -16,6 +17,11 @@ export const IDENTITY = {
   // Format E.164 pour les liens tel: et le JSON-LD.
   telephone: '+590690717618',
   telephoneDisplay: '0690 71 76 18',
+  // Lien de prise de rendez-vous : conversion primaire unique du site (header,
+  // footer, menu mobile, pages, mentions légales, plaquette). Si l'outil change,
+  // c'est ici et seulement ici — puis `npm run plaquette` pour régénérer le PDF.
+  bookingUrl: 'https://cal.eu/pxlc-gp',
+  bookingUrlDisplay: 'cal.eu/pxlc-gp',
   address: {
     street: '8 Résidence la familiale, rue Man Manigard Alfred, Dugazon',
     postalCode: '97139',

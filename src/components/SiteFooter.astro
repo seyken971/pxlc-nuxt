@@ -5,6 +5,7 @@ import Mail from '../icons/mail.svg'
 import MessageSquare from '../icons/message-square.svg'
 import PxlcLockup from './PxlcLockup.astro'
 import PxlcPixelStrip from './PxlcPixelStrip.astro'
+import { IDENTITY } from '../config/identity'
 
 const year = new Date().getFullYear()
 ---
@@ -21,7 +22,7 @@ const year = new Date().getFullYear()
         <p class="site-footer__mission">
           PXLC accompagne les familles autour des écrans.
         </p>
-        <a class="site-footer__mission-link" href="https://cal.eu/pxlc-gp" target="_blank" rel="noopener noreferrer">
+        <a class="site-footer__mission-link" href={IDENTITY.bookingUrl} target="_blank" rel="noopener noreferrer">
           Réserver un échange de 20&nbsp;min
         </a>
         <ul class="site-footer__social" role="list">
@@ -39,7 +40,7 @@ const year = new Date().getFullYear()
           </li>
           <li>
             <a
-              class="site-footer__social-btn" href="https://cal.eu/pxlc-gp" target="_blank" rel="noopener noreferrer"
+              class="site-footer__social-btn" href={IDENTITY.bookingUrl} target="_blank" rel="noopener noreferrer"
               aria-label="Réserver un échange de 20 minutes">
               <Calendar aria-hidden="true" />
             </a>

@@ -22,7 +22,7 @@ HCSP, est abandonné avec le blog (26 août 2026). Le site tient désormais en
   de Content-Signal (coûte 8 points Lighthouse).
 - **Mesure** : Google Search Console uniquement. Site statique GitHub Pages,
   pas d'analytics runtime.
-- **Funnel** : RDV-first — « Prendre rendez-vous » (cal.eu) est l'unique action
+- **Funnel** : RDV-first — « Prendre rendez-vous » (lien de rendez-vous, `IDENTITY.bookingUrl`) est l'unique action
   de conversion primaire ; devis et plaquette en secondaire.
 - **Local** : fiche Google Business Profile vérifiée, liée au nœud schema
   `#identity`. Entité GBP = « PXLC - Médiation numérique », `site.name` = « PXLC ».

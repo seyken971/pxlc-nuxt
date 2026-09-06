@@ -3,6 +3,7 @@ import PxlcLockup from './PxlcLockup.astro'
 import PxlcMark from './PxlcMark.astro'
 import PxlcPixelStrip from './PxlcPixelStrip.astro'
 import { NAV_ITEMS, isActive, navHref } from '../config/nav'
+import { IDENTITY } from '../config/identity'
 
 const pathname = Astro.url.pathname
 ---
@@ -67,7 +68,7 @@ const pathname = Astro.url.pathname
   <!-- Bottom bar: primary CTA + plaquette PDF secondary -->
   <div class="mobile-menu__bottom">
     <a
-      href="https://cal.eu/pxlc-gp"
+      href={IDENTITY.bookingUrl}
       target="_blank"
       rel="noopener noreferrer"
       class="btn btn--primary mobile-menu__cta-btn"
