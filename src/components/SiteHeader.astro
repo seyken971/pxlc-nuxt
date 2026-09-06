@@ -2,6 +2,7 @@
 import PxlcLockup from './PxlcLockup.astro'
 import ThemeToggle from './ThemeToggle.astro'
 import { NAV_ITEMS, isActive, navHref } from '../config/nav'
+import { IDENTITY } from '../config/identity'
 
 const pathname = Astro.url.pathname
 ---
@@ -24,7 +25,7 @@ const pathname = Astro.url.pathname
       <ThemeToggle />
 
       <a
-        href="https://cal.eu/pxlc-gp"
+        href={IDENTITY.bookingUrl}
         target="_blank"
         rel="noopener noreferrer"
         class="btn btn--primary site-header__cta"
