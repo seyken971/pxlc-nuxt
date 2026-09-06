@@ -34,7 +34,9 @@ const exists = async (path) => {
 // Fichiers que GitHub Pages exige : .nojekyll et CNAME viennent de public/ et
 // disparaîtraient en silence — sans eux, le domaine et les chemins en
 // _underscore cassent. Vérifié ici plutôt qu'en étape CI à part.
-const REQUIRED = ['index.html', 'sitemap-index.xml', 'robots.txt', '.nojekyll', 'CNAME']
+// La clé IndexNow (scripts/indexnow.mjs) doit être servie à la racine : sans
+// elle, toute soumission est rejetée et la clé devient invalide côté moteurs.
+const REQUIRED = ['index.html', 'sitemap-index.xml', 'robots.txt', '.nojekyll', 'CNAME', '95297c18fa0da7e41418297e1cede680.txt']
 
 const main = async () => {
   const missing = []

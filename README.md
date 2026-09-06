@@ -50,6 +50,8 @@ Un build qui casse sur ces gates signale une règle brand, contenu ou lien viol�
 | `npm run a11y:runtime`     | Audit axe-core Playwright (Chromium headless, couvre menu mobile + FAQ ouverts)                                                 |
 | `npm run lighthouse`       | Lighthouse mobile sur 7 routes (Chrome headless) — Markdown summary CI-aware                                                    |
 | `npm run plaquette`        | Build puis export de `/plaquette/` en PDF A4 (`public/files/plaquette-pxlc.pdf`, Chromium Playwright) — à relancer et committer avec toute modification de la page ; `plaquette:previews` ajoute un PNG par feuille dans `.previews/` |
+| `npm run release -- <n>`  | Sortie d'une PR : CI, fusion en squash, déploiement, vérification de la prod, puis soumission IndexNow des pages modifiées (`scripts/indexnow.mjs`) |
+| `npm run indexnow`        | Soumet à IndexNow (Bing, Yandex, Naver, Seznam) les pages du sitemap de prod modifiées depuis HEAD ; `-- --all` pour tout resoumettre, `-- --dry-run` pour voir le payload |
 
 ## Architecture des couleurs (source unique)
 
