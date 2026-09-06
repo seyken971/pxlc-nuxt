@@ -39,7 +39,9 @@ HCSP, est abandonné avec le blog (26 août 2026). Le site tient désormais en
 - **Carte OG** : une seule carte de marque, `/og/site.png`, rendue par satori +
   resvg en PNG 1200×675 (16:9, depuis le 6 septembre 2026). JPEG écarté : sur un
   aplat de couleurs, PNG est plus léger et sans artéfacts, et l'ajout de sharp
-  ne se justifie pas.
+  ne se justifie pas. URL versionnée par query (`?v=…`) pour purger les caches sociaux à
+  chaque changement visuel : LinkedIn garde une image environ 7 jours sous une
+  URL donnée (constaté le 6 septembre 2026, aperçu flou après le passage en 16:9).
 - **IndexNow** : soumission depuis `npm run release` (`scripts/indexnow.mjs`),
   après la vérification de la prod, des seules pages dont le `lastmod` porte le
   commit de fusion — la spec demande de ne soumettre que les URL modifiées.
