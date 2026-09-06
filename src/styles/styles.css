@@ -47,7 +47,7 @@ body {
 [data-theme="dark"] :where(a):hover { color: var(--cyan); text-decoration: underline; text-underline-offset: 3px; }
 /* WCAG 1.4.1: links inside a text block must be distinguishable without
    color alone. Underline every class-less inline link (HCSP refs in
-   /a-propos, mailto/cal.eu in mentions-legales, etc.); buttons, nav
+   /a-propos, mailto/rendez-vous in mentions-legales, etc.); buttons, nav
    links and other typed links carry their own classes so they're
    exempt. @nuxt/content (MDC) émet les liens inline du corps des articles
    avec un attribut class="" vide que :not([class]) ne capture pas — d'où

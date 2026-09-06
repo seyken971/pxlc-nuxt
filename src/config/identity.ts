@@ -20,8 +20,11 @@ export const IDENTITY = {
   // Lien de prise de rendez-vous : conversion primaire unique du site (header,
   // footer, menu mobile, pages, mentions légales, plaquette). Si l'outil change,
   // c'est ici et seulement ici — puis `npm run plaquette` pour régénérer le PDF.
-  bookingUrl: 'https://cal.eu/pxlc-gp',
-  bookingUrlDisplay: 'cal.eu/pxlc-gp',
+  // Vyte (Vyte.in SAS, Paris), données hébergées en France — remplace cal.eu,
+  // fermé le 1er novembre 2026. Forme avec www. : la forme nue redirige en 301
+  // vers http://www. puis https, deux sauts inutiles.
+  bookingUrl: 'https://www.vyte.in/pxlc',
+  bookingUrlDisplay: 'vyte.in/pxlc',
   address: {
     street: '8 Résidence la familiale, rue Man Manigard Alfred, Dugazon',
     postalCode: '97139',
