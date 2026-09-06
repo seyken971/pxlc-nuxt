@@ -1,9 +1,7 @@
 /**
- * Shared constants for the OG image renderer (PxlcOg).
- *
- * nuxt-og-image requires every .vue file under app/components/OgImage/
- * to carry a renderer suffix, so the 3×3 brand-mark data can't live in a
- * sub-component — the renderer imports it from here instead.
+ * Shared constants for the OG card renderer (src/lib/og-templates.ts):
+ * the 3×3 brand-mark geometry, kept apart from the templates so the
+ * satori tree stays readable.
  */
 import { BRAND_HEX } from './brand-colors'
 

@@ -1,9 +1,10 @@
 /**
  * PXLC brand palette — canonical source.
  *
- * Used by build-time renderers (OG image generation via takumi) that
- * can't resolve CSS custom properties at runtime. Also the source of
- * truth for the same palette in app/assets/css/tokens.css — the
+ * Used by build-time renderers (OG card rendered by satori + resvg in
+ * src/lib/og-templates.ts) that can't resolve CSS custom properties at
+ * runtime. Also the source of truth for the same palette in
+ * src/styles/tokens.css — the
  * `--pxlc-*` block between BRAND HEX START / END markers is regenerated
  * from this file by scripts/generate-tokens.mjs (runs on prebuild and
  * via `npm run gen:tokens`).
