@@ -23,6 +23,14 @@ export const IDENTITY = {
     region: 'Guadeloupe',
     country: 'FR',
   },
+  // Horaires publiés sur la fiche Google Business Profile (relevés le
+  // 06/09/2026) : lundi à vendredi, fermé le week-end. Format HH:MM attendu
+  // par schema.org (opens / closes).
+  openingHours: {
+    days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+    opens: '08:00',
+    closes: '17:00',
+  },
 } as const
 
 /** Mention RCS publiée, ex. « Pointe-à-Pitre 813 793 528 ». */

@@ -151,6 +151,14 @@ const identityNode: MultiType<ProfessionalService, ['Organization', 'Professiona
   // pages.
   'makesOffer': { '@type': 'Offer', 'itemOffered': { '@id': ID.service } },
   'name': IDENTITY.brandName,
+  // Mêmes horaires que la fiche Google Business Profile. schema-dts attend les
+  // jours sous leur forme URL (DayOfWeek), Google accepte les deux.
+  'openingHoursSpecification': {
+    '@type': 'OpeningHoursSpecification',
+    'closes': IDENTITY.openingHours.closes,
+    'dayOfWeek': IDENTITY.openingHours.days.map(d => `https://schema.org/${d}` as const),
+    'opens': IDENTITY.openingHours.opens,
+  },
   'sameAs': [
     'https://maps.app.goo.gl/4UPhQWdzboD6HnAs8',
     'https://www.linkedin.com/company/pxlc-mediation-numerique/',
